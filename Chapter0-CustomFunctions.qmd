@@ -1,0 +1,160 @@
+# Custom Functions {#sec-chapter4}
+## Introduction
+Custom functions are user-defined functions created to automate specific tasks. In this section, we show how to define custom functions in Python. 
+
+```{python}
+import numpy as np
+```
+
+```{python}
+#| echo: false
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = "all"
+```
+
+{{< include latex_macro.qmd >}}
+
+
+## Defining functions
+The following syntax can be used to declare a function in Python:
+
+```{python}
+# | eval: false
+def function_name(arguments):
+    """docstring"""
+    statements
+    return expression_list
+```
+
+A function is defined using the `def` keyword, and its output is returned with the `return` keyword. The function name, `function_name`, is user-defined. The `arguments` are supplied by the user and represent the inputs required to generate the result (output). Inside the function, a `docstring` (enclosed in triple quotes) can be included to describe the purpose of the function, its inputs, and outputs. Although optional, the docstring is helpful for documentation and can be accessed via `help(function_name)`. The `statements` are the set of Python commands that form the function’s body and ultimately produce the `expression_list`, which represents the function’s output.
+
+Consider the $L_p$  distance between two vectors $x=(x_1,\dots,x_n)^{'}$ and $y=(y_1,\dots,y_n)^{'}$ defined by $d_p(x,y)=\left(\sum_{i=1}^n|x_i-y_i|^p\right)^{1/p}$. In the following example, we define the `Lp_norm` function that returns  $d_p(x,y)$.
+
+```{python}
+def Lp_norm(x, y, p):
+    """
+    Calculate the L_p distance between two vectors.
+
+    Parameters:
+    x (array-like): The first vector.
+    y (array-like): The second vector, which must be the same length as x.
+    p (float): The order of the norm (p > 0).
+
+    Returns:
+    float: The L_p distance between vectors x and y.
+
+    Raises:
+    ValueError: If the length of x and y are not equal, or if p is not greater than 0.
+    """
+    if len(x) != len(y):
+        raise ValueError("Vectors x and y must be of the same length.")
+    if p <= 0:
+        raise ValueError("p must be greater than 0.")
+
+    d = (np.sum(np.abs(x - y) ** p)) ** (1 / p)
+    return d
+```
+
+The `docstring` can be accessed using the `help` function, as shown below:
+
+```{python}
+help(Lp_norm)
+```
+
+We use the name of the function, `Lp_norm`, to call the function. The inputs to the function are passed as arguments in the order they are defined in the function declaration. In this case, `x` and `y` are the vectors, and `p` is the order of the norm. The function returns a single output, which is the $L_p$ distance between the two vectors.
+
+```{python}
+# Call the  lp_norm function
+x = np.random.randn(10)
+y = np.random.randn(10)
+z1 = Lp_norm(x, y, 2)  # default oder of inputs
+z1
+z2 = Lp_norm(p=2, x=x, y=y)  # changing the order of inputs
+z2
+```
+
+If there are multiple outputs to return, we can return these outputs in tuple form, as shown in the following example:
+
+```{python}
+def L12_norm(x, y):
+    """
+    Calculate the L1 and L2 distances between two vectors.
+
+    This function computes both the L1 distance (Manhattan distance)
+    and the L2 distance (Euclidean distance) between two vectors x and y.
+
+    Parameters:
+    x (array-like): The first vector.
+    y (array-like): The second vector, which must be the same length as x.
+
+    Returns:
+    tuple: A tuple containing:
+        - float: The L1 distance between vectors x and y.
+        - float: The L2 distance between vectors x and y.
+
+    Raises:
+    ValueError: If the length of x and y are not equal.
+    """
+    if len(x) != len(y):
+        raise ValueError("Vectors x and y must be of the same length.")
+
+    d1 = np.sum(np.abs(x - y))  # L1 distance
+    d2 = (np.sum(np.abs(x - y) ** 2)) ** (1 / 2)  # L2 distance
+    return (d1, d2)
+```
+
+```{python}
+help(L12_norm)
+```
+
+```{python}
+# Call the l1_l2_norm function
+x = np.random.randn(10)
+y = np.random.randn(10)
+z = L12_norm(x, y)
+z
+print("The L1 distance is ", z[0])
+print("The L2 distance is ", z[1])
+```
+
+Default values are set in the function declaration using the syntax `parameter=default`. By using default values, we can call a function with fewer arguments than it is defined to accept. In the following example, the default value of `p` is set to 2.
+
+```{python}
+# Setting default values
+def Lp_norm(x, y, p=2):
+    d = (np.sum(np.abs(x - y) ** p)) ** (1 / p)
+    return d
+```
+
+The default value can be overridden by passing a different value for `p` when calling the function. If no value is provided, the function will use the default value of 2.
+
+```{python}
+# Call the lp_norm function
+x = np.random.randn(10)
+y = np.random.randn(10)
+# Inputs with default values can be ignored
+L2 = Lp_norm(x, y)
+L1 = Lp_norm(x, y, 1)
+print("The L1 and L2 distances are ", (L1, L2))
+```
+
+## Anonymous functions
+Python supports anonymous functions through the `lambda` keyword. The syntax for a lambda function is as follows:
+
+```{python}
+# | eval: false
+function_name = lambda arguments: expression
+```
+
+Lambda functions can accept any number of arguments, but they can only contain a single expression. Consider the following example:
+
+```{python}
+Lp_norm_lambda = lambda x, y, p: (np.sum(np.abs(x - y) ** p)) ** (1 / p)
+```
+
+```{python}
+# Call the Lp_norm_lambda function
+x = np.random.randn(10)
+y = np.random.randn(10)
+Lp_norm_lambda(x, y, p=2)
+```

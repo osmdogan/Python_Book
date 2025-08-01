@@ -1,0 +1,678 @@
+# Introduction to NumPy {#sec-chapter2}
+
+## Introduction
+
+[NumPy](https://numpy.org/) provides (i) array objects for storing homogeneous data, (ii) mathematical functions for arrays, (iii) linear algebra functions, and (iv) statistical functions for generating random numbers. We constrain our treatment of NumPy to features that are useful for econometric analysis. The NumPy module is usually imported under the alias `np`, as shown in the following chunk.
+
+```{python}
+import numpy as np
+```
+
+```{python}
+#| echo: false
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = "all"
+```
+
+{{< include latex_macro.qmd >}}
+
+## Arrays
+An array can be considered as a container for data of the same type. Arrays can be initialized from lists (or tuples) using the `np.array` function.  
+
+```{python}
+# Initialize an array from a list
+x = [0.0, 1, 2, 3, 4]
+y = np.array(x)
+type(y)
+```
+```{python}
+y
+```
+
+Attributes of an array includes `ndim` (the number of dimension), `shape` (the size of each dimension), `size` (the total number of elements), and `dtype` (the data type). Consider the following examples:
+
+```{python}
+y = np.array([0.0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+y
+# The size of each dimension
+y.shape
+# The number of dimensions
+y.ndim
+# The total number of elements
+y.size
+# The data type of the elements
+y.dtype
+```
+
+We can create row vectors from 1-dimensional arrays. For example, $x=[1,2,3]$ can be entered as 
+```{python}
+x = np.array([1, 2, 3])
+x
+x.shape
+x.ndim
+```
+
+Nested lists can be used to create higher-dimensional arrays. The number of dimensions is determined by the level of nesting. A simple list creates a one-dimensional array. A two-dimensional array requires a nested list with one level of nesting. Higher-dimensional arrays require additional levels of nesting. Some examples are provided below.
+
+```{python}
+# A 2-dimensional array
+x = np.array([[1, 2, 3], [2, 3, 10]])
+x
+x.shape
+x.ndim
+x.size
+```
+```{python}
+# A 3-dimensional array
+x = np.array([[[1, 2, 3, 4.6]]])
+x
+x.shape
+x.ndim
+x.size
+```
+
+Matrices are two dimensional arrays. Matrices follow the rules of linear algebra. We can use the `np.matrix` function on an array-like objects to create matrices. Alternatively, the `np.mat` or `np.asmatrix` functions can be used to coerce an array into a matrix.
+
+```{python}
+# A 1x3 matrix
+x = np.matrix([1, 2, 3])
+x
+type(x)
+x.shape
+x.ndim
+```
+
+```{python}
+# A 1x5 matrix
+x = [0.0, 1, 2, 3, 4]
+y = np.asmatrix(x)
+type(y)
+y.shape
+y.ndim
+```
+
+The column vector $x=(12,13,3,5)^{'}$ can be created in the following way.
+
+```{python}
+# As 4x1 array
+x = np.array([[12], [13], [3], [5]])
+x
+x.shape
+np.ndim(x)
+```
+
+```{python}
+# As 4x1 matrix
+x = np.matrix([[12], [13], [3], [5]])
+x
+x.shape
+np.ndim(x)
+```
+
+Suppose that we want to create a `3x2x2` array. You can think this object in the following way: we have three pages and on each page we have a `2x2` array. 
+
+```{python}
+# A 3x2x2 array
+y = np.array([[[2, 1], [2, 3]], [[3, 2], [5, 6]], [[5, 3], [10, 11]]])
+y
+y.shape
+y.ndim
+```
+
+
+## Special arrays
+Some useful functions to create special arrays are listed below. 
+
+* `np.ones()`: Generates an array of ones and is generally called with one argument, a tuple, containing the size of each dimension.
+* `np.ones_like()`: Creates an array with the same shape and data type as the input. `ones_like(x)` is equivalent to calling `np.ones(x.shape,x.dtype)`.
+* `np.zeros()`: Produces an array of zeros in the same way `np.ones()`.
+* `np.zeros_like()`: Creates an array with the same size and shape as the input. `zeros_like(x)` is equivalent to calling `np.zeros(x.shape,x.dtype)`.
+* `np.empty()`: Produces an empty (uninitialized) array.
+* `np.empty_like()`: Creates an array with the same size and shape as the input. `np.empty_like(x)` is equivalent to calling `np.empty(x.shape,x.dtype)`.
+* `np.eye()`, `np.identity()`: Generates an identity array.
+*  `np.linspace(l,u,n)`: Generates a set of `n` points uniformly spaced between `l` (inclusive) and `u` (inclusive).
+* `np.arange(l,u,s)`: Produces a set of points spaced by `s` between `l` (inclusive) and `u` (exclusive).
+
+Some illustrative examples are given below.
+
+```{python}
+# Create a 3x2 array of ones
+M, N = 3, 2
+x = np.ones((M, N)) 
+x
+```
+
+```{python}
+# Create a 3x3x2 array of ones
+x = np.ones((M, M, N)) 
+x
+```
+
+```{python}
+# Create a 3x2 array of 32-bit integers
+x = np.ones((M, N), dtype = "int32")
+x
+```
+
+```{python}
+# Create a 3x2 array of zeros
+x = np.zeros((M, N))
+x
+```
+
+```{python}
+# Create a 2x3x5 array of zeros
+M, N = 3, 5
+x = np.zeros((2, M, N)) 
+x
+```
+
+```{python}
+# Create a 3x5 array of 64-bit integers
+x = np.zeros((M, N), dtype="int64")
+x
+```
+
+```{python}
+# Create a 3x5 empty array
+x = np.empty((M, N)) 
+x
+```
+
+```{python}
+# Create the 5x5 identity array
+In = np.eye(5)  
+In
+```
+
+```{python}
+# Create an array of 5 points uniformly spaced between 1 (inclusive) and 11 (exclusive)
+z = np.linspace(1, 11, 5)
+z
+```
+
+```{python}
+# Create set of points spaced by 2 between 3 (inclusive) and 11 (exclusive)
+x = np.arange(3, 11, 2)
+x
+```
+
+## Accessing elements of an array
+There are four methods for accessing elements in an array:
+
+- Scalar selection: Accesses individual elements using their indices.
+- Slicing: Retrieves a subset of the array by specifying a range of indices.
+- Numerical indexing: Uses arrays of integers to access multiple specific elements.
+- Logical (or Boolean) indexing: Uses Boolean arrays to select elements that satisfy certain conditions.
+
+Scalar selection is implemented using `[i]` for 1-dimensional arrays, `[i,j]` for 2-dimensional arrays and `[i_1,i_2,...,i_n]` for general n-dimensional arrays. Some illustrative examples are given below.
+
+```{python}
+x = np.array([1.0, 2.0, 3.0, 4.0, 5.0])
+x[0]  # returns the first element
+```
+
+```{python}
+x = np.array([[1.0, 2, 3], [4, 5, 6]])
+x
+x[1, 2]  # returns the element on the second row and the third column
+```
+
+```{python}
+x = np.array([1.0, 2.0, 3.0, 4.0, 5.0])
+x[0] = -5  # assign -5 to the first element
+x
+```
+
+Arrays are sliced using the syntax  `[:,:,...,:]`, where the number of dimensions of the arrays determines the size of the slice.
+
+* `[:]` and `[::]` are the same as `[0:n:1]`, where `n` is the length of the array (or list).
+* `[a:]` and `[a:n]` are the same as `[a:n:1]`, where `n` is the length of the array (or list).
+* `[:b]` is the same as `[0:b:1]`.
+* `[::s]` is the same as `[0:n:s]`, where `n` is the length of the array (or list).
+
+Some illustrative examples are given below.
+
+```{python}
+x = np.array([1.0, 2.0, 3.0, 4.0, 5.0])
+y = x[:]
+y
+```
+```{python}
+y = x[:2] # first two elements
+y
+```
+```{python}
+x[3:]  # elements after index 3
+```
+```{python}
+y = x[1::2]  # every second element, starting at index 1
+y
+```
+```{python}
+y = np.array([[0.0, 1, 2, 3, 4], [5, 6, 7, 8, 9]])
+y
+y[:1, :]  # first row, all columns
+```
+```{python}
+y[:, :1]  # all rows, first column
+```
+```{python}
+y[:1, 0:3]  # Row 0, columns 0 to 2
+```
+```{python}
+y[:, 3:]  # All rows, columns 3 and 4
+```
+
+Logical indexing uses the Boolean arrays for selection.
+
+```{python}
+y = np.array([[0.0, 1, 2, 3, 4], [5, 6, 7, 8, 9]])
+z = y > 6
+z
+```
+
+```{python}
+y[z] = 99  # setting elements that are bigger than 6 to 99
+y
+```
+
+## Numerical operations on arrays and matrices
+Arrays addition, subtraction, devision, exponentiation, and multiplication are performed element-wise. For matrix multiplication, the `@` infix operator, the `dot` method, or the `np.dot` function  can be used. Matrix transpose can be performed using the `x.T` attribute, the `x.transpose` method, or the `np.transpose` function. Some illustrative examples are given below. 
+
+```{python}
+x = np.array([[1.0, 2], [3, 2], [3, 4]])
+x
+y = np.array([[9.0, 8], [7, 6]])
+y
+```
+
+```{python}
+x @ y  # matrix multiplication
+```
+
+```{python}
+x.dot(y)  # matrix multiplication
+```
+
+```{python}
+np.dot(x, y)  # matrix multiplication
+```
+
+```{python}
+x * 2  # element-wise squaring
+```
+
+```{python}
+z = np.matrix([[1, 2, 4], [5, 7, 10]])
+z
+np.transpose(z)  # using the np.transpose function
+```
+
+```{python}
+z.T  # using the transpose attribute
+```
+
+```{python}
+z.transpose()  # using the transpose method
+```
+
+Comparison operators can be used to compare arrays of the same size. These operations yield Boolean arrays of the same size:
+
+```{python}
+x = np.array([[1, 2, 45, 6], [3, 4, 34, 6]])
+y = np.array([[10, 2.5, 45, 1.4], [7, 4, 20, 60]])
+x < y
+```
+
+We list some useful functions for mathematical operations below. For more information, see [Mathematical functions](https://docs.scipy.org/doc/numpy/reference/routines.math.html) from the NumPy documentation.
+
+* `np.sum()`/ `np.cumsum()`: Returns the sum of elements in an array / the cumulative sum of the values in the array.
+* `np.prod()`/ `np.cumprod()`: Returns the product / cumulative product of the elements in the array.
+* `np.diff()`:  Calculates the n-th discrete difference along the given axis.
+* `np.exp()`: Returns the element-wise exponential ($e^x$) of the array.
+* `np.log()`: Returns the element-wise natural logarithm ($\ln(x)$) of the array.
+* `np.log10()`: Returns the element-wise base-10 logarithm ($\log_{10}(x)$) of the array.
+* `np.sqrt()`: Returns the element-wise square root ($\sqrt{x}$) of the array.
+* `np.square()`: Returns the element-wise square ($x^2$) of the array.
+* `np.absolute()`, `abs()`: Returns the element-wise absolute value of the array.
+* `np.sign()`:  Returns the element-wise sign of the values in the array.
+
+Some illustrative examples are presented below. 
+
+```{python}
+# Generate 3x4 array of draws from N(0,1)
+x = np.random.randn(3, 4)
+x
+```
+
+```{python}
+np.sum(x)  # sum of all elements
+```
+
+```{python}
+np.sum(x, 0)  # sum of columns, 4 elements
+```
+
+```{python}
+np.sum(x, 1)  # sum of rows, 3 elements
+```
+
+```{python}
+np.cumsum(x, 0)  # cumulative sum of columns
+```
+
+```{python}
+# Generate 3x4 array of draws from N(0,1)
+x = np.random.randn(3, 4)
+x
+```
+
+```{python}
+np.diff(x)  # difference across columns, same as diff(x,1) 
+```
+
+```{python}
+np.diff(x, axis=0)  # difference across rows
+```
+
+```{python}
+np.diff(x, 2, axis=0)  # Double difference across axis 0
+```
+
+
+
+## Arrays and matrix functions
+Some useful array functions are listed below:
+
+* `x.view()`: Produces a representation of an array and matrix as another type without copying the data.
+* `np.asarray()`: Works similarly to `np.asmatrix`, converting input to an array.
+* `np.shape(x)`, `x.shape`: Returns the size of each dimension.
+* `np.reshape(x)`, `x.reshape()`: Gives a new shape to an array without changing its data.
+* `np.size()`, `x.size`: Returns the total number of elements in the array or matrix.
+* `np.ndim()`, `x.ndim`: Returns the number of dimensions of the array or matrix.
+* `np.tile()`: Replicates an array according to a specified size vector.
+* `np.ravel(x)`, `x.ravel()`: Returns a flattened view (1-dimensional) of the array or matrix.
+* `x.flatten`: Works like `ravel` except that it copies the array when producing the flattened version.
+*  `x.flat`: Poduces a `np.flatiter` object (flat iterator) which is an iterator over a flattened view of an array.
+* `np.vstack()`, `np.hstack()`: Stack arrays vertically or horizontally, respectively.
+* `np.concatenate()`: Concatenates arrays along a specified axis.
+* `np.split()`, `np.vsplit()`, `np.hsplit()`: Split arrays vertically or horizontally.
+* `np.delete()`: Returns a new array with sub-arrays deleted along a specified axis.
+* `np.diag(x)`: Returns the diagonal elements of a squared array as a column vector.
+* `np.triu()`, `np.tril()`: Return the upper or lower triangular part of an array, respectively.
+
+Some illustrative examples are given below. 
+
+```{python}
+x = np.arange(5)
+x
+type(x)
+```
+
+```{python}
+# Convert x to a matrix
+y = x.view(type=np.matrix)
+y
+type(y)
+```
+
+```{python}
+# Convert y back to an ndarray
+z = y.view(type=np.ndarray)
+z
+type(z)
+```
+
+```{python}
+x = np.array([[1, 2], [3, 4]])
+x
+```
+```{python}
+# Convert x to a 4x1 array
+y = np.reshape(x, (4, 1))
+y
+```
+
+```{python}
+# Convert y to a 1x4 array
+z = np.reshape(y, (1, 4))  # return 1 by 4 array
+z
+```
+```{python}
+# Convert z to a 2x2 array
+w = np.reshape(z, (2, 2))
+w
+```
+
+```{python}
+# Total number of elements
+x = np.random.randn(4, 3)
+np.size(x)  # as a function
+x.size  # as an attribute
+```
+
+```{python}
+# Number of dimensions
+x = np.random.randn(4, 3)
+np.ndim(x)  # as a function
+x.ndim  # as an attribute
+```
+
+```{python}
+# Horizontal stacking
+x = np.array([[1, 2], [3, 4]])
+x
+# Stacks x 3-times horizontally
+z = np.hstack((x, x, x))
+z
+```
+
+```{python}
+# Vertical stacking
+y = np.vstack((z, z))  # stacks z 2-times vertically
+y
+```
+
+
+```{python}
+# Vertical splitting
+x = np.reshape(np.arange(20), (4, 5))
+x
+y = np.vsplit(x, 2)  # vertically split at row 2
+y
+```
+
+```{python}
+# Delete rows and columns
+x = np.reshape(np.arange(20), (4, 5))
+x
+np.delete(x, 1, 0)  # delete the second row
+```
+
+```{python}
+np.delete(x, [2, 3], 1)  # delete the second and third columns
+```
+
+```{python}
+# If axis is None, the object is applied to the flattened array.
+np.delete(x, [2, 3])  # flat x and then remove second and third elements
+```
+
+```{python}
+# Diagonal elements
+x = np.array([[1, 2], [3, 4]])
+y = np.diag(x)  # return diagonal elements
+y
+```
+
+```{python}
+# Upper and lower triangular parts
+x = np.array([[1, 2], [3, 4]])
+np.tril(x)  # lower triangular part
+```
+
+
+## Rounding functions
+NumPy offers several functions for rounding:
+
+* `np.around`: Rounds to the nearest integer (or to a specified number of decimals).
+* `np.floor`: Rounds down to the nearest integer (i.e., the largest integer less than or equal to the input).
+* `np.ceil`: Rounds up to the nearest integer (i.e., the smallest integer greater than or equal to the input).
+
+```{python}
+# Generate a 2x3 array of draws from N(0,1)
+x = np.random.randn(2, 3)
+x
+```
+
+```{python}
+# Round to the nearest integer
+np.around(x)
+```
+
+```{python}
+# Round x to 2 decimals
+np.around(x, 2)
+```
+
+```{python}
+x.round(2)  # using the round method
+```
+
+```{python}
+# Round down to the nearest integer
+np.floor(x)
+```
+
+```{python}
+# Round up to the nearest integer
+np.ceil(x)
+```
+
+## Sorting and Nan functions
+We list some useful NumPy functions related to sorting and handling `NaN` values below:
+
+* `np.sort()`: Sorts the elements of an array.
+* `x.sort()`: Performs an in-place sort of the array `x`.
+* `np.argsort()`:  Returns the indices that would sort the array.
+* `x.max()`/ `x.min()`: Return the maximum or minimum value in the array `x`.
+* `np.amax()` / `np.amin()`:  Return the maximum or minimum value in the array.
+* `np.argmax()` / `np.argmin()`:  Return the index of the maximum or minimum element.
+* `np.maximum()` / `np.minimum()`:  Return the maximum/minimum of two arrays.
+* `np.nan`: Represents "Not a Number" (`NaN`), used for missing or undefined values.
+* `np.inf`: Represents positive infinity.
+* `np.nansum()`: Returns the sum of array elements, ignoring NaNs.
+* `np.nanmax()`, `np.nanmin()`: Return the maximum or minimum, ignoring NaNs.
+* `np.nanargmax()`, `np.nanargmin()`: Return the index of the maximum or minimum, ignoring NaNs.
+
+Some illustrative examples are given below.
+
+```{python}
+# Generate a 4x2 array of draws from N(0,1)
+x = np.random.randn(4, 2)
+x
+```
+
+```{python}
+np.sort(x)  # sort across columns
+```
+
+```{python}
+np.sort(x, 0)  # sort across rows
+```
+
+```{python}
+# Generate 3 draws from N(0,1)
+x = np.random.randn(3)
+x
+```
+
+```{python}
+np.sort(x)  # does not change x
+x
+```
+
+
+```{python}
+x = np.random.randn(3, 4)
+x
+```
+
+```{python}
+np.amax(x)  # maximum element
+x.max()  # maximum element
+x.max(0)  # maximum element across rows
+x.max(1)  # maximum element across columns
+```
+
+```{python}
+x = np.random.randn(4)  # generate 4 draws from N(0,1)
+y = np.random.randn(4)  # generate 4 draws from N(0,1)
+np.maximum(x, y)
+```
+
+```{python}
+x = np.random.randn(5)  # generate 4 draws from N(0,1)
+x[1] = np.nan
+x[3] = None
+x
+```
+
+```{python}
+np.max(x)  # return nan
+np.nanmax(x)  # ignore nan value
+np.sum(x)  # return nan
+np.nansum(x)  # ignore nan value
+```
+
+## Linear algebra functions
+The linear algebra functions are provided in the `linalg` module. For more information, see the [Linear algebra](https://numpy.org/doc/stable/reference/routines.linalg.html) section from the NumPy documentation. Below, we list some useful linear algebra functions for econometric analysis. 
+
+* `np.linalg.matrix_power(A, n)`: Raises the square matrix A to the integer power n.
+* `np.linalg.svd(A)`: Computes the singular value decomposition of matrix A.
+* `np.linalg.cond(A)`: Computes the condition number of matrix A.
+* `np.linalg.slogdet()`: Computes the sign and logarithm of the absolute value of the determinant of a square matrix A.
+* `np.linalg.solve(X, y)`: Solves $X\beta=y$ for $\beta$ when $X$ is invertible.
+* `np.linalg.lstsq(X, y)`: Returns the least squared solution of $y=X\beta$.
+* `np.linalg.cholesky(A)`: Returns the Cholesky decomposition of A.
+* `np.linalg.det(A)`: Returns the determinant of A.
+* `np.linalg.eig(A)`: Computes the eigenvalues and eigenvectors of A.
+* `np.linalg.inv(A)`: Computes the inverse of A.
+* `np.linalg.kron(x,y)`: Computes the kronecker product $x\otimes y$.
+* `np.trace(A)`: Computes the trace of A.
+* `np.linalg.matrix_rank(A)`: Computes the rank of A using the SVD method.
+
+Some illustrative examples are given below.
+
+```{python}
+# Solve the equation Xb=y for b
+X = np.array([[1.0, 2.0, 3.0], [3.0, 3.0, 4.0], [1.0, 1.0, 4.0]])
+y = np.array([[1.0], [2.0], [3.0]])
+np.linalg.solve(X, y)
+```
+
+```{python}
+# Inverse of X
+X = np.matrix([[1, 0.5], [0.5, 1]])
+np.linalg.inv(X)
+```
+
+```{python}
+# Determinant of X
+np.linalg.det(X)
+```
+
+```{python}
+# Eigenvalues and eigenvectors of M
+M = np.matrix([[1, 0.5], [0.5, 1]])
+val, vec = np.linalg.eig(M)
+# Verify the spectral decomposition
+vec * np.diag(val) * vec.T
+```
+
+```{python}
+# Rank of X
+X = np.array([[1, 0.5], [1, 0.5]])
+np.linalg.matrix_rank(X)
+```

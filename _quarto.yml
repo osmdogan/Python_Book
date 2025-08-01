@@ -1,0 +1,82 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Introduction to Econometrics with Python"
+  reader-mode: true
+  author: ["Osman Doğan", "Süleyman Taşpınar"]
+  date: "today"
+  repo-url: https://github.com/hadley/r4ds/
+  repo-actions: [edit, issue]
+  cover-image: cover2.png
+  page-footer:
+    left: |
+      Introduction to Econometrics with Python was written by Osman Doğan and Süleyman Taşpınar.
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>.
+ 
+  chapters:
+    - index.qmd
+
+    - part: Part0-Python.qmd
+      chapters: 
+        - Chapter0-IntroPython.qmd
+        - Chapter0-IntroNumpy.qmd
+        - Chapter0-ControlStructure.qmd
+        - Chapter0-CustomFunctions.qmd
+        - Chapter0-StatFunctions.qmd
+        - Chapter0-Graphics.qmd
+        - Chapter0-Pandas.qmd
+
+    - part: Part1-IntroductionReview.qmd
+      chapters:
+        - Chapter1-EconomicQuestion.qmd
+        - Chapter2-ReviewProbability.qmd
+        - Chapter3-ReviewStatistics.qmd
+
+    - part: Part2-FundamentalRegressionAnalysis.qmd
+      chapters:
+        - Chapter4-LinearRegressionOneRegressor.qmd
+        - Chapter5-LinearRegressionOneRegressorInference.qmd
+        - Chapter6-MultipleRegression.qmd
+        - Chapter7-MultipleRegressionInference.qmd
+        - Chapter8-NonlinearRegressions.qmd
+        - Chapter9-AssessingStudies.qmd
+
+    - part: Part3-FurtherTopics.qmd
+      chapters:
+        - Chapter10-RegressionPanelData.qmd
+        - Chapter11-BinaryDependentVariable.qmd
+        - Chapter12-IVRegression.qmd
+        - Chapter13-Experiments.qmd
+        - Chapter14-BigData.qmd
+
+    - part: Part4-TimeSeriesData.qmd
+      chapters:
+        - Chapter15-TimeSeriesRegression.qmd
+        - Chapter16-DynamicCausalEffects.qmd
+        - Chapter17-AdditionalTopicsTimeSeries.qmd
+ 
+    - part: Part5-TheoreticalTopics.qmd
+      chapters:
+        - Chapter18-TheoryRegression.qmd
+        - Chapter19-TheoryMultipleRegression.qmd
+
+  appendices:
+    - Appendix1.qmd
+    - Appendix2.qmd
+    - Appendix3.qmd
+    - Appendix4.qmd
+    
+    - references.qmd
+      
+bibliography: references.bib
+
+format:
+  html:
+    theme: 
+     - cosmo
+     - r4ds.scss
+  pdf:
+    documentclass: scrreprt

@@ -1,0 +1,310 @@
+# Appendix for Chapter 25 {#sec-appendixC}
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+plt.style.use('seaborn-v0_8-darkgrid')  
+from scipy.stats import multivariate_normal
+from mpl_toolkits.mplot3d import Axes3D
+```
+
+{{< include latex_macro.qmd >}}
+
+## Normal distribution
+Let $Y\sim N(\mu,\sigma^2)$. Then, its probability density function (pdf) is given by
+$$
+f_Y(y) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(y-\mu)^2}{2\sigma^2}}.
+$${#eq-eqC-1}
+where $\mu$ is the mean and $\sigma^2$ is the variance. The pdf of normal distribution is symmetric about the mean $\mu$, i.e., $f(\mu-a)=f(\mu+a)$ for all $a\in\mathbb{R}$. The pdf has inflection points at $y=\mu\pm\sigma$. The pdf and CDF plots of the normal distributon with different means and variances are shown in Chapter 9. 
+
+Clearly, $f (y)\geq 0$ for all $y\in\mathbb{R}$. What about $\int_{-\infty}^{\infty}f(y)dy=1$? Define $I=\int_{-\infty}^{\infty}\frac{1}{\sigma\sqrt{2\pi}}e^{-(y-\mu)^2/(2\sigma^2)}dy$. Set $z=(y-\mu)/\sigma\implies dz=dy/\sigma$. With this change of variable, $I$ can be expressed as 
+$$
+I=\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}}e^{-z^2/2}dz.
+$$
+Because $I > 0$, it suffices to show that $I^2 = 1$. Note that
+$$
+\begin{align*}
+I^2&=\left(\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}}e^{-x^2/2}dx\right)\left(\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}}e^{-y^2/2}dy\right)\\
+&=\frac{1}{2\pi}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}e^{-(x^2+y^2)/2}dxdy.
+\end{align*}
+$$
+Now, we will use the polar coordinate transformation. Set $x=r\cos(\theta)$ and $y=r\sin(\theta)$. Then, $x^2+y^2=r^2\cos^2(\theta)+r^2\sin^2(\theta)=r^2$. The Jacobian of the transformation from $(x,y)$ space to $(r,\theta)$ space is $r$.  Then, we have
+$$
+\begin{align*}
+I^2&=\frac{1}{2\pi}\int_{0}^{2\pi}\int_{0}^{\infty}e^{-r^2/2}rdrd\theta=\frac{1}{2\pi}\int^{2\pi}_{0}\left(-e^{-r^2/2}\bigg|^{\infty}_{0}\right)d\theta\\
+&=\frac{1}{2\pi}\int^{2\pi}_{0}d\theta=1.
+\end{align*} 
+$$
+
+:::{#def-defC-1}
+## Moments
+The $k$th moment of a random variable $Y$ is defined as $\mathbb{E}(Y^k)$ and is denoted by $\mu_k'$. The $k$th central moment of $Y$ is defined as $\mathbb{E}((Y - \mu)^k)$ and is denoted by $\mu_k$.
+:::
+
+:::{#def-defC-2}
+## Moment-generating function
+The moment-generating function $m(t)$ of a random variable $Y$ is defined as
+$m(t) = \E\left(e^{tY} \right)$. It exists if there is a positive constant $b$ such that $m(t)$ is finite for $|t| \leq b$.
+:::
+
+The moment generating function can be used to find the moments of a random variable. The following theorem shows that the $k$th moment of a random variable can be obtained by differentiating its moment-generating function $k$ times and evaluating it at $t=0$.
+
+:::{#thm-thmC-1}
+If $m(t)$ exists, then for any positive integer $k$, we have
+$$
+\begin{align*}
+\frac{d^km(t)}{dt^k}\bigg|_{t=0}=m^{(k)}(0)=\mu^{'}_k.
+\end{align*}
+$$
+:::
+
+:::{.proof}
+## Proof of @thm-thmC-1
+Let $f$ be the pdf of $Y$. Then, for any integer $k\geq0$, we have
+$$
+\begin{align*}
+\frac{d^km(t)}{dt^k}&=\frac{d^k}{dt^k}\E\left(e^tY \right)=\frac{d^k}{dt^k}\int e^{ty}f(y)\text{d}y=\int\frac{d^k}{dt^k}e^{ty}f(y)\text{d}y\\
+&=\int y^ke^{ty}f(y)\text{d}y=\E\left(Y^ke^{tY}\right).
+\end{align*}
+$$
+Thus,
+$$
+\frac{d^km(t)}{dt^k}\bigg|_{t=0}=m^{(k)}(0)=\E\left(Y^ke^{0\cdot Y}\right)=\E\left(Y^k\right)=\mu^{'}_k.
+$$
+:::
+
+:::{#thm-thmC-2}
+## Moment-generating function of normal distribution
+Let $Y\sim N(\mu,\sigma^2)$. Then, its moment-generating function is given by
+$$
+m(t) = e^{\mu t + \frac{\sigma^2 t^2}{2}}.
+$$
+:::
+
+:::{.proof}
+## Proof of @thm-thmC-2
+We can express $m(t)$ as
+$$
+\begin{align*}
+m(t)=\E(e^{tY})=\int_{-\infty}^{\infty}e^{ty}\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\left(\frac{y-\mu}{\sigma}\right)^2}dy=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{ty-\frac{1}{2}\left(\frac{y-\mu}{\sigma}\right)^2}dy.
+\end{align*}
+$$
+Define $b=ty-\frac{1}{2}\left(\frac{y-\mu}{\sigma}\right)^2$. Then, we can express $b$ as
+$$
+\begin{align*}
+b&=ty-\frac{1}{2\sigma^2}\left(y^2-2\mu y+\mu^2\right)\\
+&=-\frac{1}{2\sigma^2}\left(y^2-2\mu y-2\sigma^2ty+\mu^2\right)\\
+&=-\frac{1}{2\sigma^2}\left(y^2-2(\mu +\sigma^2t)y+\mu^2\right)\\
+&=-\frac{1}{2\sigma^2}\left(y^2-2(\mu +\sigma^2t)y+(\mu +\sigma^2t)^2-(\mu +\sigma^2t)^2+\mu^2\right)\\
+&=-\frac{1}{2\sigma^2}\left(y-(\mu+\sigma^2t)\right)^2+\frac{1}{2\sigma^2}\left((\mu+\sigma^2t)^2-\mu^2\right)\\
+&=-\frac{1}{2\sigma^2}\left(y-c_1\right)^2+\frac{1}{2\sigma^2}\left(\mu^2+2\mu\sigma^2t+\sigma^4t^2-\mu^2\right)\\
+&=-\frac{1}{2\sigma^2}\left(y-c_1\right)^2+\mu t+\sigma^2t^2/2\\
+&=-\frac{1}{2\sigma^2}\left(y-c_1\right)^2+c_2
+\end{align*}
+$$
+where $c_1=(\mu+\sigma^2t)$ and $c_2=\mu  t+\sigma^2t^2/2$. Thus, we can express $m(t)$ as
+$$
+\begin{align*}
+m(t)&=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{b}dy=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-\frac{1}{2\sigma^2}\left(y-c_1\right)^2+c_2}dy\\
+&=e^{c_2}\int_{-\infty}^{\infty}\underbrace{\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2\sigma^2}\left(y-c_1\right)^2}}_{ N(c_1,\sigma^2)}dy=e^{c_2}=e^{\mu t+\sigma^2t^2/2}.
+\end{align*}
+$$
+:::
+
+:::{#exm-exmC-1}
+Using @thm-thmC-2, we can find the moments of a normal random variable. For example, the first moment is given by
+$$
+\begin{align*}
+\mu^{'}_1&=\frac{d^1m(t)}{dt^1}\bigg|_{t=0}=\frac{d}{dt}\left(e^{\mu t+\sigma^2t^2/2}\right)\bigg|_{t=0}\\
+&=\frac{d}{dt}\left(e^{\mu t}\right)\bigg|_{t=0}+\frac{d}{dt}\left(e^{\sigma^2t^2/2}\right)\bigg|_{t=0}\\
+&=\mu e^{\mu t}\bigg|_{t=0}+\sigma^2t e^{\sigma^2t^2/2}\bigg|_{t=0}\\
+&=\mu+\sigma^2\cdot0= \mu.
+\end{align*}
+$$
+The second moment is given by
+$$
+\begin{align*}
+\mu^{'}_2&=\frac{d^2m(t)}{dt^2}\bigg|_{t=0}=\frac{d^2}{dt^2}\left(e^{\mu t+\sigma^2t^2/2}\right)\bigg|_{t=0}\\
+&=\frac{d^2}{dt^2}\left(e^{\mu t}\right)\bigg|_{t=0}+\frac{d^2}{dt^2}\left(e^{\sigma^2t^2/2}\right)\bigg|_{t=0}\\
+&=\mu^2 e^{\mu t}\bigg|_{t=0}+\sigma^2 e^{\sigma^2t^2/2}\bigg|_{t=0}+\sigma^2t^2 e^{\sigma^2t^2/2}\bigg|_{t=0}\\
+&=\mu^2+\sigma^2\cdot1+\sigma^2\cdot0= \mu^2+\sigma^2.
+\end{align*}
+$$
+:::
+
+:::{#exm-exmC-2}
+## Central moments of normal distribution
+Since the pdf of the normal distribution is symmetric about the mean $\mu$, we have $\mu_k=0$ for all odd $k$. The fourth central moment is $3\sigma^4$. The even central moments are given by
+$$
+\begin{align*}
+\mu_k=\E(Y-\mu)^k=\frac{k!}{2^{k/2}(k/2)!}\sigma^k.
+\end{align*}
+$$
+:::
+
+The bivariate normal pdf of $X$ and $Y$ is given by
+$$
+f_{X,Y}(x,y)=\frac{1}{2\pi\sigma_X\sigma_Y\sqrt{1-\rho^2}}e^{-\frac{1}{2(1-\rho^2)}\left(\frac{(x-\mu_X)^2}{\sigma_X^2}+\frac{(y-\mu_Y)^2}{\sigma_Y^2}-\frac{2\rho(x-\mu_X)(y-\mu_Y)}{\sigma_X\sigma_Y}\right)},
+$$
+where $\rho$ is the correlation coefficient between $X$ and $Y$. The marginal distributions of $X$ and $Y$ are univariate normal distributions: $X\sim N(\mu_X,\sigma^2_X)$ and $Y\sim N(\mu_Y,\sigma^2_Y)$. 
+
+
+In @fig-bivariate-normal, we plot the bivariate normal distribution with $\mu_X=\mu_Y=0$, $\sigma_X=\sigma_Y=1$, and $\rho=0.5$. The 3D plot shows the joint pdf of $X$ and $Y$.
+```{python}
+#| fig-cap: "3D plot of bivariate normal distribution"
+#| label: fig-bivariate-normal
+# 3D plot of bivariate normal distribution
+# Parameters
+mu = [0, 0]  # mean
+sigma = [[1, 0.5], [0.5, 1]]  # covariance matrix
+x = np.linspace(-3, 3, 100)
+y = np.linspace(-3, 3, 100)
+X, Y = np.meshgrid(x, y)
+pos = np.dstack((X, Y))
+rv = multivariate_normal(mu, sigma)
+# Create a 3D plot
+fig = plt.figure(figsize=(8, 4))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(X, Y, rv.pdf(pos), cmap='viridis', linewidth=1, antialiased=True,rstride=3, cstride=3)
+ax.set_xlabel('X-axis')
+ax.set_ylabel('Y-axis')
+#ax.set_zlabel('Probability Density')
+#ax.set_title('Bivariate Normal Distribution')
+
+# Adjust the limits, ticks and view angle
+ax.set_zlim(0,0.2)
+ax.set_zticks(np.linspace(0,0.2,5))
+ax.view_init(30, -27)
+
+plt.show()
+```
+
+In @fig-normal-scatter, we plot the scatter plots of random draws obtained from bivariate normal distributions that have different correlation coefficients. The correlation coefficient $\rho$ takes values from $\{-0.8, 0, 0.4, 0.8\}$. The scatter plots show the relationship between $X$ and $Y$ for different values of $\rho$. As $\rho$ gets larger in absolute value, the points in the scatter plot become more aligned along the line $y=x$ or $y=-x$. 
+
+```{python}
+#| fig-cap: "Scatter plots of random samples from a bivariate normal distribution with different correlation coefficients"
+#| label: fig-normal-scatter
+# Create a 2x2 subplot for the plots
+fig, axes = plt.subplots(2, 2, figsize=(8, 6))
+# Define the mean vector
+mean_vector = np.array([0, 0])
+
+# Define the values for rho
+rho = [-0.8, 0, 0.4, 0.8]
+# Iterate over the rho values and corresponding subplot axes
+for ax, rho in zip(axes.flatten(), rho):
+    # Define the covariance matrix
+    cov_matrix = np.array([[1, rho], [rho, 1]])
+    
+    # Generate random samples from the multivariate normal distribution
+    samples = np.random.multivariate_normal(mean_vector, cov_matrix, size=500)
+    
+    # Plot the samples
+    ax.scatter(samples[:, 0], samples[:, 1], alpha=0.5)
+    ax.set_title(f"$\\rho$={rho}")
+    ax.set_xlabel("X")
+    ax.set_ylabel("Y")
+    ax.axis('equal')
+    
+# Adjust layout for better spacing
+plt.tight_layout()
+plt.show()
+
+```
+
+In @fig-normal-contour, we plot the contour plots of bivariate normal distributions that have different correlation coefficients. The contour plots show the level curves of the bivariate normal distribution for different values of $\rho$. @fig-normal-contour shows that as $\rho$ gets larger in absolute value, the contours stretch along the line $y=x$ or $y=-x$.
+
+```{python}
+#| fig-cap: "Contour plots of bivariate normal distribution with different correlation coefficients"
+#| label: fig-normal-contour
+# Create a 2x2 subplot for the plots
+fig, axes = plt.subplots(2, 2, figsize=(8, 6))
+# Define the mean vector
+mean_vector = np.array([0, 0])
+# Define the values for rho
+rho = [-0.8, 0, 0.4, 0.8]
+# Iterate over the rho values and corresponding subplot axes
+for ax, rho in zip(axes.flatten(), rho):
+    # Define the covariance matrix
+    cov_matrix = np.array([[1, rho], [rho, 1]])
+    
+    # Create a grid of points
+    x = np.linspace(-3, 3, 100)
+    y = np.linspace(-3, 3, 100)
+    X, Y = np.meshgrid(x, y)
+    pos = np.dstack((X, Y))
+    
+    # Calculate the probability density function
+    rv = multivariate_normal(mean_vector, cov_matrix)
+    Z = rv.pdf(pos)
+    
+    # Plot the contour
+    ax.contour(X, Y, Z, levels=10)
+    ax.set_title(f"$\\rho$={rho}")
+    ax.set_xlabel("X")
+    ax.set_ylabel("Y")
+    ax.axis('equal')
+# Adjust layout for better spacing
+plt.tight_layout()
+plt.show()
+```
+
+If $X$ and $Y$ are have a joint normal distribution, then the conditional distribution of $Y$ given $X=x$ is also a normal distribution: $Y|X=x\sim N(\mu_{Y|X},\sigma^2_{Y|X})$, where 
+$$
+\begin{align*}
+\mu_{Y|X}&=\mu_Y+\rho\frac{\sigma_Y}{\sigma_X}(x-\mu_X),\\
+\sigma^2_{Y|X}&=\sigma^2_Y(1-\rho^2).
+\end{align*}
+$$
+The conditional distribution of $X$ given $Y=y$ is also a normal distribution: $X|Y=y\sim N(\mu_{X|Y},\sigma^2_{X|Y})$, where
+$$
+\begin{align*}
+\mu_{X|Y}&=\mu_X+\rho\frac{\sigma_X}{\sigma_Y}(y-\mu_Y),\\
+\sigma^2_{X|Y}&=\sigma^2_X(1-\rho^2).
+\end{align*}
+$$
+
+In Appendix D, we define the multivariate normal distribution that extends the bivariate normal distribution to $n$ dimensions. 
+
+## Chi-square distribution
+The chi-square distribution with $k$ degrees of freedom is defined as the distribution of the sum of the squares of $k$ independent standard normal random variables. If $X\sim\chi^2_k$, then its pdf is given by 
+$$
+f_X(x)=\frac{1}{2^{k/2}\Gamma(k/2)}x^{k/2-1}e^{-x/2},\quad x>0.
+$$
+where $\Gamma(\alpha)=\int_{0}^{\infty}t^{\alpha-1}e^{-t}\text{d}t$ is the gamma function. 
+
+If $X\sim\chi^2_k$, then $\E(X)=k$ and $\text{var}(X)=2k$. Its moment generating function is given by $m(t)=\left(1-2t\right)^{-k/2}$ for $t<1/2$. 
+
+
+The chi-square distribution is also related to the gamma distribution. The chi-square distribution with $k$ degrees of freedom is equivalent to the gamma distribution with shape parameter $k/2$ and scale parameter $2$. See Chapter 9 for the pdf and CDF plots of the chi-square distribution with $k=3,4,10$ degrees of freedom.
+
+## Student t distribution
+Let $Z\sim N(0,1)$ and $W\sim\chi^2_{\nu}$. Assume that $Z$ and $W$ are independent. Then, the random variable 
+$$
+T=\frac{Z}{\sqrt{W/\nu}},
+$$
+has Student $t$ distribution with $\nu$ degrees of freedom, and we write $T\sim t_{\nu}$. The pdf of $T$ is given by
+$$
+\begin{align*}
+f_T(t)=
+\begin{cases}
+\frac{\Gamma\left(\frac{\nu+1}{2}\right)}{\sqrt{\nu\pi}\Gamma\left(\frac{\nu}{2}\right)}\frac{1}{\left(1+\frac{t^2}{\nu}\right)^{(\nu+1)/2}},\quad -\infty<t<\infty,\\
+0,\quad\text{otherwise}.
+\end{cases}
+\end{align*}
+$$
+The moment-generating function of $T$ does not exist. The first moment is given by $\E(T)=0$ and the second moment is given by $\E(T^2)=\frac{\nu}{\nu-2}$ for $\nu>2$. The variance is given by $\text{var}(T)=\frac{\nu}{\nu-2}$ for $\nu>2$. The pdf and CDF plots of the Student $t$ distribution with $\nu=1,10$ degrees of freedom are shown in Chapter 9.
+
+## F distribution
+Let $W_1\sim\chi^2_{\nu_1}$ and $W_2\sim\chi^2_{\nu_2}$. Assume that $W_1$ and $W_2$ are independent. Then, the random variable defined by
+$$
+F=\frac{W_1/\nu_1}{W_2/\nu_2}
+$$
+has $F$ distribution with (numerator) $\nu_1$ and (denominator) $\nu_2$ degrees of freedom. We write $F\sim F_{\nu_1,\nu_2}$. If $U\sim F_{\nu_1,\nu_2}$, then its pdf is given by
+$$
+\begin{align*}
+f_U(u)=\frac{\Gamma\left(\frac{\nu_1+\nu_2}{2}\right)}{\Gamma\left(\frac{\nu_1}{2}\right)\Gamma\left(\frac{\nu_2}{2}\right)}
+\left(\frac{\nu_1}{\nu_2}\right)^{\nu_1/2}\frac{u^{\frac{\nu_1}{2}}-1}{\left(1+\frac{\nu_1}{\nu_2}u\right)^{(\nu_1+\nu_2)/2}},\quad u>0.
+\end{align*}
+$$
+The moment-generating function of $F$ does not exist. The first moment is given by $\E(F)=\frac{\nu_2}{\nu_2-2}$ for $\nu_2>2$. The variance is given by $\text{var}(F)=\frac{2\nu_2^2(\nu_1+\nu_2-2)}{\nu_1(\nu_2-2)^2(\nu_2-4)}$ for $\nu_2>4$. The pdf and CDF plots of the $F$ distribution with different degrees of freedom are shown in Chapter 9.

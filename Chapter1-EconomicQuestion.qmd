@@ -1,0 +1,169 @@
+# Economic Questions and Data {#sec-chapter11}
+
+```{python}
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+
+## Econometrics and economic questions
+According to @Stock2020, "**econometrics** is the science and art of using economic theory and statistical techniques to analyze economic data." Using econometrics, we aim to provide quantitative answers to economic questions such as the following ones
+
+* What is the quantitative effect of class size on test scores?
+* What is the quantitative effect of race on home loan approval?
+* What is the quantitative effect of an increase in cigarette taxes on cigarette consumption?
+* What is the quantitative effect of an increase in the minimum wage on employment?
+* What is the quantitative effect of an increase in freezing degree days on the price of frozen concentrated orange juice?
+* What is the forecast for the U.S. GDP growth rate next year?
+* What is the forecast for volatility in the stock market next month?
+
+We can answer these types of questions by estimating econometric models that quantify the relationships between economic variables.
+ 
+## Causal effects and idealized experiments
+### Estimation of causal effects
+Econometrics primarily focuses on *causal relationships* among economic variables. Let $X$ and $Y$ be two variables. According to @Stock2020, we say that $X$ *causes* $Y$ if $Y$ is a direct result  or conseqence of $X$. Thus, we can define the **causal effect** of $X$ on $Y$ as the effect of $X$ on $Y$ when all other factors that can effect $Y$ are held constant. 
+
+One way to measure the causal effect is by conducting a **randomized controlled experiment**. In a randomized controlled experiment, we measure the effect of a treatment or a policy intervention by randomly assigning eperimental units to a treatment group and a control group, and then compare the groups based on a measured outcome variable. Thus, a randomized controlled experiment has the following features:
+
+* It is *controlled* because the treatment group receive the treatment whereas the control group does not participate in the treatment.
+* It is *randomized* in the sense that the eperimental units are assigned to the control and treatment groups randomly. In this way, we aim to *eliminate systematic differences* between the control and treatment groups.
+
+According to @Stock2020, "the **causal effect** is defined to be the effect on an outcome of a given action or treatment, as measured in an ideal randomized controlled experiment."
+
+### Estimation, prediction and forecasting
+Consider the following regression model:
+$$  
+\begin{align}\label{eq1}
+Y=\beta_0+\beta_1X+u,
+\end{align}
+$$
+where
+
+* $Y$ is the dependent variable and $X$ is the independent variable,
+* $\beta_0$ is intercept parameter and $\beta_1$ is the slope parameter, and
+* $u$ is the error term.
+
+**Estimation** is the process of using data on $Y$ and $X$ to learn about the unknown coefficients $\beta_0$ and $\beta_1$.  Let $\hat{\beta}_0$ and $\hat{\beta}_1$ be the estimated coefficients. We can use the estimated regression model to obtain a **predicted value** on the dependent variable:
+$$
+\begin{align}
+\hat{Y}=\hat{\beta}_0+\hat{\beta}_1X,
+\end{align}
+$$
+where $\hat{Y}$ denotes the predicted value. Thus, **prediction** is the process of using a model to make statement about the value of a dependent variable. 
+
+A **forecast** is a prediction about the value of the dependent variable in the future. It is important to note that prediction and forecasting does not necessitate a causal relationship between $X$ and $Y$.
+
+
+
+## Data types
+There are two types of data: **experimental data** and **nonexperimental data**. Experimental data are collected through experiments specifically designed to evaluate the effect of a treatment or an intervention. Nonexperimental data, also known as **observational data**, are obtained by observing actual behavior outside of an experimental setting.
+
+We consider three types of data: (i) **cross-sectional data**, (ii) **time-series data**, and (iii) **panel data** or **longitudinal data**. 
+
+### Cross-sectional data
+**Cross-sectional data** consist of observations on entities at a single point in time. For example, consider the California school district data in the `caschool.csv` file. These data were collected in 1999 on $n=420$ school district and include measurements on several district-level variables. We consider the following variables: District Average Test Score, Student-Teacher Ratio, Expenditure per Pupil, and Percentage of Students Learning English. These variables are derived from district-level average measurements. A section of this data is shown in @tbl-t8.1. For example, for the first school district, the average test score is 690.8, the average student-teacher ratio is 17.89, the average expenditure per pupil is 6384.91 dollars, and the average percentage of students learning English is 0 percent.  
+
+```{python}
+# Import data
+CAschool=pd.read_csv('data/caschool.csv')
+# Select columns
+names =['Observation Number','testscr','str', 'expn_stu','el_pct']
+data = CAschool[names]
+# Set the coulmn names
+data.columns = ["Observation Number", "District Average Test Score","Student-Teacher Ratio","Expenditure per Pupil",
+"Percentage of Students Learning English"]
+```
+
+```{python}
+#| tbl-cap: Selected observations on test scores and other variables for California School Districts in 1999
+#| label: tbl-t8.1
+# Print data
+data.round(2)
+```
+
+### Time Series Data
+Time series data consist of observations on the same entity collected at multiple time periods. We consider the time series data in the `tsdata.xlsx` file on the US GDP growth rate and the term spread (the difference between lon-term and short-term interest rates). The data set is quarterly and cover the period 1960Q1-2017Q4. In @tbl-t8.2, we show a section of the data, where each row corresponds to a different time period. In the last quarter of 2017, the GDP growth rate was 2.5\% and the term spread was 1.16 percentage points.
+
+
+```{python}
+# Import data
+tsdata = pd.read_excel("data/tsdata.xlsx")
+# Create Quarter column
+tsdata['Quarter'] = pd.PeriodIndex(tsdata.Date, freq='Q')
+names = ["Quarter","YGROWTH","RSPREAD"]
+data = tsdata[names]
+# Set the coulmn names
+data.columns = ["Date (YearQuarter)", "GDP Growth Rate", "Term Spread"]
+```
+
+
+```{python}
+#| tbl-cap: The GDP growth rate and term spread in the United States
+#| label: tbl-t8.2
+# Print data
+data.round(2)
+```
+
+In @fig-f8.1, we show the time series plots of the GDP growth rate and the term spread, with shaded areas indicating the recession periods.
+
+```{python}
+#| label: fig-f8.1
+#| fig-cap: "Growth Rate of GDP and the Term Spread in the United States"
+#| layout-nrow: 2
+#| fig-subcap: 
+#|   - "GDP growth rate"
+#|   - "Term spread"
+sns.set(style="darkgrid") 
+plt.figure(figsize=(7, 3))
+plt.plot(tsdata.Date, tsdata['YGROWTH'], color='steelblue', linewidth=1.5)
+plt.axhline(y=0, color='black', linestyle='-', linewidth=1, alpha=0.5)
+plt.xlabel('Date')
+plt.ylabel('Percentage Point')
+plt.ylim(tsdata['YGROWTH'].min()-0.5,tsdata['YGROWTH'].max()+0.5)
+
+# Highlight recession periods
+recession_periods = tsdata['RECESSION'] == 1
+plt.fill_between(tsdata.Date, tsdata['YGROWTH'].min()-0.5, 
+tsdata['YGROWTH'].max()+0.5, where=recession_periods, 
+color='steelblue', alpha=0.3)
+plt.show()
+
+plt.figure(figsize=(7, 3))
+plt.plot(tsdata.Date, tsdata['RSPREAD'], color='steelblue', linewidth=1.5)
+plt.axhline(y=0, color='black', linestyle='-',linewidth=1, alpha=0.5)
+plt.xlabel('Date')
+plt.ylabel('Percentage Point')
+plt.ylim(-2,4)
+plt.fill_between(tsdata.Date, tsdata['RSPREAD'].min()-0.5, tsdata['RSPREAD'].max()+0.5, where=recession_periods, 
+color='steelblue', alpha=0.3)
+plt.show()
+```
+
+### Panel Data
+**Panel data**, also known as **longitudinal data**, consist of data for multiple entities, with each entity observed at two or more time periods. We consider the panel data on the cigarette consumption in the `cig_ch12.xlsx` file. The data set consists of annual data for the 48 U.S. states over the period 1985-1995. Thus, in this data set, the number of entities is $n=48$ and the number of time peirods is $T=11$. In total, we have $48\times 11=528$ observations. In @tbl-t8.3, we show a section of data.
+
+
+```{python}
+# Import data
+pdata = pd.read_excel("data/cig_ch12.xlsx")
+# Select columns
+names = ["state","year","packpc","avgprs","taxs"]
+pdata = pdata[names]
+# Set column names
+pdata.columns = ["State","Year","Cigarette Sales (packs per capita)", "Average Price per Pack(including taxes)", "Total Taxes (cigarette excise tax + sales tax)"]
+```
+
+```{python}
+#| tbl-cap: Cigarette sales, prices, and taxes
+#| label: tbl-t8.3
+# Print data
+pdata.round(2)
+```
+
+::: {.callout-note icon=false}
+## Key Concept 8.1: Cross-sectional data, time series, and panel data 
+* Cross-sectional data refer to data on multiple entities collected at a single point in time.
+* Time series data consist of observations on a single entity over multiple time periods.
+* Panel data (or longitudinal data) involve data on multiple entities, with each entity observed across two or more time periods.
+:::

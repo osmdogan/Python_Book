@@ -1,0 +1,29 @@
+# Python {#sec-python0}
+
+In this part, we provide a brief introduction to Python for econometric analysis. This part consists of seven chapters: 
+
+* [Chapter @sec-chapter1]
+* [Chapter @sec-chapter2]
+* [Chapter @sec-chapter3]
+* [Chapter @sec-chapter4]
+* [Chapter @sec-chapter5]
+* [Chapter @sec-chapter6]
+* [Chapter @sec-chapter7]
+
+In Chapter 1, we discuss how to install Python using Anaconda and introduce its basic syntax. We discuss commonly used [IDEs](https://en.wikipedia.org/wiki/Integrated_development_environment) such as Spyder and Jupyter Notebook. We then briefly describe important modules- NumPy, SciPy, Pandas, Matplotlib, Seaborn, and Statsmodels- that are useful for econometrics. Finally, we cover built-in data types (e.g., integers, floats, strings, booleans) and essential data structures like lists, tuples, and dictionaries.
+
+In Chapter 2, we introduce the NumPy module. We start with arrays and matrices and discuss how they can be initialized. We cover basic operations on arrays and matrices, as well as fundamental linear algebra operations for matrices. Finally, we explore functions for rounding, sorting, and handling NaN values.
+ 
+In Chapter 3, we cover control structures in Python, including conditionals, loops, and comprehensions for efficient iteration tasks. We also discuss statements for terminating or skipping certain iterations, as well as basic error and exception handling.
+ 
+In Chapter 4, we introduce how to write efficient custom functions. We cover the syntax for parameters, return values and help documentation. Finally, we discuss  the anonymous lambda function that can be defined in a single line of code.
+
+In Chapter 5, we introduce statistical functions from NumPy and SciPy for generating random draws from well-known distributions. We show how to evaluate density and cumulative distribution functions, and compute quantiles and other key statistics.
+
+In Chapter 6, we introduce Matplotlib and Seaborn for data visualization. We show how to generate line plots, scatter plots, histograms, bar charts, and density plots. We explore customization options such as adding titles, labels, and legends. Finally, we discuss methods for saving and exporting graphics in different formats.
+
+Finally, in Chapter 7, we introduce the Pandas library for data management. We show how to import data from CSV files, Stata dta files, Excel spreadsheets, and from some other formats. We introduce Series and DataFrames and show how these objects can be initialized. We cover methods for  filtering, sorting, grouping, and merging data. Finally, we show how to handle missing values.
+ 
+
+The material in this part mainly builds on @Sheppard2021, @Wes2022, and @Jake2023. For further details,  readers can refer to the respective chapters in these references.
+
