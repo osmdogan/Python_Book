@@ -64,10 +64,10 @@ book:
         - Chapter19-TheoryMultipleRegression.qmd
 
   appendices:
-    - Appendix1.qmd
-    - Appendix2.qmd
-    - Appendix3.qmd
-    - Appendix4.qmd
+    - AppendixA.qmd
+    - AppendixB.qmd
+    - AppendixC.qmd
+    - AppendixD.qmd
     
     - references.qmd
       
