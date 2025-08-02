@@ -8,7 +8,7 @@ import seaborn as sns
 ```
 
 ## Econometrics and economic questions
-According to @Stock2020, "**econometrics** is the science and art of using economic theory and statistical techniques to analyze economic data." Using econometrics, we aim to provide quantitative answers to economic questions such as the following ones
+According to @Stock2020, "**econometrics** is the science and art of using economic theory and statistical techniques to analyze economic data." Using econometrics, we aim to provide quantitative answers to economic questions such as the following ones:
 
 * What is the quantitative effect of class size on test scores?
 * What is the quantitative effect of race on home loan approval?
