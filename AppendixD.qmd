@@ -1242,15 +1242,17 @@ Let $\bs{v}\sim N(\bs{\mu}_{\bs{v}},\,\bs{\Sigma}_{\bs{v}})$ and $\bs{w}=\bs{\Si
 $$
 \begin{align*}
 \text{E}(\bs{w})&=\E\left(\bs{\Sigma}^{-1/2}_{\bs{v}}(\bs{v}-\bs{\mu}_{\bs{v}})\right)=\bs{\Sigma}^{-1/2}_{\bs{v}}\E\left(\bs{v}-\bs{\mu}_{\bs{v}}\right)\\
-&=\bs{\Sigma}^{-1/2}_{\bs{v}}\left(\E\left(\bs{v}\right)-\E\left(\bs{\mu}_{\bs{v}}\right)\right)=\bs{\Sigma}^{-1/2}_{\bs{v}}\left(\bs{\mu}_{\bs{v}}-\bs{\mu}_{\bs{v}}\right)\\
-&=\bs{0}_m.
+&=\bs{\Sigma}^{-1/2}_{\bs{v}}\left(\E\left(\bs{v}\right)-\E\left(\bs{\mu}_{\bs{v}}\right)\right)\\
+&=\bs{\Sigma}^{-1/2}_{\bs{v}}\left(\bs{\mu}_{\bs{v}}-\bs{\mu}_{\bs{v}}\right)=\bs{0}_m.
 \end{align*}
 $$
 $$
 \begin{align*}
-\text{Cov}(\bs{w})&=\E\left((\bs{w}-\bs{\mu}_{\bs{w}})(\bs{w}-\bs{\mu}_{\bs{w}})^{'}\right)=\E\left((\bs{\Sigma}^{-1/2}_{\bs{v}}\bs{v})(\bs{\Sigma}^{-1/2}_{\bs{v}}\bs{v})^{'}\right)\\
-&=\E\left(\bs{\Sigma}^{-1/2}_{\bs{v}}\bs{v}\bs{v}^{'}\bs{\Sigma}^{-1/2}_{\bs{v}}\right)=\bs{\Sigma}^{-1/2}_{\bs{v}}\bs{\Sigma}_{\bs{v}}\bs{\Sigma}^{-1/2}_{\bs{v}}\\
-&=\bs{I}_m.
+\text{Cov}(\bs{w})&=\E\left((\bs{w}-\bs{\mu}_{\bs{w}})(\bs{w}-\bs{\mu}_{\bs{w}})^{'}\right)\\
+&=\E\left((\bs{\Sigma}^{-1/2}_{\bs{v}}(\bs{v}-\bs{\mu}_{\bs{v}}))(\bs{\Sigma}^{-1/2}_{\bs{v}}(\bs{v}-\bs{\mu}_{\bs{v}}))^{'}\right)\\
+&=\E\left(\bs{\Sigma}^{-1/2}_{\bs{v}}(\bs{v}-\bs{\mu}_{\bs{v}})(\bs{v}-\bs{\mu}_{\bs{v}})^{'}\bs{\Sigma}^{-1/2}_{\bs{v}}\right)\\
+&=\bs{\Sigma}^{-1/2}_{\bs{v}}\E\left((\bs{v}-\bs{\mu}_{\bs{v}})(\bs{v}-\bs{\mu}_{\bs{v}})^{'}\right)\bs{\Sigma}^{-1/2}_{\bs{v}}\\
+&=\bs{\Sigma}^{-1/2}_{\bs{v}}\bs{\Sigma}_{\bs{v}}\bs{\Sigma}^{-1/2}_{\bs{v}}=\bs{I}_m.
 \end{align*}
 $$
 Then, $\bs{w}\sim N(\bs{0}_m,\bs{I}_m)$ follows from the second property of the multivariate normal distribution.
