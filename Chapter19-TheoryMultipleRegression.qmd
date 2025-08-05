@@ -351,6 +351,25 @@ $$
 $$
 
 ## Asymptotic distribution of the OLS estimator
+We first show that the OLS estimator is unbiased under Assumptions 1-4. To see this, first note that we can express the OLS estimator as
+$$
+\begin{align}
+\hat{\bs{\beta}}&=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{Y}=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}(\bs{X}\bs{\beta}+\bs{U})\\
+&=\bs{\beta}+(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}.
+\end{align}
+$$
+
+Since $\E(\bs{U}|\bs{X})=\bs{0}$ holds under Assumptions 1 and 2, we have 
+$$
+\begin{align*}
+\E(\hat{\bs{\beta}}|\bs{X})=\bs{\beta}+(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\E(\bs{U}|\bs{X})=\bs{\beta},
+\end{align*}
+$$
+which shows that the OLS estimator is conditionally unbiased. Finally, by the law of iterated expectations, we have
+$$
+\E(\hat{\bs{\beta}})=\E(\E(\hat{\bs{\beta}}|\bs{X}))=\E(\bs{\beta})=\bs{\beta}.
+$$
+
 To derive the asymptotic distribution of $\hat{\bs{\beta}}$, we need a multivariate central limit theorem that applies to vector-valued random variables.
 
 :::{#def-def26-1}
@@ -370,7 +389,7 @@ Let $\bs{Q}_{\bs{X}}=\E(\bs{X}_i\bs{X}^{'}_i)$ and $\bs{\Sigma}_{\bs{V}}=\E(\bs{
 Note that we can express the OLS estimator as
 $$
 \begin{align*}
-\hat{\bs{\beta}}=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{Y}=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}(\bs{X}\bs{\beta}+\bs{U})=\bs{\beta}+(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}.
+\hat{\bs{\beta}}=\bs{\beta}+(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}.
 \end{align*}
 $$
 Thus, we can express $\sqrt{n}\left(\hat{\bs{\beta}}-\bs{\beta}\right)$ as

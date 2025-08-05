@@ -84,7 +84,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Appendix1.html" rel="next">
+<link href="./AppendixA.html" rel="next">
 <link href="./Chapter18-TheoryRegression.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -436,25 +436,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix1.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixA.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix for Chapter 11</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix2.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixB.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix for Chapter 21</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix3.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixC.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Appendix for Chapter 25</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix4.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixD.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Appendix for Chapter 26</span></span></a>
   </div>
 </li>
@@ -516,7 +516,7 @@ window.Quarto = {
 </header>
 
 
-<div id="c6cb218a" class="cell" data-execution_count="1">
+<div id="61b8c6f7" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -828,6 +828,19 @@ R^2=\frac{ESS}{TSS}=\frac{\hat{\bs{\beta}}^{'}\bs{X}^{'}\mb{M}_0\bs{X}\hat{\bs{\
 </section>
 <section id="asymptotic-distribution-of-the-ols-estimator" class="level2" data-number="26.5">
 <h2 data-number="26.5" class="anchored" data-anchor-id="asymptotic-distribution-of-the-ols-estimator"><span class="header-section-number">26.5</span> Asymptotic distribution of the OLS estimator</h2>
+<p>We first show that the OLS estimator is unbiased under Assumptions 1-4. To see this, first note that we can express the OLS estimator as <span class="math display">\[
+\begin{align}
+\hat{\bs{\beta}}&amp;=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{Y}=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}(\bs{X}\bs{\beta}+\bs{U})\\
+&amp;=\bs{\beta}+(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}.
+\end{align}
+\]</span></p>
+<p>Since <span class="math inline">\(\E(\bs{U}|\bs{X})=\bs{0}\)</span> holds under Assumptions 1 and 2, we have <span class="math display">\[
+\begin{align*}
+\E(\hat{\bs{\beta}}|\bs{X})=\bs{\beta}+(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\E(\bs{U}|\bs{X})=\bs{\beta},
+\end{align*}
+\]</span> which shows that the OLS estimator is conditionally unbiased. Finally, by the law of iterated expectations, we have <span class="math display">\[
+\E(\hat{\bs{\beta}})=\E(\E(\hat{\bs{\beta}}|\bs{X}))=\E(\bs{\beta})=\bs{\beta}.
+\]</span></p>
 <p>To derive the asymptotic distribution of <span class="math inline">\(\hat{\bs{\beta}}\)</span>, we need a multivariate central limit theorem that applies to vector-valued random variables.</p>
 <div id="def-def26-1" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 26.1 (Multivariate central limit theorem)</strong></span> Let <span class="math inline">\(\{\bs{W}_i\}_{i=1}^n\)</span> be a sequence of i.i.d. <span class="math inline">\(m\)</span>-dimensional random variables with mean <span class="math inline">\(\E(\bs{W}_i)=\bs{\mu}_{\bs{W}}\)</span> and covariance matrix <span class="math inline">\(\E\left((\bs{W}_i-\bs{\mu}_{\bs{W}})(\bs{W}_i-\bs{\mu}_{\bs{W}})^{'}\right)=\bs{\Sigma}_{\bs{W}}\)</span>, where <span class="math inline">\(\bs{\Sigma}_{\bs{W}}\)</span> is positive definite and finite. Define <span class="math inline">\(\overline{\bs{W}}=\frac{1}{n}\sum_{i=1}^n\bs{W}_i\)</span>. Then, <span class="math inline">\(\sqrt{n}(\overline{\bs{W}}-\bs{\mu}_{\bs{W}})\xrightarrow{d}N(\bs{0}_m,\bs{\Sigma}_{\bs{W}})\)</span>.</p>
@@ -839,7 +852,7 @@ R^2=\frac{ESS}{TSS}=\frac{\hat{\bs{\beta}}^{'}\bs{X}^{'}\mb{M}_0\bs{X}\hat{\bs{\
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-1" class="quarto-xref">Theorem&nbsp;<span>26.1</span></a>). </span>Note that we can express the OLS estimator as <span class="math display">\[
 \begin{align*}
-\hat{\bs{\beta}}=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{Y}=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}(\bs{X}\bs{\beta}+\bs{U})=\bs{\beta}+(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}.
+\hat{\bs{\beta}}=\bs{\beta}+(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}.
 \end{align*}
 \]</span> Thus, we can express <span class="math inline">\(\sqrt{n}\left(\hat{\bs{\beta}}-\bs{\beta}\right)\)</span> as <span id="eq-eq26-10"><span class="math display">\[
 \begin{align}
@@ -1010,7 +1023,7 @@ SE(\hat{\beta}_j)=\sqrt{\tilde{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}},
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-3" class="quarto-xref">Theorem&nbsp;<span>26.4</span></a>). </span>Note that we can write <span class="math inline">\(\tilde{t}\)</span> as <span class="math display">\[
 \tilde{t}=\frac{(\hat{\beta}_j-\beta_{j,0})/\sqrt{\bs{\Sigma}_{\hat{\bs{\beta}},jj}}}{\sqrt{W/(n-k-1)}},
-\]</span> where <span class="math inline">\(W=\frac{(n-k-1)s^2_{\hat{u}}}{\sigma^2_u}\)</span>. Under the null, the numerator is distributed as <span class="math inline">\(N(0,1)\)</span>. The variable <span class="math inline">\(W\)</span> in the denominator is distributed as <span class="math inline">\(W\sim \chi_{n-k-1}\)</span> by <a href="#eq-eq26-18" class="quarto-xref">Equation&nbsp;<span>26.12</span></a>. If we can also show that <span class="math inline">\(W\)</span> is independent of the numerator, then we can conclude that <span class="math inline">\(\tilde{t}\)</span> has the Student t distribution with <span class="math inline">\(n-k-1\)</span> degrees of freedom. For independence, it is enough to show that <span class="math inline">\(\hat{\bs{\beta}}\)</span> and <span class="math inline">\(W\)</span> are independent. Note that <span class="math inline">\(\hat{\bs{\beta}}-\bs{\beta}_0=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}\)</span> and <span class="math inline">\(W=\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U}/\sigma^2_u\)</span>. That is, <span class="math inline">\(\hat{\bs{\beta}}-\bs{\beta}_0\)</span> is a linear function of <span class="math inline">\(\bs{U}\)</span>, and <span class="math inline">\(W\)</span> is a quadratic form in <span class="math inline">\(\bs{U}\)</span>. Since <span class="math inline">\((\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{M}_{\bs{X}}=\bs{0}\)</span>, it follows from <a href="Appendix4.html#thm-independent-quadratics" class="quarto-xref">Theorem&nbsp;<span>D.7</span></a> in Appendix D that <span class="math inline">\(\hat{\bs{\beta}}\)</span> and <span class="math inline">\(W\)</span> are independent. In particular, this result shows that <span class="math inline">\(\hat{\bs{\beta}}\)</span> and <span class="math inline">\(\hat{s}^2_{\hat{u}}\)</span> are independent.</p>
+\]</span> where <span class="math inline">\(W=\frac{(n-k-1)s^2_{\hat{u}}}{\sigma^2_u}\)</span>. Under the null, the numerator is distributed as <span class="math inline">\(N(0,1)\)</span>. The variable <span class="math inline">\(W\)</span> in the denominator is distributed as <span class="math inline">\(W\sim \chi_{n-k-1}\)</span> by <a href="#eq-eq26-18" class="quarto-xref">Equation&nbsp;<span>26.12</span></a>. If we can also show that <span class="math inline">\(W\)</span> is independent of the numerator, then we can conclude that <span class="math inline">\(\tilde{t}\)</span> has the Student t distribution with <span class="math inline">\(n-k-1\)</span> degrees of freedom. For independence, it is enough to show that <span class="math inline">\(\hat{\bs{\beta}}\)</span> and <span class="math inline">\(W\)</span> are independent. Note that <span class="math inline">\(\hat{\bs{\beta}}-\bs{\beta}_0=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}\)</span> and <span class="math inline">\(W=\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U}/\sigma^2_u\)</span>. That is, <span class="math inline">\(\hat{\bs{\beta}}-\bs{\beta}_0\)</span> is a linear function of <span class="math inline">\(\bs{U}\)</span>, and <span class="math inline">\(W\)</span> is a quadratic form in <span class="math inline">\(\bs{U}\)</span>. Since <span class="math inline">\((\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{M}_{\bs{X}}=\bs{0}\)</span>, it follows from <a href="AppendixD.html#thm-independent-quadratics" class="quarto-xref">Theorem&nbsp;<span>D.7</span></a> in Appendix D that <span class="math inline">\(\hat{\bs{\beta}}\)</span> and <span class="math inline">\(W\)</span> are independent. In particular, this result shows that <span class="math inline">\(\hat{\bs{\beta}}\)</span> and <span class="math inline">\(\hat{s}^2_{\hat{u}}\)</span> are independent.</p>
 </div>
 <p>The homoskedasticity-only <span class="math inline">\(F\)</span>-statistic for testing <span class="math inline">\(H_0:\bs{R}\bs{\beta}=\bs{r}\)</span> is <span class="math display">\[
 \begin{align}
@@ -1030,7 +1043,7 @@ SE(\hat{\beta}_j)=\sqrt{\tilde{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}},
 <li><span class="math inline">\(W_1=\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)^{'}\left(\sigma^2_u\bs{R}(\bs{X}^{'}\bs{X})^{-1}\bs{R}^{'}\right)^{-1}\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)\)</span>, and</li>
 <li><span class="math inline">\(W_2=\frac{(n-k-1)s^2_{\hat{u}}}{\sigma^2_u}\)</span>.</li>
 </ul>
-<p>The numerator is distributed as <span class="math inline">\(\chi^2_q\)</span> and the denominator is distributed as <span class="math inline">\(\chi^2_{n-k-1}\)</span>. The independence of <span class="math inline">\(W_1\)</span> and <span class="math inline">\(W_2\)</span> follows from <a href="Appendix4.html#thm-independent-quadratics" class="quarto-xref">Theorem&nbsp;<span>D.7</span></a> in Appendix D. Thus, we have <span class="math inline">\(\tilde{F}\sim F_{q,n-k-1}\)</span>.</p>
+<p>The numerator is distributed as <span class="math inline">\(\chi^2_q\)</span> and the denominator is distributed as <span class="math inline">\(\chi^2_{n-k-1}\)</span>. The independence of <span class="math inline">\(W_1\)</span> and <span class="math inline">\(W_2\)</span> follows from <a href="AppendixD.html#thm-independent-quadratics" class="quarto-xref">Theorem&nbsp;<span>D.7</span></a> in Appendix D. Thus, we have <span class="math inline">\(\tilde{F}\sim F_{q,n-k-1}\)</span>.</p>
 </div>
 </section>
 <section id="efficiency-of-the-ols-estimator-with-homoskedastic-errors" class="level2" data-number="26.7">
@@ -1828,7 +1841,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Appendix1.html" class="pagination-link" aria-label="Appendix for Chapter 11">
+      <a href="./AppendixA.html" class="pagination-link" aria-label="Appendix for Chapter 11">
         <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix for Chapter 11</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
