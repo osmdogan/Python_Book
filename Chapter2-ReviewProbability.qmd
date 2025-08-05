@@ -53,7 +53,7 @@ Associated with a sample space, we can define two functions: probability and ran
 
 :::{#def-definition9.1}
 ## Probability
-Probability is a real-valued function defined on the sample space that satisfies the following three properties:
+Probability is a real-valued function defined on the sample space that satisfies the following three properties:^[Formally, probability is a set function defined on the $\sigma$-algebra of the subsets of the sample space $\Omega$. A $\sigma$-algebra is a collection of subsets of $\Omega$ that includes the empty set and is closed under complementation and countable unions. See [Probability Measure](https://en.wikipedia.org/wiki/Probability_measure) on Wikipedia for more details.] 
 
 1. Non-negativity: The probability of an event is nonnegative, i.e., $P(E)\geq 0$ for any event $E$.
 2. Normalization: The probability of the sample space is $1$, i.e., $P(\Omega)=1$.

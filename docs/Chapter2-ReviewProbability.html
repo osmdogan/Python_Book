@@ -442,25 +442,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix1.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixA.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix for Chapter 11</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix2.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixB.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix for Chapter 21</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix3.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixC.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Appendix for Chapter 25</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix4.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixD.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Appendix for Chapter 26</span></span></a>
   </div>
 </li>
@@ -528,7 +528,7 @@ window.Quarto = {
 </header>
 
 
-<div id="f5246189" class="cell" data-execution_count="1">
+<div id="c7d6163f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
@@ -580,7 +580,7 @@ E&amp;=\{(x,y)\in\Omega: x+y=7\}\\
 </div>
 <p>Associated with a sample space, we can define two functions: probability and random variable. We can define the <strong>probability</strong> of an outcome as the proportion of times that the outcome occurs in the repeated trials of the experiment. The probability of an event is the sum of the probabilities of the outcomes in the event. In the following, we provide a formal definition of probability.</p>
 <div id="def-definition9.1" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 9.1 (Probability)</strong></span> Probability is a real-valued function defined on the sample space that satisfies the following three properties:</p>
+<p><span class="theorem-title"><strong>Definition 9.1 (Probability)</strong></span> Probability is a real-valued function defined on the sample space that satisfies the following three properties:<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <ol type="1">
 <li>Non-negativity: The probability of an event is nonnegative, i.e., <span class="math inline">\(P(E)\geq 0\)</span> for any event <span class="math inline">\(E\)</span>.</li>
 <li>Normalization: The probability of the sample space is <span class="math inline">\(1\)</span>, i.e., <span class="math inline">\(P(\Omega)=1\)</span>.</li>
@@ -648,7 +648,7 @@ P(X=x_i) = p_i,\quad i=1,2,\dots,k,
 </div>
 <div id="exm-example9.6" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9.6</strong></span> Let <span class="math inline">\(M\)</span> be a random variable that measures the number of times your wireless network connection fails while you are writing a term paper. Let us assume that <span class="math inline">\(M\)</span> takes <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(4\)</span>, <span class="math inline">\(5\)</span>, with the corresponding probabilities given by <span class="math inline">\(0.80\)</span>, <span class="math inline">\(0.10\)</span>, <span class="math inline">\(0.06\)</span>, <span class="math inline">\(0.03\)</span>, <span class="math inline">\(0.01\)</span>. In the following, we summarize the probability distribution of <span class="math inline">\(M\)</span> in a table.</p>
-<div id="af7d389f" class="cell" data-execution_count="2">
+<div id="6350d6a5" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability distribution of M</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>outcomes <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># probabilities</span></span>
@@ -673,7 +673,7 @@ P(X=x_i) = p_i,\quad i=1,2,\dots,k,
 Table&nbsp;9.1: The probability distribution of M
 </figcaption>
 <div aria-describedby="tbl-t9.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="67">
+<div class="cell-output cell-output-display" data-execution_count="35">
 <div>
 
 
@@ -1093,7 +1093,7 @@ Figure&nbsp;9.6: The CDF and PDF plots of <span class="math inline">\(Y\)</span>
 \end{align*}
 \]</span></p>
 <p>Thus, <span class="math inline">\(f_Y(y)\)</span> is a proper density function. Numerically, we can use the <code>quad</code> method from the <code>scipy.integrate</code> module to compute the above integral, as illustrated below.</p>
-<div id="4f0ebe19" class="cell" data-execution_count="10">
+<div id="97e56e81" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fun(z):</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">3</span> <span class="op">/</span> z<span class="op">**</span><span class="dv">4</span></span>
@@ -1176,7 +1176,7 @@ P(a &lt; Y &lt; b) &amp;= P(a\leq Y &lt; b) = P(a &lt; Y \leq b) = P(a \leq Y \l
 \end{align*}
 \]</span></p>
 <p>Using the <code>quad</code> function from the <code>scipy.integrate</code> module, we can compute the expected value of <span class="math inline">\(Y\)</span> numerically as follows:</p>
-<div id="1e726565" class="cell" data-execution_count="11">
+<div id="00d2e09c" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function for the expected value</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fun(y):</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y <span class="op">*</span> <span class="dv">3</span> <span class="op">/</span> y<span class="op">**</span><span class="dv">4</span></span>
@@ -1564,7 +1564,7 @@ Figure&nbsp;9.9: The CDF and PDF plots of <span class="math inline">\(Y\)</span>
 Table&nbsp;9.2: Joint distribution of weather conditions and commuting Times
 </figcaption>
 <div aria-describedby="tbl-t9.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="79">
+<div class="cell-output cell-output-display" data-execution_count="47">
 <div>
 
 
@@ -1763,7 +1763,7 @@ Figure&nbsp;9.11: The integration region for computing <span class="math inline"
 </div>
 </div>
 <p>Using the <code>dblquad</code> function from the <code>scipy.integrate</code> module, we can compute the joint CDF <span class="math inline">\(F_{X,Y}(0.5, 0.5)\)</span> numerically as follows:</p>
-<div id="e5f4b5e9" class="cell" data-execution_count="18">
+<div id="10fd3118" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the joint PDF function</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> joint_pdf(y, x):</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">30</span> <span class="op">*</span> x <span class="op">*</span> y<span class="op">**</span><span class="dv">2</span></span>
@@ -2026,7 +2026,7 @@ Key Concept 9.4: Mean, variance, and covariance
 </section>
 <section id="commonly-used-distributions" class="level2" data-number="9.6">
 <h2 data-number="9.6" class="anchored" data-anchor-id="commonly-used-distributions"><span class="header-section-number">9.6</span> Commonly used distributions</h2>
-<p>In this section, we introduce some commonly used probability distributions for discrete and continuous random variables. In <a href="Appendix3.html" class="quarto-xref"><span>Appendix C</span></a>, we provide some further details on the properties of some of these distributions.</p>
+<p>In this section, we introduce some commonly used probability distributions for discrete and continuous random variables. In <a href="AppendixC.html" class="quarto-xref"><span>Appendix C</span></a>, we provide some further details on the properties of some of these distributions.</p>
 <section id="binomial-distribution" class="level3" data-number="9.6.1">
 <h3 data-number="9.6.1" class="anchored" data-anchor-id="binomial-distribution"><span class="header-section-number">9.6.1</span> Binomial distribution</h3>
 <p>To introduce the binomial distribution, we first define a <strong>binomial experiment</strong>. A binomial experiment has the following properties: (i) the experiment consists of <span class="math inline">\(n\)</span> independent trials, (ii) each trial has only two possible outcomes, which we call “success” and “failure”, (iii) the probability of success in each trial is constant and denoted by <span class="math inline">\(p\)</span>.</p>
@@ -2193,10 +2193,10 @@ Figure&nbsp;9.13: The PDF and CDF plots of uniform distribution
 <div>
 <div id="exm-example9.26" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9.26</strong></span> Let <span class="math inline">\(Y\sim N(0.35,2.25)\)</span> and consider <span class="math inline">\(P(-0.5&lt;Y\leq 0.75)\)</span>, which corresponds to the shaded area illustrated in <a href="#fig-f9.14" class="quarto-xref">Figure&nbsp;<span>9.14</span></a>. Using the <code>scipy.stats.norm.cdf</code> function, we can compute <span class="math inline">\(P(-0.5&lt;Y\leq 0.75)\)</span> in the following way:</p>
-<div id="0ca57eea" class="cell" data-execution_count="21">
+<div id="795a7d1e" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>stats.norm.cdf(<span class="fl">0.75</span>,loc<span class="op">=</span><span class="fl">0.35</span>,scale<span class="op">=</span><span class="fl">1.5</span>)<span class="op">-</span>stats.norm.cdf(<span class="op">-</span><span class="fl">0.5</span>,loc<span class="op">=</span><span class="fl">0.35</span>,scale<span class="op">=</span><span class="fl">1.5</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(p,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="85">
+<div class="cell-output cell-output-display" data-execution_count="53">
 <pre><code>0.3197</code></pre>
 </div>
 </div>
@@ -2313,10 +2313,10 @@ Figure&nbsp;9.15: The plots of PDF and CDF of normal distributions
 <p>The <strong>chi-squared distribution</strong> is used when testing certain types of hypotheses in econometrics. The chi-squared distribution that has <span class="math inline">\(m\)</span> degrees of freedom, denoted by <span class="math inline">\(\chi^2_{m}\)</span>, is the distribution of the sum of <span class="math inline">\(m\)</span> squared independent standard normal random variables. The mean and variance of the chi-squared distribution are given by <span class="math inline">\(m\)</span> and <span class="math inline">\(2m\)</span>, respectively.</p>
 <div id="exm-example9.27" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9.27</strong></span> Let <span class="math inline">\(Z_1\)</span>, <span class="math inline">\(Z_2\)</span> and <span class="math inline">\(Z_3\)</span> be independent standard normal random variables. If we define <span class="math inline">\(Y=Z^2_1+Z^2_2+Z^2_3\)</span>, then <span class="math inline">\(Y\sim \chi^2_3\)</span>. We can use the <code>scipy.stats.chi2</code> function to compute the PDF and CDF of <span class="math inline">\(Y\)</span>. For example, we can compute <span class="math inline">\(P(Y\leq 5)\)</span> as follows:</p>
-<div id="75173633" class="cell" data-execution_count="24">
+<div id="cfdc17c5" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> stats.chi2.cdf(<span class="dv">5</span>, df<span class="op">=</span><span class="dv">3</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(p, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="88">
+<div class="cell-output cell-output-display" data-execution_count="56">
 <pre><code>0.8282</code></pre>
 </div>
 </div>
@@ -2459,11 +2459,11 @@ Figure&nbsp;9.17: The plots of PDF and CDF of Student t distributions
 </div>
 <div id="exm-example9.28" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9.28</strong></span> Let <span class="math inline">\(Y\sim N(0,1)\)</span> and <span class="math inline">\(X\sim t_{5}\)</span>. We want to compute <span class="math inline">\(P(Y\geq2)\)</span> and <span class="math inline">\(P(X\geq2)\)</span> using the <code>scipy.stats</code> module. The following code chunk shows how to compute these probabilities:</p>
-<div id="3bfcc8aa" class="cell" data-execution_count="27">
+<div id="53865362" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>p_y <span class="op">=</span> stats.norm.sf(<span class="dv">2</span>, loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>)  <span class="co"># P(Y &gt;= 2)</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>p_x <span class="op">=</span> stats.t.sf(<span class="dv">2</span>, df<span class="op">=</span><span class="dv">5</span>)  <span class="co"># P(X &gt;= 2)</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(p_y, <span class="dv">4</span>), np.<span class="bu">round</span>(p_x, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="91">
+<div class="cell-output cell-output-display" data-execution_count="59">
 <pre><code>(0.0228, 0.051)</code></pre>
 </div>
 </div>
@@ -2550,10 +2550,10 @@ Figure&nbsp;9.18: The plots of PDF and CDF of F distributions
 <p>In econometrics, an important special case of the <span class="math inline">\(F\)</span> distribution arises when the denominator degrees of freedom is large enough that the <span class="math inline">\(F_{m,n}\)</span> can be approximated by <span class="math inline">\(F_{m,\infty}\)</span>. <span class="math inline">\(F_{m,\infty}\)</span> distribution is the distribution of a chi-squared random variable with <span class="math inline">\(m\)</span> degrees of freedom divided by <span class="math inline">\(m\)</span>, i.e., <span class="math inline">\(F_{m,\infty}=W/m\)</span>, where <span class="math inline">\(W\sim\chi^2_m\)</span>.</p>
 <div id="exm-example9.29" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9.29</strong></span> Let <span class="math inline">\(Y\sim F_{2,10}\)</span>. We can compute the PDF and CDF of <span class="math inline">\(Y\)</span> using the <code>scipy.stats.f</code> function. For example, we can compute <span class="math inline">\(P(Y\leq 3)\)</span> as follows:</p>
-<div id="ea54ed27" class="cell" data-execution_count="29">
+<div id="038fab80" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> stats.f.cdf(<span class="dv">3</span>, dfn<span class="op">=</span><span class="dv">2</span>, dfd<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(p, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="93">
+<div class="cell-output cell-output-display" data-execution_count="61">
 <pre><code>0.9046</code></pre>
 </div>
 </div>
@@ -2725,6 +2725,12 @@ Figure&nbsp;9.21: The sampling distribution of the standardized sample average
 Wackerly, Dennis, William Mendenhall, and Richard L. Scheaffer. 2008. <em>Mathematical Statistics with Applications</em>. Seventh. Thomson Brooks/Cole.
 </div>
 </div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Formally, probability is a set function defined on the <span class="math inline">\(\sigma\)</span>-algebra of the subsets of the sample space <span class="math inline">\(\Omega\)</span>. A <span class="math inline">\(\sigma\)</span>-algebra is a collection of subsets of <span class="math inline">\(\Omega\)</span> that includes the empty set and is closed under complementation and countable unions. See <a href="https://en.wikipedia.org/wiki/Probability_measure">Probability Measure</a> on Wikipedia for more details.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
