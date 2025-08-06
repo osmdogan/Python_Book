@@ -7,7 +7,7 @@ book:
   reader-mode: true
   author: ["Osman Doğan", "Süleyman Taşpınar"]
   date: "today"
-  repo-url: https://github.com/hadley/r4ds/
+  repo-url: https://osmdogan.github.io/Python_Book/
   repo-actions: [edit, issue]
   cover-image: cover2.png
   page-footer:
