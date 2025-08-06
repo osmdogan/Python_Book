@@ -516,7 +516,7 @@ window.Quarto = {
 </header>
 
 
-<div id="c684704d" class="cell" data-execution_count="1">
+<div id="44a7bfe5" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -693,15 +693,15 @@ u_n
 \hat{\bs{\beta}}=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{Y}.
 \end{align}
 \tag{26.6}\]</span></span></p>
-<p>To see that this solution is a global minimum, we need to show that <span class="math inline">\(\mathcal{S}(\bs{\beta})\)</span> is strictly convex. To that end, it suffices to show that the matrix of second-order derivatives (the Hessian matrix) is positive definite. The Hessian matrix is given by <span id="eq-eq26-7"><span class="math display">\[
+<p>To see that this solution is the global minimum, we need to show that <span class="math inline">\(\mathcal{S}(\bs{\beta})\)</span> is strictly convex. To that end, it suffices to show that the matrix of second-order derivatives (the Hessian matrix) is positive definite. The Hessian matrix is given by <span id="eq-eq26-7"><span class="math display">\[
 \begin{align}
 \frac{\partial^2\mathcal{S}(\bs{\beta})}{\partial\bs{\beta}\partial\bs{\beta}^{'}} = 2\bs{X}^{'}\bs{X},
 \end{align}
-\tag{26.7}\]</span></span> which must be positive definite. To see that <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> is positive definite, let <span class="math inline">\(\bs{c}\)</span> be an arbitrary <span class="math inline">\((k+1)\times 1\)</span> nonzero vector and let <span class="math inline">\(\bs{v}=\bs{X}\bs{c}\)</span>. Then, <span class="math display">\[
+\tag{26.7}\]</span></span> which must be positive definite. Let <span class="math inline">\(\bs{c}\)</span> be an arbitrary <span class="math inline">\((k+1)\times 1\)</span> nonzero vector, and define <span class="math inline">\(\bs{v}=\bs{X}\bs{c}\)</span>. Then, <span class="math display">\[
 \begin{align}
 \bs{c}^{'}\bs{X}^{'}\bs{X}\bs{c}=\bs{v}^{'}\bs{v}=\sum_{i=1}^n v_i^2,
 \end{align}
-\]</span> which equals zero only if <span class="math inline">\(v_i=0\)</span> for <span class="math inline">\(i=1,\ldots,n\)</span>. This can happen only if the columns of <span class="math inline">\(\bs{X}\)</span> are linearly dependent. However, this contradicts the assumption that <span class="math inline">\(\bs{X}\)</span> has full column rank. Hence, <span class="math inline">\(\sum_{i=1}^n v_i^2 &gt; 0\)</span>, implying that <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> is positive definite.</p>
+\]</span> which equals zero only if <span class="math inline">\(v_i=0\)</span> for <span class="math inline">\(i=1,\ldots,n\)</span>. This can happen only if the columns of <span class="math inline">\(\bs{X}\)</span> are linearly dependent. However, this contradicts the assumption that <span class="math inline">\(\bs{X}\)</span> has full column rank. Hence, <span class="math inline">\(\sum_{i=1}^n v_i^2 &gt; 0\)</span>, showing that <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> is positive definite.</p>
 </section>
 <section id="algebraic-properties-of-the-ols-estimator" class="level2" data-number="26.3">
 <h2 data-number="26.3" class="anchored" data-anchor-id="algebraic-properties-of-the-ols-estimator"><span class="header-section-number">26.3</span> Algebraic properties of the OLS estimator</h2>
