@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.55">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -167,7 +167,7 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Econometrics with Python</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/hadley/r4ds/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://osmdogan.github.io/Python_Book/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-git"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -422,25 +422,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix1.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixA.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix for Chapter 11</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix2.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixB.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix for Chapter 21</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix3.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixC.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Appendix for Chapter 25</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix4.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixD.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Appendix for Chapter 26</span></span></a>
   </div>
 </li>
@@ -473,7 +473,7 @@ window.Quarto = {
   <li><a href="#the-least-squares-assumptions-for-causal-inference" id="toc-the-least-squares-assumptions-for-causal-inference" class="nav-link" data-scroll-target="#the-least-squares-assumptions-for-causal-inference"><span class="header-section-number">11.5</span> The least squares assumptions for causal inference</a></li>
   <li><a href="#the-sampling-distribution-of-the-ols-estimators" id="toc-the-sampling-distribution-of-the-ols-estimators" class="nav-link" data-scroll-target="#the-sampling-distribution-of-the-ols-estimators"><span class="header-section-number">11.6</span> The sampling distribution of the OLS estimators</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/hadley/r4ds/edit/main/Chapter4-LinearRegressionOneRegressor.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hadley/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://osmdogan.github.io/Python_Book/edit/main/Chapter4-LinearRegressionOneRegressor.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://osmdogan.github.io/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -497,7 +497,7 @@ window.Quarto = {
 </header>
 
 
-<div id="8267ff06" class="cell" data-execution_count="1">
+<div id="51168732" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -558,7 +558,7 @@ Y_i = \beta_0 + \beta_1 X_i + u_i, \quad i=1,\dots,n,
 <li>The OLS residuals and the explanatory variable are uncorrelated: <span class="math inline">\(\sum_{i=1}^n X_i\hat{u}_i = 0\)</span>.</li>
 <li>The regression line passes through the sample mean: <span class="math inline">\(\bar{Y} = \hat{\beta}_0 + \hat{\beta}_1 \bar{X}\)</span>.</li>
 </ul>
-<p>These algebraic properties are proved in <a href="Appendix1.html#sec-OlsDerivation" class="quarto-xref"><span>Section A.1</span></a>. In Chapter 26, we extent these results to a multiple linear regression model.</p>
+<p>These algebraic properties are proved in <span class="quarto-unresolved-ref">?sec-OlsDerivation</span>. In Chapter 26, we extent these results to a multiple linear regression model.</p>
 </section>
 <section id="estimating-the-relationship-between-test-scores-and-the-studentteacher-ratio" class="level2" data-number="11.3">
 <h2 data-number="11.3" class="anchored" data-anchor-id="estimating-the-relationship-between-test-scores-and-the-studentteacher-ratio"><span class="header-section-number">11.3</span> Estimating the relationship between test scores and the student–teacher ratio</h2>
@@ -574,11 +574,11 @@ Y_i = \beta_0 + \beta_1 X_i + u_i, \quad i=1,\dots,n,
 <li><p>Test score is the average of the reading and math scores on a standardized test administered to fifth-grade students. This variable is denoted as <code>testscr</code>.</p></li>
 <li><p>The student–teacher ratio is the number of students in the district divided by the number of full-time equivalent teachers. This variable is denoted as <code>str</code>.</p></li>
 </ul>
-<div id="dc38ea2a" class="cell" data-execution_count="2">
+<div id="fd15bf85" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>CAschool<span class="op">=</span>pd.read_csv(<span class="st">'data/caschool.csv'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>CAschool.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="200">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>Index(['Observation Number', 'dist_cod', 'county', 'district', 'gr_span',
        'enrl_tot', 'teachers', 'calw_pct', 'meal_pct', 'computer', 'testscr',
        'comp_stu', 'expn_stu', 'str', 'avginc', 'el_pct', 'read_scr',
@@ -596,7 +596,7 @@ Y_i = \beta_0 + \beta_1 X_i + u_i, \quad i=1,\dots,n,
 Table&nbsp;11.1: Summary Statistics
 </figcaption>
 <div aria-describedby="tbl-t11-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="201">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -673,7 +673,7 @@ Figure&nbsp;11.1: The scatter plot of test score and student-teacher ratio
 <h3 data-number="11.3.2" class="anchored" data-anchor-id="estimation-results"><span class="header-section-number">11.3.2</span> Estimation Results</h3>
 <p>We use the <code>statsmodels.api</code> and the <code>statsmodels.formula.api</code> modules to estimate regressions. We import these modules under the names <code>sm</code> and <code>smf</code>, respectively. There are two options for running OLS regressions: (i) the <code>smf.ols</code> function and (ii) the <code>sm.OLS</code> function. To see all available models that can be esitmated by these functions, we can use <code>dir(smf)</code> and <code>dir(sm)</code>.</p>
 <p>In the case of <code>smf</code>, we can use <code>R</code>-style formulas to specify estimation equations. In the following, we use the <code>smf.ols</code> function to estimate the model. Note that the estimation equation is specified as <code>formula='testscr~str'</code>, where <code>~</code> symbol separates the dependent and independent variables.</p>
-<div id="f846712b" class="cell" data-execution_count="5">
+<div id="83cc8d24" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the model</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>model1<span class="op">=</span>smf.ols(formula<span class="op">=</span><span class="st">'testscr~str'</span>,data<span class="op">=</span>CAschool)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the fit function to obtain parameter estimates</span></span>
@@ -686,8 +686,8 @@ Figure&nbsp;11.1: The scatter plot of test score and student-teacher ratio
 Dep. Variable:                testscr   R-squared:                       0.051
 Model:                            OLS   Adj. R-squared:                  0.049
 Method:                 Least Squares   F-statistic:                     22.58
-Date:                Sat, 28 Jun 2025   Prob (F-statistic):           2.78e-06
-Time:                        09:47:35   Log-Likelihood:                -1822.2
+Date:                Thu, 07 Aug 2025   Prob (F-statistic):           2.78e-06
+Time:                        10:14:41   Log-Likelihood:                -1822.2
 No. Observations:                 420   AIC:                             3648.
 Df Residuals:                     418   BIC:                             3657.
 Df Model:                           1                                         
@@ -771,26 +771,26 @@ Table&nbsp;11.2: Some important attributes
 </div>
 </div>
 <p>Below, we illustrate some of these attributes.</p>
-<div id="6984bffb" class="cell" data-execution_count="6">
+<div id="a5e09a53" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of observations</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>result1.nobs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="204">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>420.0</code></pre>
 </div>
 </div>
-<div id="cbd78bf1" class="cell" data-execution_count="7">
+<div id="5bcb6394" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimated parameters</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>result1.params</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="205">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>Intercept    698.932952
 str           -2.279808
 dtype: float64</code></pre>
 </div>
 </div>
-<div id="069148a2" class="cell" data-execution_count="8">
+<div id="1320c8aa" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The first five residuals</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>result1.resid[<span class="dv">0</span>:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="206">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>0    32.652600
 1    11.339167
 2   -12.706887
@@ -799,18 +799,18 @@ dtype: float64</code></pre>
 dtype: float64</code></pre>
 </div>
 </div>
-<div id="ec648266" class="cell" data-execution_count="9">
+<div id="3fd57b33" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The first five predictions</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>result1.predict()[<span class="dv">0</span>:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="207">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>array([658.14738785, 649.86084512, 656.30686253, 659.36199297,
        656.3659006 ])</code></pre>
 </div>
 </div>
-<div id="c2e953cc" class="cell" data-execution_count="10">
+<div id="14c2af91" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The first five predictions</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>result1.fittedvalues[<span class="dv">0</span>:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="208">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>0    658.147388
 1    649.860845
 2    656.306863
@@ -820,7 +820,7 @@ dtype: float64</code></pre>
 </div>
 </div>
 <p>Next, we describe how to use the <code>sm.OLS</code> function for regression analysis. In this case, we need to supply the dependent and independent variable(s) as arrays through the <code>endog</code> and <code>exog</code> arguments, respectively.</p>
-<div id="39da48a1" class="cell" data-execution_count="11">
+<div id="be37071a" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Arrange the data</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>CAschool[<span class="st">"const"</span>]<span class="op">=</span><span class="dv">1</span> <span class="co"># add a constant column</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the dependent and independent variables</span></span>
@@ -828,7 +828,7 @@ dtype: float64</code></pre>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>X<span class="op">=</span>CAschool[[<span class="st">"const"</span>,<span class="st">"str"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note that we need to explicitly specify the intercept term: <code>CAschool["const"]=1</code>, which adds a column of ones to the dataframe <code>CAschool</code>.</p>
-<div id="77c0346d" class="cell" data-execution_count="12">
+<div id="900a0699" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the model</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>model2<span class="op">=</span>sm.OLS(endog<span class="op">=</span>y,exog<span class="op">=</span>X)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the model</span></span>
@@ -841,8 +841,8 @@ dtype: float64</code></pre>
 Dep. Variable:                testscr   R-squared:                       0.051
 Model:                            OLS   Adj. R-squared:                  0.049
 Method:                 Least Squares   F-statistic:                     22.58
-Date:                Sat, 28 Jun 2025   Prob (F-statistic):           2.78e-06
-Time:                        09:47:35   Log-Likelihood:                -1822.2
+Date:                Thu, 07 Aug 2025   Prob (F-statistic):           2.78e-06
+Time:                        10:14:41   Log-Likelihood:                -1822.2
 No. Observations:                 420   AIC:                             3648.
 Df Residuals:                     418   BIC:                             3657.
 Df Model:                           1                                         
@@ -919,7 +919,7 @@ SER &amp;= s_{\hat{u}} = \sqrt{\frac{1}{n-2}\sum_{i=1}^n\left(\hat{u}_i - \bar{\
 \]</span> where the fourth equality is due to <span class="math inline">\(\sum_{i=1}^n \hat{u}_i = 0\)</span>, which means <span class="math inline">\(\bar{\hat{u}} = 0\)</span>. The SER has the same units as <span class="math inline">\(𝑌\)</span> and measures the spread of the observations around the regression line.</p>
 <p>The <span class="math inline">\(R^2\)</span> ranges between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>, and a high value of <span class="math inline">\(R^2\)</span> indicates that the model explains a large fraction of the variation in <span class="math inline">\(Y\)</span>. The SER is always non-negative, and a smaller value indicates that the model fits the data better.</p>
 <p>In the following code chunk, we compute both measures of fit for the test score regression in <a href="#eq-eq11-3" class="quarto-xref">Equation&nbsp;<span>11.3</span></a>. The estimates are given in <a href="#tbl-t11-3" class="quarto-xref">Table&nbsp;<span>11.3</span></a>. The <span class="math inline">\(R^2=0.05\)</span> means that the <code>STR</code> regressor explains <span class="math inline">\(5\%\)</span> of the variance of the dependent variable <code>TestScore</code>. The SER estimate is <span class="math inline">\(18.6\)</span>, providing an estimate of the standard deviation of the error terms in units of test score points.</p>
-<div id="4b3fbc97" class="cell" data-execution_count="14">
+<div id="742511e6" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Measures of fit</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> CAschool.testscr</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> result1.nobs</span>
@@ -938,7 +938,7 @@ SER &amp;= s_{\hat{u}} = \sqrt{\frac{1}{n-2}\sum_{i=1}^n\left(\hat{u}_i - \bar{\
 Table&nbsp;11.3: Measures of fit
 </figcaption>
 <div aria-describedby="tbl-t11-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="213">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 
 
@@ -1118,7 +1118,7 @@ The least squares assumptions
 <img src="Chapter4-LinearRegressionOneRegressor_files/figure-html/fig-f11.3-output-2.png" data-ref-parent="fig-f11.3" width="586" height="509" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-f11.3-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) The zero-conditional mean assumption does not holds
+(b) The zero-conditional mean assumption does not hold
 </figcaption>
 </figure>
 </div>
@@ -1342,7 +1342,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/osmdogan\.github\.io\/Python_Book\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1690,7 +1690,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hadley/r4ds/edit/main/Chapter4-LinearRegressionOneRegressor.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hadley/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://osmdogan.github.io/Python_Book/edit/main/Chapter4-LinearRegressionOneRegressor.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://osmdogan.github.io/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
