@@ -6,7 +6,7 @@
       "source": [
         "# Regression with a Binary Dependent Variable {#sec-chapter18}"
       ],
-      "id": "329e3989"
+      "id": "a34b0e3c"
     },
     {
       "cell_type": "code",
@@ -21,7 +21,7 @@
         "from statsmodels.iolib.summary2 import summary_col\n",
         "import scipy.stats as stats"
       ],
-      "id": "7330d5a8",
+      "id": "8d046ae3",
       "execution_count": null,
       "outputs": []
     },
@@ -57,7 +57,7 @@
         "\n",
         "The descriptive statistics of these variables are presented in @tbl-t18-1. There are 2380 observations in the dataset. The average mortgage denial rate is 0.12, the average payment-to-income ratio is 0.33, and the proportion of Black applicants is 0.14."
       ],
-      "id": "6d3eb9f1"
+      "id": "a86c063f"
     },
     {
       "cell_type": "code",
@@ -71,7 +71,7 @@
         "# Column names\n",
         "mydata.columns"
       ],
-      "id": "9a231994",
+      "id": "aa8692a8",
       "execution_count": null,
       "outputs": []
     },
@@ -94,7 +94,7 @@
       "source": [
         "In @fig-f18-1, we present a scatter plot of the mortgage application denial (`deny`) against the payment-to-income ratio (`pirat`). Although `deny` is binary, we can still plot it against a continuous variable. The estimated regression line indicates a positive relationship between the payment-to-income ratio and `deny`. "
       ],
-      "id": "a792ecec"
+      "id": "9672a1c6"
     },
     {
       "cell_type": "code",
@@ -214,7 +214,7 @@
         "\n",
         "We use the following code chunk to estimate these models and then present the estimation results in @tbl-t18-2."
       ],
-      "id": "7f9e380b"
+      "id": "5a1735cc"
     },
     {
       "cell_type": "code",
@@ -227,7 +227,7 @@
         "r2 = smf.ols(formula=\"deny ~ pirat + black\",\n",
         "         data = mydata).fit(cov_type=\"HC1\")"
       ],
-      "id": "1c6b9fb7",
+      "id": "049584c1",
       "execution_count": null,
       "outputs": []
     },
@@ -237,7 +237,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "9bf46410"
+      "id": "2e09548e"
     },
     {
       "cell_type": "code",
@@ -274,7 +274,7 @@
         "\n",
         "Although the linear probability model is easy to estimate and interpret, it has two main drawbacks. The first drawback is that the predicted probabilities from the linear probability model can be less than 0 or greater than 1. We assume that the population regression function is specified as $P(Y_i=1|X_{1i},X_{2i},\\ldots,X_{ki})=\\beta_0+\\beta_1X_{1i}+\\beta_2X_{2i}+\\ldots+\\beta_kX_{ki}$. In estimating this function, we do not constrain the predicted probabilities to lie within the valid interval [0,1].  In @fig-f18-2 and @fig-f18-3, we present the predicted probabilities for Models 1 and 2. These figures show that some of the predicted probabilities fall outside the valid interval [0,1]."
       ],
-      "id": "8bf0dc7e"
+      "id": "f30c7f24"
     },
     {
       "cell_type": "code",
@@ -348,7 +348,7 @@
         "\\end{align*}\n",
         "$$"
       ],
-      "id": "5afedea4"
+      "id": "c341d84c"
     },
     {
       "cell_type": "code",
@@ -360,7 +360,7 @@
         "probability = stats.norm.cdf(z)\n",
         "print(\"Predicted probability:\", probability.round(3))"
       ],
-      "id": "d546ea0e",
+      "id": "ef8e6635",
       "execution_count": null,
       "outputs": []
     },
@@ -414,7 +414,7 @@
         "\n",
         "The probit models can be estimated using the `smf.probit` function from the `statsmodels` package. The following code chunk can be used to estimate these models and present the estimation results in @tbl-t18-4."
       ],
-      "id": "20a4234d"
+      "id": "5c4cdfa3"
     },
     {
       "cell_type": "code",
@@ -428,7 +428,7 @@
         "r2 = smf.probit('deny ~ pirat + black',  \n",
         "                  data=mydata).fit(cov_type=\"HC1\", disp=0)"
       ],
-      "id": "9b91d265",
+      "id": "c3e01a2b",
       "execution_count": null,
       "outputs": []
     },
@@ -438,7 +438,7 @@
       "source": [
         "::: {layout-ncol=1}"
       ],
-      "id": "ae01334d"
+      "id": "9a2f15ad"
     },
     {
       "cell_type": "code",
@@ -482,7 +482,7 @@
         "\n",
         "In @fig-f18-4, we present the scatter plot between `deny` and `pirat` along with the predicted probabilities based on the first model. Note that the normal cumulative distribution function (cdf) ensures that all predicted probabilities are in the interval [0, 1]."
       ],
-      "id": "3fa18b64"
+      "id": "f98cb82a"
     },
     {
       "cell_type": "code",
@@ -529,7 +529,7 @@
         " \\end{align*}\n",
         "$$"
       ],
-      "id": "92795ebd"
+      "id": "1e1edb1d"
     },
     {
       "cell_type": "code",
@@ -543,7 +543,7 @@
         "probability_difference = predictions.diff().iloc[-1]\n",
         "print(\"Difference in predicted probabilities:\", probability_difference.round(3))"
       ],
-      "id": "a82a2aee",
+      "id": "b5dd5051",
       "execution_count": null,
       "outputs": []
     },
@@ -559,7 +559,7 @@
         "\\end{align*}\n",
         "$$"
       ],
-      "id": "9122d98c"
+      "id": "c50a6f36"
     },
     {
       "cell_type": "code",
@@ -575,7 +575,7 @@
         "probability_difference = predictions.diff().iloc[-1]\n",
         "print(\"Difference in predicted denial probabilities:\", probability_difference.round(3))"
       ],
-      "id": "c71ec184",
+      "id": "282b209f",
       "execution_count": null,
       "outputs": []
     },
@@ -587,7 +587,7 @@
         "\n",
         "The partial effects can be computed using the `get_margeff` function in `statsmodels`. The following code chunk can be used to compute the partial effects at the mean and overall values of the regressors for Models 1 and 2. These results indicate that the partial effects at the mean and overall values of the regressors are the same for the probit model."
       ],
-      "id": "e17925fc"
+      "id": "e190f53b"
     },
     {
       "cell_type": "code",
@@ -596,7 +596,7 @@
         "# Partial effect at the average (PEA) for Model 1\n",
         "print(r1.get_margeff(at=\"mean\").summary())"
       ],
-      "id": "730b1f73",
+      "id": "cc829f6c",
       "execution_count": null,
       "outputs": []
     },
@@ -607,7 +607,7 @@
         "# Average partial effect (APE) for Model 1\n",
         "print(r1.get_margeff(at=\"overall\").summary())"
       ],
-      "id": "da6b2f43",
+      "id": "72f13fd7",
       "execution_count": null,
       "outputs": []
     },
@@ -618,7 +618,7 @@
         "# Partial effect at the average (PEA) for Model 2\n",
         "print(r2.get_margeff(at=\"mean\").summary())"
       ],
-      "id": "feb5974f",
+      "id": "ae365346",
       "execution_count": null,
       "outputs": []
     },
@@ -629,7 +629,7 @@
         "# Average partial effect (APE) for Model 2\n",
         "print(r2.get_margeff(at=\"overall\").summary())"
       ],
-      "id": "c51e46a0",
+      "id": "26fde3b6",
       "execution_count": null,
       "outputs": []
     },
@@ -665,7 +665,7 @@
         "\n",
         "The logit model is estimated using the `smf.logit` function from the `statsmodels` package. "
       ],
-      "id": "a07232e9"
+      "id": "1c490ec3"
     },
     {
       "cell_type": "code",
@@ -677,7 +677,7 @@
         "# Model 2: Logistic regression with 'pirat' and 'black' as predictors\n",
         "r2 = smf.logit('deny ~ pirat + black', data=mydata).fit(cov_type=\"HC1\", disp=0)"
       ],
-      "id": "648995db",
+      "id": "2d29b464",
       "execution_count": null,
       "outputs": []
     },
@@ -687,7 +687,7 @@
       "source": [
         "::: {layout-ncol=1}"
       ],
-      "id": "67cd8855"
+      "id": "c4e6dd6b"
     },
     {
       "cell_type": "code",
@@ -734,7 +734,7 @@
         "\\end{align*}\n",
         "$$"
       ],
-      "id": "de4714ab"
+      "id": "df0b02e8"
     },
     {
       "cell_type": "code",
@@ -750,7 +750,7 @@
         "probability_difference = predictions.diff().iloc[-1]\n",
         "print(\"Difference in predicted probabilities:\", probability_difference.round(2))"
       ],
-      "id": "48960c9e",
+      "id": "0169f174",
       "execution_count": null,
       "outputs": []
     },
@@ -762,7 +762,7 @@
         "\n",
         "The logit and probit regressions provide similar predicted probabilities. In @fig-f18-5, we plot the predicted probabilities based on Model 1 for both probit and logit regressions.  The differences between predicted probabilities are small. Historically, the logit model has been more popular than the probit model because of its computational advantages. However, given the availability of modern computational tools, the choice between the probit and logit models is often based on the researcher's preference."
       ],
-      "id": "7465d0b1"
+      "id": "9fb35ddd"
     },
     {
       "cell_type": "code",
@@ -893,7 +893,7 @@
         "\n",
         "For the models given in @tbl-t18-2, we provide the pseudo $R^2$, AIC, and BIC values in @tbl-t18-6. These values indicate that Model 2 has a better fit than Model 1 according to all three measures of fit."
       ],
-      "id": "00977019"
+      "id": "fd3d2250"
     },
     {
       "cell_type": "code",
@@ -946,7 +946,7 @@
         "\n",
         "The following code chunk can be used to create these categories:"
       ],
-      "id": "0d8ceb6d"
+      "id": "a8a04cbc"
     },
     {
       "cell_type": "code",
@@ -955,7 +955,7 @@
         "df = mydata.copy()\n",
         "df['lvrat_s'] = pd.cut(df['lvrat'],[0,.799,.95,1.95], labels = ['low','medium','high'])"
       ],
-      "id": "bbcd2086",
+      "id": "d00007e9",
       "execution_count": null,
       "outputs": []
     },
@@ -980,7 +980,7 @@
         "\n",
         "::: {layout-ncol=1}"
       ],
-      "id": "c63fddb4"
+      "id": "1dbc46b8"
     },
     {
       "cell_type": "code",
@@ -1016,7 +1016,7 @@
         "### Estimation results\n",
         "The following code chunk can be used to estimate these models. The estimation results are presented in @tbl-t18-7."
       ],
-      "id": "d6b35035"
+      "id": "3c584549"
     },
     {
       "cell_type": "code",
@@ -1041,7 +1041,7 @@
         "model6 = smf.probit(formula = 'deny ~ black*(pirat + hirat) + C(lvrat_s) + chist + mhist + phist + insurance + selfemp + single + hschool + unemp', \n",
         "                   data = df).fit(disp = 0, cov_type='HC1')"
       ],
-      "id": "777888de",
+      "id": "23bae086",
       "execution_count": null,
       "outputs": []
     },
@@ -1051,7 +1051,7 @@
       "source": [
         "::: {layout-ncol=1}"
       ],
-      "id": "cb58b7a5"
+      "id": "bbf8c36d"
     },
     {
       "cell_type": "code",
@@ -1091,7 +1091,7 @@
         "\n",
         "- We cannot directly compare the coefficient estimates from (2)--(6) with those in (1). In order to make a statement about the effect of being non-white, we need to compute the estimated denial probability for two individuals that differ only in race. For the comparison, we consider two individuals that share mean values for all numeric regressors. For the qualitative variables, we assign the property that is most representative for the data at hand. For example, consider self-employment: 88% of all individuals in the sample are not self-employed (`selfemp=0`). We can use the following code chunk to compute the difference in the predicted denial probability for a white and a black applicant."
       ],
-      "id": "97aed94f"
+      "id": "8f95d3ee"
     },
     {
       "cell_type": "code",
@@ -1112,7 +1112,7 @@
         "     'condomin':[0, 0]}\n",
         "    )"
       ],
-      "id": "dccc6ec7",
+      "id": "d0d5e946",
       "execution_count": null,
       "outputs": []
     },
@@ -1141,7 +1141,7 @@
         "  \n",
         "- An interesting question related to racial parity can be investigated using Model 6. If the coefficient on `black:pirat` was different from zero, the effect of the payment-to-income ratio on the denial probability would be different for black and white applicants. Similarly, a non-zero coefficient on `black:hirat` would indicate that loan officers weight the risk of bankruptcy associated with a high loan-to-value ratio differently for black and white mortgage applicants. We will test for the joint significance of these two variables. Note that under the joint null hypothesis (the restricted model), we have Model 4. We can use the F-statistic to test the null hypothesis that the coefficients on `black:pirat` and `black:hirat` are jointly equal to zero. The following code chunk can be used to perform the test."
       ],
-      "id": "f02ace76"
+      "id": "d232c62e"
     },
     {
       "cell_type": "code",
@@ -1152,7 +1152,7 @@
         "f_test = model6.f_test(hypotheses)\n",
         "print(f_test)"
       ],
-      "id": "4f0c4654",
+      "id": "e240fa9e",
       "execution_count": null,
       "outputs": []
     },
@@ -1162,7 +1162,7 @@
       "source": [
         "According to the test result, we fail to reject the joint null hypothesis that the coefficients on `black:pirat` and `black:hirat` are jointly equal to zero at the 5% significance level. "
       ],
-      "id": "4a467245"
+      "id": "0dda91db"
     }
   ],
   "metadata": {

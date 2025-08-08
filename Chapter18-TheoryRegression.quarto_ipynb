@@ -6,7 +6,7 @@
       "source": [
         "# The Theory of Linear Regression with One Regressor {#sec-chapter25}"
       ],
-      "id": "503d8b0a"
+      "id": "967b3974"
     },
     {
       "cell_type": "code",
@@ -18,7 +18,7 @@
         "import scipy.stats as stats\n",
         "plt.style.use('seaborn-v0_8-darkgrid')"
       ],
-      "id": "3072bac7",
+      "id": "494c22d3",
       "execution_count": null,
       "outputs": []
     },
@@ -258,7 +258,7 @@
         "\n",
         "In the following code chunk, we assume that $V\\sim N(0,1)$ and `delta = np. arange(1, 10)`. We calculate the Chebychev bound and the actual probability that $V$ is within $\\delta$ of its mean. @fig-fig25-1 shows that the Chebychev bound is a conservative estimate of the actual probability."
       ],
-      "id": "ecb1acda"
+      "id": "c41221b2"
     },
     {
       "cell_type": "code",
@@ -273,7 +273,7 @@
         "# Actual probability\n",
         "prob_actual = stats.norm.cdf(delta, mu_V, np.sqrt(sigma2_V)) - stats.norm.cdf(-delta, mu_V, np.sqrt(sigma2_V))"
       ],
-      "id": "7aeeda60",
+      "id": "33119aeb",
       "execution_count": null,
       "outputs": []
     },
@@ -357,7 +357,7 @@
         "\n",
         "@fig-fig25-2 displays the histograms of $m_a$, $m_b$, and $m_c$ for different sample sizes. In the case of $m_a$ and $m_b$, the histograms do not concentrate around the true mean $\\mu_Y = 0$ as the sample size increases. However, since the histograms are centered around the true mean, these estimators are unbiased. On the other hand, the histogram of $m_c$ becomes more concentrated around the true mean as the sample size increases, indicating that $m_c$ is a consistent estimator.\n"
       ],
-      "id": "a3584eff"
+      "id": "65a37d53"
     },
     {
       "cell_type": "code",
@@ -387,7 +387,7 @@
         "        m_b[i, j] = ((1-a**n[i])/(1-a))**(-1)*np.sum(a**(np.arange(n[i]))*Y)\n",
         "        m_c[i, j] = np.mean(Y) + 1/n[i]"
       ],
-      "id": "e54e3dea",
+      "id": "11224fef",
       "execution_count": null,
       "outputs": []
     },
@@ -565,7 +565,7 @@
         "\n",
         "In the following code chunk, we illustrate the convergence in distribution between the binomial and poisson random variables. We set $\\lambda = 5$ and consider three sample sizes: $n = 10$, $n = 20$, and $n = 50$. For each sample size, we then compute the cumulative distribution functions of the binomial and poisson random variables over the range $t = 0, 1, \\ldots, 15$. @fig-fig25-3 shows that the cumulative distribution functions of the binomial random variables converge to the cumulative distribution function of the poisson random variable as the sample size increases."
       ],
-      "id": "9643b584"
+      "id": "00381cbd"
     },
     {
       "cell_type": "code",
@@ -577,7 +577,7 @@
         "n_values = [10, 20, 50]\n",
         "p_values = [lambda_p / n for n in n_values]"
       ],
-      "id": "20d97a8f",
+      "id": "2668b68c",
       "execution_count": null,
       "outputs": []
     },
@@ -639,7 +639,7 @@
         "\n",
         "In the following code chunk, we illustrate the central limit theorem using the uniform random variables defined in @exm-exm25-4. We set $n = 10, 50, 100, 500, 1000, 5000$ and generate 1000 samples for each sample size. We then compute the sample mean $\\bar{Y}$ and plot the histograms of $\\sqrt{12n}(\\bar{Y}-1/2)$ for each sample size. @fig-fig25-4 shows the histograms of $\\sqrt{12n}(\\bar{Y}-1/2)$ along with the standard normal density plot. As the sample size increases, the deviations between the histograms and the standard normal density plot decrease, indicating that the sample mean converges to the standard normal distribution as the sample size grows."
       ],
-      "id": "debe9937"
+      "id": "b64de5d5"
     },
     {
       "cell_type": "code",
@@ -649,7 +649,7 @@
         "# Parameters\n",
         "n_values = [10, 50, 100, 500, 1000, 5000]"
       ],
-      "id": "cd319507",
+      "id": "8da238d3",
       "execution_count": null,
       "outputs": []
     },
@@ -1022,7 +1022,7 @@
         "\n",
         "The WLS estimator computed in this way is usually called the feasible WLS estimator. The advantage of the feasible WLS estimator is that it is asymptotically efficient if the functional form of the conditional variance is correctly specified. The disadvantage is that it produces invalid inference if the functional form is misspecified. Since, in practice, the functional form is mostly unknown, @Stock2020 concludes that \"it is our opinion that, despite the theoretical appeal of WLS, heteroskedasticity-robust standard errors provide a better way to handle potential heteroskedasticity in most applications.\""
       ],
-      "id": "7f03c03d"
+      "id": "85095014"
     }
   ],
   "metadata": {

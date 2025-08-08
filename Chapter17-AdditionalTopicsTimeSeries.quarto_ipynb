@@ -6,7 +6,7 @@
       "source": [
         "# Additional Topics in Time Series Regression {#sec-chapter24}"
       ],
-      "id": "1b0aeb97"
+      "id": "f13e579c"
     },
     {
       "cell_type": "code",
@@ -29,7 +29,7 @@
         "#plt.style.use('ggplot')\n",
         "plt.style.use('seaborn-v0_8-darkgrid')"
       ],
-      "id": "d90150d3",
+      "id": "be12f532",
       "execution_count": null,
       "outputs": []
     },
@@ -202,7 +202,7 @@
         "- `YGROWTH`: Annual real GDP growth rate\n",
         "- `RECESSION`: Recession indicator (1 if recession, 0 otherwise)"
       ],
-      "id": "55ed4d86"
+      "id": "c3942280"
     },
     {
       "cell_type": "code",
@@ -213,7 +213,7 @@
         "dfGrowth.index = pd.date_range(start = '1960', periods=len(dfGrowth), freq = 'QS')\n",
         "dfGrowth.columns"
       ],
-      "id": "752f8204",
+      "id": "8d46fbf6",
       "execution_count": null,
       "outputs": []
     },
@@ -228,7 +228,7 @@
         "- `RSPREAD`: Term-spread (`GS10-TB3MS`)\n",
         "- `RECESSION`: Dummy variable specifying the recession periods."
       ],
-      "id": "a3156407"
+      "id": "8ae37f0b"
     },
     {
       "cell_type": "code",
@@ -239,7 +239,7 @@
         "dfTermSpread.index = pd.date_range(start = '1960-01-01', periods=len(dfTermSpread), freq = 'QS') \n",
         "dfTermSpread.columns"
       ],
-      "id": "34f268c7",
+      "id": "d27074a9",
       "execution_count": null,
       "outputs": []
     },
@@ -249,7 +249,7 @@
       "source": [
         "In the following code chunk, we merge the two datasets into a single dataset and plot the GDP growth rate and the term spread. The shaded areas in @fig-fig24-1 indicate the recession periods."
       ],
-      "id": "f2b4047c"
+      "id": "26f0f02d"
     },
     {
       "cell_type": "code",
@@ -259,7 +259,7 @@
         "mydata = pd.merge(dfGrowth, dfTermSpread, left_index=True, right_index=True)\n",
         "mydata.columns"
       ],
-      "id": "be434e70",
+      "id": "d32f9c42",
       "execution_count": null,
       "outputs": []
     },
@@ -300,7 +300,7 @@
       "source": [
         "Although our model is a VAR(2) model, we can check whether the information criteria return the same number of lags. In the following code chunk, we first use the `VAR` function to create the VAR model. The `select_order` method is then used to determine the number of lags selected by the information criteria. The results indicate that all information criteria suggest 2 lags."
       ],
-      "id": "5bdc6dc9"
+      "id": "99246590"
     },
     {
       "cell_type": "code",
@@ -312,7 +312,7 @@
         "lag_selection = model.select_order(maxlags=4)\n",
         "print(lag_selection.summary())"
       ],
-      "id": "5926c088",
+      "id": "81a1396f",
       "execution_count": null,
       "outputs": []
     },
@@ -322,7 +322,7 @@
       "source": [
         "We then use the `fit` method to estimate the VAR model with 2 lags. The `summary` method provides an overview of the estimation results. In the `YGROWTH` equation, all estimated coefficients are statistically significant at the 5% level, indicating that the GDP growth rate can be forecasted using its own lagged values and the lagged values of the term spread. In the `RSPREAD` equation, except for the first lag of `YGROWTH`, all other estimated coefficients are statistically significant at the 5% level."
       ],
-      "id": "aa046b3c"
+      "id": "aba2752d"
     },
     {
       "cell_type": "code",
@@ -332,7 +332,7 @@
         "var_model = model.fit(2)\n",
         "print(var_model.summary())"
       ],
-      "id": "a6934500",
+      "id": "d15e9c7e",
       "execution_count": null,
       "outputs": []
     },
@@ -342,7 +342,7 @@
       "source": [
         "Although all information criteria suggest two lags, we can still use autocorrelation tests to check whether there is any remaining correlation in the error terms. In the following code chunk, we use the Ljung-Box test to check for serial correlation in the residuals. The results show that there is no serial correlation in the residuals."
       ],
-      "id": "87d4e282"
+      "id": "6fad7030"
     },
     {
       "cell_type": "code",
@@ -352,7 +352,7 @@
         "ljungbox_results = acorr_ljungbox(var_model.resid['YGROWTH'], lags=[4], return_df=True)\n",
         "print(ljungbox_results)"
       ],
-      "id": "7025e14f",
+      "id": "c27b9174",
       "execution_count": null,
       "outputs": []
     },
@@ -364,7 +364,7 @@
         "ljungbox_results = acorr_ljungbox(var_model.resid['RSPREAD'], lags=[4], return_df=True)\n",
         "print(ljungbox_results)"
       ],
-      "id": "03a924c1",
+      "id": "ce20c9bf",
       "execution_count": null,
       "outputs": []
     },
@@ -374,7 +374,7 @@
       "source": [
         "In the following code chunk, we use the `test_whiteness` method, which provides a portmanteau test for testing the overall significance of the residual autocorrelations up to the fourth lag. The results show that there is no serial correlation in the residuals."
       ],
-      "id": "aff42846"
+      "id": "82b2ce20"
     },
     {
       "cell_type": "code",
@@ -383,7 +383,7 @@
         "# Overall significance of the residual autocorrelations up to the fourth lag\n",
         "var_model.test_whiteness(nlags=4).summary()"
       ],
-      "id": "77320cbf",
+      "id": "ffcde565",
       "execution_count": null,
       "outputs": []
     },
@@ -403,7 +403,7 @@
         "\n",
         "This test is conducted using the `test_causality` method in the following code chunk. The results show that the null hypothesis is rejected, indicating that `TSpread` Granger-causes `GDPGR`."
       ],
-      "id": "896b6331"
+      "id": "40422c28"
     },
     {
       "cell_type": "code",
@@ -412,7 +412,7 @@
         "gtest=var_model.test_causality('YGROWTH', ['RSPREAD'], kind='f')\n",
         "print(gtest.summary())"
       ],
-      "id": "7293e734",
+      "id": "bbc9119f",
       "execution_count": null,
       "outputs": []
     },
@@ -422,7 +422,7 @@
       "source": [
         "We can use the `forecast` method to forecast the GDP growth rate and the term spread for the next 10 periods. The forecasted values are plotted in @fig-fig24-forecast1."
       ],
-      "id": "80b4cfe0"
+      "id": "0ab47f99"
     },
     {
       "cell_type": "code",
@@ -432,7 +432,7 @@
         "forecast = var_model.forecast(varData.values[-2:], steps=10)\n",
         "forecast = pd.DataFrame(forecast, columns=['GDPGR', 'TSpread'], index=pd.date_range(start='2017-10-01', periods=10, freq='QS'))"
       ],
-      "id": "88e546d2",
+      "id": "4a1cb96d",
       "execution_count": null,
       "outputs": []
     },
@@ -473,7 +473,7 @@
         "\n",
         "The effect of a shock in `TSpread` on `GDPGR` can be analysed through the impulse-response analysis. To that end, we can use the `irf` method. The response function of `GDPGR` is plotted in @fig-fig24-irf1. The plot shows that a shock in the term spread has a negative effect on the GDP growth rate in the first period.\n"
       ],
-      "id": "9cf0d047"
+      "id": "02fa7f1b"
     },
     {
       "cell_type": "code",
@@ -739,7 +739,7 @@
         "### An empirical application\n",
         "As an example, we examine the relationship between short- and long-term interest rates: (i) the interest rate on 3-month Treasury bills and (ii) the interest rate on 10-year Treasury bonds. @fig-f24-2 displays the time series plots. Both interest rates were low during the 1960s, rose throughout the 1970s to peak in the early 1980s, and declined thereafter. However, the difference between long-term and short-term interest rates, known as the term spread (also shown in @fig-f24-2), does not appear to exhibit a trend. These patterns suggest that long-term and short-term interest rates are cointegrated, as both series share a common stochastic trend and exhibit similar long-run behavior."
       ],
-      "id": "84052f18"
+      "id": "5f01eaea"
     },
     {
       "cell_type": "code",
@@ -750,7 +750,7 @@
         "# Set time index\n",
         "df.index = pd.date_range(start = '1959-01-01', periods=len(df), freq = 'QS')"
       ],
-      "id": "d6df6ef8",
+      "id": "fb926204",
       "execution_count": null,
       "outputs": []
     },
@@ -795,7 +795,7 @@
         "\\end{align}\n",
         "$${#eq-eq24-9}"
       ],
-      "id": "fc6d44ad"
+      "id": "020a6f5e"
     },
     {
       "cell_type": "code",
@@ -804,7 +804,7 @@
         "# Estimate the cointegrating parameter\n",
         "results = smf.ols('tb3ms ~ gs10', data=df).fit()"
       ],
-      "id": "c3734c04",
+      "id": "d56f71d9",
       "execution_count": null,
       "outputs": []
     },
@@ -822,7 +822,7 @@
         "\n",
         ":::{layout-ncol=1}"
       ],
-      "id": "8ed9fc4e"
+      "id": "34c0f675"
     },
     {
       "cell_type": "code",
@@ -845,7 +845,7 @@
         "\n",
         "In the second step, we use the EG-ADF test to test whether $\\hat{v}_t$ is stationary. The ADF test statistic given below is $-4.72$, which is less than the $5\\%$ critical value $-3.41$ given in @tbl-t24-2. Thus, we can reject the null hypothesis of unit root. As a result, this two-step approach suggests that `gs10` and `tb3ms` are cointegrated."
       ],
-      "id": "6857ce98"
+      "id": "352db132"
     },
     {
       "cell_type": "code",
@@ -855,7 +855,7 @@
         "adf_results = stt.adfuller(results.resid, regression='c', autolag='AIC')\n",
         "print(adf_results)"
       ],
-      "id": "824b9979",
+      "id": "30d47970",
       "execution_count": null,
       "outputs": []
     },
@@ -881,7 +881,7 @@
         "\n",
         "In the following code chunk, we use the `VECM` function to estimate the VECM model for `tb3ms` and `gs10`. The option `k_ar_diff=3` specifies that the lag order for the differenced variables is 3. The option `coint_rank=1` indicates that there is one cointegrating relationship between the variables. The option `deterministic='ci'` ensures that the VECM includes an intercept term in the vector error correction term."
       ],
-      "id": "42ae43cf"
+      "id": "8ff843ed"
     },
     {
       "cell_type": "code",
@@ -893,7 +893,7 @@
         "vecm_model_fit = vecm_model.fit()\n",
         "print(vecm_model_fit.summary())"
       ],
-      "id": "d834e3b6",
+      "id": "70eb62a7",
       "execution_count": null,
       "outputs": []
     },
@@ -910,7 +910,7 @@
         "\n",
         "In the following code chunk, we use the `coint_johansen` function to implement the Johansen cointegration test. The option `det_order=0` indicates that the error correction term includes a constant term, and the option `k_ar_diff=3` specifies that the lag order for the differenced variables is 3. The function returns the trace and maximum eigenvalue statistics and their critical values. "
       ],
-      "id": "ef78c571"
+      "id": "f2e55a2e"
     },
     {
       "cell_type": "code",
@@ -919,7 +919,7 @@
         "# Johansen cointegration test\n",
         "johansen_results = coint_johansen(vecmData, det_order=0, k_ar_diff=3)"
       ],
-      "id": "99cc8b70",
+      "id": "b98ec640",
       "execution_count": null,
       "outputs": []
     },
@@ -930,7 +930,7 @@
         "The trace statistic is returned in the `trace_stat` attribute, and the critical values at the 10%, 5%, and 1% significance levels are returned in the `trace_stat_crit_vals` attribute. The trace statistics for $H_0:\\text{rank}(\\bs{\\Pi})=0$ and $H_0:\\text{rank}(\\bs{\\Pi})=1$ are $31.56$ and $2.77$, respectively. The corresponding critical values at the 5% significance level are $15.49$ and $3.84$.\n",
         "Thus, we can reject $H_0:\\text{rank}(\\bs{\\Pi})=0$ but fail to reject $H_0:\\text{rank}(\\bs{\\Pi})=1$. As a result, we conclude that there is one cointegrating relationship according to the trace statistic."
       ],
-      "id": "2ca0e517"
+      "id": "f29ba28c"
     },
     {
       "cell_type": "code",
@@ -939,7 +939,7 @@
         "# Print trace statistic\n",
         "print(johansen_results.trace_stat)"
       ],
-      "id": "5fecfaa4",
+      "id": "d5fa21ff",
       "execution_count": null,
       "outputs": []
     },
@@ -950,7 +950,7 @@
         "# Print critical values for trace statistic at 10%, 5%, and 1% significance levels\n",
         "print(johansen_results.trace_stat_crit_vals)"
       ],
-      "id": "23b30fc1",
+      "id": "b398bc0a",
       "execution_count": null,
       "outputs": []
     },
@@ -960,7 +960,7 @@
       "source": [
         "The maximum eigenvalue statistic is returned in the `max_eig_stat` attribute, and the critical values at the 10%, 5%, and 1% significance levels are returned in the `max_eig_stat_crit_vals` attribute. The maximum eigenvalue statistics for $H_0:\\text{rank}(\\bs{\\Pi})=0$ and $H_0:\\text{rank}(\\bs{\\Pi})=1$ are $28.8$ and $2.77$, respectively. The corresponding critical values at the 5% significance level are $14.26$ and $3.84$. Again, we can reject $H_0:\\text{rank}(\\bs{\\Pi})=0$ but fail to reject $H_0:\\text{rank}(\\bs{\\Pi})=1$. As a result, we conclude that there is also one cointegrating relationship according to the maximum eigenvalue statistic."
       ],
-      "id": "5acc2040"
+      "id": "093f9663"
     },
     {
       "cell_type": "code",
@@ -969,7 +969,7 @@
         "# Print maximum eigenvalue statistic\n",
         "print(johansen_results.max_eig_stat)"
       ],
-      "id": "890858c1",
+      "id": "ff9716d2",
       "execution_count": null,
       "outputs": []
     },
@@ -980,7 +980,7 @@
         "# Print critical values for maximum eigenvalue statistic at 10%, 5%, and 1% significance levels\n",
         "print(johansen_results.max_eig_stat_crit_vals)"
       ],
-      "id": "02b05457",
+      "id": "07c63d29",
       "execution_count": null,
       "outputs": []
     },
@@ -998,7 +998,7 @@
         "\n",
         "As an example, we consider the daily Wilshire 5000 index, a broad stock market index that includes all actively traded U.S. stocks. @fig-f24-3 displays the time series plots of the index value, returns, squared returns, and absolute returns. The returns are calculated as the percentage change in the index value; squared returns are the square of the returns, and absolute returns are the absolute value of the returns. Although the index value shows an upward trend, there are periods where the value decreases. The returns exhibit volatility clustering, with periods of high volatility followed by high volatility and periods of low volatility followed by low volatility. This pattern is also observed in the squared and absolute returns."
       ],
-      "id": "feebb10e"
+      "id": "b129b683"
     },
     {
       "cell_type": "code",
@@ -1020,7 +1020,7 @@
         "# Calculate absolute returns\n",
         "df['abs_return'] = df['return'].abs()"
       ],
-      "id": "e4186275",
+      "id": "1323eea7",
       "execution_count": null,
       "outputs": []
     },
@@ -1071,7 +1071,7 @@
       "source": [
         "The volatility clustering observed in the returns leads to autocorrelation in the squared returns. The correlograms of the returns and squared returns are shown in @fig-f24-4. While the autocorrelation of the returns is relatively small at all lags, the autocorrelation of the squared returns is significant at all lags and decays slowly."
       ],
-      "id": "e9cbb276"
+      "id": "40e1b9b2"
     },
     {
       "cell_type": "code",
@@ -1113,7 +1113,7 @@
         "\n",
         "For the Wilshire 5000 index returns, we set $h=20$ and compute the 20-day realized volatility. In the following code chunk, we calculate the realized volatility using the `return` column in the `df` DataFrame. The realized volatility is calculated as the square root of the mean of the squared returns over the past 20 days.\n"
       ],
-      "id": "d1d435f4"
+      "id": "30dfc93e"
     },
     {
       "cell_type": "code",
@@ -1126,7 +1126,7 @@
         "for t in range(h, T):\n",
         "    df.at[df.index[t], 'RV'] = np.sqrt(np.mean(df.iloc[t-h+1:t][\"return\"]**2))"
       ],
-      "id": "ac94faa4",
+      "id": "a38d4a28",
       "execution_count": null,
       "outputs": []
     },
@@ -1136,7 +1136,7 @@
       "source": [
         "The time-series plot of the 20-day realized volatility estimates is shown in @fig-f24-5. In @fig-f24-6, we plot the returns along with the realized volatility bands ($\\pm\\text{RV}$). The figure shows that when returns are large, realized volatility is also high, and vice versa, suggesting that realized volatility effectively captures the volatility clustering observed in the returns. The width of the band can be used to identify periods of high volatility. For example, the realized volatility bands are wide during the 2008 financial crisis, indicating high volatility in the returns."
       ],
-      "id": "2ec13c60"
+      "id": "f92a434c"
     },
     {
       "cell_type": "code",
@@ -1340,7 +1340,7 @@
         "\n",
         "In Python, we can use the `arch` package to estimate a GARCH model. The following code chunk uses the `arch_model` function from the `arch` package to estimate the model. The option `vol='Garch'` specifies that the model is a GARCH model. The options `p=1` and `q=1` indicate that the lag order for the squared residuals and the conditional variance is 1, respectively. The option `dist='Normal'` specifies that the error term $v_t$ follows the standard normal distribution. The fit method is used to estimate the model."
       ],
-      "id": "61ec7aff"
+      "id": "3ecd151a"
     },
     {
       "cell_type": "code",
@@ -1352,7 +1352,7 @@
         "results = garch_model.fit(disp='off')\n",
         "print(results.summary())"
       ],
-      "id": "b11d01b6",
+      "id": "117b6a43",
       "execution_count": null,
       "outputs": []
     },
@@ -1370,7 +1370,7 @@
         "\n",
         "@fig-f24-7 shows the time-series plot of the GARCH volatility estimates. In @fig-f24-8, we plot returns along with the estimated volatility bands ($\\pm\\hat{\\sigma}_t$). The figure shows that when returns are large, the estimated volatility is also high, and vice versa, suggesting that the GARCH model effectively captures the volatility clustering observed in the returns."
       ],
-      "id": "37cb0937"
+      "id": "71eb9bfc"
     },
     {
       "cell_type": "code",
@@ -1432,7 +1432,7 @@
       "source": [
         "Next, we forecast the volatility for the next five periods using the `forecast` method. The option `horizon=5` specifies that we want to forecast the next five periods. The option `method='analytic'` indicates that we want to use the analytic method to forecast the volatility."
       ],
-      "id": "f04758fb"
+      "id": "0bf73464"
     },
     {
       "cell_type": "code",
@@ -1445,7 +1445,7 @@
         "print(forecasts.mean)\n",
         "print(forecasts.variance)"
       ],
-      "id": "9565bbe5",
+      "id": "62e2aa50",
       "execution_count": null,
       "outputs": []
     },
@@ -1464,7 +1464,7 @@
         "$$\n",
         "The test statistic has a chi-squared distribution with two degrees of freedom. The following code chunk uses the `jarque_bera` function from the `scipy.stats` package to perform the Jarque-Bera test on the standardized residuals. Since the p-value is less than 0.05, we reject the null hypothesis of normality."
       ],
-      "id": "92f48f98"
+      "id": "74d7e1ed"
     },
     {
       "cell_type": "code",
@@ -1474,7 +1474,7 @@
         "jb_results = stats.jarque_bera(results.std_resid)\n",
         "print(jb_results)"
       ],
-      "id": "7d308afa",
+      "id": "eefabc3e",
       "execution_count": null,
       "outputs": []
     },
@@ -1486,7 +1486,7 @@
         "\n",
         "In this example, we assume that the standardized error terms follow a standardized Student t-distribution with $\\nu$ degrees of freedom, which is a common choice for financial data that exhibit heavy tails. In the following code chunk, the option `dist='t'` specifies this distribution. The degrees of freedom parameter $\\nu$ is estimated along with the other parameters. "
       ],
-      "id": "ca417055"
+      "id": "394e8bea"
     },
     {
       "cell_type": "code",
@@ -1497,7 +1497,7 @@
         "results_t = garch_model_t.fit(disp='off')\n",
         "print(results_t.summary())"
       ],
-      "id": "7890c877",
+      "id": "1527ad15",
       "execution_count": null,
       "outputs": []
     },
@@ -1507,7 +1507,7 @@
       "source": [
         "The log-likelihood value of the GARCH model with the Student t-distribution is higher than that of the GARCH model with the normal distribution. The AIC and BIC values of the GARCH model with the Student t-distribution are lower than those of the GARCH model with the normal distribution. These observations suggest that the GARCH model with the Student t-distribution provides relatively a better fit for the sample data.\n"
       ],
-      "id": "f2fb0e1f"
+      "id": "d8bcf5de"
     }
   ],
   "metadata": {

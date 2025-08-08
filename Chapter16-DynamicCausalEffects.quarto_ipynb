@@ -6,7 +6,7 @@
       "source": [
         "# Estimation of Dynamic Causal Effects {#sec-chapter23}"
       ],
-      "id": "67510135"
+      "id": "7ce3e488"
     },
     {
       "cell_type": "code",
@@ -23,7 +23,7 @@
         "#plt.style.use('ggplot')\n",
         "plt.style.use('seaborn-v0_8-darkgrid')"
       ],
-      "id": "2c37df87",
+      "id": "e50a0179",
       "execution_count": null,
       "outputs": []
     },
@@ -298,7 +298,7 @@
         "\n",
         "The dataset is available in the `frozenjuice.csv` file.  We use the following code to load the data set and define real prices and percentage changes in real prices."
       ],
-      "id": "2e4355ef"
+      "id": "e4de3104"
     },
     {
       "cell_type": "code",
@@ -318,7 +318,7 @@
         "# Columns names\n",
         "df.columns"
       ],
-      "id": "84f0a130",
+      "id": "1d01dcac",
       "execution_count": null,
       "outputs": []
     },
@@ -330,7 +330,7 @@
         "\n",
         ":::{layout-ncol=1}"
       ],
-      "id": "0c99a692"
+      "id": "0e5c2339"
     },
     {
       "cell_type": "code",
@@ -351,7 +351,7 @@
       "source": [
         ":::"
       ],
-      "id": "65c8eb85"
+      "id": "f1657b7d"
     },
     {
       "cell_type": "code",
@@ -425,7 +425,7 @@
         "\n",
         "We use the HAC standard errors to obtain valid inference on the dynamic multipliers and cumulative dynamic multipliers. The truncation parameter for the HAC standard errors is $m=0.75T^{1/3}=0.75\\times612^{1/3}=6.37$. Therefore, we consider $m=7$ and $m=14$ for the HAC standard errors, where the latter is used to check the robustness of the results. The following code chunk shows how to estimate the models and obtain the HAC standard errors. The HAC standard errors estimates are obtained using the `cov_type='HAC'` and `cov_kwds={'maxlags': 7}` options, where the latter option specifies the truncation parameter. "
       ],
-      "id": "e5fbe119"
+      "id": "9e911210"
     },
     {
       "cell_type": "code",
@@ -454,7 +454,7 @@
         "df1 = df1.dropna(subset=[col for col in df1.columns if 'shift' in col or col.startswith('month')])\n",
         "model3 = smf.ols(formula=formula3, data=df1).fit(cov_type='HAC', cov_kwds={'maxlags': 7})"
       ],
-      "id": "ea1dd2ee",
+      "id": "789fcd03",
       "execution_count": null,
       "outputs": []
     },
@@ -466,7 +466,7 @@
         "\n",
         "We use the `Stargazer` package to present the estimation results. The following code chunk shows how to present the results in a table. @tbl-t23-2 includes the estimates of the dynamic multipliers and cumulative dynamic multipliers. "
       ],
-      "id": "d4c28c27"
+      "id": "4a22836c"
     },
     {
       "cell_type": "code",
@@ -488,7 +488,7 @@
         "table1.add_line('HAC truncation', HAC_truncation)\n",
         "table1.add_line('Monthly dummies', ['No', 'No', 'No', 'Yes'])"
       ],
-      "id": "a9e5fbf3",
+      "id": "d9ef74b1",
       "execution_count": null,
       "outputs": []
     },
@@ -498,7 +498,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "6bf474e1"
+      "id": "910aee1a"
     },
     {
       "cell_type": "code",
@@ -523,7 +523,7 @@
         "\n",
         "It is more convenient to present dynamic multipliers through a plot. @fig-f23-2 displays point estimates of dynamic multipliers along with upper and lower bounds of their 95% confidence intervals computed using the HAC standard errors. The figure indicates that the effect of an initial increase in the number of freezing degree days on real prices remains positive for the first six months. However, apart from the first month, the dynamic multipliers are not statistically different from zero at the 5% significance level, i.e., the confidence intervals include the zero line.\n"
       ],
-      "id": "64523c92"
+      "id": "3e49ea44"
     },
     {
       "cell_type": "code",
@@ -561,7 +561,7 @@
         "\n",
         "@fig-f22-3 displays the estimated cumulative dynamic multipliers along with their 95% confidence intervals. The figure shows that the cumulative multipliers increase over the first seven months, as the dynamic multipliers remain positive during this period. It also indicates that the cumulative multipliers for the first 12 months are statistically different from zero at the 5% significance level. However, the cumulative multipliers for the remaining months are not statistically different from zero, i.e., the confidence intervals include the zero line.\n"
       ],
-      "id": "e9ff7e92"
+      "id": "fade5a59"
     },
     {
       "cell_type": "code",
@@ -609,7 +609,7 @@
         "\n",
         "We use the F-statistic to test the joint null hypothesis. The p-value for the test is 0.47, indicating that the monthly dummy variables do not have a statistically significant effect on the percentage change in real prices. "
       ],
-      "id": "fd23134e"
+      "id": "3cb4fd1e"
     },
     {
       "cell_type": "code",
@@ -620,7 +620,7 @@
         "f_test = model3.f_test(restrictions)\n",
         "f_test.summary()"
       ],
-      "id": "461e585c",
+      "id": "886095f3",
       "execution_count": null,
       "outputs": []
     },
@@ -630,7 +630,7 @@
       "source": [
         "Finally, we examine whether the dynamic multipliers have remained stable over time. One way to assess this is by estimating these multipliers for different subperiods of the sample. For example, we consider the periods 1950–1966, 1967–1983, and 1984–2000. If the multipliers are consistent across all three periods, their estimates should be similar, and the estimated cumulative multipliers should also align. To investigate this, we re-estimate Model 2 for each subperiod and compare the estimated cumulative dynamic multipliers in @fig-f23-4. The figure shows that the estimated cumulative dynamic multipliers are relatively larger in the first subperiod compared to the other two subperiods. This suggests that the effect of freezing degree days on real prices has decreased over time.\n"
       ],
-      "id": "d59dd8f5"
+      "id": "120e3eec"
     },
     {
       "cell_type": "code",
@@ -649,7 +649,7 @@
         "point_estimates2 = m2.params[1:]\n",
         "point_estimates3 = m3.params[1:]"
       ],
-      "id": "1d978a19",
+      "id": "29dac984",
       "execution_count": null,
       "outputs": []
     },
@@ -733,7 +733,7 @@
         "\n",
         "where $\\text{GDPGR}_t$ is the GDP growth rate in quarter $t$, and $\\text{TSpread}_t$ is the term spread in quarter $t$. Although we are only using the past values of the term spread in this model, the term spread is likely to be endogenous. @Stock2020 write \"... past values of the term spread were not randomly assigned in an experiment; instead, the past term spread was simultaneously determined with past values of the growth rate of GDP. Because GDP and the interest rates making up the term spread are simultaneously determined, the other factors that determine the growth rate of GDP contained in $u_t$ are correlated with past values of the term spread; that is, the term spread is not exogenous.\"\n"
       ],
-      "id": "b09c810f"
+      "id": "02fe4d2c"
     }
   ],
   "metadata": {

@@ -10,7 +10,7 @@
         "\n",
         "[NumPy](https://numpy.org/) provides (i) array objects for storing homogeneous data, (ii) mathematical functions for arrays, (iii) linear algebra functions, and (iv) statistical functions for generating random numbers. We constrain our treatment of NumPy to features that are useful for econometric analysis. The NumPy module is usually imported under the alias `np`, as shown in the following chunk."
       ],
-      "id": "6abde673"
+      "id": "3593d55f"
     },
     {
       "cell_type": "code",
@@ -18,7 +18,7 @@
       "source": [
         "import numpy as np"
       ],
-      "id": "7a073c76",
+      "id": "64a5eb33",
       "execution_count": null,
       "outputs": []
     },
@@ -30,7 +30,7 @@
         "from IPython.core.interactiveshell import InteractiveShell\n",
         "InteractiveShell.ast_node_interactivity = \"all\""
       ],
-      "id": "fbd274be",
+      "id": "d2d7e76c",
       "execution_count": null,
       "outputs": []
     },
@@ -57,7 +57,7 @@
         "## Arrays\n",
         "An array can be considered as a container for data of the same type. Arrays can be initialized from lists (or tuples) using the `np.array` function.  "
       ],
-      "id": "c18bcab1"
+      "id": "1a5c5e9d"
     },
     {
       "cell_type": "code",
@@ -68,7 +68,7 @@
         "y = np.array(x)\n",
         "type(y)"
       ],
-      "id": "059dc61f",
+      "id": "0cfb5bb5",
       "execution_count": null,
       "outputs": []
     },
@@ -78,7 +78,7 @@
       "source": [
         "y"
       ],
-      "id": "80dda991",
+      "id": "a81cd0da",
       "execution_count": null,
       "outputs": []
     },
@@ -88,7 +88,7 @@
       "source": [
         "Attributes of an array includes `ndim` (the number of dimension), `shape` (the size of each dimension), `size` (the total number of elements), and `dtype` (the data type). Consider the following examples:"
       ],
-      "id": "bdf66ad0"
+      "id": "d9bad5bd"
     },
     {
       "cell_type": "code",
@@ -105,7 +105,7 @@
         "# The data type of the elements\n",
         "y.dtype"
       ],
-      "id": "0b521b4d",
+      "id": "905109fb",
       "execution_count": null,
       "outputs": []
     },
@@ -115,7 +115,7 @@
       "source": [
         "We can create row vectors from 1-dimensional arrays. For example, $x=[1,2,3]$ can be entered as "
       ],
-      "id": "688b2577"
+      "id": "fa123314"
     },
     {
       "cell_type": "code",
@@ -126,7 +126,7 @@
         "x.shape\n",
         "x.ndim"
       ],
-      "id": "151c92c1",
+      "id": "4cc4ecc6",
       "execution_count": null,
       "outputs": []
     },
@@ -136,7 +136,7 @@
       "source": [
         "Nested lists can be used to create higher-dimensional arrays. The number of dimensions is determined by the level of nesting. A simple list creates a one-dimensional array. A two-dimensional array requires a nested list with one level of nesting. Higher-dimensional arrays require additional levels of nesting. Some examples are provided below."
       ],
-      "id": "51fff8d9"
+      "id": "acc32155"
     },
     {
       "cell_type": "code",
@@ -149,7 +149,7 @@
         "x.ndim\n",
         "x.size"
       ],
-      "id": "c99674a9",
+      "id": "027173d9",
       "execution_count": null,
       "outputs": []
     },
@@ -164,7 +164,7 @@
         "x.ndim\n",
         "x.size"
       ],
-      "id": "ac5b5283",
+      "id": "0204131e",
       "execution_count": null,
       "outputs": []
     },
@@ -174,7 +174,7 @@
       "source": [
         "Matrices are two dimensional arrays. Matrices follow the rules of linear algebra. We can use the `np.matrix` function on an array-like objects to create matrices. Alternatively, the `np.mat` or `np.asmatrix` functions can be used to coerce an array into a matrix."
       ],
-      "id": "9493302f"
+      "id": "bc13b62f"
     },
     {
       "cell_type": "code",
@@ -187,7 +187,7 @@
         "x.shape\n",
         "x.ndim"
       ],
-      "id": "29f20f46",
+      "id": "4f55c30f",
       "execution_count": null,
       "outputs": []
     },
@@ -202,7 +202,7 @@
         "y.shape\n",
         "y.ndim"
       ],
-      "id": "794d099e",
+      "id": "3ef5e42d",
       "execution_count": null,
       "outputs": []
     },
@@ -212,7 +212,7 @@
       "source": [
         "The column vector $x=(12,13,3,5)^{'}$ can be created in the following way."
       ],
-      "id": "21639337"
+      "id": "23ddaa2b"
     },
     {
       "cell_type": "code",
@@ -224,7 +224,7 @@
         "x.shape\n",
         "np.ndim(x)"
       ],
-      "id": "0ac7a8d2",
+      "id": "9ef010f2",
       "execution_count": null,
       "outputs": []
     },
@@ -238,7 +238,7 @@
         "x.shape\n",
         "np.ndim(x)"
       ],
-      "id": "3ebb2dbc",
+      "id": "7195d81d",
       "execution_count": null,
       "outputs": []
     },
@@ -248,7 +248,7 @@
       "source": [
         "Suppose that we want to create a `3x2x2` array. You can think this object in the following way: we have three pages and on each page we have a `2x2` array. "
       ],
-      "id": "cac2e154"
+      "id": "a576214a"
     },
     {
       "cell_type": "code",
@@ -260,7 +260,7 @@
         "y.shape\n",
         "y.ndim"
       ],
-      "id": "c93363e1",
+      "id": "2c9edbe6",
       "execution_count": null,
       "outputs": []
     },
@@ -283,7 +283,7 @@
         "\n",
         "Some illustrative examples are given below."
       ],
-      "id": "d91d8530"
+      "id": "fc716424"
     },
     {
       "cell_type": "code",
@@ -294,7 +294,7 @@
         "x = np.ones((M, N)) \n",
         "x"
       ],
-      "id": "f074ee6b",
+      "id": "8f16fd32",
       "execution_count": null,
       "outputs": []
     },
@@ -306,7 +306,7 @@
         "x = np.ones((M, M, N)) \n",
         "x"
       ],
-      "id": "d93b51b6",
+      "id": "cd384420",
       "execution_count": null,
       "outputs": []
     },
@@ -318,7 +318,7 @@
         "x = np.ones((M, N), dtype = \"int32\")\n",
         "x"
       ],
-      "id": "2721d419",
+      "id": "c5e10a6c",
       "execution_count": null,
       "outputs": []
     },
@@ -330,7 +330,7 @@
         "x = np.zeros((M, N))\n",
         "x"
       ],
-      "id": "4fff46e7",
+      "id": "2672e3c5",
       "execution_count": null,
       "outputs": []
     },
@@ -343,7 +343,7 @@
         "x = np.zeros((2, M, N)) \n",
         "x"
       ],
-      "id": "41674821",
+      "id": "6dfe162d",
       "execution_count": null,
       "outputs": []
     },
@@ -355,7 +355,7 @@
         "x = np.zeros((M, N), dtype=\"int64\")\n",
         "x"
       ],
-      "id": "a1e74ee4",
+      "id": "1f691265",
       "execution_count": null,
       "outputs": []
     },
@@ -367,7 +367,7 @@
         "x = np.empty((M, N)) \n",
         "x"
       ],
-      "id": "886f3832",
+      "id": "f318e0ca",
       "execution_count": null,
       "outputs": []
     },
@@ -379,7 +379,7 @@
         "In = np.eye(5)  \n",
         "In"
       ],
-      "id": "bc562d83",
+      "id": "89a82e79",
       "execution_count": null,
       "outputs": []
     },
@@ -391,7 +391,7 @@
         "z = np.linspace(1, 11, 5)\n",
         "z"
       ],
-      "id": "95de9a0b",
+      "id": "1c956d1c",
       "execution_count": null,
       "outputs": []
     },
@@ -403,7 +403,7 @@
         "x = np.arange(3, 11, 2)\n",
         "x"
       ],
-      "id": "86566b98",
+      "id": "a4a2aaa2",
       "execution_count": null,
       "outputs": []
     },
@@ -421,7 +421,7 @@
         "\n",
         "Scalar selection is implemented using `[i]` for 1-dimensional arrays, `[i,j]` for 2-dimensional arrays and `[i_1,i_2,...,i_n]` for general n-dimensional arrays. Some illustrative examples are given below."
       ],
-      "id": "3e3fda88"
+      "id": "4a7580bf"
     },
     {
       "cell_type": "code",
@@ -430,7 +430,7 @@
         "x = np.array([1.0, 2.0, 3.0, 4.0, 5.0])\n",
         "x[0]  # returns the first element"
       ],
-      "id": "8924c190",
+      "id": "b3786885",
       "execution_count": null,
       "outputs": []
     },
@@ -442,7 +442,7 @@
         "x\n",
         "x[1, 2]  # returns the element on the second row and the third column"
       ],
-      "id": "d6dea2ab",
+      "id": "6948bb17",
       "execution_count": null,
       "outputs": []
     },
@@ -454,7 +454,7 @@
         "x[0] = -5  # assign -5 to the first element\n",
         "x"
       ],
-      "id": "dc819c67",
+      "id": "12ade121",
       "execution_count": null,
       "outputs": []
     },
@@ -471,7 +471,7 @@
         "\n",
         "Some illustrative examples are given below."
       ],
-      "id": "fb67106b"
+      "id": "9edf73b0"
     },
     {
       "cell_type": "code",
@@ -481,7 +481,7 @@
         "y = x[:]\n",
         "y"
       ],
-      "id": "3ae15577",
+      "id": "c154cdf4",
       "execution_count": null,
       "outputs": []
     },
@@ -492,7 +492,7 @@
         "y = x[:2] # first two elements\n",
         "y"
       ],
-      "id": "3222eec2",
+      "id": "d5ab14ea",
       "execution_count": null,
       "outputs": []
     },
@@ -502,7 +502,7 @@
       "source": [
         "x[3:]  # elements after index 3"
       ],
-      "id": "107fea74",
+      "id": "c04d4fda",
       "execution_count": null,
       "outputs": []
     },
@@ -513,7 +513,7 @@
         "y = x[1::2]  # every second element, starting at index 1\n",
         "y"
       ],
-      "id": "20d9af1f",
+      "id": "da6b1a6c",
       "execution_count": null,
       "outputs": []
     },
@@ -525,7 +525,7 @@
         "y\n",
         "y[:1, :]  # first row, all columns"
       ],
-      "id": "b4b5dfcb",
+      "id": "bd846eb6",
       "execution_count": null,
       "outputs": []
     },
@@ -535,7 +535,7 @@
       "source": [
         "y[:, :1]  # all rows, first column"
       ],
-      "id": "c5fe46cc",
+      "id": "0c8a068e",
       "execution_count": null,
       "outputs": []
     },
@@ -545,7 +545,7 @@
       "source": [
         "y[:1, 0:3]  # Row 0, columns 0 to 2"
       ],
-      "id": "17b09402",
+      "id": "465863be",
       "execution_count": null,
       "outputs": []
     },
@@ -555,7 +555,7 @@
       "source": [
         "y[:, 3:]  # All rows, columns 3 and 4"
       ],
-      "id": "dd0b9ac3",
+      "id": "cdc4af23",
       "execution_count": null,
       "outputs": []
     },
@@ -565,7 +565,7 @@
       "source": [
         "Logical indexing uses the Boolean arrays for selection."
       ],
-      "id": "d5408c1e"
+      "id": "c40bdaf6"
     },
     {
       "cell_type": "code",
@@ -575,7 +575,7 @@
         "z = y > 6\n",
         "z"
       ],
-      "id": "781789eb",
+      "id": "36dc32dc",
       "execution_count": null,
       "outputs": []
     },
@@ -586,7 +586,7 @@
         "y[z] = 99  # setting elements that are bigger than 6 to 99\n",
         "y"
       ],
-      "id": "b4d02c6c",
+      "id": "7696a6db",
       "execution_count": null,
       "outputs": []
     },
@@ -597,7 +597,7 @@
         "## Numerical operations on arrays and matrices\n",
         "Arrays addition, subtraction, devision, exponentiation, and multiplication are performed element-wise. For matrix multiplication, the `@` infix operator, the `dot` method, or the `np.dot` function  can be used. Matrix transpose can be performed using the `x.T` attribute, the `x.transpose` method, or the `np.transpose` function. Some illustrative examples are given below. "
       ],
-      "id": "8171a38c"
+      "id": "11c59d70"
     },
     {
       "cell_type": "code",
@@ -608,7 +608,7 @@
         "y = np.array([[9.0, 8], [7, 6]])\n",
         "y"
       ],
-      "id": "75b3ff83",
+      "id": "65ec34af",
       "execution_count": null,
       "outputs": []
     },
@@ -618,7 +618,7 @@
       "source": [
         "x @ y  # matrix multiplication"
       ],
-      "id": "a137b872",
+      "id": "7af40e67",
       "execution_count": null,
       "outputs": []
     },
@@ -628,7 +628,7 @@
       "source": [
         "x.dot(y)  # matrix multiplication"
       ],
-      "id": "eeece240",
+      "id": "616f0e97",
       "execution_count": null,
       "outputs": []
     },
@@ -638,7 +638,7 @@
       "source": [
         "np.dot(x, y)  # matrix multiplication"
       ],
-      "id": "c3aeb4d6",
+      "id": "61c7cf3d",
       "execution_count": null,
       "outputs": []
     },
@@ -648,7 +648,7 @@
       "source": [
         "x * 2  # element-wise squaring"
       ],
-      "id": "2a3ebaa8",
+      "id": "b741318e",
       "execution_count": null,
       "outputs": []
     },
@@ -660,7 +660,7 @@
         "z\n",
         "np.transpose(z)  # using the np.transpose function"
       ],
-      "id": "8b783dd8",
+      "id": "744df5be",
       "execution_count": null,
       "outputs": []
     },
@@ -670,7 +670,7 @@
       "source": [
         "z.T  # using the transpose attribute"
       ],
-      "id": "3ca45bd9",
+      "id": "b72f4582",
       "execution_count": null,
       "outputs": []
     },
@@ -680,7 +680,7 @@
       "source": [
         "z.transpose()  # using the transpose method"
       ],
-      "id": "0670ae79",
+      "id": "f22bd72f",
       "execution_count": null,
       "outputs": []
     },
@@ -690,7 +690,7 @@
       "source": [
         "Comparison operators can be used to compare arrays of the same size. These operations yield Boolean arrays of the same size:"
       ],
-      "id": "40e5cf22"
+      "id": "0e4ebeee"
     },
     {
       "cell_type": "code",
@@ -700,7 +700,7 @@
         "y = np.array([[10, 2.5, 45, 1.4], [7, 4, 20, 60]])\n",
         "x < y"
       ],
-      "id": "0d080235",
+      "id": "9293869a",
       "execution_count": null,
       "outputs": []
     },
@@ -723,7 +723,7 @@
         "\n",
         "Some illustrative examples are presented below. "
       ],
-      "id": "ca77113e"
+      "id": "0327ec47"
     },
     {
       "cell_type": "code",
@@ -733,7 +733,7 @@
         "x = np.random.randn(3, 4)\n",
         "x"
       ],
-      "id": "66763779",
+      "id": "abe6c301",
       "execution_count": null,
       "outputs": []
     },
@@ -743,7 +743,7 @@
       "source": [
         "np.sum(x)  # sum of all elements"
       ],
-      "id": "012586f9",
+      "id": "e6664158",
       "execution_count": null,
       "outputs": []
     },
@@ -753,7 +753,7 @@
       "source": [
         "np.sum(x, 0)  # sum of columns, 4 elements"
       ],
-      "id": "c6391e4c",
+      "id": "0b2a9570",
       "execution_count": null,
       "outputs": []
     },
@@ -763,7 +763,7 @@
       "source": [
         "np.sum(x, 1)  # sum of rows, 3 elements"
       ],
-      "id": "2cb49e85",
+      "id": "06eaa3f9",
       "execution_count": null,
       "outputs": []
     },
@@ -773,7 +773,7 @@
       "source": [
         "np.cumsum(x, 0)  # cumulative sum of columns"
       ],
-      "id": "444a83d7",
+      "id": "8ab28c11",
       "execution_count": null,
       "outputs": []
     },
@@ -785,7 +785,7 @@
         "x = np.random.randn(3, 4)\n",
         "x"
       ],
-      "id": "28737362",
+      "id": "89fcc494",
       "execution_count": null,
       "outputs": []
     },
@@ -795,7 +795,7 @@
       "source": [
         "np.diff(x)  # difference across columns, same as diff(x,1) "
       ],
-      "id": "e5aad0eb",
+      "id": "19194408",
       "execution_count": null,
       "outputs": []
     },
@@ -805,7 +805,7 @@
       "source": [
         "np.diff(x, axis=0)  # difference across rows"
       ],
-      "id": "a65ed94a",
+      "id": "19087809",
       "execution_count": null,
       "outputs": []
     },
@@ -815,7 +815,7 @@
       "source": [
         "np.diff(x, 2, axis=0)  # Double difference across axis 0"
       ],
-      "id": "5e1d464d",
+      "id": "e358eff9",
       "execution_count": null,
       "outputs": []
     },
@@ -845,7 +845,7 @@
         "\n",
         "Some illustrative examples are given below. "
       ],
-      "id": "9c6fc90a"
+      "id": "2c9cb905"
     },
     {
       "cell_type": "code",
@@ -855,7 +855,7 @@
         "x\n",
         "type(x)"
       ],
-      "id": "0944cfba",
+      "id": "6efeaadd",
       "execution_count": null,
       "outputs": []
     },
@@ -868,7 +868,7 @@
         "y\n",
         "type(y)"
       ],
-      "id": "2aaf1562",
+      "id": "dff5fee9",
       "execution_count": null,
       "outputs": []
     },
@@ -881,7 +881,7 @@
         "z\n",
         "type(z)"
       ],
-      "id": "f3e80cf2",
+      "id": "4e08013f",
       "execution_count": null,
       "outputs": []
     },
@@ -892,7 +892,7 @@
         "x = np.array([[1, 2], [3, 4]])\n",
         "x"
       ],
-      "id": "d7e9a787",
+      "id": "8cfeeb53",
       "execution_count": null,
       "outputs": []
     },
@@ -904,7 +904,7 @@
         "y = np.reshape(x, (4, 1))\n",
         "y"
       ],
-      "id": "fb944206",
+      "id": "2c0a78f3",
       "execution_count": null,
       "outputs": []
     },
@@ -916,7 +916,7 @@
         "z = np.reshape(y, (1, 4))  # return 1 by 4 array\n",
         "z"
       ],
-      "id": "6600decd",
+      "id": "d813e773",
       "execution_count": null,
       "outputs": []
     },
@@ -928,7 +928,7 @@
         "w = np.reshape(z, (2, 2))\n",
         "w"
       ],
-      "id": "17904cfb",
+      "id": "b69e0fa1",
       "execution_count": null,
       "outputs": []
     },
@@ -941,7 +941,7 @@
         "np.size(x)  # as a function\n",
         "x.size  # as an attribute"
       ],
-      "id": "30a2d6d3",
+      "id": "1ffe2627",
       "execution_count": null,
       "outputs": []
     },
@@ -954,7 +954,7 @@
         "np.ndim(x)  # as a function\n",
         "x.ndim  # as an attribute"
       ],
-      "id": "89f2b671",
+      "id": "e5d8d0e1",
       "execution_count": null,
       "outputs": []
     },
@@ -969,7 +969,7 @@
         "z = np.hstack((x, x, x))\n",
         "z"
       ],
-      "id": "939cd661",
+      "id": "479e30bd",
       "execution_count": null,
       "outputs": []
     },
@@ -981,7 +981,7 @@
         "y = np.vstack((z, z))  # stacks z 2-times vertically\n",
         "y"
       ],
-      "id": "e4d81ba2",
+      "id": "4e816faf",
       "execution_count": null,
       "outputs": []
     },
@@ -995,7 +995,7 @@
         "y = np.vsplit(x, 2)  # vertically split at row 2\n",
         "y"
       ],
-      "id": "39c092b5",
+      "id": "af624916",
       "execution_count": null,
       "outputs": []
     },
@@ -1008,7 +1008,7 @@
         "x\n",
         "np.delete(x, 1, 0)  # delete the second row"
       ],
-      "id": "1f2c98ab",
+      "id": "1b5dc09e",
       "execution_count": null,
       "outputs": []
     },
@@ -1018,7 +1018,7 @@
       "source": [
         "np.delete(x, [2, 3], 1)  # delete the second and third columns"
       ],
-      "id": "620e60ce",
+      "id": "e89e5dac",
       "execution_count": null,
       "outputs": []
     },
@@ -1029,7 +1029,7 @@
         "# If axis is None, the object is applied to the flattened array.\n",
         "np.delete(x, [2, 3])  # flat x and then remove second and third elements"
       ],
-      "id": "8628e3c7",
+      "id": "fc61f93e",
       "execution_count": null,
       "outputs": []
     },
@@ -1042,7 +1042,7 @@
         "y = np.diag(x)  # return diagonal elements\n",
         "y"
       ],
-      "id": "c0b1e5c3",
+      "id": "ee17901e",
       "execution_count": null,
       "outputs": []
     },
@@ -1054,7 +1054,7 @@
         "x = np.array([[1, 2], [3, 4]])\n",
         "np.tril(x)  # lower triangular part"
       ],
-      "id": "cbfceffe",
+      "id": "01ac19e3",
       "execution_count": null,
       "outputs": []
     },
@@ -1069,7 +1069,7 @@
         "* `np.floor`: Rounds down to the nearest integer (i.e., the largest integer less than or equal to the input).\n",
         "* `np.ceil`: Rounds up to the nearest integer (i.e., the smallest integer greater than or equal to the input)."
       ],
-      "id": "f785ce5e"
+      "id": "76b06fed"
     },
     {
       "cell_type": "code",
@@ -1079,7 +1079,7 @@
         "x = np.random.randn(2, 3)\n",
         "x"
       ],
-      "id": "86c606c4",
+      "id": "56e218fd",
       "execution_count": null,
       "outputs": []
     },
@@ -1090,7 +1090,7 @@
         "# Round to the nearest integer\n",
         "np.around(x)"
       ],
-      "id": "f3a5d450",
+      "id": "d3f4d4a7",
       "execution_count": null,
       "outputs": []
     },
@@ -1101,7 +1101,7 @@
         "# Round x to 2 decimals\n",
         "np.around(x, 2)"
       ],
-      "id": "d1392305",
+      "id": "71eb027d",
       "execution_count": null,
       "outputs": []
     },
@@ -1111,7 +1111,7 @@
       "source": [
         "x.round(2)  # using the round method"
       ],
-      "id": "6cbdaa4d",
+      "id": "10ff1a00",
       "execution_count": null,
       "outputs": []
     },
@@ -1122,7 +1122,7 @@
         "# Round down to the nearest integer\n",
         "np.floor(x)"
       ],
-      "id": "bd146cb7",
+      "id": "f2155be4",
       "execution_count": null,
       "outputs": []
     },
@@ -1133,7 +1133,7 @@
         "# Round up to the nearest integer\n",
         "np.ceil(x)"
       ],
-      "id": "58b13f0c",
+      "id": "dd5d1a0d",
       "execution_count": null,
       "outputs": []
     },
@@ -1159,7 +1159,7 @@
         "\n",
         "Some illustrative examples are given below."
       ],
-      "id": "7e6cee4d"
+      "id": "87685ac5"
     },
     {
       "cell_type": "code",
@@ -1169,7 +1169,7 @@
         "x = np.random.randn(4, 2)\n",
         "x"
       ],
-      "id": "b7f2880e",
+      "id": "fded4b05",
       "execution_count": null,
       "outputs": []
     },
@@ -1179,7 +1179,7 @@
       "source": [
         "np.sort(x)  # sort across columns"
       ],
-      "id": "49d4c4b5",
+      "id": "86743a5a",
       "execution_count": null,
       "outputs": []
     },
@@ -1189,7 +1189,7 @@
       "source": [
         "np.sort(x, 0)  # sort across rows"
       ],
-      "id": "6ae0d1d0",
+      "id": "2f7f87a2",
       "execution_count": null,
       "outputs": []
     },
@@ -1201,7 +1201,7 @@
         "x = np.random.randn(3)\n",
         "x"
       ],
-      "id": "6c88083b",
+      "id": "b97b5727",
       "execution_count": null,
       "outputs": []
     },
@@ -1212,7 +1212,7 @@
         "np.sort(x)  # does not change x\n",
         "x"
       ],
-      "id": "27e835ea",
+      "id": "d1876d88",
       "execution_count": null,
       "outputs": []
     },
@@ -1223,7 +1223,7 @@
         "x = np.random.randn(3, 4)\n",
         "x"
       ],
-      "id": "f8cc8161",
+      "id": "db96c225",
       "execution_count": null,
       "outputs": []
     },
@@ -1236,7 +1236,7 @@
         "x.max(0)  # maximum element across rows\n",
         "x.max(1)  # maximum element across columns"
       ],
-      "id": "e85e941e",
+      "id": "f14c52a2",
       "execution_count": null,
       "outputs": []
     },
@@ -1248,7 +1248,7 @@
         "y = np.random.randn(4)  # generate 4 draws from N(0,1)\n",
         "np.maximum(x, y)"
       ],
-      "id": "482ae617",
+      "id": "77be60e2",
       "execution_count": null,
       "outputs": []
     },
@@ -1261,7 +1261,7 @@
         "x[3] = None\n",
         "x"
       ],
-      "id": "24e86560",
+      "id": "199e68f2",
       "execution_count": null,
       "outputs": []
     },
@@ -1274,7 +1274,7 @@
         "np.sum(x)  # return nan\n",
         "np.nansum(x)  # ignore nan value"
       ],
-      "id": "8647455a",
+      "id": "4424f455",
       "execution_count": null,
       "outputs": []
     },
@@ -1301,7 +1301,7 @@
         "\n",
         "Some illustrative examples are given below."
       ],
-      "id": "afed2534"
+      "id": "acfabff8"
     },
     {
       "cell_type": "code",
@@ -1312,7 +1312,7 @@
         "y = np.array([[1.0], [2.0], [3.0]])\n",
         "np.linalg.solve(X, y)"
       ],
-      "id": "c7a45d65",
+      "id": "71d4cc5e",
       "execution_count": null,
       "outputs": []
     },
@@ -1324,7 +1324,7 @@
         "X = np.matrix([[1, 0.5], [0.5, 1]])\n",
         "np.linalg.inv(X)"
       ],
-      "id": "edd9549b",
+      "id": "ac30e0ea",
       "execution_count": null,
       "outputs": []
     },
@@ -1335,7 +1335,7 @@
         "# Determinant of X\n",
         "np.linalg.det(X)"
       ],
-      "id": "9c2789b4",
+      "id": "09d44202",
       "execution_count": null,
       "outputs": []
     },
@@ -1349,7 +1349,7 @@
         "# Verify the spectral decomposition\n",
         "vec * np.diag(val) * vec.T"
       ],
-      "id": "57c82a6a",
+      "id": "e7aed46e",
       "execution_count": null,
       "outputs": []
     },
@@ -1361,7 +1361,7 @@
         "X = np.array([[1, 0.5], [1, 0.5]])\n",
         "np.linalg.matrix_rank(X)"
       ],
-      "id": "08d5c35a",
+      "id": "bf1d10b8",
       "execution_count": null,
       "outputs": []
     }

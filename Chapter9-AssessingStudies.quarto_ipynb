@@ -6,7 +6,7 @@
       "source": [
         "# Assessing Studies Based on Multiple Regression {#sec-assess}"
       ],
-      "id": "2a3caf66"
+      "id": "c7e52845"
     },
     {
       "cell_type": "code",
@@ -22,7 +22,7 @@
         "import scipy.stats as stats\n",
         "sns.set_style('darkgrid')"
       ],
-      "id": "9b41805b",
+      "id": "73c87bdc",
       "execution_count": null,
       "outputs": []
     },
@@ -89,7 +89,7 @@
         "\n",
         "In the following example, we illustrate the effect of functional form misspecification on the OLS estimator. We simulate data from the following quadratic model: $Y_i=\\beta_0+\\beta_1X_i+\\beta_2X^2_i+u_i$, where $X_i\\sim\\text{Uniform}(0,10)$, $(\\beta_0,\\beta_1,\\beta_2)^{'}=(3,2,1.5)^{'}$, and $u_i\\sim N(0,4)$. We then estimate two models:  the misspecified linear model $Y_i=\\beta_0+\\beta_1X_{i}+u_i$ and the correctly specified quadratic model $Y_i=\\beta_0+\\beta_1X_i+\\beta_2X^2_i+u_i$."
       ],
-      "id": "1a675999"
+      "id": "02c1c032"
     },
     {
       "cell_type": "code",
@@ -108,7 +108,7 @@
         "# Estimate quadratic model\n",
         "nonlinear_model = smf.ols(formula=\"Y ~ X + I(X**2)\", data=data).fit()"
       ],
-      "id": "b98a4d4c",
+      "id": "4fc2cfa9",
       "execution_count": null,
       "outputs": []
     },
@@ -118,7 +118,7 @@
       "source": [
         "@fig-t16.1 shows the scatterplot of data along with the line plots of predicted values. The figure shows that the nonlinear model accurately captures the quadratic relationship between $Y$ and $X$. The estimation results in the first column of @tbl-t16.1 indicate that the OLS estimator reports a large bias for the coefficient of $X$ under the linear specification. In contrast, the OLS estimator reports almost no bias under the quadratic specification, as shown in the second column of @tbl-t16.1. "
       ],
-      "id": "de562f20"
+      "id": "6866e22c"
     },
     {
       "cell_type": "code",
@@ -146,7 +146,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "35c007b5"
+      "id": "a3ba9e01"
     },
     {
       "cell_type": "code",
@@ -230,7 +230,7 @@
         "\n",
         "In the following code chunk, we use the simulated data to illustrate the classical measurement error model. We assume that $\\tilde{X}_i=X_i+v_i$, where $X_i\\sim\\text{Uniform}(0,10)$ and $v_i\\sim N(0,4)$. We generate $Y_i=\\beta_0+\\beta_1X_i+u_i$, where $\\beta_0=3$, $\\beta_1=2$, and $u_i\\sim N(0,4)$. Then,  we estimate the error model $Y_i=\\beta_0+\\beta_1\\tilde{X}_i+\\tilde{u}_i$ and the true model $Y_i=\\beta_0+\\beta_1X_i+u_i$."
       ],
-      "id": "5ab63c49"
+      "id": "34689840"
     },
     {
       "cell_type": "code",
@@ -251,7 +251,7 @@
         "# Estimate true model\n",
         "true_model = smf.ols(formula=\"Y ~ X\", data=data).fit()"
       ],
-      "id": "5eaaf138",
+      "id": "3af30106",
       "execution_count": null,
       "outputs": []
     },
@@ -261,7 +261,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "2ab1f2bf"
+      "id": "f54578bc"
     },
     {
       "cell_type": "code",
@@ -288,7 +288,7 @@
         "\n",
         "The estimation results are presented in @tbl-t16.2. The results in the first column indicate that the OLS estimator introduces a significant bias in $\\beta_1$. In contrast, the OLS estimator reports only a small bias in the second column. In @fig-t16.2, we plot the predicted values as line plots alongside the scatterplot of the data. The red line represents the fitted line based on the error model, while the black line represents the fitted line based on the true model. The figure shows that the predicted values based on the error model differ significantly from those based on the true model."
       ],
-      "id": "c42e7b42"
+      "id": "176087fe"
     },
     {
       "cell_type": "code",
@@ -435,7 +435,7 @@
         "\n",
         "The following code chunk imports the data and displays the column names. "
       ],
-      "id": "0de9611c"
+      "id": "b9736039"
     },
     {
       "cell_type": "code",
@@ -449,7 +449,7 @@
         "# Column names\n",
         "mcas.columns"
       ],
-      "id": "2bd1480e",
+      "id": "f8b40f16",
       "execution_count": null,
       "outputs": []
     },
@@ -461,7 +461,7 @@
         "\n",
         "While Massachusetts has a higher average test score, we cannot make a direct comparison because different tests are administered in both states. Massachusetts also has lower averages for the student–teacher ratio, the percentage of subsidized lunch recipients, and the percentage of English learners. Its average per-capita income is larger than that of California."
       ],
-      "id": "a70a31d3"
+      "id": "55207565"
     },
     {
       "cell_type": "code",
@@ -486,7 +486,7 @@
         "# Combine statistics\n",
         "combined_stats = pd.concat([mcas_stats, caschool_stats], keys=[\"Massachusetts\", \"California\"])"
       ],
-      "id": "4b041685",
+      "id": "72c3d62a",
       "execution_count": null,
       "outputs": []
     },
@@ -496,7 +496,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "b0a61f1e"
+      "id": "d6c9564e"
     },
     {
       "cell_type": "code",
@@ -519,7 +519,7 @@
         "\n",
         "In @fig-t16.3, we examine the relationship between test scores and average district income based on the Massachusetts dataset. The scatter plot shows a positive relationship, with the slope being steeper for lower income values and flatter for higher income values. To model the relationship between test scores and average district income, we consider three regression models: (i) the linear regression model, (ii) the cubic regression model, and (iii) the linear-log regression model. The fitted regression functions in @fig-t16.3 indicate that the cubic regression provides a better fit compared to the linear and linear-log regressions.\n"
       ],
-      "id": "b704d1b0"
+      "id": "fa219f95"
     },
     {
       "cell_type": "code",
@@ -605,7 +605,7 @@
         "\\end{align}\n",
         "$$"
       ],
-      "id": "a9ee2694"
+      "id": "5eb4f3ea"
     },
     {
       "cell_type": "code",
@@ -615,7 +615,7 @@
         "# Create hiel\n",
         "mydata[\"hiel\"] = mydata[\"pctel\"] > np.median(mydata[\"pctel\"])"
       ],
-      "id": "fd988ec1",
+      "id": "85a28417",
       "execution_count": null,
       "outputs": []
     },
@@ -626,7 +626,7 @@
         "### Estimation results\n",
         "We use the following code chunk can to estimate all models. Note that we use heteroskedasticity-robust standard errors in all models."
       ],
-      "id": "28a05ce7"
+      "id": "ecd88787"
     },
     {
       "cell_type": "code",
@@ -651,7 +651,7 @@
         "# Model 6\n",
         "r6=smf.ols(formula=\"totsc4~tchratio+lnch_pct+percap+I(percap**2)+I(percap**3)\",data=mydata).fit(cov_type=\"HC1\")"
       ],
-      "id": "00d15251",
+      "id": "e67e12f1",
       "execution_count": null,
       "outputs": []
     },
@@ -661,7 +661,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "1b9f72f5"
+      "id": "7962e76c"
     },
     {
       "cell_type": "code",
@@ -695,7 +695,7 @@
         "\n",
         "- In Model 3, we can use the F-statistic to test $H_0:\\beta_5=\\beta_6=0$ versus $H_1$: At least one coefficient is non zero.  The F-statistic given below is $7.74$ with a p-value of $0.0006$. Thus, we reject the null hyptohesis.\n"
       ],
-      "id": "c629ed54"
+      "id": "9abc012d"
     },
     {
       "cell_type": "code",
@@ -705,7 +705,7 @@
         "hypothesis=\"I(percap ** 2)=0, I(percap ** 3)=0\"\n",
         "print(r3.f_test(hypothesis))"
       ],
-      "id": "cb9d50e7",
+      "id": "1dfea8b9",
       "execution_count": null,
       "outputs": []
     },
@@ -715,7 +715,7 @@
       "source": [
         "- The results for Model 4 show that there is no statistically significant evidence of a nonlinear relationship between test scores and the student–teacher ratio. The F-statistic for $H_0:\\beta_2=\\beta_3=0$ can be obtained using the code chunk given below. The F-statistic is $0.45$ with a p-value of  $0.640$. Thus, we fail to reject the null hypothesis. \n"
       ],
-      "id": "eb9ae34c"
+      "id": "5c2c68a1"
     },
     {
       "cell_type": "code",
@@ -725,7 +725,7 @@
         "hypothesis=\"I(tchratio ** 2)=0, I(tchratio ** 3)=0\"\n",
         "print(r4.f_test(hypothesis))"
       ],
-      "id": "35b87608",
+      "id": "9b4fffba",
       "execution_count": null,
       "outputs": []
     },
@@ -735,7 +735,7 @@
       "source": [
         "- The results for Model 5 show that the estimated coefficents for both `HiEL` and `HiELxtchratio` are statistically insignifcant at the 5% significance level. The F-statistic for $H_0:\\beta_5=\\beta_6=0$ can be obtained using the following code chunk. The F-statistic is $1.58$ with a p-value of  $0.207$. Thus, we fail to reject the null hypothesis and conclude that the percentage of English learners does not have a statistically significant effect on test scores after controlling for the student–teacher ratio and other variables.\n"
       ],
-      "id": "ab1f82bb"
+      "id": "f4b1f8c5"
     },
     {
       "cell_type": "code",
@@ -745,7 +745,7 @@
         "hypothesis=\"hiel[T.True]=0, hiel[T.True]:tchratio=0\"\n",
         "print(r5.f_test(hypothesis))"
       ],
-      "id": "f2d7ba2c",
+      "id": "9fb6acf5",
       "execution_count": null,
       "outputs": []
     },
@@ -775,7 +775,7 @@
         "### External validity assessment\n",
         "Our results, presented in @tbl-t16.4, suggest conclusions similar to those obtained in Chapter 15 based on the California dataset. Based on this observation, @Stock2020 conclude that the multiple linear regression models are externally valid and therefore the results can be generalized to other elementary school districts in the United States.\n"
       ],
-      "id": "a8e35a67"
+      "id": "5d13490c"
     }
   ],
   "metadata": {

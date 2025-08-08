@@ -6,7 +6,7 @@
       "source": [
         "# Economic Questions and Data {#sec-chapter11}"
       ],
-      "id": "59f90c8c"
+      "id": "0b5da779"
     },
     {
       "cell_type": "code",
@@ -17,7 +17,7 @@
         "import matplotlib.pyplot as plt\n",
         "import seaborn as sns"
       ],
-      "id": "439f25b9",
+      "id": "0637883e",
       "execution_count": null,
       "outputs": []
     },
@@ -82,7 +82,7 @@
         "### Cross-sectional data\n",
         "**Cross-sectional data** consist of observations on entities at a single point in time. For example, consider the California school district data in the `caschool.csv` file. These data were collected in 1999 on $n=420$ school district and include measurements on several district-level variables. We consider the following variables: District Average Test Score, Student-Teacher Ratio, Expenditure per Pupil, and Percentage of Students Learning English. These variables are derived from district-level average measurements. A section of this data is shown in @tbl-t8.1. For example, for the first school district, the average test score is 690.8, the average student-teacher ratio is 17.89, the average expenditure per pupil is 6384.91 dollars, and the average percentage of students learning English is 0 percent.  "
       ],
-      "id": "06e90bf3"
+      "id": "2d3d2f22"
     },
     {
       "cell_type": "code",
@@ -97,7 +97,7 @@
         "data.columns = [\"Observation Number\", \"District Average Test Score\",\"Student-Teacher Ratio\",\"Expenditure per Pupil\",\n",
         "\"Percentage of Students Learning English\"]"
       ],
-      "id": "460eab38",
+      "id": "a2172938",
       "execution_count": null,
       "outputs": []
     },
@@ -121,7 +121,7 @@
         "### Time Series Data\n",
         "Time series data consist of observations on the same entity collected at multiple time periods. We consider the time series data in the `tsdata.xlsx` file on the US GDP growth rate and the term spread (the difference between lon-term and short-term interest rates). The data set is quarterly and cover the period 1960Q1-2017Q4. In @tbl-t8.2, we show a section of the data, where each row corresponds to a different time period. In the last quarter of 2017, the GDP growth rate was 2.5\\% and the term spread was 1.16 percentage points.\n"
       ],
-      "id": "2ac05096"
+      "id": "25ace7a5"
     },
     {
       "cell_type": "code",
@@ -136,7 +136,7 @@
         "# Set the coulmn names\n",
         "data.columns = [\"Date (YearQuarter)\", \"GDP Growth Rate\", \"Term Spread\"]"
       ],
-      "id": "1452bbdd",
+      "id": "99917fb4",
       "execution_count": null,
       "outputs": []
     },
@@ -159,7 +159,7 @@
       "source": [
         "In @fig-f8.1, we show the time series plots of the GDP growth rate and the term spread, with shaded areas indicating the recession periods."
       ],
-      "id": "3068fd4e"
+      "id": "a906b0c3"
     },
     {
       "cell_type": "code",
@@ -207,7 +207,7 @@
         "### Panel Data\n",
         "**Panel data**, also known as **longitudinal data**, consist of data for multiple entities, with each entity observed at two or more time periods. We consider the panel data on the cigarette consumption in the `cig_ch12.xlsx` file. The data set consists of annual data for the 48 U.S. states over the period 1985-1995. Thus, in this data set, the number of entities is $n=48$ and the number of time peirods is $T=11$. In total, we have $48\\times 11=528$ observations. In @tbl-t8.3, we show a section of data.\n"
       ],
-      "id": "91b7ab4f"
+      "id": "1c5e50a8"
     },
     {
       "cell_type": "code",
@@ -221,7 +221,7 @@
         "# Set column names\n",
         "pdata.columns = [\"State\",\"Year\",\"Cigarette Sales (packs per capita)\", \"Average Price per Pack(including taxes)\", \"Total Taxes (cigarette excise tax + sales tax)\"]"
       ],
-      "id": "abc7f3ac",
+      "id": "a299ae1e",
       "execution_count": null,
       "outputs": []
     },
@@ -249,7 +249,7 @@
         "* Panel data (or longitudinal data) involve data on multiple entities, with each entity observed across two or more time periods.\n",
         ":::"
       ],
-      "id": "64981844"
+      "id": "d3350afe"
     }
   ],
   "metadata": {

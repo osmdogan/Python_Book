@@ -6,7 +6,7 @@
       "source": [
         "# Experiments and Quasi-Experiments {#sec-chapter20}\n"
       ],
-      "id": "3d092e0a"
+      "id": "6db1866b"
     },
     {
       "cell_type": "code",
@@ -24,7 +24,7 @@
         "from warnings import simplefilter\n",
         "simplefilter(action=\"ignore\")"
       ],
-      "id": "eadf4470",
+      "id": "67219a69",
       "execution_count": null,
       "outputs": []
     },
@@ -227,7 +227,7 @@
         " \n",
         "The interventions began when students entered kindergarten and continued through third grade. Teachers are also randomly assigned to classes. Students in regular classes were re-randomized after the first year to either a regular class or a regular class with a teacher’s aide. Students initially assigned to small classes remained in small classes throughout the experiment. Each year, students in the experiment were given standardized tests (the Stanford Achievement Test) in reading and math.\n"
       ],
-      "id": "368d0c6e"
+      "id": "c8be84df"
     },
     {
       "cell_type": "code",
@@ -237,7 +237,7 @@
         "# Import data\n",
         "STAR=pd.read_csv(\"data/STAR.csv\")"
       ],
-      "id": "f78f11cb",
+      "id": "1fd3fc36",
       "execution_count": null,
       "outputs": []
     },
@@ -248,7 +248,7 @@
         "# Column names\n",
         "STAR.columns"
       ],
-      "id": "2ff10e90",
+      "id": "b57c9dc6",
       "execution_count": null,
       "outputs": []
     },
@@ -286,7 +286,7 @@
         "\n",
         "We estimate the model by using observations from kindergarten through third grade. We expect that the error terms to be correlated for students in the same school because these student may share similar observed and unobserved characteristics. To account for this correlation in $u$, we use standard errors clustered at the school level. This is achieved by using `model.fit(cov_type='cluster', cov_kwds={'groups': STAR_k['schoolidk']})` in the following code chunk."
       ],
-      "id": "e266e9b1"
+      "id": "e04938b7"
     },
     {
       "cell_type": "code",
@@ -312,7 +312,7 @@
         "model3 = smf.ols(formula='I(read3 + math3) ~ star3', data=STAR_3)\n",
         "result3=model3.fit(cov_type='cluster', cov_kwds={'groups': STAR_3['schoolid3']})"
       ],
-      "id": "2379e220",
+      "id": "d059b6f0",
       "execution_count": null,
       "outputs": []
     },
@@ -322,7 +322,7 @@
       "source": [
         "The estimation results are presented in @tbl-t20.1. For kindergarten students, those in a small class have, on average, 13.9 more points on the test compared to those in a regular class. The estimated effect of being in a regular class with a teacher’s aid is 0.31 points and is statistically insignificant. The average estimated effect of being in a small class, relative to being in a regular class, is 29.8 points for first grade, 19.4 points for second grade, and 15.6 points for third grade. The estimated effect of being in a regular class with a teacher’s aid, relative to being in a regular class, is statistically insignificant for each grade. Overall, these results suggest that reducing class size has a positive effect on test scores, while adding teacher’s aides to regular classes has no effect on test scores."
       ],
-      "id": "01cb9fb1"
+      "id": "bb7a8036"
     },
     {
       "cell_type": "code",
@@ -336,7 +336,7 @@
         "table1.show_model_numbers(False)\n",
         "table1.show_degrees_of_freedom(False)"
       ],
-      "id": "52208d83",
+      "id": "13d82890",
       "execution_count": null,
       "outputs": []
     },
@@ -346,7 +346,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "4cea7181"
+      "id": "4ae179fc"
     },
     {
       "cell_type": "code",
@@ -376,7 +376,7 @@
         " - `race`: Student's race is other than black or white (a dummy variable)\n",
         " - `schoolid`: School indicator variables (school fixed effects)\n"
       ],
-      "id": "ae5acdb9"
+      "id": "83f9008e"
     },
     {
       "cell_type": "code",
@@ -390,7 +390,7 @@
         "# Relevel the 'lunchk' column by converting it to a categorical type with 'non-free' as the reference level\n",
         "STAR['lunchk'] = pd.Categorical(STAR['lunchk'], categories=['non-free', 'free'], ordered=True)"
       ],
-      "id": "06ee4518",
+      "id": "4313ebeb",
       "execution_count": null,
       "outputs": []
     },
@@ -411,7 +411,7 @@
         "\n",
         "As in @Stock2020, we estimate these models using the sample data only from the kindergarten."
       ],
-      "id": "b7456729"
+      "id": "3cc8b78f"
     },
     {
       "cell_type": "code",
@@ -439,7 +439,7 @@
         "model4 = smf.ols(formula='I(mathk + readk) ~ stark + experiencek  + boy + lunchk + black + race + C(schoolidk)', data=STAR_k)\n",
         "result4=model4.fit(cov_type='cluster', cov_kwds={'groups': STAR_k['schoolidk']})"
       ],
-      "id": "a572731d",
+      "id": "da722221",
       "execution_count": null,
       "outputs": []
     },
@@ -449,7 +449,7 @@
       "source": [
         "The estimation results are presented in @tbl-t20.2. The results in this table show that adding these additional covariates and school fixed effects to the model does not lead to substantially different estimates of the treatment effects. However, note that the reported standard errors are relatively smaller than those reported in @tbl-t20.1, suggesting an efficiency gain from including these covariates."
       ],
-      "id": "7d7b8793"
+      "id": "ea41d858"
     },
     {
       "cell_type": "code",
@@ -464,7 +464,7 @@
         "table2.show_degrees_of_freedom(False)\n",
         "#table2.show_confidence_intervals(True)"
       ],
-      "id": "aa426b44",
+      "id": "6467804e",
       "execution_count": null,
       "outputs": []
     },
@@ -474,7 +474,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "c58dec64"
+      "id": "f5b1f158"
     },
     {
       "cell_type": "code",
@@ -547,7 +547,7 @@
         "\n",
         "The DiD approach is based on the assumption that, on average, the treatment and control groups would have followed the same trend in the absence of treatment. This assumption is called the **parallel trends assumption** in the literature. In @fig-f20.2, the trend in the average outcome for the treated group in the absence of treatment is illustrated with the dashed black line. Thus, the counterfactual average outcome for the treated group in the post-treatment period is $\\bar{Y}^{\\text{treatment, after}} = 50$, so that the dashed line is parallel to the steel blue line. This assumption ensures that the difference between the observed average outcome $\\bar{Y}^{treatment,after}=80$ and the counterfactual average outcome $\\bar{Y}^{\\text{treatment, after}} = 50$ is due to the treatment. \n"
       ],
-      "id": "1a6744d3"
+      "id": "6cb855c9"
     },
     {
       "cell_type": "code",
@@ -663,7 +663,7 @@
         "* `hoursopen`: Number hours open per day\n",
         "* `time`: 0 if first survey (2/15/1992 – 3/4/1992), 1 if second survey (11/5/1992 – 12/31/1992)\n"
       ],
-      "id": "1db34942"
+      "id": "a9b84b68"
     },
     {
       "cell_type": "code",
@@ -672,7 +672,7 @@
         "df = pd.read_stata(\"data/CK1994.dta\")\n",
         "df.columns"
       ],
-      "id": "192bfeb3",
+      "id": "23186bc4",
       "execution_count": null,
       "outputs": []
     },
@@ -685,7 +685,7 @@
         "\n",
         ":::{layout-ncol=1}"
       ],
-      "id": "3f38a437"
+      "id": "42b3fa87"
     },
     {
       "cell_type": "code",
@@ -726,7 +726,7 @@
         "\n",
         "Next, we use @eq-eq20.6 to estimate the effect of the increase in the minimum wage on employment. In the following code chunk, we generate the $\\Delta Y$ and $D$ variables, and then use the OLS estimator to estimate the DiD parameter $\\beta_1$. The DiD estimate of $\\beta_1$ is $2.75$, which is exactly the same as the one in @tbl-t20.3. "
       ],
-      "id": "ae101a78"
+      "id": "9fab6c97"
     },
     {
       "cell_type": "code",
@@ -739,7 +739,7 @@
         "result1=model1.fit(cov_type='HC1')\n",
         "print(result1.summary())"
       ],
-      "id": "f7f87aed",
+      "id": "b1a9c0c7",
       "execution_count": null,
       "outputs": []
     },
@@ -749,7 +749,7 @@
       "source": [
         "We can also use @eq-eq20.8 to estimate the DiD parameter $\\beta_3$. In the following code chunk, we first create the `treatment` variable, which represents $D_i \\times {\\tt Period}_t$, and then use the OLS estimator to estimate $\\beta_3$. Note that we use clustered standard errors at the store level to account for correlation in the error terms across stores. The DiD estimate of $\\beta_3$ is 2.75 with a t-value of 2.05. "
       ],
-      "id": "00695d99"
+      "id": "05950a5a"
     },
     {
       "cell_type": "code",
@@ -764,7 +764,7 @@
         "result2=model2.fit(cov_type='cluster', cov_kwds={'groups': df['store']})\n",
         "print(result2.summary())"
       ],
-      "id": "0c658e10",
+      "id": "1b70b41e",
       "execution_count": null,
       "outputs": []
     },
@@ -774,7 +774,7 @@
       "source": [
         "Finally, we use the two-way fixed effects model in @eq-eq20.9 to estimate the DiD parameter $\\beta_3$. The following code chunk provides the same estimate as the previous methods."
       ],
-      "id": "fdd122cb"
+      "id": "687b37b0"
     },
     {
       "cell_type": "code",
@@ -789,7 +789,7 @@
         "result3 = model3.fit(cov_type='clustered', cluster_entity=True)\n",
         "print(result3.summary)"
       ],
-      "id": "cb78cf04",
+      "id": "9f40975f",
       "execution_count": null,
       "outputs": []
     },
@@ -866,7 +866,7 @@
         "\n",
         "The outcome variable is `thefts` which is the average monthly number of motor vehicle thefts. Below, we load the data and create the `treat` and `post` variables. The `treat` variable is the treatment indicator and the `post` variable is the post-treatment indicator. We present the summary statistics of the data in @tbl-t20.4. According to this table, 4.2% of the blocks are treated, and the average number of car theft is around 0.093."
       ],
-      "id": "ff096cc5"
+      "id": "299a5326"
     },
     {
       "cell_type": "code",
@@ -877,7 +877,7 @@
         "df.rename(columns={'sameblock': 'treat'}, inplace=True)\n",
         "df['post'] = (df['month'] > 7).astype(int)"
       ],
-      "id": "32ce295e",
+      "id": "11687f09",
       "execution_count": null,
       "outputs": []
     },
@@ -887,7 +887,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "19757f9f"
+      "id": "cb418889"
     },
     {
       "cell_type": "code",
@@ -910,7 +910,7 @@
         "\n",
         "We first consider estimating the average treatment effect in the post-period. To this end, we use @eq-eq20.9 as if we have only 2 periods, pre- and post-treament. We can use the `PanelOLS` function from `linearmodels` module to estimate the model. We use the clustered standard errors at the block level to account for correlation in the error terms within blocks."
       ],
-      "id": "891554ef"
+      "id": "68160437"
     },
     {
       "cell_type": "code",
@@ -924,7 +924,7 @@
         "result4 = model4.fit(cov_type='clustered', cluster_entity=True)\n",
         "print(result4.summary)"
       ],
-      "id": "ea0ee3a7",
+      "id": "399451d2",
       "execution_count": null,
       "outputs": []
     },
@@ -938,7 +938,7 @@
         "\n",
         "Next, we will consider an event study analysis and estimate @eq-eq20.10. First, we need to generate the interactions of the treatment dummy with pre and post periods."
       ],
-      "id": "d4b30391"
+      "id": "f6262fbe"
     },
     {
       "cell_type": "code",
@@ -954,7 +954,7 @@
         "df['lag3'] = ((df['treat'] == 1) & (df['month'] == 11)).astype(int) # november\n",
         "df['lag4'] = ((df['treat'] == 1) & (df['month'] == 12)).astype(int) # december"
       ],
-      "id": "f26f1fcf",
+      "id": "98b317da",
       "execution_count": null,
       "outputs": []
     },
@@ -964,7 +964,7 @@
       "source": [
         "The common treatment timing $t_0$ is August and the $t_0-1$ period is July. Thus, in the event study analysis, July will be the baseline period (reference period) and $\\beta_{\\text{july}}=0$. We use the fixed effects estimator to estimate the event study regression in @eq-eq20.10."
       ],
-      "id": "7868e4e8"
+      "id": "1cf87a07"
     },
     {
       "cell_type": "code",
@@ -979,7 +979,7 @@
         "result5 = model5.fit(cov_type='clustered', cluster_entity=True)\n",
         "print(result5.summary)"
       ],
-      "id": "c1642ce5",
+      "id": "4009bbd2",
       "execution_count": null,
       "outputs": []
     },
@@ -989,7 +989,7 @@
       "source": [
         "Alternatively, we can resort to the OLS estimator to estimate  @eq-eq20.10. The following code chunk produces the same estimates as the fixed effects estimator. Note that we use the `C(month)` and `C(block)` to include month and block fixed effects, respectively."
       ],
-      "id": "c0170dc5"
+      "id": "3a75d1d6"
     },
     {
       "cell_type": "code",
@@ -1001,7 +1001,7 @@
         "# Fit the model\n",
         "results6 = smf.ols(formula, data=df).fit(cov_type='cluster', cov_kwds={'groups': df['block']})"
       ],
-      "id": "0b6d64f6",
+      "id": "02398cad",
       "execution_count": null,
       "outputs": []
     },
@@ -1011,7 +1011,7 @@
       "source": [
         "To generate the event study plot, we next extract the point estimates and standard errors. We then generate (pointwise) 95% confidence intervals."
       ],
-      "id": "e62d5b0c"
+      "id": "2ead721c"
     },
     {
       "cell_type": "code",
@@ -1030,7 +1030,7 @@
         "thetal = theta - 1.96 * theta_se \n",
         "thetau = theta + 1.96 * theta_se "
       ],
-      "id": "607144a0",
+      "id": "00c174a3",
       "execution_count": null,
       "outputs": []
     },
@@ -1040,7 +1040,7 @@
       "source": [
         "Finally, we plot the event study estimates and confidence intervals. The plot is shown in @fig-fig-f20.3. The treatment effect estimates for the pre-treatment periods are statistically insignificant, which provides statistical evidence for the plausibility of the parallel trends assumption. The estimates for the post-treatment periods are negative, suggesting that police presence reduces car thefts in the post-treatment periods.\n"
       ],
-      "id": "7c0c0174"
+      "id": "ddeb9e34"
     },
     {
       "cell_type": "code",
@@ -1084,7 +1084,7 @@
         "\n",
         ":::"
       ],
-      "id": "b52bed6e"
+      "id": "5a642eac"
     },
     {
       "cell_type": "code",
@@ -1147,7 +1147,7 @@
         "\n",
         "The continuity assumption states that the conditional means of potential outcomes are continuous at $w_0$. This assumption holds if the conditional means are continuous functions of the running variable, as illustrated in @fig-f20.4. "
       ],
-      "id": "07f58de6"
+      "id": "e96109fe"
     },
     {
       "cell_type": "code",
@@ -1260,7 +1260,7 @@
         "\n",
         "The first assumption is the continuity assumption from the sharp RDD. The second assumption states that the probability of treatment is discontinuous at the threshold $w_0$. We illustrate this assumption in @fig-f20.6 by assuming that the probability of treatment increases with the running variable. The figure shows that the probability of treatment jumps to 0.6 at the threshold $w_0$. This contrasts with the sharp RDD, in which the probability of treatment is 0 below the threshold and 1 above it."
       ],
-      "id": "724e9ca3"
+      "id": "1d0943b9"
     },
     {
       "cell_type": "code",
@@ -1331,7 +1331,7 @@
         "\n",
         "The outcome variable is denoted by `mort_age59_related_postHS` and the running variable by `povrate60`. @tbl-t20.5 provides the summary statistics for these two variables. "
       ],
-      "id": "e4c4cf6a"
+      "id": "b27a9c9f"
     },
     {
       "cell_type": "code",
@@ -1340,7 +1340,7 @@
         "df_head = pd.read_stata(\"data/LM2007.dta\")\n",
         "df_head.columns"
       ],
-      "id": "14f8c55e",
+      "id": "70b7c16e",
       "execution_count": null,
       "outputs": []
     },
@@ -1350,7 +1350,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "99d1e6a6"
+      "id": "36eff1b0"
     },
     {
       "cell_type": "code",
@@ -1376,7 +1376,7 @@
         "\n",
         "We use the `rdrobust` funciton with the cutoff `c=59.1984` to estimate the RDD parameter $\\tau$. The following code chunk generates the estimation results. The estimated RDD parameter is -2.409 with a robust t-statistic -2.032. This is a large estimate given that the mean child mortality rate is around 2.254 as shown in @tbl-t20.5. This estimate indicates that the federal grant-writing assistence reduced mortality by 2.032 children per 100,000."
       ],
-      "id": "2769f3de"
+      "id": "2dd5fa35"
     },
     {
       "cell_type": "code",
@@ -1387,7 +1387,7 @@
         "rdd_result = rdrobust(x=W, y=Y, c=59.1984)\n",
         "print(rdd_result)"
       ],
-      "id": "eb91d405",
+      "id": "97e478de",
       "execution_count": null,
       "outputs": []
     },
@@ -1397,7 +1397,7 @@
       "source": [
         "We can use the `rdplot` function to generate the fitted polynomials along with sample averages of outcome variable within each bin as shown in the following figure. The jump in the figure at the cutoff $w_0=59.1984$ indicates that the treatment effect is evident."
       ],
-      "id": "6dc14d02"
+      "id": "1864c6ec"
     },
     {
       "cell_type": "code",
@@ -1409,7 +1409,7 @@
         "       x_label=\"Poverty Rate\",\n",
         "       col_lines=\"steelblue\")"
       ],
-      "id": "6b32b0a2",
+      "id": "377feb15",
       "execution_count": null,
       "outputs": []
     }

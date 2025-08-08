@@ -6,7 +6,7 @@
       "source": [
         "# Linear Regression with Multiple Regressors {#sec-multiple}"
       ],
-      "id": "0fb3bd9d"
+      "id": "9ad8a709"
     },
     {
       "cell_type": "code",
@@ -22,7 +22,7 @@
         "import scipy.stats as stats\n",
         "from mpl_toolkits.mplot3d import Axes3D"
       ],
-      "id": "0713e84d",
+      "id": "3ac4f9ea",
       "execution_count": null,
       "outputs": []
     },
@@ -149,7 +149,7 @@
         "$$\n",
         "for $i=1,\\dots,420$, where $\\text{PctEL}_i$ is the percentage of English learners in the $i$th district. We use the following code chunks to import data from the `caschool.xlsx` file."
       ],
-      "id": "c61f147a"
+      "id": "e11ea37e"
     },
     {
       "cell_type": "code",
@@ -161,7 +161,7 @@
         "# Import data\n",
         "mydata=pd.read_excel(\"data/caschool.xlsx\")"
       ],
-      "id": "8aa19da5",
+      "id": "364da7b0",
       "execution_count": null,
       "outputs": []
     },
@@ -172,7 +172,7 @@
         "# Column names\n",
         "mydata.columns"
       ],
-      "id": "7d533fa1",
+      "id": "fdb93f69",
       "execution_count": null,
       "outputs": []
     },
@@ -184,7 +184,7 @@
         "\n",
         ":::{layout-ncol=1}"
       ],
-      "id": "70d60b8c"
+      "id": "770af90e"
     },
     {
       "cell_type": "code",
@@ -209,7 +209,7 @@
         "\n",
         ":::{layout-ncol=1}"
       ],
-      "id": "3a1cc47c"
+      "id": "2b2605ca"
     },
     {
       "cell_type": "code",
@@ -232,7 +232,7 @@
         "\n",
         "In the following code chunk, we  use the `smf.ols` function to estimate both models."
       ],
-      "id": "bdb855b0"
+      "id": "2adcdfa0"
     },
     {
       "cell_type": "code",
@@ -244,7 +244,7 @@
         "model2=smf.ols(formula='testscr~str+el_pct',data=mydata)\n",
         "result2=model2.fit()"
       ],
-      "id": "b7d8e1cd",
+      "id": "76e813d2",
       "execution_count": null,
       "outputs": []
     },
@@ -256,7 +256,7 @@
         "\n",
         ":::{layout-ncol=1}"
       ],
-      "id": "70bccb1a"
+      "id": "57c38ace"
     },
     {
       "cell_type": "code",
@@ -331,7 +331,7 @@
         "\n",
         "The results in @tbl-t13-3 show that including `PctEL` in the regression increases the $R^2$ from $0.051$ to $0.426$. Thus, including `PctEL` substantially improves the fit of the regression. Because $n$ is large and we have only two regressors, the difference between $R^2$ and $\\bar{R}^2$ is very small: $R^2 = 0.426$ vs. $\\bar{R}^2 = 0.424$.  Note that @tbl-t13-3 does not include the SER measures. In the following code chunk, we compute the SER measures for both models."
       ],
-      "id": "5e5937d3"
+      "id": "f6862689"
     },
     {
       "cell_type": "code",
@@ -344,7 +344,7 @@
         "print(\"The SER for Model 1 is:\", np.round(SER1,1))\n",
         "print(\"The SER for Model 2 is:\", np.round(SER2,1))"
       ],
-      "id": "b788fcca",
+      "id": "0cf66b93",
       "execution_count": null,
       "outputs": []
     },
@@ -354,7 +354,7 @@
       "source": [
         "The SER value $18.6$ falls to $14.5$ when `PctEL` is included as a second regressor into the model. Finally, in the following code chunk, we compute these measures of fit manually for the second model. The results are given in @tbl-t13-t4."
       ],
-      "id": "0b3ea854"
+      "id": "9ff17ae8"
     },
     {
       "cell_type": "code",
@@ -380,7 +380,7 @@
         "    index=[\"SER\", \"RMSE\", \"R^2\", \"Adj.R^2\"], \n",
         "    columns=[\"\"])"
       ],
-      "id": "88ec86e5",
+      "id": "fd5b5d38",
       "execution_count": null,
       "outputs": []
     },
@@ -441,7 +441,7 @@
         "\n",
         "We set the sample size $n$ to 100 and generate 10000 samples. Using each sample, we estimate the model and store the estimated coefficients in the `coefs` array. We then generate histograms and density plots for each estimated coefficient. We provide the simulation results in @fig-fig13-1. The histograms and density plots for $\\hat{\\beta}_0$, $\\hat{\\beta}_1$, and $\\hat{\\beta}_2$ are bell-shaped and centered around the respective true parameter values. The surface plot in @fig-fig13-1 resembles that of a bivariate normal distribution, suggesting that $\\hat{\\beta}_1$ and $\\hat{\\beta}_2$ have a joint bivariate normal distribution. "
       ],
-      "id": "2c13e0dc"
+      "id": "d7b36511"
     },
     {
       "cell_type": "code",
@@ -475,7 +475,7 @@
         "    model = sm.OLS(Y, X_with_const).fit()\n",
         "    coefs[i, :] = model.params  # Store the coefficients"
       ],
-      "id": "ce2e3b12",
+      "id": "d4ff8738",
       "execution_count": null,
       "outputs": []
     },
@@ -591,7 +591,7 @@
         "\n",
         "We use the following code chunks to import the data. @tbl-t13-5 provides summary statistics."
       ],
-      "id": "9386b3ad"
+      "id": "16b8be82"
     },
     {
       "cell_type": "code",
@@ -602,7 +602,7 @@
         "# Display column names\n",
         "mydata.columns"
       ],
-      "id": "7256e74f",
+      "id": "e06684b3",
       "execution_count": null,
       "outputs": []
     },
@@ -612,7 +612,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "a962a639"
+      "id": "d0afc8d9"
     },
     {
       "cell_type": "code",
@@ -635,7 +635,7 @@
         "\n",
         "In the following, we use the `smf.ols` function from the `statsmodels.formula.api` module to estimate the regression model. "
       ],
-      "id": "008b1935"
+      "id": "43207a20"
     },
     {
       "cell_type": "code",
@@ -645,7 +645,7 @@
         "model3=smf.ols(formula='ahe ~ yrseduc + female + northeast + midwest + south',data=mydata)\n",
         "result3=model3.fit()"
       ],
-      "id": "f02b1a13",
+      "id": "1d2f9c3c",
       "execution_count": null,
       "outputs": []
     },
@@ -659,7 +659,7 @@
         "\n",
         ":::{layout-ncol=1}"
       ],
-      "id": "1a2951c7"
+      "id": "7c32ae20"
     },
     {
       "cell_type": "code",
@@ -738,7 +738,7 @@
         "\n",
         "@thm-thm13.3 justifies the use of control variables in the multiple linear regression model. According to this theorem, control variables should be selected so that, once included in the model, the variable of interest becomes uncorrelated with the error term. In the empirical application presented in the next chapter, we discuss how to choose control variables in practice."
       ],
-      "id": "8875f0a3"
+      "id": "c0223175"
     }
   ],
   "metadata": {

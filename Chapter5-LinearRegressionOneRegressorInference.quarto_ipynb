@@ -6,7 +6,7 @@
       "source": [
         "# Regression with a Single Regressor: Hypothesis Tests and Confidence Intervals {#sec-inference1}"
       ],
-      "id": "fe708f77"
+      "id": "0f291869"
     },
     {
       "cell_type": "code",
@@ -21,7 +21,7 @@
         "from statsmodels.iolib.summary2 import summary_col\n",
         "import scipy.stats as stats"
       ],
-      "id": "714558fa",
+      "id": "f269ce74",
       "execution_count": null,
       "outputs": []
     },
@@ -119,7 +119,7 @@
         ":::{#exm-exm12-1}\n",
         "Assume that $\\alpha=5\\%$ and $H_1:\\beta_1\\ne c$. Then, the critical value on the left tail is the $2.5$th percentile of $N(0,1)$, which is $-z_{\\alpha/2}=-1.96$, and the critical value on the right tail is the $97.5$th percentile of $N(0,1)$, which is $z_{\\alpha/2}=1.96$.  In Python, we can compute these critical values as follows:"
       ],
-      "id": "3a267c58"
+      "id": "5d00b511"
     },
     {
       "cell_type": "code",
@@ -130,7 +130,7 @@
         "print(\"Left critical value:\", np.round(left_critical,2))\n",
         "print(\"Right critical value:\", np.round(right_critical,2))"
       ],
-      "id": "e9873c2b",
+      "id": "e9442c40",
       "execution_count": null,
       "outputs": []
     },
@@ -164,7 +164,7 @@
         "\n",
         "We can compute the $p$-value in Python as follows:"
       ],
-      "id": "40fdaa29"
+      "id": "6c0220da"
     },
     {
       "cell_type": "code",
@@ -175,7 +175,7 @@
         "p_value = 2 * stats.norm.cdf(-np.abs(t_calc), loc=0, scale=1)\n",
         "print(\"p-value:\", np.round(p_value, 4))"
       ],
-      "id": "1e2eab52",
+      "id": "633534f3",
       "execution_count": null,
       "outputs": []
     },
@@ -204,7 +204,7 @@
         "\n",
         "In the data set, the test scores are denoted by `testscr` and the student-teacher ratio by `str`. "
       ],
-      "id": "bc52209c"
+      "id": "d9472936"
     },
     {
       "cell_type": "code",
@@ -216,7 +216,7 @@
         "# Column names\n",
         "CAschool.columns"
       ],
-      "id": "4769a23e",
+      "id": "9fa9f7d1",
       "execution_count": null,
       "outputs": []
     },
@@ -226,7 +226,7 @@
       "source": [
         "Consider $H_0: \\beta_1 = 0$ against $H_1: \\beta_1 \\neq 0$. We use the `smf.ols` method to estimate the model."
       ],
-      "id": "2389f087"
+      "id": "0f866e45"
     },
     {
       "cell_type": "code",
@@ -239,7 +239,7 @@
         "# Print the estimation results\n",
         "print(result1.summary())"
       ],
-      "id": "dcba2a32",
+      "id": "2dcae534",
       "execution_count": null,
       "outputs": []
     },
@@ -256,7 +256,7 @@
         "\n",
         "Note that the `result1.summary()` function also returns the t-statistics. The column named `t` in the output includes the t-statistics. Also note that we can return t-statistics through the `result1.tvalues` attribute:"
       ],
-      "id": "4cb2be00"
+      "id": "b3c91ca2"
     },
     {
       "cell_type": "code",
@@ -265,7 +265,7 @@
         "# t-statistics\n",
         "result1.tvalues"
       ],
-      "id": "6a439735",
+      "id": "247c4d13",
       "execution_count": null,
       "outputs": []
     },
@@ -275,7 +275,7 @@
       "source": [
         "Assume that the significance level is $\\alpha = 0.05$. Then, the corresponding critical value can be determined in the following way."
       ],
-      "id": "b9f9d354"
+      "id": "47e53a52"
     },
     {
       "cell_type": "code",
@@ -285,7 +285,7 @@
         "critical = stats.norm.ppf(0.975, loc=0, scale=1)\n",
         "np.round(critical,2)"
       ],
-      "id": "4dd4161f",
+      "id": "a31003ce",
       "execution_count": null,
       "outputs": []
     },
@@ -304,7 +304,7 @@
         "\n",
         "where $t_{\\text{calc}}$ is the actual t-statistic computed, which is $t\\approx -4.75$. Then, we can compute the p-value in the following way:"
       ],
-      "id": "5b7061ac"
+      "id": "4efe8744"
     },
     {
       "cell_type": "code",
@@ -316,7 +316,7 @@
         "p_value = 2 * stats.norm.cdf(-np.abs(t), loc=0, scale=1)\n",
         "p_value"
       ],
-      "id": "5156cae8",
+      "id": "bb736616",
       "execution_count": null,
       "outputs": []
     },
@@ -326,7 +326,7 @@
       "source": [
         "Alternatively, we can return $p$-values through the `result1.pvalues` attribute:"
       ],
-      "id": "bab112ab"
+      "id": "a8136e9c"
     },
     {
       "cell_type": "code",
@@ -336,7 +336,7 @@
         "p_value=result1.pvalues\n",
         "p_value"
       ],
-      "id": "ab11caf9",
+      "id": "d67efd83",
       "execution_count": null,
       "outputs": []
     },
@@ -346,7 +346,7 @@
       "source": [
         "Note that this value is slightly different from the one that we computed above by `p_value = 2 * stats.norm.cdf(-np.abs(t), loc=0, scale=1)`. By default, the `model1.fit` function uses the t distribution for the computation. Thus, we need to use the t distribution to get the same result:"
       ],
-      "id": "c9b8fe30"
+      "id": "269da211"
     },
     {
       "cell_type": "code",
@@ -357,7 +357,7 @@
         "p_value = 2 * stats.t.cdf(-np.abs(t), df=418)\n",
         "p_value"
       ],
-      "id": "1f85c967",
+      "id": "f8816421",
       "execution_count": null,
       "outputs": []
     },
@@ -386,7 +386,7 @@
         "\n",
         "In our test score example, the $95\\%$ confidence interval is computed in the following way:"
       ],
-      "id": "8594db8d"
+      "id": "71cec55f"
     },
     {
       "cell_type": "code",
@@ -397,7 +397,7 @@
         "upper_bound=result1.params[\"str\"]+critical*result1.bse[\"str\"]\n",
         "np.round([lower_bound,upper_bound],6)"
       ],
-      "id": "fbecd095",
+      "id": "0a52f6ec",
       "execution_count": null,
       "outputs": []
     },
@@ -407,7 +407,7 @@
       "source": [
         "Alternatively, we can resort to the `result1.conf_int()` method to return the confidence intervals for all parameters. "
       ],
-      "id": "8bb847e3"
+      "id": "4b60d71c"
     },
     {
       "cell_type": "code",
@@ -416,7 +416,7 @@
         "# Confidence intervals for all parameters\n",
         "result1.conf_int(alpha=0.05)"
       ],
-      "id": "fb4c5859",
+      "id": "26c4bd32",
       "execution_count": null,
       "outputs": []
     },
@@ -466,7 +466,7 @@
         "\n",
         "The dummy variable can be created by using a logical operator. The command `mydata$str < 20` will return $1$ if $STR < 20$, otherwise $0$. "
       ],
-      "id": "78738bb0"
+      "id": "2372635e"
     },
     {
       "cell_type": "code",
@@ -476,7 +476,7 @@
         "CAschool[\"D\"] = CAschool[\"str\"] < 20\n",
         "CAschool[[\"testscr\",\"str\",\"D\"]].head()"
       ],
-      "id": "babf3c04",
+      "id": "180d4bcb",
       "execution_count": null,
       "outputs": []
     },
@@ -486,7 +486,7 @@
       "source": [
         "@fig-fig12-2 shows the scatter plot of `TestScore` and `D`. Since `D` takes only two values, namely $0$ and $1$, we observe that the data points are clustered at `x=0` and `x=1`. In @fig-fig12-3, we create a jittered version of `D` by adding some random noise: `jittered_D = CAschool['D'] + np.random.normal(0, 0.02, size=len(CAschool['D']))`, and construct a scatter plot between `TestScore` and `jittered_D`."
       ],
-      "id": "b7211d03"
+      "id": "d4f93180"
     },
     {
       "cell_type": "code",
@@ -534,7 +534,7 @@
       "source": [
         "As in the case of a continuous regressor, we can use the `smf.ols` function to estimate a dummy variable regression model. "
       ],
-      "id": "ff55d2ca"
+      "id": "e53c9d89"
     },
     {
       "cell_type": "code",
@@ -547,7 +547,7 @@
         "# Print the estimation results\n",
         "print(result2.summary())"
       ],
-      "id": "9f896948",
+      "id": "c27509b2",
       "execution_count": null,
       "outputs": []
     },
@@ -566,7 +566,7 @@
         "\n",
         "@fig-fig12-4 shows the scatter plot along with the estimated regression function. Since $\\beta_1=7.38$, the estimated regression line is upward sloping, which indicates that the test scores are higher in districts with low student-teacher ratios. "
       ],
-      "id": "d68c9b12"
+      "id": "be5334a6"
     },
     {
       "cell_type": "code",
@@ -621,7 +621,7 @@
         "\n",
         "The `smf.ols` function uses these formulas to compute the standard errors, i.e., it only reports the homoskedasticity-only standard errors. To get heteroskedasticity-robust standard errors, we need to supply `cov_type=\"HC1\"` in the `fit` method, as shown below. "
       ],
-      "id": "35d6c958"
+      "id": "8374283e"
     },
     {
       "cell_type": "code",
@@ -634,7 +634,7 @@
         "# Print the estimation results\n",
         "print(result3.summary())"
       ],
-      "id": "d99e8bf2",
+      "id": "dc0bb69d",
       "execution_count": null,
       "outputs": []
     },
@@ -646,7 +646,7 @@
         "\n",
         ":::{layout-ncol=1}"
       ],
-      "id": "09ce22ef"
+      "id": "771a3724"
     },
     {
       "cell_type": "code",
@@ -705,7 +705,7 @@
         "\n",
         "In the next chapter, we introduce the multiple linear regression model. In Chapter 26, we extend the Gauss-Markov theorem to the multiple linear regression model. "
       ],
-      "id": "c5c3d1a7"
+      "id": "bf9e84ce"
     }
   ],
   "metadata": {

@@ -6,7 +6,7 @@
       "source": [
         "# Review of Statistics {#sec-statistics}"
       ],
-      "id": "0378935e"
+      "id": "0dd6c44f"
     },
     {
       "cell_type": "code",
@@ -20,7 +20,7 @@
         "sns.set(style='darkgrid') # Set the style of plots\n",
         "from scipy.integrate import quad"
       ],
-      "id": "33cfc53e",
+      "id": "547d70c6",
       "execution_count": null,
       "outputs": []
     },
@@ -81,7 +81,7 @@
         ":::{#exm-example10-2}\n",
         "Let $\\hat{\\mu}_1$ and $\\hat{\\mu}_2$ be two unbiased estimators of $\\mu_Y = 5$. Assume that the sampling distribution of $\\hat{\\mu}_1$ is $N(5, 0.5)$ and that of $\\hat{\\mu}_2$ is $N(5, 1)$. Then, we have $\\mathbb{E}(\\hat{\\mu}_1) = \\mathbb{E}(\\hat{\\mu}_2) = 5$, indicating that both estimators are unbiased. However, $\\hat{\\mu}_1$ is more efficient than $\\hat{\\mu}_2$ because $\\text{Var}(\\hat{\\mu}_1) = 0.5 < \\text{Var}(\\hat{\\mu}_2) = 1$. In @fig-fig10-1, we plot the sampling distributions of $\\hat{\\mu}_1$ and $\\hat{\\mu}_2$. Although both sampling distributions are centered at $\\mu_Y$, the sampling distribution of $\\hat{\\mu}_1$ is more concentrated around $\\mu_Y$ than that of $\\hat{\\mu}_2$, indicating that $\\hat{\\mu}_1$ is more efficient than $\\hat{\\mu}_2$."
       ],
-      "id": "7b08d6d4"
+      "id": "2526760c"
     },
     {
       "cell_type": "code",
@@ -149,7 +149,7 @@
         "All four estimators are unbiased, with $\\hat{m}_4$ being the most efficient. In the following code chunk, we resample $Y_1$, $Y_2$, and $Y_3$ from the $\\chi^2_3$ distribution $1000$ times and compute each estimator for every resample. @fig-f10.1 illustrates the sampling distribution of each estimator. As all estimators are unbiased, their estimated means are close  to $m = 3$. The figure also shows that $\\hat{m}_4$ is relatively more efficient, as its sampling distribution is more tightly clustered around its mean.\n",
         ":::"
       ],
-      "id": "2df04273"
+      "id": "866b5cd7"
     },
     {
       "cell_type": "code",
@@ -271,7 +271,7 @@
         ":::{#exm-example10-4}\n",
         "For illustrating $\\E(s^2_Y) = \\sigma^2_Y$ and $s^2_Y \\xrightarrow{p} \\sigma^2_Y$, we assume that $Y_1, Y_2, \\dots, Y_n$ are i.i.d. random variables from the $\\chi^2_4$ distribution. Recall that if $Y \\sim \\chi^2_4$, then $\\sigma^2_Y = 8$. In the following simulation exercise, we compute the sample variance $1000$ times for different sample sizes, with $n \\in \\{30, 100, 200, 500\\}$. We then generate histogram plots of the sample variances. The simulation results are shown in @fig-f10.2. The figure indicates that, as the sample size increases, the mean of the sample variances gets closer to the true value $8$. Moreover, the sampling distribution becomes more tightly concentrated around the mean."
       ],
-      "id": "84c588ac"
+      "id": "12582315"
     },
     {
       "cell_type": "code",
@@ -372,7 +372,7 @@
         "\n",
         "If the realized value of $t$ is in the rejection region, we reject the null hypothesis $H_0$; otherwise, we fail to reject $H_0$. Intiuitively, if the realized value of $t$ is in the rejection region, it means that the sample mean $\\bar{Y}$ is far away from the null value $\\mu_Y=20$, which suggests that the null hypothesis $H_0$ can not be true."
       ],
-      "id": "d6c1c086"
+      "id": "b5da8c0b"
     },
     {
       "cell_type": "code",
@@ -463,7 +463,7 @@
         ":::{#exm-example10-6}\n",
         "Assume that $\\alpha = 5%$ and the alternative hypothesis is specified as $H_1: \\mu_Y \\neq 20$. Then, the critical value on the left tail is the $2.5$th percentile of $N(0,1)$, which is $-z_{\\alpha/2} = -1.96$, and the critical value on the right tail is the $97.5$th percentile of $N(0,1)$, which is $z_{\\alpha/2} = 1.96$. Using Python, we can compute the critical values as follows:"
       ],
-      "id": "8280f062"
+      "id": "9cac03c2"
     },
     {
       "cell_type": "code",
@@ -474,7 +474,7 @@
         "print(\"Left critical value:\", np.round(left_critical,2))\n",
         "print(\"Right critical value:\", np.round(right_critical,2))"
       ],
-      "id": "ce8dc295",
+      "id": "b1a7e8b4",
       "execution_count": null,
       "outputs": []
     },
@@ -526,7 +526,7 @@
         "$$\n",
         "We can compute the $p$-value using Python as follows:"
       ],
-      "id": "3d06a037"
+      "id": "894626cd"
     },
     {
       "cell_type": "code",
@@ -535,7 +535,7 @@
         "p_value = 2*stats.norm.cdf(-2,loc=0,scale=1)\n",
         "print(\"p-value:\", np.round(p_value,4) )"
       ],
-      "id": "38d7e645",
+      "id": "ebca5ff7",
       "execution_count": null,
       "outputs": []
     },
@@ -602,7 +602,7 @@
         "\n",
         "Note that we construct the the $95\\%$ confidence interval $\\{\\mu_Y: \\bar{Y} \\pm 1.96 \\times \\text{SE}(\\bar{Y})\\}$ by using the critical values from the standard normal distribution.  That is, our confidence interval is based on the central limit theorem result in @eq-eq10.2, which requires a large sample size. In the following simulation exercise, we compute `nsim=5000` confidence intervals for different sample sizes and then determine the percentage of intervals that includes $\\mu_Y$. As the sample size increases, we expect this percentage to approach $95\\%$. "
       ],
-      "id": "0b110c09"
+      "id": "a04999ca"
     },
     {
       "cell_type": "code",
@@ -650,7 +650,7 @@
         "\n",
         "    return results"
       ],
-      "id": "44349b16",
+      "id": "d1b6e865",
       "execution_count": null,
       "outputs": []
     },
@@ -660,7 +660,7 @@
       "source": [
         "We assume that the random samples $Y_1, \\dots, Y_n$ are generated from three different distributions: (i) $N(0,1)$, (ii) $\\chi^2_3$, and (iii) the uniform distribution over the interval $(0,1)$. The simulation results are given in @tbl-t10.1. The results indicate that the percentages get closer to $95\\%$ as the sample size increases from $n =30$ to $n=500$."
       ],
-      "id": "05845bdc"
+      "id": "5bd88e43"
     },
     {
       "cell_type": "code",
@@ -675,7 +675,7 @@
         "# Population distribution: uniform distribution\n",
         "p3=confidence_int(np.random.uniform, n=[30, 100, 500], mu=0.5, low=0, high=1, seed=42)"
       ],
-      "id": "99f16e35",
+      "id": "47ae3987",
       "execution_count": null,
       "outputs": []
     },
@@ -756,7 +756,7 @@
         "\n",
         "We use the following code chunk to import the data and display the first five rows for college graduates."
       ],
-      "id": "44ff8221"
+      "id": "95c67f4d"
     },
     {
       "cell_type": "code",
@@ -769,7 +769,7 @@
         "# The first five rows of the dataset\n",
         "cps.head()"
       ],
-      "id": "7726939c",
+      "id": "0ad49991",
       "execution_count": null,
       "outputs": []
     },
@@ -779,7 +779,7 @@
       "source": [
         "In the following code chunk, we compute the average wage gap $\\bar{Y}_m - \\bar{Y}_w$ and then the $95\\%$ two-sided confidence interval $(\\bar{Y}_m - \\bar{Y}_w) \\pm 1.96 \\times \\SE(\\bar{Y}_m - \\bar{Y}_w)$ for each year. The results are shown in @tbl-t10.1. The average hourly earnings for male college graduates were \\$16.5 and \\$28 in 1996 and 2015, respectively. In comparison, female graduates earned an average of \\$13.9 in 1996 and \\$23 in 2015. Therefore, the average earnings gap was \\$2.05 in 1996 and widened to \\$4.19 in 2015. The estimated confidence intervals for the average earnings gaps are (2.05, 3.085) and (4.192, 5.841) in 1996 and 2015, respectively."
       ],
-      "id": "e27c30d8"
+      "id": "c8b902fc"
     },
     {
       "cell_type": "code",
@@ -828,7 +828,7 @@
         "    'CI_Upper': gap_ci_u\n",
         "})"
       ],
-      "id": "b6f2e828",
+      "id": "943eea0f",
       "execution_count": null,
       "outputs": []
     },
@@ -853,7 +853,7 @@
         "\n",
         "A **scatterplot** is a plot of observations on two variables. We use the scatter plot to explore the relationship between two variables. For example, @fig-fig10-5 displays the scatterplot of the average test scores against the average student-teacher ratios for 420 California school districts. Each point in the figure represents an $(X, Y)$ pair for a school district, where $X$ is the average student-teacher ratio, and $Y$ is the average test score. The scatterplot in @fig-fig10-5 indicates a negative relationship between the average student-teacher ratio and the average test score. That is, as the student-teacher ratio increases, the average test score tends to decrease."
       ],
-      "id": "6ff8611b"
+      "id": "6ba8d00f"
     },
     {
       "cell_type": "code",
@@ -899,7 +899,7 @@
         "\n",
         "In @fig-fig10-6, we show four correlation coefficients for four hypothetical data sets. Note that the last plot illustrates a non-linear relationship between $X$ and $Y$, even though the correlation coefficient between $X$ and $Y$ is zero."
       ],
-      "id": "ebd10480"
+      "id": "468f90c5"
     },
     {
       "cell_type": "code",

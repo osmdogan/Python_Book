@@ -9,7 +9,7 @@
         "## Introduction\n",
         "In this chapter, we introduce the [pandas](https://pandas.pydata.org/) module for reading data from various formats, exporting data, and performing data analysis tasks such as cleaning, filtering, transforming, handling missing data, merging, and reshaping. This module provides two data structures, `Series` and `DataFrame`, for storing and manipulating data. "
       ],
-      "id": "f0089276"
+      "id": "89d955ed"
     },
     {
       "cell_type": "code",
@@ -19,7 +19,7 @@
         "import pandas as pd\n",
         "import os"
       ],
-      "id": "9615750c",
+      "id": "59292644",
       "execution_count": null,
       "outputs": []
     },
@@ -31,7 +31,7 @@
         "from IPython.core.interactiveshell import InteractiveShell\n",
         "InteractiveShell.ast_node_interactivity = \"all\""
       ],
-      "id": "0818a64c",
+      "id": "f119f266",
       "execution_count": null,
       "outputs": []
     },
@@ -64,7 +64,7 @@
         "\n",
         "We consider a dataset on the California school districts, provided in the `caschools.csv` file. The dataset is collected in 1999 on n=420 school districts and includes 7560 observations on 18 district-level variables. This dataset can be imported in the following way: "
       ],
-      "id": "6a67ff51"
+      "id": "7b53a29d"
     },
     {
       "cell_type": "code",
@@ -74,7 +74,7 @@
         "CAschool = pd.read_csv('data/caschool.csv')\n",
         "type(CAschool)"
       ],
-      "id": "c5eb50fe",
+      "id": "7276eb0b",
       "execution_count": null,
       "outputs": []
     },
@@ -84,7 +84,7 @@
       "source": [
         "The type of the `CAschool` object is the `DataFrame`. We can see the first five observations in the dataset by calling the `head` method:"
       ],
-      "id": "117054b3"
+      "id": "395530a6"
     },
     {
       "cell_type": "code",
@@ -93,7 +93,7 @@
         "# Displaying the first five observations\n",
         "CAschool.head() "
       ],
-      "id": "a1b73c32",
+      "id": "7bd2277d",
       "execution_count": null,
       "outputs": []
     },
@@ -114,7 +114,7 @@
         "\n",
         "In the following example, we save the `CAschool` DataFrame to the `California_school_data.xlsx` file: "
       ],
-      "id": "d79d71e0"
+      "id": "f0aafc31"
     },
     {
       "cell_type": "code",
@@ -124,7 +124,7 @@
         "# Exporting the DataFrame to an Excel file\n",
         "CAschool.to_excel('data/California_school_data.xlsx', header = True, index = False)"
       ],
-      "id": "61f977f8",
+      "id": "e554244f",
       "execution_count": null,
       "outputs": []
     },
@@ -136,7 +136,7 @@
         "\n",
         "A Series is equivalent to a one-dimensional array and can contain various data types, including floats, strings, and integers. In many ways, a Series behaves similarly to a NumPy array and can be considered a column in a DataFrame. We can initialize a Series object using array, list, tuple,  or dictionary objects. In the following example, we create a Series from a NumPy array:"
       ],
-      "id": "d1fb6827"
+      "id": "2c69fbf3"
     },
     {
       "cell_type": "code",
@@ -148,7 +148,7 @@
         "type(s1)\n",
         "s1"
       ],
-      "id": "c9a8156d",
+      "id": "3c0166dc",
       "execution_count": null,
       "outputs": []
     },
@@ -160,7 +160,7 @@
         "\n",
         "In the following examples, we create Series from a tuple and a dictionary, respectively. Notice that the index is automatically generated as integers starting from 0 in the first example, while in the second example, the keys of the dictionary are used as indices."
       ],
-      "id": "85e31f96"
+      "id": "914b7e71"
     },
     {
       "cell_type": "code",
@@ -171,7 +171,7 @@
         "s2=pd.Series(a)\n",
         "s2"
       ],
-      "id": "0235fe00",
+      "id": "e29f083f",
       "execution_count": null,
       "outputs": []
     },
@@ -183,7 +183,7 @@
         "s3=pd.Series({'a': 0.1, 'b': 1.2, 'c': 2.3})\n",
         "s3"
       ],
-      "id": "03563027",
+      "id": "daec5eeb",
       "execution_count": null,
       "outputs": []
     },
@@ -193,7 +193,7 @@
       "source": [
         "Finally, we can create a Series from a list. The index is automatically generated as integers starting from 0, similar to the first example with a NumPy array:"
       ],
-      "id": "d3343d82"
+      "id": "2fc50702"
     },
     {
       "cell_type": "code",
@@ -204,7 +204,7 @@
         "s4=pd.Series(c)\n",
         "s4"
       ],
-      "id": "a105278f",
+      "id": "1aab4f85",
       "execution_count": null,
       "outputs": []
     },
@@ -214,7 +214,7 @@
       "source": [
         "The elements of a Series can be selected using the `[]` operator by specifying indices. We can use the index either explicitly or implicitly to slice a Series. Consider the following examples:"
       ],
-      "id": "fc583276"
+      "id": "529c59b3"
     },
     {
       "cell_type": "code",
@@ -223,7 +223,7 @@
         "s = pd.Series([0.1, 1.2, 2.3, 3.4, 4.5], index=['a', 'b', 'c', 'd', 'e'])\n",
         "s"
       ],
-      "id": "df5bfc5a",
+      "id": "2748c862",
       "execution_count": null,
       "outputs": []
     },
@@ -234,7 +234,7 @@
         "# Selecting elements by index\n",
         "s['a']"
       ],
-      "id": "0c19a1b8",
+      "id": "7398570d",
       "execution_count": null,
       "outputs": []
     },
@@ -245,7 +245,7 @@
         "# Selecting elements by multiple indices\n",
         "s[['a', 'c']]  "
       ],
-      "id": "4674bee6",
+      "id": "de075faf",
       "execution_count": null,
       "outputs": []
     },
@@ -256,7 +256,7 @@
         "# Slicing elements by explicit index\n",
         "s['a':'c']  "
       ],
-      "id": "548cf520",
+      "id": "9120c369",
       "execution_count": null,
       "outputs": []
     },
@@ -267,7 +267,7 @@
         "# Slicing elements by implicit index\n",
         "s[:2] "
       ],
-      "id": "259e7bb9",
+      "id": "b63d048a",
       "execution_count": null,
       "outputs": []
     },
@@ -277,7 +277,7 @@
       "source": [
         "Logical conditions can also be used to select elements of a Series. For example, we can select elements based on their values or indices. Consider the following examples:"
       ],
-      "id": "15274d05"
+      "id": "8c0d51df"
     },
     {
       "cell_type": "code",
@@ -286,7 +286,7 @@
         "# Selecting elements based on value\n",
         "s[s > 2]  # Elements that are greater than 2"
       ],
-      "id": "4b5f8a80",
+      "id": "8d3995f8",
       "execution_count": null,
       "outputs": []
     },
@@ -297,7 +297,7 @@
         "# Selecting elements based on value range\n",
         "s[(s >= 1) & (s <= 4)]  # Elements between 1 and 4 (inclusive)"
       ],
-      "id": "a1914240",
+      "id": "3a831a3c",
       "execution_count": null,
       "outputs": []
     },
@@ -307,7 +307,7 @@
       "source": [
         "Mathematical operations on Series objects are performed element-wise. When the indices do not match, the result is assigned the value `NaN`. Consider the following examples:"
       ],
-      "id": "06f3c0e7"
+      "id": "e63af237"
     },
     {
       "cell_type": "code",
@@ -318,7 +318,7 @@
         "s2 = s1**3\n",
         "s2"
       ],
-      "id": "4d4667f1",
+      "id": "d37b74a6",
       "execution_count": null,
       "outputs": []
     },
@@ -329,7 +329,7 @@
         "s1 = pd.Series({'a': 0.1, 'b': 1.2, 'c': 2.3})\n",
         "s2 = pd.Series({'c': 10, 'd': 1.2, 'e': 2.3})"
       ],
-      "id": "7d74fbb3",
+      "id": "4022494e",
       "execution_count": null,
       "outputs": []
     },
@@ -341,7 +341,7 @@
         "r1 = s1 * s2 \n",
         "r1"
       ],
-      "id": "e571a119",
+      "id": "3e4d8e2a",
       "execution_count": null,
       "outputs": []
     },
@@ -353,7 +353,7 @@
         "r2 = s1 + s2\n",
         "r2"
       ],
-      "id": "61e51dd5",
+      "id": "fd9956bc",
       "execution_count": null,
       "outputs": []
     },
@@ -384,7 +384,7 @@
         "\n",
         "We illustrate some these methods in the following examples:"
       ],
-      "id": "f507d7cc"
+      "id": "99607ab8"
     },
     {
       "cell_type": "code",
@@ -394,7 +394,7 @@
         "s1 = pd.Series([1, 3, 5, 6, np.nan, 'cat', 'abc', 10, 12, 5])\n",
         "s1.index = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k'] "
       ],
-      "id": "dae10c12",
+      "id": "4a73a4c3",
       "execution_count": null,
       "outputs": []
     },
@@ -405,7 +405,7 @@
         "# Displaying the first five observations\n",
         "s1.head()"
       ],
-      "id": "23a6f8de",
+      "id": "d2969a4f",
       "execution_count": null,
       "outputs": []
     },
@@ -416,7 +416,7 @@
         "# Display not-null values\n",
         "s1.notnull()  "
       ],
-      "id": "5f96fbf0",
+      "id": "6b7ac2ce",
       "execution_count": null,
       "outputs": []
     },
@@ -427,7 +427,7 @@
         "# Display null values\n",
         "s1.isnull() "
       ],
-      "id": "2b8f04cb",
+      "id": "ec571c17",
       "execution_count": null,
       "outputs": []
     },
@@ -438,7 +438,7 @@
         "# Accessing elements using loc\n",
         "s1.loc['e']  # Element with index 'e'"
       ],
-      "id": "2839b1b5",
+      "id": "ed5ef9a3",
       "execution_count": null,
       "outputs": []
     },
@@ -449,7 +449,7 @@
         "# Accessing elements using iloc\n",
         "s1.iloc[4]  # Element with implicit index 4"
       ],
-      "id": "6954c3c9",
+      "id": "eb2bf666",
       "execution_count": null,
       "outputs": []
     },
@@ -460,7 +460,7 @@
         "# Remove missing values\n",
         "s1.dropna() # Remove nan values"
       ],
-      "id": "b05d6916",
+      "id": "ce1147e5",
       "execution_count": null,
       "outputs": []
     },
@@ -473,7 +473,7 @@
         "s1.index = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k'] # Set index\n",
         "s1.fillna(-99.0)"
       ],
-      "id": "1450a129",
+      "id": "38c792cf",
       "execution_count": null,
       "outputs": []
     },
@@ -485,7 +485,7 @@
         "s1 = pd.Series(np.arange(10.0, 20.0))\n",
         "s1.describe() "
       ],
-      "id": "b65f237f",
+      "id": "cee8640c",
       "execution_count": null,
       "outputs": []
     },
@@ -499,7 +499,7 @@
         "\n",
         "In the following example, we create a DataFrame from a dictionary of Series objects. The keys of the dictionary become the column names, and the values are the Series that form the columns of the DataFrame:"
       ],
-      "id": "e3eab20a"
+      "id": "2e12fae8"
     },
     {
       "cell_type": "code",
@@ -512,7 +512,7 @@
         "df = pd.DataFrame({'one': s1, 'two': s2, 'three': s3})\n",
         "df"
       ],
-      "id": "1f742638",
+      "id": "8357daff",
       "execution_count": null,
       "outputs": []
     },
@@ -522,7 +522,7 @@
       "source": [
         "In the following example, we create a DataFrame from an array. The array is converted to a DataFrame, and we can set the column names using the `columns` attribute.    "
       ],
-      "id": "4c770f40"
+      "id": "6b218eb9"
     },
     {
       "cell_type": "code",
@@ -533,7 +533,7 @@
         "df.columns = ['col1','col2'] # Set column names\n",
         "df"
       ],
-      "id": "4ab3f457",
+      "id": "8579e55b",
       "execution_count": null,
       "outputs": []
     },
@@ -544,7 +544,7 @@
         "# Return column names of CAschool DataFrame\n",
         "CAschool.columns "
       ],
-      "id": "6be45d3f",
+      "id": "06710f3c",
       "execution_count": null,
       "outputs": []
     },
@@ -554,7 +554,7 @@
       "source": [
         "The student-teacher ratio is denoted by `str` in `CAschool`. This column can be selected via `CAschool.str` or `CAschool['str']`. To select multiple columns, such as `str`, `read_scr`, and `math_scr`, then we can use `CAschool[['str', 'read_scr', 'math_scr']]`. Consider the following examples:"
       ],
-      "id": "f84f0895"
+      "id": "bb0cf559"
     },
     {
       "cell_type": "code",
@@ -563,7 +563,7 @@
         "# Selecting multiple columns\n",
         "CAschool[['str', 'read_scr', 'math_scr']].head(n=5)"
       ],
-      "id": "b690ff9b",
+      "id": "c657d43f",
       "execution_count": null,
       "outputs": []
     },
@@ -574,7 +574,7 @@
         "# Selecting multiple columns and displaying summary statistics\n",
         "CAschool[['str', 'read_scr', 'math_scr']].describe().T # Summary statistics"
       ],
-      "id": "2eb34599",
+      "id": "73854c05",
       "execution_count": null,
       "outputs": []
     },
@@ -584,7 +584,7 @@
       "source": [
         "We can slice rows using standard numerical slices, as in `CAschool[0:5]`, which returns the first five rows for all columns. However, it is not possible to use standard slicing to select both rows and columns. Instead, we can use `loc[rowselector, coloumnselector]`, as shown in the following example: "
       ],
-      "id": "8902793d"
+      "id": "5cba545d"
     },
     {
       "cell_type": "code",
@@ -593,7 +593,7 @@
         "# Selecting specific rows and columns using loc\n",
         "CAschool.loc[0:5, ['str', 'read_scr', 'math_scr']]"
       ],
-      "id": "81280fe7",
+      "id": "859dc97d",
       "execution_count": null,
       "outputs": []
     },
@@ -603,7 +603,7 @@
       "source": [
         "We can also select rows and columns using the `iloc` method, which allows for integer-location-based indexing. Consider the following example:"
       ],
-      "id": "87dd5c6f"
+      "id": "99408ab0"
     },
     {
       "cell_type": "code",
@@ -612,7 +612,7 @@
         "# Selecting specific rows and columns using iloc\n",
         "CAschool.iloc[0:2,0:5] # Returns the first two rows and the first five columns"
       ],
-      "id": "ed9a0eb1",
+      "id": "d34549b8",
       "execution_count": null,
       "outputs": []
     },
@@ -622,7 +622,7 @@
       "source": [
         "Rows can also be selected using logical selection with a Boolean array. In the following example, we select districts with student-teacher ratios less than 15:"
       ],
-      "id": "5a909a58"
+      "id": "6f6c46a7"
     },
     {
       "cell_type": "code",
@@ -632,7 +632,7 @@
         "subset = CAschool['str'] < 15\n",
         "CAschool.loc[subset, ['county', 'district', 'str', 'read_scr', 'math_scr']]"
       ],
-      "id": "7b284e6e",
+      "id": "6868d7b4",
       "execution_count": null,
       "outputs": []
     },
@@ -642,7 +642,7 @@
       "source": [
         "We can add columns to a DataFrame using two methods: (i) by assigning a new column name, and (ii) using the `insert` method. Consider the following examples:"
       ],
-      "id": "6c9b6925"
+      "id": "4320819a"
     },
     {
       "cell_type": "code",
@@ -653,7 +653,7 @@
         "df['logstr'] = np.log(df['str']) # Adding the logstr column\n",
         "df.head()"
       ],
-      "id": "959202ac",
+      "id": "174c7547",
       "execution_count": null,
       "outputs": []
     },
@@ -666,7 +666,7 @@
         "df.insert(1, 'logstr', np.log(df['str'])) # Adding the logstr column\n",
         "df.head()"
       ],
-      "id": "110696b1",
+      "id": "b2fcf469",
       "execution_count": null,
       "outputs": []
     },
@@ -678,7 +678,7 @@
         "\n",
         "There are three ways to delete columns from a DataFrame: (i) using the `drop(list of columns/rows,axis=1/0)` method, (ii) the `pop(column)` method, and (iii) the `del` keyword. Consider the following examples:"
       ],
-      "id": "2b7e0743"
+      "id": "ef2a385c"
     },
     {
       "cell_type": "code",
@@ -689,7 +689,7 @@
         "# Drop  the str column\n",
         "df.drop('str',axis=1).head()"
       ],
-      "id": "96a0bd42",
+      "id": "d8fa7bb6",
       "execution_count": null,
       "outputs": []
     },
@@ -702,7 +702,7 @@
         "del df['str']\n",
         "df.head()"
       ],
-      "id": "fc062fbf",
+      "id": "793df13a",
       "execution_count": null,
       "outputs": []
     },
@@ -737,7 +737,7 @@
         "\n",
         "Data are often stored in a *wide* form, i.e., in a wide-form tabulation. For example, consider the following state per capita income dataset that is provided by Bureau of Economic Analysis.  \n"
       ],
-      "id": "66bf57e6"
+      "id": "c8283f3d"
     },
     {
       "cell_type": "code",
@@ -747,7 +747,7 @@
         "income_wide = pd.read_csv('data/state_income.csv', header = 0)\n",
         "income_wide.head()"
       ],
-      "id": "bad24d0b",
+      "id": "bc554252",
       "execution_count": null,
       "outputs": []
     },
@@ -757,7 +757,7 @@
       "source": [
         "However, the wide form is not compatible with modules used in econometric analysis. Therefore, we need to change it to the *long* form. To this end, we can use the `wide_to_long` method."
       ],
-      "id": "fdd12734"
+      "id": "6d4ad49b"
     },
     {
       "cell_type": "code",
@@ -767,7 +767,7 @@
         "income_long = pd.wide_to_long(income_wide, stubnames='pinc', i='state', j='year', sep='.')\n",
         "income_long.head()"
       ],
-      "id": "eba456db",
+      "id": "200b603a",
       "execution_count": null,
       "outputs": []
     },
@@ -777,7 +777,7 @@
       "source": [
         "Notice that DataFrame has one column, named pinc. State and year variables are used to generate a `Multi.Index` for the DataFrame. We can use  the `reset_index` method turn them back to data columns."
       ],
-      "id": "acca9710"
+      "id": "b5de2305"
     },
     {
       "cell_type": "code",
@@ -787,7 +787,7 @@
         "income_long = income_long.reset_index()\n",
         "income_long.head()"
       ],
-      "id": "02bb462a",
+      "id": "c22140fc",
       "execution_count": null,
       "outputs": []
     },
@@ -797,7 +797,7 @@
       "source": [
         "The DataFrame is currently sorted by year and state (year is the slower index). Let us sort it by state and year (with state as the slower index). We can use the `sort_values` method to sort the DataFrame."
       ],
-      "id": "92c26110"
+      "id": "8fbd7bd5"
     },
     {
       "cell_type": "code",
@@ -807,7 +807,7 @@
         "income_long = income_long.sort_values(by = [\"state\", \"year\"])\n",
         "income_long.head()"
       ],
-      "id": "12ee5d95",
+      "id": "cc22f816",
       "execution_count": null,
       "outputs": []
     },
@@ -817,7 +817,7 @@
       "source": [
         "Notice that the index order has changed. We can reset the index again, which will add the current index as a data column. However, we can drop it from the DataFrame if needed."
       ],
-      "id": "359aef93"
+      "id": "39419dd6"
     },
     {
       "cell_type": "code",
@@ -827,7 +827,7 @@
         "income_long = income_long.reset_index().drop(\"index\", axis = 1)\n",
         "income_long.head()"
       ],
-      "id": "679813df",
+      "id": "56214eec",
       "execution_count": null,
       "outputs": []
     },
@@ -837,7 +837,7 @@
       "source": [
         "Finally, we will check the data type of each column."
       ],
-      "id": "393a1c64"
+      "id": "3db420f6"
     },
     {
       "cell_type": "code",
@@ -846,7 +846,7 @@
         "# Checking the data types of the columns\n",
         "income_long.dtypes"
       ],
-      "id": "c729cffb",
+      "id": "57219bfa",
       "execution_count": null,
       "outputs": []
     },
@@ -856,7 +856,7 @@
       "source": [
         "Next, we will consider the state expenditure data provided by the Bureau of Economic Analysis. The data cover the period from 1993 to 2015, with one CSV file for each year. We will first generate a list of filenames and then sort the list. "
       ],
-      "id": "0ddba56d"
+      "id": "09546508"
     },
     {
       "cell_type": "code",
@@ -867,7 +867,7 @@
         "file_list.sort()\n",
         "file_list"
       ],
-      "id": "edbfd755",
+      "id": "db915ecb",
       "execution_count": null,
       "outputs": []
     },
@@ -877,7 +877,7 @@
       "source": [
         "We can now stack these datasets in a `for` loop, however, we must be aware of non-uniformity of column names across years. Indeed, although the order of columns are uniform across years, the names are not. Hence, we will rename the columns after importing them."
       ],
-      "id": "5fba99e1"
+      "id": "12cf4cc8"
     },
     {
       "cell_type": "code",
@@ -895,7 +895,7 @@
         "\n",
         "expenditure.head()"
       ],
-      "id": "d007387e",
+      "id": "f156440d",
       "execution_count": null,
       "outputs": []
     },
@@ -905,7 +905,7 @@
       "source": [
         "Expenditure dataset is sorted by year and state (with year as the slower index). Let us sort it by state and year (with state as the slower index)."
       ],
-      "id": "08b52e54"
+      "id": "fdd63a91"
     },
     {
       "cell_type": "code",
@@ -916,7 +916,7 @@
         "expenditure = expenditure.reset_index().drop(\"index\", axis = 1)\n",
         "expenditure.head()"
       ],
-      "id": "68d20257",
+      "id": "ce6ba96b",
       "execution_count": null,
       "outputs": []
     },
@@ -926,7 +926,7 @@
       "source": [
         "We must check the data type for all columns to make sure that expenditure variables are numeric."
       ],
-      "id": "a034e2c2"
+      "id": "cfb800ba"
     },
     {
       "cell_type": "code",
@@ -935,7 +935,7 @@
         "# Checking the data types of the columns in the expenditure DataFrame\n",
         "expenditure.dtypes"
       ],
-      "id": "1622093b",
+      "id": "1ac9cc4c",
       "execution_count": null,
       "outputs": []
     },
@@ -945,7 +945,7 @@
       "source": [
         "Unfortunately, `dtype` is object for all expenditure variables. This is due to `,` in those columns. We need to convert these columns to numeric type by dropping `,` and then resetting `dtype` to numeric. "
       ],
-      "id": "52c4e21d"
+      "id": "1241703f"
     },
     {
       "cell_type": "code",
@@ -956,7 +956,7 @@
         "expenditure[columns] = expenditure[columns].replace(\",\", \"\", regex = True).astype('int')\n",
         "expenditure.dtypes"
       ],
-      "id": "c3367dfe",
+      "id": "7e714e38",
       "execution_count": null,
       "outputs": []
     },
@@ -966,7 +966,7 @@
       "source": [
         "We can now merge *income* and *expenditure* datasets on *state* and *year*. Pandas `merge()` and `join()` methods use a set of rules known as relational algebra to combine data. If the key columns are named the same in the left and right DataFrames, a value for `on` argument can be provided. If the key columns are named differently, we can specify the key columns for merge using `left_on` and `right_on` arguments corresponding to left and right DataFrames. Similarly, if left and right DataFrames have indices set, you can use `left_index` and `right_index` arguments. "
       ],
-      "id": "eca9b796"
+      "id": "73d07ade"
     },
     {
       "cell_type": "code",
@@ -976,7 +976,7 @@
         "final_df = pd.merge(income_long, expenditure, on = [\"state\", \"year\"])\n",
         "final_df.head()"
       ],
-      "id": "e1e7c4b4",
+      "id": "314eede1",
       "execution_count": null,
       "outputs": []
     },
@@ -987,7 +987,7 @@
         "## Further Readings \n",
         "In this section, we introduce commonly used data structures and manipulation tools from the `pandas` module that are useful for econometric analysis. For further reading on pandas data structures and manipulation tools, we refer the reader to @Sheppard2021, @Wes2022, and @Jake2023."
       ],
-      "id": "6fe8b424"
+      "id": "5bf90f81"
     }
   ],
   "metadata": {

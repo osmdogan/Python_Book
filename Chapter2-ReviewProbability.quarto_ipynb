@@ -6,7 +6,7 @@
       "source": [
         "# Review of Probability {#sec-probability}"
       ],
-      "id": "f3340f13"
+      "id": "2d81f3fc"
     },
     {
       "cell_type": "code",
@@ -21,7 +21,7 @@
         "from scipy.integrate import quad\n",
         "from scipy.integrate import dblquad"
       ],
-      "id": "55089cf9",
+      "id": "80d3351d",
       "execution_count": null,
       "outputs": []
     },
@@ -169,7 +169,7 @@
         "::: {#exm-example9.6}\n",
         "Let $M$ be a random variable that measures the number of times your wireless network connection fails while you are writing a term paper. Let us assume that $M$ takes $0$, $1$, $2$, $4$, $5$, with the corresponding probabilities given by $0.80$, $0.10$, $0.06$, $0.03$, $0.01$.  In the following, we summarize the probability distribution of $M$ in a table."
       ],
-      "id": "78962ac4"
+      "id": "908f7cec"
     },
     {
       "cell_type": "code",
@@ -186,7 +186,7 @@
         "y.columns = [\"\", \"\", \"\", \"\", \"\"]\n",
         "# y.columns = [\"\"] * y.shape[1]"
       ],
-      "id": "09bbb442",
+      "id": "e2927f5e",
       "execution_count": null,
       "outputs": []
     },
@@ -199,7 +199,7 @@
         "\n",
         ":::{layout-ncol=1}"
       ],
-      "id": "ff2bbb96"
+      "id": "436bb8a7"
     },
     {
       "cell_type": "code",
@@ -223,7 +223,7 @@
         "\n",
         "We can use either a bar plot or a stem plot to illustrate the probability distribution of discrete random variables. Consider the discrete random variable defined in @exm-example9.6. In @fig-f9.1, we use the stem plot for the probability distribution, while in @fig-f9.2, we use the bar plot."
       ],
-      "id": "e3a4d19a"
+      "id": "fc1605eb"
     },
     {
       "cell_type": "code",
@@ -323,7 +323,7 @@
         "\n",
         "In @fig-f9.3, we give the plot of the CDF of $M$. Note that the CDF  takes a step at the outcome values $m\\in\\{0, 1, 2, 3,4\\}$ and stays constant otherwise. The height of the step at a particular point $m$ is equal to $P(M = m)$, the probability associated with $m$."
       ],
-      "id": "eeee331e"
+      "id": "ec2b2d00"
     },
     {
       "cell_type": "code",
@@ -390,7 +390,7 @@
         "\n",
         "The following code chunk generates the plot of $F$ over the interval $[-1, 3]$. Note that the CDF is zero for $y<0$ and increases to $1$ as $y$ increases."
       ],
-      "id": "a188c0be"
+      "id": "f8f9ea82"
     },
     {
       "cell_type": "code",
@@ -468,7 +468,7 @@
         "\n",
         "The following code chunk generates the plots of the CDF and PDF of $Y$. Note that the CDF is continuous, while the PDF is not continuous at $y=1$. The CDF is zero for $y\\leq0$ and increases to $1$ as $y$ increases. The PDF is zero for $y\\leq0$, increases linearly from $0$ to $2$ as $y$ increases from $0$ to $1$, and is zero for $y>1$."
       ],
-      "id": "6f661ddb"
+      "id": "f2fc9c27"
     },
     {
       "cell_type": "code",
@@ -545,7 +545,7 @@
         "\n",
         "The following code chunk generates the plots of the CDF and PDF of $Y$. Note that the CDF is continuous, while the PDF is not continuous at $y=1$. The CDF is zero for $y\\leq0$ and increases to $1$ as $y$ increases. The PDF is zero for $y\\leq0$, increases from $0$ to $3$ as $y$ increases from $0$ to $1$, and is zero for $y>1$."
       ],
-      "id": "a0ad1ad9"
+      "id": "79fa5f11"
     },
     {
       "cell_type": "code",
@@ -616,7 +616,7 @@
         "\n",
         "Thus, $f_Y(y)$ is a proper density function. Numerically, we can use the `quad` method from the `scipy.integrate` module to compute the above integral, as illustrated below."
       ],
-      "id": "4a90bfcb"
+      "id": "2e74ea2a"
     },
     {
       "cell_type": "code",
@@ -632,7 +632,7 @@
         "print(\"Integration result:\", result)\n",
         "print(\"Estimated error:\", error)"
       ],
-      "id": "f26abd71",
+      "id": "8ffc98c6",
       "execution_count": null,
       "outputs": []
     },
@@ -730,7 +730,7 @@
         "\n",
         "Using the `quad` function from the `scipy.integrate` module, we can compute the expected value of $Y$ numerically as follows:"
       ],
-      "id": "da8803ed"
+      "id": "65a5e240"
     },
     {
       "cell_type": "code",
@@ -744,7 +744,7 @@
         "result, error = quad(fun, 1, np.inf)\n",
         "print(\"Expected value E(Y):\", result)"
       ],
-      "id": "2ea23c2b",
+      "id": "f7156d6f",
       "execution_count": null,
       "outputs": []
     },
@@ -856,7 +856,7 @@
         "\n",
         "In @fig-f9.7, we show the density plots of the standard normal distribution, the skewed normal distribution, the gamma distribution, and the Laplace distribution. The standard normal distribution is symmetric, the skewed-normal distribution is left-skewed, the gamma distribution is right-skewed, and the Laplace distribution is leptokurtotic. "
       ],
-      "id": "4e151e82"
+      "id": "37f03481"
     },
     {
       "cell_type": "code",
@@ -938,7 +938,7 @@
         "\n",
         "In the following code chunk, we generate 1000 draws from the Bernoulli distribution with $p=0.7$ and then generate the stem plot of the draws. The stem plot shows that the distribution of $G$ is skewed to the left, i.e., the probability of $G=1$ is higher than the probability of $G=0$. "
       ],
-      "id": "4991a781"
+      "id": "4b35c1df"
     },
     {
       "cell_type": "code",
@@ -1013,7 +1013,7 @@
         "\n",
         "In the following code chunk, we generate plots of the CDF and PDF of $Y$. In the CDF plot, we highlight the point at $y = 1.17$, which corresponds to the median of $Y$. In the PDF plot, the shaded area under the curve between $y = 0$ and $y = 1.17$ is $0.50$."
       ],
-      "id": "51e73b93"
+      "id": "7416e18c"
     },
     {
       "cell_type": "code",
@@ -1090,7 +1090,7 @@
         ":::{#exm-example9.20}\n",
         "Let $Y$ be a binary random variable that equals $1$ if the commute to school is short (less than 20 minutes) and that equals $0$ otherwise, and let $X$ be a binary random variable that equals $0$ if it is raining and $1$ if not. We assume that the joint probability distribution of $X$ and $Y$ is given in @tbl-t9.2."
       ],
-      "id": "bb007837"
+      "id": "3eed5b76"
     },
     {
       "cell_type": "code",
@@ -1119,7 +1119,7 @@
         "\n",
         "The following code chunk generates a three dimensional stem plot for the joint distribution of $X$ and $Y$. The height of each stem corresponds to the joint probability of $X$ and $Y$ taking on specific values."
       ],
-      "id": "a1693c90"
+      "id": "09982c21"
     },
     {
       "cell_type": "code",
@@ -1268,7 +1268,7 @@
         "\\end{align*}\n",
         "$$"
       ],
-      "id": "4f6c4a4d"
+      "id": "07fb4a58"
     },
     {
       "cell_type": "code",
@@ -1317,7 +1317,7 @@
       "source": [
         "Using the `dblquad` function from the `scipy.integrate` module, we can compute the joint CDF $F_{X,Y}(0.5, 0.5)$ numerically as follows:"
       ],
-      "id": "81da3333"
+      "id": "e8e893b8"
     },
     {
       "cell_type": "code",
@@ -1335,7 +1335,7 @@
         "result, error = dblquad(joint_pdf, 0, 0.5, y_lower, y_upper)\n",
         "print(\"Joint CDF F_{X,Y}(0.5, 0.5):\", result)"
       ],
-      "id": "89c37ac4",
+      "id": "6f4d7a47",
       "execution_count": null,
       "outputs": []
     },
@@ -1673,7 +1673,7 @@
         "\n",
         "The following code chunk generates the stem plots of the binomial distribution with parameters $n=20$ and $p\\in\\{0.1,0.5, 0.8\\}$ for $x=0,1,\\dots,20$. The height of each stem corresponds to the probability of having exactly $x$ successes in $n$ trials. @fig-fig9-12 indicates that the binomial distribution is skewed to the right when $p$ is small, symmetric when $p=0.5$, and skewed to the left when $p$ is large. "
       ],
-      "id": "615ba868"
+      "id": "ac5d2ad6"
     },
     {
       "cell_type": "code",
@@ -1747,7 +1747,7 @@
         "\n",
         "The following code chunk generates the PDF and CDF of the uniform distribution on the interval $[0, 2\\pi]$."
       ],
-      "id": "8bf5db86"
+      "id": "1cad37cb"
     },
     {
       "cell_type": "code",
@@ -1823,7 +1823,7 @@
         ":::{#exm-example9.26}\n",
         "Let $Y\\sim N(0.35,2.25)$ and consider $P(-0.5<Y\\leq 0.75)$, which corresponds to the shaded area illustrated in @fig-f9.14. Using the `scipy.stats.norm.cdf` function, we can compute $P(-0.5<Y\\leq 0.75)$ in the following way:"
       ],
-      "id": "9dfe3d50"
+      "id": "2e1054e0"
     },
     {
       "cell_type": "code",
@@ -1832,7 +1832,7 @@
         "p=stats.norm.cdf(0.75,loc=0.35,scale=1.5)-stats.norm.cdf(-0.5,loc=0.35,scale=1.5)\n",
         "np.round(p,4)"
       ],
-      "id": "bbde15a6",
+      "id": "22b40cbc",
       "execution_count": null,
       "outputs": []
     },
@@ -1843,7 +1843,7 @@
         ":::\n",
         ":::"
       ],
-      "id": "94094129"
+      "id": "f5f0f204"
     },
     {
       "cell_type": "code",
@@ -1882,7 +1882,7 @@
       "source": [
         "The normal distribution is symmetric around its mean $\\mu$ and has a bell-shaped curve. The mean, median, and mode of the normal distribution are all equal to $\\mu$. The variance $\\sigma^2$ determines the spread of the distribution, with larger values indicating a wider spread. Consider $N(0,1)$, $N(-2,1)$, and $N(0,9)$. We use the following code chunk to plot the PDF and CDF of these normal distributions. @fig-f9.15 shows the PDF and CDF of these distributions. "
       ],
-      "id": "88c5ee7e"
+      "id": "146f8964"
     },
     {
       "cell_type": "code",
@@ -1946,7 +1946,7 @@
         ":::{#exm-example9.27}\n",
         "Let $Z_1$, $Z_2$ and $Z_3$ be independent standard normal random variables. If we define $Y=Z^2_1+Z^2_2+Z^2_3$, then $Y\\sim \\chi^2_3$. We can use the `scipy.stats.chi2` function to compute the PDF and CDF of $Y$. For example, we can compute $P(Y\\leq 5)$ as follows:"
       ],
-      "id": "4a8dbfef"
+      "id": "70d5d68e"
     },
     {
       "cell_type": "code",
@@ -1955,7 +1955,7 @@
         "p = stats.chi2.cdf(5, df=3)\n",
         "np.round(p, 4)"
       ],
-      "id": "4252d425",
+      "id": "00bb5d40",
       "execution_count": null,
       "outputs": []
     },
@@ -1967,7 +1967,7 @@
         "\n",
         "In @fig-f9.6, we show the PDF and CDF of  $\\chi^2_3$, $\\chi^2_4$, and $\\chi^2_{10}$. The figure indicates that the chi-squared distribution is right-skewed, and as $m$ increases, the distribution becomes more symmetric."
       ],
-      "id": "54eaa029"
+      "id": "0a6cd843"
     },
     {
       "cell_type": "code",
@@ -2025,7 +2025,7 @@
         "\n",
         "In @fig-f9.7, we compare the PDF and CDF of $t_1$ and $t_{10}$ with that of $N(0,1)$. The $t$ distribution has a bell shape similar to that of the normal distribution but exhibits more mass in the tails, resulting in a “fatter” bell shape compared to the normal distribution.  In general, when $m$ is $30$ or more, the $t$ distribution closely approximates the standard normal distribution.Specifically, as $𝑚$ approaches infinity, the $t$ distribution converges to the standard normal distribution."
       ],
-      "id": "92007fc9"
+      "id": "d2c70b17"
     },
     {
       "cell_type": "code",
@@ -2079,7 +2079,7 @@
         ":::{#exm-example9.28}\n",
         "Let $Y\\sim N(0,1)$ and $X\\sim t_{5}$. We want to compute $P(Y\\geq2)$ and $P(X\\geq2)$ using the `scipy.stats` module. The following code chunk shows how to compute these probabilities:"
       ],
-      "id": "2fdb7ba7"
+      "id": "3ec014a6"
     },
     {
       "cell_type": "code",
@@ -2089,7 +2089,7 @@
         "p_x = stats.t.sf(2, df=5)  # P(X >= 2)\n",
         "np.round(p_y, 4), np.round(p_x, 4)"
       ],
-      "id": "6aa6aa51",
+      "id": "402637c2",
       "execution_count": null,
       "outputs": []
     },
@@ -2118,7 +2118,7 @@
         "\n",
         "The $F$ distribution is right-skewed, and as $m$ and $n$ increase, the distribution becomes more symmetric. In @fig-f9.18, we provide the plots of PDF and CDF of $F_{1,10}$, $F_{5,50}$, and $F_{10,100}$.\n"
       ],
-      "id": "94ef58b7"
+      "id": "d2fef4ff"
     },
     {
       "cell_type": "code",
@@ -2174,7 +2174,7 @@
         ":::{#exm-example9.29}\n",
         "Let $Y\\sim F_{2,10}$. We can compute the PDF and CDF of $Y$ using the `scipy.stats.f` function. For example, we can compute $P(Y\\leq 3)$ as follows:"
       ],
-      "id": "712b2e39"
+      "id": "71acd15b"
     },
     {
       "cell_type": "code",
@@ -2183,7 +2183,7 @@
         "p = stats.f.cdf(3, dfn=2, dfd=10)\n",
         "np.round(p, 4)"
       ],
-      "id": "f05ee430",
+      "id": "7ebac678",
       "execution_count": null,
       "outputs": []
     },
@@ -2193,7 +2193,7 @@
       "source": [
         "This is the area under the PDF of $F_{2,10}$ to the left of $3$. In the following code chunk, we illustrate this area by shading the region under the PDF of $F_{2,10}$ to the left of $3$."
       ],
-      "id": "a53a370a"
+      "id": "52268367"
     },
     {
       "cell_type": "code",
@@ -2269,7 +2269,7 @@
         "\n",
         "To illustrate the law of large numbers, assume that $Y_1, \\dots, Y_n$ are i.i.d. random variables from a Bernoulli distribution with success probability $p = 0.78$. We consider the sampling distribution of $\\bar{Y}$ for various sample sizes $n$. According to the law of large numbers, $\\bar{Y}$ should converge in probability to $0.78$ as $n$ becomes larger. @fig-f9.20 shows the sampling distribution of $\\bar{Y}$ for $n \\in \\{2, 5, 25, 100\\}$. We observe that the variance of the sampling distribution of $\\bar{Y}$ decreases as $n$ increases, causing the distribution to become more tightly concentrated around its mean, $\\mu_Y = 0.78$."
       ],
-      "id": "3e96d7f0"
+      "id": "03b6d9c4"
     },
     {
       "cell_type": "code",
@@ -2328,7 +2328,7 @@
         "\n",
         "The CLT implies that $\\bar{Y}\\sim N(\\mu_Y,\\sigma^2_Y/n)$ when $n$ is large.  To illustrate the CLT, assume that $Y_1, \\dots, Y_n$ are i.i.d. random variables from a Bernoulli distribution with success probability $p = 0.78$. We consider the sampling distribution of $\\frac{\\bar{Y}-\\mu_Y}{\\sigma_Y/\\sqrt{n}}$ for various sample sizes $n$, where $\\sigma^2_Y=p(1-p)$. @fig-f9.21 shows the histogram plot of $\\frac{\\bar{Y}-\\mu_Y}{\\sigma_Y/\\sqrt{n}}$ for $n \\in \\{50, 100, 500, 1000\\}$ along with the PDF plot of the standard normal distribution. The figure indicates that the distribution of $\\frac{\\bar{Y}-\\mu_Y}{\\sigma_Y/\\sqrt{n}}$ becomes more closely approximated by the standard normal distribution as $n$ increases."
       ],
-      "id": "ae52f60e"
+      "id": "67b59de1"
     },
     {
       "cell_type": "code",
@@ -2381,7 +2381,7 @@
       "source": [
         "In @sec-chapter25, we provide a more detailed discussion of asymptotic analysis, including probability inequalities, Slutsky’s theorem, and the continuous mapping theorem, which are useful results for applying the law of large numbers and the central limit theorem."
       ],
-      "id": "3f4021d9"
+      "id": "ecfd8b45"
     }
   ],
   "metadata": {

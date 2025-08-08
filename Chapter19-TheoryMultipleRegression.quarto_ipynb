@@ -6,7 +6,7 @@
       "source": [
         "# The Theory of Multiple Regression {#sec-chapter26}"
       ],
-      "id": "d90ffcbf"
+      "id": "5390862a"
     },
     {
       "cell_type": "code",
@@ -18,7 +18,7 @@
         "from scipy.stats import multivariate_normal\n",
         "from mpl_toolkits.mplot3d import Axes3D"
       ],
-      "id": "b57e66be",
+      "id": "d2b2618d",
       "execution_count": null,
       "outputs": []
     },
@@ -1141,7 +1141,7 @@
         "The proof is similar to the proof of @thm-thm26-6. The details are omitted.\n",
         ":::\n"
       ],
-      "id": "83b00a8a"
+      "id": "32646eb6"
     }
   ],
   "metadata": {

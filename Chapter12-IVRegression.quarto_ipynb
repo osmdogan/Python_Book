@@ -6,7 +6,7 @@
       "source": [
         "# Instrumental Variables Regression {#sec-chapter19}\n"
       ],
-      "id": "4cdfd9af"
+      "id": "8e2d1bf2"
     },
     {
       "cell_type": "code",
@@ -27,7 +27,7 @@
         "from stargazer.stargazer import Stargazer\n",
         "import networkx as nx"
       ],
-      "id": "8d33e3c3",
+      "id": "a1c5b2ff",
       "execution_count": null,
       "outputs": []
     },
@@ -93,7 +93,7 @@
         "\n",
         "In @fig-fig19-1, we plot the supply and demand curves for three periods. At each period, the equilibrium price and quantity are determined by the intersection of the supply and demand curves. In @fig-fig19-2, we plot the equilibrium price and quantity for 11 periods, where the supply and demand curves are hidden. Philip Wright recognized that fitting a linear regression model to the data would yield neither the demand curve nor the supply curve. The reason is that the price is endogenous; it is determined by the intersection of the supply and demand curves."
       ],
-      "id": "096f9578"
+      "id": "92ec5175"
     },
     {
       "cell_type": "code",
@@ -209,7 +209,7 @@
         "\n",
         "The variable that shifts the supply curve is referred to as an instrumental variable. Since the instrumental variable shifts the supply curve, it is correlated with the price. However, it is uncorrelated with the error term because it does not influence the demand curve. Philip Wright proposed several potential instrumental variables. One such variable he suggested was below-average rainfall in a dairy region, which could affect the supply of butter but is unlikely to influence the demand for butter."
       ],
-      "id": "ff60afeb"
+      "id": "398a5214"
     },
     {
       "cell_type": "code",
@@ -411,7 +411,7 @@
         "\n",
         "We use the following code chunk to import data and generate (i) the real cigarettes prices, (ii) the real sales taxes, and (iii) the real per-capita income.The summary statistics of variables are shown in @tbl-t19-1."
       ],
-      "id": "8acfb790"
+      "id": "6ffda64b"
     },
     {
       "cell_type": "code",
@@ -438,7 +438,7 @@
         "# Generate real per capita income\n",
         "mydata['rincome'] = (mydata['income'] / mydata['pop']) / mydata['cpi']"
       ],
-      "id": "1c0d1c0c",
+      "id": "b7e3e89b",
       "execution_count": null,
       "outputs": []
     },
@@ -448,7 +448,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "156319c1"
+      "id": "986f2666"
     },
     {
       "cell_type": "code",
@@ -473,7 +473,7 @@
         "\n",
         "To estimate @eq-eq19-4, we only use data from the year 1995. The code chunk below generates the subset of data for the year 1995, adds a column of ones to the data frame, and estimates the IV regression using the `IV2SLS` function from the `linearmodels` package.  "
       ],
-      "id": "c4485782"
+      "id": "3f609a2f"
     },
     {
       "cell_type": "code",
@@ -491,7 +491,7 @@
         "# Perform IV regression\n",
         "iv_model = IV2SLS(dependent=np.log(mydata1995['packpc']), exog=mydata1995['const'], endog=np.log(mydata1995['rprice']),instruments=mydata1995['salestax']).fit(cov_type='robust')"
       ],
-      "id": "27cbcd81",
+      "id": "416807ff",
       "execution_count": null,
       "outputs": []
     },
@@ -503,7 +503,7 @@
         "\n",
         ":::{layout-ncol=1}"
       ],
-      "id": "210496ef"
+      "id": "5338c2ff"
     },
     {
       "cell_type": "code",
@@ -689,7 +689,7 @@
         "\n",
         "We use the `from_formula` method of the `IV2SLS` function to specify the formula for the demand equation. In this case, we need to create a formula that includes the dependent variable, the exogenous variables, and the endogenous variable with the instrument(s), where instrument(s) are enclosed in square brackets. The general syntax for the formula is as follows:"
       ],
-      "id": "bbfd45c3"
+      "id": "f2f0aa7d"
     },
     {
       "cell_type": "code",
@@ -698,7 +698,7 @@
         "#| eval: false\n",
         "outcome ~ exogenous + [endogenous ~ instruments]"
       ],
-      "id": "288cb648",
+      "id": "08bddd5e",
       "execution_count": null,
       "outputs": []
     },
@@ -715,7 +715,7 @@
         "\n",
         "The TSLS estimate $\\hat{\\beta}^{TSLS}_1=-1.143$ suggests that a one percent increase in cigarette prices reduces cigarette consumption by approximately $1.14$ percent, holding real income constant. "
       ],
-      "id": "193ecaec"
+      "id": "721e42e1"
     },
     {
       "cell_type": "code",
@@ -727,7 +727,7 @@
         "    data=mydata1995\n",
         ").fit(cov_type='robust')"
       ],
-      "id": "01e23d59",
+      "id": "695d2f2e",
       "execution_count": null,
       "outputs": []
     },
@@ -737,7 +737,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "12ccfddc"
+      "id": "4b4e366d"
     },
     {
       "cell_type": "code",
@@ -763,7 +763,7 @@
         "\n",
         "The model in @eq-eq19-7 is exatcly identified because there is only one endogenous variable and one instrument. In addition to this instrument, we can use the cigarette-specific tax as an additional instrument. We use the following code chunk to estimate the model using both the sales tax and the cigarette-specific tax as instruments. "
       ],
-      "id": "3369619d"
+      "id": "cc2e5dbb"
     },
     {
       "cell_type": "code",
@@ -775,7 +775,7 @@
         "    data=mydata1995\n",
         ").fit(cov_type='robust')"
       ],
-      "id": "e79352ab",
+      "id": "b5dd3974",
       "execution_count": null,
       "outputs": []
     },
@@ -785,7 +785,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "da147d55"
+      "id": "ea3df5df"
     },
     {
       "cell_type": "code",
@@ -924,7 +924,7 @@
         "\n",
         "We first create the 10-year change variables and then estimate the demand elasticity using the TSLS estimator with the 10-year changes in the instrumental variables."
       ],
-      "id": "e349e0c3"
+      "id": "f41f691a"
     },
     {
       "cell_type": "code",
@@ -952,7 +952,7 @@
         "# Add a column of ones to the dataframe\n",
         "diffData['const'] = 1"
       ],
-      "id": "05cbaaf1",
+      "id": "e298e3f9",
       "execution_count": null,
       "outputs": []
     },
@@ -963,7 +963,7 @@
         "### Estimation\n",
         "We estimate three models: (i) using only sales taxes as the instrument, (ii) using only the cigarette-specific tax as the instrument, and (iii) using both sales tax and cigarette tax as the instruments. The following code chunk can be used to estimate the model using the `from_formula` method."
       ],
-      "id": "c4ac1295"
+      "id": "cc7baf0e"
     },
     {
       "cell_type": "code",
@@ -990,7 +990,7 @@
         "    data=diffData\n",
         ").fit(cov_type='robust')"
       ],
-      "id": "e93ad5c4",
+      "id": "bd9b4d4a",
       "execution_count": null,
       "outputs": []
     },
@@ -1000,7 +1000,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "88ba1a23"
+      "id": "cbedf12c"
     },
     {
       "cell_type": "code",
@@ -1031,7 +1031,7 @@
         "### Checking instrument validity\n",
         "The relevance of the instruments can be checked using the F-statistic from the first stage regressions. The code chunk below shows how to compute the F-statistics for the first stage regressions."
       ],
-      "id": "f7883491"
+      "id": "26e5d711"
     },
     {
       "cell_type": "code",
@@ -1044,7 +1044,7 @@
         "f2 = smf.ols(formula='pricediff ~ cigtaxdiff + incomediff', data=diffData).fit(cov_type='HC1')\n",
         "f3 = smf.ols(formula='pricediff ~ salestaxdiff + cigtaxdiff + incomediff', data=diffData).fit(cov_type='HC1')"
       ],
-      "id": "14f57005",
+      "id": "3c11aec2",
       "execution_count": null,
       "outputs": []
     },
@@ -1061,7 +1061,7 @@
         "print(f2_fstat)\n",
         "print(f3_fstat)"
       ],
-      "id": "e5e09edc",
+      "id": "dd552891",
       "execution_count": null,
       "outputs": []
     },
@@ -1073,7 +1073,7 @@
         "\n",
         "Since the first two models are exactly identified, we cannot use the J-test to test instrument exogeneity. However, the regression in column (3) is overidentified because there are two instruments and a single included endogenous regressor, resulting in one (m - k = 2 - 1 = 1) overidentifying restriction."
       ],
-      "id": "c423d9ea"
+      "id": "e2c2b81c"
     },
     {
       "cell_type": "code",
@@ -1093,7 +1093,7 @@
         "jtest = 2 * ftest.fvalue # J=m*F\n",
         "print(jtest)"
       ],
-      "id": "e3211a67",
+      "id": "53dcde0b",
       "execution_count": null,
       "outputs": []
     },
@@ -1105,7 +1105,7 @@
         "p_value=1-stats.chi2.cdf(jtest, df=1)\n",
         "print(p_value.round(4))"
       ],
-      "id": "0de904dd",
+      "id": "c8ea994d",
       "execution_count": null,
       "outputs": []
     },
@@ -1148,7 +1148,7 @@
         "\n",
         "We use the data from `maketable1.dta` to create a scatter plot of log GDP per capita in 1995 (`logpgp95`) against the average protection against expropriation risk over 1985-95 (`avexpr`). The scatter plot is shown in @fig-f19-5.  The plot reveals a strong positive relationship between protection against expropriation and log GDP per capita. If protection against expropriation is an indicator of institutional quality, then the scatterplot suggests that income per capita is postively associated with institutional quality."
       ],
-      "id": "9f9ff6a3"
+      "id": "59012c27"
     },
     {
       "cell_type": "code",
@@ -1158,7 +1158,7 @@
         "df1 = pd.read_stata(\"data/maketable1.dta\")\n",
         "df1.columns"
       ],
-      "id": "8ed97cf3",
+      "id": "76812408",
       "execution_count": null,
       "outputs": []
     },
@@ -1193,7 +1193,7 @@
         "\n",
         "In @fig-f19-6, we plot the estimated OLS regression line. The slope coefficient estimate is 0.52, which indicates that a one-unit increase in the average protection against expropriation is associated with a 0.52 increase in log GDP per capita. The coefficient estimate is statistically significant at the 1% level."
       ],
-      "id": "e62db5d3"
+      "id": "94281fe4"
     },
     {
       "cell_type": "code",
@@ -1243,7 +1243,7 @@
         "\n",
         "We estimate some of the extended models considered by @Acemoglu2001 using data in the `maketable2.dta` file. The results are presented in @tbl-t19-6. The coefficient estimate for the protection against expropriation index is statistically significant at the 1% level across all three models. The relationship remains robust to the inclusion of additional controls, such as geography and continent dummies."
       ],
-      "id": "07aa0eec"
+      "id": "0fd25679"
     },
     {
       "cell_type": "code",
@@ -1256,7 +1256,7 @@
         "reg2 = smf.ols(formula='logpgp95 ~ avexpr + lat_abst', data=df2).fit(vcov=\"HC1\")\n",
         "reg3 = smf.ols(formula='logpgp95 ~ avexpr + lat_abst + asia + africa + other', data=df2).fit(vcov=\"HC1\")"
       ],
-      "id": "d3090f77",
+      "id": "cef96743",
       "execution_count": null,
       "outputs": []
     },
@@ -1266,7 +1266,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "0e3c87b7"
+      "id": "ccb27be5"
     },
     {
       "cell_type": "code",
@@ -1315,7 +1315,7 @@
         "\n",
         "The primary contribution of @Acemoglu2001 lies in their use of \"settler mortality rates\" (`logem4`) as an instrument for institutional differences. They propose that settler mortality influenced settlement patterns, which in turn shaped early institutions. These early institutions persisted over time, ultimately forming the foundation of current institutional frameworks. This hypothesis is illustrated in @fig-f19-4."
       ],
-      "id": "f8d7ece3"
+      "id": "e6bb263f"
     },
     {
       "cell_type": "code",
@@ -1354,7 +1354,7 @@
       "source": [
         "To check instrument relevance, we generate a scatterplot of `avexpr` against `logem4` (log settler mortality rate). @fig-f19-7 reveals a negative correlation between protection against expropriation and settler mortality rates, consistent with the authors' hypothesis. This negative relationship indicates that higher settler mortality rates are associated with lower levels of protection against expropriation during 1985–95. The first stage F-statistic is 31.5, which is greater than 10, indicating that the instrument is relevant."
       ],
-      "id": "abd0971f"
+      "id": "487fb1ad"
     },
     {
       "cell_type": "code",
@@ -1398,7 +1398,7 @@
         "# The first stage F-statistic\n",
         "m1.f_test(\"logem4 = 0\")"
       ],
-      "id": "00b3aac4",
+      "id": "643273a2",
       "execution_count": null,
       "outputs": []
     },
@@ -1413,7 +1413,7 @@
         "  \n",
         "Hence, the settler mortality rate variable seem to be a valid instrument and we can proceed with the TSLS estimation. The estimation results are presented in @tbl-t19-7. The estimated coefficient on the protection against expropriation index is 0.94, with a standard error of 0.18. The coefficient is statistically significant at the 5% level. Compared to the OLS estimate (0.53), the TSLS estimate is larger, suggesting that the OLS estimate is biased downwards. "
       ],
-      "id": "f11cff19"
+      "id": "f1e8b49f"
     },
     {
       "cell_type": "code",
@@ -1432,7 +1432,7 @@
         "    data=df4\n",
         ").fit(cov_type='robust')"
       ],
-      "id": "b76a36ee",
+      "id": "43dac164",
       "execution_count": null,
       "outputs": []
     },
@@ -1442,7 +1442,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "94868fca"
+      "id": "91a91fc9"
     },
     {
       "cell_type": "code",
@@ -1468,7 +1468,7 @@
       "source": [
         ":::"
       ],
-      "id": "fe70ed89"
+      "id": "136655ab"
     }
   ],
   "metadata": {

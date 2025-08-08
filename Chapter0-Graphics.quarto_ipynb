@@ -9,7 +9,7 @@
         "## Introduction \n",
         "In this chapter, we introduce two modules for graphics: `matplotlib` and `seaborn`. Matplotlib offers two primary approaches for creating figures: (i) the MATLAB-style (or pyplot) approach, and (ii) the object-oriented programming (OOP) approach. The MATLAB-style tools are contained in the `pyplot` (`plt`) interface. For plot styles and color defaults, we rely on the `seaborn` module."
       ],
-      "id": "88d9f729"
+      "id": "31d28edf"
     },
     {
       "cell_type": "code",
@@ -20,7 +20,7 @@
         "import seaborn as sns\n",
         "import scipy.stats as stats"
       ],
-      "id": "2b65ed86",
+      "id": "2c7347d3",
       "execution_count": null,
       "outputs": []
     },
@@ -31,7 +31,7 @@
         "## Setting plotting styles\n",
         "The theme of a figure refers to the overall appearance, including colors, fonts, and line styles. We use the `seaborn` module to set the theme of our figures. The are five preset seaborn themes: `darkgrid`, `whitegrid`, `dark`, `white`, and `ticks`. The `sns.set_style` function can be used to set these themes. The default theme is `darkgrid`. For more information, see [Controlling figure aesthetics](https://seaborn.pydata.org/tutorial/aesthetics.html) from the documentation."
       ],
-      "id": "4fb1b42e"
+      "id": "e7b9d16a"
     },
     {
       "cell_type": "code",
@@ -44,7 +44,7 @@
         "#sns.set_style('ticks')\n",
         "sns.set_style('darkgrid') "
       ],
-      "id": "23ffcfc6",
+      "id": "4bf95035",
       "execution_count": null,
       "outputs": []
     },
@@ -54,7 +54,7 @@
       "source": [
         "The `plt.style.available` function lists all available styles in Matplotlib. "
       ],
-      "id": "0a24127f"
+      "id": "ebfa39da"
     },
     {
       "cell_type": "code",
@@ -63,7 +63,7 @@
         "# List available styles\n",
         "plt.style.available"
       ],
-      "id": "13b8111d",
+      "id": "2f42885b",
       "execution_count": null,
       "outputs": []
     },
@@ -73,7 +73,7 @@
       "source": [
         "Alternatively, we can set the `darkgrid` style using the `plt.style` function. In the following example (@fig-fig6.1), we first create a figure using `plt.figure(figsize=(5, 5))`, which sets the size of the figure area to 5x5 inches. In Matplotlib, plots are contained within a `Figure`. We then set the plotting style with `plt.style.use('seaborn-v0_8-darkgrid')` and display the plot using `plt.plot()`."
       ],
-      "id": "a7c23b9f"
+      "id": "2a25cbd4"
     },
     {
       "cell_type": "code",
@@ -99,7 +99,7 @@
         "### Line plots\n",
         "In the MATLAB-style approach, we use the `plt.plot` function to create line plots. The `plt.plot` function can be used to create a wide variety of line plots, including simple line plots, line plots with markers, and line plots with different styles. The `plt.plot` function can also be used to add multiple lines to a single figure. The following code chunk generates the line plots shown in @fig-fig6.2. "
       ],
-      "id": "d7761dc3"
+      "id": "d695c5ac"
     },
     {
       "cell_type": "code",
@@ -110,7 +110,7 @@
         "y =np.random.randn(20)\n",
         "x = np.cumsum(np.random.rand(20))"
       ],
-      "id": "d18f60e0",
+      "id": "c3e607fd",
       "execution_count": null,
       "outputs": []
     },
@@ -173,7 +173,7 @@
         "\n",
         "In the following example, we specify the arguments of the `plt.plot` function explicitly."
       ],
-      "id": "a8ee4a11"
+      "id": "31b3ca81"
     },
     {
       "cell_type": "code",
@@ -248,7 +248,7 @@
         "\n",
         "The following code chunk, which generates @fig-fig6.4, shows alternative ways to specify `color`."
       ],
-      "id": "9a64599b"
+      "id": "3ba45788"
     },
     {
       "cell_type": "code",
@@ -283,7 +283,7 @@
         "\n",
         "The following code chunk, which generates @fig-fig6.5, provide alternative ways for specifying the `linestyle` options. "
       ],
-      "id": "7dae284c"
+      "id": "16137591"
     },
     {
       "cell_type": "code",
@@ -315,7 +315,7 @@
       "source": [
         " The `plt.setp` function can be used to set options for plot elements, as shown in the following example (@fig-fig6.6):"
       ],
-      "id": "6b500b30"
+      "id": "89f2ae9e"
     },
     {
       "cell_type": "code",
@@ -354,7 +354,7 @@
       "source": [
         "The `plt.getp` function retrieves the list of properties for a Matplotlib object:"
       ],
-      "id": "93991efb"
+      "id": "dbe3c42c"
     },
     {
       "cell_type": "code",
@@ -362,7 +362,7 @@
       "source": [
         "plt.getp(h)"
       ],
-      "id": "aac05bb7",
+      "id": "f4d1c8d6",
       "execution_count": null,
       "outputs": []
     },
@@ -372,7 +372,7 @@
       "source": [
         "The `plt.xlim` and `plt.ylim` can be used to set axes limits, as illustrated in the following examples. "
       ],
-      "id": "957c55e3"
+      "id": "f0edec8e"
     },
     {
       "cell_type": "code",
@@ -419,7 +419,7 @@
         "### Scatter plots\n",
         "Scatter plots can be generated using the `plt.scatter` function or the `plt.plot` function with the option `linestyle=\"\"`. Consider the following example, which generates @fig-fig6.9."
       ],
-      "id": "31fa5e83"
+      "id": "b6d25d80"
     },
     {
       "cell_type": "code",
@@ -450,7 +450,7 @@
       "source": [
         "Alternatively, we can use the `plt.plot` function with the option `linestyle=\"\"` as shown in the following example. "
       ],
-      "id": "acb4a478"
+      "id": "83237875"
     },
     {
       "cell_type": "code",
@@ -477,7 +477,7 @@
         "### Bar plots\n",
         "The `plt.bar` function is used to create bar plots. The following code chunk generates the bar plots shown in @fig-fig6.11 and @fig-fig6.12."
       ],
-      "id": "4afbc77d"
+      "id": "cb1b1400"
     },
     {
       "cell_type": "code",
@@ -525,7 +525,7 @@
       "source": [
         "In the following example, we generate a horizontal bar plot using the `plt.barh` function."
       ],
-      "id": "43184fe7"
+      "id": "c0cf6232"
     },
     {
       "cell_type": "code",
@@ -554,7 +554,7 @@
         "### Pie plots\n",
         "The `plt.pie` function is used to create pie plots. The following code chunk generates the pie plot shown in @fig-fig6.13."
       ],
-      "id": "85b46462"
+      "id": "f38373a0"
     },
     {
       "cell_type": "code",
@@ -585,7 +585,7 @@
         "### Histograms\n",
         "We can use the `plt.hist` function to generate histograms. In the following example, the `histtype` option assumes the following options: `bar`, `barstacked`, `step`, and `stepfilled`."
       ],
-      "id": "c0379fb8"
+      "id": "7c774306"
     },
     {
       "cell_type": "code",
@@ -613,7 +613,7 @@
       "source": [
         "In the following example, we show how to add multiple plots to the same axes. The first plot is a histogram, and the second plot is the probability density function (PDF) of the normal distribution."
       ],
-      "id": "3d3fa45b"
+      "id": "9798b465"
     },
     {
       "cell_type": "code",
@@ -645,7 +645,7 @@
         "### Kernel Density and Empirical CDF plots\n",
         "The `sns.kdeplot` function from the `seaborn` module can be used to create a kernel density plot. The kernel density estimate is a non-parametric way to estimate the probability density function of a random variable. In the following example, we generate random draws from a t-distribution and a normal distribution, and then plot their kernel density estimates. The `fill=True` option fills the area under the curve, and the `alpha` option sets the transparency of the fill color."
       ],
-      "id": "db6d8d47"
+      "id": "8e3a460e"
     },
     {
       "cell_type": "code",
@@ -679,7 +679,7 @@
       "source": [
         "The empirical cumulative distribution function (CDF) can be plotted using the `sns.ecdfplot` function from the `seaborn` module. The empirical CDF is a step function that estimates the cumulative distribution function of a random variable based on a sample. In the following example, we generate random draws from a t-distribution and a normal distribution, and then plot their empirical CDFs."
       ],
-      "id": "37bb315c"
+      "id": "4b13a9a9"
     },
     {
       "cell_type": "code",
@@ -715,7 +715,7 @@
         "### Multiple plots on the same figure\n",
         "To add subplots to a figure, we can use the `plt.subplot` function. In the example below, we use `plt.subplot(2, 2, p)` to divide the figure area into a 2x2 grid, where p indicates the position of the subplot within the grid. "
       ],
-      "id": "7f0d8304"
+      "id": "e97b07c4"
     },
     {
       "cell_type": "code",
@@ -781,7 +781,7 @@
         "### Saving figures\n",
         "The `plt.savefig` function allows user to save figures in a wide variety of formats. The supported formats can be listed using the `canvas.get_supported_filetypes` method of the figure object, as shown below:"
       ],
-      "id": "b44c13e7"
+      "id": "dfff549a"
     },
     {
       "cell_type": "code",
@@ -791,7 +791,7 @@
         "fig = plt.figure()\n",
         "fig.canvas.get_supported_filetypes()"
       ],
-      "id": "ac3f3ac7",
+      "id": "6b8e26c8",
       "execution_count": null,
       "outputs": []
     },
@@ -801,7 +801,7 @@
       "source": [
         "In the following example, we show how to save a figure in PDF, PNG, and SVG formats. The `dpi` option can be used to specify the resolution of the image in dots per inch (DPI). A higher DPI value results in a higher resolution image. The default DPI value is 100."
       ],
-      "id": "d4160daf"
+      "id": "30b99a4b"
     },
     {
       "cell_type": "code",
@@ -830,7 +830,7 @@
         "## OOP Approach\n",
         "The object-oriented interface in Matplotlib offers greater control over figures. In this approach, plotting functions are methods associated with explicit Figure and Axes objects. To create a plot, we begin by initializing a Figure object and an Axes object. The Figure object, referred to as `fig`, can be created as follows:"
       ],
-      "id": "f0dfac55"
+      "id": "20a0d38e"
     },
     {
       "cell_type": "code",
@@ -840,7 +840,7 @@
         "fig = plt.figure(figsize=(5, 4))\n",
         "type(fig)"
       ],
-      "id": "20eb9160",
+      "id": "ef48b806",
       "execution_count": null,
       "outputs": []
     },
@@ -850,7 +850,7 @@
       "source": [
         "The `fig` object (an instance of the `plt.figure.Figure` class) serves as a container that holds all components, including axes, graphics, text, and labels. The Axes object, referred to as `ax`, can be created as follows:"
       ],
-      "id": "eb9e2201"
+      "id": "df9e7940"
     },
     {
       "cell_type": "code",
@@ -861,7 +861,7 @@
         "ax = plt.axes()\n",
         "type(ax)"
       ],
-      "id": "32e04757",
+      "id": "8a532f09",
       "execution_count": null,
       "outputs": []
     },
@@ -874,7 +874,7 @@
         "### Line plots\n",
         "In the OOP approach, we can create line plots using the `ax.plot` function. The `ax.plot` function is similar to the `plt.plot` function, but it is called on the `ax` object instead of the `plt` module. In the following example, we generate a line plot of the sine function using the `ax.plot` function. The `ax.axhline` function is used to add a horizontal line at $y=0$."
       ],
-      "id": "57a4a9ca"
+      "id": "fa736076"
     },
     {
       "cell_type": "code",
@@ -919,7 +919,7 @@
         "\n",
         "In the following example, we generate a line plot of the sine function using the `ax.plot` function. The `ax.set_title`, `ax.set_xlabel`, and `ax.set_ylabel` functions are used to set the title and labels of the axes. The `ax.set_xlim` and `ax.set_ylim` functions are used to set the limits of the x- and y-axes, respectively. Finally, we add a legend using the `ax.legend` function."
       ],
-      "id": "d8d4e371"
+      "id": "20c5f9cf"
     },
     {
       "cell_type": "code",
@@ -951,7 +951,7 @@
         "In the OOP approach, rather than calling `ax` methods individually,\n",
         "it is often more convenient to use the `ax.set()` function as shown in the next examples. In this example `r'$\\sin(x)$'` and `r'$\\cos(x)$'` are used to render the sine and cosine functions in LaTeX format. The `r` before the string indicates that it is a raw string, which allows us to use LaTeX commands without escaping them."
       ],
-      "id": "6f4a1175"
+      "id": "08e60cce"
     },
     {
       "cell_type": "code",
@@ -986,7 +986,7 @@
       "source": [
         "In the above examples, we create the `fig` and `ax` objects separately using `fig = plt.figure()` and `ax = plt.axes()`. Alternatively, we can generate both objects with a single command by using the `plt.subplots` function. Consider the following example:"
       ],
-      "id": "8416aa09"
+      "id": "e69e31eb"
     },
     {
       "cell_type": "code",
@@ -1022,7 +1022,7 @@
         "### Scatter plots\n",
         "Scatter plots can be generated using the `ax.scatter` function or the `ax.plot` function with the option `linestyle=\"\"`. The following example generates a scatter plot using the `ax.scatter` function."
       ],
-      "id": "d15073cd"
+      "id": "744f57ee"
     },
     {
       "cell_type": "code",
@@ -1053,7 +1053,7 @@
       "source": [
         "In the following example, we generate a scatter plot using the `ax.plot` function with the option `linestyle=\"\"`. "
       ],
-      "id": "721d47a3"
+      "id": "6eeb685f"
     },
     {
       "cell_type": "code",
@@ -1083,7 +1083,7 @@
         "### Bar plots\n",
         "Bar plots can be generated using the `ax.bar` function for vertical bars or the `ax.barh` function for horizontal bars. "
       ],
-      "id": "1014cd34"
+      "id": "ab7771f8"
     },
     {
       "cell_type": "code",
@@ -1112,7 +1112,7 @@
       "source": [
         "In the following example, we generate a horizontal bar plot using the `ax.barh` function."
       ],
-      "id": "1a96a0eb"
+      "id": "f55787b7"
     },
     {
       "cell_type": "code",
@@ -1143,7 +1143,7 @@
         "### Pie plot\n",
         "Pie plots can be generated using the `ax.pie` function. The `explode` option can be used to separate the slices of the pie chart, and the `autopct` option can be used to display the percentage of each slice. "
       ],
-      "id": "0de2a418"
+      "id": "af31afad"
     },
     {
       "cell_type": "code",
@@ -1174,7 +1174,7 @@
         "### Histograms\n",
         "The `ax.hist` function is used to create a histogram. In the following example, the `density` option takes a boolean value that determines whether the histogram is normalized to form a probability density function (PDF). "
       ],
-      "id": "4b655a0e"
+      "id": "29020044"
     },
     {
       "cell_type": "code",
@@ -1217,7 +1217,7 @@
       "source": [
         "In the following example, we show how to add multiple plots to the same axes. The first plot is a histogram, and the second plot is the probability density function (PDF) of the normal distribution."
       ],
-      "id": "a8329690"
+      "id": "fbbb2fd4"
     },
     {
       "cell_type": "code",
@@ -1258,7 +1258,7 @@
         "### Multiple plots on the same figure\n",
         "In the following example, we first create a `Figure` of size 8x7 inches using `fig=plt.figure(figsize=(8,7))`. We then create the 2x2 grid of subplots and the `Axes` objects with `fig.add_subplot(2,2,p)`, where p indicates the position of the subplot within the grid. "
       ],
-      "id": "a150223b"
+      "id": "3dcad08a"
     },
     {
       "cell_type": "code",
@@ -1325,7 +1325,7 @@
       "source": [
         "Alternatively, we can create the 2x2 grid of subplots and  the `Axes` objects using `fig, ax = plt.subplots(2,2,figsize=(8,7))`. The positions of subplots are specified through `ax[i,j]`."
       ],
-      "id": "773861f2"
+      "id": "f03d4ed2"
     },
     {
       "cell_type": "code",
@@ -1389,7 +1389,7 @@
         "## Other Tools for Graphics\n",
         "In this chapter, we covered only the most commonly used plotting methods. Matplotlib also provides functions for other types of plots, such as density plots, contour plots, and three-dimensional plots, as well as customization tools for legends, colorbars, ticks, text, and annotations. In addition to Matplotlib, the Seaborn and Pandas modules offer additional plotting methods. For further reading, we refer the reader to @Sheppard2021, @Wes2022, and @Jake2023.  "
       ],
-      "id": "fdd8635b"
+      "id": "e13945f4"
     }
   ],
   "metadata": {

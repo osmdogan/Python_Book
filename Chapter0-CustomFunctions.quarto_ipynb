@@ -8,7 +8,7 @@
         "## Introduction\n",
         "Custom functions are user-defined functions created to automate specific tasks. In this section, we show how to define custom functions in Python. "
       ],
-      "id": "fa09c09d"
+      "id": "3cf78b26"
     },
     {
       "cell_type": "code",
@@ -16,7 +16,7 @@
       "source": [
         "import numpy as np"
       ],
-      "id": "3a8f902a",
+      "id": "14d60187",
       "execution_count": null,
       "outputs": []
     },
@@ -28,7 +28,7 @@
         "from IPython.core.interactiveshell import InteractiveShell\n",
         "InteractiveShell.ast_node_interactivity = \"all\""
       ],
-      "id": "bc45ca4e",
+      "id": "06522668",
       "execution_count": null,
       "outputs": []
     },
@@ -56,7 +56,7 @@
         "## Defining functions\n",
         "The following syntax can be used to declare a function in Python:"
       ],
-      "id": "90d46874"
+      "id": "94e44566"
     },
     {
       "cell_type": "code",
@@ -68,7 +68,7 @@
         "    statements\n",
         "    return expression_list"
       ],
-      "id": "ba45d198",
+      "id": "0e84a1a3",
       "execution_count": null,
       "outputs": []
     },
@@ -80,7 +80,7 @@
         "\n",
         "Consider the $L_p$  distance between two vectors $x=(x_1,\\dots,x_n)^{'}$ and $y=(y_1,\\dots,y_n)^{'}$ defined by $d_p(x,y)=\\left(\\sum_{i=1}^n|x_i-y_i|^p\\right)^{1/p}$. In the following example, we define the `Lp_norm` function that returns  $d_p(x,y)$."
       ],
-      "id": "47393bee"
+      "id": "29bf3074"
     },
     {
       "cell_type": "code",
@@ -109,7 +109,7 @@
         "    d = (np.sum(np.abs(x - y) ** p)) ** (1 / p)\n",
         "    return d"
       ],
-      "id": "10b77378",
+      "id": "6643646e",
       "execution_count": null,
       "outputs": []
     },
@@ -119,7 +119,7 @@
       "source": [
         "The `docstring` can be accessed using the `help` function, as shown below:"
       ],
-      "id": "4e7e559a"
+      "id": "d8afcecd"
     },
     {
       "cell_type": "code",
@@ -127,7 +127,7 @@
       "source": [
         "help(Lp_norm)"
       ],
-      "id": "6206ebf6",
+      "id": "31613484",
       "execution_count": null,
       "outputs": []
     },
@@ -137,7 +137,7 @@
       "source": [
         "We use the name of the function, `Lp_norm`, to call the function. The inputs to the function are passed as arguments in the order they are defined in the function declaration. In this case, `x` and `y` are the vectors, and `p` is the order of the norm. The function returns a single output, which is the $L_p$ distance between the two vectors."
       ],
-      "id": "ec0fd8f8"
+      "id": "8d979470"
     },
     {
       "cell_type": "code",
@@ -151,7 +151,7 @@
         "z2 = Lp_norm(p=2, x=x, y=y)  # changing the order of inputs\n",
         "z2"
       ],
-      "id": "c42ae726",
+      "id": "cdb54907",
       "execution_count": null,
       "outputs": []
     },
@@ -161,7 +161,7 @@
       "source": [
         "If there are multiple outputs to return, we can return these outputs in tuple form, as shown in the following example:"
       ],
-      "id": "b96ee7d8"
+      "id": "23a45b24"
     },
     {
       "cell_type": "code",
@@ -193,7 +193,7 @@
         "    d2 = (np.sum(np.abs(x - y) ** 2)) ** (1 / 2)  # L2 distance\n",
         "    return (d1, d2)"
       ],
-      "id": "bf860f17",
+      "id": "73c91490",
       "execution_count": null,
       "outputs": []
     },
@@ -203,7 +203,7 @@
       "source": [
         "help(L12_norm)"
       ],
-      "id": "8820da70",
+      "id": "ccc049b8",
       "execution_count": null,
       "outputs": []
     },
@@ -219,7 +219,7 @@
         "print(\"The L1 distance is \", z[0])\n",
         "print(\"The L2 distance is \", z[1])"
       ],
-      "id": "609d5890",
+      "id": "6a66fa7c",
       "execution_count": null,
       "outputs": []
     },
@@ -229,7 +229,7 @@
       "source": [
         "Default values are set in the function declaration using the syntax `parameter=default`. By using default values, we can call a function with fewer arguments than it is defined to accept. In the following example, the default value of `p` is set to 2."
       ],
-      "id": "10e62698"
+      "id": "fccc5d95"
     },
     {
       "cell_type": "code",
@@ -240,7 +240,7 @@
         "    d = (np.sum(np.abs(x - y) ** p)) ** (1 / p)\n",
         "    return d"
       ],
-      "id": "169215bc",
+      "id": "6da328c7",
       "execution_count": null,
       "outputs": []
     },
@@ -250,7 +250,7 @@
       "source": [
         "The default value can be overridden by passing a different value for `p` when calling the function. If no value is provided, the function will use the default value of 2."
       ],
-      "id": "f707b5d1"
+      "id": "66769757"
     },
     {
       "cell_type": "code",
@@ -264,7 +264,7 @@
         "L1 = Lp_norm(x, y, 1)\n",
         "print(\"The L1 and L2 distances are \", (L1, L2))"
       ],
-      "id": "131fa198",
+      "id": "9d02376e",
       "execution_count": null,
       "outputs": []
     },
@@ -275,7 +275,7 @@
         "## Anonymous functions\n",
         "Python supports anonymous functions through the `lambda` keyword. The syntax for a lambda function is as follows:"
       ],
-      "id": "f93ff91f"
+      "id": "c28bceab"
     },
     {
       "cell_type": "code",
@@ -284,7 +284,7 @@
         "# | eval: false\n",
         "function_name = lambda arguments: expression"
       ],
-      "id": "b50229a9",
+      "id": "d3e5c719",
       "execution_count": null,
       "outputs": []
     },
@@ -294,7 +294,7 @@
       "source": [
         "Lambda functions can accept any number of arguments, but they can only contain a single expression. Consider the following example:"
       ],
-      "id": "0021c5b1"
+      "id": "4e95130a"
     },
     {
       "cell_type": "code",
@@ -302,7 +302,7 @@
       "source": [
         "Lp_norm_lambda = lambda x, y, p: (np.sum(np.abs(x - y) ** p)) ** (1 / p)"
       ],
-      "id": "046ce67e",
+      "id": "d2de671a",
       "execution_count": null,
       "outputs": []
     },
@@ -315,7 +315,7 @@
         "y = np.random.randn(10)\n",
         "Lp_norm_lambda(x, y, p=2)"
       ],
-      "id": "abee925a",
+      "id": "69cc7fd2",
       "execution_count": null,
       "outputs": []
     }

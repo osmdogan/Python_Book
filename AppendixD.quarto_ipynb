@@ -6,7 +6,7 @@
       "source": [
         "# Appendix for Chapter 26 {#sec-appendixD}"
       ],
-      "id": "3437c1f1"
+      "id": "e75bbcfb"
     },
     {
       "cell_type": "code",
@@ -20,7 +20,7 @@
         "from scipy.linalg import sqrtm\n",
         "import time"
       ],
-      "id": "504d93f6",
+      "id": "0579955c",
       "execution_count": null,
       "outputs": []
     },
@@ -32,7 +32,7 @@
         "from IPython.core.interactiveshell import InteractiveShell\n",
         "InteractiveShell.ast_node_interactivity = \"all\""
       ],
-      "id": "70d4c1e3",
+      "id": "a73d13bf",
       "execution_count": null,
       "outputs": []
     },
@@ -744,7 +744,7 @@
         "\n",
         "In Python, we can solve the equation $1-\\lambda^3=0$ symbolically using the `sympy` package. The `solve` function from this package returns the roots of the equation. "
       ],
-      "id": "06fffeb4"
+      "id": "99fc83a1"
     },
     {
       "cell_type": "code",
@@ -756,7 +756,7 @@
         "roots = solve(equation, x)\n",
         "roots"
       ],
-      "id": "2d04f778",
+      "id": "f36fcfb2",
       "execution_count": null,
       "outputs": []
     },
@@ -784,7 +784,7 @@
         "\n",
         "Let $x_3=t$, then $x_1=6t$ and $x_2=3t$, where $t\\in\\mathbb{R}$ and $t\\ne0$. Thus, the associated eigenvector is $\\bs{x}=t(6,3,1)^{'}$, where $t\\ne0$. In the following code chunk, we set $t=-1$ and normalize $\\bs{x}$:"
       ],
-      "id": "c6188f80"
+      "id": "8921bd0e"
     },
     {
       "cell_type": "code",
@@ -796,7 +796,7 @@
         "normalized_x = x / norm_x \n",
         "normalized_x"
       ],
-      "id": "a9bc5783",
+      "id": "8dfe15d4",
       "execution_count": null,
       "outputs": []
     },
@@ -806,7 +806,7 @@
       "source": [
         "We can compute eigenvalues and normalized eigenvectors using  the `np.linalg.eig` function. Note that `e` returns the same eigenvalues that we derived analytically above. Also, `ev[:,2]` returns the same vector as `normalized_x`."
       ],
-      "id": "fab51a3e"
+      "id": "acd82c45"
     },
     {
       "cell_type": "code",
@@ -819,7 +819,7 @@
         "\n",
         "e,ev=np.linalg.eig(A)"
       ],
-      "id": "dfca3d7f",
+      "id": "da10979e",
       "execution_count": null,
       "outputs": []
     },
@@ -830,7 +830,7 @@
         "# Eigenvalues\n",
         "e "
       ],
-      "id": "02ea8787",
+      "id": "21f44f29",
       "execution_count": null,
       "outputs": []
     },
@@ -841,7 +841,7 @@
         "# Eigenvectors\n",
         "ev"
       ],
-      "id": "659b3448",
+      "id": "639a0f75",
       "execution_count": null,
       "outputs": []
     },
@@ -852,7 +852,7 @@
         "# Eigenvector corresponding to eigenvalue 1\n",
         "ev[:,2] "
       ],
-      "id": "8095bf71",
+      "id": "29d81c9f",
       "execution_count": null,
       "outputs": []
     },
@@ -923,7 +923,7 @@
         "\n",
         "The Cholesky decomposition can be computed using the `np.linalg.cholesky` function in Python. The inverse of a matrix can be computed using the `np.linalg.inv` function. In the following code junks, we compute the Cholesky decomposition of a symmetric positive-definite matrix $\\bs{A}$ and its inverse. We also measure the computation time for the inverse of $\\bs{A}$ using the Cholesky decomposition and the `np.linalg.inv` function."
       ],
-      "id": "2b852e06"
+      "id": "8ceee745"
     },
     {
       "cell_type": "code",
@@ -948,7 +948,7 @@
         "computation_time = end_time - start_time\n",
         "computation_time"
       ],
-      "id": "87b67ed7",
+      "id": "d98bca4e",
       "execution_count": null,
       "outputs": []
     },
@@ -966,7 +966,7 @@
         "computation_time = end_time - start_time\n",
         "computation_time"
       ],
-      "id": "ab121123",
+      "id": "33369704",
       "execution_count": null,
       "outputs": []
     },
@@ -1028,7 +1028,7 @@
         "\n",
         "In Python, the square root of a matrix can be computed using the `scipy.linalg.sqrtm` function. "
       ],
-      "id": "7c9a673f"
+      "id": "167a859b"
     },
     {
       "cell_type": "code",
@@ -1040,7 +1040,7 @@
         "# B is the matrix square root of A\n",
         "B"
       ],
-      "id": "ea6c9bb8",
+      "id": "4a0234e4",
       "execution_count": null,
       "outputs": []
     },
@@ -1051,7 +1051,7 @@
         "# Verify that B is the matrix square root of A\n",
         "np.allclose(A, B.T @ B) "
       ],
-      "id": "0da8e7c6",
+      "id": "1e3340ee",
       "execution_count": null,
       "outputs": []
     },
@@ -1061,7 +1061,7 @@
       "source": [
         "The matrix square root $\\bs{B}$ satifies the following properties: (i) $\\bs{B}\\bs{A}^{-1}\\bs{B}^{'}=\\bs{I}_n$, and (ii) $\\bs{B}^{'-1}\\bs{A}\\bs{B}^{-1}=\\bs{I}_n$. In Python, these properties can be verified as follows:"
       ],
-      "id": "e964f09e"
+      "id": "5dd8149d"
     },
     {
       "cell_type": "code",
@@ -1075,7 +1075,7 @@
         "# Property (ii)\n",
         "np.allclose(B_inv.T @ A @ B_inv, np.eye(A.shape[0]), atol=1e-7)"
       ],
-      "id": "0eb423c7",
+      "id": "ef9370e1",
       "execution_count": null,
       "outputs": []
     },
@@ -1174,7 +1174,7 @@
         "\n",
         "In Python, we can use the `np.linalg.norm` function to compute the Frobenius and spectral norms of a matrix. The following code chunk demonstrates how to compute these norms for a given matrix $\\bs{A}$."
       ],
-      "id": "b6886f5d"
+      "id": "97d3289d"
     },
     {
       "cell_type": "code",
@@ -1192,7 +1192,7 @@
         "print(\"Frobenius Norm (using np.linalg.norm):\", frobenius_norm.round(2))\n",
         "print(\"Frobenius Norm (manual calculation):\", frobenius_norm_manual.round(2))"
       ],
-      "id": "411538fb",
+      "id": "3962a266",
       "execution_count": null,
       "outputs": []
     },
@@ -1210,7 +1210,7 @@
         "print(\"Spectral Norm (using np.linalg.norm):\", spectral_norm.round(2))\n",
         "print(\"Spectral Norm (using SVD):\", spectral_norm_svd.round(2))"
       ],
-      "id": "5813369e",
+      "id": "1c186da0",
       "execution_count": null,
       "outputs": []
     },
@@ -1515,7 +1515,7 @@
         ":::\n",
         ":::\n"
       ],
-      "id": "834cd164"
+      "id": "9b9a27bd"
     }
   ],
   "metadata": {

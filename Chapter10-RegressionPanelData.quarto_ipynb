@@ -6,7 +6,7 @@
       "source": [
         "# Regression with Panel Data {#sec-chapter17}"
       ],
-      "id": "cb7dcbee"
+      "id": "c26ded51"
     },
     {
       "cell_type": "code",
@@ -23,7 +23,7 @@
         "import seaborn as sns\n",
         "from stargazer.stargazer import Stargazer"
       ],
-      "id": "a39ec713",
+      "id": "fba94ba4",
       "execution_count": null,
       "outputs": []
     },
@@ -89,7 +89,7 @@
         "\n",
         "We will first change the measurement of the per capita vehicle fatality to vehicle fatality per 10,000 people."
       ],
-      "id": "34a7d221"
+      "id": "f7d0302d"
     },
     {
       "cell_type": "code",
@@ -104,7 +104,7 @@
         "# Column names\n",
         "fatality.columns"
       ],
-      "id": "f8d3f5e1",
+      "id": "0724fc12",
       "execution_count": null,
       "outputs": []
     },
@@ -116,7 +116,7 @@
         "\n",
         ":::{layout-ncol=1}"
       ],
-      "id": "4bac0688"
+      "id": "d32f155c"
     },
     {
       "cell_type": "code",
@@ -145,7 +145,7 @@
         "\n",
         "where $\\text{FatalityRate}_{it}$ is the vehicle fatality rate in state $i$ in year $t$, and $\\text{BeerTax}_{it}$ is the real tax on a case of beer in state $i$ in year $t$. "
       ],
-      "id": "fa56dcc7"
+      "id": "2ad3ae5d"
     },
     {
       "cell_type": "code",
@@ -159,7 +159,7 @@
         "df_1988 = fatality[fatality['year'] == 1988]\n",
         "res_1988 = smf.ols(formula='mrall ~ beertax', data=df_1988).fit().params"
       ],
-      "id": "f5384834",
+      "id": "63556b2e",
       "execution_count": null,
       "outputs": []
     },
@@ -169,7 +169,7 @@
       "source": [
         "The estimated coefficients for the relationship between the real beer tax and vehicle fatalities in 1982 and 1988 are presented in @fig-fig1982-1988, along with the scatter plots. The estimated coefficient on the real beer tax is 0.15 in 1982 and 0.44 in 1988. These results suggest a positive relationship between alcohol taxes and vehicle fatalities, which is contrary to what we would expect. Alcohol taxes are typically expected to lower the rate of traffic fatalities. This discrepancy may be due to omitted variable bias, as neither model includes factors such as vehicle quality, road quality, drinking and driving culture, car density, or the number of rainy or snowy days. Because of these omitted variables, the results are biased. "
       ],
-      "id": "ab520619"
+      "id": "ca2d82f3"
     },
     {
       "cell_type": "code",
@@ -245,7 +245,7 @@
         "\n",
         "Thus, any change in the fatality rate from 1982 to 1988 cannot be caused by $Z_i$, because $Z_i$ (by assumption) does not change between 1982 and 1988. The difference regression eliminates the effect of $Z_i$ and can be estimated using the OLS estimator. Note that this difference regression does not include an intercept because it was eliminated during the subtraction step. However, we can still include an intercept in the estimation. In the following code, we estimate the difference regression model for the fatality rate and the real beer tax for the years 1982 and 1988."
       ],
-      "id": "6deed5e0"
+      "id": "f5317654"
     },
     {
       "cell_type": "code",
@@ -266,7 +266,7 @@
         "# Print the results\n",
         "print(res_Diff.summary())"
       ],
-      "id": "db11a8fe",
+      "id": "2c357e8e",
       "execution_count": null,
       "outputs": []
     },
@@ -380,7 +380,7 @@
         "We can use the following code chunk to estimate the first model by the LSDV method.\n",
         "Note that the entity dummy variables are created using the `C()` function in the formula: `C(state)` function creates dummy variables for each state. The `cov_type='cluster'` and `cov_kwds={'groups': fatality['state']}` options are used to compute the clustered standard errors. We discuss the clustered standard errors in more detail in Section 17.2.4. "
       ],
-      "id": "e69aee91"
+      "id": "d5402d58"
     },
     {
       "cell_type": "code",
@@ -394,7 +394,7 @@
         "LSDVres = LSDVreg.fit(cov_type='cluster', cov_kwds={'groups': fatality['state']})\n",
         "print(LSDVres.summary())"
       ],
-      "id": "9a1c03b4",
+      "id": "c759acae",
       "execution_count": null,
       "outputs": []
     },
@@ -411,7 +411,7 @@
         "\n",
         "The fixed effects form can be estimated using the `PanelOLS` function from the `linearmodels` package. We first set the index of the dataset to the entity and time variables using the `set_index` function. The entity fixed effects are included in the model by specifying the `EntityEffects` option in the formula. We use the `cov_type='clustered'` and `cluster_entity = True` options to compute the clustered standard errors. The following code chunk estimates the fixed effects model using the within transformation."
       ],
-      "id": "a9185ac3"
+      "id": "adf1c8cd"
     },
     {
       "cell_type": "code",
@@ -422,7 +422,7 @@
         "Withinres = Withinreg.fit(cov_type = 'clustered', cluster_entity = True)\n",
         "print(Withinres)"
       ],
-      "id": "16d5d586",
+      "id": "bb8d5cf4",
       "execution_count": null,
       "outputs": []
     },
@@ -537,7 +537,7 @@
         "\n",
         "The estimated coefficient on ${\\tt BeerTax}_{it}$ is positive and statistically significant at the 5% significance level. This estimate indicates that if the real beer tax increases by $1 dollar, then on average the traffic fatalities increase by  $0.37$ per $10.000$ people, which is contrary to what we would expect."
       ],
-      "id": "c73c2920"
+      "id": "ce54943e"
     },
     {
       "cell_type": "code",
@@ -547,7 +547,7 @@
         "LSDVres = LSDVreg.fit(cov_type='cluster', cov_kwds={'groups': fatality['state']})\n",
         "print(LSDVres.summary())"
       ],
-      "id": "c237adbd",
+      "id": "adcad6cf",
       "execution_count": null,
       "outputs": []
     },
@@ -557,7 +557,7 @@
       "source": [
         "The time fixed effects form can be estimated using the `PanelOLS` function from the `linearmodels` package. We first set the index of the dataset to the entity and time variables using the `set_index` function. The time fixed effects are included in the model by specifying the `TimeEffects` option in the formula. Again, we use the `cov_type='clustered'` and `cluster_entity = True` options to compute the clustered standard errors. The following code chunk can be used to estimate the time fixed effects model."
       ],
-      "id": "5d76bff4"
+      "id": "69b6aff1"
     },
     {
       "cell_type": "code",
@@ -567,7 +567,7 @@
         "Withinres = Withinreg.fit(cov_type = 'clustered', cluster_entity = True)\n",
         "print(Withinres)"
       ],
-      "id": "de9b3a0e",
+      "id": "49298540",
       "execution_count": null,
       "outputs": []
     },
@@ -642,7 +642,7 @@
         "\\end{align}\n",
         "$$"
       ],
-      "id": "3595d334"
+      "id": "a7982928"
     },
     {
       "cell_type": "code",
@@ -656,7 +656,7 @@
         "LSDVres = LSDVreg.fit(cov_type='cluster', cov_kwds={'groups': fatality['state']})\n",
         "print(LSDVres.summary())"
       ],
-      "id": "0eaba61c",
+      "id": "f05d7c23",
       "execution_count": null,
       "outputs": []
     },
@@ -666,7 +666,7 @@
       "source": [
         "The entity and time fixed effects form can be estimated using the `PanelOLS` function from the `linearmodels` package. The entity and time fixed effects are included in the model by specifying the `EntityEffects` and `TimeEffects` options in the formula. The following code chunk estimates the entity and time fixed effects model using the within transformation."
       ],
-      "id": "991eed15"
+      "id": "659d91c0"
     },
     {
       "cell_type": "code",
@@ -676,7 +676,7 @@
         "Withinres = Withinreg.fit(cov_type = 'clustered', cluster_entity = True)\n",
         "print(Withinres)"
       ],
-      "id": "1dac274f",
+      "id": "e4c84ee9",
       "execution_count": null,
       "outputs": []
     },
@@ -777,7 +777,7 @@
         "\n",
         "The `RandomEffects` function from the `linearmodels` package is used to estimate the random effects model. The `from_formula` method is used to specify the model formula. "
       ],
-      "id": "2a2731c9"
+      "id": "2df619ab"
     },
     {
       "cell_type": "code",
@@ -787,7 +787,7 @@
         "Randomres = Randomreg.fit(cov_type = 'clustered', cluster_entity = True)\n",
         "print(Randomres)"
       ],
-      "id": "4429a5e7",
+      "id": "94eeac62",
       "execution_count": null,
       "outputs": []
     },
@@ -852,7 +852,7 @@
         "\n",
         "We consider the fourth model as our base model and other models with additional regressors for sensitivity checks. The minimum legal drinking age and the punishment for drunk driving are related to drunk driving laws. Vehicle miles traveled is used as a proxy for the amount of driving, and the unemployment rate and the log of personal income are used as proxies for overall state economic conditions."
       ],
-      "id": "fba517ff"
+      "id": "25c9178d"
     },
     {
       "cell_type": "code",
@@ -870,7 +870,7 @@
         "# Generate the punishment variable\n",
         "df['punish'] = ((df['jaild'] == 1)|(df['comserd'] == 1)).astype(int)"
       ],
-      "id": "674e5814",
+      "id": "0f3db897",
       "execution_count": null,
       "outputs": []
     },
@@ -880,7 +880,7 @@
       "source": [
         "We use the `PooledOLS` and `PanelOLS` functions from the `linearmodels` package to estimate all models. The models are specified using the `from_formula` method, and clustered standard errors are computed by setting `cov_type='clustered'` and `cluster_entity=True`."
       ],
-      "id": "80ca72e3"
+      "id": "831b4ba5"
     },
     {
       "cell_type": "code",
@@ -924,7 +924,7 @@
         "                                 df.loc[(slice(None), slice(1982, 1988, 6)), :])\n",
         "reg7 = reg7.fit(cov_type = 'clustered', cluster_entity = True)"
       ],
-      "id": "a39721e0",
+      "id": "71145779",
       "execution_count": null,
       "outputs": []
     },
@@ -934,7 +934,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "f1587245"
+      "id": "1d5c0814"
     },
     {
       "cell_type": "code",
@@ -970,7 +970,7 @@
         "\\end{align*}\n",
         "$$"
       ],
-      "id": "ae16a045"
+      "id": "c8334f27"
     },
     {
       "cell_type": "code",
@@ -978,7 +978,7 @@
       "source": [
         "reg4.wald_test(formula='drink18 = drink19 = drink20 = 0') "
       ],
-      "id": "0fa0b0bf",
+      "id": "592deba1",
       "execution_count": null,
       "outputs": []
     },
@@ -994,7 +994,7 @@
         "\\end{align*}\n",
         "$$"
       ],
-      "id": "8f75ed90"
+      "id": "df1a868d"
     },
     {
       "cell_type": "code",
@@ -1002,7 +1002,7 @@
       "source": [
         "reg4.wald_test(formula='unrate = lperinc= 0') "
       ],
-      "id": "b8637cf7",
+      "id": "41dfc015",
       "execution_count": null,
       "outputs": []
     },
@@ -1020,7 +1020,7 @@
         "\n",
         "In assessing the results, @Stock2020 conclude that \"Taken together, these results present a provocative picture of measures to control drunk driving and traffic fatalities. According to these estimates, neither stiff punishments nor increases in the minimum legal drinking age have important effects on fatalities. In contrast, there is evidence that increasing alcohol taxes, as measured by the real tax on beer, does reduce traffic deaths, presumably through reduced alcohol consumption. The imprecision of the estimated beer tax coefficient means, however, that we should be cautious about drawing policy conclusions from this analysis and that additional research is warranted.\""
       ],
-      "id": "ff3cd06d"
+      "id": "b6a52138"
     }
   ],
   "metadata": {

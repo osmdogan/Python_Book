@@ -9,7 +9,7 @@
         "## Introduction\n",
         "In this chapter, we introduce statistical functions for probability distributions available in NumPy and SciPy. These libraries offer a wide range of tools for generating random numbers, evaluating probability density and cumulative distribution functions, and determining quantiles for various probability distributions. \n"
       ],
-      "id": "1052aefb"
+      "id": "6e1a2850"
     },
     {
       "cell_type": "code",
@@ -18,7 +18,7 @@
         "import numpy as np\n",
         "import scipy.stats as stats"
       ],
-      "id": "3cc01252",
+      "id": "25c2c0f5",
       "execution_count": null,
       "outputs": []
     },
@@ -30,7 +30,7 @@
         "from IPython.core.interactiveshell import InteractiveShell\n",
         "InteractiveShell.ast_node_interactivity = \"all\""
       ],
-      "id": "8b324a36",
+      "id": "3b3d94e1",
       "execution_count": null,
       "outputs": []
     },
@@ -62,7 +62,7 @@
         "\n",
         "Some illustrative examples are provided below. "
       ],
-      "id": "95aa71b3"
+      "id": "74ce237e"
     },
     {
       "cell_type": "code",
@@ -72,7 +72,7 @@
         "x = np.random.rand(3, 2, 3)\n",
         "x"
       ],
-      "id": "5c624f1c",
+      "id": "3e11263b",
       "execution_count": null,
       "outputs": []
     },
@@ -84,7 +84,7 @@
         "y = np.random.standard_normal((3, 2))\n",
         "y"
       ],
-      "id": "001ac16c",
+      "id": "15dc336d",
       "execution_count": null,
       "outputs": []
     },
@@ -97,7 +97,7 @@
         "np.random.shuffle(x)\n",
         "x"
       ],
-      "id": "9e83817b",
+      "id": "ff7dc1bf",
       "execution_count": null,
       "outputs": []
     },
@@ -110,7 +110,7 @@
         "s = np.random.normal(mu, sigma, 10)\n",
         "s"
       ],
-      "id": "000058f2",
+      "id": "0695ae0d",
       "execution_count": null,
       "outputs": []
     },
@@ -123,7 +123,7 @@
         "s = np.random.binomial(n, p, 20)\n",
         "s"
       ],
-      "id": "7fdd751f",
+      "id": "e1b81dba",
       "execution_count": null,
       "outputs": []
     },
@@ -135,7 +135,7 @@
         "nu, n = 2, 4  # degrees of freedom, number of draws\n",
         "np.random.chisquare(nu, n)"
       ],
-      "id": "fcd8a7ae",
+      "id": "2cd177f6",
       "execution_count": null,
       "outputs": []
     },
@@ -146,7 +146,7 @@
         "# Generate 5 draws from the Student's t distribution with 10 degrees of freedom\n",
         "np.random.standard_t(df=10, size=5)"
       ],
-      "id": "1dfeafac",
+      "id": "c90ddc40",
       "execution_count": null,
       "outputs": []
     },
@@ -156,7 +156,7 @@
       "source": [
         "Computer-simulated random numbers are not truly random; they are generally referred to as pseudo-random numbers. The function `np.random.seed` is useful for initializing the random number generator, allowing for the generation of the same sequence of random numbers by setting the seed. In the example below, we set the seed to 12345 and generate 5 random draws from the standard normal distribution twice. Since we use the same seed in each case, we obtain the same random numbers in both instances."
       ],
-      "id": "0595739f"
+      "id": "29112dd6"
     },
     {
       "cell_type": "code",
@@ -170,7 +170,7 @@
         "y = np.random.randn(5)\n",
         "y"
       ],
-      "id": "150739f4",
+      "id": "bbb70287",
       "execution_count": null,
       "outputs": []
     },
@@ -207,7 +207,7 @@
         "\n",
         "The documentation on these methods is given at [Statistical functions](https://docs.scipy.org/doc/scipy/reference/stats.html). Some illustrative examples are shown below. "
       ],
-      "id": "30a26009"
+      "id": "d002b4ec"
     },
     {
       "cell_type": "code",
@@ -216,7 +216,7 @@
         "# Generate 4 draws from N(2,9)\n",
         "stats.norm.rvs(loc=2, scale=3, size=4)"
       ],
-      "id": "35798581",
+      "id": "7387298c",
       "execution_count": null,
       "outputs": []
     },
@@ -227,7 +227,7 @@
         "# Evaluate the pdf of the standard normal distribution at 1.96\n",
         "stats.norm.pdf(1.96, loc=0, scale=1)"
       ],
-      "id": "79c52ce3",
+      "id": "e15450b2",
       "execution_count": null,
       "outputs": []
     },
@@ -238,7 +238,7 @@
         "# Evaluate the cdf of the standard normal distribution at -1.96\n",
         "stats.norm.cdf(-1.96, loc=0, scale=1)"
       ],
-      "id": "1306a89a",
+      "id": "5de9a874",
       "execution_count": null,
       "outputs": []
     },
@@ -249,7 +249,7 @@
         "# Return the 0.95 quantile of N(0,1)\n",
         "stats.norm.ppf(0.95, loc=0, scale=1)"
       ],
-      "id": "e4e1ad17",
+      "id": "39218641",
       "execution_count": null,
       "outputs": []
     },
@@ -262,7 +262,7 @@
         "location, scale = stats.norm.fit(x)\n",
         "print(\"(location, scale)=\", (location, scale))"
       ],
-      "id": "41f210b8",
+      "id": "984ce2f1",
       "execution_count": null,
       "outputs": []
     },
@@ -273,7 +273,7 @@
         "# Return the median of N(3,1)\n",
         "stats.norm.median(loc=3, scale=1)"
       ],
-      "id": "ef3c6bc9",
+      "id": "41bfe8b9",
       "execution_count": null,
       "outputs": []
     },
@@ -284,7 +284,7 @@
         "# Return the mean of N(3,4)\n",
         "stats.norm.mean(loc=3, scale=2)"
       ],
-      "id": "c8f514af",
+      "id": "b784911e",
       "execution_count": null,
       "outputs": []
     },
@@ -295,7 +295,7 @@
         "# Return the mean of chi-squared distribution with 4 degrees of freedom\n",
         "stats.chi2.mean(df=4)"
       ],
-      "id": "52e7e38d",
+      "id": "1d514d52",
       "execution_count": null,
       "outputs": []
     },
@@ -306,7 +306,7 @@
         "# Return the variance of N(3,4)\n",
         "stats.norm.var(loc=3, scale=2)"
       ],
-      "id": "b615b9a6",
+      "id": "7b08fcc3",
       "execution_count": null,
       "outputs": []
     },
@@ -317,7 +317,7 @@
         "# Return the standard deviation of N(3,4)\n",
         "stats.norm.std(loc=3, scale=2)"
       ],
-      "id": "5a3f635f",
+      "id": "2e033929",
       "execution_count": null,
       "outputs": []
     },
@@ -328,7 +328,7 @@
         "# Return the second non-central moment of N(0,1)\n",
         "stats.norm.moment(2, loc=0, scale=1)"
       ],
-      "id": "0afdbb38",
+      "id": "1fe5c866",
       "execution_count": null,
       "outputs": []
     }

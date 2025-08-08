@@ -6,7 +6,7 @@
       "source": [
         "# Nonlinear Regression Functions {#sec-nonlinear}"
       ],
-      "id": "ee258f2d"
+      "id": "c7789a26"
     },
     {
       "cell_type": "code",
@@ -22,7 +22,7 @@
         "import scipy.stats as stats\n",
         "sns.set_style('darkgrid')"
       ],
-      "id": "f7d28ad8",
+      "id": "89022cb1",
       "execution_count": null,
       "outputs": []
     },
@@ -49,7 +49,7 @@
         "## Introduction\n",
         "We start our regression analysis in Chapter 11 by assuming a linear population function $\\E(Y|X_1)=\\beta_0+\\beta_1X_1$. However, in many cases, the relationship between $Y$ and $X_1$ is nonlinear. In this case, the effect of a change in $X_1$ on $Y$ is not constant. In @fig-f15-1, we illustrate population regression functions that have different slopes. In the linear case, as shown in the first plot of @fig-f15-1, the slope of the population regression function is constant. However, in the second plot, the slope of the population regression function depends on the value of another variable $X_2$. In the third plot, the slope of the population regression function depends on the value of $X_1$. In this chapter, we consider how to model nonlinear regression functions."
       ],
-      "id": "61780bcd"
+      "id": "f155a67f"
     },
     {
       "cell_type": "code",
@@ -169,7 +169,7 @@
         "\n",
         "As an example, we consider the test scores data available in the `caschool.xlsx` file.  The following code chunk imports the data and displays the column names."
       ],
-      "id": "2aa64707"
+      "id": "33598f18"
     },
     {
       "cell_type": "code",
@@ -183,7 +183,7 @@
         "# Column names\n",
         "mydata.columns"
       ],
-      "id": "0747ad2c",
+      "id": "80a870ad",
       "execution_count": null,
       "outputs": []
     },
@@ -193,7 +193,7 @@
       "source": [
         "We consider the relationship between the test scores (`testscr`) and two other variables: the student-teacher ratio (`str`), and the average district income (`avginc`). The average district income is measured in thousands of 1998 dollars (i.e., one unit increase in `avginc` means 1000 dollars increase). In @fig-f15-2, we present scatter plots of test scores against the student-teacher ratio and average district income. The scatter plot of test scores against the student-teacher ratio suggests a linear relationship, whereas the scatter plot of test scores against average district income suggests a nonlinear relationship."
       ],
-      "id": "327a98b1"
+      "id": "a6fe7244"
     },
     {
       "cell_type": "code",
@@ -256,7 +256,7 @@
         "\n",
         "We estimate these models using the OLS estimator. In the following code chunk, we use the `I` function to create the quadratic and cubic terms directly within the regression formula. Otherwise, we would need to create these variables manually and add them to the data frame `mydata`. The estimation results are presented in @tbl-t15-1."
       ],
-      "id": "c912a6ed"
+      "id": "36b4114c"
     },
     {
       "cell_type": "code",
@@ -273,7 +273,7 @@
         "model3=smf.ols(formula='testscr ~ avginc + I(avginc**2) + I(avginc**3)',\n",
         "  data=mydata).fit(cov_type=\"HC1\")"
       ],
-      "id": "18dc56ce",
+      "id": "eaf30b53",
       "execution_count": null,
       "outputs": []
     },
@@ -283,7 +283,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "8fdf9ee0"
+      "id": "a152f683"
     },
     {
       "cell_type": "code",
@@ -312,7 +312,7 @@
         "\n",
         "The estimated regression functions are plotted in @fig-f15-3, superimposed on the scatterplot of the data. As shown, the quadratic and cubic functions capture the curvature in the scatterplot, exhibiting steep slopes at low values of district income that gradually flatten as district income increases."
       ],
-      "id": "6c8b0224"
+      "id": "c8576cbb"
     },
     {
       "cell_type": "code",
@@ -353,7 +353,7 @@
         "\n",
         ":::{layout-ncol=1}"
       ],
-      "id": "d74a6fee"
+      "id": "8a8c468a"
     },
     {
       "cell_type": "code",
@@ -388,7 +388,7 @@
         "\n",
         "The F-statistic for this null hypothesis can be computed by using the `model3.f_test` function. The following code chunk computes the F-statistic and the associated $p$-value.  "
       ],
-      "id": "48727128"
+      "id": "3c64da81"
     },
     {
       "cell_type": "code",
@@ -397,7 +397,7 @@
         "hypothesis=\"I(avginc ** 2)=0, I(avginc ** 3)=0\"\n",
         "print(model3.f_test(hypothesis))"
       ],
-      "id": "3cc3e687",
+      "id": "484689f6",
       "execution_count": null,
       "outputs": []
     },
@@ -418,7 +418,7 @@
         "\n",
         "In @fig-f15-2, we plot the exponential function $y=e^x$ and the natural logarithm function $y=\\ln(x)$. The exponential function is increasing and convex, while the natural logarithm function is increasing and concave. "
       ],
-      "id": "d7681c14"
+      "id": "6e547e91"
     },
     {
       "cell_type": "code",
@@ -563,7 +563,7 @@
         "4. The log-linear model: $\\ln(\\text{TestScore})=\\beta_0+\\beta_1\\text{Income}+u$,\n",
         "5. The log-log model: $\\ln(\\text{TestScore})=\\beta_0+\\beta_1\\ln(\\text{Income})+u$."
       ],
-      "id": "2e368f25"
+      "id": "561d58d9"
     },
     {
       "cell_type": "code",
@@ -586,7 +586,7 @@
         "r5 = smf.ols(formula=\"np.log(testscr) ~ np.log(avginc)\",\n",
         "         data = mydata).fit(cov_type=\"HC1\")         "
       ],
-      "id": "84a132f8",
+      "id": "a71f98b0",
       "execution_count": null,
       "outputs": []
     },
@@ -596,7 +596,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "927ea8bf"
+      "id": "de9205d9"
     },
     {
       "cell_type": "code",
@@ -644,7 +644,7 @@
         "\n",
         "We plot the estimated regression functions in @fig-f15-5 and @fig-f15-6. In @fig-f15-5, the quadratic model appears to provide a better fit for the data, while in @fig-f15-6, the log-log model seems to fit the data more closely."
       ],
-      "id": "9837bfde"
+      "id": "fbbb086b"
     },
     {
       "cell_type": "code",
@@ -773,7 +773,7 @@
         "\n",
         "Here, $\\text{HiSTR}_i$ is a binary variable equal to 1 if the student-teacher ratio is 20 or more, and 0 otherwise; $\\text{HiEL}_i$ is another binary variable equal to 1 if the percentage of English learners is 10% or more, and 0 otherwise. We use the following code chunk to estimate the model and present the results in @tbl-t15-4."
       ],
-      "id": "fce9fa2c"
+      "id": "9c1e6e33"
     },
     {
       "cell_type": "code",
@@ -786,7 +786,7 @@
         "r1=smf.ols(formula='testscr ~ histr + hiel + histr*hiel',\n",
         "    data=mydata).fit(cov_type=\"HC1\")"
       ],
-      "id": "a3049ff6",
+      "id": "ababe445",
       "execution_count": null,
       "outputs": []
     },
@@ -796,7 +796,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "19eae3fe"
+      "id": "45bffcb5"
     },
     {
       "cell_type": "code",
@@ -856,7 +856,7 @@
         "$$\n",
         "This case is illustrated in the third plot of @fig-f15-7. "
       ],
-      "id": "5eed0ae7"
+      "id": "f882e462"
     },
     {
       "cell_type": "code",
@@ -933,7 +933,7 @@
         "$$\n",
         "where $\\text{HiEL}_i$ is a binary variable that equals $1$ if the percentage of English learners is 10\\% or more and 0 otherwise. The estimation results are presented in @tbl-t15-5.  "
       ],
-      "id": "99265a5c"
+      "id": "9652e41b"
     },
     {
       "cell_type": "code",
@@ -942,7 +942,7 @@
         "r2 = smf.ols(formula=\"testscr ~ str + hiel + str*hiel\",\n",
         "         data = mydata).fit(cov_type=\"HC1\")"
       ],
-      "id": "2c808736",
+      "id": "361f6ab5",
       "execution_count": null,
       "outputs": []
     },
@@ -952,7 +952,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "c762a022"
+      "id": "5dd90d6c"
     },
     {
       "cell_type": "code",
@@ -987,7 +987,7 @@
         "\n",
         "Thus, for districts with a low percentage of English learners ($\\text{HiEL}_i=0$), the estimated regression line is $\\widehat{\\text{TestScore}}_i=682.2-0.97\\text{STR}_i$. In contrast, for districts with a high percentage of English learners ($\\text{HiEL}_i=1$), the estimated regression line becomes $\\widehat{\\text{TestScore}}_i=682.2+5.6-0.97\\text{STR}_i-1.28\\text{STR}_i=687.8-2.25\\text{STR}_i$. These two regression lines are plotted in @fig-f15-8. According to these estimates, when STR increases by $1$, the test score declines on average by $0.97$ points in districts with low percentage of English learners. On the other hand, when STR increases by $1$ student, the test score declines on average by $2.25$ points in districts with high percentage of English learners."
       ],
-      "id": "cf84ae99"
+      "id": "c12cf2b8"
     },
     {
       "cell_type": "code",
@@ -1034,7 +1034,7 @@
         "\n",
         "We use the heteroskedasticity-robust F statistic to test this hypothesis. The F-statistic is around 89.9 with a $p$-value less than 0.05. Thus, we reject the null hypothesis."
       ],
-      "id": "e33ef3ab"
+      "id": "a3326748"
     },
     {
       "cell_type": "code",
@@ -1043,7 +1043,7 @@
         "hypothesis = \"hiel[T.True]=0, str:hiel[T.True]=0\"\n",
         "r2.f_test(hypothesis)"
       ],
-      "id": "95e517d8",
+      "id": "53d2b9fb",
       "execution_count": null,
       "outputs": []
     },
@@ -1084,7 +1084,7 @@
         "\n",
         "We use the following code chunk to estimate the model and present the results in @tbl-t15-6."
       ],
-      "id": "0c919003"
+      "id": "4a163fcc"
     },
     {
       "cell_type": "code",
@@ -1093,7 +1093,7 @@
         "r3 = smf.ols(formula=\"testscr ~ str + el_pct + str*el_pct\",\n",
         "         data = mydata).fit(cov_type=\"HC1\")"
       ],
-      "id": "b13f5bac",
+      "id": "888be4b0",
       "execution_count": null,
       "outputs": []
     },
@@ -1103,7 +1103,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "f93d6823"
+      "id": "ceeb5dce"
     },
     {
       "cell_type": "code",
@@ -1182,7 +1182,7 @@
         "\n",
         "The following code chunks can be used to produce the estimation results given in  @tbl-t15-7."
       ],
-      "id": "17b247a3"
+      "id": "7f5485d0"
     },
     {
       "cell_type": "code",
@@ -1208,7 +1208,7 @@
         "# Model 7\n",
         "r7 = smf.ols(formula=\"testscr ~ str + I(str**2) + I(str**3) + el_pct + meal_pct + np.log(avginc)\", data = mydata).fit(cov_type=\"HC1\")"
       ],
-      "id": "60ee3437",
+      "id": "bdf532f0",
       "execution_count": null,
       "outputs": []
     },
@@ -1218,7 +1218,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "4750d3b5"
+      "id": "46ecf5ed"
     },
     {
       "cell_type": "code",
@@ -1248,7 +1248,7 @@
         "\n",
         "Model 5 includes a cubic term for the student-teacher ratio and omits the interaction `STR × HiEL`. The results indicate that there is a nonlinear effect of `STR` on test scores. We can verify this non-linear relationship by testing the joint null hypothesis: $H_0:\\beta_2=0,\\beta_3=0$. The F-statistic is around 5 with a $p$-value less than 0.05. Thus, we reject the null hypothesis at the $5\\%$ significance level. "
       ],
-      "id": "bb0a92d7"
+      "id": "45a7a465"
     },
     {
       "cell_type": "code",
@@ -1257,7 +1257,7 @@
         "hypothesis=\"I(str ** 2)=0, I(str ** 3)=0\"\n",
         "print(r5.f_test(hypothesis))"
       ],
-      "id": "604a7de0",
+      "id": "444e442f",
       "execution_count": null,
       "outputs": []
     },
@@ -1267,7 +1267,7 @@
       "source": [
         "Model 6 further examines whether the effect of `STR` depends not just on its value but also on the fraction of English learners. All individual t-statistics indicate that the estimated coefficients on `HiEL` and its interaction terms are statistically significant. We can further check this by using a robust F-test for the joint null hypothesis: $H_0:\\beta_5=0,\\beta_6=0,\\beta_7=0$. The F-statistic is around 2.19 with a $p$-value less than 0.10. Thus, we only reject the null hypothesis at the 10\\% significance level."
       ],
-      "id": "e371e482"
+      "id": "8ad87146"
     },
     {
       "cell_type": "code",
@@ -1276,7 +1276,7 @@
         "hypothesis=\"hiel[T.True]:str=0, hiel[T.True]:I(str ** 2)=0, hiel[T.True]:I(str ** 3)=0\"\n",
         "print(r6.f_test(hypothesis))"
       ],
-      "id": "2a6dd0f9",
+      "id": "76a6ec27",
       "execution_count": null,
       "outputs": []
     },
@@ -1291,7 +1291,7 @@
         "\n",
         "The nonlinear specifications in @tbl-t15-7 are most easily interpreted graphically. In @fig-f15-9, we present plots of the estimated regression functions for Models 2, 5, and 7, along with a scatterplot of `testscr` and `str`. For each curve, we compute predicted values by setting each independent variable, other than `str`, to its sample average. These estimated regression functions show the predicted test scores as a function of `str`, with other independent variables fixed at their sample averages. The figure illustrates that the estimated regression functions are all quite similar to one another.\n"
       ],
-      "id": "93e7dc60"
+      "id": "ac0f040e"
     },
     {
       "cell_type": "code",
@@ -1319,7 +1319,7 @@
         "r5_fitted = r5.predict(new_data)\n",
         "r7_fitted = r7.predict(new_data)"
       ],
-      "id": "5ca476ca",
+      "id": "09969900",
       "execution_count": null,
       "outputs": []
     },
@@ -1358,7 +1358,7 @@
       "source": [
         "In @fig-f15-10, we present the estimated regression functions for Model 6 when `HiEL = 0` and `HiEL = 1`. Although the two regression functions appear different, the slopes are nearly identical when `str` take values between 17 and 23. Since this range encompasses nearly all observations, we can reasonably conclude that nonlinear interactions between the fraction of English learners and the student-teacher ratio can be disregarded."
       ],
-      "id": "003f329e"
+      "id": "fc326d53"
     },
     {
       "cell_type": "code",
@@ -1381,7 +1381,7 @@
         "new_data['hiel'] = 1\n",
         "r6_fitted_hiel_1 = r6.predict(new_data)"
       ],
-      "id": "3ffc2c06",
+      "id": "73367aed",
       "execution_count": null,
       "outputs": []
     },
@@ -1439,7 +1439,7 @@
         "\\end{align*}\n",
         "$$"
       ],
-      "id": "c4240dff"
+      "id": "8f115022"
     }
   ],
   "metadata": {

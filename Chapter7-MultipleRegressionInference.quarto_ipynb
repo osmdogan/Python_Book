@@ -6,7 +6,7 @@
       "source": [
         "# Hypothesis Tests and Confidence Intervals in Multiple Regression {#sec-inference2}"
       ],
-      "id": "cc542966"
+      "id": "8a6793a6"
     },
     {
       "cell_type": "code",
@@ -21,7 +21,7 @@
         "from statsmodels.iolib.summary2 import summary_col\n",
         "import scipy.stats as stats"
       ],
-      "id": "f43bbc09",
+      "id": "48487f91",
       "execution_count": null,
       "outputs": []
     },
@@ -84,7 +84,7 @@
         "\n",
         "where `PctEL` is the percentage of English learners in the district and `Expn` is the total annual expenditures per pupil in the district in thousands of dollars. We estimate the model by assuming both homoskedastic and heteroskedastic error terms. As we have seen in Chapter 12, we can obtain heteroskedasticity-robust standard errors by specifying  the `cov_type=\"HC1\"` option in the `fit` method. "
       ],
-      "id": "9ed906a7"
+      "id": "18db1c5b"
     },
     {
       "cell_type": "code",
@@ -100,7 +100,7 @@
         "# Display column names\n",
         "data.columns"
       ],
-      "id": "73e22c43",
+      "id": "f61ba752",
       "execution_count": null,
       "outputs": []
     },
@@ -115,7 +115,7 @@
         "model2=smf.ols(formula='testscr ~ str + expn + el_pct',data=data)\n",
         "result2=model2.fit(cov_type=\"HC1\")"
       ],
-      "id": "1d5db189",
+      "id": "760b0f95",
       "execution_count": null,
       "outputs": []
     },
@@ -127,7 +127,7 @@
         "\n",
         ":::{layout-ncol=1}"
       ],
-      "id": "984b711d"
+      "id": "6e8e2b17"
     },
     {
       "cell_type": "code",
@@ -158,7 +158,7 @@
         "\n",
         "The p-value is $2\\Phi(-|t_{calc}|)=2\\Phi(-0.60)$. Using the following code chunk, we find that  p-value$=0.552>0.05$, and thus, we fail to reject $H_0$ at the $5\\%$ significance level. Both the t-statistic and the p-value suggest that the student-teacher ratio does not have a statistically significant effect on the test scores at the $5\\%$ significance level."
       ],
-      "id": "855b9546"
+      "id": "7b90e80c"
     },
     {
       "cell_type": "code",
@@ -170,7 +170,7 @@
         "p_value = 2 * stats.norm.cdf(-np.abs(t), loc=0, scale=1)\n",
         "p_value.round(3)"
       ],
-      "id": "7e63f167",
+      "id": "3571aec4",
       "execution_count": null,
       "outputs": []
     },
@@ -185,7 +185,7 @@
         "\n",
         "Since the confidence interval includes the hypothesized value $0$, it favors $H_0$, i.e., we fail to reject $H_0$ at the $5\\%$ significance level. Alternatively, the `result2.conf_int` function can be used to get the confidence intervals as shown below."
       ],
-      "id": "95c785bb"
+      "id": "ef47f0bb"
     },
     {
       "cell_type": "code",
@@ -194,7 +194,7 @@
         "# 95% two-sided confidence interval\n",
         "result2.conf_int(alpha=0.05).round(2) "
       ],
-      "id": "d5ec8414",
+      "id": "5e4f180a",
       "execution_count": null,
       "outputs": []
     },
@@ -290,7 +290,7 @@
         "\n",
         "* Step 3: The p-value is $P(F_{q,\\infty}>F_{calc})$, where $F_{calc}$ is the actual value computed in Step 1. If p-value$<0.05$, reject the null hypothesis at the $5\\%$ significance level."
       ],
-      "id": "046e5d1f"
+      "id": "9fcf957a"
     },
     {
       "cell_type": "code",
@@ -393,7 +393,7 @@
         "\n",
         "We can use the `result2.f_test` function to compute the heteroskedasticity-robust F-statistic. In the following code chunk, the null hypothesis is specified through `hypothesis=\"str=0,expn_stu=0\"`. "
       ],
-      "id": "72d95713"
+      "id": "9ae5e729"
     },
     {
       "cell_type": "code",
@@ -405,7 +405,7 @@
         "f_test_result = result2.f_test(hypothesis)\n",
         "print(f_test_result)"
       ],
-      "id": "4131b73d",
+      "id": "b694a5ef",
       "execution_count": null,
       "outputs": []
     },
@@ -422,7 +422,7 @@
         "\n",
         "where $F_{calc}=5.43$. Thus, we can alternatively compute the p-value in the following way:"
       ],
-      "id": "d2a2316f"
+      "id": "41e585e2"
     },
     {
       "cell_type": "code",
@@ -431,7 +431,7 @@
         "# P-value of the F-statistic\n",
         "1-stats.chi2.cdf(2*5.43,df=2)"
       ],
-      "id": "ba0be9c2",
+      "id": "76af0a2f",
       "execution_count": null,
       "outputs": []
     },
@@ -441,7 +441,7 @@
       "source": [
         "We know that the F-statistic has $F_{2,\\infty}=\\chi^2_2/2$ under the null distribution. Thus, the critical value at the the $5\\%$ significance level is approximately $3$, as shown below. Since F-statistic$=5.43>3$, the F-statistic also suggests rejection of the null hypothesis at the $5\\%$ significance level. "
       ],
-      "id": "ebb64b77"
+      "id": "eda4a8ba"
     },
     {
       "cell_type": "code",
@@ -450,7 +450,7 @@
         "# Critical value\n",
         "stats.chi2.ppf(1-0.05,df=2)/2"
       ],
-      "id": "70a209ef",
+      "id": "030b99cd",
       "execution_count": null,
       "outputs": []
     },
@@ -460,7 +460,7 @@
       "source": [
         "The overall regression F-statistic given in the output returned by `result2.summary()` is for testing  $H_0:\\beta_1=0,\\beta_2=0, \\beta_3=0$ versus $H_1:\\text{At least one coefficient is not zero}$. We can get the same result by using the following code chunk:"
       ],
-      "id": "62eb29bd"
+      "id": "3ad82a2e"
     },
     {
       "cell_type": "code",
@@ -469,7 +469,7 @@
         "print(result2.fvalue)\n",
         "print(result2.f_pvalue)"
       ],
-      "id": "b7d469d1",
+      "id": "ae095170",
       "execution_count": null,
       "outputs": []
     },
@@ -479,7 +479,7 @@
       "source": [
         "Alternatively, we can compute the overall regression F-statistic in the following way:"
       ],
-      "id": "8abb1d48"
+      "id": "78de5a76"
     },
     {
       "cell_type": "code",
@@ -490,7 +490,7 @@
         "# Perform the F-test\n",
         "print(result2.f_test(hypothesis))"
       ],
-      "id": "7e80e716",
+      "id": "4ab8df47",
       "execution_count": null,
       "outputs": []
     },
@@ -508,7 +508,7 @@
         "The null hypothesis imposes a single restriction ($q = 1$) on\n",
         "two parameters. Since the restriction is linear in terms of parameters, we can still use the F-statistic to test this null hypothesis. Thus, we can resort to the `result2.f_test` function to compute the F-statistic. The following code chunk illustrates the computation."
       ],
-      "id": "a34a4fa2"
+      "id": "f54f8b64"
     },
     {
       "cell_type": "code",
@@ -519,7 +519,7 @@
         "# Perform F-statistic\n",
         "print(result2.f_test(hypothesis))"
       ],
-      "id": "2876bbae",
+      "id": "61c0e4f8",
       "execution_count": null,
       "outputs": []
     },
@@ -553,7 +553,7 @@
         "\n",
         "We use the following code chunk to determine the critical values at the $10\\%$, $5\\%$, and $1\\%$ significance levels for $q=2$, $q=3$, and $q=4$. The critical values are presented in @tbl-t14-2. For example, when the joint null hypothesis involves two restrictions, the critical value at the $5\\%$ significance level is $2.241$, which is the $1.25$th percentail of $Z$."
       ],
-      "id": "e0a5aec3"
+      "id": "b95074d4"
     },
     {
       "cell_type": "code",
@@ -598,7 +598,7 @@
         "\n",
         "In the following code chunk, we consider the model in @eq-eq14-2 and construct the $95\\%$ confidence set for $(\\beta_1,\\beta_2)$. We first generate a grid of values around the estimated values and store these values in the `str_vals` and `expn_vals` arrays. We then compute the heteroskedasticity-robust F-statistic for each pair of values in the grid and store the resulting F-statistic values in the `f_values` array. The ellipse shown in @fig-fig14-2 includes the pairs of values that are not rejected by the F-statistic at the $5\\%$ significance level. This ellipse represents the $95\\%$ confidence set for $(\\beta_1,\\beta_2)$. Note that since the ellipse does not include $(0,0)$, we reject the joint null hypothesis $H_0:\\beta_1=0$ and $\\beta_2=0$ at the $5\\%$ significance level. Also, since the estimated correlation between the OLS estimators $\\hat{\\beta}_1$ and $\\hat{\\beta}_2$ is positive, the ellipse is positively oriented, as shown in the figure.  "
       ],
-      "id": "852b7897"
+      "id": "c682fae9"
     },
     {
       "cell_type": "code",
@@ -628,7 +628,7 @@
         "        # Check if the result is scalar or an array and handle accordingly\n",
         "        f_values[i, j] = f_test.fvalue "
       ],
-      "id": "40e17b86",
+      "id": "e7e660f2",
       "execution_count": null,
       "outputs": []
     },
@@ -699,7 +699,7 @@
         "\n",
         "@fig-fig14-3 shows the scatterplots between these variables and the test scores. We observe that each variable is negatively correlated with the test scores."
       ],
-      "id": "8fd67584"
+      "id": "efb36d14"
     },
     {
       "cell_type": "code",
@@ -760,7 +760,7 @@
         "\n",
         "The following code chunk can be used to estimate each model.\n"
       ],
-      "id": "1880357b"
+      "id": "d4bab5be"
     },
     {
       "cell_type": "code",
@@ -784,7 +784,7 @@
         "    formula=\"testscr ~ str + el_pct + meal_pct + calw_pct\", data=data\n",
         ").fit(cov_type=\"HC1\")"
       ],
-      "id": "bcb6e856",
+      "id": "8d556cf9",
       "execution_count": null,
       "outputs": []
     },
@@ -796,7 +796,7 @@
         "\n",
         ":::{layout-ncol=1}"
       ],
-      "id": "939971bc"
+      "id": "b5a3a3ec"
     },
     {
       "cell_type": "code",
@@ -831,7 +831,7 @@
         "* Comparing the estimation results in column 1 with those in the other columns shows that including student characteristics increases the adjusted $R^2$ substantially.\n",
         "* The results in the fifth column indicate that `calw_pct` becomes redundant once we control for `meal_pct` and `el_pct`. "
       ],
-      "id": "da00ed26"
+      "id": "fe98b2dc"
     }
   ],
   "metadata": {

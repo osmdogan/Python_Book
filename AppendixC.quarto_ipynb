@@ -6,7 +6,7 @@
       "source": [
         "# Appendix for Chapter 25 {#sec-appendixC}"
       ],
-      "id": "6b780599"
+      "id": "f14b2f62"
     },
     {
       "cell_type": "code",
@@ -18,7 +18,7 @@
         "from scipy.stats import multivariate_normal\n",
         "from mpl_toolkits.mplot3d import Axes3D"
       ],
-      "id": "913e8b2a",
+      "id": "ae6a2f79",
       "execution_count": null,
       "outputs": []
     },
@@ -183,7 +183,7 @@
         "\n",
         "In @fig-bivariate-normal, we plot the bivariate normal distribution with $\\mu_X=\\mu_Y=0$, $\\sigma_X=\\sigma_Y=1$, and $\\rho=0.5$. The 3D plot shows the joint pdf of $X$ and $Y$."
       ],
-      "id": "daf03223"
+      "id": "d9ad2763"
     },
     {
       "cell_type": "code",
@@ -226,7 +226,7 @@
       "source": [
         "In @fig-normal-scatter, we plot the scatter plots of random draws obtained from bivariate normal distributions that have different correlation coefficients. The correlation coefficient $\\rho$ takes values from $\\{-0.8, 0, 0.4, 0.8\\}$. The scatter plots show the relationship between $X$ and $Y$ for different values of $\\rho$. As $\\rho$ gets larger in absolute value, the points in the scatter plot become more aligned along the line $y=x$ or $y=-x$. "
       ],
-      "id": "22923547"
+      "id": "d218a13b"
     },
     {
       "cell_type": "code",
@@ -270,7 +270,7 @@
       "source": [
         "In @fig-normal-contour, we plot the contour plots of bivariate normal distributions that have different correlation coefficients. The contour plots show the level curves of the bivariate normal distribution for different values of $\\rho$. @fig-normal-contour shows that as $\\rho$ gets larger in absolute value, the contours stretch along the line $y=x$ or $y=-x$."
       ],
-      "id": "738f2f57"
+      "id": "74ee5cfe"
     },
     {
       "cell_type": "code",
@@ -377,7 +377,7 @@
         "$$\n",
         "The moment-generating function of $F$ does not exist. The first moment is given by $\\E(F)=\\frac{\\nu_2}{\\nu_2-2}$ for $\\nu_2>2$. The variance is given by $\\text{var}(F)=\\frac{2\\nu_2^2(\\nu_1+\\nu_2-2)}{\\nu_1(\\nu_2-2)^2(\\nu_2-4)}$ for $\\nu_2>4$. The pdf and CDF plots of the $F$ distribution with different degrees of freedom are shown in Chapter 9."
       ],
-      "id": "17fd1852"
+      "id": "9a8041d2"
     }
   ],
   "metadata": {

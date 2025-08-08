@@ -44,7 +44,7 @@
         "# Import Conventions \n",
         "In each chapter, we first import all the modules required for the econometric analysis introduced in that chapter. We follow the alias conventions used by the Python community for commonly used modules:"
       ],
-      "id": "9e766ade"
+      "id": "cfc55177"
     },
     {
       "cell_type": "code",
@@ -57,7 +57,7 @@
         "import seaborn as sns\n",
         "import statsmodels as sm"
       ],
-      "id": "4f451cb1",
+      "id": "670123a7",
       "execution_count": null,
       "outputs": []
     },
@@ -70,7 +70,7 @@
         "# Code Examples\n",
         "We use the conventional code font for displaying code in the text. Code chunks are presented in highlighted cells, as shown in the following example:"
       ],
-      "id": "2e75800b"
+      "id": "cb674fe9"
     },
     {
       "cell_type": "code",
@@ -80,7 +80,7 @@
         "from IPython.core.interactiveshell import InteractiveShell\n",
         "InteractiveShell.ast_node_interactivity = \"all\""
       ],
-      "id": "8c6f2281",
+      "id": "b814e546",
       "execution_count": null,
       "outputs": []
     },
@@ -90,7 +90,7 @@
       "source": [
         "x = 2"
       ],
-      "id": "3d510f76",
+      "id": "73eabefc",
       "execution_count": null,
       "outputs": []
     },
@@ -100,7 +100,7 @@
       "source": [
         "The output of a code cell is shown in the subsequent cell, as shown in the following example:"
       ],
-      "id": "90d67bef"
+      "id": "2bb424ff"
     },
     {
       "cell_type": "code",
@@ -110,7 +110,7 @@
         "x.append(99) # adding 99 to the list x\n",
         "x"
       ],
-      "id": "eb3178e8",
+      "id": "0d02a668",
       "execution_count": null,
       "outputs": []
     },
@@ -120,7 +120,7 @@
       "source": [
         "The above cell displays the updated list `x`.  If a code cell returns multiple outputs, these outputs are displayed in separate cells, in the order they are produced. For example, the code below returns `type(x) = list` and `type(y) = tuple` in separate cells:"
       ],
-      "id": "d4fe5876"
+      "id": "e449e9bc"
     },
     {
       "cell_type": "code",
@@ -131,7 +131,7 @@
         "y = (3,5,7) # tuple\n",
         "type(y)"
       ],
-      "id": "13cef238",
+      "id": "95e698e5",
       "execution_count": null,
       "outputs": []
     },
@@ -167,7 +167,7 @@
         "# Acknowledgements\n",
         "We use the theme from the book [R for Data Science (2e)](https://r4ds.hadley.nz/) as the foundation for producing this book. "
       ],
-      "id": "1676d437"
+      "id": "6301807f"
     }
   ],
   "metadata": {

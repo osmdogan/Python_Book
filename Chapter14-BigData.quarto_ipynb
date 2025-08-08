@@ -61,7 +61,7 @@
         "\n",
         "In this chapter, we cover machine learning methods, including ridge, Lasso, elastic net, and principal components analysis, that can handle high-dimensional data. In this chapter, we will use the `sklearn` module to implement the machine learning methods."
       ],
-      "id": "47e9beb8"
+      "id": "00b488f3"
     },
     {
       "cell_type": "code",
@@ -91,7 +91,7 @@
         "from warnings import simplefilter\n",
         "simplefilter(action=\"ignore\")"
       ],
-      "id": "890fcaab",
+      "id": "6639cc99",
       "execution_count": null,
       "outputs": []
     },
@@ -103,7 +103,7 @@
         "from IPython.core.interactiveshell import InteractiveShell\n",
         "InteractiveShell.ast_node_interactivity = \"last_expr\""
       ],
-      "id": "593bd655",
+      "id": "03c4c5fc",
       "execution_count": null,
       "outputs": []
     },
@@ -292,7 +292,7 @@
         "\n",
         "The difference between @eq-eq21-1 and @eq-eq21-2 is that in the first problem we need to specify the shrinkage parameter, while in the second problem we need to specify the constraint parameter. The representation of the ridge minimization problem in @eq-eq21-2 is useful to produce a graphical representation for further insight. Following @Hansen2022, we use the following code chunk to illustrate the ridge minimization problem when there are two regressors so that the constraint set is $\\{(b_1,b_2): b^2_1+b^2_2<\\kappa\\}$.  In @fig-f21-1, the constraint set $\\{(b_1,b_2): b^2_1+b^2_2<\\kappa\\}$ is represented by the ball around the origin, and the contour sets of $SSR(b)$  are depicted as ellipses. In this illustration, the OLS estimates correspond to the point at the center of the ellipses, whereas the ridge estimates are represented by the point on the circle where the outer-contour is tangent. This demonstrates that the ridge estimator effectively shrinks the OLS estimates toward zero. "
       ],
-      "id": "d661031a"
+      "id": "9b464619"
     },
     {
       "cell_type": "code",
@@ -408,7 +408,7 @@
         "\n",
         "This representation of the Lasso minimization problem is useful to produce a graphical representation for further insight. Following @Hansen2022, we illustrate the constrained minimization problem through the following code chunk, which generates @fig-fig21-2. In this figure, the constraint set $\\{(b_1,b_2):|b_1|+|b_2|<\\kappa\\}$ is represented by the diamond-shaped area centered on the origin, while the contour sets of $SSR(b)$  are depicted as ellipses. In this illustration, the OLS estimates correspond to the point at the center of the ellipses, whereas the Lasso estimates are represented by the point at the intersection of the constraint set and the outer-contour. This demonstrates that the Lasso estimator effectively set the estimate of $b_1$ to zero.\n"
       ],
-      "id": "2cf0d0c4"
+      "id": "34b096c9"
     },
     {
       "cell_type": "code",
@@ -514,7 +514,7 @@
         "\n",
         "This provides an $R^2$ interpretation of principal components. The fraction of the total variance explained by the first principal component is $\\var(PC_1)/[\\var(X_1) + \\var(X_2)]$, while the fraction explained by the second principal component is $\\var(PC_2)/[\\var(X_1) + \\var(X_2)]$. Since $\\rho=0.7$, the first principal component explains $(1 + \\rho)/2 = 85\\%$ of the variance of $\\bs{X}$, while the second principal component explains the remaining $(1 - \\rho)/2 = 15\\%$ of the variance of $\\bs{X}$. "
       ],
-      "id": "306569d2"
+      "id": "aff1fbf3"
     },
     {
       "cell_type": "code",
@@ -678,7 +678,7 @@
         "\n",
         "The in-sample (training sample) and out-of-sample (testing sample) data are contained in the files `ca_school_testscore_insample.dta` and  `ca_school_testscore_outofsample.dta`, respectively.  In the following code chunk, we import the data and then construct standardized variables. The standardized variables are stored in `pred_sx`. "
       ],
-      "id": "9067bd26"
+      "id": "39cf95ab"
     },
     {
       "cell_type": "code",
@@ -717,7 +717,7 @@
         "model_std = sm.OLS(data['testscore_dm'][data['insample']], pred_sx[data['insample']]).fit()\n",
         "print(model_std.summary())"
       ],
-      "id": "c81d7673",
+      "id": "123aea3f",
       "execution_count": null,
       "outputs": []
     },
@@ -727,7 +727,7 @@
       "source": [
         "In the following code chunk, we first generate the in-sample and out-of-sample predicted values and then compute the prediction errors. The in-sample and out-of-sample predictions are stored in `testscore_ols`, and the prediction errors are stored in `e_ols`. Lastly, we compute the split-sample estimate of the RMSPE (the out-of-sample RMSPE estimate)."
       ],
-      "id": "b6cfa95c"
+      "id": "7f0ef968"
     },
     {
       "cell_type": "code",
@@ -740,7 +740,7 @@
         "small_rmse_oos_ols = np.sqrt(data.loc[data['outofsample'], 'e_ols2'].mean())\n",
         "print(f\"The out-of-sample RMSPE of the OLS estimator = {small_rmse_oos_ols:.1f}\")"
       ],
-      "id": "e340fae1",
+      "id": "b1217863",
       "execution_count": null,
       "outputs": []
     },
@@ -750,7 +750,7 @@
       "source": [
         "In the following code chunk, we compute the $m$-fold cross-validation estimate of the MSPE. We use the `KFold` function from the `sklearn.model_selection` module to split the dataset into $m=10$ consecutive folds (subsets) without shuffling, by default. We then use the `kf.split` method to generate indices for the training and test sets, which are denoted as `train_index` and `val_index`, respectively. We use the `mean_squared_error` function to compute the mean squared errors from each fold and then collect these measures in the `rmse_cv` list. "
       ],
-      "id": "38ce6ff4"
+      "id": "de82919c"
     },
     {
       "cell_type": "code",
@@ -774,7 +774,7 @@
         "small_rmse_cv_in_ols = np.mean(rmse_cv)\n",
         "print(f\"The 10-fold CV estimate of RMSPE = {small_rmse_cv_in_ols:.1f}\")"
       ],
-      "id": "ceb9fb18",
+      "id": "0839c62f",
       "execution_count": null,
       "outputs": []
     },
@@ -784,7 +784,7 @@
       "source": [
         "In the following code chunk, we explore an alternative approach to compute the 10-fold cross-validation estimate of the RMSPE. We use the `cross_val_score` function from the `sklearn.model_selection` module to calculate the mean squared error for each fold. To achieve this, we first define the mean squared error as the scoring metric using the `make_scorer` function and then pass this custom scorer to the `cross_val_score` function."
       ],
-      "id": "47564080"
+      "id": "f51c8974"
     },
     {
       "cell_type": "code",
@@ -805,7 +805,7 @@
         "# Print the 10-fold cross-validation estimate of the RMSPE\n",
         "print(f\"The 10-fold CV estimate of RMSPE = {rmse_cv_scores.mean():.1f}\")"
       ],
-      "id": "833112f8",
+      "id": "9a62a624",
       "execution_count": null,
       "outputs": []
     },
@@ -815,7 +815,7 @@
       "source": [
         "Finally, instead of using the `cross_val_score` function, we can use `cross_val_predict` to compute the cross-validated predictions and then calculate the mean squared error using the `mean_squared_error` function, as shown in the following code chunk."
       ],
-      "id": "d679ad8b"
+      "id": "71dbd89a"
     },
     {
       "cell_type": "code",
@@ -833,7 +833,7 @@
         "# Print the 10-fold cross-validation estimate of RMSPE\n",
         "print(f\"The 10-fold CV estimate of RMSPE = {rmse_cv:.1f}\")"
       ],
-      "id": "67f8961b",
+      "id": "b4810ed5",
       "execution_count": null,
       "outputs": []
     },
@@ -844,7 +844,7 @@
         "# Remove data\n",
         "del data"
       ],
-      "id": "8197897b",
+      "id": "2824392b",
       "execution_count": null,
       "outputs": []
     },
@@ -876,7 +876,7 @@
         "\n",
         "In the following code chunk, the `pred_columns` list includes the names of the original variables given in @tbl-LargeCase."
       ],
-      "id": "c1aaafaa"
+      "id": "70eeed42"
     },
     {
       "cell_type": "code",
@@ -907,7 +907,7 @@
         "    \"revoc_8300_8599_d\", \"revoc_8600_8799_d\"\n",
         "]"
       ],
-      "id": "fc5c3d9c",
+      "id": "54b5c263",
       "execution_count": null,
       "outputs": []
     },
@@ -917,7 +917,7 @@
       "source": [
         "In addition to the 38 variables in the `pred_columns` list, we also consider their squares, cubes, and interactions, resulting in 816 distinct predictors. In the following code chunk, we generate these variables along with their standardized versions."
       ],
-      "id": "03615866"
+      "id": "b9c4892a"
     },
     {
       "cell_type": "code",
@@ -957,7 +957,7 @@
         "X_train = data.filter(like='sS_x').loc[data['insample']]\n",
         "y_train = data['testscore_dm'].loc[data['insample']]         "
       ],
-      "id": "7c3fe397",
+      "id": "9e78c542",
       "execution_count": null,
       "outputs": []
     },
@@ -967,7 +967,7 @@
       "source": [
         "In the following code chunk, we perform the OLS estimation and compute the split-sample estimate of the MSPE (the out-of-sample MSPE estimate)."
       ],
-      "id": "64e2fa4b"
+      "id": "babd90da"
     },
     {
       "cell_type": "code",
@@ -983,7 +983,7 @@
         "large_rmse_oos_ols = np.sqrt(data.loc[data['outofsample'], 'e_ols2'].mean())\n",
         "print(f\"The out-of-sample RMSPE of the OLS estimator = {large_rmse_oos_ols:.1f}\")  "
       ],
-      "id": "b685ad26",
+      "id": "0b0f2b53",
       "execution_count": null,
       "outputs": []
     },
@@ -993,7 +993,7 @@
       "source": [
         "Next, we compute the 10-fold cross-validation estimate of the MSPE in the following code chunk. Note that our results will differ from those of @Stock2020 because we will not further standardize the regressors or demean the outcome variable at each fold of the cross-validation."
       ],
-      "id": "f2ec582f"
+      "id": "55a6773a"
     },
     {
       "cell_type": "code",
@@ -1017,7 +1017,7 @@
         "filename = 'OLSinMSPE_large_model.sav'\n",
         "pickle.dump(large_rmse_cv_in_ols, open(filename, 'wb'))"
       ],
-      "id": "5cac43a0",
+      "id": "48d4d5db",
       "execution_count": null,
       "outputs": []
     },
@@ -1029,7 +1029,7 @@
         "large_rmse_cv_in_ols = pickle.load(open(filename,\"rb\"))\n",
         "print(f\"The 10-fold CV estimate of RMSPE in the large case = {large_rmse_cv_in_ols:.1f}\")   "
       ],
-      "id": "484c9549",
+      "id": "4ea5b9e0",
       "execution_count": null,
       "outputs": []
     },
@@ -1039,7 +1039,7 @@
       "source": [
         "In the following code chunk, similar to the small case, we can use the `cross_val_predict` function to compute the 10-fold cross-validation estimate of the MSPE in an alternative way. "
       ],
-      "id": "a7ca4f8b"
+      "id": "569f6e07"
     },
     {
       "cell_type": "code",
@@ -1058,7 +1058,7 @@
         "# Print the 10-fold cross-validation estimate of RMSPE\n",
         "print(f\"The 10-fold CV estimate of RMSPE for the large case = {rmse_cv:.1f}\")"
       ],
-      "id": "b3176f42",
+      "id": "bff9f3da",
       "execution_count": null,
       "outputs": []
     },
@@ -1068,7 +1068,7 @@
       "source": [
         "Next, we consider the principal component analysis for the large case. In the following, we first use the 10-fold cross-validation method to choose the number of principal components $p$. We create the workflow with `pipe = Pipeline([('pca', pca), ('linreg', linreg)])`, where principal component analysis is applied before fitting the linear regression model. We then define the grid of principal components using `p_grid = {'pca__n_components': range(1, 60)}` and pass the `pipe` and `p_grid` to the `GridSearchCV` function.  Finally, we use the `grid.fit` method for searching the number of principal components that minimizes the 10-fold cross-validation estimate of the MSPE. The 10-fold cross-validation estimate of the MSPE is minimized when $p=51$."
       ],
-      "id": "13c2b7da"
+      "id": "b8467f02"
     },
     {
       "cell_type": "code",
@@ -1112,7 +1112,7 @@
         "filename = 'No_pc_large_model.sav'\n",
         "pickle.dump([grid, p_grid], open(filename, 'wb'))"
       ],
-      "id": "cbccef86",
+      "id": "ebfc10a3",
       "execution_count": null,
       "outputs": []
     },
@@ -1132,7 +1132,7 @@
         "print(f\"The optimal number of PCA components: {best_n_components}\")\n",
         "print(f\"The best 10-fold cross-validated RMSPE: {best_score:.1f}\")"
       ],
-      "id": "5c48d5c6",
+      "id": "d98992eb",
       "execution_count": null,
       "outputs": []
     },
@@ -1142,7 +1142,7 @@
       "source": [
         "In @fig-fig21-4, we plot the 10-fold cross-validation estimate of the MSPE based on the principal component regression in @eq-eq21-pc against the number of principal components used as regressors. The figure shows a significant decline in the MSPE as the number of principal components used as predictors increases. However, after p=30 principal components, the MSPE becomes flat without any further significant decrease. "
       ],
-      "id": "509aafe3"
+      "id": "65f5f938"
     },
     {
       "cell_type": "code",
@@ -1168,7 +1168,7 @@
       "source": [
         "In the following code chunk, we follow @Stock2020 to further standardize the regressors and demean the outcome variable at each fold of the cross-validation. This code chunk produces $p=46$ as in @Stock2020."
       ],
-      "id": "602a1378"
+      "id": "02972484"
     },
     {
       "cell_type": "code",
@@ -1218,7 +1218,7 @@
         "ax.set_xlabel('Number of principal components')\n",
         "plt.show()"
       ],
-      "id": "0c7b46fc",
+      "id": "4ee3efdb",
       "execution_count": null,
       "outputs": []
     },
@@ -1228,7 +1228,7 @@
       "source": [
         "In the following code chunk, we assume that $p=51$ and compute the split-sample estimate of the MSPE. "
       ],
-      "id": "050f4024"
+      "id": "cc6ec81a"
     },
     {
       "cell_type": "code",
@@ -1242,7 +1242,7 @@
         "filename = 'pc_large_model.sav'\n",
         "pickle.dump(pca, open(filename, 'wb'))"
       ],
-      "id": "bc2b4d39",
+      "id": "93e631a3",
       "execution_count": null,
       "outputs": []
     },
@@ -1265,7 +1265,7 @@
         "large_rmse_oos_pc = np.sqrt(data.loc[data['outofsample'], 'e_pc2'].mean())\n",
         "print(f\"The out-of-sample RMSPE of PC regression in the large case = {large_rmse_oos_pc:.1f}\")        "
       ],
-      "id": "4a48d71a",
+      "id": "4bc40eff",
       "execution_count": null,
       "outputs": []
     },
@@ -1275,7 +1275,7 @@
       "source": [
         "Alternatively, we can use the `Pipeline` function to streamline the PCA transformation and regression fitting process as shown in the following code chunk."
       ],
-      "id": "66e84944"
+      "id": "ae227a8c"
     },
     {
       "cell_type": "code",
@@ -1298,7 +1298,7 @@
         "large_rmse_oos_pc = np.sqrt(data.loc[data['outofsample'], 'e_pc2'].mean())\n",
         "print(f\"The out-of-sample RMSPE of PC regression in the large case is {large_rmse_oos_pc}.\")"
       ],
-      "id": "01769c50",
+      "id": "a0601b56",
       "execution_count": null,
       "outputs": []
     },
@@ -1308,7 +1308,7 @@
       "source": [
         "In @fig-fig21-5, we provide the scree plot, showing the total variance of the 817 regressors explained by the indicated principal component. We see that the first principal component explains almost $18\\%$ of the total variance of the 817 predictors."
       ],
-      "id": "102c4477"
+      "id": "093ea91e"
     },
     {
       "cell_type": "code",
@@ -1334,7 +1334,7 @@
       "source": [
         "Next, we implement the ridge regression using the `RidgeCV` from the `sklearn.linear_model` module. Note that the number of grid points for the ridge shrinkage parameter can be made finer by modifying `alphas` argument in `RidgeCV` at the expense of more computation time. "
       ],
-      "id": "29bce643"
+      "id": "97314374"
     },
     {
       "cell_type": "code",
@@ -1346,7 +1346,7 @@
         "filename = 'large_ridge_model.sav'\n",
         "pickle.dump(large_ridge_model, open(filename, 'wb'))"
       ],
-      "id": "0e8fbb73",
+      "id": "9b09cdf8",
       "execution_count": null,
       "outputs": []
     },
@@ -1371,7 +1371,7 @@
         "# Print the out-of-sample RMSPE\n",
         "print(f\"The out-of-sample RMSPE of Ridge regression in the large case = {large_rmse_oos_ridge:.1f}\")            "
       ],
-      "id": "ff6287e7",
+      "id": "3dbf1110",
       "execution_count": null,
       "outputs": []
     },
@@ -1381,7 +1381,7 @@
       "source": [
         "Instead of the `RidgeCV` function, we may also use the `GridSearchCV` function from the `sklearn.model_selection` module to select the shrinkage parameter. We present this approach in the following code chunk."
       ],
-      "id": "5382487e"
+      "id": "d59ca763"
     },
     {
       "cell_type": "code",
@@ -1414,7 +1414,7 @@
         "\n",
         "print(f\"The out-of-sample RMSPE of Ridge regression = {large_rmse_oos_ridge:.1f}\")"
       ],
-      "id": "c66052e4",
+      "id": "2939722f",
       "execution_count": null,
       "outputs": []
     },
@@ -1424,7 +1424,7 @@
       "source": [
         "In the following code chunk, we implement the Lasso approach using the `LassoCV` from the `sklearn.linear_model` module. Note that `LassoCV` uses 100 grid points for the shrinkage parameter and this can significantly increase computational burden in very high-dimensional exercises. You can specify `alphas` argument to modify the grid points for the shrinkage parameter. "
       ],
-      "id": "9c3c2b52"
+      "id": "9d7f2af4"
     },
     {
       "cell_type": "code",
@@ -1438,7 +1438,7 @@
         "filename = 'large_lasso_model.sav'\n",
         "pickle.dump(large_lasso_model, open(filename, 'wb'))"
       ],
-      "id": "c90ac7ad",
+      "id": "046bd8fd",
       "execution_count": null,
       "outputs": []
     },
@@ -1456,7 +1456,7 @@
         "# Calculate the predictions\n",
         "data.loc[:, 'testscore_lasso'] = mean_testscore + large_lasso_model.predict(data.filter(like='sS_x'))  "
       ],
-      "id": "4451ad73",
+      "id": "93e403eb",
       "execution_count": null,
       "outputs": []
     },
@@ -1466,7 +1466,7 @@
       "source": [
         "In @fig-fig21-6, we give the line plots of the 10-fold cross-validation estimates of MSPE against the shrinkage parameter values. "
       ],
-      "id": "e881ecab"
+      "id": "40d903e6"
     },
     {
       "cell_type": "code",
@@ -1499,7 +1499,7 @@
       "source": [
         "In the following code chunk, we compute the out-of-sample MSPE estimate (the split-sample estimate of MSPE)."
       ],
-      "id": "a8123415"
+      "id": "62b20f3a"
     },
     {
       "cell_type": "code",
@@ -1512,7 +1512,7 @@
         "large_rmse_oos_lasso = np.sqrt(data.loc[data['outofsample'], 'e_lasso2'].mean())\n",
         "print(f\"The out-of-sample RMSPE of Lasso regression in the large case = {np.round(large_rmse_oos_lasso,1)}\")"
       ],
-      "id": "f9aac64f",
+      "id": "30e1cd7b",
       "execution_count": null,
       "outputs": []
     },
@@ -1522,7 +1522,7 @@
       "source": [
         "Alternatively, we can compute the split-sample estimate of the MSPE using the `GridSearchCV` function, as shown in the following code chunk."
       ],
-      "id": "3da394fb"
+      "id": "96aa23b3"
     },
     {
       "cell_type": "code",
@@ -1550,7 +1550,7 @@
         "\n",
         "print(f\"The out-of-sample RMSPE of Lasso regression in the large case = {large_rmse_oos_lasso:.1f}\")"
       ],
-      "id": "7867a6c0",
+      "id": "f1d26927",
       "execution_count": null,
       "outputs": []
     },
@@ -1561,7 +1561,7 @@
         "# Remove data\n",
         "del data "
       ],
-      "id": "6ef2a4d8",
+      "id": "3d20936d",
       "execution_count": null,
       "outputs": []
     },
@@ -1591,7 +1591,7 @@
         "\n",
         "We do not consider the OLS approach for this case as it is not feasible. In the following code chunk, we create the standardized variables. "
       ],
-      "id": "a53211da"
+      "id": "575e6f67"
     },
     {
       "cell_type": "code",
@@ -1691,7 +1691,7 @@
         "X_train = data.filter(like='sS_').loc[data['insample']]\n",
         "y_train = data['testscore_dm'].loc[data['insample']]                  "
       ],
-      "id": "d52fd899",
+      "id": "44b8d911",
       "execution_count": null,
       "outputs": []
     },
@@ -1701,7 +1701,7 @@
       "source": [
         "In the following, we start with the principal component analysis. "
       ],
-      "id": "74d0ee21"
+      "id": "0ad3fb61"
     },
     {
       "cell_type": "code",
@@ -1718,7 +1718,7 @@
         "filename = 'No_pc_very_large_model.sav'\n",
         "pickle.dump([grid, p_grid], open(filename, 'wb'))"
       ],
-      "id": "45b1e31a",
+      "id": "5a3f70a9",
       "execution_count": null,
       "outputs": []
     },
@@ -1731,7 +1731,7 @@
         "p_grid = pickle.load(open(filename,\"rb\"))[1]\n",
         "print(f\"The 10-fold MSPE is minimized when p is {range(1,70)[grid.best_index_]}.\")  "
       ],
-      "id": "fe02b752",
+      "id": "b8afe799",
       "execution_count": null,
       "outputs": []
     },
@@ -1741,7 +1741,7 @@
       "source": [
         "In @fig-fig21-7, we plot the 10-fold cross-validation estimate of the MSPE  against the number of principal components used as regressors. The figure shows that the MSPE becomes flat after p=50."
       ],
-      "id": "457342d6"
+      "id": "8074b047"
     },
     {
       "cell_type": "code",
@@ -1768,7 +1768,7 @@
       "source": [
         "In the following code chunk, we follow @Stock2020 to further standardize the regressors and demean the outcome variable at each fold of the cross-validation. This code chunk produces $p=69$ as in Stock and Watson (2020)."
       ],
-      "id": "12f58fdd"
+      "id": "4fef8495"
     },
     {
       "cell_type": "code",
@@ -1812,7 +1812,7 @@
         "ax.set_xlabel('Number of principal components')\n",
         "plt.show()"
       ],
-      "id": "667897eb",
+      "id": "8783f247",
       "execution_count": null,
       "outputs": []
     },
@@ -1822,7 +1822,7 @@
       "source": [
         "The scree plot given in @fig-fig21-8 indicates that the first principal component explains around $15\\%$ of the variance of 2065 predictors. "
       ],
-      "id": "afadab5b"
+      "id": "4c762904"
     },
     {
       "cell_type": "code",
@@ -1835,7 +1835,7 @@
         "filename = 'pc_very_large_model.sav'\n",
         "pickle.dump(pca, open(filename, 'wb'))"
       ],
-      "id": "4930c62d",
+      "id": "ab36207a",
       "execution_count": null,
       "outputs": []
     },
@@ -1847,7 +1847,7 @@
         "pca = pickle.load(open(filename,\"rb\"))\n",
         "pcs = pca.transform(data.filter(like='sS_')) #PCs for insample and OOS"
       ],
-      "id": "12e5752c",
+      "id": "13a0081e",
       "execution_count": null,
       "outputs": []
     },
@@ -1883,7 +1883,7 @@
         "vlarge_rmse_oos_pc = np.sqrt(data.loc[data['outofsample'], 'e_pc2'].mean())\n",
         "print(f\"The out-of-sample RMSPE of PC regression = {np.round(vlarge_rmse_oos_pc,1)}\")        \n"
       ],
-      "id": "0226d9e9",
+      "id": "fca77fdd",
       "execution_count": null,
       "outputs": []
     },
@@ -1893,7 +1893,7 @@
       "source": [
         "In the following, we estimate the ridge regression and then return the out-of-sample estimate of the MSPE. "
       ],
-      "id": "fb2f2208"
+      "id": "af9891ba"
     },
     {
       "cell_type": "code",
@@ -1906,7 +1906,7 @@
         "filename = 'vlarge_ridge_model.sav'\n",
         "pickle.dump(vlarge_ridge_model, open(filename, 'wb'))"
       ],
-      "id": "18d0a3b8",
+      "id": "bae08346",
       "execution_count": null,
       "outputs": []
     },
@@ -1928,7 +1928,7 @@
         "vlarge_rmse_oos_ridge = np.sqrt(data.loc[data['outofsample'], 'e_ridge2'].mean())\n",
         "print(f\"The out-of-sample RMSPE of Ridge regression = {np.round(vlarge_rmse_oos_ridge,1)}\")   "
       ],
-      "id": "eeed5545",
+      "id": "0ea87e00",
       "execution_count": null,
       "outputs": []
     },
@@ -1938,7 +1938,7 @@
       "source": [
         "Finally, we perform the Lasso and compute the out-of-sample MSPE estimate. "
       ],
-      "id": "b461bb59"
+      "id": "453ec6ce"
     },
     {
       "cell_type": "code",
@@ -1953,7 +1953,7 @@
         "filename = 'vlarge_lasso_model.sav'\n",
         "pickle.dump(vlarge_lasso_model, open(filename, 'wb'))"
       ],
-      "id": "1c76ce25",
+      "id": "1a52f34a",
       "execution_count": null,
       "outputs": []
     },
@@ -1967,7 +1967,7 @@
         "print(f\"Lasso shrinkage parameter chosen by CV = {vlarge_lasso_model.alpha_}\")        \n",
         "data.loc[:, 'testscore_lasso'] = mean_testscore + vlarge_lasso_model.predict(data.filter(like='sS_'))  "
       ],
-      "id": "e25f1d9f",
+      "id": "041c2727",
       "execution_count": null,
       "outputs": []
     },
@@ -1977,7 +1977,7 @@
       "source": [
         "In @fig-fig21-9, we give the line plots of the 10-fold cross-validation estimates of MSPE against the shrinkage parameter values."
       ],
-      "id": "60ab8e7d"
+      "id": "12b45559"
     },
     {
       "cell_type": "code",
@@ -2014,7 +2014,7 @@
         "vlarge_rmse_oos_lasso = np.sqrt(data.loc[data['outofsample'], 'e_lasso2'].mean())\n",
         "print(f\"The out-of-sample RMSPE of Lasso regression = {vlarge_rmse_oos_lasso:.1f}\") "
       ],
-      "id": "38536446",
+      "id": "28fe9435",
       "execution_count": null,
       "outputs": []
     },
@@ -2025,7 +2025,7 @@
         "# Remove data\n",
         "del data"
       ],
-      "id": "e5ea0570",
+      "id": "fa946af7",
       "execution_count": null,
       "outputs": []
     },
@@ -2041,7 +2041,7 @@
         "* In the large and very large cases, the Ridge, Lasso, and PC regression have similar RMSPE estimates.\n",
         "* When $k$ increases from 817 to 2065, we do not see an improvement in the out-of-sample RMSPE of the Ridge, Lasso, and PC regression. \n"
       ],
-      "id": "7c3854f4"
+      "id": "43c1df1f"
     },
     {
       "cell_type": "code",
@@ -2084,7 +2084,7 @@
         "df.index = predictor_set\n",
         "df.columns = colnames"
       ],
-      "id": "9477df7f",
+      "id": "06fa4c5e",
       "execution_count": null,
       "outputs": []
     },
@@ -2094,7 +2094,7 @@
       "source": [
         ":::{layout-ncol=1}"
       ],
-      "id": "3f7da19f"
+      "id": "a76a506b"
     },
     {
       "cell_type": "code",
@@ -2115,7 +2115,7 @@
       "source": [
         ":::\n"
       ],
-      "id": "172b7052"
+      "id": "60f36cbc"
     }
   ],
   "metadata": {
