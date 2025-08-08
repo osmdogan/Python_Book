@@ -25,7 +25,7 @@ where
 *  $\beta_0$ and $\beta_1$ are the coefficients (or parameters) of the model, and
 * $u_i$ is the error (or disturbance) term.
 
-In @eq-eq11-1, under the assumption that $\E(u_i|X_i)=0$, the conditional mean $\E(Y_i|X_i)$ is a linear function of $X_i$, i.e., $\E(Y_i|X_i)=\beta_0 + \beta_1 X$. This conditional mean equation is called the **population regression line** or the **population regression function** and shows the average value of $Y_i$ for a given $X_i$. Thus, in the linear regression model,  the error term $u_i$ denotes the difference between $Y_i$ and $\E(Y_i|X_i)$, i.e., $u_i=Y_i-\E(Y_i|X_i)$ for $i=1,\dots,n$.
+In @eq-eq11-1, under the assumption that $\E(u_i|X_i)=0$, the conditional mean $\E(Y_i|X_i)$ is a linear function of $X_i$, i.e., $\E(Y_i|X_i)=\beta_0 + \beta_1 X_i$. This conditional mean equation is called the **population regression line** or the **population regression function** and shows the average value of $Y_i$ for a given $X_i$. Thus, in the linear regression model,  the error term $u_i$ denotes the difference between $Y_i$ and $\E(Y_i|X_i)$, i.e., $u_i=Y_i-\E(Y_i|X_i)$ for $i=1,\dots,n$.
 
 ## Estimating the coefficients of the linear regression model
 We can estimate the parameters of the model using the ordinary least squares (OLS) estimator. The OLS estimators of $\beta_0$ and $\beta_1$ are the values of $b_0$ and $b_1$ that minimize the following objective function:
