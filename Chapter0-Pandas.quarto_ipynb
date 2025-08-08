@@ -1,0 +1,1003 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Introduction to Pandas {#sec-chapter7}\n",
+        "\n",
+        "## Introduction\n",
+        "In this chapter, we introduce the [pandas](https://pandas.pydata.org/) module for reading data from various formats, exporting data, and performing data analysis tasks such as cleaning, filtering, transforming, handling missing data, merging, and reshaping. This module provides two data structures, `Series` and `DataFrame`, for storing and manipulating data. "
+      ],
+      "id": "f0089276"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import numpy as np\n",
+        "import pandas as pd\n",
+        "import os"
+      ],
+      "id": "9615750c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: false\n",
+        "from IPython.core.interactiveshell import InteractiveShell\n",
+        "InteractiveShell.ast_node_interactivity = \"all\""
+      ],
+      "id": "0818a64c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Importing and Exporting Data\n",
+        "\n",
+        "All data-reading methods in `pandas` load data into a `DataFrame`. A `DataFrame` is a two-dimensional, size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns). We introduce the `DataFrame` in more detail below. The `pandas` module provides several functions for reading data from various formats, including delimited files, fixed-width formatted files, CSV files, Excel files, and Stata files:\n",
+        "\n",
+        "* `read_table`: Reads a general delimited file into a DataFrame.\n",
+        "* `read_fwf`: Reads a fixed-width formatted file into a DataFrame.\n",
+        "* `read_csv`: Reads a comma-separated values (CSV) file into a DataFrame.\n",
+        "* `read_excel`: Reads an Excel file into a DataFrame (supports both .xls and .xlsx formats).\n",
+        "* `read_stata`: Reads a Stata .dta file into a DataFrame.\n",
+        "* `read_sql`: Reads data from a SQL database into a DataFrame.\n",
+        "\n",
+        "Each function offers a range of arguments to customize data importing. For example, the notable arguments for the `read_csv` function are listed below:\n",
+        "\n",
+        "* `delimiter`: The delimiter used to separate values. The default is `,`.\n",
+        "* `delim_whitespace`: A boolean indicating whether the delimiter is whitespace (space or tab). \n",
+        "* `header`: An integer indicating the row number to use for the column names (default is 0).\n",
+        "* `skiprows`: An integer specifying the number of rows at the top of the file to skip before reading (default is 0).\n",
+        "* `skip_footer`: An integer specifying the number of rows at the bottom of the file to skip when reading (default is 0).\n",
+        "* `index_col`: An integer or column name indicating which column to use as the index. If not provided, a numeric index is generated.\n",
+        "* `names`: A list of column names to use in place of any found in the file. This requires header=0.\n",
+        "* `nrows`: An integer specifying the maximum number of rows to read. This is useful for reading a subset of the file.\n",
+        "* `usecols`: A list of integers or column names indicating which columns to retain.\n",
+        "\n",
+        "We consider a dataset on the California school districts, provided in the `caschools.csv` file. The dataset is collected in 1999 on n=420 school districts and includes 7560 observations on 18 district-level variables. This dataset can be imported in the following way: "
+      ],
+      "id": "6a67ff51"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Importing the dataset\n",
+        "CAschool = pd.read_csv('data/caschool.csv')\n",
+        "type(CAschool)"
+      ],
+      "id": "c5eb50fe",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "The type of the `CAschool` object is the `DataFrame`. We can see the first five observations in the dataset by calling the `head` method:"
+      ],
+      "id": "117054b3"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Displaying the first five observations\n",
+        "CAschool.head() "
+      ],
+      "id": "a1b73c32",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "There are several methods corresponding to a variety of formats for exporting/saving a DataFrame. The `to_excel` method exports the DataFrame to an excel file, the `to_csv` method to a CSV file, the `to_stata` method to the Stata file, the `to_sql` method writes the DataFrame to a SQL database table. Each method allows customization through several arguments. For example, notable arguments for the `to_excel` method include the following:\n",
+        "\n",
+        "- `sheet_name`: The name of the sheet which will contain DataFrame.\n",
+        "- `na_rep`: A string representation for missing data (default is an empty string).\n",
+        "- `float_format`: A string format for floating-point numbers (default is None).\n",
+        "- `columns`: A list of column names to write to the file. If not provided, all columns are written.\n",
+        "- `header`: Boolean indicating whether to write out the column names (default is `True`).\n",
+        "- `index`: Boolean indicating whether to write out row names (default is `True`).\n",
+        "- `startrow`: Pythonic row index for the starting position to write data (default is 0).\n",
+        "- `startcol`: Pythonic column index for the starting position to write data (default is 0).\n",
+        "\n",
+        "In the following example, we save the `CAschool` DataFrame to the `California_school_data.xlsx` file: "
+      ],
+      "id": "d79d71e0"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| eval: false\n",
+        "# Exporting the DataFrame to an Excel file\n",
+        "CAschool.to_excel('data/California_school_data.xlsx', header = True, index = False)"
+      ],
+      "id": "61f977f8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Series\n",
+        "\n",
+        "A Series is equivalent to a one-dimensional array and can contain various data types, including floats, strings, and integers. In many ways, a Series behaves similarly to a NumPy array and can be considered a column in a DataFrame. We can initialize a Series object using array, list, tuple,  or dictionary objects. In the following example, we create a Series from a NumPy array:"
+      ],
+      "id": "d1fb6827"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# From a NumPy array\n",
+        "a = np.array([0.1, 1.2, 2.3, 3.4, 4.5])\n",
+        "s1 = pd.Series(a)\n",
+        "type(s1)\n",
+        "s1"
+      ],
+      "id": "c9a8156d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "As shown in the above example, the type of `s1` is `Series`. The index of the Series is automatically generated as integers starting from 0.\n",
+        "\n",
+        "In the following examples, we create Series from a tuple and a dictionary, respectively. Notice that the index is automatically generated as integers starting from 0 in the first example, while in the second example, the keys of the dictionary are used as indices."
+      ],
+      "id": "85e31f96"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Creating a series from a tuple\n",
+        "a=(1,2,3,4,'abs',np.NaN)\n",
+        "s2=pd.Series(a)\n",
+        "s2"
+      ],
+      "id": "0235fe00",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Creating a series from a dictionary\n",
+        "s3=pd.Series({'a': 0.1, 'b': 1.2, 'c': 2.3})\n",
+        "s3"
+      ],
+      "id": "03563027",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Finally, we can create a Series from a list. The index is automatically generated as integers starting from 0, similar to the first example with a NumPy array:"
+      ],
+      "id": "d3343d82"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Creating a series from a list\n",
+        "c = [0.1, 1.2, 2.3, 3.4, 4.5]\n",
+        "s4=pd.Series(c)\n",
+        "s4"
+      ],
+      "id": "a105278f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "The elements of a Series can be selected using the `[]` operator by specifying indices. We can use the index either explicitly or implicitly to slice a Series. Consider the following examples:"
+      ],
+      "id": "fc583276"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "s = pd.Series([0.1, 1.2, 2.3, 3.4, 4.5], index=['a', 'b', 'c', 'd', 'e'])\n",
+        "s"
+      ],
+      "id": "df5bfc5a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Selecting elements by index\n",
+        "s['a']"
+      ],
+      "id": "0c19a1b8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Selecting elements by multiple indices\n",
+        "s[['a', 'c']]  "
+      ],
+      "id": "4674bee6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Slicing elements by explicit index\n",
+        "s['a':'c']  "
+      ],
+      "id": "548cf520",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Slicing elements by implicit index\n",
+        "s[:2] "
+      ],
+      "id": "259e7bb9",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Logical conditions can also be used to select elements of a Series. For example, we can select elements based on their values or indices. Consider the following examples:"
+      ],
+      "id": "15274d05"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Selecting elements based on value\n",
+        "s[s > 2]  # Elements that are greater than 2"
+      ],
+      "id": "4b5f8a80",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Selecting elements based on value range\n",
+        "s[(s >= 1) & (s <= 4)]  # Elements between 1 and 4 (inclusive)"
+      ],
+      "id": "a1914240",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Mathematical operations on Series objects are performed element-wise. When the indices do not match, the result is assigned the value `NaN`. Consider the following examples:"
+      ],
+      "id": "06f3c0e7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Element-wise operations on Series\n",
+        "s1 = pd.Series({'a': 1, 'b': 2, 'c': 3})\n",
+        "s2 = s1**3\n",
+        "s2"
+      ],
+      "id": "4d4667f1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "s1 = pd.Series({'a': 0.1, 'b': 1.2, 'c': 2.3})\n",
+        "s2 = pd.Series({'c': 10, 'd': 1.2, 'e': 2.3})"
+      ],
+      "id": "7d74fbb3",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Element-wise multiplication\n",
+        "r1 = s1 * s2 \n",
+        "r1"
+      ],
+      "id": "e571a119",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Element-wise addition\n",
+        "r2 = s1 + s2\n",
+        "r2"
+      ],
+      "id": "61e51dd5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "In @tbl-t7.1, we list some useful important methods for the Series objects.\n",
+        "\n",
+        "::: {style=\"font-size: 85%\"}\n",
+        "| Method | Description |\n",
+        "|:-----------|:------------|\n",
+        "|`values/index` | Returns series as an array/returns index |\n",
+        "|`head()/tail()` | Displays the first/last 5 rows of a series |\n",
+        "|`isnull()/notnull()` | Returns a boolean same-sized object indicating if the values are NA/not NA |\n",
+        "|`loc[ ]/iloc[ ]` | Allows access using position |\n",
+        "|`describe()` | Returns a summary of basic statistics |\n",
+        "|`unique()` | Returns the unique values of the `Series` object |\n",
+        "|`nunique()` | Returns the number of unique elements in the `Series` object |\n",
+        "|`drop` | Returns series with specified index labels removed |\n",
+        "|`dropna` | Return a new series with missing values removed |\n",
+        "|`fillna()` | Fills all null values in a series with a specified value |\n",
+        "|`append()` | Appends one series to another |\n",
+        "|`replace(list,values)` | Replaces a list of values in a series with new values |\n",
+        "|`update(series)` | Replaces values in a series with those in another series, matching on the index |\n",
+        ": Some methods for the Series objects {#tbl-t7.1}\n",
+        ":::\n",
+        "\n",
+        "We illustrate some these methods in the following examples:"
+      ],
+      "id": "f507d7cc"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Setting the index of a Series\n",
+        "s1 = pd.Series([1, 3, 5, 6, np.nan, 'cat', 'abc', 10, 12, 5])\n",
+        "s1.index = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k'] "
+      ],
+      "id": "dae10c12",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Displaying the first five observations\n",
+        "s1.head()"
+      ],
+      "id": "23a6f8de",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Display not-null values\n",
+        "s1.notnull()  "
+      ],
+      "id": "5f96fbf0",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Display null values\n",
+        "s1.isnull() "
+      ],
+      "id": "2b8f04cb",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Accessing elements using loc\n",
+        "s1.loc['e']  # Element with index 'e'"
+      ],
+      "id": "2839b1b5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Accessing elements using iloc\n",
+        "s1.iloc[4]  # Element with implicit index 4"
+      ],
+      "id": "6954c3c9",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Remove missing values\n",
+        "s1.dropna() # Remove nan values"
+      ],
+      "id": "b05d6916",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Fill missing values with a specified value\n",
+        "s1 = pd.Series([1, 3, 5, 6, np.nan, 'cat', 'abc', 10, 12, 5])\n",
+        "s1.index = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k'] # Set index\n",
+        "s1.fillna(-99.0)"
+      ],
+      "id": "1450a129",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Summary statistics\n",
+        "s1 = pd.Series(np.arange(10.0, 20.0))\n",
+        "s1.describe() "
+      ],
+      "id": "b65f237f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## DataFrames\n",
+        "\n",
+        "A DataFrame is a two-dimensional tabular data structure composed of multiple Series. It is organized into rows and columns, similar to a spreadsheet. Each column in a DataFrame is a Series, and each row can be accessed by its index. A DataFrame can be created from various data structures, including lists, dictionaries, NumPy arrays, and Series.\n",
+        "\n",
+        "In the following example, we create a DataFrame from a dictionary of Series objects. The keys of the dictionary become the column names, and the values are the Series that form the columns of the DataFrame:"
+      ],
+      "id": "e3eab20a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Creating DataFrame from Series\n",
+        "s1 = pd.Series(np.arange(0,5.0))\n",
+        "s2 = pd.Series(np.arange(1.0,6.0))\n",
+        "s3 = pd.Series(np.arange(0,3.0))\n",
+        "df = pd.DataFrame({'one': s1, 'two': s2, 'three': s3})\n",
+        "df"
+      ],
+      "id": "1f742638",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "In the following example, we create a DataFrame from an array. The array is converted to a DataFrame, and we can set the column names using the `columns` attribute.    "
+      ],
+      "id": "4c770f40"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Creating DataFrame from an array\n",
+        "df = pd.DataFrame(np.array([[1,2],[3,4]]))\n",
+        "df.columns = ['col1','col2'] # Set column names\n",
+        "df"
+      ],
+      "id": "4ab3f457",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Return column names of CAschool DataFrame\n",
+        "CAschool.columns "
+      ],
+      "id": "6be45d3f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "The student-teacher ratio is denoted by `str` in `CAschool`. This column can be selected via `CAschool.str` or `CAschool['str']`. To select multiple columns, such as `str`, `read_scr`, and `math_scr`, then we can use `CAschool[['str', 'read_scr', 'math_scr']]`. Consider the following examples:"
+      ],
+      "id": "f84f0895"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Selecting multiple columns\n",
+        "CAschool[['str', 'read_scr', 'math_scr']].head(n=5)"
+      ],
+      "id": "b690ff9b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Selecting multiple columns and displaying summary statistics\n",
+        "CAschool[['str', 'read_scr', 'math_scr']].describe().T # Summary statistics"
+      ],
+      "id": "2eb34599",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We can slice rows using standard numerical slices, as in `CAschool[0:5]`, which returns the first five rows for all columns. However, it is not possible to use standard slicing to select both rows and columns. Instead, we can use `loc[rowselector, coloumnselector]`, as shown in the following example: "
+      ],
+      "id": "8902793d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Selecting specific rows and columns using loc\n",
+        "CAschool.loc[0:5, ['str', 'read_scr', 'math_scr']]"
+      ],
+      "id": "81280fe7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We can also select rows and columns using the `iloc` method, which allows for integer-location-based indexing. Consider the following example:"
+      ],
+      "id": "87dd5c6f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Selecting specific rows and columns using iloc\n",
+        "CAschool.iloc[0:2,0:5] # Returns the first two rows and the first five columns"
+      ],
+      "id": "ed9a0eb1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Rows can also be selected using logical selection with a Boolean array. In the following example, we select districts with student-teacher ratios less than 15:"
+      ],
+      "id": "5a909a58"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Selecting rows based on a condition\n",
+        "subset = CAschool['str'] < 15\n",
+        "CAschool.loc[subset, ['county', 'district', 'str', 'read_scr', 'math_scr']]"
+      ],
+      "id": "7b284e6e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We can add columns to a DataFrame using two methods: (i) by assigning a new column name, and (ii) using the `insert` method. Consider the following examples:"
+      ],
+      "id": "6c9b6925"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Adding a new column by assignment\n",
+        "df = CAschool[['str', 'read_scr', 'math_scr']].copy()\n",
+        "df['logstr'] = np.log(df['str']) # Adding the logstr column\n",
+        "df.head()"
+      ],
+      "id": "959202ac",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Adding a new column using the insert method\n",
+        "df = CAschool[['str', 'read_scr', 'math_scr']].copy()\n",
+        "df.insert(1, 'logstr', np.log(df['str'])) # Adding the logstr column\n",
+        "df.head()"
+      ],
+      "id": "110696b1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "In the case of the insert method, the syntax is `insert(location, column_name, series)`, where `location` specifies the column position, `column_name` is the name of the column to be added, and `series` is the data to be inserted.\n",
+        "\n",
+        "There are three ways to delete columns from a DataFrame: (i) using the `drop(list of columns/rows,axis=1/0)` method, (ii) the `pop(column)` method, and (iii) the `del` keyword. Consider the following examples:"
+      ],
+      "id": "2b7e0743"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Using the drop method to remove a column\n",
+        "df = CAschool[['str', 'read_scr', 'math_scr']].copy()\n",
+        "# Drop  the str column\n",
+        "df.drop('str',axis=1).head()"
+      ],
+      "id": "96a0bd42",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df = CAschool[['str', 'read_scr', 'math_scr']].copy()\n",
+        "# Drop  the str column\n",
+        "del df['str']\n",
+        "df.head()"
+      ],
+      "id": "fc062fbf",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Note that the `drop` method creates a new DataFrame unless we specify `inplace=True`, while `del` modifies the DataFrame in place.\n",
+        "\n",
+        "\n",
+        "Finally, in @tbl-t7.2, we list some useful methods for DataFrame objects.\n",
+        "\n",
+        "::: {style=\"font-size: 85%\"}\n",
+        "| Method | Description |\n",
+        "|:-----------|:------------|\n",
+        "|`drop()` | Drops specified labels from rows or columns |\n",
+        "|`dropna()` | Remove missing values (NaN values) |\n",
+        "|`drop_duplicates()` | Removes rows which are duplicates or other rows |\n",
+        "|`values` | Retrieves a `NumPy` array |\n",
+        "|`index` | Returns the index of the DataFrame.|\n",
+        "|`fillna` | Fills `NA/NaN` or other null values with other values |\n",
+        "|`T/transpose` | Both swap rows and columns of a `DataFrame` |\n",
+        "|`sort_values()` | Sorts by the values along either axis |\n",
+        "|`sort_index()` | Sorts a `DataFrame` by the values in the index |\n",
+        "|`count()` | Counts non-NA cells for each column or row |\n",
+        "|`describe()` | Generates descriptive statistics |\n",
+        "|`value_counts()` | Returns a series containing counts of unique values |\n",
+        ": Some useful methods for DataFrame objects {#tbl-t7.2}\n",
+        ":::\n",
+        "\n",
+        "## Reshape and Merge DataFrames\n",
+        "\n",
+        "Data are often stored in a *wide* form, i.e., in a wide-form tabulation. For example, consider the following state per capita income dataset that is provided by Bureau of Economic Analysis.  \n"
+      ],
+      "id": "66bf57e6"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Importing the state per capita income dataset\n",
+        "income_wide = pd.read_csv('data/state_income.csv', header = 0)\n",
+        "income_wide.head()"
+      ],
+      "id": "bad24d0b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "However, the wide form is not compatible with modules used in econometric analysis. Therefore, we need to change it to the *long* form. To this end, we can use the `wide_to_long` method."
+      ],
+      "id": "fdd12734"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Reshaping the DataFrame from wide to long format\n",
+        "income_long = pd.wide_to_long(income_wide, stubnames='pinc', i='state', j='year', sep='.')\n",
+        "income_long.head()"
+      ],
+      "id": "eba456db",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Notice that DataFrame has one column, named pinc. State and year variables are used to generate a `Multi.Index` for the DataFrame. We can use  the `reset_index` method turn them back to data columns."
+      ],
+      "id": "acca9710"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Resetting the index to convert Multi.Index to columns\n",
+        "income_long = income_long.reset_index()\n",
+        "income_long.head()"
+      ],
+      "id": "02bb462a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "The DataFrame is currently sorted by year and state (year is the slower index). Let us sort it by state and year (with state as the slower index). We can use the `sort_values` method to sort the DataFrame."
+      ],
+      "id": "92c26110"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Sorting the DataFrame by state and year\n",
+        "income_long = income_long.sort_values(by = [\"state\", \"year\"])\n",
+        "income_long.head()"
+      ],
+      "id": "12ee5d95",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Notice that the index order has changed. We can reset the index again, which will add the current index as a data column. However, we can drop it from the DataFrame if needed."
+      ],
+      "id": "359aef93"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Resetting the index and dropping the old index column\n",
+        "income_long = income_long.reset_index().drop(\"index\", axis = 1)\n",
+        "income_long.head()"
+      ],
+      "id": "679813df",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Finally, we will check the data type of each column."
+      ],
+      "id": "393a1c64"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Checking the data types of the columns\n",
+        "income_long.dtypes"
+      ],
+      "id": "c729cffb",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Next, we will consider the state expenditure data provided by the Bureau of Economic Analysis. The data cover the period from 1993 to 2015, with one CSV file for each year. We will first generate a list of filenames and then sort the list. "
+      ],
+      "id": "0ddba56d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Generating a list of filenames for the expenditure data\n",
+        "file_list = os.listdir('data/expenditure/')\n",
+        "file_list.sort()\n",
+        "file_list"
+      ],
+      "id": "edbfd755",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We can now stack these datasets in a `for` loop, however, we must be aware of non-uniformity of column names across years. Indeed, although the order of columns are uniform across years, the names are not. Hence, we will rename the columns after importing them."
+      ],
+      "id": "5fba99e1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Importing the expenditure data from multiple CSV files\n",
+        "tmpnames = ['state','year','tot_revenue','taxes','tot_expnd','education','public_welfare','hospital','health']\n",
+        "expenditure = pd.read_csv('data/expenditure/' + file_list[0], header=0) # import the initial year\n",
+        "expenditure.columns = tmpnames\n",
+        "\n",
+        "for i in range(1, len(file_list)):\n",
+        "    tmpframe = pd.read_csv('data/expenditure/' + file_list[i], header=0)\n",
+        "    tmpframe.columns = tmpnames\n",
+        "    expenditure = pd.concat([expenditure, tmpframe], axis=0)\n",
+        "\n",
+        "expenditure.head()"
+      ],
+      "id": "d007387e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Expenditure dataset is sorted by year and state (with year as the slower index). Let us sort it by state and year (with state as the slower index)."
+      ],
+      "id": "08b52e54"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Sorting the expenditure DataFrame by state and year\n",
+        "expenditure = expenditure.sort_values(by = [\"state\", \"year\"])\n",
+        "expenditure = expenditure.reset_index().drop(\"index\", axis = 1)\n",
+        "expenditure.head()"
+      ],
+      "id": "68d20257",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We must check the data type for all columns to make sure that expenditure variables are numeric."
+      ],
+      "id": "a034e2c2"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Checking the data types of the columns in the expenditure DataFrame\n",
+        "expenditure.dtypes"
+      ],
+      "id": "1622093b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Unfortunately, `dtype` is object for all expenditure variables. This is due to `,` in those columns. We need to convert these columns to numeric type by dropping `,` and then resetting `dtype` to numeric. "
+      ],
+      "id": "52c4e21d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Converting expenditure columns to numeric by removing commas\n",
+        "columns = ['tot_revenue','taxes','tot_expnd','education','public_welfare','hospital','health']\n",
+        "expenditure[columns] = expenditure[columns].replace(\",\", \"\", regex = True).astype('int')\n",
+        "expenditure.dtypes"
+      ],
+      "id": "c3367dfe",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We can now merge *income* and *expenditure* datasets on *state* and *year*. Pandas `merge()` and `join()` methods use a set of rules known as relational algebra to combine data. If the key columns are named the same in the left and right DataFrames, a value for `on` argument can be provided. If the key columns are named differently, we can specify the key columns for merge using `left_on` and `right_on` arguments corresponding to left and right DataFrames. Similarly, if left and right DataFrames have indices set, you can use `left_index` and `right_index` arguments. "
+      ],
+      "id": "eca9b796"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Merging the income and expenditure DataFrames on state and year\n",
+        "final_df = pd.merge(income_long, expenditure, on = [\"state\", \"year\"])\n",
+        "final_df.head()"
+      ],
+      "id": "e1e7c4b4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Further Readings \n",
+        "In this section, we introduce commonly used data structures and manipulation tools from the `pandas` module that are useful for econometric analysis. For further reading on pandas data structures and manipulation tools, we refer the reader to @Sheppard2021, @Wes2022, and @Jake2023."
+      ],
+      "id": "6fe8b424"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "c:\\ProgramData\\anaconda3\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

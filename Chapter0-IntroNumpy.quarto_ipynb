@@ -1,0 +1,1379 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Introduction to NumPy {#sec-chapter2}\n",
+        "\n",
+        "## Introduction\n",
+        "\n",
+        "[NumPy](https://numpy.org/) provides (i) array objects for storing homogeneous data, (ii) mathematical functions for arrays, (iii) linear algebra functions, and (iv) statistical functions for generating random numbers. We constrain our treatment of NumPy to features that are useful for econometric analysis. The NumPy module is usually imported under the alias `np`, as shown in the following chunk."
+      ],
+      "id": "6abde673"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import numpy as np"
+      ],
+      "id": "7a073c76",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: false\n",
+        "from IPython.core.interactiveshell import InteractiveShell\n",
+        "InteractiveShell.ast_node_interactivity = \"all\""
+      ],
+      "id": "fbd274be",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "$$\n",
+        "\\DeclareMathOperator{\\cov}{cov}\n",
+        "\\DeclareMathOperator{\\corr}{corr} \n",
+        "\\DeclareMathOperator{\\var}{var} \n",
+        "\\DeclareMathOperator{\\SE}{SE} \n",
+        "\\DeclareMathOperator{\\E}{E}\n",
+        "\\DeclareMathOperator{\\A}{\\boldsymbol{A}}\n",
+        "\\DeclareMathOperator{\\x}{\\boldsymbol{x}}\n",
+        "\\DeclareMathOperator{\\sgn}{sgn}  \n",
+        "\\DeclareMathOperator{\\argmin}{argmin} \n",
+        "\\newcommand{\\tr}{\\text{tr}}\n",
+        "\\newcommand{\\bs}{\\boldsymbol}\n",
+        "\\newcommand{\\mb}{\\mathbb}\n",
+        "$$\n",
+        "\n",
+        "\n",
+        "## Arrays\n",
+        "An array can be considered as a container for data of the same type. Arrays can be initialized from lists (or tuples) using the `np.array` function.  "
+      ],
+      "id": "c18bcab1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Initialize an array from a list\n",
+        "x = [0.0, 1, 2, 3, 4]\n",
+        "y = np.array(x)\n",
+        "type(y)"
+      ],
+      "id": "059dc61f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "y"
+      ],
+      "id": "80dda991",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Attributes of an array includes `ndim` (the number of dimension), `shape` (the size of each dimension), `size` (the total number of elements), and `dtype` (the data type). Consider the following examples:"
+      ],
+      "id": "bdf66ad0"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "y = np.array([0.0, 1, 2, 3, 4, 5, 6, 7, 8, 9])\n",
+        "y\n",
+        "# The size of each dimension\n",
+        "y.shape\n",
+        "# The number of dimensions\n",
+        "y.ndim\n",
+        "# The total number of elements\n",
+        "y.size\n",
+        "# The data type of the elements\n",
+        "y.dtype"
+      ],
+      "id": "0b521b4d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We can create row vectors from 1-dimensional arrays. For example, $x=[1,2,3]$ can be entered as "
+      ],
+      "id": "688b2577"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = np.array([1, 2, 3])\n",
+        "x\n",
+        "x.shape\n",
+        "x.ndim"
+      ],
+      "id": "151c92c1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Nested lists can be used to create higher-dimensional arrays. The number of dimensions is determined by the level of nesting. A simple list creates a one-dimensional array. A two-dimensional array requires a nested list with one level of nesting. Higher-dimensional arrays require additional levels of nesting. Some examples are provided below."
+      ],
+      "id": "51fff8d9"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# A 2-dimensional array\n",
+        "x = np.array([[1, 2, 3], [2, 3, 10]])\n",
+        "x\n",
+        "x.shape\n",
+        "x.ndim\n",
+        "x.size"
+      ],
+      "id": "c99674a9",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# A 3-dimensional array\n",
+        "x = np.array([[[1, 2, 3, 4.6]]])\n",
+        "x\n",
+        "x.shape\n",
+        "x.ndim\n",
+        "x.size"
+      ],
+      "id": "ac5b5283",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Matrices are two dimensional arrays. Matrices follow the rules of linear algebra. We can use the `np.matrix` function on an array-like objects to create matrices. Alternatively, the `np.mat` or `np.asmatrix` functions can be used to coerce an array into a matrix."
+      ],
+      "id": "9493302f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# A 1x3 matrix\n",
+        "x = np.matrix([1, 2, 3])\n",
+        "x\n",
+        "type(x)\n",
+        "x.shape\n",
+        "x.ndim"
+      ],
+      "id": "29f20f46",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# A 1x5 matrix\n",
+        "x = [0.0, 1, 2, 3, 4]\n",
+        "y = np.asmatrix(x)\n",
+        "type(y)\n",
+        "y.shape\n",
+        "y.ndim"
+      ],
+      "id": "794d099e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "The column vector $x=(12,13,3,5)^{'}$ can be created in the following way."
+      ],
+      "id": "21639337"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# As 4x1 array\n",
+        "x = np.array([[12], [13], [3], [5]])\n",
+        "x\n",
+        "x.shape\n",
+        "np.ndim(x)"
+      ],
+      "id": "0ac7a8d2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# As 4x1 matrix\n",
+        "x = np.matrix([[12], [13], [3], [5]])\n",
+        "x\n",
+        "x.shape\n",
+        "np.ndim(x)"
+      ],
+      "id": "3ebb2dbc",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Suppose that we want to create a `3x2x2` array. You can think this object in the following way: we have three pages and on each page we have a `2x2` array. "
+      ],
+      "id": "cac2e154"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# A 3x2x2 array\n",
+        "y = np.array([[[2, 1], [2, 3]], [[3, 2], [5, 6]], [[5, 3], [10, 11]]])\n",
+        "y\n",
+        "y.shape\n",
+        "y.ndim"
+      ],
+      "id": "c93363e1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Special arrays\n",
+        "Some useful functions to create special arrays are listed below. \n",
+        "\n",
+        "* `np.ones()`: Generates an array of ones and is generally called with one argument, a tuple, containing the size of each dimension.\n",
+        "* `np.ones_like()`: Creates an array with the same shape and data type as the input. `ones_like(x)` is equivalent to calling `np.ones(x.shape,x.dtype)`.\n",
+        "* `np.zeros()`: Produces an array of zeros in the same way `np.ones()`.\n",
+        "* `np.zeros_like()`: Creates an array with the same size and shape as the input. `zeros_like(x)` is equivalent to calling `np.zeros(x.shape,x.dtype)`.\n",
+        "* `np.empty()`: Produces an empty (uninitialized) array.\n",
+        "* `np.empty_like()`: Creates an array with the same size and shape as the input. `np.empty_like(x)` is equivalent to calling `np.empty(x.shape,x.dtype)`.\n",
+        "* `np.eye()`, `np.identity()`: Generates an identity array.\n",
+        "*  `np.linspace(l,u,n)`: Generates a set of `n` points uniformly spaced between `l` (inclusive) and `u` (inclusive).\n",
+        "* `np.arange(l,u,s)`: Produces a set of points spaced by `s` between `l` (inclusive) and `u` (exclusive).\n",
+        "\n",
+        "Some illustrative examples are given below."
+      ],
+      "id": "d91d8530"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Create a 3x2 array of ones\n",
+        "M, N = 3, 2\n",
+        "x = np.ones((M, N)) \n",
+        "x"
+      ],
+      "id": "f074ee6b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Create a 3x3x2 array of ones\n",
+        "x = np.ones((M, M, N)) \n",
+        "x"
+      ],
+      "id": "d93b51b6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Create a 3x2 array of 32-bit integers\n",
+        "x = np.ones((M, N), dtype = \"int32\")\n",
+        "x"
+      ],
+      "id": "2721d419",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Create a 3x2 array of zeros\n",
+        "x = np.zeros((M, N))\n",
+        "x"
+      ],
+      "id": "4fff46e7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Create a 2x3x5 array of zeros\n",
+        "M, N = 3, 5\n",
+        "x = np.zeros((2, M, N)) \n",
+        "x"
+      ],
+      "id": "41674821",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Create a 3x5 array of 64-bit integers\n",
+        "x = np.zeros((M, N), dtype=\"int64\")\n",
+        "x"
+      ],
+      "id": "a1e74ee4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Create a 3x5 empty array\n",
+        "x = np.empty((M, N)) \n",
+        "x"
+      ],
+      "id": "886f3832",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Create the 5x5 identity array\n",
+        "In = np.eye(5)  \n",
+        "In"
+      ],
+      "id": "bc562d83",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Create an array of 5 points uniformly spaced between 1 (inclusive) and 11 (exclusive)\n",
+        "z = np.linspace(1, 11, 5)\n",
+        "z"
+      ],
+      "id": "95de9a0b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Create set of points spaced by 2 between 3 (inclusive) and 11 (exclusive)\n",
+        "x = np.arange(3, 11, 2)\n",
+        "x"
+      ],
+      "id": "86566b98",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Accessing elements of an array\n",
+        "There are four methods for accessing elements in an array:\n",
+        "\n",
+        "- Scalar selection: Accesses individual elements using their indices.\n",
+        "- Slicing: Retrieves a subset of the array by specifying a range of indices.\n",
+        "- Numerical indexing: Uses arrays of integers to access multiple specific elements.\n",
+        "- Logical (or Boolean) indexing: Uses Boolean arrays to select elements that satisfy certain conditions.\n",
+        "\n",
+        "Scalar selection is implemented using `[i]` for 1-dimensional arrays, `[i,j]` for 2-dimensional arrays and `[i_1,i_2,...,i_n]` for general n-dimensional arrays. Some illustrative examples are given below."
+      ],
+      "id": "3e3fda88"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = np.array([1.0, 2.0, 3.0, 4.0, 5.0])\n",
+        "x[0]  # returns the first element"
+      ],
+      "id": "8924c190",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = np.array([[1.0, 2, 3], [4, 5, 6]])\n",
+        "x\n",
+        "x[1, 2]  # returns the element on the second row and the third column"
+      ],
+      "id": "d6dea2ab",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = np.array([1.0, 2.0, 3.0, 4.0, 5.0])\n",
+        "x[0] = -5  # assign -5 to the first element\n",
+        "x"
+      ],
+      "id": "dc819c67",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Arrays are sliced using the syntax  `[:,:,...,:]`, where the number of dimensions of the arrays determines the size of the slice.\n",
+        "\n",
+        "* `[:]` and `[::]` are the same as `[0:n:1]`, where `n` is the length of the array (or list).\n",
+        "* `[a:]` and `[a:n]` are the same as `[a:n:1]`, where `n` is the length of the array (or list).\n",
+        "* `[:b]` is the same as `[0:b:1]`.\n",
+        "* `[::s]` is the same as `[0:n:s]`, where `n` is the length of the array (or list).\n",
+        "\n",
+        "Some illustrative examples are given below."
+      ],
+      "id": "fb67106b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = np.array([1.0, 2.0, 3.0, 4.0, 5.0])\n",
+        "y = x[:]\n",
+        "y"
+      ],
+      "id": "3ae15577",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "y = x[:2] # first two elements\n",
+        "y"
+      ],
+      "id": "3222eec2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x[3:]  # elements after index 3"
+      ],
+      "id": "107fea74",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "y = x[1::2]  # every second element, starting at index 1\n",
+        "y"
+      ],
+      "id": "20d9af1f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "y = np.array([[0.0, 1, 2, 3, 4], [5, 6, 7, 8, 9]])\n",
+        "y\n",
+        "y[:1, :]  # first row, all columns"
+      ],
+      "id": "b4b5dfcb",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "y[:, :1]  # all rows, first column"
+      ],
+      "id": "c5fe46cc",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "y[:1, 0:3]  # Row 0, columns 0 to 2"
+      ],
+      "id": "17b09402",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "y[:, 3:]  # All rows, columns 3 and 4"
+      ],
+      "id": "dd0b9ac3",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Logical indexing uses the Boolean arrays for selection."
+      ],
+      "id": "d5408c1e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "y = np.array([[0.0, 1, 2, 3, 4], [5, 6, 7, 8, 9]])\n",
+        "z = y > 6\n",
+        "z"
+      ],
+      "id": "781789eb",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "y[z] = 99  # setting elements that are bigger than 6 to 99\n",
+        "y"
+      ],
+      "id": "b4d02c6c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Numerical operations on arrays and matrices\n",
+        "Arrays addition, subtraction, devision, exponentiation, and multiplication are performed element-wise. For matrix multiplication, the `@` infix operator, the `dot` method, or the `np.dot` function  can be used. Matrix transpose can be performed using the `x.T` attribute, the `x.transpose` method, or the `np.transpose` function. Some illustrative examples are given below. "
+      ],
+      "id": "8171a38c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = np.array([[1.0, 2], [3, 2], [3, 4]])\n",
+        "x\n",
+        "y = np.array([[9.0, 8], [7, 6]])\n",
+        "y"
+      ],
+      "id": "75b3ff83",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x @ y  # matrix multiplication"
+      ],
+      "id": "a137b872",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x.dot(y)  # matrix multiplication"
+      ],
+      "id": "eeece240",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.dot(x, y)  # matrix multiplication"
+      ],
+      "id": "c3aeb4d6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x * 2  # element-wise squaring"
+      ],
+      "id": "2a3ebaa8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "z = np.matrix([[1, 2, 4], [5, 7, 10]])\n",
+        "z\n",
+        "np.transpose(z)  # using the np.transpose function"
+      ],
+      "id": "8b783dd8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "z.T  # using the transpose attribute"
+      ],
+      "id": "3ca45bd9",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "z.transpose()  # using the transpose method"
+      ],
+      "id": "0670ae79",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Comparison operators can be used to compare arrays of the same size. These operations yield Boolean arrays of the same size:"
+      ],
+      "id": "40e5cf22"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = np.array([[1, 2, 45, 6], [3, 4, 34, 6]])\n",
+        "y = np.array([[10, 2.5, 45, 1.4], [7, 4, 20, 60]])\n",
+        "x < y"
+      ],
+      "id": "0d080235",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We list some useful functions for mathematical operations below. For more information, see [Mathematical functions](https://docs.scipy.org/doc/numpy/reference/routines.math.html) from the NumPy documentation.\n",
+        "\n",
+        "* `np.sum()`/ `np.cumsum()`: Returns the sum of elements in an array / the cumulative sum of the values in the array.\n",
+        "* `np.prod()`/ `np.cumprod()`: Returns the product / cumulative product of the elements in the array.\n",
+        "* `np.diff()`:  Calculates the n-th discrete difference along the given axis.\n",
+        "* `np.exp()`: Returns the element-wise exponential ($e^x$) of the array.\n",
+        "* `np.log()`: Returns the element-wise natural logarithm ($\\ln(x)$) of the array.\n",
+        "* `np.log10()`: Returns the element-wise base-10 logarithm ($\\log_{10}(x)$) of the array.\n",
+        "* `np.sqrt()`: Returns the element-wise square root ($\\sqrt{x}$) of the array.\n",
+        "* `np.square()`: Returns the element-wise square ($x^2$) of the array.\n",
+        "* `np.absolute()`, `abs()`: Returns the element-wise absolute value of the array.\n",
+        "* `np.sign()`:  Returns the element-wise sign of the values in the array.\n",
+        "\n",
+        "Some illustrative examples are presented below. "
+      ],
+      "id": "ca77113e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Generate 3x4 array of draws from N(0,1)\n",
+        "x = np.random.randn(3, 4)\n",
+        "x"
+      ],
+      "id": "66763779",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.sum(x)  # sum of all elements"
+      ],
+      "id": "012586f9",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.sum(x, 0)  # sum of columns, 4 elements"
+      ],
+      "id": "c6391e4c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.sum(x, 1)  # sum of rows, 3 elements"
+      ],
+      "id": "2cb49e85",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.cumsum(x, 0)  # cumulative sum of columns"
+      ],
+      "id": "444a83d7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Generate 3x4 array of draws from N(0,1)\n",
+        "x = np.random.randn(3, 4)\n",
+        "x"
+      ],
+      "id": "28737362",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.diff(x)  # difference across columns, same as diff(x,1) "
+      ],
+      "id": "e5aad0eb",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.diff(x, axis=0)  # difference across rows"
+      ],
+      "id": "a65ed94a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.diff(x, 2, axis=0)  # Double difference across axis 0"
+      ],
+      "id": "5e1d464d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Arrays and matrix functions\n",
+        "Some useful array functions are listed below:\n",
+        "\n",
+        "* `x.view()`: Produces a representation of an array and matrix as another type without copying the data.\n",
+        "* `np.asarray()`: Works similarly to `np.asmatrix`, converting input to an array.\n",
+        "* `np.shape(x)`, `x.shape`: Returns the size of each dimension.\n",
+        "* `np.reshape(x)`, `x.reshape()`: Gives a new shape to an array without changing its data.\n",
+        "* `np.size()`, `x.size`: Returns the total number of elements in the array or matrix.\n",
+        "* `np.ndim()`, `x.ndim`: Returns the number of dimensions of the array or matrix.\n",
+        "* `np.tile()`: Replicates an array according to a specified size vector.\n",
+        "* `np.ravel(x)`, `x.ravel()`: Returns a flattened view (1-dimensional) of the array or matrix.\n",
+        "* `x.flatten`: Works like `ravel` except that it copies the array when producing the flattened version.\n",
+        "*  `x.flat`: Poduces a `np.flatiter` object (flat iterator) which is an iterator over a flattened view of an array.\n",
+        "* `np.vstack()`, `np.hstack()`: Stack arrays vertically or horizontally, respectively.\n",
+        "* `np.concatenate()`: Concatenates arrays along a specified axis.\n",
+        "* `np.split()`, `np.vsplit()`, `np.hsplit()`: Split arrays vertically or horizontally.\n",
+        "* `np.delete()`: Returns a new array with sub-arrays deleted along a specified axis.\n",
+        "* `np.diag(x)`: Returns the diagonal elements of a squared array as a column vector.\n",
+        "* `np.triu()`, `np.tril()`: Return the upper or lower triangular part of an array, respectively.\n",
+        "\n",
+        "Some illustrative examples are given below. "
+      ],
+      "id": "9c6fc90a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = np.arange(5)\n",
+        "x\n",
+        "type(x)"
+      ],
+      "id": "0944cfba",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Convert x to a matrix\n",
+        "y = x.view(type=np.matrix)\n",
+        "y\n",
+        "type(y)"
+      ],
+      "id": "2aaf1562",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Convert y back to an ndarray\n",
+        "z = y.view(type=np.ndarray)\n",
+        "z\n",
+        "type(z)"
+      ],
+      "id": "f3e80cf2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = np.array([[1, 2], [3, 4]])\n",
+        "x"
+      ],
+      "id": "d7e9a787",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Convert x to a 4x1 array\n",
+        "y = np.reshape(x, (4, 1))\n",
+        "y"
+      ],
+      "id": "fb944206",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Convert y to a 1x4 array\n",
+        "z = np.reshape(y, (1, 4))  # return 1 by 4 array\n",
+        "z"
+      ],
+      "id": "6600decd",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Convert z to a 2x2 array\n",
+        "w = np.reshape(z, (2, 2))\n",
+        "w"
+      ],
+      "id": "17904cfb",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Total number of elements\n",
+        "x = np.random.randn(4, 3)\n",
+        "np.size(x)  # as a function\n",
+        "x.size  # as an attribute"
+      ],
+      "id": "30a2d6d3",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Number of dimensions\n",
+        "x = np.random.randn(4, 3)\n",
+        "np.ndim(x)  # as a function\n",
+        "x.ndim  # as an attribute"
+      ],
+      "id": "89f2b671",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Horizontal stacking\n",
+        "x = np.array([[1, 2], [3, 4]])\n",
+        "x\n",
+        "# Stacks x 3-times horizontally\n",
+        "z = np.hstack((x, x, x))\n",
+        "z"
+      ],
+      "id": "939cd661",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Vertical stacking\n",
+        "y = np.vstack((z, z))  # stacks z 2-times vertically\n",
+        "y"
+      ],
+      "id": "e4d81ba2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Vertical splitting\n",
+        "x = np.reshape(np.arange(20), (4, 5))\n",
+        "x\n",
+        "y = np.vsplit(x, 2)  # vertically split at row 2\n",
+        "y"
+      ],
+      "id": "39c092b5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Delete rows and columns\n",
+        "x = np.reshape(np.arange(20), (4, 5))\n",
+        "x\n",
+        "np.delete(x, 1, 0)  # delete the second row"
+      ],
+      "id": "1f2c98ab",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.delete(x, [2, 3], 1)  # delete the second and third columns"
+      ],
+      "id": "620e60ce",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# If axis is None, the object is applied to the flattened array.\n",
+        "np.delete(x, [2, 3])  # flat x and then remove second and third elements"
+      ],
+      "id": "8628e3c7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Diagonal elements\n",
+        "x = np.array([[1, 2], [3, 4]])\n",
+        "y = np.diag(x)  # return diagonal elements\n",
+        "y"
+      ],
+      "id": "c0b1e5c3",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Upper and lower triangular parts\n",
+        "x = np.array([[1, 2], [3, 4]])\n",
+        "np.tril(x)  # lower triangular part"
+      ],
+      "id": "cbfceffe",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Rounding functions\n",
+        "NumPy offers several functions for rounding:\n",
+        "\n",
+        "* `np.around`: Rounds to the nearest integer (or to a specified number of decimals).\n",
+        "* `np.floor`: Rounds down to the nearest integer (i.e., the largest integer less than or equal to the input).\n",
+        "* `np.ceil`: Rounds up to the nearest integer (i.e., the smallest integer greater than or equal to the input)."
+      ],
+      "id": "f785ce5e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Generate a 2x3 array of draws from N(0,1)\n",
+        "x = np.random.randn(2, 3)\n",
+        "x"
+      ],
+      "id": "86c606c4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Round to the nearest integer\n",
+        "np.around(x)"
+      ],
+      "id": "f3a5d450",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Round x to 2 decimals\n",
+        "np.around(x, 2)"
+      ],
+      "id": "d1392305",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x.round(2)  # using the round method"
+      ],
+      "id": "6cbdaa4d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Round down to the nearest integer\n",
+        "np.floor(x)"
+      ],
+      "id": "bd146cb7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Round up to the nearest integer\n",
+        "np.ceil(x)"
+      ],
+      "id": "58b13f0c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Sorting and Nan functions\n",
+        "We list some useful NumPy functions related to sorting and handling `NaN` values below:\n",
+        "\n",
+        "* `np.sort()`: Sorts the elements of an array.\n",
+        "* `x.sort()`: Performs an in-place sort of the array `x`.\n",
+        "* `np.argsort()`:  Returns the indices that would sort the array.\n",
+        "* `x.max()`/ `x.min()`: Return the maximum or minimum value in the array `x`.\n",
+        "* `np.amax()` / `np.amin()`:  Return the maximum or minimum value in the array.\n",
+        "* `np.argmax()` / `np.argmin()`:  Return the index of the maximum or minimum element.\n",
+        "* `np.maximum()` / `np.minimum()`:  Return the maximum/minimum of two arrays.\n",
+        "* `np.nan`: Represents \"Not a Number\" (`NaN`), used for missing or undefined values.\n",
+        "* `np.inf`: Represents positive infinity.\n",
+        "* `np.nansum()`: Returns the sum of array elements, ignoring NaNs.\n",
+        "* `np.nanmax()`, `np.nanmin()`: Return the maximum or minimum, ignoring NaNs.\n",
+        "* `np.nanargmax()`, `np.nanargmin()`: Return the index of the maximum or minimum, ignoring NaNs.\n",
+        "\n",
+        "Some illustrative examples are given below."
+      ],
+      "id": "7e6cee4d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Generate a 4x2 array of draws from N(0,1)\n",
+        "x = np.random.randn(4, 2)\n",
+        "x"
+      ],
+      "id": "b7f2880e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.sort(x)  # sort across columns"
+      ],
+      "id": "49d4c4b5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.sort(x, 0)  # sort across rows"
+      ],
+      "id": "6ae0d1d0",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Generate 3 draws from N(0,1)\n",
+        "x = np.random.randn(3)\n",
+        "x"
+      ],
+      "id": "6c88083b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.sort(x)  # does not change x\n",
+        "x"
+      ],
+      "id": "27e835ea",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = np.random.randn(3, 4)\n",
+        "x"
+      ],
+      "id": "f8cc8161",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.amax(x)  # maximum element\n",
+        "x.max()  # maximum element\n",
+        "x.max(0)  # maximum element across rows\n",
+        "x.max(1)  # maximum element across columns"
+      ],
+      "id": "e85e941e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = np.random.randn(4)  # generate 4 draws from N(0,1)\n",
+        "y = np.random.randn(4)  # generate 4 draws from N(0,1)\n",
+        "np.maximum(x, y)"
+      ],
+      "id": "482ae617",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = np.random.randn(5)  # generate 4 draws from N(0,1)\n",
+        "x[1] = np.nan\n",
+        "x[3] = None\n",
+        "x"
+      ],
+      "id": "24e86560",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "np.max(x)  # return nan\n",
+        "np.nanmax(x)  # ignore nan value\n",
+        "np.sum(x)  # return nan\n",
+        "np.nansum(x)  # ignore nan value"
+      ],
+      "id": "8647455a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Linear algebra functions\n",
+        "The linear algebra functions are provided in the `linalg` module. For more information, see the [Linear algebra](https://numpy.org/doc/stable/reference/routines.linalg.html) section from the NumPy documentation. Below, we list some useful linear algebra functions for econometric analysis. \n",
+        "\n",
+        "* `np.linalg.matrix_power(A, n)`: Raises the square matrix A to the integer power n.\n",
+        "* `np.linalg.svd(A)`: Computes the singular value decomposition of matrix A.\n",
+        "* `np.linalg.cond(A)`: Computes the condition number of matrix A.\n",
+        "* `np.linalg.slogdet()`: Computes the sign and logarithm of the absolute value of the determinant of a square matrix A.\n",
+        "* `np.linalg.solve(X, y)`: Solves $X\\beta=y$ for $\\beta$ when $X$ is invertible.\n",
+        "* `np.linalg.lstsq(X, y)`: Returns the least squared solution of $y=X\\beta$.\n",
+        "* `np.linalg.cholesky(A)`: Returns the Cholesky decomposition of A.\n",
+        "* `np.linalg.det(A)`: Returns the determinant of A.\n",
+        "* `np.linalg.eig(A)`: Computes the eigenvalues and eigenvectors of A.\n",
+        "* `np.linalg.inv(A)`: Computes the inverse of A.\n",
+        "* `np.linalg.kron(x,y)`: Computes the kronecker product $x\\otimes y$.\n",
+        "* `np.trace(A)`: Computes the trace of A.\n",
+        "* `np.linalg.matrix_rank(A)`: Computes the rank of A using the SVD method.\n",
+        "\n",
+        "Some illustrative examples are given below."
+      ],
+      "id": "afed2534"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Solve the equation Xb=y for b\n",
+        "X = np.array([[1.0, 2.0, 3.0], [3.0, 3.0, 4.0], [1.0, 1.0, 4.0]])\n",
+        "y = np.array([[1.0], [2.0], [3.0]])\n",
+        "np.linalg.solve(X, y)"
+      ],
+      "id": "c7a45d65",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Inverse of X\n",
+        "X = np.matrix([[1, 0.5], [0.5, 1]])\n",
+        "np.linalg.inv(X)"
+      ],
+      "id": "edd9549b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Determinant of X\n",
+        "np.linalg.det(X)"
+      ],
+      "id": "9c2789b4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Eigenvalues and eigenvectors of M\n",
+        "M = np.matrix([[1, 0.5], [0.5, 1]])\n",
+        "val, vec = np.linalg.eig(M)\n",
+        "# Verify the spectral decomposition\n",
+        "vec * np.diag(val) * vec.T"
+      ],
+      "id": "57c82a6a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Rank of X\n",
+        "X = np.array([[1, 0.5], [1, 0.5]])\n",
+        "np.linalg.matrix_rank(X)"
+      ],
+      "id": "08d5c35a",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "c:\\ProgramData\\anaconda3\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

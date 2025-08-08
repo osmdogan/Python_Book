@@ -1,0 +1,183 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Preface {.unnumbered}\n",
+        "\n",
+        "\n",
+        "$$\n",
+        "\\DeclareMathOperator{\\cov}{cov}\n",
+        "\\DeclareMathOperator{\\corr}{corr} \n",
+        "\\DeclareMathOperator{\\var}{var} \n",
+        "\\DeclareMathOperator{\\SE}{SE} \n",
+        "\\DeclareMathOperator{\\E}{E}\n",
+        "\\DeclareMathOperator{\\A}{\\boldsymbol{A}}\n",
+        "\\DeclareMathOperator{\\x}{\\boldsymbol{x}}\n",
+        "\\DeclareMathOperator{\\sgn}{sgn}  \n",
+        "\\DeclareMathOperator{\\argmin}{argmin} \n",
+        "\\newcommand{\\tr}{\\text{tr}}\n",
+        "\\newcommand{\\bs}{\\boldsymbol}\n",
+        "\\newcommand{\\mb}{\\mathbb}\n",
+        "$$\n",
+        "\n",
+        "\n",
+        "This book serves as a Python companion to the well-known textbook by @Stock2020, which we use in our undergraduate econometrics courses. In our courses, the first semester introduces econometrics through Chapters 1 to 9, followed by Chapters 10 to 17 in the second semester. This book compiles lecture and lab materials we used for teaching econometrics. Lecture slides are also available and can be provided upon request.\n",
+        "\n",
+        "We organize the book into six parts: (i) Python, (ii) Introduction and Review, (iii) Fundamentals of Regression Analysis, (iv) Further Topics in Regression Analysis, (v) Regression Analysis of Economic Time Series Data, and (vi) Theoretical Topics. Except for the part on Python, the other parts are named as in @Stock2020. Each part consists of several chapters, with each chapter covering a specific topic.\n",
+        "\n",
+        "In the first part, which consists of seven chapters, we introduce the fundamentals of Python for econometric analysis. This part assumes that readers have no prior exposure to Python. In the first chapter, we show how Python can be installed through Anaconda, and introduce commonly used libraries in econometrics and in-built data types and structures. In the second chapter, we introduce the NumPy module for numerical computations. The third chapter focuses on the main control structures in Python, such as loops, conditionals, comprehensions, and exception handling. In the fourth chapter, we show how to write efficient custom functions. The fifth chapter introduces key statistical functions from NumPy and SciPy. The sixth chapter presents the Matplotlib and Seaborn modules for data visualization. Finally, in the seventh chapter, we introduce the Pandas module for data management.\n",
+        "\n",
+        "There are three chapters in Introduction and Review. In this part, we define key econometric concepts, discuss data types, and provide a brief review of the probability theory and statistics required for econometric analysis. \n",
+        "\n",
+        "The part titled Fundamentals of Regression Analysis consists of six chapters. Here, we introduce regression models with one and multiple regressors, cover hypothesis testing and confidence intervals in regression models, explore nonlinear regression models, and discuss a framework for identifying the strengths and limitations of regression studies. \n",
+        "\n",
+        "In Further Topics in Regression Analysis, we explore extensions of the multiple linear regression model across five chapters. We begin with commonly used panel data models, then examine regression models with binary dependent variables. Next, we discuss the instrumental variable method when the error term is correlated with the regressor of interest, explore experimental and quasi-experimental methods, and finally cover widely used machine learning techniques for prediction when many regressors are present.\n",
+        "\n",
+        "The part titled Regression Analysis of Economic Time Series Data covers time series methods and consists of three chapters. In the first chapter, we introduce basic time series concepts, including unit root testing, autoregressions, and autoregressive distributed lag models for forecasting. In the second chapter, we demonstrate how to use time series analysis to estimate dynamic causal effects. Finally, in the third chapter, we cover some additional time series models, including vector autoregressions, cointegration, vector error correction models, and volatility models. \n",
+        "\n",
+        "The final part, Theoretical Topics, contains two chapters on econometric theory. In the first chapter, we present formal results along with their proofs for the regression model with one regressor. In the second chapter, using linear algebra notation, we provide theoretical results for the multiple linear regression model, instrumental variables regression, generalized method of moments estimation for the linear models.\n",
+        "\n",
+        "Finally, we provide some technical details related to Chapters 11, 21, 25, and 26 in the appendices.\n",
+        "\n",
+        "# Import Conventions \n",
+        "In each chapter, we first import all the modules required for the econometric analysis introduced in that chapter. We follow the alias conventions used by the Python community for commonly used modules:"
+      ],
+      "id": "9e766ade"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| eval: false\n",
+        "import numpy as np\n",
+        "import matplotlib.pyplot as plt\n",
+        "import pandas as pd\n",
+        "import seaborn as sns\n",
+        "import statsmodels as sm"
+      ],
+      "id": "4f451cb1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Thus, when we use `np.array`, we refer to the array function from NumPy. \n",
+        "\n",
+        "# Code Examples\n",
+        "We use the conventional code font for displaying code in the text. Code chunks are presented in highlighted cells, as shown in the following example:"
+      ],
+      "id": "2e75800b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: false\n",
+        "from IPython.core.interactiveshell import InteractiveShell\n",
+        "InteractiveShell.ast_node_interactivity = \"all\""
+      ],
+      "id": "8c6f2281",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = 2"
+      ],
+      "id": "3d510f76",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "The output of a code cell is shown in the subsequent cell, as shown in the following example:"
+      ],
+      "id": "90d67bef"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = [1,2,3,4]\n",
+        "x.append(99) # adding 99 to the list x\n",
+        "x"
+      ],
+      "id": "eb3178e8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "The above cell displays the updated list `x`.  If a code cell returns multiple outputs, these outputs are displayed in separate cells, in the order they are produced. For example, the code below returns `type(x) = list` and `type(y) = tuple` in separate cells:"
+      ],
+      "id": "d4fe5876"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = [10,2,35,11,12] # list\n",
+        "type(x)\n",
+        "y = (3,5,7) # tuple\n",
+        "type(y)"
+      ],
+      "id": "13cef238",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Callout Blocks\n",
+        "In @Stock2020, key concepts are highlighted in bold and defined within the relevant text of each chapter, while the main ideas are summarized in Key Concept boxes. We adopt the same approach and use a Quarto callout block for the key concept boxes, as illustrated in the following example:\n",
+        "\n",
+        "::: {.callout-note icon=false}\n",
+        "## Key Concept 9.2: Variance and standard deviation\n",
+        "Let $Y$ be a random variable with mean $\\mu_Y$. The variance of $Y$ is defined as:\n",
+        "\n",
+        "* Discrete case: $\\sigma^2_Y=\\E[(Y-\\mu_Y)^2]=\\sum_{i=1}^k(y_i-\\mu_Y)^2\\times P(Y=y_i)$, where $y_i$ are the possible values of $Y$.\n",
+        "* Continuous case: $\\sigma^2_Y=\\E[(Y-\\mu_Y)^2]=\\int_D (y-\\mu_Y)^2f_Y(y)\\text{d}y$, where $D$ is the support of $Y$.\n",
+        "\n",
+        "The square root of the variance is called the standard deviation of $Y$ and is denoted by $\\sigma_Y$. The units of the standard deviation are the same as the units of $Y$.\n",
+        ":::\n",
+        "\n",
+        "We also use a callout block to state econometric assumptions. For example, we use the following callout block for introducing the least squares assumptions:\n",
+        "\n",
+        "::: {.callout-important icon=false title=\"Assumptions\"}\n",
+        "1. The zero-conditional mean assumption: $\\E(u_i |X_i) = 0$, i.e., the conditional distribution of $u_i$ given $X_i$ has a mean of $0$. \n",
+        "2. The random sampling assumption: $(X_i, Y_i):\\, i =1,2,\\dots,n$ are independently and identically distributed (i.i.d.) across observations.\n",
+        "3. The no large outliers assumption: $\\E(X_i^4)<\\infty$ and $\\E(Y_i^4)<\\infty$.\n",
+        ":::\n",
+        "\n",
+        "\n",
+        "# Data for Applications\n",
+        "For each methodological topic, @Stock2020 provide an application based on real-world data. We reproduce all tables, figures, and estimation results using the same datasets provided on the textbook's [web page](https://www.princeton.edu/~mwatson/Stock-Watson_4E/Stock-Watson-Resources-4e.html). The datasets are also available in the \"data\" folder of this book's GitHub repository.\n",
+        "\n",
+        "# Acknowledgements\n",
+        "We use the theme from the book [R for Data Science (2e)](https://r4ds.hadley.nz/) as the foundation for producing this book. "
+      ],
+      "id": "1676d437"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "c:\\ProgramData\\anaconda3\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

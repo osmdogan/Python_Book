@@ -1,0 +1,333 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Custom Functions {#sec-chapter4}\n",
+        "## Introduction\n",
+        "Custom functions are user-defined functions created to automate specific tasks. In this section, we show how to define custom functions in Python. "
+      ],
+      "id": "fa09c09d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import numpy as np"
+      ],
+      "id": "3a8f902a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: false\n",
+        "from IPython.core.interactiveshell import InteractiveShell\n",
+        "InteractiveShell.ast_node_interactivity = \"all\""
+      ],
+      "id": "bc45ca4e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "$$\n",
+        "\\DeclareMathOperator{\\cov}{cov}\n",
+        "\\DeclareMathOperator{\\corr}{corr} \n",
+        "\\DeclareMathOperator{\\var}{var} \n",
+        "\\DeclareMathOperator{\\SE}{SE} \n",
+        "\\DeclareMathOperator{\\E}{E}\n",
+        "\\DeclareMathOperator{\\A}{\\boldsymbol{A}}\n",
+        "\\DeclareMathOperator{\\x}{\\boldsymbol{x}}\n",
+        "\\DeclareMathOperator{\\sgn}{sgn}  \n",
+        "\\DeclareMathOperator{\\argmin}{argmin} \n",
+        "\\newcommand{\\tr}{\\text{tr}}\n",
+        "\\newcommand{\\bs}{\\boldsymbol}\n",
+        "\\newcommand{\\mb}{\\mathbb}\n",
+        "$$\n",
+        "\n",
+        "\n",
+        "\n",
+        "## Defining functions\n",
+        "The following syntax can be used to declare a function in Python:"
+      ],
+      "id": "90d46874"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# | eval: false\n",
+        "def function_name(arguments):\n",
+        "    \"\"\"docstring\"\"\"\n",
+        "    statements\n",
+        "    return expression_list"
+      ],
+      "id": "ba45d198",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "A function is defined using the `def` keyword, and its output is returned with the `return` keyword. The function name, `function_name`, is user-defined. The `arguments` are supplied by the user and represent the inputs required to generate the result (output). Inside the function, a `docstring` (enclosed in triple quotes) can be included to describe the purpose of the function, its inputs, and outputs. Although optional, the docstring is helpful for documentation and can be accessed via `help(function_name)`. The `statements` are the set of Python commands that form the function’s body and ultimately produce the `expression_list`, which represents the function’s output.\n",
+        "\n",
+        "Consider the $L_p$  distance between two vectors $x=(x_1,\\dots,x_n)^{'}$ and $y=(y_1,\\dots,y_n)^{'}$ defined by $d_p(x,y)=\\left(\\sum_{i=1}^n|x_i-y_i|^p\\right)^{1/p}$. In the following example, we define the `Lp_norm` function that returns  $d_p(x,y)$."
+      ],
+      "id": "47393bee"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "def Lp_norm(x, y, p):\n",
+        "    \"\"\"\n",
+        "    Calculate the L_p distance between two vectors.\n",
+        "\n",
+        "    Parameters:\n",
+        "    x (array-like): The first vector.\n",
+        "    y (array-like): The second vector, which must be the same length as x.\n",
+        "    p (float): The order of the norm (p > 0).\n",
+        "\n",
+        "    Returns:\n",
+        "    float: The L_p distance between vectors x and y.\n",
+        "\n",
+        "    Raises:\n",
+        "    ValueError: If the length of x and y are not equal, or if p is not greater than 0.\n",
+        "    \"\"\"\n",
+        "    if len(x) != len(y):\n",
+        "        raise ValueError(\"Vectors x and y must be of the same length.\")\n",
+        "    if p <= 0:\n",
+        "        raise ValueError(\"p must be greater than 0.\")\n",
+        "\n",
+        "    d = (np.sum(np.abs(x - y) ** p)) ** (1 / p)\n",
+        "    return d"
+      ],
+      "id": "10b77378",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "The `docstring` can be accessed using the `help` function, as shown below:"
+      ],
+      "id": "4e7e559a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "help(Lp_norm)"
+      ],
+      "id": "6206ebf6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "We use the name of the function, `Lp_norm`, to call the function. The inputs to the function are passed as arguments in the order they are defined in the function declaration. In this case, `x` and `y` are the vectors, and `p` is the order of the norm. The function returns a single output, which is the $L_p$ distance between the two vectors."
+      ],
+      "id": "ec0fd8f8"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Call the  lp_norm function\n",
+        "x = np.random.randn(10)\n",
+        "y = np.random.randn(10)\n",
+        "z1 = Lp_norm(x, y, 2)  # default oder of inputs\n",
+        "z1\n",
+        "z2 = Lp_norm(p=2, x=x, y=y)  # changing the order of inputs\n",
+        "z2"
+      ],
+      "id": "c42ae726",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "If there are multiple outputs to return, we can return these outputs in tuple form, as shown in the following example:"
+      ],
+      "id": "b96ee7d8"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "def L12_norm(x, y):\n",
+        "    \"\"\"\n",
+        "    Calculate the L1 and L2 distances between two vectors.\n",
+        "\n",
+        "    This function computes both the L1 distance (Manhattan distance)\n",
+        "    and the L2 distance (Euclidean distance) between two vectors x and y.\n",
+        "\n",
+        "    Parameters:\n",
+        "    x (array-like): The first vector.\n",
+        "    y (array-like): The second vector, which must be the same length as x.\n",
+        "\n",
+        "    Returns:\n",
+        "    tuple: A tuple containing:\n",
+        "        - float: The L1 distance between vectors x and y.\n",
+        "        - float: The L2 distance between vectors x and y.\n",
+        "\n",
+        "    Raises:\n",
+        "    ValueError: If the length of x and y are not equal.\n",
+        "    \"\"\"\n",
+        "    if len(x) != len(y):\n",
+        "        raise ValueError(\"Vectors x and y must be of the same length.\")\n",
+        "\n",
+        "    d1 = np.sum(np.abs(x - y))  # L1 distance\n",
+        "    d2 = (np.sum(np.abs(x - y) ** 2)) ** (1 / 2)  # L2 distance\n",
+        "    return (d1, d2)"
+      ],
+      "id": "bf860f17",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "help(L12_norm)"
+      ],
+      "id": "8820da70",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Call the l1_l2_norm function\n",
+        "x = np.random.randn(10)\n",
+        "y = np.random.randn(10)\n",
+        "z = L12_norm(x, y)\n",
+        "z\n",
+        "print(\"The L1 distance is \", z[0])\n",
+        "print(\"The L2 distance is \", z[1])"
+      ],
+      "id": "609d5890",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Default values are set in the function declaration using the syntax `parameter=default`. By using default values, we can call a function with fewer arguments than it is defined to accept. In the following example, the default value of `p` is set to 2."
+      ],
+      "id": "10e62698"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Setting default values\n",
+        "def Lp_norm(x, y, p=2):\n",
+        "    d = (np.sum(np.abs(x - y) ** p)) ** (1 / p)\n",
+        "    return d"
+      ],
+      "id": "169215bc",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "The default value can be overridden by passing a different value for `p` when calling the function. If no value is provided, the function will use the default value of 2."
+      ],
+      "id": "f707b5d1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Call the lp_norm function\n",
+        "x = np.random.randn(10)\n",
+        "y = np.random.randn(10)\n",
+        "# Inputs with default values can be ignored\n",
+        "L2 = Lp_norm(x, y)\n",
+        "L1 = Lp_norm(x, y, 1)\n",
+        "print(\"The L1 and L2 distances are \", (L1, L2))"
+      ],
+      "id": "131fa198",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Anonymous functions\n",
+        "Python supports anonymous functions through the `lambda` keyword. The syntax for a lambda function is as follows:"
+      ],
+      "id": "f93ff91f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# | eval: false\n",
+        "function_name = lambda arguments: expression"
+      ],
+      "id": "b50229a9",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Lambda functions can accept any number of arguments, but they can only contain a single expression. Consider the following example:"
+      ],
+      "id": "0021c5b1"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "Lp_norm_lambda = lambda x, y, p: (np.sum(np.abs(x - y) ** p)) ** (1 / p)"
+      ],
+      "id": "046ce67e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Call the Lp_norm_lambda function\n",
+        "x = np.random.randn(10)\n",
+        "y = np.random.randn(10)\n",
+        "Lp_norm_lambda(x, y, p=2)"
+      ],
+      "id": "abee925a",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "c:\\ProgramData\\anaconda3\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
