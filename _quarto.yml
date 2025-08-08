@@ -6,9 +6,7 @@ book:
   title: "Introduction to Econometrics with Python"
   reader-mode: true
   author: ["Osman Doğan", "Süleyman Taşpınar"]
-  date: now
-  date-format: "DD MMMM YYYY, HH:mm, [GMT]Z"
-  repo-branch: main
+  date: today
   repo-actions: [edit, issue]
   site-url: https://osmdogan.github.io/Python_Book/
   cover-image: cover.png
@@ -70,7 +68,6 @@ book:
     - AppendixB.qmd
     - AppendixC.qmd
     - AppendixD.qmd
-    
     - references.qmd
       
 bibliography: references.bib

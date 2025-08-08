@@ -187,7 +187,6 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Econometrics with Python</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/hadley/r4ds/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -442,25 +441,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix1.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixA.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix for Chapter 11</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix2.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixB.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix for Chapter 21</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix3.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixC.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Appendix for Chapter 25</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix4.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixD.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Appendix for Chapter 26</span></span></a>
   </div>
 </li>
@@ -503,7 +502,7 @@ window.Quarto = {
   <li><a href="#estimation-results" id="toc-estimation-results" class="nav-link" data-scroll-target="#estimation-results"><span class="header-section-number">21.9.4</span> Estimation results</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/hadley/r4ds/edit/main/Chapter14-BigData.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hadley/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -685,7 +684,7 @@ Y_i^{oos}-\widehat{Y}_i(\bs{X}_i^{oos}) =u_i^{oos} - \left((\widehat{\beta}_1-\b
 \]</span></p>
 <p>The first term represents the the prediction error made using the true (unknown) conditional mean, i.e., it arises from <span class="math inline">\(\E\left(Y_i^{oos}-\E(Y_i^{oos}|\bs{X}_i^{oos})\right)^2=\text{var}(u_i^{oos})=\sigma^2_u\)</span>. The second term is the contribution to the prediction error arising from the estimated regression coefficients. This expression suggests that we should choose an estimator that minimizes the second term. Since the second term is the sum of the squared bias and the variance of the estimator, its minimization entails a trade-off between bias and variance.</p>
 <p>We know from the Gauss-Markov theorem that within the class of linear unbiased estimators the OLS estimator has the smallest variance under homoskedasticity. Therefore, in this class, the OLS estimator yields the smallest value for the second term in the MSPE. But note that there may be biased estimators that can yield smaller values for the second term in the MSPE. If the gain from reducing variance outweighs the loss from squared bias, these estimators may perform better in terms of MSPE.</p>
-<p>In the special case where the regression error is homoskedastic, it can be shown that the MSPE of the OLS estimator is <span class="math inline">\(\text{MSPE}_{\text{OLS}}\approx\sigma_{u}^2(1+\frac{k}{n})\)</span>. We provide the proof of this result in <a href="Appendix2.html#sec-OLS_MSPE" class="quarto-xref"><span>Section B.2</span></a>. In the empirical illustration in the next section, we will consider a regression with <span class="math inline">\(n=1966\)</span> and <span class="math inline">\(k=38\)</span>. Then, <span class="math inline">\(k/n = 38/1966 = 0.02\)</span>, so using the OLS method entails only a <span class="math inline">\(2\%\)</span> loss in MSPE relative to the oracle prediction.</p>
+<p>In the special case where the regression error is homoskedastic, it can be shown that the MSPE of the OLS estimator is <span class="math inline">\(\text{MSPE}_{\text{OLS}}\approx\sigma_{u}^2(1+\frac{k}{n})\)</span>. We provide the proof of this result in <a href="AppendixB.html#sec-OLS_MSPE" class="quarto-xref"><span>Section B.2</span></a>. In the empirical illustration in the next section, we will consider a regression with <span class="math inline">\(n=1966\)</span> and <span class="math inline">\(k=38\)</span>. Then, <span class="math inline">\(k/n = 38/1966 = 0.02\)</span>, so using the OLS method entails only a <span class="math inline">\(2\%\)</span> loss in MSPE relative to the oracle prediction.</p>
 <p>Now, suppose we include these regressors as polynomials up to third order, along with their interactions, so that <span class="math inline">\(k=817\)</span>. Then, <span class="math inline">\(k/n=817/1966 \approx 0.40\)</span>, meaning a <span class="math inline">\(40\%\)</span> deterioration in MSPE, which is large enough to warrant investigating estimators with lower MSPE than the OLS estimator.</p>
 <p>The bias-variance trade-off can be used to formulate alternative estimators that have relatively lower MSPE than the OLS estimator. The idea is to intentionally introduce bias to the OLS estimator in such a way that the reduction in variance more than compensates for the increase in squared bias. The family of <strong>shrinkage estimators</strong> achieves this by shrinking the OLS estimator toward a specific value (usually zero), thereby reducing the variance of the estimator.</p>
 <div id="def-def21-3" class="theorem definition">
@@ -814,7 +813,7 @@ Figure&nbsp;21.1: The ridge regression constrained minimization problem
 </div>
 </div>
 </div>
-<p>We can use calculus to get a closed-form expression for the ridge estimator. See <a href="Appendix2.html#sec-RidgeOLSconnect" class="quarto-xref"><span>Section B.3</span></a> for the derivation details. When the regressors are uncorrelated, we can derive the ridge estimator as <span class="math display">\[
+<p>We can use calculus to get a closed-form expression for the ridge estimator. See <a href="AppendixB.html#sec-RidgeOLSconnect" class="quarto-xref"><span>Section B.3</span></a> for the derivation details. When the regressors are uncorrelated, we can derive the ridge estimator as <span class="math display">\[
 \widehat{\beta}_{R,j} = \left(1+\lambda_R/\sum_{i=1}^n X_{ji}^2\right)^{-1}\widehat{\beta}_{OLS,j},
 \]</span> where <span class="math inline">\(\widehat{\beta}_{R,j}\)</span> is the <span class="math inline">\(j\)</span>th element of <span class="math inline">\(\widehat{\beta}_R\)</span>, and <span class="math inline">\(\widehat{\beta}_{OLS,j}\)</span> is the OLS estimator <span class="math inline">\(\beta_j\)</span>. Since the regressors are standardized, we can further express <span class="math inline">\(\widehat{\beta}_{R,j}\)</span> as <span class="math display">\[
 \widehat{\beta}_{R,j} = \left(1+\lambda_R/(n-1)\right)^{-1}\widehat{\beta}_{OLS,j}.
@@ -989,7 +988,7 @@ Figure&nbsp;21.3: Scatterplot and principal components
 </div>
 </div>
 <p>When <span class="math inline">\(k&gt;2\)</span>, we can resort to the linear algebra methods to derive principal components. Let <span class="math inline">\(PC_j\)</span> be the <span class="math inline">\(j\)</span>th principal component and let <span class="math inline">\(\bs{w}_j\)</span> denote the corresponding <span class="math inline">\(k\times 1\)</span> vector of weights, i.e., <span class="math inline">\(PC_j = \bs{X}\bs{w}_j=\sum_{i=1}^kw_iX_i\)</span>. The variance of the <span class="math inline">\(j\)</span>th principal component is <span class="math inline">\(PC_j^{'}PC_j=\bs{w}_j^{'}\bs{X}^{'}\bs{X}\bs{w}_j\)</span> and the sum of the squared weights is <span class="math inline">\(\bs{w}_j^{'}\bs{w}_j\)</span>. Note also that <span class="math inline">\(\bs{X}\)</span> is standardized (with mean zero), <span class="math inline">\(PC_j^{'}PC_j/(n-1)\)</span> is the sample variance of the <span class="math inline">\(j\)</span>th principal component.</p>
-<p>It can be shown that the vector of weights <span class="math inline">\(\bs{w}_1\)</span> for the first principal component is the eigenvector corresponding to the largest eigenvalue (<span class="math inline">\(\lambda_1\)</span>) of <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span>. The vector of weights <span class="math inline">\(\bs{w}_2\)</span> for the second principal component is the eigenvector corresponding to the second-largest eigenvalue (<span class="math inline">\(\lambda_2\)</span>) of <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span>. Proceeding in this manner, the vector of weights <span class="math inline">\(\bs{w}_j\)</span> for the <span class="math inline">\(j\)</span>-th principal component is the eigenvector corresponding to the <span class="math inline">\(j\)</span>-th largest eigenvalue (<span class="math inline">\(\lambda_j\)</span>) of <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span>. See <a href="Appendix2.html#sec-PCderive" class="quarto-xref"><span>Section B.5</span></a> for the derivation details. If <span class="math inline">\(k &lt; n\)</span>, only the first <span class="math inline">\(k\)</span> eigenvalues of <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> are non-zero, so the total number of principal components is <span class="math inline">\(\min(k, n)\)</span>.</p>
+<p>It can be shown that the vector of weights <span class="math inline">\(\bs{w}_1\)</span> for the first principal component is the eigenvector corresponding to the largest eigenvalue (<span class="math inline">\(\lambda_1\)</span>) of <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span>. The vector of weights <span class="math inline">\(\bs{w}_2\)</span> for the second principal component is the eigenvector corresponding to the second-largest eigenvalue (<span class="math inline">\(\lambda_2\)</span>) of <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span>. Proceeding in this manner, the vector of weights <span class="math inline">\(\bs{w}_j\)</span> for the <span class="math inline">\(j\)</span>-th principal component is the eigenvector corresponding to the <span class="math inline">\(j\)</span>-th largest eigenvalue (<span class="math inline">\(\lambda_j\)</span>) of <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span>. See <a href="AppendixB.html#sec-PCderive" class="quarto-xref"><span>Section B.5</span></a> for the derivation details. If <span class="math inline">\(k &lt; n\)</span>, only the first <span class="math inline">\(k\)</span> eigenvalues of <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> are non-zero, so the total number of principal components is <span class="math inline">\(\min(k, n)\)</span>.</p>
 <p>The first <span class="math inline">\(p\)</span> principal components can be obtained as <span class="math inline">\(\bs{X}\bs{W}\)</span>, where <span class="math inline">\(\bs{W}=\left(\bs{w}_1,\bs{w}_2,...,\bs{w}_p\right)\)</span> is the <span class="math inline">\(k\times p\)</span> matrix of eigenvectors corresponding to the largest first <span class="math inline">\(p\)</span> eigenvalues of <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> and <span class="math inline">\(1\le p\le\min(k,n)\)</span>. Note also that since trace of a matrix is the sum of its eigenvalues, we have <span class="math display">\[
 \tr(\bs{X}^{'}\bs{X})=\sum_{j=1}^{\min(k,n)}\lambda_j=\sum_{j=1}^{\min(k,n)}PC_j^{'}PC_j.
 \]</span></p>
@@ -2441,7 +2440,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/osmdogan\.github\.io\/Python_Book\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -2789,7 +2788,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hadley/r4ds/edit/main/Chapter14-BigData.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hadley/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    </div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
