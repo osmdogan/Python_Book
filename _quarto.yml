@@ -6,11 +6,12 @@ book:
   title: "Introduction to Econometrics with Python"
   reader-mode: true
   author: ["Osman Doğan", "Süleyman Taşpınar"]
-  date: "today"
+  date: now
+  date-format: "DD MMMM YYYY, HH:mm, [GMT]Z"
   repo-branch: main
   repo-actions: [edit, issue]
   site-url: https://osmdogan.github.io/Python_Book/
-  cover-image: cover2.png
+  cover-image: cover.png
   page-footer:
     left: |
       Introduction to Econometrics with Python was written by Osman Doğan and Süleyman Taşpınar.

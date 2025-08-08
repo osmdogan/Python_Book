@@ -319,7 +319,7 @@ In @fig-f11.3, we use boxplots to present the distribution of $u$ against $X$. I
 #| layout-nrow: 2
 #| fig-subcap: 
 #|   - "The zero-conditional mean assumption holds"
-#|   - "The zero-conditional mean assumption does not holds"
+#|   - "The zero-conditional mean assumption does not hold"
 # Illustrating the zero-conditional mean assumption
 def generate_data(seed, size, zero_conditional_mean=True):
     """
