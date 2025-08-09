@@ -1,4 +1,4 @@
-# Introduction to Python {#sec-chapter1}
+# Introduction to Python{#sec-chapter1}
 
 ## Introduction
 Python is a general purpose high-level programming language conceived in 1989 by Dutch programmer Guido van Rossum. In a [blog post](http://python-history.blogspot.com/2009/01/introduction-and-overview.html), Guido discuss how Python has evolved over time. In this chapter, we explain how to install Python using the open-source Anaconda Distribution, and describe Python shells, Integrated Development Environments (IDEs), and Jupyter Notebooks for using the Python shell. We then show how to import modules and introduce key modules required for econometrics. Finally, we show how to perform variable assignments and introduce built-in data types.
@@ -12,7 +12,6 @@ InteractiveShell.ast_node_interactivity = "all"
 ```
 
 ## Installing Python
-
 The official Python home page is: <https://www.python.org/>. We recommend to install the Python scientific stack through **Anaconda**. Anaconda, a free product of [Anaconda Inc.](https://www.anaconda.com/) (formerly Continuum Analytics Inc.), is a virtually complete scientific stack for Python. The open-source Anaconda Distribution is the easiest way to perform Python on Linux, Windows, and MacOS. To install Anaconda, visit Anaconda Distribution web page at <https://www.anaconda.com/download>.
 
 Anaconda comes with the core **Python interpreter** (Python shell) and most of the **modules** required for econometric analysis. It also provides 
@@ -34,7 +33,6 @@ Jupyter Notebook is a browser-based interactive tool that allows for live code, 
 ![JupyterLab (Source: [Project Jupyter](https://docs.jupyter.org/en/latest/))](figures/jupyterlab.webp){#fig-jupyter}
 
 ## Modules
-
 Anaconda includes most of the modules needed for econometric analysis. One of the installed modules is NumPy. To access the square root function in NumPy, we can use one of the following ways:
 
 ```{python}
@@ -120,7 +118,6 @@ Some useful built-in data types and structures are
 -   range.
 
 ### Numeric types
-
 In Python, simple numbers can be either integers, floats, or complex numbers. We can use the `type` function to get the type of the object. Consider the following examples:
 
 ```{python}
@@ -256,7 +253,6 @@ s[10:] # returns the characters from index 10 to the end
 ```
 
 ### Lists
-
 A list is a collection of objects constructed using square brackets `[ ]`, with values separated by commas. Some illustrative examples are given in the following.
 
 ```{python}
