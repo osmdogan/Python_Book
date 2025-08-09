@@ -181,6 +181,7 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Econometrics with Python</a> 
         <div class="sidebar-tools-main">
+    <a href="https://github.com/osmdogan/Python_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -499,7 +500,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#other-tools-for-graphics" id="toc-other-tools-for-graphics" class="nav-link" data-scroll-target="#other-tools-for-graphics"><span class="header-section-number">6.5</span> Other Tools for Graphics</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/Chapter0-Graphics.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -526,7 +527,7 @@ window.Quarto = {
 <section id="introduction" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">6.1</span> Introduction</h2>
 <p>In this chapter, we introduce two modules for graphics: <code>matplotlib</code> and <code>seaborn</code>. Matplotlib offers two primary approaches for creating figures: (i) the MATLAB-style (or pyplot) approach, and (ii) the object-oriented programming (OOP) approach. The MATLAB-style tools are contained in the <code>pyplot</code> (<code>plt</code>) interface. For plot styles and color defaults, we rely on the <code>seaborn</code> module.</p>
-<div id="23234568" class="cell" data-execution_count="1">
+<div id="1389bb82" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -535,8 +536,8 @@ window.Quarto = {
 </section>
 <section id="setting-plotting-styles" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="setting-plotting-styles"><span class="header-section-number">6.2</span> Setting plotting styles</h2>
-<p>The theme of a figure refers to the overall appearance, including colors, fonts, and line styles. We use the <code>seaborn</code> module to set the theme of our figures. The are five preset seaborn themes: <code>darkgrid</code>, <code>whitegrid</code>, <code>dark</code>, <code>white</code>, and <code>ticks</code>. The <code>sns.set_style</code> function can be used to set these themes. The default theme is <code>darkgrid</code>. For more information, see <a href="https://seaborn.pydata.org/tutorial/aesthetics.html">Controlling figure aesthetics</a> from the documentation.</p>
-<div id="2b3c0652" class="cell" data-execution_count="2">
+<p>The theme of a figure refers to the overall appearance, including colors, fonts, and line styles. We use the <code>seaborn</code> module to set the theme of our figures. The are five preset seaborn themes: <code>darkgrid</code>, <code>whitegrid</code>, <code>dark</code>, <code>white</code>, and <code>ticks</code>. The <code>sns.set_style()</code> function can be used to set these themes. The default theme is <code>darkgrid</code>. For more information, see <a href="https://seaborn.pydata.org/tutorial/aesthetics.html">Controlling figure aesthetics</a> from the documentation.</p>
+<div id="eee2b535" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting seaborn style</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#sns.set_style('whitegrid')</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#sns.set_style('dark')</span></span>
@@ -544,8 +545,8 @@ window.Quarto = {
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#sns.set_style('ticks')</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'darkgrid'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The <code>plt.style.available</code> function lists all available styles in Matplotlib.</p>
-<div id="43ff3bef" class="cell" data-execution_count="3">
+<p>The <code>plt.style.available()</code> function lists all available styles in Matplotlib.</p>
+<div id="c74c9d3f" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List available styles</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.style.available</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="44">
@@ -580,7 +581,7 @@ window.Quarto = {
  'tableau-colorblind10']</code></pre>
 </div>
 </div>
-<p>Alternatively, we can set the <code>darkgrid</code> style using the <code>plt.style</code> function. In the following example (<a href="#fig-fig6.1" class="quarto-xref">Figure&nbsp;<span>6.1</span></a>), we first create a figure using <code>plt.figure(figsize=(5, 5))</code>, which sets the size of the figure area to 5x5 inches. In Matplotlib, plots are contained within a <code>Figure</code>. We then set the plotting style with <code>plt.style.use('seaborn-v0_8-darkgrid')</code> and display the plot using <code>plt.plot()</code>.</p>
+<p>Alternatively, we can set the <code>darkgrid</code> style using the <code>plt.style.use()</code> function. In the following example (<a href="#fig-fig6.1" class="quarto-xref">Figure&nbsp;<span>6.1</span></a>), we first create a figure using <code>plt.figure(figsize=(5, 5))</code>, which sets the size of the figure area to 5x5 inches. In Matplotlib, plots are contained within a <code>Figure</code>. We then set the plotting style with <code>plt.style.use('seaborn-v0_8-darkgrid')</code> and display the plot using <code>plt.plot()</code>.</p>
 <div id="cell-fig-fig6.1" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">4</span>)) <span class="co"># set figure size to 5x5 inches</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)</span>
@@ -590,7 +591,7 @@ window.Quarto = {
 <div id="fig-fig6.1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.1-output-1.png" width="429" height="332" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.1-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6.1: The <code>seaborn-v0_8-darkgrid</code> style
@@ -604,11 +605,11 @@ Figure&nbsp;6.1: The <code>seaborn-v0_8-darkgrid</code> style
 <h2 data-number="6.3" class="anchored" data-anchor-id="matlab-style-approach"><span class="header-section-number">6.3</span> MATLAB Style Approach</h2>
 <section id="line-plots" class="level3" data-number="6.3.1">
 <h3 data-number="6.3.1" class="anchored" data-anchor-id="line-plots"><span class="header-section-number">6.3.1</span> Line plots</h3>
-<p>In the MATLAB-style approach, we use the <code>plt.plot</code> function to create line plots. The <code>plt.plot</code> function can be used to create a wide variety of line plots, including simple line plots, line plots with markers, and line plots with different styles. The <code>plt.plot</code> function can also be used to add multiple lines to a single figure. The following code chunk generates the line plots shown in <a href="#fig-fig6.2" class="quarto-xref">Figure&nbsp;<span>6.2</span></a>.</p>
-<div id="9e2c3b90" class="cell" data-execution_count="5">
+<p>In the MATLAB-style approach, we use the <code>plt.plot()</code> function to create line plots. The <code>plt.plot()</code> function can be used to create a wide variety of line plots, including simple line plots, line plots with markers, and line plots with different styles. The <code>plt.plot()</code> function can also be used to add multiple lines to a single figure. The following code chunk generates the line plots shown in <a href="#fig-fig6.2" class="quarto-xref">Figure&nbsp;<span>6.2</span></a>.</p>
+<div id="fb7df76f" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">12345</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span>np.random.randn(<span class="dv">20</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.randn(<span class="dv">20</span>)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.cumsum(np.random.rand(<span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Line Plot 1</span></span>
@@ -617,7 +618,7 @@ Figure&nbsp;6.1: The <code>seaborn-v0_8-darkgrid</code> style
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Line Plot 2</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>plt.plot(y,<span class="st">'r-o'</span>,label<span class="op">=</span><span class="st">'Line Plot 2'</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>plt.plot(y, <span class="st">'r-o'</span>, label <span class="op">=</span> <span class="st">'Line Plot 2'</span>)</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x label'</span>)</span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Line Plot 2'</span>)</span>
@@ -625,7 +626,7 @@ Figure&nbsp;6.1: The <code>seaborn-v0_8-darkgrid</code> style
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Line Plot 3</span></span>
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y,<span class="st">'b-d'</span>,label<span class="op">=</span><span class="st">'Line Plot 3'</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, <span class="st">'b-d'</span>, label <span class="op">=</span> <span class="st">'Line Plot 3'</span>)</span>
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x label'</span>)</span>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Line Plot 3'</span>)</span>
@@ -633,7 +634,7 @@ Figure&nbsp;6.1: The <code>seaborn-v0_8-darkgrid</code> style
 <span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Line Plot 4</span></span>
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y, linestyle <span class="op">=</span> <span class="st">"-"</span>, color<span class="op">=</span><span class="st">'steelblue'</span> , label<span class="op">=</span><span class="st">'Line Plot 4'</span>)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, linestyle <span class="op">=</span> <span class="st">"-"</span>, color <span class="op">=</span> <span class="st">'steelblue'</span>, label <span class="op">=</span> <span class="st">'Line Plot 4'</span>)</span>
 <span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
 <span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x label'</span>)</span>
 <span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Line Plot 4'</span>)</span>
@@ -647,7 +648,7 @@ Figure&nbsp;6.1: The <code>seaborn-v0_8-darkgrid</code> style
 <div id="fig-fig6.2-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-fig6.2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.2-output-1.png" data-ref-parent="fig-fig6.2" width="348" height="332" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.2-output-1.png" class="img-fluid figure-img" data-ref-parent="fig-fig6.2">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-fig6.2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Line Plot 1
@@ -659,7 +660,7 @@ Figure&nbsp;6.1: The <code>seaborn-v0_8-darkgrid</code> style
 <div id="fig-fig6.2-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-fig6.2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.2-output-2.png" data-ref-parent="fig-fig6.2" width="365" height="368" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.2-output-2.png" class="img-fluid figure-img" data-ref-parent="fig-fig6.2">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-fig6.2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Line Plot 2
@@ -673,7 +674,7 @@ Figure&nbsp;6.1: The <code>seaborn-v0_8-darkgrid</code> style
 <div id="fig-fig6.2-3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-fig6.2-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.2-output-3.png" data-ref-parent="fig-fig6.2" width="365" height="368" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.2-output-3.png" class="img-fluid figure-img" data-ref-parent="fig-fig6.2">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-fig6.2-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (c) Line Plot 3
@@ -685,7 +686,7 @@ Figure&nbsp;6.1: The <code>seaborn-v0_8-darkgrid</code> style
 <div id="fig-fig6.2-4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-fig6.2-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.2-output-4.png" data-ref-parent="fig-fig6.2" width="365" height="368" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.2-output-4.png" class="img-fluid figure-img" data-ref-parent="fig-fig6.2">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-fig6.2-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (d) Line Plot 4
@@ -708,7 +709,7 @@ Figure&nbsp;6.2: Line Plots
 <li>Titles are added with <code>plt.title()</code>, and legends are added using <code>plt.legend()</code>. The legend requires that the line includes a label.</li>
 <li>Labels for the x- and y-axes are added using <code>plt.xlabel()</code> and <code>plt.ylabel()</code>.</li>
 </ul>
-<p>In the following example, we specify the arguments of the <code>plt.plot</code> function explicitly.</p>
+<p>In the following example, we specify the arguments of the <code>plt.plot()</code> function explicitly.</p>
 <div id="cell-fig-fig6.3" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify arguments</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">4</span>))</span>
@@ -733,7 +734,7 @@ Figure&nbsp;6.2: Line Plots
 <div id="fig-fig6.3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.3-output-1.png" width="440" height="368" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.3-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6.3: Specifying arguments explicitly
@@ -742,7 +743,7 @@ Figure&nbsp;6.3: Specifying arguments explicitly
 </div>
 </div>
 </div>
-<p>The most useful arguments of the <code>plt.plot</code> function are listed below:</p>
+<p>The most useful arguments of the <code>plt.plot()</code> function are listed below:</p>
 <ul>
 <li><code>alpha</code>: Alpha (transparency) of the plot- default is 1 (no transparency)</li>
 <li><code>color</code>: Color description for the line. It can be specified in several ways, including:
@@ -781,8 +782,8 @@ Table&nbsp;6.1: Commonly used colors, line styles and marker
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">blue: <code>b</code></td>
-<td style="text-align: left;">Solid: <code>-</code></td>
-<td style="text-align: left;">Point: <code>.</code></td>
+<td style="text-align: left;">solid: <code>-</code></td>
+<td style="text-align: left;">point: <code>.</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">green: <code>g</code></td>
@@ -827,7 +828,7 @@ Table&nbsp;6.1: Commonly used colors, line styles and marker
 <tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">pentagon: p</td>
+<td style="text-align: left;">pentagon: <code>p</code></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"></td>
@@ -846,8 +847,8 @@ Table&nbsp;6.1: Commonly used colors, line styles and marker
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">4</span>))</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plt.plot(x, np.exp(x <span class="op">+</span> <span class="fl">0.2</span>), color<span class="op">=</span><span class="st">'steelblue'</span>) <span class="co"># specify color by name</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plt.plot(x, np.exp(x <span class="op">-</span> <span class="fl">0.1</span>), color<span class="op">=</span><span class="st">'g'</span>) <span class="co"># short color code (rgbcmyk)</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>plt.plot(x, np.exp(x <span class="op">-</span> <span class="fl">0.4</span>), color<span class="op">=</span><span class="st">'0.2'</span>) <span class="co"># Grayscale between 0 and 1</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>plt.plot(x, np.exp(x <span class="op">-</span> <span class="fl">0.6</span>), color<span class="op">=</span><span class="st">'#04fa25'</span>) <span class="co"># Hex code (RRGGBB from 00 to FF)</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>plt.plot(x, np.exp(x <span class="op">-</span> <span class="fl">0.4</span>), color<span class="op">=</span><span class="st">'0.2'</span>) <span class="co"># grayscale between 0 and 1</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>plt.plot(x, np.exp(x <span class="op">-</span> <span class="fl">0.6</span>), color<span class="op">=</span><span class="st">'#04fa25'</span>) <span class="co"># hex code (RRGGBB from 00 to FF)</span></span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>plt.plot(x, np.exp(x <span class="op">-</span> <span class="fl">0.8</span>), color<span class="op">=</span>(<span class="fl">1.0</span>,<span class="fl">0.2</span>,<span class="fl">0.3</span>)) <span class="co"># RGB tuple, values 0 and 1</span></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>plt.plot(x, np.exp(x <span class="op">-</span> <span class="dv">1</span>), color<span class="op">=</span><span class="st">'DarkMagenta'</span>)<span class="op">;</span> <span class="co"># all HTML color names supported</span></span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
@@ -857,7 +858,7 @@ Table&nbsp;6.1: Commonly used colors, line styles and marker
 <div id="fig-fig6.4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.4-output-1.png" width="421" height="349" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.4-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6.4: Specifying the <code>color</code> options
@@ -866,17 +867,17 @@ Figure&nbsp;6.4: Specifying the <code>color</code> options
 </div>
 </div>
 </div>
-<p>In <a href="#fig-fig6.4" class="quarto-xref">Figure&nbsp;<span>6.4</span></a>, we have a single figure with multiple line plots. Thus, to add multiple lines to a single figure, we need to call the <code>plt.plot</code> function multiple times.</p>
+<p>In <a href="#fig-fig6.4" class="quarto-xref">Figure&nbsp;<span>6.4</span></a>, we have a single figure with multiple line plots. Thus, to add multiple lines to a single figure, we need to call the <code>plt.plot()</code> function multiple times.</p>
 <p>The following code chunk, which generates <a href="#fig-fig6.5" class="quarto-xref">Figure&nbsp;<span>6.5</span></a>, provide alternative ways for specifying the <code>linestyle</code> options.</p>
 <div id="cell-fig-fig6.5" class="cell" data-fig-height="1" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternative way to specify linestyle</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">500</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">4</span>))</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>plt.plot(x, np.log(x<span class="op">+</span><span class="fl">0.1</span>), linestyle<span class="op">=</span><span class="st">'solid'</span>,linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>plt.plot(x, np.log(x <span class="op">+</span> <span class="fl">0.6</span>), linestyle<span class="op">=</span><span class="st">'dashed'</span>,linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>plt.plot(x, np.log(x <span class="op">+</span> <span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'dashdot'</span>,linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>plt.plot(x, np.log(x <span class="op">+</span> <span class="fl">1.5</span>), linestyle<span class="op">=</span><span class="st">'dotted'</span>,linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"k"</span>, linestyle<span class="op">=</span><span class="st">"-"</span>,linewidth<span class="op">=</span><span class="dv">1</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>plt.plot(x, np.log(x <span class="op">+</span> <span class="fl">0.1</span>), linestyle<span class="op">=</span><span class="st">'solid'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>plt.plot(x, np.log(x <span class="op">+</span> <span class="fl">0.6</span>), linestyle<span class="op">=</span><span class="st">'dashed'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>plt.plot(x, np.log(x <span class="op">+</span> <span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'dashdot'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>plt.plot(x, np.log(x <span class="op">+</span> <span class="fl">1.5</span>), linestyle<span class="op">=</span><span class="st">'dotted'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"k"</span>, linestyle<span class="op">=</span><span class="st">"-"</span>, linewidth<span class="op">=</span><span class="dv">1</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Natural logarithm'</span>)</span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -884,7 +885,7 @@ Figure&nbsp;6.4: Specifying the <code>color</code> options
 <div id="fig-fig6.5" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.5-output-1.png" width="428" height="349" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.5-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6.5: Specifying the <code>linestyle</code> options
@@ -893,7 +894,7 @@ Figure&nbsp;6.5: Specifying the <code>linestyle</code> options
 </div>
 </div>
 </div>
-<p>The <code>plt.setp</code> function can be used to set options for plot elements, as shown in the following example (<a href="#fig-fig6.6" class="quarto-xref">Figure&nbsp;<span>6.6</span></a>):</p>
+<p>The <code>plt.setp()</code> function can be used to set options for plot elements, as shown in the following example (<a href="#fig-fig6.6" class="quarto-xref">Figure&nbsp;<span>6.6</span></a>):</p>
 <div id="cell-fig-fig6.6" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.randn(<span class="dv">10</span>)</span>
@@ -919,17 +920,17 @@ Figure&nbsp;6.5: Specifying the <code>linestyle</code> options
 <div id="fig-fig6.6" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.6-output-1.png" width="440" height="349" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.6-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.6: Using the <code>plt.setp</code> function
+Figure&nbsp;6.6: Using the <code>plt.setp()</code> function
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>The <code>plt.getp</code> function retrieves the list of properties for a Matplotlib object:</p>
-<div id="ee4a2992" class="cell" data-execution_count="11">
+<p>The <code>plt.getp()</code> function retrieves the list of properties for a Matplotlib object:</p>
+<div id="b690b40c" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plt.getp(h)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    agg_filter = None
@@ -983,12 +984,12 @@ Figure&nbsp;6.6: Using the <code>plt.setp</code> function
     zorder = 2</code></pre>
 </div>
 </div>
-<p>The <code>plt.xlim</code> and <code>plt.ylim</code> can be used to set axes limits, as illustrated in the following examples.</p>
+<p>The <code>plt.xlim()</code> and <code>plt.ylim()</code> can be used to set axes limits, as illustrated in the following examples.</p>
 <div id="cell-fig-fig6.7" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">4</span>))</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>plt.plot(x, np.cos(x))</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"k"</span>, linestyle<span class="op">=</span><span class="st">"-"</span>,linewidth<span class="op">=</span><span class="dv">1</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"k"</span>, linestyle<span class="op">=</span><span class="st">"-"</span>, linewidth<span class="op">=</span><span class="dv">1</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="dv">1</span>, <span class="dv">12</span>)</span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="fl">1.5</span>, <span class="fl">1.5</span>)</span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
@@ -998,17 +999,17 @@ Figure&nbsp;6.6: Using the <code>plt.setp</code> function
 <div id="fig-fig6.7" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.7-output-1.png" width="447" height="354" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.7-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.7: Using the <code>plt.xlim</code> and <code>plt.ylim</code> functions
+Figure&nbsp;6.7: Using the <code>plt.xlim()</code> and <code>plt.ylim()</code> functions
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 <div id="cell-fig-fig6.8" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  Setting x and y limits with plt.axis()</span></span>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting x and y limits with plt.axis()</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">4</span>))</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>plt.plot(x, np.cos(x))</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>plt.axis([<span class="op">-</span><span class="dv">1</span>, <span class="dv">12</span>, <span class="op">-</span><span class="fl">1.5</span>, <span class="fl">1.5</span>]) <span class="co"># specify [xmin,xmax,ymin,ymax]</span></span>
@@ -1019,10 +1020,10 @@ Figure&nbsp;6.7: Using the <code>plt.xlim</code> and <code>plt.ylim</code> funct
 <div id="fig-fig6.8" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.8-output-1.png" width="447" height="354" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.8-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.8: Using the <code>plt.axis</code> function
+Figure&nbsp;6.8: Using the <code>plt.axis()</code> function
 </figcaption>
 </figure>
 </div>
@@ -1031,9 +1032,9 @@ Figure&nbsp;6.8: Using the <code>plt.axis</code> function
 </section>
 <section id="scatter-plots" class="level3" data-number="6.3.2">
 <h3 data-number="6.3.2" class="anchored" data-anchor-id="scatter-plots"><span class="header-section-number">6.3.2</span> Scatter plots</h3>
-<p>Scatter plots can be generated using the <code>plt.scatter</code> function or the <code>plt.plot</code> function with the option <code>linestyle=""</code>. Consider the following example, which generates <a href="#fig-fig6.9" class="quarto-xref">Figure&nbsp;<span>6.9</span></a>.</p>
+<p>Scatter plots can be generated using the <code>plt.scatter()</code> function or the <code>plt.plot()</code> function with the option <code>linestyle=""</code>. Consider the following example, which generates <a href="#fig-fig6.9" class="quarto-xref">Figure&nbsp;<span>6.9</span></a>.</p>
 <div id="cell-fig-fig6.9" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plots using plt.scatter</span></span>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plots using plt.scatter()</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.random.randn(<span class="dv">100</span>, <span class="dv">2</span>)</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>z[:, <span class="dv">1</span>] <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> z[:, <span class="dv">0</span>] <span class="op">+</span> np.sqrt(<span class="fl">0.5</span>) <span class="op">*</span> z[:, <span class="dv">1</span>]</span>
@@ -1049,18 +1050,18 @@ Figure&nbsp;6.8: Using the <code>plt.axis</code> function
 <div id="fig-fig6.9" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.9-output-1.png" width="431" height="373" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.9-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.9: Scatter plot using <code>plt.scatter</code>
+Figure&nbsp;6.9: Scatter plot using <code>plt.scatter()</code>
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Alternatively, we can use the <code>plt.plot</code> function with the option <code>linestyle=""</code> as shown in the following example.</p>
+<p>Alternatively, we can use the <code>plt.plot()</code> function with the option <code>linestyle=""</code> as shown in the following example.</p>
 <div id="cell-fig-fig6.10" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot using plt.plot</span></span>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot using plt.plot()</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">4</span>))</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, linestyle<span class="op">=</span><span class="st">""</span>, c<span class="op">=</span><span class="st">"steelblue"</span>, marker<span class="op">=</span><span class="st">"o"</span>, ms<span class="op">=</span><span class="dv">5</span>, </span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="dv">1</span>, label<span class="op">=</span><span class="st">"Scatter Data"</span>)</span>
@@ -1071,10 +1072,10 @@ Figure&nbsp;6.9: Scatter plot using <code>plt.scatter</code>
 <div id="fig-fig6.10" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.10-output-1.png" width="431" height="351" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.10-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.10: Scatter plot using <code>plt.plot</code>
+Figure&nbsp;6.10: Scatter plot using <code>plt.plot()</code>
 </figcaption>
 </figure>
 </div>
@@ -1083,13 +1084,13 @@ Figure&nbsp;6.10: Scatter plot using <code>plt.plot</code>
 </section>
 <section id="bar-plots" class="level3" data-number="6.3.3">
 <h3 data-number="6.3.3" class="anchored" data-anchor-id="bar-plots"><span class="header-section-number">6.3.3</span> Bar plots</h3>
-<p>The <code>plt.bar</code> function is used to create bar plots. The following code chunk generates the bar plots shown in <a href="#fig-fig6.11" class="quarto-xref">Figure&nbsp;<span>6.11</span></a> and <a href="#fig-fig6.12" class="quarto-xref">Figure&nbsp;<span>6.12</span></a>.</p>
+<p>The <code>plt.bar()</code> function is used to create bar plots. The following code chunk generates the bar plots shown in <a href="#fig-fig6.11" class="quarto-xref">Figure&nbsp;<span>6.11</span></a> and <a href="#fig-fig6.12" class="quarto-xref">Figure&nbsp;<span>6.12</span></a>.</p>
 <div id="cell-fig-fig6.11" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">123</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.rand(<span class="dv">5</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="dv">5</span>)</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">4</span>))</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>plt.bar(x,y, width <span class="op">=</span> <span class="dv">1</span>, color <span class="op">=</span> <span class="st">'steelblue'</span>, </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> plt.bar(x, y, width <span class="op">=</span> <span class="dv">1</span>, color <span class="op">=</span> <span class="st">'steelblue'</span>, </span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    edgecolor <span class="op">=</span> <span class="st">'black'</span>, linewidth <span class="op">=</span> <span class="fl">0.5</span>)</span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Bar Plot"</span>)</span>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"x label"</span>)</span>
@@ -1099,10 +1100,10 @@ Figure&nbsp;6.10: Scatter plot using <code>plt.plot</code>
 <div id="fig-fig6.11" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.11-output-1.png" width="432" height="368" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.11-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.11: Bar plot
+Figure&nbsp;6.11: Bar plot using <code>plt.bar()</code>
 </figcaption>
 </figure>
 </div>
@@ -1111,9 +1112,9 @@ Figure&nbsp;6.11: Bar plot
 <div id="cell-fig-fig6.12" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.rand(<span class="dv">5</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="st">"G1"</span>, <span class="st">"G2"</span>,<span class="st">"G3"</span>,<span class="st">"G4"</span>,<span class="st">"G5"</span>]</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="st">"G1"</span>, <span class="st">"G2"</span>, <span class="st">"G3"</span>, <span class="st">"G4"</span>, <span class="st">"G5"</span>]</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">4</span>))</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>plt.bar(x,y, width <span class="op">=</span> <span class="dv">1</span>, color <span class="op">=</span> <span class="st">'steelblue'</span>, </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> plt.bar(x,y, width <span class="op">=</span> <span class="dv">1</span>, color <span class="op">=</span> <span class="st">'steelblue'</span>, </span>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    edgecolor <span class="op">=</span> <span class="st">'black'</span>, linewidth <span class="op">=</span> <span class="fl">0.5</span>)</span>
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Bar Plot"</span>)</span>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1121,34 +1122,34 @@ Figure&nbsp;6.11: Bar plot
 <div id="fig-fig6.12" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.12-output-1.png" width="414" height="351" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.12-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.12: Bar plot
+Figure&nbsp;6.12: Bar plot using <code>plt.bar()</code>
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>In the following example, we generate a horizontal bar plot using the <code>plt.barh</code> function.</p>
+<p>In the following example, we generate a horizontal bar plot using the <code>plt.barh()</code> function.</p>
 <div id="cell-fig-fig6.12-1" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Horizontal Bar plot</span></span>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Horizontal Bar plot using plt.barh()</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.rand(<span class="dv">5</span>)</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="st">"G1"</span>, <span class="st">"G2"</span>,<span class="st">"G3"</span>,<span class="st">"G4"</span>,<span class="st">"G5"</span>]</span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">4</span>))</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>b<span class="op">=</span>plt.barh(x,y, height <span class="op">=</span> <span class="fl">0.5</span>, color <span class="op">=</span> <span class="st">'steelblue'</span>, </span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    edgecolor <span class="op">=</span> <span class="st">'black'</span>, linewidth <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> plt.barh(x,y, height <span class="op">=</span> <span class="fl">0.5</span>, color <span class="op">=</span> <span class="st">'steelblue'</span>, </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>             edgecolor <span class="op">=</span> <span class="st">'black'</span>, linewidth <span class="op">=</span> <span class="fl">0.5</span>)</span>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Horizontal Bar Plot"</span>)</span>
 <span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="fig-fig6.12-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.12-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.12-1-output-1.png" width="414" height="351" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.12-1-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.12-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.13: Horizontal Bar plot
+Figure&nbsp;6.13: Horizontal Bar plot using <code>plt.barh()</code>
 </figcaption>
 </figure>
 </div>
@@ -1157,16 +1158,16 @@ Figure&nbsp;6.13: Horizontal Bar plot
 </section>
 <section id="pie-plots" class="level3" data-number="6.3.4">
 <h3 data-number="6.3.4" class="anchored" data-anchor-id="pie-plots"><span class="header-section-number">6.3.4</span> Pie plots</h3>
-<p>The <code>plt.pie</code> function is used to create pie plots. The following code chunk generates the pie plot shown in <a href="#fig-fig6.13" class="quarto-xref">Figure&nbsp;<span>6.14</span></a>.</p>
+<p>The <code>plt.pie()</code> function is used to create pie plots. The following code chunk generates the pie plot shown in <a href="#fig-fig6.13" class="quarto-xref">Figure&nbsp;<span>6.14</span></a>.</p>
 <div id="cell-fig-fig6.13" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie  plots</span></span>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie plot using plt.pie()</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.rand(<span class="dv">5</span>)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> y<span class="op">/</span><span class="bu">sum</span>(y)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> y <span class="op">/</span> <span class="bu">sum</span>(y)</span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>y[y<span class="op">&lt;</span><span class="fl">.05</span>] <span class="op">=</span> <span class="fl">.05</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>labels<span class="op">=</span>[<span class="st">'One'</span>,<span class="st">'Two'</span>,<span class="st">'Three'</span>,<span class="st">'Four'</span>,<span class="st">'Five'</span>]</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'One'</span>,<span class="st">'Two'</span>,<span class="st">'Three'</span>,<span class="st">'Four'</span>,<span class="st">'Five'</span>]</span>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> [<span class="st">'#FF00FF'</span>,<span class="st">'#FFF000'</span>,<span class="st">'#00FF0F'</span>,<span class="st">'#00FFF0'</span>,<span class="st">'#00000F'</span>]</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>explode<span class="op">=</span>np.array([<span class="fl">0.1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.1</span>,<span class="dv">0</span>])</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>explode <span class="op">=</span> np.array([<span class="fl">0.1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.1</span>,<span class="dv">0</span>])</span>
 <span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span>
 <span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>plt.pie(y,labels<span class="op">=</span>labels,colors<span class="op">=</span>colors,shadow<span class="op">=</span><span class="va">True</span>,explode<span class="op">=</span>explode)</span>
 <span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1174,10 +1175,10 @@ Figure&nbsp;6.13: Horizontal Bar plot
 <div id="fig-fig6.13" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.13-output-1.png" width="389" height="389" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.13-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.14: Pie plot
+Figure&nbsp;6.14: Pie plot using <code>plt.pie()</code>
 </figcaption>
 </figure>
 </div>
@@ -1186,14 +1187,14 @@ Figure&nbsp;6.14: Pie plot
 </section>
 <section id="histograms" class="level3" data-number="6.3.5">
 <h3 data-number="6.3.5" class="anchored" data-anchor-id="histograms"><span class="header-section-number">6.3.5</span> Histograms</h3>
-<p>We can use the <code>plt.hist</code> function to generate histograms. In the following example, the <code>histtype</code> option assumes the following options: <code>bar</code>, <code>barstacked</code>, <code>step</code>, and <code>stepfilled</code>.</p>
+<p>We can use the <code>plt.hist()</code> function to generate histograms. In the following example, the <code>histtype</code> option assumes the following options: <code>bar</code>, <code>barstacked</code>, <code>step</code>, and <code>stepfilled</code>.</p>
 <div id="cell-fig-fig6.14" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  Histograms</span></span>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histograms using plt.hist()</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.randn(<span class="dv">1000</span>)</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">4</span>))</span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>plt.hist(x, bins <span class="op">=</span> <span class="dv">30</span>, density<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span><span class="st">'steelblue'</span>,</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>         histtype<span class="op">=</span><span class="st">"bar"</span>,edgecolor<span class="op">=</span><span class="st">'black'</span>,linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>         histtype<span class="op">=</span><span class="st">"bar"</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Density'</span>)</span>
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1201,10 +1202,10 @@ Figure&nbsp;6.14: Pie plot
 <div id="fig-fig6.14" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.14-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.14-output-1.png" width="432" height="349" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.14-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.14-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.15: Histograms
+Figure&nbsp;6.15: Histograms using <code>plt.hist()</code>
 </figcaption>
 </figure>
 </div>
@@ -1214,12 +1215,12 @@ Figure&nbsp;6.15: Histograms
 <div id="cell-fig-fig6.16" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiple Plots on the Same Axes</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span>stats.norm.rvs(loc<span class="op">=</span><span class="dv">2</span>,scale<span class="op">=</span><span class="fl">1.5</span>,size<span class="op">=</span><span class="dv">1000</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> stats.norm.rvs(loc<span class="op">=</span><span class="dv">2</span>, scale<span class="op">=</span><span class="fl">1.5</span>, size<span class="op">=</span><span class="dv">1000</span>)</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">4</span>))</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>plt.hist(x, bins <span class="op">=</span> <span class="dv">30</span>,density<span class="op">=</span><span class="va">True</span>,label <span class="op">=</span> <span class="st">'Empirical'</span>)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>pdfx <span class="op">=</span> np.linspace(x.<span class="bu">min</span>(),x.<span class="bu">max</span>(),<span class="dv">1000</span>)</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>pdfy <span class="op">=</span> stats.norm.pdf(pdfx,loc<span class="op">=</span><span class="dv">2</span>,scale<span class="op">=</span><span class="fl">1.5</span>)</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>plt.plot(pdfx,pdfy,<span class="st">'r-'</span>,label <span class="op">=</span> <span class="st">'PDF'</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>plt.hist(x, bins <span class="op">=</span> <span class="dv">30</span>, density<span class="op">=</span><span class="va">True</span>, label <span class="op">=</span> <span class="st">'Empirical'</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>pdfx <span class="op">=</span> np.linspace(x.<span class="bu">min</span>(), x.<span class="bu">max</span>(), <span class="dv">1000</span>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>pdfy <span class="op">=</span> stats.norm.pdf(pdfx, loc<span class="op">=</span><span class="dv">2</span>, scale<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>plt.plot(pdfx, pdfy,<span class="st">'r-'</span>, label <span class="op">=</span> <span class="st">'PDF'</span>)</span>
 <span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
 <span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Density'</span>)</span>
 <span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
@@ -1228,7 +1229,7 @@ Figure&nbsp;6.15: Histograms
 <div id="fig-fig6.16" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.16-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.16-output-1.png" width="439" height="349" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.16-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.16-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6.16: Multiple plots on the same axes
@@ -1240,7 +1241,7 @@ Figure&nbsp;6.16: Multiple plots on the same axes
 </section>
 <section id="kernel-density-and-empirical-cdf-plots" class="level3" data-number="6.3.6">
 <h3 data-number="6.3.6" class="anchored" data-anchor-id="kernel-density-and-empirical-cdf-plots"><span class="header-section-number">6.3.6</span> Kernel Density and Empirical CDF plots</h3>
-<p>The <code>sns.kdeplot</code> function from the <code>seaborn</code> module can be used to create a kernel density plot. The kernel density estimate is a non-parametric way to estimate the probability density function of a random variable. In the following example, we generate random draws from a t-distribution and a normal distribution, and then plot their kernel density estimates. The <code>fill=True</code> option fills the area under the curve, and the <code>alpha</code> option sets the transparency of the fill color.</p>
+<p>The <code>sns.kdeplot()</code> function from the <code>seaborn</code> module can be used to create a kernel density plot. The kernel density estimate is a non-parametric way to estimate the probability density function of a random variable. In the following example, we generate random draws from a t-distribution and a normal distribution, and then plot their kernel density estimates. The <code>fill=True</code> option fills the area under the curve, and the <code>alpha</code> option sets the transparency of the fill color.</p>
 <div id="cell-fig-fig6.16-1" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Kernel Density Plot</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
@@ -1261,7 +1262,7 @@ Figure&nbsp;6.16: Multiple plots on the same axes
 <div id="fig-fig6.16-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.16-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.16-1-output-1.png" width="470" height="374" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.16-1-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.16-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6.17: Kernel density plots
@@ -1270,7 +1271,7 @@ Figure&nbsp;6.17: Kernel density plots
 </div>
 </div>
 </div>
-<p>The empirical cumulative distribution function (CDF) can be plotted using the <code>sns.ecdfplot</code> function from the <code>seaborn</code> module. The empirical CDF is a step function that estimates the cumulative distribution function of a random variable based on a sample. In the following example, we generate random draws from a t-distribution and a normal distribution, and then plot their empirical CDFs.</p>
+<p>The empirical cumulative distribution function (CDF) can be plotted using the <code>sns.ecdfplot()</code> function from the <code>seaborn</code> module. The empirical CDF is a step function that estimates the cumulative distribution function of a random variable based on a sample. In the following example, we generate random draws from a t-distribution and a normal distribution, and then plot their empirical CDFs.</p>
 <div id="cell-fig-fig6.16-2" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Empirical CDF plot</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
@@ -1292,7 +1293,7 @@ Figure&nbsp;6.17: Kernel density plots
 <div id="fig-fig6.16-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.16-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.16-2-output-1.png" width="470" height="373" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.16-2-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.16-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6.18: Empirical CDF plots
@@ -1304,19 +1305,19 @@ Figure&nbsp;6.18: Empirical CDF plots
 </section>
 <section id="multiple-plots-on-the-same-figure" class="level3" data-number="6.3.7">
 <h3 data-number="6.3.7" class="anchored" data-anchor-id="multiple-plots-on-the-same-figure"><span class="header-section-number">6.3.7</span> Multiple plots on the same figure</h3>
-<p>To add subplots to a figure, we can use the <code>plt.subplot</code> function. In the example below, we use <code>plt.subplot(2, 2, p)</code> to divide the figure area into a 2x2 grid, where p indicates the position of the subplot within the grid.</p>
+<p>To add subplots to a figure, we can use the <code>plt.subplot()</code> function. In the example below, we use <code>plt.subplot(2, 2, p)</code> to divide the figure area into a 2x2 grid, where <code>p</code> indicates the position of the subplot within the grid.</p>
 <div id="cell-fig-fig6.15" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>,<span class="dv">7</span>))</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Panel 1</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> np.random.randn(<span class="dv">100</span>)</span>
 <span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>plt.plot(y1)</span>
 <span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Plot 1'</span>)</span>
 <span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Panel 2</span></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
 <span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> np.random.rand(<span class="dv">5</span>)</span>
 <span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>x2 <span class="op">=</span> np.arange(<span class="dv">5</span>)</span>
 <span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>plt.bar(x2, y2, label<span class="op">=</span><span class="st">'Bar Chart'</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
@@ -1326,7 +1327,7 @@ Figure&nbsp;6.18: Empirical CDF plots
 <span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Plot 2'</span>)</span>
 <span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Panel 3</span></span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>y3 <span class="op">=</span> np.random.rand(<span class="dv">5</span>)</span>
 <span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>y3 <span class="op">=</span> y3 <span class="op">/</span> y3.<span class="bu">sum</span>()</span>
 <span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>y3[y3 <span class="op">&lt;</span> <span class="fl">0.05</span>] <span class="op">=</span> <span class="fl">0.05</span></span>
@@ -1336,8 +1337,8 @@ Figure&nbsp;6.18: Empirical CDF plots
 <span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Plot 3'</span>)</span>
 <span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Panel 4</span></span>
-<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>)</span>
-<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.random.randn(<span class="dv">100</span>,<span class="dv">2</span>)</span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">4</span>)</span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.random.randn(<span class="dv">100</span>, <span class="dv">2</span>)</span>
 <span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>z[:,<span class="dv">1</span>] <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> z[:,<span class="dv">0</span>] <span class="op">+</span> np.sqrt(<span class="fl">0.5</span>) <span class="op">*</span> z[:,<span class="dv">1</span>]</span>
 <span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a>x4 <span class="op">=</span> z[:,<span class="dv">0</span>]</span>
 <span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a>y4 <span class="op">=</span> z[:,<span class="dv">1</span>]</span>
@@ -1354,21 +1355,21 @@ Figure&nbsp;6.18: Empirical CDF plots
 <div id="fig-fig6.15" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.15-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.15-output-1.png" width="662" height="662" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.15-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.15-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.19: Using the <code>plt.subplot</code> function
+Figure&nbsp;6.19: Using the <code>plt.subplot()</code> function
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>The padding between subplots can be adjusted using the <code>plt.subplots_adjust</code> function. In <a href="#fig-fig6.15" class="quarto-xref">Figure&nbsp;<span>6.19</span></a>, we use <code>plt.subplots_adjust(hspace=0.5, wspace=0.5)</code> to add horizontal and vertical spacing between subplots.</p>
+<p>The padding between subplots can be adjusted using the <code>plt.subplots_adjust()</code> function. In <a href="#fig-fig6.15" class="quarto-xref">Figure&nbsp;<span>6.19</span></a>, we use <code>plt.subplots_adjust(hspace=0.5, wspace=0.5)</code> to add horizontal and vertical spacing between subplots.</p>
 </section>
 <section id="saving-figures" class="level3" data-number="6.3.8">
 <h3 data-number="6.3.8" class="anchored" data-anchor-id="saving-figures"><span class="header-section-number">6.3.8</span> Saving figures</h3>
-<p>The <code>plt.savefig</code> function allows user to save figures in a wide variety of formats. The supported formats can be listed using the <code>canvas.get_supported_filetypes</code> method of the figure object, as shown below:</p>
-<div id="fc904232" class="cell" data-execution_count="25">
+<p>The <code>plt.savefig()</code> function allows user to save figures in a wide variety of formats. The supported formats can be listed using the <code>canvas.get_supported_filetypes</code> method of the figure object, as shown below:</p>
+<div id="eea3b860" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The supported file types</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>fig.canvas.get_supported_filetypes()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1407,10 +1408,10 @@ Figure&nbsp;6.19: Using the <code>plt.subplot</code> function
 <div id="fig-fig6.17" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.17-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.17-output-1.png" width="422" height="332" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.17-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.17-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.20: Saving plots
+Figure&nbsp;6.20: Saving plots using <code>plt.savefig()</code>
 </figcaption>
 </figure>
 </div>
@@ -1421,7 +1422,7 @@ Figure&nbsp;6.20: Saving plots
 <section id="oop-approach" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="oop-approach"><span class="header-section-number">6.4</span> OOP Approach</h2>
 <p>The object-oriented interface in Matplotlib offers greater control over figures. In this approach, plotting functions are methods associated with explicit Figure and Axes objects. To create a plot, we begin by initializing a Figure object and an Axes object. The Figure object, referred to as <code>fig</code>, can be created as follows:</p>
-<div id="85d5f735" class="cell" data-execution_count="27">
+<div id="94450dd3" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create fig object</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">4</span>))</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(fig)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1433,7 +1434,7 @@ Figure&nbsp;6.20: Saving plots
 </div>
 </div>
 <p>The <code>fig</code> object (an instance of the <code>plt.figure.Figure</code> class) serves as a container that holds all components, including axes, graphics, text, and labels. The Axes object, referred to as <code>ax</code>, can be created as follows:</p>
-<div id="65944db4" class="cell" data-execution_count="28">
+<div id="40cf9c95" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create ax object</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">4</span>))</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.axes()</span>
@@ -1444,7 +1445,7 @@ Figure&nbsp;6.20: Saving plots
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Chapter0-Graphics_files/figure-html/cell-29-output-2.png" width="424" height="336" class="figure-img"></p>
+<p><img src="Chapter0-Graphics_files/figure-html/cell-29-output-2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1452,7 +1453,7 @@ Figure&nbsp;6.20: Saving plots
 <p>The <code>ax</code> (an instance of the <code>plt.axes._axes.Axes</code> class) object represents the box that contains the plot elements making up the visualization.</p>
 <section id="line-plots-1" class="level3" data-number="6.4.1">
 <h3 data-number="6.4.1" class="anchored" data-anchor-id="line-plots-1"><span class="header-section-number">6.4.1</span> Line plots</h3>
-<p>In the OOP approach, we can create line plots using the <code>ax.plot</code> function. The <code>ax.plot</code> function is similar to the <code>plt.plot</code> function, but it is called on the <code>ax</code> object instead of the <code>plt</code> module. In the following example, we generate a line plot of the sine function using the <code>ax.plot</code> function. The <code>ax.axhline</code> function is used to add a horizontal line at <span class="math inline">\(y=0\)</span>.</p>
+<p>In the OOP approach, we can create line plots using the <code>ax.plot()</code> function. The <code>ax.plot()</code> function is similar to the <code>plt.plot()</code> function, but it is called on the <code>ax</code> object instead of the <code>plt</code> module. In the following example, we generate a line plot of the sine function using the <code>ax.plot()</code> function. The <code>ax.axhline()</code> function is used to add a horizontal line at <span class="math inline">\(y=0\)</span>.</p>
 <div id="cell-fig-fig6.18" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">3</span>))</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.axes()</span>
@@ -1465,16 +1466,16 @@ Figure&nbsp;6.20: Saving plots
 <div id="fig-fig6.18" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.18-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.18-output-1.png" width="422" height="258" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.18-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.18-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.21: Using the <code>ax.plot</code> function
+Figure&nbsp;6.21: Using the <code>ax.plot()</code> function
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Note that in <a href="#fig-fig6.18" class="quarto-xref">Figure&nbsp;<span>6.21</span></a>, the <code>ax.plot</code> function serves the same purpose as the <code>plt.plot</code> function. While most <code>plt</code> functions translate directly to <code>ax</code> methods (such as <code>plt.plot</code> <span class="math inline">\(\rightarrow\)</span> <code>ax.plot</code>, and <code>plt.legend</code> <span class="math inline">\(\rightarrow\)</span> <code>ax.legend</code>), this is not the case for all commands. Below, we give some commonly used translations.</p>
+<p>Note that in <a href="#fig-fig6.18" class="quarto-xref">Figure&nbsp;<span>6.21</span></a>, the <code>ax.plot()</code> function serves the same purpose as the <code>plt.plot()</code> function. While most <code>plt</code> functions translate directly to <code>ax</code> methods (such as <code>plt.plot()</code> <span class="math inline">\(\rightarrow\)</span> <code>ax.plot()</code>, and <code>plt.legend()</code> <span class="math inline">\(\rightarrow\)</span> <code>ax.legend()</code>), this is not the case for all commands. Below, we give some commonly used translations.</p>
 <ul>
 <li><code>plt.plot()</code> <span class="math inline">\(\rightarrow\)</span> <code>ax.plot()</code></li>
 <li><code>plt.legend()</code> <span class="math inline">\(\rightarrow\)</span> <code>ax.legend()</code></li>
@@ -1493,7 +1494,7 @@ Figure&nbsp;6.21: Using the <code>ax.plot</code> function
 <li><code>plt.show()</code> <span class="math inline">\(\rightarrow\)</span> <code>plt.show()</code> (remains unchanged)</li>
 <li><code>plt.savefig()</code> <span class="math inline">\(\rightarrow\)</span> <code>fig.savefig()</code></li>
 </ul>
-<p>In the following example, we generate a line plot of the sine function using the <code>ax.plot</code> function. The <code>ax.set_title</code>, <code>ax.set_xlabel</code>, and <code>ax.set_ylabel</code> functions are used to set the title and labels of the axes. The <code>ax.set_xlim</code> and <code>ax.set_ylim</code> functions are used to set the limits of the x- and y-axes, respectively. Finally, we add a legend using the <code>ax.legend</code> function.</p>
+<p>In the following example, we generate a line plot of the sine function using the <code>ax.plot()</code> function. The <code>ax.set_title()</code>, <code>ax.set_xlabel()</code>, and <code>ax.set_ylabel()</code> functions are used to set the title and labels of the axes. The <code>ax.set_xlim()</code> and <code>ax.set_ylim()</code> functions are used to set the limits of the x- and y-axes, respectively. Finally, we add a legend using the <code>ax.legend()</code> function.</p>
 <div id="cell-fig-fig6.19" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">3</span>))</span>
@@ -1511,10 +1512,10 @@ Figure&nbsp;6.21: Using the <code>ax.plot</code> function
 <div id="fig-fig6.19" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.19-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.19-output-1.png" width="447" height="294" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.19-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.19-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.22: Using the <code>ax.plot</code> function
+Figure&nbsp;6.22: Using the <code>ax.plot()</code> function
 </figcaption>
 </figure>
 </div>
@@ -1542,16 +1543,16 @@ Figure&nbsp;6.22: Using the <code>ax.plot</code> function
 <div id="fig-fig6.20" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.20-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.20-output-1.png" width="469" height="278" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.20-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.20-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.23: Using the <code>ax.set</code> function
+Figure&nbsp;6.23: Using the <code>ax.set()</code> function
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>In the above examples, we create the <code>fig</code> and <code>ax</code> objects separately using <code>fig = plt.figure()</code> and <code>ax = plt.axes()</code>. Alternatively, we can generate both objects with a single command by using the <code>plt.subplots</code> function. Consider the following example:</p>
+<p>In the above examples, we create the <code>fig</code> and <code>ax</code> objects separately using <code>fig = plt.figure()</code> and <code>ax = plt.axes()</code>. Alternatively, we can generate both objects with a single command by using the <code>plt.subplots()</code> function. Consider the following example:</p>
 <div id="cell-fig-fig6.21" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Improved version: clearer labels, LaTeX formatting, grid, and tight layout</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
@@ -1573,10 +1574,10 @@ Figure&nbsp;6.23: Using the <code>ax.set</code> function
 <div id="fig-fig6.21" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.21-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.21-output-1.png" width="470" height="278" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.21-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.21-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.24: Using the <code>plt.subplots</code> function
+Figure&nbsp;6.24: Using the <code>plt.subplots()</code> function
 </figcaption>
 </figure>
 </div>
@@ -1585,17 +1586,17 @@ Figure&nbsp;6.24: Using the <code>plt.subplots</code> function
 </section>
 <section id="scatter-plots-1" class="level3" data-number="6.4.2">
 <h3 data-number="6.4.2" class="anchored" data-anchor-id="scatter-plots-1"><span class="header-section-number">6.4.2</span> Scatter plots</h3>
-<p>Scatter plots can be generated using the <code>ax.scatter</code> function or the <code>ax.plot</code> function with the option <code>linestyle=""</code>. The following example generates a scatter plot using the <code>ax.scatter</code> function.</p>
+<p>Scatter plots can be generated using the <code>ax.scatter()</code> function or the <code>ax.plot()</code> function with the option <code>linestyle=""</code>. The following example generates a scatter plot using the <code>ax.scatter()</code> function.</p>
 <div id="cell-fig-fig6.22" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot using ax.scatter</span></span>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot using ax.scatter()</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">4</span>))</span>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.axes()</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span>np.random.randn(<span class="dv">100</span>,<span class="dv">2</span>)</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.random.randn(<span class="dv">100</span>,<span class="dv">2</span>)</span>
 <span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>z[:,<span class="dv">1</span>] <span class="op">=</span> <span class="fl">0.5</span><span class="op">*</span>z[:,<span class="dv">0</span>] <span class="op">+</span> np.sqrt(<span class="fl">0.5</span>)<span class="op">*</span>z[:,<span class="dv">1</span>]</span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span>z[:,<span class="dv">0</span>]</span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>y<span class="op">=</span>z[:,<span class="dv">1</span>]</span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>ax.scatter(x,y,color<span class="op">=</span><span class="st">'steelblue'</span>, s<span class="op">=</span><span class="dv">25</span>)</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> z[:,<span class="dv">0</span>]</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> z[:,<span class="dv">1</span>]</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>ax.scatter(x, y, color<span class="op">=</span><span class="st">'steelblue'</span>, s<span class="op">=</span><span class="dv">25</span>)</span>
 <span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'x'</span>)</span>
 <span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'y'</span>)</span>
 <span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1603,23 +1604,23 @@ Figure&nbsp;6.24: Using the <code>plt.subplots</code> function
 <div id="fig-fig6.22" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.22-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.22-output-1.png" width="428" height="349" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.22-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.22-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.25: Scatter plot using <code>ax.scatter</code>
+Figure&nbsp;6.25: Scatter plot using <code>ax.scatter()</code>
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>In the following example, we generate a scatter plot using the <code>ax.plot</code> function with the option <code>linestyle=""</code>.</p>
+<p>In the following example, we generate a scatter plot using the <code>ax.plot()</code> function with the option <code>linestyle=""</code>.</p>
 <div id="cell-fig-fig6.23" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot using ax.plot</span></span>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot using ax.plot()</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">4</span>))</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y, linestyle<span class="op">=</span><span class="st">''</span>, marker<span class="op">=</span><span class="st">'o'</span>, ms<span class="op">=</span><span class="dv">5</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, label<span class="op">=</span><span class="st">"Data points"</span>)</span>
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'x'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
 <span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'y'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ax.set_title('Scatter plot using ax.plot', fontsize=14)</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ax.set_title('Scatter plot using ax.plot()', fontsize=14)</span></span>
 <span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ax.legend()</span></span>
 <span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
 <span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
@@ -1628,10 +1629,10 @@ Figure&nbsp;6.25: Scatter plot using <code>ax.scatter</code>
 <div id="fig-fig6.23" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.23-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.23-output-1.png" width="470" height="374" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.23-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.23-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.26: Scatter plot using <code>ax.plot</code>
+Figure&nbsp;6.26: Scatter plot using <code>ax.plot()</code>
 </figcaption>
 </figure>
 </div>
@@ -1640,9 +1641,9 @@ Figure&nbsp;6.26: Scatter plot using <code>ax.plot</code>
 </section>
 <section id="bar-plots-1" class="level3" data-number="6.4.3">
 <h3 data-number="6.4.3" class="anchored" data-anchor-id="bar-plots-1"><span class="header-section-number">6.4.3</span> Bar plots</h3>
-<p>Bar plots can be generated using the <code>ax.bar</code> function for vertical bars or the <code>ax.barh</code> function for horizontal bars.</p>
+<p>Bar plots can be generated using the <code>ax.bar()</code> function for vertical bars or the <code>ax.barh()</code> function for horizontal bars.</p>
 <div id="cell-fig-fig6.24" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar plot using ax.bar</span></span>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bar plot using ax.bar()</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.rand(<span class="dv">5</span>)</span>
 <span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="dv">5</span>)</span>
@@ -1656,18 +1657,18 @@ Figure&nbsp;6.26: Scatter plot using <code>ax.plot</code>
 <div id="fig-fig6.24" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.24-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.24-output-1.png" width="432" height="349" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.24-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.24-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.27: Bar plot using <code>ax.bar</code>
+Figure&nbsp;6.27: Bar plot using <code>ax.bar()</code>
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>In the following example, we generate a horizontal bar plot using the <code>ax.barh</code> function.</p>
+<p>In the following example, we generate a horizontal bar plot using the <code>ax.barh()</code> function.</p>
 <div id="cell-fig-fig6.24-1" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Horizontal Bar plot using ax.barh</span></span>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Horizontal Bar plot using ax.barh()</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.rand(<span class="dv">5</span>)</span>
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="st">"G1"</span>, <span class="st">"G2"</span>, <span class="st">"G3"</span>, <span class="st">"G4"</span>, <span class="st">"G5"</span>]</span>
@@ -1682,10 +1683,10 @@ Figure&nbsp;6.27: Bar plot using <code>ax.bar</code>
 <div id="fig-fig6.24-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.24-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.24-1-output-1.png" width="431" height="349" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.24-1-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.24-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.28: Horizontal bar plot using <code>ax.barh</code>
+Figure&nbsp;6.28: Horizontal bar plot using <code>ax.barh()</code>
 </figcaption>
 </figure>
 </div>
@@ -1694,27 +1695,27 @@ Figure&nbsp;6.28: Horizontal bar plot using <code>ax.barh</code>
 </section>
 <section id="pie-plot" class="level3" data-number="6.4.4">
 <h3 data-number="6.4.4" class="anchored" data-anchor-id="pie-plot"><span class="header-section-number">6.4.4</span> Pie plot</h3>
-<p>Pie plots can be generated using the <code>ax.pie</code> function. The <code>explode</code> option can be used to separate the slices of the pie chart, and the <code>autopct</code> option can be used to display the percentage of each slice.</p>
+<p>Pie plots can be generated using the <code>ax.pie()</code> function. The <code>explode</code> option can be used to separate the slices of the pie chart, and the <code>autopct</code> option can be used to display the percentage of each slice.</p>
 <div id="cell-fig-fig6.25" class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie plot</span></span>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie plot using ax.pie()</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.rand(<span class="dv">5</span>)</span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> y<span class="op">/</span><span class="bu">sum</span>(y)</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> y <span class="op">/</span> <span class="bu">sum</span>(y)</span>
 <span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>y[y<span class="op">&lt;</span><span class="fl">.05</span>] <span class="op">=</span> <span class="fl">.05</span></span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>labels<span class="op">=</span>[<span class="st">'Group 1'</span>,<span class="st">'Group 2'</span>,<span class="st">'Group 3'</span>,<span class="st">'Group 4'</span>,<span class="st">'Group 5'</span>]</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>labels<span class="op">=</span>[<span class="st">'Group 1'</span>, <span class="st">'Group 2'</span>, <span class="st">'Group 3'</span>, <span class="st">'Group 4'</span>, <span class="st">'Group 5'</span>]</span>
 <span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> [<span class="st">'#FF0000'</span>,<span class="st">'#FFFF00'</span>,<span class="st">'#00FF00'</span>,<span class="st">'#00FFFF'</span>,<span class="st">'#0000FF'</span>]</span>
 <span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
-<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>ax.pie(y,labels<span class="op">=</span>labels,colors<span class="op">=</span>colors, </span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>ax.pie(y,labels<span class="op">=</span>labels, colors<span class="op">=</span>colors, </span>
 <span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>    shadow<span class="op">=</span><span class="va">True</span>, explode<span class="op">=</span>np.array([<span class="fl">0.1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">0.1</span>,<span class="dv">0</span>]), autopct<span class="op">=</span><span class="st">'</span><span class="sc">%1.1f%%</span><span class="st">'</span>, startangle<span class="op">=</span><span class="dv">90</span>)</span>
 <span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="fig-fig6.25" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.25-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.25-output-1.png" width="459" height="389" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.25-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.25-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.29: Pie plot
+Figure&nbsp;6.29: Pie plot using <code>ax.pie()</code>
 </figcaption>
 </figure>
 </div>
@@ -1723,7 +1724,7 @@ Figure&nbsp;6.29: Pie plot
 </section>
 <section id="histograms-1" class="level3" data-number="6.4.5">
 <h3 data-number="6.4.5" class="anchored" data-anchor-id="histograms-1"><span class="header-section-number">6.4.5</span> Histograms</h3>
-<p>The <code>ax.hist</code> function is used to create a histogram. In the following example, the <code>density</code> option takes a boolean value that determines whether the histogram is normalized to form a probability density function (PDF).</p>
+<p>The <code>ax.hist()</code> function is used to create a histogram. In the following example, the <code>density</code> option takes a boolean value that determines whether the histogram is normalized to form a probability density function (PDF).</p>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First Histogram</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.randn(<span class="dv">1000</span>)</span>
@@ -1738,7 +1739,7 @@ Figure&nbsp;6.29: Pie plot
 <span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Second Histogram</span></span>
 <span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.randn(<span class="dv">1000</span>)</span>
 <span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">4</span>))</span>
-<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>ax.hist(x, bins<span class="op">=</span><span class="dv">30</span>, density<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span><span class="st">'#FF7F00'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>ax.hist(x, bins<span class="op">=</span><span class="dv">30</span>, density<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span><span class="st">'#FF7F00'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
 <span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Normalized Histogram'</span>)</span>
 <span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'x'</span>)</span>
 <span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Density'</span>)</span>
@@ -1752,7 +1753,7 @@ Figure&nbsp;6.29: Pie plot
 <div id="fig-fig6.26-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-fig6.26-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.26-output-1.png" data-ref-parent="fig-fig6.26" width="470" height="374" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.26-output-1.png" class="img-fluid figure-img" data-ref-parent="fig-fig6.26">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-fig6.26-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) First Histogram
@@ -1764,7 +1765,7 @@ Figure&nbsp;6.29: Pie plot
 <div id="fig-fig6.26-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-fig6.26-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.26-output-2.png" data-ref-parent="fig-fig6.26" width="470" height="374" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.26-output-2.png" class="img-fluid figure-img" data-ref-parent="fig-fig6.26">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-fig6.26-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Second Histogram
@@ -1775,19 +1776,20 @@ Figure&nbsp;6.29: Pie plot
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.26-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.30: Histogram
+Figure&nbsp;6.30: Histogram using <code>ax.hist()</code>
 </figcaption>
 </figure>
 </div>
 <p>In the following example, we show how to add multiple plots to the same axes. The first plot is a histogram, and the second plot is the probability density function (PDF) of the normal distribution.</p>
+<div id="cell-fig-fig6.28" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First Histogram with PDF overlay (OOP style, improved)</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.randn(<span class="dv">500</span>)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.randn(<span class="dv">1000</span>)</span>
 <span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">4</span>))</span>
 <span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot histogram</span></span>
 <span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>ax.hist(x, bins<span class="op">=</span><span class="dv">30</span>, label<span class="op">=</span><span class="st">'Empirical'</span>, density<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
 <span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Overlay normal PDF</span></span>
-<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>pdfx <span class="op">=</span> np.linspace(x.<span class="bu">min</span>(), x.<span class="bu">max</span>(), <span class="dv">500</span>)</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>pdfx <span class="op">=</span> np.linspace(x.<span class="bu">min</span>(), x.<span class="bu">max</span>(), <span class="dv">1000</span>)</span>
 <span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>pdfy <span class="op">=</span> stats.norm.pdf(pdfx)</span>
 <span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>ax.plot(pdfx, pdfy, <span class="st">'k-'</span>, label<span class="op">=</span><span class="st">'Normal PDF'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Labels and legend</span></span>
@@ -1797,29 +1799,23 @@ Figure&nbsp;6.30: Histogram
 <span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
 <span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
 <span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="cell-fig-fig6.28" class="cell quarto-layout-panel" data-execution_count="39" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output cell-output-display">
 <div id="fig-fig6.28" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.28-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.28-output-1.png" width="470" height="374" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.28-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.28-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.31: First Histogram
+Figure&nbsp;6.31: Multiple plots on the same axes
 </figcaption>
 </figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<p>Multiple plots on the same axes</p>
 </div>
 </div>
 </div>
 </section>
 <section id="multiple-plots-on-the-same-figure-1" class="level3" data-number="6.4.6">
 <h3 data-number="6.4.6" class="anchored" data-anchor-id="multiple-plots-on-the-same-figure-1"><span class="header-section-number">6.4.6</span> Multiple plots on the same figure</h3>
-<p>In the following example, we first create a <code>Figure</code> of size 8x7 inches using <code>fig=plt.figure(figsize=(8,7))</code>. We then create the 2x2 grid of subplots and the <code>Axes</code> objects with <code>fig.add_subplot(2,2,p)</code>, where p indicates the position of the subplot within the grid.</p>
+<p>In the following example, we first create a <code>Figure</code> of size 8x7 inches using <code>fig=plt.figure(figsize=(8,7))</code>. We then create the 2x2 grid of subplots and the <code>Axes</code> objects with <code>fig.add_subplot(2,2,p)</code>, where <code>p</code> indicates the position of the subplot within the grid.</p>
 <div id="cell-fig-fig6.27" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">7</span>))</span>
@@ -1873,10 +1869,10 @@ Figure&nbsp;6.31: First Histogram
 <div id="fig-fig6.27" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.27-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.27-output-1.png" width="662" height="662" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.27-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.27-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.32: Using the <code>fig.add_subplot</code> function
+Figure&nbsp;6.32: Using the <code>fig.add_subplot()</code> function
 </figcaption>
 </figure>
 </div>
@@ -1932,10 +1928,10 @@ Figure&nbsp;6.32: Using the <code>fig.add_subplot</code> function
 <div id="fig-fig6.27-f1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig6.27-f1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-Graphics_files/figure-html/fig-fig6.27-f1-output-1.png" width="662" height="662" class="figure-img">
+<img src="Chapter0-Graphics_files/figure-html/fig-fig6.27-f1-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig6.27-f1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.33: Using the <code>plt.subplots</code> function
+Figure&nbsp;6.33: Using the <code>plt.subplots()</code> function
 </figcaption>
 </figure>
 </div>
@@ -2402,7 +2398,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/Chapter0-Graphics.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
