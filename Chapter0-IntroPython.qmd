@@ -1,4 +1,4 @@
-# Introduction to Python{#sec-chapter1}
+# Introduction to Python {#sec-chapter1}
 
 ## Introduction
 Python is a general purpose high-level programming language conceived in 1989 by Dutch programmer Guido van Rossum. In a [blog post](http://python-history.blogspot.com/2009/01/introduction-and-overview.html), Guido discuss how Python has evolved over time. In this chapter, we explain how to install Python using the open-source Anaconda Distribution, and describe Python shells, Integrated Development Environments (IDEs), and Jupyter Notebooks for using the Python shell. We then show how to import modules and introduce key modules required for econometrics. Finally, we show how to perform variable assignments and introduce built-in data types.
