@@ -35,7 +35,7 @@ We adopt the standard notation used in @Stock2020. In particular, in an economet
 | $\nu$        | nu     | $\xi$, $\Xi$ | xi     |
 | $o$          | omicron| $\pi$, $\Pi$ | pi     |
 | $\rho$, $\varrho$       | rho    | $\sigma$, $\varsigma$, $\Sigma$     | sigma  |
-| $\tau$       | tau    | $\upsilon$   | upsilon|
+| $\tau$       | tau    | $\upsilon$, $\Upsilon$   | upsilon|
 | $\phi$, $\Phi$       | phi    | $\chi$       | chi    |
 | $\psi$, $\Psi$       | psi    | $\omega$, $\Omega$     | omega  |
 : Greek Letters {#tbl-GreekLetters .striped .hover}
