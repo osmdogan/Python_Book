@@ -8,7 +8,7 @@
 
 <meta name="author" content="Osman Doğan">
 <meta name="author" content="Süleyman Taşpınar">
-<meta name="dcterms.date" content="2025-08-08">
+<meta name="dcterms.date" content="2025-08-09">
 
 <title>Introduction to Econometrics with Python</title>
 <style>
@@ -478,6 +478,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#notation" id="toc-notation" class="nav-link" data-scroll-target="#notation">Notation</a></li>
   <li><a href="#import-conventions" id="toc-import-conventions" class="nav-link" data-scroll-target="#import-conventions">Import Conventions</a></li>
   <li><a href="#code-examples" id="toc-code-examples" class="nav-link" data-scroll-target="#code-examples">Code Examples</a></li>
   <li><a href="#callout-blocks" id="toc-callout-blocks" class="nav-link" data-scroll-target="#callout-blocks">Callout Blocks</a></li>
@@ -509,7 +510,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 8, 2025</p>
+      <p class="date">August 9, 2025</p>
     </div>
   </div>
   
@@ -548,10 +549,118 @@ window.Quarto = {
 <p>The final part, Theoretical Topics, contains two chapters on econometric theory. In the first chapter, we present formal results along with their proofs for the regression model with one regressor. In the second chapter, using linear algebra notation, we provide theoretical results for the multiple linear regression model, instrumental variables regression, generalized method of moments estimation for the linear models.</p>
 <p>Finally, we provide some technical details related to Chapters 11, 21, 25, and 26 in the appendices.</p>
 </section>
+<section id="notation" class="level1">
+<h1>Notation</h1>
+<p>We adopt the standard notation used in <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span>. In particular, in an econometric model, we use Latin letters such as <span class="math inline">\(Y\)</span>, <span class="math inline">\(X\)</span>, <span class="math inline">\(W\)</span>, and <span class="math inline">\(Z\)</span> to denote variables, and Greek letters such as <span class="math inline">\(\beta\)</span>, <span class="math inline">\(\gamma\)</span>, and <span class="math inline">\(\delta\)</span> to denote unknown parameters.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> For the convenience of readers, we list the Greek letters in the following table.</p>
+<div style="font-size: 80%">
+<div id="tbl-GreekLetters" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-GreekLetters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1.1: Greek Letters
+</figcaption>
+<div aria-describedby="tbl-GreekLetters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table-hover caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 18%">
+<col style="width: 31%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Greek Letter</th>
+<th>Name</th>
+<th>Greek Letter</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\alpha\)</span></td>
+<td>alpha</td>
+<td><span class="math inline">\(\beta\)</span></td>
+<td>beta</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\gamma\)</span></td>
+<td>gamma</td>
+<td><span class="math inline">\(\delta\)</span>, <span class="math inline">\(\Delta\)</span></td>
+<td>delta</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\epsilon\)</span>, <span class="math inline">\(\varepsilon\)</span></td>
+<td>epsilon</td>
+<td><span class="math inline">\(\zeta\)</span></td>
+<td>zeta</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\eta\)</span></td>
+<td>eta</td>
+<td><span class="math inline">\(\theta\)</span>, <span class="math inline">\(\Theta\)</span></td>
+<td>theta</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\iota\)</span></td>
+<td>iota</td>
+<td><span class="math inline">\(\kappa\)</span></td>
+<td>kappa</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\lambda\)</span>, <span class="math inline">\(\Lambda\)</span></td>
+<td>lambda</td>
+<td><span class="math inline">\(\mu\)</span></td>
+<td>mu</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\nu\)</span></td>
+<td>nu</td>
+<td><span class="math inline">\(\xi\)</span>, <span class="math inline">\(\Xi\)</span></td>
+<td>xi</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(o\)</span></td>
+<td>omicron</td>
+<td><span class="math inline">\(\pi\)</span>, <span class="math inline">\(\Pi\)</span></td>
+<td>pi</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\rho\)</span>, <span class="math inline">\(\varrho\)</span></td>
+<td>rho</td>
+<td><span class="math inline">\(\sigma\)</span>, <span class="math inline">\(\varsigma\)</span>, <span class="math inline">\(\Sigma\)</span></td>
+<td>sigma</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\tau\)</span></td>
+<td>tau</td>
+<td><span class="math inline">\(\upsilon\)</span></td>
+<td>upsilon</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\phi\)</span>, <span class="math inline">\(\Phi\)</span></td>
+<td>phi</td>
+<td><span class="math inline">\(\chi\)</span></td>
+<td>chi</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\psi\)</span>, <span class="math inline">\(\Psi\)</span></td>
+<td>psi</td>
+<td><span class="math inline">\(\omega\)</span>, <span class="math inline">\(\Omega\)</span></td>
+<td>omega</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+<p>We use hat or tilde notation to denote estimators and estimates; for example, <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> are the estimators or estimates of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>, respectively.</p>
+<p>For vectors, we use lowercase boldface letters such as <span class="math inline">\(\boldsymbol{y}\)</span>, <span class="math inline">\(\boldsymbol{x}\)</span>, <span class="math inline">\(\boldsymbol{w}\)</span>, and <span class="math inline">\(\boldsymbol{z}\)</span>, and for matrices, we use uppercase boldface letters such as <span class="math inline">\(\boldsymbol{Y}\)</span>, <span class="math inline">\(\boldsymbol{X}\)</span>, <span class="math inline">\(\boldsymbol{W}\)</span>, and <span class="math inline">\(\boldsymbol{Z}\)</span>.</p>
+<p>We denote a random sample on the random variable <span class="math inline">\(Y\)</span> as <span class="math inline">\(\{Y_1, Y_2, \ldots, Y_n\}\)</span> or <span class="math inline">\(\{Y_i\}_{i=1}^n\)</span>, where <span class="math inline">\(n\)</span> is the sample size. In the case of time series data, we use <span class="math inline">\(\{Y_t\}_{t=1}^T\)</span> to denote the random sample. In the case of panel data, we use double subscripts to denote observations, such as <span class="math inline">\({Y_{it}}\)</span> for the <span class="math inline">\(i\)</span>th entity at time <span class="math inline">\(t\)</span>.</p>
+</section>
 <section id="import-conventions" class="level1">
 <h1>Import Conventions</h1>
 <p>In each chapter, we first import all the modules required for the econometric analysis introduced in that chapter. We follow the alias conventions used by the Python community for commonly used modules:</p>
-<div id="e04ac2ba" class="cell" data-execution_count="1">
+<div id="de6d58c1" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -563,28 +672,28 @@ window.Quarto = {
 <section id="code-examples" class="level1">
 <h1>Code Examples</h1>
 <p>We use the conventional code font for displaying code in the text. Code chunks are presented in highlighted cells, as shown in the following example:</p>
-<div id="fa198936" class="cell" data-execution_count="3">
+<div id="a43dc9c8" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The output of a code cell is shown in the subsequent cell, as shown in the following example:</p>
-<div id="0dabcbb0" class="cell" data-execution_count="4">
+<div id="b24f03b6" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x.append(<span class="dv">99</span>) <span class="co"># adding 99 to the list x</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>[1, 2, 3, 4, 99]</code></pre>
 </div>
 </div>
 <p>The above cell displays the updated list <code>x</code>. If a code cell returns multiple outputs, these outputs are displayed in separate cells, in the order they are produced. For example, the code below returns <code>type(x) = list</code> and <code>type(y) = tuple</code> in separate cells:</p>
-<div id="09da64e7" class="cell" data-execution_count="5">
+<div id="cdbe23f8" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">10</span>,<span class="dv">2</span>,<span class="dv">35</span>,<span class="dv">11</span>,<span class="dv">12</span>] <span class="co"># list</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(x)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> (<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>) <span class="co"># tuple</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>list</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>tuple</code></pre>
 </div>
 </div>
@@ -643,6 +752,12 @@ Assumptions
 Stock, James H., and Mark W. Watson. 2020. <em>Introduction to Econometrics</em>. Fourth edition. Pearson.
 </div>
 </div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>According to econometrician Anil K. Bera, the English phrase “It is all Greek to me”, meaning “I do not understand it at all”, has contributed to the tradition of using Greek letters for unknown quantities in econometrics. There are also similar formulations in other languages. See the <a href="https://en.wikipedia.org/wiki/Greek_to_me">Wikipedia page</a> for more details. <a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->

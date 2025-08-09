@@ -20,6 +20,34 @@ The final part, Theoretical Topics, contains two chapters on econometric theory.
 
 Finally, we provide some technical details related to Chapters 11, 21, 25, and 26 in the appendices.
 
+# Notation
+We adopt the standard notation used in @Stock2020. In particular, in an econometric model, we use Latin letters such as $Y$, $X$, $W$, and $Z$ to denote variables, and Greek letters such as $\beta$, $\gamma$, and $\delta$ to denote unknown parameters.^[According to econometrician Anil K. Bera, the English phrase “It is all Greek to me”, meaning “I do not understand it at all”, has contributed to the tradition of using Greek letters for unknown quantities in econometrics. There are also similar formulations in other languages. See the [Wikipedia page](https://en.wikipedia.org/wiki/Greek_to_me) for more details. ] For the convenience of readers, we list the Greek letters in the following table.
+
+::: {style="font-size: 80%"}
+| Greek Letter | Name   | Greek Letter | Name   |
+|--------------|--------|--------------|--------|
+| $\alpha$     | alpha  | $\beta$      | beta   |
+| $\gamma$     | gamma  | $\delta$, $\Delta$     | delta  |
+| $\epsilon$, $\varepsilon$   | epsilon| $\zeta$      | zeta   |
+| $\eta$       | eta    | $\theta$, $\Theta$     | theta  |
+| $\iota$      | iota   | $\kappa$     | kappa  |
+| $\lambda$, $\Lambda$    | lambda | $\mu$        | mu     |
+| $\nu$        | nu     | $\xi$, $\Xi$ | xi     |
+| $o$          | omicron| $\pi$, $\Pi$ | pi     |
+| $\rho$, $\varrho$       | rho    | $\sigma$, $\varsigma$, $\Sigma$     | sigma  |
+| $\tau$       | tau    | $\upsilon$   | upsilon|
+| $\phi$, $\Phi$       | phi    | $\chi$       | chi    |
+| $\psi$, $\Psi$       | psi    | $\omega$, $\Omega$     | omega  |
+: Greek Letters {#tbl-GreekLetters .striped .hover}
+:::
+
+We use hat or tilde notation to denote estimators and estimates; for example, $\hat{\beta}_0$ and $\hat{\beta}_1$ are the estimators or estimates of $\beta_0$ and $\beta_1$, respectively. 
+
+For vectors, we use lowercase boldface letters such as $\boldsymbol{y}$, $\boldsymbol{x}$, $\boldsymbol{w}$, and $\boldsymbol{z}$, and for matrices, we use uppercase boldface letters such as $\boldsymbol{Y}$, $\boldsymbol{X}$, $\boldsymbol{W}$, and $\boldsymbol{Z}$. 
+
+We denote a random sample on the random variable $Y$ as $\{Y_1, Y_2, \ldots, Y_n\}$ or $\{Y_i\}_{i=1}^n$, where $n$ is the sample size. In the case of time series data, we use $\{Y_t\}_{t=1}^T$ to denote the random sample. In the case of panel data, we use double subscripts to denote observations, such as ${Y_{it}}$ for the $i$th entity at time $t$.
+
+
 # Import Conventions 
 In each chapter, we first import all the modules required for the econometric analysis introduced in that chapter. We follow the alias conventions used by the Python community for commonly used modules:
 
