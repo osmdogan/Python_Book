@@ -6,7 +6,7 @@ book:
   title: "Introduction to Econometrics with Python"
   reader-mode: true
   author: ["Osman Doğan", "Süleyman Taşpınar"]
-  date: today
+  date: "today"
   repo-url: https://github.com/osmdogan/Python_Book
   repo-actions: [edit, issue]
   site-url: https://osmdogan.github.io/Python_Book/

@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://osmdogan.github.io/Python_Book/Chapter0-IntroPython.html</loc>
-    <lastmod>2025-08-09T12:52:20.318Z</lastmod>
+    <lastmod>2025-08-09T13:01:09.767Z</lastmod>
   </url>
   <url>
     <loc>https://osmdogan.github.io/Python_Book/Chapter0-IntroNumpy.html</loc>
@@ -51,5 +51,9 @@
   <url>
     <loc>https://osmdogan.github.io/Python_Book/Chapter0-Pandas.html</loc>
     <lastmod>2025-06-09T10:25:13.411Z</lastmod>
+  </url>
+  <url>
+    <loc>https://osmdogan.github.io/Python_Book/Chapter13-Experiments.html</loc>
+    <lastmod>2025-08-03T10:44:38.659Z</lastmod>
   </url>
 </urlset>
