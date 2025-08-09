@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.55">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -187,7 +187,7 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Econometrics with Python</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/hadley/r4ds/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/osmdogan/Python_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -442,25 +442,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix1.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixA.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix for Chapter 11</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix2.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixB.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix for Chapter 21</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix3.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixC.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Appendix for Chapter 25</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix4.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixD.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Appendix for Chapter 26</span></span></a>
   </div>
 </li>
@@ -502,7 +502,7 @@ window.Quarto = {
   <li><a href="#example-4-the-effect-of-term-spread-on-the-gdp-growth-rate" id="toc-example-4-the-effect-of-term-spread-on-the-gdp-growth-rate" class="nav-link" data-scroll-target="#example-4-the-effect-of-term-spread-on-the-gdp-growth-rate"><span class="header-section-number">23.6.4</span> Example 4: The effect of term spread on the GDP growth rate</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/hadley/r4ds/edit/main/Chapter16-DynamicCausalEffects.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hadley/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/Chapter16-DynamicCausalEffects.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -526,7 +526,7 @@ window.Quarto = {
 </header>
 
 
-<div id="cbf34824" class="cell" data-execution_count="1">
+<div id="779bae64" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
@@ -679,7 +679,7 @@ Y_t=\beta_0+\beta_1X_t+u_t.
 \begin{align}
 \tilde{\sigma}^2_{\hat{\beta}_1}=\hat{\sigma}^2_{\hat{\beta}_1}\hat{f}_T,
 \end{align}
-\tag{23.4}\]</span></span> where <span class="math inline">\(\hat{\sigma}^2_{\hat{\beta}_1}\)</span> is the heteroskedasticity-robust estimator of the variance of <span class="math inline">\(\hat{\beta}_1\)</span> given in <a href="Chapter5-LinearRegressionOneRegressorInference.html" class="quarto-xref"><span>Chapter 12</span></a> in the absence of no autocorrelation. The second term <span class="math inline">\(\hat{f}_T\)</span> is an estimator of <span class="math inline">\(f_T\)</span> given by <span class="math display">\[
+\tag{23.4}\]</span></span> where <span class="math inline">\(\hat{\sigma}^2_{\hat{\beta}_1}\)</span> is the heteroskedasticity-robust estimator of the variance of <span class="math inline">\(\hat{\beta}_1\)</span> given in <span class="quarto-unresolved-ref">?sec-inference1</span> in the absence of no autocorrelation. The second term <span class="math inline">\(\hat{f}_T\)</span> is an estimator of <span class="math inline">\(f_T\)</span> given by <span class="math display">\[
 \begin{align}
 \hat{f}_T=1+2\sum_{j=1}^{m-1}\left(\frac{m-j}{m}\right)\tilde{\rho}_j,
 \end{align}
@@ -751,7 +751,7 @@ Y_t=\alpha_0+\phi_1Y_{t-1}+\delta_0X_t+\delta_1X_{t-1}+\delta_2X_{t-2}+\tilde{u}
 </ul>
 <p>The number of freezing degree days (<code>fdd</code>) is computed from the sum of the number of degrees below 31 degrees Fahrenheit for each day in the month. For example, assume that there were three days in a month with temperatures of 30, 29, and 28 degrees Fahrenheit. Then, the number of freezing degree days for that month is <span class="math inline">\((31-30)+(31-29)+(31-28)=6\)</span>.</p>
 <p>The dataset is available in the <code>frozenjuice.csv</code> file. We use the following code to load the data set and define real prices and percentage changes in real prices.</p>
-<div id="178fbe96" class="cell" data-execution_count="2">
+<div id="9ad9f3dd" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data set</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'data/FrozenJuice.csv'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df.index <span class="op">=</span> pd.date_range(start<span class="op">=</span><span class="st">'1950-01-01'</span>, periods<span class="op">=</span><span class="bu">len</span>(df), freq<span class="op">=</span><span class="st">'ME'</span>)</span>
@@ -897,7 +897,7 @@ Table&nbsp;23.1: Summary statistics
 <div id="fig-f23-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f23-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter16-DynamicCausalEffects_files/figure-html/fig-f23-1-output-1.png" width="758" height="567" class="figure-img">
+<img src="Chapter16-DynamicCausalEffects_files/figure-html/fig-f23-1-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f23-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;23.1: Orange juice prices and cold weather
@@ -934,7 +934,7 @@ Figure&nbsp;23.1: Orange juice prices and cold weather
 <li><span class="math inline">\(\delta_{19}=\beta_1+\beta_2+\ldots+\beta_{19}\)</span>: long-run cumulative dynamic multiplier</li>
 </ul>
 <p>We use the HAC standard errors to obtain valid inference on the dynamic multipliers and cumulative dynamic multipliers. The truncation parameter for the HAC standard errors is <span class="math inline">\(m=0.75T^{1/3}=0.75\times612^{1/3}=6.37\)</span>. Therefore, we consider <span class="math inline">\(m=7\)</span> and <span class="math inline">\(m=14\)</span> for the HAC standard errors, where the latter is used to check the robustness of the results. The following code chunk shows how to estimate the models and obtain the HAC standard errors. The HAC standard errors estimates are obtained using the <code>cov_type='HAC'</code> and <code>cov_kwds={'maxlags': 7}</code> options, where the latter option specifies the truncation parameter.</p>
-<div id="d2d8fcdc" class="cell" data-execution_count="5">
+<div id="269e1127" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare the data for the models</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'dFDD'</span>] <span class="op">=</span> df[<span class="st">'fdd'</span>].diff()</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -962,7 +962,7 @@ Figure&nbsp;23.1: Orange juice prices and cold weather
 <section id="estimation-results" class="level3" data-number="23.5.3">
 <h3 data-number="23.5.3" class="anchored" data-anchor-id="estimation-results"><span class="header-section-number">23.5.3</span> Estimation results</h3>
 <p>We use the <code>Stargazer</code> package to present the estimation results. The following code chunk shows how to present the results in a table. <a href="#tbl-t23-2" class="quarto-xref">Table&nbsp;<span>23.2</span></a> includes the estimates of the dynamic multipliers and cumulative dynamic multipliers.</p>
-<div id="fe9c7a01" class="cell" data-execution_count="6">
+<div id="78320b27" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare the table</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>v1<span class="op">=</span>[<span class="ss">f'fdd.shift(</span><span class="sc">{</span>lag<span class="sc">}</span><span class="ss">)'</span> <span class="cf">for</span> lag <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">19</span>)] </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>v2<span class="op">=</span>[<span class="ss">f'dFDD.shift(</span><span class="sc">{</span>lag<span class="sc">}</span><span class="ss">)'</span> <span class="cf">for</span> lag <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">18</span>)]</span>
@@ -1104,7 +1104,7 @@ Table&nbsp;23.2: The dynamic effect of a freezing degree day on the price of ora
 <div id="fig-f23-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f23-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter16-DynamicCausalEffects_files/figure-html/fig-f23-2-output-1.png" width="514" height="354" class="figure-img">
+<img src="Chapter16-DynamicCausalEffects_files/figure-html/fig-f23-2-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f23-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;23.2: Dynamic Effect of FDD on Orange Juice Price
@@ -1113,7 +1113,7 @@ Figure&nbsp;23.2: Dynamic Effect of FDD on Orange Juice Price
 </div>
 </div>
 </div>
-<p>The second column of <a href="#tbl-t23-2" class="quarto-xref">Table&nbsp;<span>23.2</span></a> presents the estimated cumulative dynamic multipliers. The estimated coefficient on dFFD.shift(1) suggests that the cumulative effect of a one-unit increase in the number of freezing degree days over the first two months is a 0.68% increase in real prices. Similarly, the estimated coefficient on dFFD.shift(2) indicates that the cumulative effect over the first three months is a 0.75% increase in real prices. The long-run cumulative dynamic multiplier is given by the estimated coefficient on fdd.shift(18), which is 0.37. This implies that a one-unit increase in the number of freezing degree days over 18 months leads to a 0.37% increase in real prices. However, this effect is not statistically different from zero at the 5% significance level.</p>
+<p>The second column of <a href="#tbl-t23-2" class="quarto-xref">Table&nbsp;<span>23.2</span></a> presents the estimated cumulative dynamic multipliers. The estimated coefficient on dFFD.shift(1) suggests that the cumulative effect of a one-unit increase in the number of freezing degree days over the first two months is a 0.68% increase in real prices. Similarly, the estimated coefficient on <code>dFFD.shift(2)</code> indicates that the cumulative effect over the first three months is a 0.75% increase in real prices. The long-run cumulative dynamic multiplier is given by the estimated coefficient on fdd.shift(18), which is 0.37. This implies that a one-unit increase in the number of freezing degree days over 18 months leads to a 0.37% increase in real prices. However, this effect is not statistically different from zero at the 5% significance level.</p>
 <p><a href="Chapter15-TimeSeriesRegression.html#fig-f22-3" class="quarto-xref">Figure&nbsp;<span>22.3</span></a> displays the estimated cumulative dynamic multipliers along with their 95% confidence intervals. The figure shows that the cumulative multipliers increase over the first seven months, as the dynamic multipliers remain positive during this period. It also indicates that the cumulative multipliers for the first 12 months are statistically different from zero at the 5% significance level. However, the cumulative multipliers for the remaining months are not statistically different from zero, i.e., the confidence intervals include the zero line.</p>
 <div id="cell-fig-f23-3" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot of cumulative dynamic multipliers</span></span>
@@ -1138,7 +1138,7 @@ Figure&nbsp;23.2: Dynamic Effect of FDD on Orange Juice Price
 <div id="fig-f23-3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f23-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter16-DynamicCausalEffects_files/figure-html/fig-f23-3-output-1.png" width="514" height="353" class="figure-img">
+<img src="Chapter16-DynamicCausalEffects_files/figure-html/fig-f23-3-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f23-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;23.3: Cumulative Dynamic Effect of FDD on Orange Juice Price
@@ -1158,17 +1158,18 @@ Figure&nbsp;23.3: Cumulative Dynamic Effect of FDD on Orange Juice Price
 \end{align*}
 \]</span></p>
 <p>We use the F-statistic to test the joint null hypothesis. The p-value for the test is 0.47, indicating that the monthly dummy variables do not have a statistically significant effect on the percentage change in real prices.</p>
-<div id="cf2c8ba3" class="cell" data-execution_count="10">
+<div id="065bc34a" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># F-test for the joint null hypothesis</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>restrictions<span class="op">=</span>[<span class="st">'month_2[T.True]=0'</span>, <span class="st">'month_3[T.True]=0'</span>, <span class="st">'month_4[T.True]=0'</span>, <span class="st">'month_5[T.True]=0'</span>, <span class="st">'month_6[T.True]=0'</span>, <span class="st">'month_7[T.True]=0'</span>, <span class="st">'month_8[T.True]=0'</span>, <span class="st">'month_9[T.True]=0'</span>, <span class="st">'month_10[T.True]=0'</span>, <span class="st">'month_11[T.True]=0'</span>, <span class="st">'month_12[T.True]=0'</span>]</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>f_test <span class="op">=</span> model3.f_test(restrictions)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>f_test.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>restrictions <span class="op">=</span> [<span class="st">'month_2[T.True]=0'</span>, <span class="st">'month_3[T.True]=0'</span>, <span class="st">'month_4[T.True]=0'</span>, <span class="st">'month_5[T.True]=0'</span>, <span class="st">'month_6[T.True]=0'</span>, <span class="st">'month_7[T.True]=0'</span>, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">'month_8[T.True]=0'</span>, <span class="st">'month_9[T.True]=0'</span>, <span class="st">'month_10[T.True]=0'</span>, <span class="st">'month_11[T.True]=0'</span>, <span class="st">'month_12[T.True]=0'</span>]</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>f_test <span class="op">=</span> model3.f_test(restrictions)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>f_test.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
-<pre><code>'&lt;F test: F=0.9682947074579008, p=0.4742606374507512, df_denom=563, df_num=11&gt;'</code></pre>
+<pre><code>'&lt;F test: F=0.9682947074578838, p=0.47426063745075986, df_denom=563, df_num=11&gt;'</code></pre>
 </div>
 </div>
 <p>Finally, we examine whether the dynamic multipliers have remained stable over time. One way to assess this is by estimating these multipliers for different subperiods of the sample. For example, we consider the periods 1950–1966, 1967–1983, and 1984–2000. If the multipliers are consistent across all three periods, their estimates should be similar, and the estimated cumulative multipliers should also align. To investigate this, we re-estimate Model 2 for each subperiod and compare the estimated cumulative dynamic multipliers in <a href="#fig-f23-4" class="quarto-xref">Figure&nbsp;<span>23.4</span></a>. The figure shows that the estimated cumulative dynamic multipliers are relatively larger in the first subperiod compared to the other two subperiods. This suggests that the effect of freezing degree days on real prices has decreased over time.</p>
-<div id="987e0e68" class="cell" data-execution_count="11">
+<div id="41ff8f1f" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define subperiods</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> df.loc[<span class="st">'1950-01-01'</span>:<span class="st">'1966-12-01'</span>]</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> df.loc[<span class="st">'1967-01-01'</span>:<span class="st">'1983-12-01'</span>]</span>
@@ -1197,7 +1198,7 @@ Figure&nbsp;23.3: Cumulative Dynamic Effect of FDD on Orange Juice Price
 <div id="fig-f23-4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f23-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter16-DynamicCausalEffects_files/figure-html/fig-f23-4-output-1.png" width="506" height="349" class="figure-img">
+<img src="Chapter16-DynamicCausalEffects_files/figure-html/fig-f23-4-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f23-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;23.4: Cumulative Dynamic Effect of FDD on Orange Juice Price for Different Subperiods
@@ -1362,7 +1363,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/osmdogan\.github\.io\/Python_Book\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1710,7 +1711,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hadley/r4ds/edit/main/Chapter16-DynamicCausalEffects.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hadley/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/Chapter16-DynamicCausalEffects.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

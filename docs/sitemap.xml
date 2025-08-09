@@ -62,11 +62,11 @@
   </url>
   <url>
     <loc>https://osmdogan.github.io/Python_Book/AppendixB.html</loc>
-    <lastmod>2025-08-09T18:19:31.434Z</lastmod>
+    <lastmod>2025-08-09T19:03:42.795Z</lastmod>
   </url>
   <url>
     <loc>https://osmdogan.github.io/Python_Book/Chapter17-AdditionalTopicsTimeSeries.html</loc>
-    <lastmod>2025-08-09T18:26:21.211Z</lastmod>
+    <lastmod>2025-08-09T19:40:20.587Z</lastmod>
   </url>
   <url>
     <loc>https://osmdogan.github.io/Python_Book/AppendixC.html</loc>
@@ -79,5 +79,13 @@
   <url>
     <loc>https://osmdogan.github.io/Python_Book/AppendixD.html</loc>
     <lastmod>2025-08-09T18:49:09.282Z</lastmod>
+  </url>
+  <url>
+    <loc>https://osmdogan.github.io/Python_Book/Chapter16-DynamicCausalEffects.html</loc>
+    <lastmod>2025-08-09T19:49:24.406Z</lastmod>
+  </url>
+  <url>
+    <loc>https://osmdogan.github.io/Python_Book/Chapter15-TimeSeriesRegression.html</loc>
+    <lastmod>2025-08-09T19:47:23.027Z</lastmod>
   </url>
 </urlset>

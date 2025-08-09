@@ -26,7 +26,7 @@ In this chapter, we consider some selected topics in time series analysis. We co
 
 ## Vector Autoregressions
 ### VAR models
-VARs are introduced by @Sims1980. A VAR model is a generalization of the univariate ADL model to multiple time series. The VAR model for k variables is a set of k ADL models that are estimated simultaneously. If the number of lags is p in each equation in the VAR model, the model is called a VAR(p) model. For example, in the case of two variables $Y_t$ and $X_t$, the VAR(p) model is given by
+VARs are introduced by @Sims1980. A VAR model is a generalization of the univariate ADL model to multiple time series. The VAR model for $k$ variables is a set of $k$ ADL models that are estimated simultaneously. If the number of lags is $p$ in each equation in the VAR model, the model is called a VAR($p$) model. For example, in the case of two variables $Y_t$ and $X_t$, the VAR($p$) model is given by
 $$
 \begin{align*}
 Y_t &= \beta_{10}+\beta_{11}Y_{t-1}+\beta_{12}Y_{t-2}+\cdots+\beta_{1p}Y_{t-p}+\gamma_{11}X_{t-1}+\cdots+\gamma_{1p}X_{t-p}+u_{1t},\\
@@ -35,7 +35,7 @@ X_t &= \beta_{20}+\beta_{21}Y_{t-1}+\beta_{22}Y_{t-2}+\cdots+\beta_{2p}Y_{t-p}+\
 $${#eq-eq24-1}
 where $\beta$'s and $\gamma$'s are unknown parameters, and $u_{1t}$ and $u_{2t}$ are the error terms. 
 
-Using matrix notation, we can express the two-variable VAR(p) as
+Using matrix notation, we can express the two-variable VAR($p$) as
 $$
 \begin{align*}
 &
@@ -109,7 +109,7 @@ u_{2t}
 $$
 for $j=1,2,\ldots,p$.
 
-The VAR(p) in @eq-eq24-2 is called the reduced-form VAR(p) or the VAR(p) in standard form.
+The VAR($p$) in @eq-eq24-2 is called the reduced-form VAR($p$) or the VAR($p$) in standard form.
 
 We can use the OLS estimator to estimate each equation in a VAR model. The assumptions required for estimating the VAR model are the same as those outlined in @sec-chapter22-assumptions for the ADL model. In particular, each variable in the model must be stationary. In large samples, the OLS estimator is consistent and asymptotically normal. Consequently, inference can be conducted as in a multiple regression model.
 
@@ -128,7 +128,7 @@ $$
 &H_1:\text{At least one parameter is not zero}.
 \end{align*}
 $$
-We can resort to the F-statistic to test the null hypothesis.  
+We can resort to the $F$-statistic to test the null hypothesis.  
 
 ### Model formulation
 When formulating a VAR model, we usually face the following issues:
@@ -137,8 +137,7 @@ When formulating a VAR model, we usually face the following issues:
 2. What is the appropriate number of lags to include in the model?
 3. Which variables should be included in the model?
 
-Although the modeling process depends on the specific research question and available data, @Stock2020 provide a general guideline for formulating a VAR model. For the first and second questions, we need to note that the number of parameters to estimate increases with both the number of VAR variables and the number of lags. For example, in a VAR(2) model with two variables, there are 10 parameters to estimate, whereas in a VAR(2) model with three variables, this number increases to 18. If the sample size is small and the number of parameters is large, the OLS estimator may not accurately estimate all parameters. Therefore, when using the OLS estimator, the number of VAR variables should be kept small so that the number of parameters remains relatively low compared to the sample size.
-
+Although the modeling process depends on the specific research question and available data, @Stock2020 provide a general guideline for formulating a VAR model. For the first and second questions, we need to note that the number of parameters to estimate increases with both the number of VAR variables and the number of lags. For example, in a VAR($2$) model with two variables, there are 10 parameters to estimate, whereas in a VAR($2$) model with three variables, this number increases to 18. If the sample size is small and the number of parameters is large, the OLS estimator may not accurately estimate all parameters. Therefore, when using the OLS estimator, the number of VAR variables should be kept small so that the number of parameters remains relatively low compared to the sample size.
 
 To determine the number of lags, we can use information criteria. Specifically, we consider the Bayesian Information Criterion (BIC) and the Akaike Information Criterion (AIC), which are defined as follows:
 $$ 
@@ -155,7 +154,7 @@ For the third question, we should use economic theory to select VAR variables th
 So far, we have only considered using VAR models for prediction and forecasting. However, VAR models can also be used to study causal relationships among the VAR variables. This type of VAR model is called a structural VAR model (SVAR). SVAR models are typically used to analyze the dynamic effects of a structural shock in one variable on the other VAR variables. These models require assumptions to specify which VAR variables are exogenous. For further discussion on SVAR models, see @Lutkepohl2005 and @Hansen2022.
 
 ### An empirical application
-In this section, we consider a VAR(2) model for the GDP growth rate (GDPGR) and the term spread (TSpread) for the U.S. economy. The model takes the following form: 
+In this section, we consider a VAR($2$) model for the GDP growth rate (GDPGR) and the term spread (TSpread) for the U.S. economy. The model takes the following form: 
 $$
 \begin{align*}
 &\text{GDPGR}_t=\beta_{10}+\beta_{11}\text{GDPGR}_{t-1}+
@@ -173,7 +172,7 @@ The `GDGGR` variable is contained in the `GrowthRate.csv` file, and the `TSpread
 ```{python}
 # Load the GrowthRate data
 dfGrowth = pd.read_excel('data/GrowthRate.xlsx', header = 0)
-dfGrowth.index = pd.date_range(start = '1960', periods=len(dfGrowth), freq = 'QS')
+dfGrowth.index = pd.date_range(start = '1960', periods = len(dfGrowth), freq = 'QS')
 dfGrowth.columns
 ```
 
@@ -187,7 +186,7 @@ The `TermSpread.csv` file includes data on the following variables:
 ```{python}
 # Load the TermSpread data
 dfTermSpread = pd.read_csv('data/TermSpread.csv', header = 0)
-dfTermSpread.index = pd.date_range(start = '1960-01-01', periods=len(dfTermSpread), freq = 'QS') 
+dfTermSpread.index = pd.date_range(start = '1960-01-01', periods = len(dfTermSpread), freq = 'QS') 
 dfTermSpread.columns
 ```
 
@@ -224,7 +223,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-Although our model is a VAR(2) model, we can check whether the information criteria return the same number of lags. In the following code chunk, we first use the `VAR` function to create the VAR model. The `select_order` method is then used to determine the number of lags selected by the information criteria. The results indicate that all information criteria suggest 2 lags.
+Although our model is a VAR($2$) model, we can check whether the information criteria return the same number of lags. In the following code chunk, we first use the `VAR()` function to create the VAR model. The `select_order` method is then used to determine the number of lags selected by the information criteria. The results indicate that all information criteria suggest 2 lags.
 
 ```{python}
 # Fit the VAR model
@@ -263,7 +262,7 @@ var_model.test_whiteness(nlags=4).summary()
 
 Thus, both `acos_ljungbox` and `test_whiteness` tests indicate that there is no serial correlation in the residuals, suggesting that two lags are sufficient to capture the dynamics of the GDP growth rate and the term spread. 
 
-Next,  to determine whether `TSpread` Granger-causes `GDPGR`, we use the F-statistic for the following null and alternative hypotheses:
+Next, to determine whether `TSpread` Granger-causes `GDPGR`, we use the $F$-statistic for the following null and alternative hypotheses:
 $$
 \begin{align}
 &H_0: \gamma_{11}=\gamma_{12}=0,\\
@@ -274,7 +273,7 @@ $$
 This test is conducted using the `test_causality` method in the following code chunk. The results show that the null hypothesis is rejected, indicating that `TSpread` Granger-causes `GDPGR`.
 
 ```{python}
-gtest=var_model.test_causality('YGROWTH', ['RSPREAD'], kind='f')
+gtest = var_model.test_causality('YGROWTH', ['RSPREAD'], kind='f')
 print(gtest.summary())
 ```
 
@@ -302,8 +301,7 @@ fig = var_model.plot_forecast(10)
 plt.show()
 ```
 
-Finally, we consider the effect of a shock in the term spread on the GDP growth rate. Suppose that we are willing to assume that `GDPGR` has a contemporaneous effect on `TSpread`  but `TSpread` affects the  `GDPGR` sequence with a
-one-period lag. To impose such an assumption, we need to order the variable such that `GDPGR` is the first column in `varData` (which is the case). That is, the order of variables in the system is important, and the variable that has the contemporaneous effect should be the first variable in the system. 
+Finally, we consider the effect of a shock in the term spread on the GDP growth rate. Suppose that we are willing to assume that `GDPGR` has a contemporaneous effect on `TSpread`  but `TSpread` affects the  `GDPGR` sequence with a one-period lag. To impose such an assumption, we need to order the variable such that `GDPGR` is the first column in `varData` (which is the case). That is, the order of variables in the system is important, and the variable that has the contemporaneous effect should be the first variable in the system. 
 
 The effect of a shock in `TSpread` on `GDPGR` can be analysed through the impulse-response analysis. To that end, we can use the `irf` method. The response function of `GDPGR` is plotted in @fig-fig24-irf1. The plot shows that a shock in the term spread has a negative effect on the GDP growth rate in the first period.
 
@@ -318,7 +316,7 @@ plt.show()
 ```
 
 ## Multi-period forecasts
-In this section, we discuss two forecasting methods for generating multi-period forecasts: the iterated method and the direct method. In the iterated method, we first forecast the next period's value and then use this forecast to predict the value for the subsequent period. This process is repeated until the desired forecast horizon is reached. For example, the one-period, two-period, and three-period-ahead iterated forecasts based on an AR$(p)$ model are computed as follows:
+In this section, we discuss two forecasting methods for generating multi-period forecasts: the iterated method and the direct method. In the iterated method, we first forecast the next period's value and then use this forecast to predict the value for the subsequent period. This process is repeated until the desired forecast horizon is reached. For example, the one-period, two-period, and three-period-ahead iterated forecasts based on an AR($p$) model are computed as follows:
 $$
 \begin{align*}
 &\hat{Y}_{T+1|T}=\hat{\beta}_0+\hat{\beta}_1Y_{T}+\hat{\beta}_2Y_{T-1}+\hat{\beta}_3Y_{T-2}+\ldots+\hat{\beta}_pY_{T-p+1},\\
@@ -328,7 +326,7 @@ $$
 +\hat{\beta}_3Y_{T}+\ldots+\hat{\beta}_pY_{T-p+3},
 \end{align*}
 $$
-where the $\hat{\beta}$'s are the OLS estimates of the AR$(p)$ coefficients. Note that we use the forecast $\hat{Y}_{T+1|T}$ to compute the two-step-ahead forecast and the forecasts $\hat{Y}_{T+1|T}$ and $\hat{Y}_{T+2|T}$ to compute the three-step-ahead forecast. We can continue this process (iterating) to produce forecasts further into the future.
+where the $\hat{\beta}$'s are the OLS estimates of the AR($p$) coefficients. Note that we use the forecast $\hat{Y}_{T+1|T}$ to compute the two-step-ahead forecast and the forecasts $\hat{Y}_{T+1|T}$ and $\hat{Y}_{T+2|T}$ to compute the three-step-ahead forecast. We can continue this process (iterating) to produce forecasts further into the future.
 
 Using the same approach, we can also generate multi-period forecasts for VAR models. We need to first compute the one-step ahead forecast for all variables in the VAR model. Then, we use these forecasts to generate the two-step ahead forecast, and so on. For example, in our two-variable VAR($p$) model in @eq-eq24-1, the two-step ahead forecast for $Y_t$ is
 $$
@@ -339,9 +337,9 @@ $$
 $$
 where $\hat{Y}_{T+1|T}$ and $\hat{X}_{T+1|T}$ are the one-step ahead forecasts of $Y_{T+1}$ and $X_{T+1}$, respectively.
 
-In the VAR(2) model that we consider in Section 24.2.5 for the GDP growth rate and the term spread, we use the `forecast` method to generate multi-period forecasts.  We report the forecasted values in @tbl-tbl24-1.
+In the VAR($2$) model that we consider in Section 24.2.5 for the GDP growth rate and the term spread, we use the `forecast` method to generate multi-period forecasts.  We report the forecasted values in @tbl-tbl24-1.
 
-In the direct method, we generate the multi-period forecasts using a single regression with the dependent variable being the variable to be forecasted at the forecast horizon and the regressors are predictors lagged at the forecast horizon. Consider the first equation in the VAR(2) model in @eq-eq24-1. Then, we can estimate the following regression model to generate $h$-step ahead forecasts for $Y_t$:
+In the direct method, we generate the multi-period forecasts using a single regression with the dependent variable being the variable to be forecasted at the forecast horizon and the regressors are predictors lagged at the forecast horizon. Consider the first equation in the VAR($2$) model in @eq-eq24-1. Then, we can estimate the following regression model to generate $h$-step ahead forecasts for $Y_t$:
 $$
 \begin{align*}
 Y_t &= \delta_{0}+\delta_{1}Y_{t-h}+\delta_{2}Y_{t-h-1}+\cdots+\delta_{p}Y_{t-h-p+1}\\
@@ -562,7 +560,7 @@ As an example, we examine the relationship between short- and long-term interest
 # Import data from FRED-QD.dta
 df = pd.read_stata('data/FRED-QD.dta')
 # Set time index
-df.index = pd.date_range(start = '1959-01-01', periods=len(df), freq = 'QS')
+df.index = pd.date_range(start = '1959-01-01', periods = len(df), freq = 'QS')
 ```
 
 ```{python}
@@ -574,10 +572,8 @@ fig, ax = plt.subplots(figsize=(6, 4))
 
 # Plot the interest rate on 3-month treasury bills
 ax.plot(df.index, df['tb3ms'], linestyle='-', color='steelblue', label='3-month Treasury bills')
-
 # Plot the interest rate on 10-year treasury bonds
 ax.plot(df.index, df['gs10'], linestyle='-', color='darkorange', label='10-year Treasury bonds')
-
 # Plot the term spread
 ax.plot(df.index, df['gs10']-df['tb3ms'], linestyle='-', color='green', label='Term spread')
 
@@ -592,7 +588,7 @@ plt.show()
 We can use the two-step Engle-Granger test to check whether these interest rates  are cointegrated. In the first step, we estimate the cointegrating parameter $\theta$ by the OLS estimator from the following regression:
 $$
 \begin{align}
-\text{tb3ms}_t = \mu + \theta \text{gs10}_t  + v_t.
+\text{tb3ms}_t = \mu + \theta \text{gs10}_t + v_t.
 \end{align}
 $${#eq-eq24-9}
 
@@ -705,7 +701,7 @@ df['date'] = pd.to_datetime(df['date'])
 df.set_index('date', inplace=True)
 
 # Calculate returns
-df['return'] = 100*(df['value']-df['value'].shift(1))/df['value'].shift(1)
+df['return'] = 100*(df['value'] - df['value'].shift(1)) / df['value'].shift(1)
 
 # Calculate squared returns
 df['squared_return'] = df['return'] ** 2
@@ -842,7 +838,7 @@ $$
 &\sigma^2_t=\omega+\alpha_1u^2_{t-1}+\alpha_2u^2_{t-2}+\ldots+\alpha_pu^2_{t-p},
 \end{align}
 $${#eq-eq24-14}
-where $Y_t$ is the return, $X_t$ is a regressor, $u_t$ is the error term, which is independent over $t$ with mean zero and variance $\sigma^2_t$. The parameters $\beta_0,\beta_1,\gamma_1,\omega, \alpha_1,\ldots,\alpha_p$ are unknown coefficients. The first equation is the mean equation, where we assume an ADL(1,1) model for the returns. The second equation is the variance equation, where the conditional variance $\sigma^2_t$ is a function of the past squared error terms.
+where $Y_t$ is the return, $X_t$ is a regressor, $u_t$ is the error term, which is independent over $t$ with mean zero and variance $\sigma^2_t$. The parameters $\beta_0,\beta_1,\gamma_1,\omega, \alpha_1,\ldots,\alpha_p$ are unknown coefficients. The first equation is the mean equation, where we assume an ADL($1,1$) model for the returns. The second equation is the variance equation, where the conditional variance $\sigma^2_t$ is a function of the past squared error terms.
 
 The GARCH($p,q$) model extends the ARCH model by including past conditional variances in the variance equation:
 $$
@@ -860,7 +856,7 @@ $$
 $${#eq-eq24-16}
 where $v_t$ is i.i.d over $t$ with mean zero and variance one. The error term $u_t$ in @eq-eq24-14 is then given by $u_t=\sigma_tv_t$. 
 
-Consider the GARCH(1,1) model and  let $\mathcal{F}_{t-1}$ be the information set vailable at time $t-1$. Then, the conditional mean and variance of $Y_t$ are
+Consider the GARCH($1,1$) model and  let $\mathcal{F}_{t-1}$ be the information set vailable at time $t-1$. Then, the conditional mean and variance of $Y_t$ are
 $$
 \begin{align}
 \E(Y_t|\mathcal{F}_{t-1})&=\E(\beta_0+\beta_1Y_{t-1}+\gamma_1X_{t-1}+\sigma_tv_t|\mathcal{F}_{t-1})\\
@@ -886,7 +882,7 @@ In ARCH and GARCH models, the conditional standard deviation $\sigma_t$ is calle
 :::
 
 ### Estimation of ARCH and GARCH models
-The ARCH and GARCH models can be estimated using the maximum likelihood method. Under the assumption that $v_t\sim N(0,1)$, we have $Y_t|\mathcal{F}_{t-1}\sim N(\beta_0+\beta_1Y_{t-1}+\gamma_1X_{t-1},\sigma^2_t)$. Thus, we can express the likelihood function of GARCH$(p,q)$ as
+The ARCH and GARCH models can be estimated using the maximum likelihood method. Under the assumption that $v_t\sim N(0,1)$, we have $Y_t|\mathcal{F}_{t-1}\sim N(\beta_0+\beta_1Y_{t-1}+\gamma_1X_{t-1},\sigma^2_t)$. Thus, we can express the likelihood function of GARCH$($p,q$)$ as
 $$
 \begin{align}
 L(\theta)=\prod_{t=1}^T\frac{1}{\sqrt{2\pi\sigma^2_t}}\exp\left(-\frac{1}{2\sigma^2_t}(Y_t-\beta_0-\beta_1Y_{t-1}-\gamma_1X_{t-1})^2\right),
@@ -909,7 +905,7 @@ $${#eq-eq24-21}
 Under some standard assumptions, the MLE is consistent and asymptotically normal. For futher details on the estimation of ARCH and GARCH models, see @Hamilton:1994 and @Francq2019.
 
 ### Volatility forecasting
-We assume the following GARCH(1,1) model for the returns:
+We assume the following GARCH($1,1$) model for the returns:
 $$
 \begin{align}
 &Y_t=\beta_0+\sigma_tv_t,\\
@@ -968,7 +964,7 @@ $$
 $$
 
 ### Application
-The correlogram of the Wilshire 5000 index returns does not exhibit autocorrelation. Therefore, we consider the following GARCH(1,1) model for the Wilshire 5000 index returns:
+The correlogram of the Wilshire 5000 index returns does not exhibit autocorrelation. Therefore, we consider the following GARCH($1,1$) model for the Wilshire 5000 index returns:
 $$
 \begin{align}
 &Y_t=\beta_0+\sigma_tv_t,\\
@@ -976,7 +972,7 @@ $$
 \end{align}
 $$
 
-In Python, we can use the `arch` package to estimate a GARCH model. The following code chunk uses the `arch_model` function from the `arch` package to estimate the model. The option `vol='Garch'` specifies that the model is a GARCH model. The options `p=1` and `q=1` indicate that the lag order for the squared residuals and the conditional variance is 1, respectively. The option `dist='Normal'` specifies that the error term $v_t$ follows the standard normal distribution. The fit method is used to estimate the model.
+In Python, we can use the `arch` package to estimate a GARCH model. The following code chunk uses the `arch_model()` function from the `arch` package to estimate the model. The option `vol='Garch'` specifies that the model is a GARCH model. The options `p=1` and `q=1` indicate that the lag order for the squared residuals and the conditional variance is 1, respectively. The option `dist='Normal'` specifies that the error term $v_t$ follows the standard normal distribution. The fit method is used to estimate the model.
 
 ```{python}
 # Estimate GARCH(1,1) model
@@ -1058,7 +1054,7 @@ $$
 &H_1: v_t \text{ is not normally distributed}.
 \end{align}
 $$
-The test statistic has a chi-squared distribution with two degrees of freedom. The following code chunk uses the `jarque_bera` function from the `scipy.stats` package to perform the Jarque-Bera test on the standardized residuals. Since the p-value is less than 0.05, we reject the null hypothesis of normality.
+The test statistic has a chi-squared distribution with two degrees of freedom. The following code chunk uses the `jarque_bera()` function from the `scipy.stats` package to perform the Jarque-Bera test on the standardized residuals. Since the p-value is less than 0.05, we reject the null hypothesis of normality.
 
 ```{python}
 # Jarque-Bera test

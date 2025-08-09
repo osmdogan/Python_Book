@@ -15,7 +15,6 @@ plt.style.use('seaborn-v0_8-darkgrid')
 
 {{< include latex_macro.qmd >}}
 
-
 ## Dynamic causal effects
 The dynamic causal effect of a regressor on a dependent variable is the causal effect of a change in the regressor on the dependent variable over time. For example, we may be interested in the effect of a change in the interest rate on the output of the economy in this quarter, next quarter, and four quarters ahead. Similarly, we may be interested in the effect of a change in the temperature on the demand for heating oil in the current month, next month, and two months ahead. In these examples, the dynamic effects take place over different time horizons, suggesting that our econometric model should include the current value and lags of the regressor. In this chapter, we use distributed lag models to estimate the dynamic causal effects of regressors on the dependent variable.
 
@@ -58,7 +57,6 @@ Y_t&=\beta_0+\beta_{11}X_{1t}+\beta_{12}X_{1,t-1}+\ldots+\beta_{1,r_1+1}X_{k,t-r
 $${#eq-eq23-2}
 
 In @eq-eq23-2, the dynamic multipliers $\beta_{11},\ldots,\beta_{1,r_1+1}$ measure the dynamic causal effects of $X_1$ on $Y$, the dynamic multipliers $\beta_{21},\ldots,\beta_{2,r_2+1}$ measure the dynamic causal effects of $X_2$ on $Y$, and so on. Using these dynamic multipliers, we can also determine the $h$-period cumulative dynamic multipliers and the long-run cumulative dynamic multipliers for each regressor.
-
 
 ## Estimation of dynamic causal effects with exogenous regressors
 We can use the OLS estimator to estimate distributed lag models. The assumptions required for the OLS estimation are stated in the following callout block.
@@ -324,7 +322,6 @@ plt.tight_layout()
 plt.show()
 ```
 
-
 ### Distributed lag models
 We consider the following distributed lag models:
 $$
@@ -382,7 +379,6 @@ df1 = df1.dropna(subset=[col for col in df1.columns if 'shift' in col or col.sta
 model3 = smf.ols(formula=formula3, data=df1).fit(cov_type='HAC', cov_kwds={'maxlags': 7})
 
 ```
-
 
 ### Estimation results
 
@@ -442,10 +438,9 @@ ax.legend()
 plt.show()
 ```
 
-The second column of @tbl-t23-2 presents the estimated cumulative dynamic multipliers. The estimated coefficient on dFFD.shift(1) suggests that the cumulative effect of a one-unit increase in the number of freezing degree days over the first two months is a 0.68% increase in real prices. Similarly, the estimated coefficient on dFFD.shift(2) indicates that the cumulative effect over the first three months is a 0.75% increase in real prices. The long-run cumulative dynamic multiplier is given by the estimated coefficient on fdd.shift(18), which is 0.37. This implies that a one-unit increase in the number of freezing degree days over 18 months leads to a 0.37% increase in real prices. However, this effect is not statistically different from zero at the 5% significance level.
+The second column of @tbl-t23-2 presents the estimated cumulative dynamic multipliers. The estimated coefficient on dFFD.shift(1) suggests that the cumulative effect of a one-unit increase in the number of freezing degree days over the first two months is a 0.68% increase in real prices. Similarly, the estimated coefficient on `dFFD.shift(2)` indicates that the cumulative effect over the first three months is a 0.75% increase in real prices. The long-run cumulative dynamic multiplier is given by the estimated coefficient on fdd.shift(18), which is 0.37. This implies that a one-unit increase in the number of freezing degree days over 18 months leads to a 0.37% increase in real prices. However, this effect is not statistically different from zero at the 5% significance level.
 
 @fig-f22-3 displays the estimated cumulative dynamic multipliers along with their 95% confidence intervals. The figure shows that the cumulative multipliers increase over the first seven months, as the dynamic multipliers remain positive during this period. It also indicates that the cumulative multipliers for the first 12 months are statistically different from zero at the 5% significance level. However, the cumulative multipliers for the remaining months are not statistically different from zero, i.e., the confidence intervals include the zero line.
-
 
 ```{python}
 #| fig-cap: Cumulative Dynamic Effect of FDD on Orange Juice Price
@@ -485,13 +480,13 @@ We use the F-statistic to test the joint null hypothesis. The p-value for the te
 
 ```{python}
 # F-test for the joint null hypothesis
-restrictions=['month_2[T.True]=0', 'month_3[T.True]=0', 'month_4[T.True]=0', 'month_5[T.True]=0', 'month_6[T.True]=0', 'month_7[T.True]=0', 'month_8[T.True]=0', 'month_9[T.True]=0', 'month_10[T.True]=0', 'month_11[T.True]=0', 'month_12[T.True]=0']
+restrictions = ['month_2[T.True]=0', 'month_3[T.True]=0', 'month_4[T.True]=0', 'month_5[T.True]=0', 'month_6[T.True]=0', 'month_7[T.True]=0', 
+                'month_8[T.True]=0', 'month_9[T.True]=0', 'month_10[T.True]=0', 'month_11[T.True]=0', 'month_12[T.True]=0']
 f_test = model3.f_test(restrictions)
 f_test.summary()
 ```
 
 Finally, we examine whether the dynamic multipliers have remained stable over time. One way to assess this is by estimating these multipliers for different subperiods of the sample. For example, we consider the periods 1950–1966, 1967–1983, and 1984–2000. If the multipliers are consistent across all three periods, their estimates should be similar, and the estimated cumulative multipliers should also align. To investigate this, we re-estimate Model 2 for each subperiod and compare the estimated cumulative dynamic multipliers in @fig-f23-4. The figure shows that the estimated cumulative dynamic multipliers are relatively larger in the first subperiod compared to the other two subperiods. This suggests that the effect of freezing degree days on real prices has decreased over time.
-
 
 ```{python}
 # Define subperiods
@@ -506,7 +501,6 @@ m3 = smf.ols(formula=formula2, data=df3).fit(cov_type='HAC', cov_kwds={'maxlags'
 point_estimates1 = m1.params[1:]
 point_estimates2 = m2.params[1:]
 point_estimates3 = m3.params[1:]
-
 ```
 
 ```{python}
@@ -578,4 +572,3 @@ $$
 $${#eq-eq23-16}
 
 where $\text{GDPGR}_t$ is the GDP growth rate in quarter $t$, and $\text{TSpread}_t$ is the term spread in quarter $t$. Although we are only using the past values of the term spread in this model, the term spread is likely to be endogenous. @Stock2020 write "... past values of the term spread were not randomly assigned in an experiment; instead, the past term spread was simultaneously determined with past values of the growth rate of GDP. Because GDP and the interest rates making up the term spread are simultaneously determined, the other factors that determine the growth rate of GDP contained in $u_t$ are correlated with past values of the term spread; that is, the term spread is not exogenous."
-
