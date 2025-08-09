@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.55">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -127,7 +127,7 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Econometrics with Python</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/hadley/r4ds/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/osmdogan/Python_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -428,7 +428,7 @@ window.Quarto = {
   <li><a href="#sec-LassoOLSconnect" id="toc-sec-LassoOLSconnect" class="nav-link" data-scroll-target="#sec-LassoOLSconnect"><span class="header-section-number">B.4</span> Connection between the Lasso and OLS estimators</a></li>
   <li><a href="#sec-PCderive" id="toc-sec-PCderive" class="nav-link" data-scroll-target="#sec-PCderive"><span class="header-section-number">B.5</span> Derivation of the Principal Components when <span class="math inline">\(k&gt;2\)</span></a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/hadley/r4ds/edit/main/AppendixB.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hadley/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/AppendixB.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -472,7 +472,7 @@ window.Quarto = {
 </section>
 <section id="sec-OLS_MSPE" class="level2" data-number="B.2">
 <h2 data-number="B.2" class="anchored" data-anchor-id="sec-OLS_MSPE"><span class="header-section-number">B.2</span> MSPE of the OLS estimator</h2>
-<p>In this section, we show the MSPE of the OLS estimator is approximately given by <span class="math inline">\(\sigma_{u}^2(1+\frac{k}{n})\)</span>. Let <span class="math inline">\(\bs{X}^{oos}_i=(X_{1i}^{oos},X_{2i}^{oos},...,X_{ki}^{oos})^{'}\)</span> be the <span class="math inline">\(i\)</span>th observation of the out-of-sample data and <span class="math inline">\(\hat{\bs{\beta}}=(\widehat{\beta}_1,\widehat{\beta}_2,...,\widehat{\beta}_k)^{'}\)</span> be the OLS estimator of <span class="math inline">\(\bs{\beta}=(\beta_1,\beta_2,...,\beta_k)^{'}\)</span>. The MSPE of the OLS estimator is given by</p>
+<p>In this section, we show the MSPE of the OLS estimator is approximately given by <span class="math inline">\(\sigma_{u}^2\left(1+\frac{k}{n}\right)\)</span>. Let <span class="math inline">\(\bs{X}^{oos}_i=(X_{1i}^{oos},X_{2i}^{oos},...,X_{ki}^{oos})^{'}\)</span> be the <span class="math inline">\(i\)</span>th observation of the out-of-sample data and <span class="math inline">\(\hat{\bs{\beta}}=(\widehat{\beta}_1,\widehat{\beta}_2,...,\widehat{\beta}_k)^{'}\)</span> be the OLS estimator of <span class="math inline">\(\bs{\beta}=(\beta_1,\beta_2,...,\beta_k)^{'}\)</span>. The MSPE of the OLS estimator is given by</p>
 <p><span class="math display">\[
 \begin{align*}
 \text{MSPE} &amp;= \sigma_{u}^2 + \E\left(\left[(\widehat{\beta}_1-\beta_1)X_{1i}^{oos}+\cdots+(\widehat{\beta}_k-\beta_k)X_{ki}^{oos}\right]^2\right)\\
@@ -497,13 +497,14 @@ window.Quarto = {
 \begin{align*}
 \text{MSPE}&amp;=\sigma_{u}^2 + \tr\left(\E\left((\widehat{\bs{\beta}}-\bs{\beta})(\widehat{\bs{\beta}}-\bs{\beta})^{'}\right)\bs{Q}_{xx}\right)\\
 &amp;=\sigma_{u}^2 + \tr\left(\sigma_{u}^2\E\left((\bs{X}^{'}\bs{X})^{-1}\right)\bs{Q}_{xx}\right)\\
-&amp;=\sigma_{u}^2 + \tr\left(\sigma_{u}^2\E\left((n\frac{1}{n}\bs{X}^{'}\bs{X})^{-1}\right)\bs{Q}_{xx}\right)\\
-&amp;=\sigma_{u}^2 + \frac{1}{n}\sigma_{u}^2\tr\left(\E\left((\frac{1}{n}\bs{X}^{'}\bs{X})^{-1}\right)\bs{Q}_{xx}\right).
+&amp;=\sigma_{u}^2 + \tr\left(\sigma_{u}^2\E\left(\left(n\frac{1}{n}\bs{X}^{'}\bs{X}\right)^{-1}\right)\bs{Q}_{xx}\right)\\
+&amp;=\sigma_{u}^2 + \frac{1}{n}\sigma_{u}^2\tr\left(\E\left(\left(\frac{1}{n}\bs{X}^{'}\bs{X}\right)^{-1}\right)\bs{Q}_{xx}\right).
 \end{align*}
 \]</span></p>
 <p>By the law of large numbers, we have <span class="math inline">\(\frac{1}{n}\bs{X}^{'}\bs{X}=\frac{1}{n}\sum_{i=1}^n\bs{X}_i\bs{X}^{'}_i\xrightarrow{p}\bs{Q}_{xx}\)</span>. Thus, for large <span class="math inline">\(n\)</span>, <span class="math display">\[
 \begin{align*}
-\text{MSPE}&amp;\approx\sigma_{u}^2 + \frac{1}{n}\sigma_{u}^2\tr\left(\E\left(\bs{Q}_{xx}^{-1}\right)\bs{Q}_{xx}\right)=\sigma_{u}^2 + \frac{1}{n}\sigma_{u}^2\tr\left(\bs{Q}_{xx}^{-1}\bs{Q}_{xx}\right)\\
+\text{MSPE} &amp;\approx \sigma_{u}^2 + \frac{1}{n}\sigma_{u}^2\tr\left(\E\left(\bs{Q}_{xx}^{-1}\right)\bs{Q}_{xx}\right)\\
+&amp;=\sigma_{u}^2 + \frac{1}{n}\sigma_{u}^2\tr\left(\bs{Q}_{xx}^{-1}\bs{Q}_{xx}\right)\\
 &amp;=\sigma_{u}^2 + \frac{1}{n}\sigma_{u}^2\tr\left(\mathbf{I}_{k}\right)=\sigma_{u}^2(1+\frac{k}{n}).
 \end{align*}
 \]</span></p>
@@ -512,10 +513,10 @@ window.Quarto = {
 <h2 data-number="B.3" class="anchored" data-anchor-id="sec-RidgeOLSconnect"><span class="header-section-number">B.3</span> Connection between the Ridge and OLS estimators</h2>
 <p>In this section, we focus on the connection between the Ridge and OLS estimators. In matrix form, the Ridge estimator minimizes the following expression: <span class="math display">\[
 \left(\bs{Y} - \bs{X}\bs{b}\right)^{'}\left(\bs{Y} - \bs{X}\bs{b}\right) + \lambda_R \bs{b}^{'}\bs{b}.
-\]</span> From the first order conditions, we have <span class="math display">\[
+\]</span> From the first-order conditions, we have <span class="math display">\[
 -2\bs{X}^{'}\left(\bs{Y} - \bs{X}\bs{b}\right) + 2 \lambda_R \bs{b} = 0.
 \]</span> Then, the Ridge estimator is <span class="math display">\[
-\widehat{\bs{\beta}}_{R} = \left(\bs{X}^{'}\bs{X}+ \lambda_R\mathbf{I}_k\right)^{-1}\bs{X}^{'}\bs{Y}.
+\widehat{\bs{\beta}}_{R} = \left(\bs{X}^{'}\bs{X} + \lambda_R\mathbf{I}_k\right)^{-1}\bs{X}^{'}\bs{Y}.
 \]</span> Note that when the regressors are uncorrelated, <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> is a diagonal matrix, where the <span class="math inline">\(j\)</span>-th diagonal element is given by <span class="math inline">\(\sum_{i=1}^n X_{ji}^2\)</span>. In that case, the Ridge estimator for the <span class="math inline">\(j\)</span>-th regressor is <span class="math display">\[
 \begin{align*}
 \widehat{\beta}_{R,j} &amp;= \left(\sum_{i=1}^n X_{ji}^2 + \lambda_R\right)^{-1}\sum_{i=1}^n X_{ji}Y_i\\
@@ -523,13 +524,13 @@ window.Quarto = {
 &amp;=\left(1 + \lambda_R/\sum_{i=1}^n X_{ji}^2\right)^{-1}\widehat{\beta}_{OLS,j}.
 \end{align*}
 \]</span></p>
-<p>This expression shows that the Ridge estimator shrinks the OLS estimator toward zero by <span class="math inline">\(\left(1 + \lambda_R/\sum_{i=1}^n X_{ji}^2\right)^{-1}\)</span> when the regressors are uncorrelated. Further, if the regressors are standardized, then <span class="math inline">\(\sum_{i=1}^n X_{ji}^2=n-1\)</span> and the Ridge shrinkage is by the factor <span class="math inline">\(\left(1 + \lambda_R/(n-1))\right)^{-1}\)</span>.</p>
+<p>This expression shows that the Ridge estimator shrinks the OLS estimator toward zero by <span class="math inline">\(\left(1 + \lambda_R/\sum_{i=1}^n X_{ji}^2\right)^{-1}\)</span> when the regressors are uncorrelated. Further, if the regressors are standardized, then <span class="math inline">\(\sum_{i=1}^n X_{ji}^2=n-1\)</span> and the Ridge shrinkage is by the factor <span class="math inline">\(\left(1 + \lambda_R/(n-1)\right)^{-1}\)</span>.</p>
 </section>
 <section id="sec-LassoOLSconnect" class="level2" data-number="B.4">
 <h2 data-number="B.4" class="anchored" data-anchor-id="sec-LassoOLSconnect"><span class="header-section-number">B.4</span> Connection between the Lasso and OLS estimators</h2>
 <p>In this section, we focus on the connection between the Lasso and OLS estimators. In matrix form, the Lasso estimator minimizes the following expression <span class="math display">\[
 \left(\bs{Y} - \bs{X}\bs{b}\right)^{'}\left(\bs{Y} - \bs{X}\bs{b}\right) + \lambda_L \sum_{j=1}^k|b_j|.
-\]</span> From the first order conditions, for the <span class="math inline">\(j\)</span>-th regressor we have <span class="math display">\[
+\]</span> From the first-order conditions, for the <span class="math inline">\(j\)</span>-th regressor we have <span class="math display">\[
 -2 X_j^{'}\left(\bs{Y} - \bs{X}\bs{b}\right) + \lambda_L \sgn(b_j) = 0.
 \]</span> Then, the Lasso estimator satisfies <span class="math display">\[
 -2 X_j^{'}\left(\bs{Y} - \bs{X}\widehat{\bs{\beta}}_{L}\right) + \lambda_L \sgn(\widehat{\beta}_{L,j}) = 0
@@ -557,7 +558,7 @@ window.Quarto = {
 &amp;\frac{\partial\mathcal{L}}{\partial\bs{w}_1} = 2\bs{X}^{'}\bs{X}\bs{w}_1-2\lambda_1\bs{w}_1=0\Rightarrow \bs{X}^{'}\bs{X}\bs{w}_1=\lambda_1\bs{w}_1.
 \end{align*}
 \]</span></p>
-<p>Thus, the first order condition suggests that <span class="math inline">\(\bs{w}_1\)</span> is an eigenvector of <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> and <span class="math inline">\(\lambda_1\)</span> is the corresponding eigenvalue, where the eigenvector is normalized to have unit length. If we pre-multiply both sides of <span class="math inline">\(\bs{X}^{'}\bs{X}\bs{w}_1=\lambda_1\bs{w}_1\)</span> by <span class="math inline">\(\bs{w}_1^{'}\)</span>, we obtain <span class="math display">\[
+<p>Thus, the first-order condition suggests that <span class="math inline">\(\bs{w}_1\)</span> is an eigenvector of <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> and <span class="math inline">\(\lambda_1\)</span> is the corresponding eigenvalue, where the eigenvector is normalized to have unit length. If we pre-multiply both sides of <span class="math inline">\(\bs{X}^{'}\bs{X}\bs{w}_1=\lambda_1\bs{w}_1\)</span> by <span class="math inline">\(\bs{w}_1^{'}\)</span>, we obtain <span class="math display">\[
 PC_1^{'}PC_1=\bs{w}_1^{'}\bs{X}^{'}\bs{X}\bs{w}_1=\lambda_1\bs{w}_1^{'}\bs{w}_1=\lambda_1.
 \]</span></p>
 <p>This expression suggests that <span class="math inline">\(PC_1^{'}PC_1\)</span> is maximized when <span class="math inline">\(\lambda_1\)</span> is the largest eigenvalue of <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> and <span class="math inline">\(\bs{w}_1\)</span> is the corresponding eigenvector of <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span>.</p>
@@ -684,7 +685,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/osmdogan\.github\.io\/Python_Book\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1032,7 +1033,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hadley/r4ds/edit/main/AppendixB.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hadley/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/AppendixB.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

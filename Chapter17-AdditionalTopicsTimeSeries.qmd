@@ -293,7 +293,6 @@ forecast = pd.DataFrame(forecast, columns=['GDPGR', 'TSpread'], index=pd.date_ra
 forecast
 ```
 
-
 ```{python}
 #| fig-cap: "Forecast of the GDP growth rate and the term spread"
 #| label: fig-fig24-forecast1
@@ -307,7 +306,6 @@ Finally, we consider the effect of a shock in the term spread on the GDP growth 
 one-period lag. To impose such an assumption, we need to order the variable such that `GDPGR` is the first column in `varData` (which is the case). That is, the order of variables in the system is important, and the variable that has the contemporaneous effect should be the first variable in the system. 
 
 The effect of a shock in `TSpread` on `GDPGR` can be analysed through the impulse-response analysis. To that end, we can use the `irf` method. The response function of `GDPGR` is plotted in @fig-fig24-irf1. The plot shows that a shock in the term spread has a negative effect on the GDP growth rate in the first period.
-
 
 ```{python}
 #| fig-cap: "Impulse response analysis"
@@ -376,7 +374,6 @@ If a time series is stationary, it is said to be **integrated of order zero**, d
 :::
 
 According to definition @def-orders, if $Y_t$ is $I(1)$, then $\Delta Y_t$ is $I(0)$, i.e., $\Delta Y_t$  is stationary. Similarly, if $Y_t$ is $I(2)$, then $\Delta Y_t$ is $I(1)$, and it second difference $\Delta^2Y_t=(\Delta Y_t-\Delta Y_{t-1})$ is $I(0)$ i.e., $\Delta^2Y_t$ is stationary. In general, if $Y_t$ is integrated of order $d$-that is, if $Y_t$ is $I(d)$ -then $Y_t$ must be differenced $d$ times to eliminate its stochastic trend; that is, $\Delta^dY_t$ is stationary.
-
 
 ## Cointegration and error correction models
 ### Cointegration
@@ -447,7 +444,6 @@ $$
 \end{align}
 $${#eq-eq24-4.2}
 
-
 In the VECM model, our goal is to use the past value of the error correction term to predict the future values of $\Delta Y_{1t}$ and $\Delta Y_{2t}$. 
 
 ### Estimating the cointegrating parameter
@@ -466,12 +462,11 @@ where $\mu_0$ is the intercept term, and $v_t$ is the error term.
 If $\hat{v}_t$ is $I(0)$, then we conclude that $Y_{1t}$ and $Y_{2t}$ are cointegrated. This two-step procedure is called the **Engle-Granger Augmented Dickey-Fuller test (EG-ADF test)** for cointegration. 
 
 | Number of X’s in @eq-eq24-4 | 10%   | 5%    | 1%    |
-|-----------------------------------|-------|-------|-------|
-| 1                                 | -3.12 | -3.41 | -3.96 |
-| 2                                 | -3.52 | -3.80 | -4.36 |
-| 3                                 | -3.84 | -4.16 | -4.73 |
-| 4                                 | -4.20 | -4.49 | -5.07 |
-
+|-----------------------------|-------|-------|-------|
+| 1                           | -3.12 | -3.41 | -3.96 |
+| 2                           | -3.52 | -3.80 | -4.36 |
+| 3                           | -3.84 | -4.16 | -4.73 |
+| 4                           | -4.20 | -4.49 | -5.07 |
 : Critical values for the EG-ADF statistic {#tbl-t24-2}
 
 We estimate the cointegrating parameter $\theta$ in the two-step procedure by the OLS estimator. If the variables are conintegrated, the OLS estimator is consistent but has a non-standard distribution (see Theorem 16.19 in @Hansen2022). There is also an alternative estimator called the **dynamic OLS (DOLS)** estimator, which is more efficient than the OLS estimator. The DOLS estimator is based on the following extended version of @eq-eq24-4:
@@ -662,7 +657,6 @@ The estimated coefficients for the lag terms appear in the first and second bloc
 
 The estimated coefficients for the error correction terms are provided in the third and fourth blocks of the estimation output. These coefficients are $\hat{\alpha}_1=-0.095$ and $\hat{\alpha}_2=0.069$, both statistically significant at the 5% level. The estimate $\hat{\alpha}_1=-0.095$ suggests that the error correction term $(\text{tb3ms}_{t-1}-\theta\text{gs10}_{t-1}-\mu)$ negatively affects $\Delta\text{tb3ms}_t$, while $\hat{\alpha}_2=0.069$ indicates a positive effect on $\Delta\text{gs10}_t$. These estimates imply that if the short-run interest rate exceeds the long-run interest rate by more than 1.6, the short-run interest rate will decrease while the long-run interest rate will increase, and vice versa.
 
-
 In the following code chunk, we use the `coint_johansen` function to implement the Johansen cointegration test. The option `det_order=0` indicates that the error correction term includes a constant term, and the option `k_ar_diff=3` specifies that the lag order for the differenced variables is 3. The function returns the trace and maximum eigenvalue statistics and their critical values. 
 ```{python}
 # Johansen cointegration test
@@ -692,7 +686,6 @@ print(johansen_results.max_eig_stat)
 print(johansen_results.max_eig_stat_crit_vals)
 ```
 
-
 ## Volatility clustering and autoregressive conditional heteroskedasticity
 The conditional variance of financial asset returns is called **volatility**. The volatility increases during financial crises and decreases during periods of economic stability. 
 
@@ -720,7 +713,6 @@ df['squared_return'] = df['return'] ** 2
 # Calculate absolute returns
 df['abs_return'] = df['return'].abs()
 ```
-
 
 ```{python}
 #| fig-cap: "Wilshire 5000 index value, returns, squared returns, and absolute returns"
@@ -789,7 +781,6 @@ $$
 
 For the Wilshire 5000 index returns, we set $h=20$ and compute the 20-day realized volatility. In the following code chunk, we calculate the realized volatility using the `return` column in the `df` DataFrame. The realized volatility is calculated as the square root of the mean of the squared returns over the past 20 days.
 
-
 ```{python}
 # Calculate realized volatility
 T = len(df)
@@ -819,7 +810,6 @@ ax.axhline(0, color='black', linewidth=1, linestyle='--')
 plt.tight_layout()
 plt.show()      
 ```
-
 
 ```{python}
 #| fig-cap: "Return and realized volatility bands"
@@ -852,7 +842,7 @@ $$
 &\sigma^2_t=\omega+\alpha_1u^2_{t-1}+\alpha_2u^2_{t-2}+\ldots+\alpha_pu^2_{t-p},
 \end{align}
 $${#eq-eq24-14}
-where $Y_t$ is the return, $X_t$ is a regressor, $u_t$ is the error term, which is independent over $t$ with mean zero and variance $\sigma^2_t$. The parameters $\beta_0,\beta_1,\gamma_1,\omega, \alpha_1,\ldots,\alpha_p$ are unknown coefficients.  The first equation is the mean equation, where we assume an ADL(1,1) model for the returns. The second equation is the variance equation, where the conditional variance $\sigma^2_t$ is a function of the past squared error terms.
+where $Y_t$ is the return, $X_t$ is a regressor, $u_t$ is the error term, which is independent over $t$ with mean zero and variance $\sigma^2_t$. The parameters $\beta_0,\beta_1,\gamma_1,\omega, \alpha_1,\ldots,\alpha_p$ are unknown coefficients. The first equation is the mean equation, where we assume an ADL(1,1) model for the returns. The second equation is the variance equation, where the conditional variance $\sigma^2_t$ is a function of the past squared error terms.
 
 The GARCH($p,q$) model extends the ARCH model by including past conditional variances in the variance equation:
 $$
@@ -962,7 +952,7 @@ $$
 &=\omega+(\alpha_1+\phi_1)\sigma^2_{T+h-1|T}.
 \end{align*}
 $$
-This result suggests that the $h$-step ahead forecast of volatility is a first order difference equation. Given $\sigma^2_{T+1|T}$, we can recursively compute $\sigma^2_{T+2|T}, \sigma^2_{T+3|T},\ldots,\sigma^2_{T+h|T}$. It can be shown that as $h\to\infty$, we have
+This result suggests that the $h$-step ahead forecast of volatility is a first-order difference equation. Given $\sigma^2_{T+1|T}$, we can recursively compute $\sigma^2_{T+2|T}, \sigma^2_{T+3|T},\ldots,\sigma^2_{T+h|T}$. It can be shown that as $h\to\infty$, we have
 $$ 
 \begin{align}
 \sigma^2_{T+h|T}\to\frac{\omega}{1-\alpha_1-\phi_1}.
@@ -1048,7 +1038,6 @@ plt.tight_layout()
 plt.show()
 ``` 
 
-
 Next, we forecast the volatility for the next five periods using the `forecast` method. The option `horizon=5` specifies that we want to forecast the next five periods. The option `method='analytic'` indicates that we want to use the analytic method to forecast the volatility.
 
 ```{python}
@@ -1089,5 +1078,3 @@ print(results_t.summary())
 ```
 
 The log-likelihood value of the GARCH model with the Student t-distribution is higher than that of the GARCH model with the normal distribution. The AIC and BIC values of the GARCH model with the Student t-distribution are lower than those of the GARCH model with the normal distribution. These observations suggest that the GARCH model with the Student t-distribution provides relatively a better fit for the sample data.
-
-

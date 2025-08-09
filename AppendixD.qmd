@@ -36,7 +36,6 @@ x_n
 $$
 where $x_i$ and $y_i$ are the $i$th elements of the vectors $\bs{x}$ and $\bs{y}$, respectively. The transpose of a vector $\bs{x}$ is denoted by $\bs{x}^{'}$, which is a $1 \times n$ row vector. The transpose of a row vector $\bs{y}$ is denoted by $\bs{y}^{'}$, which is an $n \times 1$ column vector. 
 
-
 Let $\bs{x}\in\mathbb{R}^n$ and $\bs{y}\in\mathbb{R}^n$. Some basic operations associated with vectors are defined as follows:
 
 - Addition: $\bs{x} + \bs{y} = (x_1 + y_1, x_2 + y_2, \ldots, x_n + y_n)^{'}$.
@@ -141,14 +140,14 @@ The Cauchy-Schwarz inequality can also be stated as $|\langle\bs{x},\bs{y}\rangl
 ## Triangle inequality
 Let $\bs{x}\in\mathbb{R}^n$ and $\bs{y}\in\mathbb{R}^n$ be two vectors and $\|\cdot\|$ be the Euclidean norm. Then,
 
-a) $\|\bs{x}\| \geq 0$ and $\|\bs{x}\| = 0$ if and only if $\bs{x} = \bs{0}$.
-b) $\|\alpha \bs{x}\| = |\alpha|\times \|\bs{x}\|$ for any scalar $\alpha$.
-c) $\|\bs{x} + \bs{y}\| \leq \|\bs{x}\| + \|\bs{y}\|$.
+a. $\|\bs{x}\| \geq 0$ and $\|\bs{x}\| = 0$ if and only if $\bs{x} = \bs{0}$.
+b. $\|\alpha \bs{x}\| = |\alpha|\times \|\bs{x}\|$ for any scalar $\alpha$.
+c. $\|\bs{x} + \bs{y}\| \leq \|\bs{x}\| + \|\bs{y}\|$.
 :::
 ::: {.proof}
-a) The norm of a vector is always non-negative. If $\|\bs{x}\| = 0$, then $\bs{x}^{'} \bs{x} = 0$, which implies that $\bs{x} = \bs{0}$. Conversely, if $\bs{x} = \bs{0}$, then $\bs{x}^{'} \bs{x} = 0$, which implies that $\|\bs{x}\| = 0$.
+a. The norm of a vector is always non-negative. If $\|\bs{x}\| = 0$, then $\bs{x}^{'} \bs{x} = 0$, which implies that $\bs{x} = \bs{0}$. Conversely, if $\bs{x} = \bs{0}$, then $\bs{x}^{'} \bs{x} = 0$, which implies that $\|\bs{x}\| = 0$.
 
-b) Let $\bs{x} = (x_1, x_2, \ldots, x_n)^{'}$. Then, 
+b. Let $\bs{x} = (x_1, x_2, \ldots, x_n)^{'}$. Then, 
 $$
 \begin{align*}
 \|\alpha \bs{x}\| &= \sqrt{(\alpha x_1)^2 + (\alpha x_2)^2 + \ldots + (\alpha x_n)^2} \\
@@ -156,7 +155,7 @@ $$
 \end{align*}
 $$
 
-c) Using the Cauchy-Schwarz inequality, we have
+c. Using the Cauchy-Schwarz inequality, we have
 $$
 \begin{align}
 \|\bs{x} + \bs{y}\|^2 & = \langle\bs{x} + \bs{y}, \bs{x} + \bs{y}\rangle \\
@@ -263,7 +262,7 @@ $$
 (\bs{A}\bs{B})_{\cdot j} = B_{1j}\bs{A}_{\cdot1} + B_{2j}\bs{A}_{\cdot2} + \ldots + B_{nj}\bs{A}_{\cdot n},
 \end{align*}
 $$
-where $(\bs{A}\bs{B})_{\cdot j}$ is the $j$th column of $\bs{A}\bs{B}$, $B_{ij}$ is the $(i,j)$th element of $\bs{B}$, and $\bs{A}_{\cdot i}$ is the $i$th column of $\bs{A}$. Thus, each column of the product $\bs{A}\bs{B}$ is a linear combination of the columns of $\bs{A}$.
+where $(\bs{A}\bs{B})_{\cdot j}$ is the $j0$th column of $\bs{A}\bs{B}$, $B_{ij}$ is the $(i,j)$th element of $\bs{B}$, and $\bs{A}_{\cdot i}$ is the $i$th column of $\bs{A}$. Thus, each column of the product $\bs{A}\bs{B}$ is a linear combination of the columns of $\bs{A}$.
 
 Similarly, we can show that the $l$th row of the product $\bs{A}\bs{B}$ is given by
 $$
@@ -350,8 +349,8 @@ a_{34}
 \begin{pmatrix}
 a_{41} & a_{42}& a_{43}
 \end{pmatrix},\,
- \text{and}\,
- \bs{A}_{22} = a_{44}.
+\text{and}\,
+\bs{A}_{22} = a_{44}.
 \end{align*}
 $$
 :::
@@ -447,7 +446,6 @@ $$
 \end{align*}
 $$
 
-
 ## Determinants
 The **determinant** of a square matrix $\bs{A}$ is a scalar value computed from the elements of the matrix. It is usually denoted by $\text{det}(\bs{A})$ or $|\bs{A}|$.  The determinant of $\bs{A}_{n\times n}$ is computed as follows:
 $$
@@ -531,10 +529,10 @@ $$
 The inverse matrix satisfies the following properties:
 
 a. $(c\bs{A})^{-1}=c^{-1}\bs{A}^{-1}$, where $c$ is a non-zero scalar, 
-a. $(\bs{A}\bs{B})^{-1}=\bs{B}^{-1}\bs{A}^{-1}$, where $\bs{A}$ and $\bs{B}$ are nonsingular matrices, 
-a. $(\bs{A}^{-1})^{-1}=\bs{A}$, 
-a. $(\bs{A}^{'})^{-1}=(\bs{A}^{-1})^{'}$, and 
-a. $|\bs{A}^{-1}|=|\bs{A}|^{-1}$.
+b. $(\bs{A}\bs{B})^{-1}=\bs{B}^{-1}\bs{A}^{-1}$, where $\bs{A}$ and $\bs{B}$ are nonsingular matrices, 
+c. $(\bs{A}^{-1})^{-1}=\bs{A}$, 
+d. $(\bs{A}^{'})^{-1}=(\bs{A}^{-1})^{'}$, and 
+e. $|\bs{A}^{-1}|=|\bs{A}|^{-1}$.
 :::
 
 The inverse of a block-diagonal matrix is the block-diagonal matrix of the inverses of the blocks. For example, if
@@ -573,7 +571,6 @@ d_{11}^{-1} & 0 & \ldots & 0 \\
 \end{align*}
 $$
 
-
 ## Rank of a matrix
 
 The **rank** of a matrix $\bs{A}_{m\times n}$ is the maximum number of linearly independent columns or rows in $\bs{A}$. The rank of a matrix is denoted by $\text{rank}(\bs{A})$. If $\text{rank}(\bs{A})=n$, then the matrix is said to be **full rank**. 
@@ -582,11 +579,11 @@ The **rank** of a matrix $\bs{A}_{m\times n}$ is the maximum number of linearly 
 ## Properties of rank
 The rank of a matrix satisfies the following properties:
 
-a) $0\le \text{rank}(\bs{A})\le\min(m,n)$,
-a) $\text{rank}(\bs{A})=\text{rank}(\bs{A}^{'})$,
-a) $\text{rank}(\bs{A}+\bs{B})\le \text{rank}(\bs{A})+\text{rank}(\bs{B})$,
-a) $\text{rank}(\bs{A}\bs{B})\le \min\left(\text{rank}(\bs{A}),\text{rank}(\bs{B})\right)$, and
-a) $\text{rank}(\bs{A})=\text{rank}(\bs{A}^{'}\bs{A})=\text{rank}(\bs{A}\bs{A}^{'})$.
+a. $0\le \text{rank}(\bs{A})\le\min(m,n)$,
+b. $\text{rank}(\bs{A})=\text{rank}(\bs{A}^{'})$,
+c. $\text{rank}(\bs{A}+\bs{B})\le \text{rank}(\bs{A})+\text{rank}(\bs{B})$,
+d. $\text{rank}(\bs{A}\bs{B})\le \min\left(\text{rank}(\bs{A}),\text{rank}(\bs{B})\right)$, and
+e. $\text{rank}(\bs{A})=\text{rank}(\bs{A}^{'}\bs{A})=\text{rank}(\bs{A}\bs{A}^{'})$.
 :::
 
 The first two properties follow from the definition of rank. The third property follows from the fact that the sum of two matrices can be expressed as a linear combination of the columns of the two matrices. Thus, the column space of $(\bs{A}+\bs{B})$ is a subspace of the sum of the column spaces of $\bs{A}$ and $\bs{B}$. The fourth property follows from the fact that the product of two matrices can be expressed as a linear combination of the columns of the first matrix and the rows of the second matrix. See @exm-matrix-multiplication2.  Finally, the last property follows from the second and the fourth properties.
@@ -634,7 +631,6 @@ Let $\bs{A}$ be an $n\times n$ matrix. Then, $|\bs{A}|=0$ if and only if $\text{
 See @Abadir2005 [p.94].
 :::
 :::
-
 
 ## Eigenvalues and eigenvectors
 Eigenvalues and eigenvectors are used used for matrix decompositions, principal component analysis, and many other applications. 
@@ -800,7 +796,6 @@ $$
 $$ 
 The matrix $\bs{Q}$ is orthogonal, which means that $\bs{Q}^{'}\bs{Q}=\bs{I}_n$, suggesting that $\bs{Q}^{-1}=\bs{Q}^{'}$. Thus, post-multiplying both sides of the equation $\bs{A}\bs{Q}=\bs{Q}\bs{\Lambda}$ by $\bs{Q}^{'}$ gives us the spectral decomposition of $\bs{A}$.
 
-
 :::{#exm-quadratic-form}
 Let $\bs{C}$ be a symmetric idempotent matrix. Then, the eigenvalues of $\bs{C}$ are either $0$ or $1$. Also, $\tr(\bs{C}) = \text{rank}(\bs{C})$.
 
@@ -813,16 +808,15 @@ $$
 which equals the number of non-zero eigenvalues. Since the eigenvalues of $\bs{C}$ are either $0$ or $1$, we have $\tr(\bs{C})= \text{rank}(\bs{C})$.
 :::
 
-
 ## Quadratic forms
 Suppose that $\bs{A}_{n\times n}$ is symmetric and $\bs{x}$ is an $n\times 1$ vector. Then, $\bs{x}^{'}\bs{A}\bs{x}=\sum_{i=1}^n\sum_{j=1}^na_{ij}x_ix_j
 $ is called the **quadratic form** in $\bs{x}$. Furthermore,
 
-(i) if $\bs{x}^{'}\bs{A}\bs{x}>0$ for all $\bs{x}\ne0$, then $\bs{A}$ is called **positive definite**,
-(ii) if $\bs{x}^{'}\bs{A}\bs{x}<0$ for all $\bs{x}\ne0$, then $\bs{A}$ is called **negative definite**,
-(iii) if $\bs{x}^{'}\bs{A}\bs{x}\ge0$ for all $\bs{x}\ne0$, then $\bs{A}$ is called **positive semi-definite**,
-(iii) if $\bs{x}^{'}\bs{A}\bs{x}\le0$ for all $\bs{x}\ne0$, then $\bs{A}$ is called **negative semi-definite**, and
-(iv) if $\bs{x}^{'}\bs{A}\bs{x}>0$ for some $\bs{x}\ne0$ and $\bs{y}^{'}\bs{A}\bs{y}<0$ for some $\bs{y}\ne0$,  then $\bs{A}$ is called **indefinite**.
+i. if $\bs{x}^{'}\bs{A}\bs{x}>0$ for all $\bs{x}\ne0$, then $\bs{A}$ is called **positive definite**,
+ii. if $\bs{x}^{'}\bs{A}\bs{x}<0$ for all $\bs{x}\ne0$, then $\bs{A}$ is called **negative definite**,
+iii. if $\bs{x}^{'}\bs{A}\bs{x}\ge0$ for all $\bs{x}\ne0$, then $\bs{A}$ is called **positive semi-definite**,
+iv. if $\bs{x}^{'}\bs{A}\bs{x}\le0$ for all $\bs{x}\ne0$, then $\bs{A}$ is called **negative semi-definite**, and
+v. if $\bs{x}^{'}\bs{A}\bs{x}>0$ for some $\bs{x}\ne0$ and $\bs{y}^{'}\bs{A}\bs{y}<0$ for some $\bs{y}\ne0$,  then $\bs{A}$ is called **indefinite**.
 
 If $\bs{A}$ is positive definite, then it is invertible. Any symmetric positive-definite matrix $\bs{A}$ can be written as the product of a lower triangular matrix $\bs{L}$ and its transpose $\bs{L}^{'}=\bs{U}$, i.e., $\bs{A}=\bs{LU}$. This decomposition is called the **Cholesky decomposition** of $\bs{A}$. More conveniently,  $\bs{A}^{-1}=\bs{U}^{-1}\bs{L}^{-1}$. The Cholesky decomposition provides a fast and numerically stable way to compute the inverse of a matrix. 
 
@@ -865,15 +859,11 @@ computation_time
 ## Properties of quadratic forms
 Let $\bs{A}$ be $n\times n$ real and symmetric matrix with eigenvalues $\lambda_1,\lambda_2,\ldots,\lambda_n$. Then,
 
-(a) $\bs{A}$ is positive definite $\iff$ $\lambda_1>0,\ldots,\lambda_n>0$,
-
-(b) $\bs{A}$ is positive semidefinite $\iff$ $\lambda_1\geq0,\ldots,\lambda_n\geq0$,
-
-(c) $\bs{A}$ is negative definite $\iff$ $\lambda_1<0,\ldots,\lambda_n<0$,
-
-(d) $\bs{A}$ is negative semidefinite $\iff$ $\lambda_1\leq0,\ldots,\lambda_n\leq0$, and
-
-(e) $\bs{A}$ is indefinite $\iff$ $\bs{A}$ has both positive and negative eigenvalues.
+a. $\bs{A}$ is positive definite $\iff$ $\lambda_1>0,\ldots,\lambda_n>0$,
+b. $\bs{A}$ is positive semidefinite $\iff$ $\lambda_1\geq0,\ldots,\lambda_n\geq0$,
+c. $\bs{A}$ is negative definite $\iff$ $\lambda_1<0,\ldots,\lambda_n<0$,
+d. $\bs{A}$ is negative semidefinite $\iff$ $\lambda_1\leq0,\ldots,\lambda_n\leq0$, and
+e. $\bs{A}$ is indefinite $\iff$ $\bs{A}$ has both positive and negative eigenvalues.
 :::
 
 :::{}
@@ -953,25 +943,22 @@ Alternatively, the matrix square root of the positive definite matrix $\bs{A}$ c
 ## Definition of matrix norm
 A matrix norm $\lVert\cdot\rVert$ is a real-valued function that satisfies the following conditions:
 
-(i) $\lVert\mathbf{A}\rVert\ge0$,
-(ii) $\lVert\mathbf{A}\rVert=0$ if and only if $\mathbf{A}=\bs{0}$,
-(iii) $\lVert\tau\mathbf{A}\rVert=|\tau|\lVert\mathbf{A}\rVert$ for all $\tau\in\mathbb{R}$, 
-(iv) $\lVert\mathbf{A+B}\rVert\;\le\;\lVert\mathbf{A}\rVert+\lVert\mathbf{B}\rVert$ (triangle inequality), and
-(v) $\lVert\mathbf{AB}\rVert\;\le\;\lVert\mathbf{A}\rVert\lVert\mathbf{B}\rVert$.
+i. $\lVert\mathbf{A}\rVert\ge0$,
+ii. $\lVert\mathbf{A}\rVert=0$ if and only if $\mathbf{A}=\bs{0}$,
+iii. $\lVert\tau\mathbf{A}\rVert=|\tau|\lVert\mathbf{A}\rVert$ for all $\tau\in\mathbb{R}$, 
+iv. $\lVert\mathbf{A+B}\rVert\;\le\;\lVert\mathbf{A}\rVert+\lVert\mathbf{B}\rVert$ (triangle inequality), and
+v. $\lVert\mathbf{AB}\rVert\;\le\;\lVert\mathbf{A}\rVert\lVert\mathbf{B}\rVert$.
 :::
 :::
  
 Some immediate properties that follow from the above definition are:
 
-a) Since $\Vert A^2\Vert = \Vert AA\Vert\leq \Vert A\Vert\Vert A\Vert = \Vert A\Vert^2$ for any matrix norm, it follows that
-$\Vert A\Vert \geq 1$ for any nonzero matrix $A$ for which $A^2 = A$. 
-b) In particular, $\Vert I\Vert\geq 1$ for any matrix norm. 
-c) If $A$ is nonsingular, then $I = AA^{-1}$, so $\Vert I\Vert = \Vert AA^{-1}\Vert\leq
-\Vert A\Vert\Vert A^{-1}\Vert$, and we have the lower bound
+a. Since $\Vert A^2\Vert = \Vert AA\Vert\leq \Vert A\Vert\Vert A\Vert = \Vert A\Vert^2$ for any matrix norm, it follows that $\Vert A\Vert \geq 1$ for any nonzero matrix $A$ for which $A^2 = A$. 
+b. In particular, $\Vert I\Vert\geq 1$ for any matrix norm. 
+c. If $A$ is nonsingular, then $I = AA^{-1}$, so $\Vert I\Vert = \Vert AA^{-1}\Vert\leq \Vert A\Vert\Vert A^{-1}\Vert$, and we have the lower bound
 $$
 \Vert A^{-1}\Vert\geq\frac{\Vert I\Vert}{\Vert A\Vert}.
 $$
-
 
 Two common norms used for matrix spaces are the Frobenius norm and the spectral norm. The **Frobenius norm** of a matrix $\bs{A}_{m\times k}$ is defined as 
 $$
@@ -996,7 +983,6 @@ $$
 \end{align}
 $$
 In particular, $\|\bs{a}\bs{a}^{'}\|_F=\|\bs{a}\|^2$.
-
 
 The **spectral norm** of real matrix $\bs{A}_{m\times k}$, denoted by $\|\bs{A}\|$, is the largest singular value of $\bs{A}$ and is defined as
 $$
@@ -1027,8 +1013,7 @@ $$
 \end{align}
 $$
 
-
-In Python, we can use the `np.linalg.norm` function to compute the Frobenius and spectral norms of a matrix. The following code chunk demonstrates how to compute these norms for a given matrix $\bs{A}$.
+In Python, we can use the `np.linalg.norm()` function to compute the Frobenius and spectral norms of a matrix. The following code chunk demonstrates how to compute these norms for a given matrix $\bs{A}$.
 
 ```{python}
 # Define a matrix
@@ -1225,9 +1210,8 @@ We use the notation $\bs{v}\sim N(\bs{\mu}_{\bs{v}},\,\bs{\Sigma}_{\bs{v}})$ to 
 
 Some important properties of the multivariate normal distribution are:
 
-(a) If $\bs{v}\sim N(\bs{\mu}_{\bs{v}},\,\bs{\Sigma}_{\bs{V}})$, then $v_i\sim N(\mu_i,\,\sigma^2_i)$ for $i=1,\ldots,m$, where $\mu_i$ is the $i$th element of $\bs{\mu}_{\bs{v}}$ and $\sigma^2_i$ is the $(i,i)$th element of $\bs{\Sigma}_{\bs{v}}$.
-
-(b) If $\bs{v}\sim N(\bs{\mu}_{\bs{v}},\,\bs{\Sigma}_{\bs{V}})$, then $\bs{A}\bs{v}+\bs{d}\sim N(\bs{A}\bs{\mu}_{\bs{v}}+\bs{d},\,\bs{A}\bs{\Sigma}_{\bs{v}}\bs{A}^{'})$, where $\bs{A}$ is a non-random $a\times m$ matrix and $\bs{d}$ is a non-random $a\times1$ vector.
+a. If $\bs{v}\sim N(\bs{\mu}_{\bs{v}},\,\bs{\Sigma}_{\bs{V}})$, then $v_i\sim N(\mu_i,\,\sigma^2_i)$ for $i=1,\ldots,m$, where $\mu_i$ is the $i$th element of $\bs{\mu}_{\bs{v}}$ and $\sigma^2_i$ is the $(i,i)$th element of $\bs{\Sigma}_{\bs{v}}$.
+b. If $\bs{v}\sim N(\bs{\mu}_{\bs{v}},\,\bs{\Sigma}_{\bs{V}})$, then $\bs{A}\bs{v}+\bs{d}\sim N(\bs{A}\bs{\mu}_{\bs{v}}+\bs{d},\,\bs{A}\bs{\Sigma}_{\bs{v}}\bs{A}^{'})$, where $\bs{A}$ is a non-random $a\times m$ matrix and $\bs{d}$ is a non-random $a\times1$ vector.
 
 (c) Let $\bs{v}_1$ be a $m_1\times1$ random vector with $\bs{v}_1\sim N(\bs{\mu}_{\bs{v}_1},\,\bs{\Sigma}_{\bs{v}_1})$ and $\bs{v}_2$ be a $m_2\times1$ random vector with $\bs{v}_2\sim N(\bs{\mu}_{\bs{v}_2},\,\bs{\Sigma}_{\bs{v}_2})$. Then, $\bs{v}_1$ and $\bs{v}_2$ are independent if and only if 
 $$
@@ -1235,7 +1219,6 @@ $$
 \text{Cov}(\bs{v}_1, \bs{v}_2) = \E\left((\bs{v}_1-\bs{\mu}_{\bs{v}_1})(\bs{v}_2- \bs{\mu}_{\bs{v}_2})^{'}\right)= \bs{0}_{m_1\times m_2}.
 \end{align}
 $$
-
 
 :::{#exm-multivariate-normal0}
 Let $\bs{v}\sim N(\bs{\mu}_{\bs{v}},\,\bs{\Sigma}_{\bs{v}})$ and $\bs{w}=\bs{\Sigma}^{-1/2}_\bs{v}(\bs{v}-\bs{\mu}_{\bs{v}})$, where $\bs{\Sigma}^{-1/2}$ is the inverse of the square root of $\bs{\Sigma}_{\bs{v}}$. Then, $\bs{w}\sim N(\bs{0}_m,\bs{I}_m)$. To see this, note that
@@ -1306,9 +1289,8 @@ where $z_i$'s are the elements of $\bs{z}$. Since $z_i$'s are independent and $z
 ## Independence of quadratic forms
 Let $\bs{u}$ be a $m\times1$ random vector with $\bs{u}\sim N(\bs{0}_m,\bs{I}_m)$. Let $\bs{A}$ and $\bs{B}$ be two non-random $m\times m$ symmetric matrices. 
 
-(a) Assume that $\bs{A}$ and $\bs{B}$ are symmetric and idempotent. Then, $\bs{u}^{'}\bs{A}\bs{u}$ and $\bs{u}^{'}\bs{B}\bs{u}$ are independent if and only if $\bs{A}\bs{B}=\bs{0}_{m\times m}$.
-
-(b) Assume that $\bs{A}$ and $\bs{B}$ are symmetric matrices with $\bs{B}$ idempotent. Then, $\bs{A}\bs{u}$ and $\bs{u}^{'}\bs{B}\bs{u}$ are independent if and only if $\bs{A}\bs{B}=\bs{0}_{m\times m}$.
+a. Assume that $\bs{A}$ and $\bs{B}$ are symmetric and idempotent. Then, $\bs{u}^{'}\bs{A}\bs{u}$ and $\bs{u}^{'}\bs{B}\bs{u}$ are independent if and only if $\bs{A}\bs{B}=\bs{0}_{m\times m}$.
+b. Assume that $\bs{A}$ and $\bs{B}$ are symmetric matrices with $\bs{B}$ idempotent. Then, $\bs{A}\bs{u}$ and $\bs{u}^{'}\bs{B}\bs{u}$ are independent if and only if $\bs{A}\bs{B}=\bs{0}_{m\times m}$.
 :::
 :::{.proof}
 ## Proof of @thm-independent-quadratics
@@ -1352,5 +1334,3 @@ f(v_2|v_1)=\frac{1}{\sqrt{2\pi(1-\rho^2)\sigma^2_2}}\exp\left(-\frac{(v_2-\mu_2-
 $$
 :::
 :::
-
-

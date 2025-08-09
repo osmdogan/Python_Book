@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.55">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -127,7 +127,7 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Econometrics with Python</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/hadley/r4ds/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/osmdogan/Python_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -423,9 +423,9 @@ window.Quarto = {
    
   <ul>
   <li><a href="#sec-OlsDerivation" id="toc-sec-OlsDerivation" class="nav-link active" data-scroll-target="#sec-OlsDerivation"><span class="header-section-number">A.1</span> Derivation of the OLS estimators</a></li>
-  <li><a href="#algebraic-properties-of-the-ols-estimators" id="toc-algebraic-properties-of-the-ols-estimators" class="nav-link" data-scroll-target="#algebraic-properties-of-the-ols-estimators"><span class="header-section-number">A.2</span> Algebraic properties of the OLS estimators</a></li>
+  <li><a href="#sec-AlgebraicProperties" id="toc-sec-AlgebraicProperties" class="nav-link" data-scroll-target="#sec-AlgebraicProperties"><span class="header-section-number">A.2</span> Algebraic properties of the OLS estimators</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/hadley/r4ds/edit/main/AppendixA.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hadley/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/AppendixA.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -476,7 +476,7 @@ Y_i=\beta_0+\beta_1 X_i+ u_i,
 \begin{align}
 (\hat{\beta}_0,\,\hat{\beta}_1)^{'}&amp;=\argmin_{\beta_0,\,\beta_1}\sum_{i=1}^n\big(Y_i-\beta_0-\beta_1X_i\big)^2.
 \end{align}
-\]</span> We set the first order conditions of the objective function with respect to <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> to zero: <span class="math display">\[
+\]</span> We set the first-order conditions of the objective function with respect to <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> equal to zero: <span class="math display">\[
 \begin{align*}
 \frac{\partial \sum_{i=1}^n\big(Y_i-\beta_0-\beta_1X_i\big)^2}{\partial\beta_0}&amp;=-2\sum_{i=1}^n\big(Y_i-\beta_0-\beta_1X_i\big)=0,\\
 \frac{\partial \sum_{i=1}^n\big(Y_i-\beta_0-\beta_1X_i\big)^2}{\partial\beta_1}&amp;=-2\sum_{i=1}^nX_i\big(Y_i-\beta_0-\beta_1X_i\big)=0.
@@ -524,20 +524,20 @@ Y_i=\beta_0+\beta_1 X_i+ u_i,
 \end{align*}
 \]</span></p>
 </section>
-<section id="algebraic-properties-of-the-ols-estimators" class="level2" data-number="A.2">
-<h2 data-number="A.2" class="anchored" data-anchor-id="algebraic-properties-of-the-ols-estimators"><span class="header-section-number">A.2</span> Algebraic properties of the OLS estimators</h2>
+<section id="sec-AlgebraicProperties" class="level2" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="sec-AlgebraicProperties"><span class="header-section-number">A.2</span> Algebraic properties of the OLS estimators</h2>
 <p>We show that the least squares residuals sum to zero, i.e., <span class="math inline">\(\sum_{i=1}^n\hat{u}_i=0\)</span>. Using <span class="math inline">\(\hat{u}_i=(Y_i-\hat{\beta}_0-\hat{\beta}_1X_i)\)</span>, we have <span class="math display">\[
 \begin{align*}
 \sum_{i=1}^n\hat{u}_i &amp;=\sum_{i=1}^n\big(Y_i-\hat{\beta}_0-\hat{\beta}_1X_i\big)=\sum_{i=1}^n\big(Y_i-[\bar{Y}-\hat{\beta}_1\bar{X}]-\hat{\beta}_1X_i\big)\\
 &amp;=\sum_{i=1}^n\big(Y_i-\bar{Y}\big)-\hat{\beta}_1\sum_{i=1}^n\big(X_i-\bar{X}\big)\\
-&amp;=\sum_{i=1}^n\big(Y_i-\bar{Y}\big)-\bigg(\frac{\sum_{i=1}^nX_i\big(Y_i-\bar{Y})}{\sum_{i=1}^nX_i\big(X_i-\bar{X}\big)}\bigg)\sum_{i=1}^n\big(X_i-\bar{X}\big)=0,
+&amp;=\sum_{i=1}^n\big(Y_i-\bar{Y}\big)-\left(\frac{\sum_{i=1}^nX_i\big(Y_i-\bar{Y})}{\sum_{i=1}^nX_i\big(X_i-\bar{X}\big)}\right)\sum_{i=1}^n\big(X_i-\bar{X}\big)=0,
 \end{align*}
 \]</span> because <span class="math inline">\(\sum_{i=1}^n\big(Y_i-\bar{Y}\big)=\sum_{i=1}^nY_i-\sum_{i=1}^n\bar{Y}=n\bar{Y}-n\bar{Y}=0\)</span> and <span class="math inline">\(\sum_{i=1}^n\big(X_i-\bar{X}\big)=\sum_{i=1}^nX_i-\sum_{i=1}^n\bar{X}=n\bar{X}-n\bar{X}=0\)</span>.</p>
 <p>Next, we show that the correlation between residuals and regressors is zero, i.e., <span class="math inline">\(\sum_{i=1}^nX_i\hat{u}_i=0\)</span>. Using <span class="math inline">\(\hat{u}_i=(Y_i-\hat{\beta}_0-\hat{\beta}_1X_i)\)</span>, we obtain <span class="math display">\[
 \begin{align*}
 \sum_{i=1}^nX_i\hat{u}_i &amp;=\sum_{i=1}^nX_i\big(Y_i-\hat{\beta}_0-\hat{\beta}_1X_i\big)=\sum_{i=1}^nX_i\big(Y_i-[\bar{Y}-\hat{\beta}_1\bar{X}]-\hat{\beta}_1X_i\big)\\
 &amp;=\sum_{i=1}^nX_i\big(Y_i-\bar{Y}\big)-\hat{\beta}_1\sum_{i=1}^nX_i\big(X_i-\bar{X}\big)\\
-&amp;=\sum_{i=1}^nX_i\big(Y_i-\bar{Y}\big)-\bigg(\frac{\sum_{i=1}^nX_i\big(Y_i-\bar{Y})}{\sum_{i=1}^nX_i\big(X_i-\bar{X}\big)}\bigg)\sum_{i=1}^nX_i\big(X_i-\bar{X}\big)\\
+&amp;=\sum_{i=1}^nX_i\big(Y_i-\bar{Y}\big)-\left(\frac{\sum_{i=1}^nX_i\big(Y_i-\bar{Y})}{\sum_{i=1}^nX_i\big(X_i-\bar{X}\big)}\right)\sum_{i=1}^nX_i\big(X_i-\bar{X}\big)\\
 &amp;=\sum_{i=1}^nX_i\big(Y_i-\bar{Y}\big)-\sum_{i=1}^nX_i\big(Y_i-\bar{Y}\big)=0.
 \end{align*}
 \]</span></p>
@@ -650,7 +650,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/osmdogan\.github\.io\/Python_Book\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -998,7 +998,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hadley/r4ds/edit/main/AppendixA.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hadley/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/AppendixA.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
