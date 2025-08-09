@@ -14,7 +14,6 @@ InteractiveShell.ast_node_interactivity = "all"
 
 {{< include latex_macro.qmd >}}
 
-
 ## Defining functions
 The following syntax can be used to declare a function in Python:
 
@@ -28,7 +27,7 @@ def function_name(arguments):
 
 A function is defined using the `def` keyword, and its output is returned with the `return` keyword. The function name, `function_name`, is user-defined. The `arguments` are supplied by the user and represent the inputs required to generate the result (output). Inside the function, a `docstring` (enclosed in triple quotes) can be included to describe the purpose of the function, its inputs, and outputs. Although optional, the docstring is helpful for documentation and can be accessed via `help(function_name)`. The `statements` are the set of Python commands that form the function’s body and ultimately produce the `expression_list`, which represents the function’s output.
 
-Consider the $L_p$  distance between two vectors $x=(x_1,\dots,x_n)^{'}$ and $y=(y_1,\dots,y_n)^{'}$ defined by $d_p(x,y)=\left(\sum_{i=1}^n|x_i-y_i|^p\right)^{1/p}$. In the following example, we define the `Lp_norm` function that returns  $d_p(x,y)$.
+Consider the $L_p$  distance between two vectors $x=(x_1,\dots,x_n)^{'}$ and $y=(y_1,\dots,y_n)^{'}$ defined by $d_p(x,y)=\left(\sum_{i=1}^n|x_i-y_i|^p\right)^{1/p}$. In the following example, we define the `Lp_norm()` function that returns  $d_p(x,y)$.
 
 ```{python}
 def Lp_norm(x, y, p):
@@ -55,13 +54,13 @@ def Lp_norm(x, y, p):
     return d
 ```
 
-The `docstring` can be accessed using the `help` function, as shown below:
+The `docstring` can be accessed using the `help()` function, as shown below:
 
 ```{python}
 help(Lp_norm)
 ```
 
-We use the name of the function, `Lp_norm`, to call the function. The inputs to the function are passed as arguments in the order they are defined in the function declaration. In this case, `x` and `y` are the vectors, and `p` is the order of the norm. The function returns a single output, which is the $L_p$ distance between the two vectors.
+We use the name of the function, `Lp_norm()`, to call the function. The inputs to the function are passed as arguments in the order they are defined in the function declaration. In this case, `x` and `y` are the vectors, and `p` is the order of the norm. The function returns a single output, which is the $L_p$ distance between the two vectors.
 
 ```{python}
 # Call the  lp_norm function
