@@ -58,6 +58,9 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 import statsmodels as sm
+import scipy.stats as stats
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
 ```
 
 Thus, when we use `np.array`, we refer to the array function from NumPy. 
@@ -78,7 +81,7 @@ x = 2
 The output of a code cell is shown in the subsequent cell, as shown in the following example:
 
 ```{python}
-x = [1,2,3,4]
+x = [1, 2, 3, 4]
 x.append(99) # adding 99 to the list x
 x
 ```
@@ -86,9 +89,9 @@ x
 The above cell displays the updated list `x`.  If a code cell returns multiple outputs, these outputs are displayed in separate cells, in the order they are produced. For example, the code below returns `type(x) = list` and `type(y) = tuple` in separate cells:
 
 ```{python}
-x = [10,2,35,11,12] # list
+x = [10, 2, 35, 11, 12] # list
 type(x)
-y = (3,5,7) # tuple
+y = (3, 5, 7) # tuple
 type(y)
 ```
 
