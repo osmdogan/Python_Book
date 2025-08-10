@@ -1,6 +1,5 @@
 # Instrumental Variables Regression {#sec-chapter19}
 
-
 ```{python}
 #| warning: false
 #| message: false
@@ -21,7 +20,7 @@ import networkx as nx
 
 ## Introduction
 
-In this chapter, we will discuss **instrumental variables (IV) regression**. IV regression is a method that provides a way to obtain a consistent estimate of the coefficient of the variable of interest when it is correlated with the error term. In this method, we use **instrumental variables** or simply **instruments** for isolating the part of the variable of interest that is correlated with the error term.  The method addresses omitted variable bias, simultaneous causality bias, and errors-in-variables bias.
+In this chapter, we will discuss **instrumental variables (IV) regression**. IV regression is a method that provides a way to obtain a consistent estimate of the coefficient of the variable of interest when it is correlated with the error term. In this method, we use **instrumental variables** or simply **instruments** for isolating the part of the variable of interest that is correlated with the error term. The method addresses omitted variable bias, simultaneous causality bias, and errors-in-variables bias.
 
 ## The IV estimator with a single regressor and a single instrument
 We consider the following simple linear regression model:
@@ -33,7 +32,7 @@ To introduce the IV approach, we first determine when there is endogeneity in th
 
 :::{#def-def19-1}
 ## Endogeneity and exogeneity
-We call a variable that is correlated with the error term an **endogenous variable** and a variable that is uncorrelated with the error term an **exogenous variable**.  
+We call a variable that is correlated with the error term an **endogenous variable** and a variable that is uncorrelated with the error term an **exogenous variable**.
 :::
 
 Recall that $\text{Cov}(X_i,u_i)\neq 0$ implies $\E(u_i|X_i)\neq 0$. Thus, if $X_i$ is endogenous, then the OLS estimator is biased and inconsistent.
@@ -106,10 +105,10 @@ plt.annotate(r'$D_3$', xy=(quantity[-1], demand3[-1]), xytext=(5, 5), textcoords
 plt.annotate(r'$S_3$', xy=(quantity[-1], supply3[-1]), xytext=(5, 5), textcoords='offset points')
 
 # Plot the intersection points
-plt.plot(intersection_quantity1, intersection_price1, 'bo')  
+plt.plot(intersection_quantity1, intersection_price1, 'bo')
 plt.annotate('Period 1 equilibrium', xy=(intersection_quantity1, intersection_price1), xytext=(-5, -15), textcoords='offset points', color='black', fontsize=8)
 
-plt.plot(intersection_quantity2, intersection_price2, 'bo')  
+plt.plot(intersection_quantity2, intersection_price2, 'bo')
 plt.annotate('Period 2 equilibrium', xy=(intersection_quantity2, intersection_price2), xytext=(-8, 8), textcoords='offset points', color='black', fontsize=8)
 
 plt.plot(intersection_quantity3, intersection_price3, 'bo') 
@@ -199,10 +198,10 @@ plt.plot(quantity, supply3, label='Supply 3', linestyle=':', color='steelblue')
 plt.annotate(r'$S_3$', xy=(quantity[-1], supply3[-1]), xytext=(5, 5), textcoords='offset points')
 
 # Plot the intersection points
-plt.plot(intersection_quantity1, intersection_price1, 'bo')  
+plt.plot(intersection_quantity1, intersection_price1, 'bo')
 plt.annotate('Equilibrium 1', xy=(intersection_quantity1, intersection_price1), xytext=(-5, -15), textcoords='offset points', color='black', fontsize=8)
 
-plt.plot(intersection_quantity2, intersection_price2, 'bo')  
+plt.plot(intersection_quantity2, intersection_price2, 'bo')
 plt.annotate('Equilibrium 2', xy=(intersection_quantity2, intersection_price2), xytext=(-8, 8), textcoords='offset points', color='black', fontsize=8)
 
 plt.plot(intersection_quantity3, intersection_price3, 'bo') 
@@ -263,7 +262,7 @@ $$
 \end{align*}
 $$
 
-Also, from the first stage, we have $\hat{\pi}_1=\frac{s_{ZX}}{s^2_Z}\implies s^2_Z=s_{ZX}/\hat{\pi}_1$.  Then, using $s_{\hat{X}Y}=\hat{\pi}_1s_{ZY}$ and $s^2_{\hat{X}}=\hat{\pi}^2_1s_{ZX}/\hat{\pi}_1=\hat{\pi}_1s_{ZX}$ in @eq-eq19-1, we derive $\hat{\beta}^{TSLS}_1$ as
+Also, from the first stage, we have $\hat{\pi}_1=\frac{s_{ZX}}{s^2_Z}\implies s^2_Z=s_{ZX}/\hat{\pi}_1$. Then, using $s_{\hat{X}Y}=\hat{\pi}_1s_{ZY}$ and $s^2_{\hat{X}}=\hat{\pi}^2_1s_{ZX}/\hat{\pi}_1=\hat{\pi}_1s_{ZX}$ in @eq-eq19-1, we derive $\hat{\beta}^{TSLS}_1$ as
 $$
 \begin{align}\label{eq4}
 \hat{\beta}^{TSLS}_1=\frac{s_{ZY}}{s_{ZX}}.
@@ -319,7 +318,7 @@ $$
 \end{align}
 $$
 
-where $\hat{q}_i=(Z_i-\bar{Z})\hat{u}_i$ and  $\hat{u}_i=Y_i-\hat{\beta}^{TSLS}_0-\hat{\beta}^{TSLS}_1X_i$ is the residual from the TSLS regression. We can use this variance to construct confidence intervals and perform hypothesis tests, similar to the procedure used in multiple linear regression models.
+where $\hat{q}_i=(Z_i-\bar{Z})\hat{u}_i$ and $\hat{u}_i=Y_i-\hat{\beta}^{TSLS}_0-\hat{\beta}^{TSLS}_1X_i$ is the residual from the TSLS regression. We can use this variance to construct confidence intervals and perform hypothesis tests, similar to the procedure used in multiple linear regression models.
 
 ### Application to the demand for cigarettes
 We estimate the price elasticity of demand for cigarettes using the instrumental variable method. The data set consists of annual data for the 48 continental U.S. states from 1985 to 1995. Cigarette consumption is measured by annual per capita cigarette sales in packs per year. The price is the average retail cigarette price per pack during the fiscal year, including taxes. The data set is included in the `cig_ch12.xlsx` file. The variables are as follows:
@@ -371,7 +370,6 @@ mydata['cigtax'] = mydata['tax'] / mydata['cpi']
 mydata['rincome'] = (mydata['income'] / mydata['pop']) / mydata['cpi']
 ```
 
-
 :::{layout-ncol=1}
 ```{python}
 #| tbl-cap: "Summary statistics"
@@ -382,8 +380,7 @@ mydata[variables].describe().round(2).T
 ```
 :::
 
-
-To estimate @eq-eq19-4, we only use data from the year 1995. The code chunk below generates the subset of data for the year 1995, adds a column of ones to the data frame, and estimates the IV regression using the `IV2SLS` function from the `linearmodels` package.  
+To estimate @eq-eq19-4, we only use data from the year 1995. The code chunk below generates the subset of data for the year 1995, adds a column of ones to the data frame, and estimates the IV regression using the `IV2SLS` function from the `linearmodels` package.
 
 ```{python}
 #| warning: false
@@ -396,7 +393,6 @@ mydata1995['const'] = 1
 
 # Perform IV regression
 iv_model = IV2SLS(dependent=np.log(mydata1995['packpc']), exog=mydata1995['const'], endog=np.log(mydata1995['rprice']),instruments=mydata1995['salestax']).fit(cov_type='robust')
-
 ```
 
 We can use the `Stargazer` function from the `stargazer` package to display the estimation results. The code chunk below generates the estimation results using the `Stargazer` function.
@@ -420,22 +416,22 @@ $$
 \end{align}
 $$
 
-The TSLS estimate $\hat{\beta}^{TSLS}_1=-1.084$ suggests that a one percent increase in cigarette prices reduces cigarette consumption  by approximately $1.08$ percent, indicating that demand is fairly elastic.
+The TSLS estimate $\hat{\beta}^{TSLS}_1=-1.084$ suggests that a one percent increase in cigarette prices reduces cigarette consumption by approximately $1.08$ percent, indicating that demand is fairly elastic.
 
 ## The general IV regression model
 
-In this section, we extend the IV regression model to include multiple endogenous variables and multiple instruments. Consider the following multiple linear regression model:   
+In this section, we extend the IV regression model to include multiple endogenous variables and multiple instruments. Consider the following multiple linear regression model:
 $$
 \begin{align}
 Y_i = \beta_0 + \beta_1X_{1i}+\ldots+\beta_kX_{ki}+\beta_{k+1}W_{1i} +\ldots + \beta_{k+r}W_{ri} + u_i,
 \end{align}
 $${#eq-eq19-5}
 
-where $Y_i$ is the dependent variable, $X_{1i},\ldots,X_{ki}$ are the endogenous variables, and $W_{1i},\ldots,W_{ri}$ are either  exogenous variables or the control variables. The endogenous variables are correlated with the error term, i.e., $\text{Cov}(X_{ji},u_i)\neq 0$ for $j=1,\ldots,k$. We use the instrumental variables $Z_{1i},\ldots,Z_{mi}$ for the endogenous variables. In this model, the coefficients $\beta_1,\ldots,\beta_k$ are said to be:
+where $Y_i$ is the dependent variable, $X_{1i},\ldots,X_{ki}$ are the endogenous variables, and $W_{1i},\ldots,W_{ri}$ are either exogenous variables or the control variables. The endogenous variables are correlated with the error term, i.e., $\text{Cov}(X_{ji},u_i)\neq 0$ for $j=1,\ldots,k$. We use the instrumental variables $Z_{1i},\ldots,Z_{mi}$ for the endogenous variables. In this model, the coefficients $\beta_1,\ldots,\beta_k$ are said to be:
 
-* **exactly identified**  if $m = k$. There are just enough instruments to estimate $\beta_1,\ldots,\beta_k$. 
-* **overidentified** if $m > k$. There are more than enough instruments to estimate $\beta_1,\ldots,\beta_k$.  In this case, we can also test whether the instruments are valid (a test of the overidentifying restrictions), which we will discuss later.
-* **underidentified**  if $m < k$. There are too few instruments to estimate $\beta_1,\ldots,\beta_k$.
+* **exactly identified** if $m = k$. There are just enough instruments to estimate $\beta_1,\ldots,\beta_k$. 
+* **overidentified** if $m > k$. There are more than enough instruments to estimate $\beta_1,\ldots,\beta_k$. In this case, we can also test whether the instruments are valid (a test of the overidentifying restrictions), which we will discuss later.
+* **underidentified** if $m < k$. There are too few instruments to estimate $\beta_1,\ldots,\beta_k$.
 
 In order to use the IV method to estimate the coefficients in @eq-eq19-5, the coefficients must either be exactly identified or overidentified. The IV method is not applicable when the coefficients are underidentified.
 
@@ -457,9 +453,9 @@ for $i=1,\ldots,n$, where
 
 In this model, the coefficients $\beta_1,\ldots,\beta_k$ are said to be:
 
-* **exactly identified**  if $m = k$,
+* **exactly identified** if $m = k$,
 * **overidentified** if $m > k$,
-* **underidentified**  if $m < k$.
+* **underidentified** if $m < k$.
 
 The IV method is not applicable when the coefficients are underidentified.
 :::
@@ -506,7 +502,7 @@ $$
 $${#eq-eq19-6}
 
 This matrix should have full column rank, i.e., the columns of the matrix are linearly independent. This condition corresponds to the no-perfect multicollinearity assumption and ensures that we can use the OLS estimator to estimate the second stage regression. If there is only one endogenous regressor, then at least one of the instrumental variables must be relevant for the endogenous regressor in the reduced form equation.
-  
+
 * **Instrument exogeneity**: The instrumental variables must be uncorrelated with the error term: $\text{Cov}(Z_{l},u)=0$ for $l=1,\ldots,m$.
 
 ### The sampling distribution of the TSLS estimator in the general IV model
@@ -654,7 +650,7 @@ $${#eq-eq19-8}
 
 where $\pi_0,\ldots,\pi_m$ and $\gamma_1,\ldots,\gamma_r$ are the unknown parameters, and $v_i$ is the error term. Then, the instruments are relevant if at least one of $\pi_1,\ldots,\pi_m$ is not zero. The instruments are said to be **weak** if all of $\pi_1,\ldots,\pi_m$ are zero or close to zero. That is, in the weak instrument case, the instruments can only explain a small portion of the variation in the endogenous variable.
 
-In practice, we can use the F-statistic from the first stage regression to test the instrument relevance condition. Consider the following null and alternative hypotheses:
+In practice, we can use the $F$-statistic from the first stage regression to test the instrument relevance condition. Consider the following null and alternative hypotheses:
 $$
 \begin{align}
 H_0&: \pi_1=\ldots=\pi_m=0,\\
@@ -662,7 +658,7 @@ H_1&: \text{At least one of the coefficients is not zero}.
 \end{align}
 $$
 
-A large F-statistic indicates that the instruments are relevant. A common rule of thumb is that the F-statistic should be greater than 10. An F-statistic smaller than 10 suggests that the instruments are weak. In such cases, the TSLS estimator is biased and does not have an asymptotic normal distribution, even when the sample size is large. 
+A large $F$-statistic indicates that the instruments are relevant. A common rule of thumb is that the $F$-statistic should be greater than 10. An $F$-statistic smaller than 10 suggests that the instruments are weak. In such cases, the TSLS estimator is biased and does not have an asymptotic normal distribution, even when the sample size is large. 
 
 To study the large sample distribution of the TSLS estimator under the weak instrument, we consider the case where there is only one endogenous variable and one instrument. In this case, we start with the following expression (for the details, see Section 19.2.2):
 $$
@@ -700,30 +696,29 @@ $$
 \end{align}
 $${#eq-eq19-9}
 where $\delta_0,\ldots,\delta_{m+r}$ are the unknown coefficients and $e_i$ is the error term.
-4. Compute the homoskedasticity-only F-statistic for the following hypothesis:
+4. Compute the homoskedasticity-only $F$-statistic for the following hypothesis:
 $$
 \begin{align*}
 H_0:\delta_1=0,\ldots,\delta_m=0\quad\text{versus}\quad H_1: \text{At least one coefficient is non-zero}.
 \end{align*}
 $$
-5. The J-statistic is computed as $J=m\times F$, where $m$ is the number of instruments.
+5. The $J$-statistic is computed as $J=m\times F$, where $m$ is the number of instruments.
 
-Under the null hypothesis that all instruments are exogeneous, $J$ has a chi-squared distribution with $m-k$ degrees of freedom, i.e., $J\sim \chi^2_{m-k}$. In Chapter 26, we will discuss how to compute the J-statistic when the error terms are heteroskedastic.
+Under the null hypothesis that all instruments are exogeneous, $J$ has a chi-squared distribution with $m-k$ degrees of freedom, i.e., $J\sim \chi^2_{m-k}$. In Chapter 26, we will discuss how to compute the $J$-statistic when the error terms are heteroskedastic.
 
 ::: {.callout-note icon=false}
 ## Key Concept 19.2: Checking instrument validity
 The validity of the instrumental variables depends on two conditions: (i) instrument relevance and (ii) instrument exogeneity.
 
-* **Instrument relevance**: The instruments are relevant if at least one of the coefficients in the reduced form equation is not zero. A large F-statistic for testing $H_0: \pi_1=\ldots=\pi_m=0$  in @eq-eq19-8 indicates that the instruments are relevant. A common rule of thumb is that the F-statistic should be greater than 10. An F-statistic smaller than 10 suggests that the instruments are weak. When the instruments are weak, the TSLS estimator is biased and does not have an asymptotic normal distribution, even when the sample size is large.
-  
-* **Instrument exogeneity**: In the overidentified case, we can use the test of overidentifying restrictions (the J test) to test the instrument exogeneity condition. The J-statistic is computed as $J=m\times F$, where $m$ is the number of instruments and $F$ is the homoskedasticity-only F-statistic for testing $H_0:\delta_1=0,\ldots,\delta_m=0$ in @eq-eq19-9 . Under the null hypothesis that all instruments are exogeneous, we have $J\sim\chi^2_{m-k}$. 
+* **Instrument relevance**: The instruments are relevant if at least one of the coefficients in the reduced form equation is not zero. A large $F$-statistic for testing $H_0: \pi_1=\ldots=\pi_m=0$ in @eq-eq19-8 indicates that the instruments are relevant. A common rule of thumb is that the $F$-statistic should be greater than 10. An $F$-statistic smaller than 10 suggests that the instruments are weak. When the instruments are weak, the TSLS estimator is biased and does not have an asymptotic normal distribution, even when the sample size is large.
+
+* **Instrument exogeneity**: In the overidentified case, we can use the test of overidentifying restrictions (the J test) to test the instrument exogeneity condition. The J-statistic is computed as $J=m\times F$, where $m$ is the number of instruments and $F$ is the homoskedasticity-only $F$-statistic for testing $H_0:\delta_1=0,\ldots,\delta_m=0$ in @eq-eq19-9 . Under the null hypothesis that all instruments are exogeneous, we have $J\sim\chi^2_{m-k}$. 
 :::
 
 ## Application to the demand for cigarettes
 In this section, we revisit the demand for cigarettes using the instrumental variable method. We will consider both the sales tax and the cigarette-specific tax as instruments for the average real price. The relevance of these instruments was discussed in previous examples.
 
 The first step in checking instrument exogeneity is to consider the factors that are likely to affect cigarette consumption, i.e., the factors included in the error term $u_i$. If these factors are correlated with the instruments, then the instruments are not exogenous. For instance, real state income is likely to influence cigarette consumption and may also be correlated with the sales tax and the cigarette-specific tax. Consequently, it is essential to account for real state income in the demand equation; otherwise, the instruments will not satisfy the exogeneity condition. We also use the state fixed effects to control for unobserved omitted factors that vary across states but not over time. Finally, we will consider the J-test to test the instrument exogeneity condition.
-
 
 ### Model
 We consider the following fixed effects panel data model:
@@ -816,7 +811,7 @@ stargazer
 The estimation results are shown in @tbl-t19-5. The TSLS estimates for $\beta_1$ are -0.938, -1.343, and -1.202 for models 1, 2, and 3, respectively. All estimates are statistically significant at the 5% level. The reliability of these coefficient estimates depends on the validity of the instruments. In the next section, we examine the validity of the instruments.
 
 ### Checking instrument validity
-The relevance of the instruments can be checked using the F-statistic from the first stage regressions. The code chunk below shows how to compute the F-statistics for the first stage regressions.
+The relevance of the instruments can be checked using the $F$-statistic from the first stage regressions. The code chunk below shows how to compute the $F$-statistics for the first stage regressions.
 
 ```{python}
 #| warning: false
@@ -837,9 +832,9 @@ print(f2_fstat)
 print(f3_fstat)
 ```
 
-The first stage F-statistics are 33.7, 107.2, and 86.7 for models 1, 2, and 3, respectively. These F-statistics are greater than 10, indicating that the instruments are relevant. 
+The first stage $F$-statistics are 33.7, 107.2, and 86.7 for models 1, 2, and 3, respectively. These $F$-statistics are greater than 10, indicating that the instruments are relevant. 
 
-Since the first two models are exactly identified, we cannot use the J-test to test instrument exogeneity. However, the regression in column (3) is overidentified because there are two instruments and a single included endogenous regressor, resulting in one (m - k = 2 - 1 = 1) overidentifying restriction.
+Since the first two models are exactly identified, we cannot use the $J$-test to test instrument exogeneity. However, the regression in column (3) is overidentified because there are two instruments and a single included endogenous regressor, resulting in one $(m - k = 2 - 1 = 1)$ overidentifying restriction.
 
 ```{python}
 # Get the residuals from the regression in column (3)
@@ -863,7 +858,7 @@ p_value=1-stats.chi2.cdf(jtest, df=1)
 print(p_value.round(4))
 ```
 
-The p-value indicates that the null hypothesis of both instruments being exogenous is rejected at the 5% significance level. The rejection of the J-statistic suggests that at least one of the instruments is endogenous. This leads to three logical possibilities:
+The $p$-value indicates that the null hypothesis of both instruments being exogenous is rejected at the 5% significance level. The rejection of the $J$-statistic suggests that at least one of the instruments is endogenous. This leads to three logical possibilities:
 
 * The sales tax is exogenous, but the cigarette-specific tax is not, making the column (1) regression reliable.
 * The cigarette-specific tax is exogenous, but the sales tax is not, making the column (2) regression reliable.
@@ -880,23 +875,23 @@ In our ensuing analysis, we use three data files: `maketable1.dta`, `maketable2.
 * `shortnam`: A three-letter country name.
 * `euro1900`: The fraction of the population of European descent in 1900, which is a measure of European settlement in the colonies.
 * `excolony`: A dummy taking 1 if the country was colony (FLOPS definition).
-* `avexpr  `: Average protection against expropriation risk over 1985-95 (higher values on the index indicate greater protection).
+* `avexpr`  : Average protection against expropriation risk over 1985-95 (higher values on the index indicate greater protection).
 * `logpgp95`: Log of per capita GDP in 1995 (PPP adjusted).
-* `cons1   `: Constraint on executive in first year 
+* `cons1`   : Constraint on executive in first year 
 of independence. The scale consists of seven categories, ranging from 1 to 7, with higher scores indicating greater constraint.
-* `cons90  `: Constraint on executive in 1990. The scale consists of seven categories, ranging from 1 to 7, with higher scores indicating greater constraint.
+* `cons90`  : Constraint on executive in 1990. The scale consists of seven categories, ranging from 1 to 7, with higher scores indicating greater constraint.
 * `democ00a`: Democracy in 1900 and first year of independence. It is an 11-category scale, from 0 to 10, with a higher score indicating more democracy
 * `cons00a `: Constraint on executive in 1900. The scale consists of seven categories, ranging from 1 to 7, with higher scores indicating greater constraint.
 * `extmort4`: Corrected mortality
-* `logem4  `: Log European settler mortality.
-* `loghjypl`:  Log output per work from @Hall1999.
-* `baseco  `: A dummy for the base sample of countires that were ex-colonies.
-* `africa`: A dummy variable taking 1 if the counry is in  Africa.
+* `logem4`  : Log European settler mortality.
+* `loghjypl`: Log output per work from @Hall1999.
+* `baseco`  : A dummy for the base sample of countires that were ex-colonies.
+* `africa`: A dummy variable taking 1 if the counry is in Africa.
 * `asia`: A dummy variable taking 1 if the counry is in Asia.
 * `other`: A dummy variable taking 1 if the counry is in neither Asia, Africa, nor the Americas.
-* `lat_abst`:  Absolute value of the latitude of the country (i.e., a measure of distance from the equator), scaled to take values between 0 and 1, where 0 is the equator.
+* `lat_abst`: Absolute value of the latitude of the country (i.e., a measure of distance from the equator), scaled to take values between 0 and 1, where 0 is the equator.
 
-We use the data from `maketable1.dta` to create a scatter plot of log GDP per capita in 1995 (`logpgp95`) against the average protection against expropriation risk over 1985-95 (`avexpr`). The scatter plot is shown in @fig-f19-5.  The plot reveals a strong positive relationship between protection against expropriation and log GDP per capita. If protection against expropriation is an indicator of institutional quality, then the scatterplot suggests that income per capita is postively associated with institutional quality.
+We use the data from `maketable1.dta` to create a scatter plot of log GDP per capita in 1995 (`logpgp95`) against the average protection against expropriation risk over 1985-95 (`avexpr`). The scatter plot is shown in @fig-f19-5. The plot reveals a strong positive relationship between protection against expropriation and log GDP per capita. If protection against expropriation is an indicator of institutional quality, then the scatterplot suggests that income per capita is postively associated with institutional quality.
 
 ```{python}
 # Load the data
@@ -977,8 +972,8 @@ reg3 = smf.ols(formula='logpgp95 ~ avexpr + lat_abst + asia + africa + other', d
 ```{python}
 #| tbl-cap: "The OLS estimation results"
 #| label: tbl-t19-6
-info_dict={'R-squared' : lambda x: f"{x.rsquared:.2f}",
-           'No. observations' : lambda x: f"{int(x.nobs):d}"}
+info_dict = {'R-squared' : lambda x: f"{x.rsquared:.2f}",
+             'No. observations' : lambda x: f"{int(x.nobs):d}"}
 
 results_table = summary_col(results=[reg1,reg2,reg3],
                             float_format='%0.2f',
@@ -995,7 +990,6 @@ results_table = summary_col(results=[reg1,reg2,reg3],
 results_table
 ```
 :::
-
 
 @Acemoglu2001 highlight several critical reasons to exercise caution when interpreting the estimation results given in @tbl-t19-6 as causal:
 
@@ -1035,7 +1029,7 @@ nx.draw(G, pos, with_labels=True, node_size=4500, node_color="skyblue", font_siz
 plt.show()
 ```
 
-To check instrument relevance, we generate a scatterplot of `avexpr` against `logem4` (log settler mortality rate). @fig-f19-7 reveals a negative correlation between protection against expropriation and settler mortality rates, consistent with the authors' hypothesis. This negative relationship indicates that higher settler mortality rates are associated with lower levels of protection against expropriation during 1985–95. The first stage F-statistic is 31.5, which is greater than 10, indicating that the instrument is relevant.
+To check instrument relevance, we generate a scatterplot of `avexpr` against `logem4` (log settler mortality rate). @fig-f19-7 reveals a negative correlation between protection against expropriation and settler mortality rates, consistent with the authors' hypothesis. This negative relationship indicates that higher settler mortality rates are associated with lower levels of protection against expropriation during 1985–95. The first stage $F$-statistic is 31.5, which is greater than 10, indicating that the instrument is relevant.
 
 ```{python}
 #| fig-cap: "First-stage relationship between settler mortality and expropriation risk"
@@ -1066,18 +1060,16 @@ ax.set_ylabel('Average expropriation risk 1985-95')
 plt.show()
 ```
 
-
 ```{python}
 # The first stage F-statistic
 m1.f_test("logem4 = 0")
 ```
 
-
 The instrument exogeneity condition may not be satisfied if settler mortality rates in the 17th to 19th centuries have a direct effect on current GDP (in addition to their indirect effect through institutions). For example, settler mortality rates may be related to the current disease environment in a country, which could affect current economic performance. @Acemoglu2001 argue this is unlikely because:
 
 * The majority of settler deaths were due to malaria and yellow fever and these diseases had a limited effect on local people.
 * The disease burden on local people in Africa or India, for example, did not appear to be higher than average, supported by relatively high population densities in these areas before colonization.
-  
+
 Hence, the settler mortality rate variable seem to be a valid instrument and we can proceed with the TSLS estimation. The estimation results are presented in @tbl-t19-7. The estimated coefficient on the protection against expropriation index is 0.94, with a standard error of 0.18. The coefficient is statistically significant at the 5% level. Compared to the OLS estimate (0.53), the TSLS estimate is larger, suggesting that the OLS estimate is biased downwards. 
 
 ```{python}
@@ -1092,7 +1084,6 @@ model = IV2SLS.from_formula(
     formula="logpgp95 ~ 1 + [avexpr ~ logem4]",
     data=df4
 ).fit(cov_type='robust')
-
 ```
 
 :::{layout-ncol=1}

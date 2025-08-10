@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://osmdogan.github.io/Python_Book/index.html</loc>
-    <lastmod>2025-08-09T17:21:08.628Z</lastmod>
+    <lastmod>2025-08-10T06:43:28.918Z</lastmod>
   </url>
   <url>
     <loc>https://osmdogan.github.io/Python_Book/references.html</loc>
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://osmdogan.github.io/Python_Book/Chapter14-BigData.html</loc>
-    <lastmod>2025-07-24T08:47:18.216Z</lastmod>
+    <lastmod>2025-08-10T06:41:23.008Z</lastmod>
   </url>
   <url>
     <loc>https://osmdogan.github.io/Python_Book/Chapter0-CustomFunctions.html</loc>
@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://osmdogan.github.io/Python_Book/Chapter13-Experiments.html</loc>
-    <lastmod>2025-08-03T10:44:38.659Z</lastmod>
+    <lastmod>2025-08-10T06:32:17.606Z</lastmod>
   </url>
   <url>
     <loc>https://osmdogan.github.io/Python_Book/AppendixA.html</loc>
@@ -98,7 +98,7 @@
   </url>
   <url>
     <loc>https://osmdogan.github.io/Python_Book/Chapter5-LinearRegressionOneRegressorInference.html</loc>
-    <lastmod>2025-08-10T05:12:14.488Z</lastmod>
+    <lastmod>2025-08-10T05:27:50.782Z</lastmod>
   </url>
   <url>
     <loc>https://osmdogan.github.io/Python_Book/Chapter6-MultipleRegression.html</loc>
@@ -110,10 +110,22 @@
   </url>
   <url>
     <loc>https://osmdogan.github.io/Python_Book/Chapter8-NonlinearRegressions.html</loc>
-    <lastmod>2025-08-10T05:38:49.738Z</lastmod>
+    <lastmod>2025-08-10T05:50:06.166Z</lastmod>
   </url>
   <url>
     <loc>https://osmdogan.github.io/Python_Book/Chapter9-AssessingStudies.html</loc>
     <lastmod>2025-08-10T05:49:02.161Z</lastmod>
+  </url>
+  <url>
+    <loc>https://osmdogan.github.io/Python_Book/Chapter10-RegressionPanelData.html</loc>
+    <lastmod>2025-08-10T06:03:04.458Z</lastmod>
+  </url>
+  <url>
+    <loc>https://osmdogan.github.io/Python_Book/Chapter11-BinaryDependentVariable.html</loc>
+    <lastmod>2025-08-10T06:11:55.669Z</lastmod>
+  </url>
+  <url>
+    <loc>https://osmdogan.github.io/Python_Book/Chapter12-IVRegression.html</loc>
+    <lastmod>2025-08-10T06:22:10.534Z</lastmod>
   </url>
 </urlset>

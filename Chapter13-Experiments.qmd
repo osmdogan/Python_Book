@@ -1,6 +1,5 @@
 # Experiments and Quasi-Experiments {#sec-chapter20}
 
-
 ```{python}
 import numpy as np
 import pandas as pd
@@ -98,7 +97,6 @@ Y_i=\beta_{0}+\beta_{1}D_i+u_i.
 \end{align}  
 $$ {#eq-eq20.2}
 
-
 We want to show that $\beta_1$ in @eq-eq20.2 equals to the ATE. To that end, we need to make some assumptions about potential outcomes and the treatment assignment.
 
 ::: {.callout-important icon=false title="Assumptions for causal inference"}
@@ -142,12 +140,11 @@ The OLS estimator $\hat{\beta}_1$ in @eq-eq20.3 is called the **difference-in-me
 
 If the Assumption 3 fails, i.e., if treatment assignment and the potential outcomes are dependent, then the OLS estimator suffers from **selection bias**. The difference between $\beta_1=\E[Y_i|D_i=1]-\E[Y_i|D_i=0]$ and $\text{ATE}=\E[Y_i(1)-Y_i(0)]$ is called **selection bias**.
 
-
 In estimating the ATE using @eq-eq20.2, do we need to consider any other variables, such as pre-treatment characteristics or control variables? If there are variables that capture the pre-treatment characteristics of units, or if control variables are available, we can include them in @eq-eq20.2 to increase the efficiency of the OLS estimator:
 $$
 Y_i=\beta_0+\beta_1D_i+\beta_2W_{1i}+\dots+\beta_{r+1}W_{ri}+u_i,
 $$
-where $W_{1i},\dots,W_{ri}$ are pre-treatment characteristics or control variables.  Note that since assignment to treatment is randomized, the conditional mean independence assumption holds with respect to $D_i$:
+where $W_{1i},\dots,W_{ri}$ are pre-treatment characteristics or control variables. Note that since assignment to treatment is randomized, the conditional mean independence assumption holds with respect to $D_i$:
 $$
 \E(u_i|D_i,W_{1i},\dots,W_{ri})=\E(u_i|W_{1i},\dots,W_{ri}).
 $$
@@ -155,7 +152,6 @@ $$
 Thus, the OLS estimator of $\beta_1$ is an unbiased estimator of the ATE. However, recall that the coefficients on the control variables do not have a causal interpretation unless $\E(u_i|W_{1i},\dots,W_{ri})=0$.
 
 When the assignment of individuals to treatment and control groups is influenced by one or more observable variables $W$, we refer to this as **randomization based on covariates**. In this case, the OLS estimator of $\beta_1$ based on @eq-eq20.2 suffers from omitted variable bias because $D$ is correlated with the omitted variable $W$. The omitted variable bias can be avoided by using $W$ as a control variable in the model.
-
 
 ## Threats to validity of experiments
 As in the case of multiple linear regression model, threats to internal validity of an experiment can induce correlation between the treatment indicator and the error term in @eq-eq20.2. These threats include:
@@ -169,7 +165,7 @@ As in the case of multiple linear regression model, threats to internal validity
 Under the first threat, Assumption 3 fails. For example, consider the job training program in @exm-ex20.2. If we assign disproportionately high-ability individuals to the treatment group, we induce correlation between the treatment indicator $D$ and the potential outcomes and, therefore, between $D$ and the error term $u$. This correlation arises because ability (which is part of the error term) influences both treatment assignment and the outcome variable (wage). In this case, since the zero-conditional mean assumption fails, the OLS estimator of $\beta_1$ will be biased and inconsistent.
 
 
-If we have pre-treatment covariates $W_1,\dots,W_r$ on the experimental units, we can test whether Assumption 3 holds. The idea of this testing approach is that if the treatment is randomly assigned, then the treatment indicator $D$ should be uncorrelated with the pre-treatment covariates. Therefore, we can use the F-statistic to test the joint null hypothesis that the coefficients on the pre-treatment covariates in the regression of $D$ on $W_1,\dots,W_r$ are zero. If the treatment is randomly assigned, then the F-statistic should fail to reject this joint null hypothesis.
+If we have pre-treatment covariates $W_1,\dots,W_r$ on the experimental units, we can test whether Assumption 3 holds. The idea of this testing approach is that if the treatment is randomly assigned, then the treatment indicator $D$ should be uncorrelated with the pre-treatment covariates. Therefore, we can use the $F$-statistic to test the joint null hypothesis that the coefficients on the pre-treatment covariates in the regression of $D$ on $W_1,\dots,W_r$ are zero. If the treatment is randomly assigned, then the $F$-statistic should fail to reject this joint null hypothesis.
 
 In an experiment, subjects may not comply with the treatment protocol. For example, in our job training program in @exm-ex20.2, some subjects in the treatment group may not participate in the training, or some subjects from the control group may participate in the training sessions. In either case, the unobserved factors (e.g., ability) that are part of the error term will be correlated with $D$, since these unobserved factors influence whether subjects comply with the treatment protocol.
 
@@ -185,7 +181,6 @@ As in the case of the multiple linear regression model, threats to the **externa
 * If the program or policy studied in an experiment differs in some aspects from the program or policy of interest, its results may not be generalizable.
 * Large-scale experiments can create general equilibrium effects that alter the broader context, and thus producing results that are different from those of smaller-scale experiments. @DEATON2018 give the following example: “Suppose an RCT demonstrates that in the study population a new way of using fertilizer had a substantial positive effect on, say, cocoa yields, so that farmers who used the new methods saw increases in production and in incomes compared to those in the control group. If the procedure is scaled up to the whole country, or to all cocoa farmers worldwide, the price will drop, and if the demand for cocoa is price inelastic - as is usually thought to be the case, at least in the short run - cocoa farmers’ incomes will fall. Indeed, the conventional wisdom for many crops is that farmers do best when the harvest is small, not large. In this case, the scaled-up effect is opposite in sign to the trial effect.”
 
-
 ## Experimental estimates of the effect of class size reductions
 
 We use the dataset from Tennessee class size reduction experiment, known as Project STAR (Student-Teacher Achievement Ratio), contained in the `STAR.csv` file. This experiment was a 4-year experiment designed to evaluate the impact of class sizes on learning for kindergarten through third grade. The experiment cost $12 million to conduct. Upon entering the school system, students were randomly assigned to one of three groups:
@@ -196,11 +191,10 @@ We use the dataset from Tennessee class size reduction experiment, known as Proj
  
 The interventions began when students entered kindergarten and continued through third grade. Teachers are also randomly assigned to classes. Students in regular classes were re-randomized after the first year to either a regular class or a regular class with a teacher’s aide. Students initially assigned to small classes remained in small classes throughout the experiment. Each year, students in the experiment were given standardized tests (the Stanford Achievement Test) in reading and math.
 
-
 ```{python}
 #| warning: false
 # Import data
-STAR=pd.read_csv("data/STAR.csv")
+STAR = pd.read_csv("data/STAR.csv")
 ```
 
 ```{python}
@@ -231,8 +225,8 @@ $$ {#eq-eq20.4}
 where
 
 * $Y_i$ is the test score of the $i$th student,
-* ${\tt SmallClass}_i$ equals to $1$ if the $i$th student is in a small class, and  $0$ otherwise,
-* ${\tt RegAid}_i$ equals to $1$ if the $i$th student is in a regular class with teacher's aid, and $0$ otherwise,  
+* ${\tt SmallClass}_i$ equals to $1$ if the $i$th student is in a small class, and $0$ otherwise,
+* ${\tt RegAid}_i$ equals to $1$ if the $i$th student is in a regular class with teacher's aid, and $0$ otherwise,
 * $\beta_1$ represents the effect of being in a small class on the test score, relative to being in a regular class,
 * $\beta_2$ gives the effect of being in a regular class with teacher's aid on the test score, relative to being in a regular class.
 
@@ -240,24 +234,24 @@ We estimate the model by using observations from kindergarten through third grad
 
 ```{python}
 # Model K: Kindergarten
-STAR_k=STAR[["readk","mathk","stark","schoolidk"]].dropna()
+STAR_k = STAR[["readk","mathk","stark","schoolidk"]].dropna()
 modelK = smf.ols(formula='I(readk + mathk) ~ stark', data=STAR_k)
-resultK=modelK.fit(cov_type='cluster', cov_kwds={'groups': STAR_k['schoolidk']})
+resultK = modelK.fit(cov_type='cluster', cov_kwds={'groups': STAR_k['schoolidk']})
 
 # Model 1: First Grader
-STAR_1=STAR[["read1","math1","star1","schoolid1"]].dropna()
+STAR_1 = STAR[["read1","math1","star1","schoolid1"]].dropna()
 model1 = smf.ols(formula='I(read1 + math1) ~ star1', data=STAR_1)
-result1=model1.fit(cov_type='cluster', cov_kwds={'groups': STAR_1['schoolid1']})
+result1 = model1.fit(cov_type='cluster', cov_kwds={'groups': STAR_1['schoolid1']})
 
 # Model 2: Second Grader
-STAR_2=STAR[["read2","math2","star2","schoolid2"]].dropna()
+STAR_2 = STAR[["read2","math2","star2","schoolid2"]].dropna()
 model2 = smf.ols(formula='I(read2 + math2) ~ star2', data=STAR_2)
 result2=model2.fit(cov_type='cluster', cov_kwds={'groups': STAR_2['schoolid2']})
 
 # Model 3: Third Grader
-STAR_3=STAR[["read3","math3","star3","schoolid3"]].dropna()
+STAR_3 = STAR[["read3","math3","star3","schoolid3"]].dropna()
 model3 = smf.ols(formula='I(read3 + math3) ~ star3', data=STAR_3)
-result3=model3.fit(cov_type='cluster', cov_kwds={'groups': STAR_3['schoolid3']})
+result3 = model3.fit(cov_type='cluster', cov_kwds={'groups': STAR_3['schoolid3']})
 ```
 
 The estimation results are presented in @tbl-t20.1. For kindergarten students, those in a small class have, on average, 13.9 more points on the test compared to those in a regular class. The estimated effect of being in a regular class with a teacher’s aid is 0.31 points and is statistically insignificant. The average estimated effect of being in a small class, relative to being in a regular class, is 29.8 points for first grade, 19.4 points for second grade, and 15.6 points for third grade. The estimated effect of being in a regular class with a teacher’s aid, relative to being in a regular class, is statistically insignificant for each grade. Overall, these results suggest that reducing class size has a positive effect on test scores, while adding teacher’s aides to regular classes has no effect on test scores.
@@ -290,7 +284,6 @@ Next, we expand the model in @eq-eq20.4 with some covariates because of two main
  - `race`: Student's race is other than black or white (a dummy variable)
  - `schoolid`: School indicator variables (school fixed effects)
   
-
 ```{python}
 # Create new columns based on conditions
 STAR['black'] = (STAR['ethnicity'] == 'afam').astype(int)
@@ -334,7 +327,7 @@ model3 = smf.ols(formula='I(mathk + readk) ~ stark + experiencek + C(schoolidk)'
 result3=model3.fit(cov_type='cluster', cov_kwds={'groups': STAR_k['schoolidk']})
 
 # Model 4
-model4 = smf.ols(formula='I(mathk + readk) ~ stark + experiencek  + boy + lunchk + black + race + C(schoolidk)', data=STAR_k)
+model4 = smf.ols(formula='I(mathk + readk) ~ stark + experiencek + boy + lunchk + black + race + C(schoolidk)', data=STAR_k)
 result4=model4.fit(cov_type='cluster', cov_kwds={'groups': STAR_k['schoolidk']})
 ```
 
@@ -351,7 +344,6 @@ table2.show_degrees_of_freedom(False)
 #table2.show_confidence_intervals(True)
 ```
 
-
 :::{layout-ncol=1}
 ```{python}
 #| tbl-cap: "Project STAR: Estimation Results with Covariates"
@@ -363,7 +355,6 @@ table2.covariate_order(variables)
 table2
 ```
 :::
-
 
 ## Quasi-Experiments
 In a **quasi-experiment**, also known as a **natural experiment**, units are assigned to treatment and control groups based on changes in their circumstances. In other words, treatment and control groups are not formed through an explicit randomized controlled experiment but as a result of a policy intervention (or other changes in circumstances). Therefore, in a quasi-experiment, we assume that there is “as if” random assignment. Since there is no complete randomization, we expect some systematic differences between the treatment and control groups, which means we cannot resort to the difference-in-means estimator introduced earlier to estimate the treatment effect. In this section, we introduce the differences-in-differences (DiD) and regression discontinuity (RD) approaches for estimating the treatment effect in quasi-experimental settings.
@@ -406,13 +397,11 @@ $$
 &=\Delta\bar{Y}^{treatment}-\Delta\bar{Y}^{control}.
 \end{align}
 $$ {#eq-eq20.5}
-
 :::
 
 We illustrate the DiD estimator $\hat{\beta}$ in @fig-f20.2. Before the treatment, the sample averages are $\bar{Y}^{treatment,before}=40$ and $\bar{Y}^{control,before}=20$, and after the treatment these averages are $\bar{Y}^{treatment,after}=80$ and $\bar{Y}^{control,after}=30$. Note that the difference in group means after the treatment is $80-30=50$. Some of this difference is due to the fact that both groups have different pre-treatment means. The DiD approach removes the effect of the difference in the pre-treatment period by focusing on the change in group means. Thus, the DiD estimator gives $(80-40)-(30-20)=30$. 
 
 The DiD approach is based on the assumption that, on average, the treatment and control groups would have followed the same trend in the absence of treatment. This assumption is called the **parallel trends assumption** in the literature. In @fig-f20.2, the trend in the average outcome for the treated group in the absence of treatment is illustrated with the dashed black line. Thus, the counterfactual average outcome for the treated group in the post-treatment period is $\bar{Y}^{\text{treatment, after}} = 50$, so that the dashed line is parallel to the steel blue line. This assumption ensures that the difference between the observed average outcome $\bar{Y}^{treatment,after}=80$ and the counterfactual average outcome $\bar{Y}^{\text{treatment, after}} = 50$ is due to the treatment. 
-
 
 ```{python}
 #| fig-cap: The DiD estimator
@@ -466,7 +455,6 @@ $$ {#eq-eq20.7}
 
 The main reason for including additional regressors $W_{1},\dots,W_{r}$ in the DiD model is to ensure that the parallel trends assumption holds. 
 
-
 ::: {.callout-note icon=false}
 ## Key Concept 20.1: Key features of the DiD approach
 The key features of the DiD approach are:
@@ -504,7 +492,6 @@ where $\alpha_i$ is the individual (entity) fixed effect, $\lambda_t$ is the tim
 ### Application: The effect of minimum wage on employment
 In this section, we replicate some the results from @Card:1994. The sample data obtained from @Hansen2022 is contained in `CK1994.xlsx` and consists of two surveys conducted on 331 fast-food restaurants in New Jersey and 79 fast-food restaurants in eastern Pennsylvania. The first survey was conducted between 2/15/1992 and 3/4/1992 (before the minimum wage increase), and the second between 11/5/1992 and 12/31/1992 (after the wage increase). Some of variables in the data set are listed below:
 
-
 * `store`: Unique store ID
 * `state`: 1 if New Jersey; 0 if Pennsylvania
 * `empft`: Number of full-time employees
@@ -518,14 +505,12 @@ In this section, we replicate some the results from @Card:1994. The sample data 
 * `hoursopen`: Number hours open per day
 * `time`: 0 if first survey (2/15/1992 – 3/4/1992), 1 if second survey (11/5/1992 – 12/31/1992)
 
-
 ```{python}
 df = pd.read_stata("data/CK1994.dta")
 df.columns
 ```
 
 We start by using @eq-eq20.5 to estimate the effect of the change in the minimum hourly wage on employment in New Jersey. In the following code chunk, we generate sample averages for both groups before and after the change. These estimates are provided in @tbl-t20.3. In New Jersey, the average employment was 20.43 employees per restaurant before the increase in the minimum wage and 20.90 employees per restaurant after the change. In Pennsylvania, these averages were 23.38 and 21.10, respectively. The DiD estimator in @eq-eq20.5 gives $(20.90-20.43)-(21.10-23.38)=2.75$. Thus, the average employment increases by 2.75 employees per restaurant after the increase in the minimum wage, a result that contrasts with conventional economic theory.
-
 
 :::{layout-ncol=1}
 ```{python}
@@ -540,15 +525,15 @@ df['nperiods'] = df.groupby('store')['store'].transform('count')
 # Keep only stores with two periods
 df = df[df['nperiods'] == 2]
 # Average Employment at Fast Food Restaurants
-n1=np.mean((df[(df['state'] == 1) & (df['time'] == 0)]['fte']))
-n2=np.mean((df[(df['state'] == 1) & (df['time'] == 1)]['fte']))
-p1=np.mean((df[(df['state'] == 0) & (df['time'] == 0)]['fte']))
-p2=np.mean((df[(df['state'] == 0) & (df['time'] == 1)]['fte']))
+n1 = np.mean((df[(df['state'] == 1) & (df['time'] == 0)]['fte']))
+n2 = np.mean((df[(df['state'] == 1) & (df['time'] == 1)]['fte']))
+p1 = np.mean((df[(df['state'] == 0) & (df['time'] == 0)]['fte']))
+p2 = np.mean((df[(df['state'] == 0) & (df['time'] == 1)]['fte']))
 # Collect means in a dataframe
-c1=[n1,n2,n2-n1]
-c2=[p1,p2,p2-p1]
-d1=[p1-n1,p2-n2,(n2-n1)-(p2-p1)]
-tb=pd.DataFrame({"New Jersey": c1, "Pennsylvania": c2,"Difference":d1})
+c1 = [n1,n2,n2-n1]
+c2 = [p1,p2,p2-p1]
+d1 = [p1-n1,p2-n2,(n2-n1)-(p2-p1)]
+tb = pd.DataFrame({"New Jersey": c1, "Pennsylvania": c2,"Difference":d1})
 tb.index=["Before Increase","After Increase","Difference"]
 tb.astype(float).round(2)
 ```
@@ -565,7 +550,7 @@ result1=model1.fit(cov_type='HC1')
 print(result1.summary())
 ```
 
-We can also use @eq-eq20.8 to estimate the DiD parameter $\beta_3$. In the following code chunk, we first create the `treatment` variable, which represents $D_i \times {\tt Period}_t$, and then use the OLS estimator to estimate $\beta_3$. Note that we use clustered standard errors at the store level to account for correlation in the error terms across stores. The DiD estimate of $\beta_3$ is 2.75 with a t-value of 2.05. 
+We can also use @eq-eq20.8 to estimate the DiD parameter $\beta_3$. In the following code chunk, we first create the `treatment` variable, which represents $D_i \times {\tt Period}_t$, and then use the OLS estimator to estimate $\beta_3$. Note that we use clustered standard errors at the store level to account for correlation in the error terms across stores. The DiD estimate of $\beta_3$ is 2.75 with a $t$-value of 2.05.
 
 ```{python}
 # Estimation of (20.7)
@@ -574,7 +559,7 @@ df['treatment'] = df['time'] * df['state']
 
 # Simple OLS regression with clustering on store
 model2 = smf.ols('fte ~ state + time + treatment', data=df)
-result2=model2.fit(cov_type='cluster', cov_kwds={'groups': df['store']})
+result2 = model2.fit(cov_type='cluster', cov_kwds={'groups': df['store']})
 print(result2.summary())
 ```
 
@@ -644,11 +629,11 @@ Y_{it} = \alpha_i + \lambda_t + \sum_{s=1}^{t_0-2}\beta_s (D_i\times P_s) + \sum
 $$ {#eq-eq20.10}
 where $P_s=1$ if $s=t$ and $P_s=0$ otherwise. The estimates of $\beta_s$ for $s\ge t_0$ correspond to the estimates of $\text{ATT}(t)$ for $t\ge t_0$. 
 
-This approach allows us using t-statistics and confidence intervals based on clustered standard errors. We can then plot ATT estimates along (point-wise) confidence intervals to summarize our results. This is often referred to as an **event study analysis**. Note also that $\beta_s$ estimates for the pre-treatment periods can be utilized to assess the plausibility of the parallel trends assumption.  If the parallel trends assumption holds, then the estimates of $\beta_s$ for $s<t_0$ should be statistically insignificant.
+This approach allows us using $t$-statistics and confidence intervals based on clustered standard errors. We can then plot ATT estimates along (point-wise) confidence intervals to summarize our results. This is often referred to as an **event study analysis**. Note also that $\beta_s$ estimates for the pre-treatment periods can be utilized to assess the plausibility of the parallel trends assumption.  If the parallel trends assumption holds, then the estimates of $\beta_s$ for $s<t_0$ should be statistically insignificant.
 
 ### Application: Impact of policing on crime
 
-We revisit @Tella:2004 to study the causal effect of police presence on crime. The dataset is contained in the `DS2004.dta` file, which was obtained from @Hansen2022. The intervention studied in @Tella:2004 involves the assignment of more police protection to certain blocks in Buenos Aires following the terrorist attack on main Jewish center in July 1994. The data consist of monthly observations on 876 blocks of which 37 blocks are provided with extra police protection and cover the time period from April to December of 1994, excluding July. Therefore, April to June constitute the pre-treatment months, while August to December represent the post-treatment period.   
+We revisit @Tella:2004 to study the causal effect of police presence on crime. The dataset is contained in the `DS2004.dta` file, which was obtained from @Hansen2022. The intervention studied in @Tella:2004 involves the assignment of more police protection to certain blocks in Buenos Aires following the terrorist attack on main Jewish center in July 1994. The data consist of monthly observations on 876 blocks of which 37 blocks are provided with extra police protection and cover the time period from April to December of 1994, excluding July. Therefore, April to June constitute the pre-treatment months, while August to December represent the post-treatment period.
 
 Some of the variables included in the dataset are listed below:
 
@@ -676,7 +661,7 @@ df.describe().round(3).T
 ```
 :::
 
-We first consider estimating the average treatment effect in the post-period. To this end, we use @eq-eq20.9 as if we have only 2 periods, pre- and post-treament. We can use the `PanelOLS` function from `linearmodels` module to estimate the model. We use the clustered standard errors at the block level to account for correlation in the error terms within blocks.
+We first consider estimating the average treatment effect in the post-period. To this end, we use @eq-eq20.9 as if we have only 2 periods, pre- and post-treament. We can use the `PanelOLS()` function from `linearmodels` module to estimate the model. We use the clustered standard errors at the block level to account for correlation in the error terms within blocks.
 
 ```{python}
 # Convert the data to a panel data structure
@@ -688,10 +673,7 @@ result4 = model4.fit(cov_type='clustered', cluster_entity=True)
 print(result4.summary)
 ```
 
-
 The estimate of the average treatment effect (on treated blocks) in the post-period is $-0.078$, i.e., police presence, on average, reduced car thefts by $0.078$ in the treated blocks. This estimate is almost the same as the one reported in the first column of Table 3 in @Tella:2004. Given that the average number of car theft is around $0.093$, this estimate is not negligible.
-
-
 
 Next, we will consider an event study analysis and estimate @eq-eq20.10. First, we need to generate the interactions of the treatment dummy with pre and post periods.
 
@@ -714,13 +696,13 @@ The common treatment timing $t_0$ is August and the $t_0-1$ period is July. Thus
 df_panel = df.set_index(['block', 'month'])
 
 # Estimate the model using PanelOLS
-formula = 'thefts ~ lead4 + lead3 + lead2 + lead0 + lag1 + lag2 + lag3 + lag4  + EntityEffects + TimeEffects'
+formula = 'thefts ~ lead4 + lead3 + lead2 + lead0 + lag1 + lag2 + lag3 + lag4 + EntityEffects + TimeEffects'
 model5 = PanelOLS.from_formula(formula, df_panel)
 result5 = model5.fit(cov_type='clustered', cluster_entity=True)
 print(result5.summary)
 ```
 
-Alternatively, we can resort to the OLS estimator to estimate  @eq-eq20.10. The following code chunk produces the same estimates as the fixed effects estimator. Note that we use the `C(month)` and `C(block)` to include month and block fixed effects, respectively.
+Alternatively, we can resort to the OLS estimator to estimate @eq-eq20.10. The following code chunk produces the same estimates as the fixed effects estimator. Note that we use the `C(month)` and `C(block)` to include month and block fixed effects, respectively.
 
 ```{python}
 # model formula
@@ -749,7 +731,6 @@ thetau = theta + 1.96 * theta_se
 
 Finally, we plot the event study estimates and confidence intervals. The plot is shown in @fig-fig-f20.3. The treatment effect estimates for the pre-treatment periods are statistically insignificant, which provides statistical evidence for the plausibility of the parallel trends assumption. The estimates for the post-treatment periods are negative, suggesting that police presence reduces car thefts in the post-treatment periods.
 
-
 ```{python}
 #| warning: false
 #| message: false
@@ -768,8 +749,6 @@ plt.legend()
 plt.show()
 ```
 
-
-
 ## Regression discontinuity designs
 Another example of quasi-experimental methods is the regression discontinuity design (RDD). In an RDD, the treatment and control groups are formed when a continuous variable $W$, known as the running variable, crosses a threshold $w_0$
 (the cutoff level). The main idea of the RDD is that units with running variable values near the threshold are comparable in terms of characteristics, except for the receipt of treatment.
@@ -780,7 +759,6 @@ Consider the hypothetical example illustrated in @fig-f20.4, where $Y$ is the ne
 
 * Students with $W$ below $w_0=2$ constitute the treatment group.
 * Students with $W$ above $w_0=2$ constitute the control group.
-
 :::
 
 ```{python}
@@ -798,7 +776,7 @@ model_right = smf.ols('y ~ W', data=df[df['W'] >= 2]).fit()
 # Plot the sample data
 fig, ax = plt.subplots(figsize=(7, 5))
 ax.scatter(W, y, color='steelblue', s=20, label="Data")
-ax.axvline(x=2, color='black', linestyle='--', linewidth=1.5)  # Cutpoint at W = 0
+ax.axvline(x=2, color='black', linestyle='--', linewidth=1.5) # Cutpoint at W = 0
 # Plot the fitted lines
 ax.plot(df[df['W'] < 2].W, model_left.fittedvalues, linestyle='-', color='black', label="Population regression line", linewidth=1.5)
 ax.plot(df[df['W'] >= 2].W, model_right.fittedvalues, linestyle='-', color='black', linewidth=1.5)
@@ -917,7 +895,6 @@ $$
 $$
 where $K_h(W_i-w_0)=K\left((W_i-w_0)/h\right)/h$, $V_i=\left(1, W_i, D_i, D_i(W_i-w_0)\right)$, and $e_3=(0,0,1,0)^{'}$.
 
-
 Among kernel-based estimators, the local linear estimator is widely used. @Calonico2014 show how to choose an optimal bandwidth and propose a bias-corrected local linear estimator with adjusted standard errors. Their method can be implemented using the `rdrobust` module. See <https://rdpackages.github.io/rdrobust> for details. This module can be installed by typing `pip install rdrobust` in a console. 
 
 ### Fuzzy regression discontinuity designs
@@ -943,7 +920,7 @@ W_left = np.linspace(0, 5, 100)
 W_right = np.linspace(5, 10, 100)
 # Define probability of treatment on each side of the cutoff
 F_left = 0.2 * np.sqrt(W_left)
-F_right = 0.6 + 0.05 * np.sqrt(W_right - 5)  # jump to 0.8 at W=5
+F_right = 0.6 + 0.05 * np.sqrt(W_right - 5) # jump to 0.8 at W=5
 
 # Plot the probability of treatment
 fig, ax = plt.subplots(figsize=(5, 4))
@@ -952,8 +929,8 @@ ax.plot(W_right, F_right, color='steelblue', linewidth=2)
 ax.axvline(x=5, color='black', linestyle='--', linewidth=1)
 
 # Left and right limit points
-ax.plot([5], [F_left[-1]], marker='o', markerfacecolor='white', markeredgecolor='steelblue', markersize=8)  
-ax.plot([5], [F_right[0]], marker='o', color='steelblue', markersize=8)  # right limit (closed)
+ax.plot([5], [F_left[-1]], marker='o', markerfacecolor='white', markeredgecolor='steelblue', markersize=8)
+ax.plot([5], [F_right[0]], marker='o', color='steelblue', markersize=8) # right limit (closed)
 
 ax.set_xlabel(r'$w$')
 ax.set_ylabel(r'$p(w)$')
@@ -981,7 +958,7 @@ See @Hansen2022 or @Wooldridge2025 for the proof.
 
 ### Application: The effect of an anti-poverty program on child mortality
 
-@Ludwig2007 use a sharp RDD to study the effect of a federal grant-writing assistence for the federal anti-poverty program called Head Start on child mortality rates in the United States.  The Head Start program, founded in 1965, provides funds to local municipalities for preschool, health, and social services for poor children aged three to five and their families.^[See [Wikipedia](https://en.wikipedia.org/wiki/Head_Start_(program)) on the details of the program.]  The poverty rate measured in 1960, with a cutoff of 59.1984, is used to determine whether a county is eligible for federal grant-writing assistance. This cutoff results in 300 counties being eligible to receive such assistance. The poverty rate measured in 1960, with a cutoff of 59.1984, is used as the running variable to form the treatment and control groups. This cutoff poverty rate results in 300 counties being eligible to receive grant-writing assistence. The outcome variable $Y$ is the county mortality rate during the 1973-1983 period. The dataset is contained in the `LM2007.dta` file, which is obtained from @Hansen2022. Some of the variables included in the dataset are listed below:
+@Ludwig2007 use a sharp RDD to study the effect of a federal grant-writing assistence for the federal anti-poverty program called Head Start on child mortality rates in the United States. The Head Start program, founded in 1965, provides funds to local municipalities for preschool, health, and social services for poor children aged three to five and their families.^[See [Wikipedia](https://en.wikipedia.org/wiki/Head_Start_(program)) on the details of the program.] The poverty rate measured in 1960, with a cutoff of 59.1984, is used to determine whether a county is eligible for federal grant-writing assistance. This cutoff results in 300 counties being eligible to receive such assistance. The poverty rate measured in 1960, with a cutoff of 59.1984, is used as the running variable to form the treatment and control groups. This cutoff poverty rate results in 300 counties being eligible to receive grant-writing assistence. The outcome variable $Y$ is the county mortality rate during the 1973-1983 period. The dataset is contained in the `LM2007.dta` file, which is obtained from @Hansen2022. Some of the variables included in the dataset are listed below:
 
 * `povrate60`: County poverty rate in 1960, percent
 * `mort_age59_related_postHS`: Mortality, Ages 5-9, Head Start related causes, 1973-1983
@@ -1004,29 +981,29 @@ df_head.columns
 #| tbl-cap: Summary statistics
 #| label: tbl-t20.5
 # Summary statistics
-df=df_head[["mort_age59_related_postHS","povrate60"]]
-df.columns=["Mortality Rate", "Poverty Rate"]
+df = df_head[["mort_age59_related_postHS", "povrate60"]]
+df.columns = ["Mortality Rate", "Poverty Rate"]
 df.describe().round(3).T
 ```
 :::
 
-
-We use the `rdrobust` funciton with the cutoff `c=59.1984` to estimate the RDD parameter $\tau$. The following code chunk generates the estimation results. The estimated RDD parameter is -2.409 with a robust t-statistic -2.032. This is a large estimate given that the mean child mortality rate is around 2.254 as shown in @tbl-t20.5. This estimate indicates that the federal grant-writing assistence reduced mortality by 2.032 children per 100,000.
+We use the `rdrobust()` function with the cutoff `c=59.1984` to estimate the RDD parameter $\tau$. The following code chunk generates the estimation results. The estimated RDD parameter is -2.409 with a robust $t$-statistic -2.032. This is a large estimate given that the mean child mortality rate is around 2.254 as shown in @tbl-t20.5. This estimate indicates that the federal grant-writing assistence reduced mortality by 2.032 children per 100,000.
 
 ```{python}
-Y=df_head["mort_age59_related_postHS"]
-W=df_head["povrate60"]
+Y = df_head["mort_age59_related_postHS"]
+W = df_head["povrate60"]
 rdd_result = rdrobust(x=W, y=Y, c=59.1984)
 print(rdd_result)
 ```
 
-We can use the `rdplot` function to generate the fitted polynomials along with sample averages of outcome variable within each bin as shown in the following figure. The jump in the figure at the cutoff $w_0=59.1984$ indicates that the treatment effect is evident.
+We can use the `rdplot()` function to generate the fitted polynomials along with sample averages of outcome variable within each bin as shown in the following figure. The jump in the figure at the cutoff $w_0=59.1984$ indicates that the treatment effect is evident.
 
 ```{python} 
-rdplot(y=Y, x=W, binselect="qsmv",c=59.1984,
+rdplot(y=Y, x=W,
+       binselect="qsmv",
+       c=59.1984,
        y_label="Mortality Rate",
        title="",
        x_label="Poverty Rate",
        col_lines="steelblue")
 ```
-

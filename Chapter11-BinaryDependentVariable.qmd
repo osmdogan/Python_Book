@@ -12,7 +12,6 @@ import scipy.stats as stats
 
 {{< include latex_macro.qmd >}}
 
-
 ## Binary dependent variables 
 In many empirical studies, the dependent variable is binary, taking on two values, say 0 and 1. For example, in the context of mortgage applications, the dependent variable could be a binary indicator variable denoting whether the mortgage application was denied (1) or approved (0). For practical reasons, the binary dependent variable is typically coded as 1 for the event of interest occurring and 0 for the event that does not occur.
 
@@ -37,7 +36,7 @@ mydata.columns
 #| tbl-cap: "Descriptive statistics"
 #| label: tbl-t18-1
 # Descriptive statistics
-mydata[["deny","pirat","black"]].describe().round(2).T
+mydata[["deny", "pirat", "black"]].describe().round(2).T
 ```
 
 In @fig-f18-1, we present a scatter plot of the mortgage application denial (`deny`) against the payment-to-income ratio (`pirat`). Although `deny` is binary, we can still plot it against a continuous variable. The estimated regression line indicates a positive relationship between the payment-to-income ratio and `deny`. 
@@ -124,8 +123,8 @@ $$
 \begin{align}
 u_i=
 \begin{cases}
-1-P(Y_i=1|X_{1i},X_{2i},\ldots,X_{ki}),\,\text{with probability}\,P(Y_i=1|X_{1i},X_{2i},\ldots,X_{ki}),\\
--P(Y_i=1|X_{1i},X_{2i},\ldots,X_{ki}),\,\text{with probability}\, 1-P(Y_i=1|X_{1i},X_{2i},\ldots,X_{ki}).
+1-P(Y_i=1|X_{1i},X_{2i},\ldots,X_{ki}),\,&\text{with probability}\,P(Y_i=1|X_{1i},X_{2i},\ldots,X_{ki}),\\
+-P(Y_i=1|X_{1i},X_{2i},\ldots,X_{ki}),\,&\text{with probability}\, 1-P(Y_i=1|X_{1i},X_{2i},\ldots,X_{ki}).
 \end{cases}
 \end{align}
 $$
@@ -166,9 +165,9 @@ r2 = smf.ols(formula="deny ~ pirat + black",
 # Estimation results
 models=["Model 1", "Model 2"]
 summary_col(results=[r1,r2],
-              model_names=models,
-              stars=True,
-              float_format='%0.3f')
+            model_names=models,
+            stars=True,
+            float_format='%0.3f')
 ```
 :::
 
@@ -281,7 +280,6 @@ $$
 APE=\frac{1}{n}\sum_{i=1}^n\beta_1\phi(\beta_0+\beta_1X_{1i}+\beta_2X_{2i}+\ldots+\beta_kX_{ki}).
 \end{align}
 $$
-
 :::
 
 For our mortgage applications data, we consider the following probit models:
@@ -292,7 +290,7 @@ $$
 \end{align}
 $$
 
-The probit models can be estimated using the `smf.probit` function from the `statsmodels` package. The following code chunk can be used to estimate these models and present the estimation results in @tbl-t18-4.
+The probit models can be estimated using the `smf.probit()` function from the `statsmodels` package. The following code chunk can be used to estimate these models and present the estimation results in @tbl-t18-4.
 
 ```{python}
 # Model 1: Probit regression
@@ -317,10 +315,10 @@ info={
     "Log-Likelihood":lambda x: f"{x.llf:.2f}"
     }
 summary_col(results=[r1,r2],
-          model_names=models,
-          stars=True,
-          info_dict=info,
-          float_format='%0.3f')
+            model_names=models,
+            stars=True,
+            info_dict=info,
+            float_format='%0.3f')
 ```
 :::
 
@@ -403,7 +401,7 @@ print("Difference in predicted denial probabilities:", probability_difference.ro
 
 These computations indicates that the difference in denial probabilities between these two hypothetical applicants is $15.8$ percentage points.
 
-The partial effects can be computed using the `get_margeff` function in `statsmodels`. The following code chunk can be used to compute the partial effects at the mean and overall values of the regressors for Models 1 and 2. These results indicate that the partial effects at the mean and overall values of the regressors are the same for the probit model.
+The partial effects can be computed using the `get_margeff()` function in `statsmodels`. The following code chunk can be used to compute the partial effects at the mean and overall values of the regressors for Models 1 and 2. These results indicate that the partial effects at the mean and overall values of the regressors are the same for the probit model.
 
 ```{python}
 # Partial effect at the average (PEA) for Model 1
@@ -451,7 +449,7 @@ $$
 \end{align}
 $$
 
-The logit model is estimated using the `smf.logit` function from the `statsmodels` package. 
+The logit model is estimated using the `smf.logit()` function from the `statsmodels` package. 
 ```{python}
 # Model 1: Logistic regression with 'pirat' as predictor
 r1 = smf.logit('deny ~ pirat', data=mydata).fit(cov_type="HC1", disp=0)
@@ -473,9 +471,9 @@ info={
     }
 models=["Model 1", "Model 2"]
 summary_col(results=[r1,r2], stars=True,
-              model_names=models, 
-              info_dict=info,
-              float_format = '%.3f')
+            model_names=models, 
+            info_dict=info,
+            float_format = '%.3f')
 ```
 :::
 
@@ -636,22 +634,25 @@ For the models given in @tbl-t18-2, we provide the pseudo $R^2$, AIC, and BIC va
 # Measures of fit
 m1 = [r1.prsquared,r1.aic,r1.bic]
 m2 = [r2.prsquared,r2.aic,r2.bic]
-df = pd.DataFrame({"Pseudo R^2": [m1[0],m2[0]],"AIC":[m1[1],m2[1]],"BIC":[m1[2],m2[2]]},index=["Model 1","Model 2"])
+df = pd.DataFrame({"Pseudo R^2": [m1[0],m2[0]],
+                  "AIC":[m1[1],m2[1]],
+                  "BIC":[m1[2],m2[2]]},
+                  index=["Model 1","Model 2"])
 df.round(3)
 ```
 
 ## Application to the Boston HMDA data
 ### Data
-We consider the mortgage dataset contained in the file `hmda.csv`.  The data pertain to mortgage applications made in 1990 in the greater Boston metropolitan area. Below, we provide a description of variables that we will use in our analysis:
+We consider the mortgage dataset contained in the file `hmda.csv`. The data pertain to mortgage applications made in 1990 in the greater Boston metropolitan area. Below, we provide a description of variables that we will use in our analysis:
 
 - `pirat`: Ratio of total monthly debt payments to total monthly income 
-- `hirat`:  Ratio of monthly housing expenses to total monthly income 
-- `lvrat`:  Ratio of size of loan to assessed value of property  
-- `chist`:  Credit scores ranging from 1 to 6, 6 being the worst
--  `mhist`: Mortgage scores ranging from 1 to 4, 4 being the worst
+- `hirat`: Ratio of monthly housing expenses to total monthly income 
+- `lvrat`: Ratio of size of loan to assessed value of property
+- `chist`: Credit scores ranging from 1 to 6, 6 being the worst
+- `mhist`: Mortgage scores ranging from 1 to 4, 4 being the worst
 - `phist`: Public bad credit record, 1 if any public record of credit problems, 0 otherwise
-- `insurance`:  1 if the applicant was ever denied mortgage insurance, 0 otherwise. If the loan-to-value ratio exceeds 80\%, the applicant typically was required to buy mortgage insurance.
-- `selfemp`:  1 if self-employed, 0 otherwise
+- `insurance`: 1 if the applicant was ever denied mortgage insurance, 0 otherwise. If the loan-to-value ratio exceeds 80\%, the applicant typically was required to buy mortgage insurance.
+- `selfemp`: 1 if self-employed, 0 otherwise
 - `single`: 1 if applicant reported being single, 0 otherwise
 - `hschool`: 1 if applicant graduated from high school, 0 otherwise
 - `unemp`: 1989 Massachusetts unemployment rate in the applicant's industry
@@ -682,7 +683,7 @@ df['lvrat_s'] = pd.cut(df['lvrat'],[0,.799,.95,1.95], labels = ['low','medium','
 df['lvrat_s'].value_counts().to_frame().T
 ```
 
-The summary statistics for the variable `lvrat_s` are presented in @tbl-t18-7-0.  The summary statistics for the other variables in the dataset are presented in @tbl-t18-7.
+The summary statistics for the variable `lvrat_s` are presented in @tbl-t18-7-0. The summary statistics for the other variables in the dataset are presented in @tbl-t18-7.
 
 ::: {layout-ncol=1}
 ```{python}
@@ -713,20 +714,20 @@ model1 = smf.ols(formula = 'deny ~ black + pirat + hirat + C(lvrat_s) + chist + 
                    data = df).fit(cov_type='HC1')
     
 model2 = smf.logit(formula = 'deny ~ black + pirat + hirat + C(lvrat_s) + chist + mhist + phist + insurance + selfemp', 
-                   data = df).fit(disp = 0, cov_type='HC1')    
+                   data = df).fit(disp = 0, cov_type='HC1')
 
 model3 = smf.probit(formula = 'deny ~ black + pirat + hirat + C(lvrat_s)+chist+ mhist + phist + insurance + selfemp', 
-                          data = df).fit(disp = 0, cov_type='HC1')
+                    data = df).fit(disp = 0, cov_type='HC1')
     
 model4 = smf.probit(formula = 'deny ~ black + pirat + hirat +C(lvrat_s)+chist + mhist + phist + insurance + selfemp + single + hschool + unemp', 
-                   data = df).fit(disp = 0, cov_type='HC1')
+                    data = df).fit(disp = 0, cov_type='HC1')
 		
 model5 = smf.probit(formula = 'deny ~ black + pirat + hirat + C(lvrat_s) + chist + mhist + phist + insurance + selfemp + single + hschool + unemp + condomin +\
-                       I(mhist==3) + I(mhist==4) + I(chist==3) + I(chist==4) + I(chist==5) + I(chist==6)', 
-                          data = df).fit(disp = 0, cov_type='HC1')
+                               I(mhist==3) + I(mhist==4) + I(chist==3) + I(chist==4) + I(chist==5) + I(chist==6)', 
+                    data = df).fit(disp = 0, cov_type='HC1')
 
 model6 = smf.probit(formula = 'deny ~ black*(pirat + hirat) + C(lvrat_s) + chist + mhist + phist + insurance + selfemp + single + hschool + unemp', 
-                   data = df).fit(disp = 0, cov_type='HC1')
+                    data = df).fit(disp = 0, cov_type='HC1')
 ```
 
 ::: {layout-ncol=1}
@@ -743,9 +744,9 @@ info={
 models=["Model 1", "Model 2", "Model 3", "Model 4", "Model 5", "Model 6"]
 results = [model1, model2, model3, model4, model5, model6]
 summary_col(results=results, stars=True,
-              model_names=models, 
-              info_dict=info,
-              float_format = '%.3f')
+           model_names=models, 
+           info_dict=info,
+           float_format = '%.3f')
 ```
 :::
 
@@ -783,10 +784,10 @@ np.diff(model5.predict(X_new))[0], np.diff(model6.predict(X_new))[0]]
 pd.DataFrame(pp, columns=['Difference in denial probability'], index=['Model 1', 'Model 2', 'Model 3', 'Model 4', 'Model 5', 'Model 6']).round(3)
 ```
 
-- The estimated differences in denial probabilities are reported in @tbl-t18-9. The results indicate that the denial probability difference between white and black applicants is approximately 8.3% in Model 1, 6% in Model 2, 6.8% in Model 3, 5.5% in Model 4, 6.6% in Model 5, and 5.5% in Model 6. Overall, the estimated difference ranges from 6% to 8.3% in the U.S. mortgage market. 
+- The estimated differences in denial probabilities are reported in @tbl-t18-9. The results indicate that the denial probability difference between white and black applicants is approximately $8.3\%$ in Model 1, $6\%$ in Model 2, $6.8\%$ in Model 3, $5.5\%$ in Model 4, $6.6\%$ in Model 5, and $5.5%$ in Model 6. Overall, the estimated difference ranges from $6\%$ to $8.3\%$ in the U.S. mortgage market. 
 
 - In Model 5, the estimated coefficients for the dummies for `mhist` and `chist`, as well as the estimated coefficient for the `condomin` dummy, are not statistically significant at the 5% level.
-  
+
 - An interesting question related to racial parity can be investigated using Model 6. If the coefficient on `black:pirat` was different from zero, the effect of the payment-to-income ratio on the denial probability would be different for black and white applicants. Similarly, a non-zero coefficient on `black:hirat` would indicate that loan officers weight the risk of bankruptcy associated with a high loan-to-value ratio differently for black and white mortgage applicants. We will test for the joint significance of these two variables. Note that under the joint null hypothesis (the restricted model), we have Model 4. We can use the F-statistic to test the null hypothesis that the coefficients on `black:pirat` and `black:hirat` are jointly equal to zero. The following code chunk can be used to perform the test.
 
 ```{python}
