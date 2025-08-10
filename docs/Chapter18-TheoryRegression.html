@@ -513,7 +513,7 @@ window.Quarto = {
 </header>
 
 
-<div id="bb0a348d" class="cell" data-execution_count="1">
+<div id="aafa5842" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -694,7 +694,7 @@ P(|V-\mu_V|&lt;\delta)\geq 1-\frac{\sigma^2_V}{\delta^2}.
 P(\mu_V-\delta&lt;V&lt;\mu_V+\delta)\geq 1-\frac{\sigma^2_V}{\delta^2}.
 \]</span></p>
 <p>In the following code chunk, we assume that <span class="math inline">\(V\sim N(0,1)\)</span> and <code>delta = np. arange(1, 10)</code>. We calculate the Chebychev bound and the actual probability that <span class="math inline">\(V\)</span> is within <span class="math inline">\(\delta\)</span> of its mean. <a href="#fig-fig25-1" class="quarto-xref">Figure&nbsp;<span>25.1</span></a> shows that the Chebychev bound is a conservative estimate of the actual probability.</p>
-<div id="5634636e" class="cell" data-execution_count="2">
+<div id="a65233f9" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the Chebychev inequality</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sigma2_V <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>mu_V <span class="op">=</span> <span class="dv">0</span></span>
@@ -762,7 +762,7 @@ P(|m_c-\mu_Y|\geq\delta)\leq\E\left((\bar{Y}+1/n-\mu_Y)^2\right)/\delta^2=\frac{
 </div>
 <p>In the following code chunk, we illustrate the law of large numbers using the estimators <span class="math inline">\(m_a\)</span>, <span class="math inline">\(m_b\)</span>, and <span class="math inline">\(m_c\)</span> defined in <a href="#exm-exm25-1" class="quarto-xref">Example&nbsp;<span>25.1</span></a>. We set <span class="math inline">\(\mu_Y = 0\)</span>, <span class="math inline">\(\sigma_Y^2 = 1\)</span>, and <span class="math inline">\(a = 0.5\)</span>. We consider three sample sizes: <span class="math inline">\(n = 10\)</span>, <span class="math inline">\(n = 100\)</span>, and <span class="math inline">\(n = 1000\)</span>. For each sample size, we generate 1000 samples and compute each estimator. We then create histograms of each estimator for each sample size.</p>
 <p><a href="#fig-fig25-2" class="quarto-xref">Figure&nbsp;<span>25.2</span></a> displays the histograms of <span class="math inline">\(m_a\)</span>, <span class="math inline">\(m_b\)</span>, and <span class="math inline">\(m_c\)</span> for different sample sizes. In the case of <span class="math inline">\(m_a\)</span> and <span class="math inline">\(m_b\)</span>, the histograms do not concentrate around the true mean <span class="math inline">\(\mu_Y = 0\)</span> as the sample size increases. However, since the histograms are centered around the true mean, these estimators are unbiased. On the other hand, the histogram of <span class="math inline">\(m_c\)</span> becomes more concentrated around the true mean as the sample size increases, indicating that <span class="math inline">\(m_c\)</span> is a consistent estimator.</p>
-<div id="2b5ec0d5" class="cell" data-execution_count="4">
+<div id="c0f43844" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the law of large numbers</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>mu_Y <span class="op">=</span> <span class="dv">0</span></span>
@@ -961,7 +961,7 @@ F_n(t)&amp;=\sum_{k=0}^{\lfloor t\rfloor}\binom{n}{k}\left(\frac{\lambda}{n}\rig
 \]</span> where the last equality follows from the fact that <span class="math inline">\(\lim_{n\to\infty}\left(1-\frac{\lambda}{n}\right)^n=e^{-\lambda}\)</span> and <span class="math inline">\(\lim_{n\to\infty}\left(\frac{1}{1-\frac{\lambda}{n}}\right)^k=1\)</span>. Therefore, we have <span class="math inline">\(S_n\xrightarrow{d}S\)</span>.</p>
 </div>
 <p>In the following code chunk, we illustrate the convergence in distribution between the binomial and poisson random variables. We set <span class="math inline">\(\lambda = 5\)</span> and consider three sample sizes: <span class="math inline">\(n = 10\)</span>, <span class="math inline">\(n = 20\)</span>, and <span class="math inline">\(n = 50\)</span>. For each sample size, we then compute the cumulative distribution functions of the binomial and poisson random variables over the range <span class="math inline">\(t = 0, 1, \ldots, 15\)</span>. <a href="#fig-fig25-3" class="quarto-xref">Figure&nbsp;<span>25.3</span></a> shows that the cumulative distribution functions of the binomial random variables converge to the cumulative distribution function of the poisson random variable as the sample size increases.</p>
-<div id="8aac5125" class="cell" data-execution_count="6">
+<div id="387d58f7" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the convergence in distribution</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>lambda_p <span class="op">=</span> <span class="dv">5</span></span>
@@ -1012,7 +1012,7 @@ Figure&nbsp;25.3: Illustrating the convergence in distribution
 \]</span> which suggests that <span class="math inline">\(\bar{Y}\sim N(1/2,1/12n)\)</span> when <span class="math inline">\(n\)</span> is large.</p>
 </div>
 <p>In the following code chunk, we illustrate the central limit theorem using the uniform random variables defined in <a href="#exm-exm25-4" class="quarto-xref">Example&nbsp;<span>25.4</span></a>. We set <span class="math inline">\(n = 10, 50, 100, 500, 1000, 5000\)</span> and generate 1000 samples for each sample size. We then compute the sample mean <span class="math inline">\(\bar{Y}\)</span> and plot the histograms of <span class="math inline">\(\sqrt{12n}(\bar{Y}-1/2)\)</span> for each sample size. <a href="#fig-fig25-4" class="quarto-xref">Figure&nbsp;<span>25.4</span></a> shows the histograms of <span class="math inline">\(\sqrt{12n}(\bar{Y}-1/2)\)</span> along with the standard normal density plot. As the sample size increases, the deviations between the histograms and the standard normal density plot decrease, indicating that the sample mean converges to the standard normal distribution as the sample size grows.</p>
-<div id="b44d6d63" class="cell" data-execution_count="8">
+<div id="6f13b74f" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the central limit theorem</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>n_values <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">5000</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1035,7 +1035,7 @@ Figure&nbsp;25.3: Illustrating the convergence in distribution
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="cell-fig-fig25-4" class="cell quarto-layout-panel" data-layout-nrow="3" data-execution_count="9">
+<div id="cell-fig-fig25-4" class="cell quarto-layout-panel" data-execution_count="9" data-layout-nrow="3">
 <div class="quarto-layout-row">
 <div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div id="fig-fig25-4" class="quarto-float quarto-figure quarto-figure-center anchored">
