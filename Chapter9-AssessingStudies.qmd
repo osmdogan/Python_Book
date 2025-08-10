@@ -94,9 +94,9 @@ plt.show()
 #| label: tbl-t16.1
 # Present linear_model and nonlinear_model results in a table
 results_table = summary_col(results=[linear_model, nonlinear_model],
-                                          float_format='%0.3f',
-                                          stars=True,
-                                          model_names=["Linear Model", "Nonlinear Model"])
+                                     float_format='%0.3f',
+                                     stars=True,
+                                     model_names=["Linear Model", "Nonlinear Model"])
 results_table
 ```
 :::
@@ -109,14 +109,14 @@ Measurement error occurs when the observed value of a variable differs from its 
 To illustrate the effect of measurent error on the OLS estimator, we consider the following model with one regressor: $Y_i=\beta_0+\beta_1X_i+u_i$, where $\E(u_i|X_i)=0$. We assume that $X_i$ is the unobserved true value and $\tilde{X}_i$ is its mismeasured version, i.e., the observed regressor. Then,
 $$
 \begin{align}
-Y_i&=\beta_0+\beta_1X_i+u_i=\beta_0+\beta_1\tilde{X}_i+(\beta_1(X_i-\tilde{X}_i)+u_i)\\
+Y_i &= \beta_0+\beta_1X_i+u_i=\beta_0+\beta_1\tilde{X}_i+(\beta_1(X_i-\tilde{X}_i)+u_i)\\
 &=\beta_0+\beta_1\tilde{X}_i+\tilde{u}_i,
 \end{align}
 $$
 where $\tilde{u}_i=(\beta_1(X_i-\tilde{X}_i)+u_i)$. Since we only observe $\tilde{X}_i$, we will estimate the following regression: 
 $$
 \begin{align}
-Y_i=\beta_0+\beta_1\tilde{X}_i+\tilde{u}_i.
+Y_i = \beta_0+\beta_1\tilde{X}_i+\tilde{u}_i.
 \end{align}
 $${#eq-eq16.1}
 
@@ -133,14 +133,14 @@ It is often plausible that $\text{cov}(\tilde{X}_i, u_i)=0$. However, $\text{cov
 To get more insight, we assume two measurement error models: (i) the **classical measurement error model** and (ii) the **best guess model**. In the case of the classical measurement error model, we assume the following relationship between the true value $X_i$ and the observed value $\tilde{X}_i$: 
 $$
 \begin{align}
-\tilde{X}_i=X_i+v_i,
+\tilde{X}_i = X_i+v_i,
 \end{align}
 $$
 where $v_i$ is an error term with $\E(v_i)=0$, $\text{var}(v_i)=\sigma^2_v$, $\text{corr}(X_i, v_i) = 0$, and $\text{corr}(u_i, v_i) = 0$. Thus, we have
 
-- $\text{var}(\tilde{X}_i)=\text{var}(X_i+v_i)=\sigma^2_X+\sigma^2_v$,
-- $\text{cov}(\tilde{X}_i,(X_i-\tilde{X}_i))=\text{cov}\left(X_i+v_i,-v_i\right)=-\sigma^2_v$, and
-- $\text{cov}(\tilde{X}_i, u_i)=\text{cov}(X_i+v_i, u_i)=\text{cov}(X_i, u_i)+\text{cov}(v_i, u_i)=0$.
+- $\text{var}(\tilde{X}_i) = \text{var}(X_i+v_i)=\sigma^2_X+\sigma^2_v$,
+- $\text{cov}(\tilde{X}_i,(X_i-\tilde{X}_i)) = \text{cov}\left(X_i+v_i,-v_i\right)=-\sigma^2_v$, and
+- $\text{cov}(\tilde{X}_i, u_i) = \text{cov}(X_i+v_i, u_i)=\text{cov}(X_i, u_i)+\text{cov}(v_i, u_i)=0$.
 
 Then, using @eq-eq16.2, we obtain
 $$
@@ -183,9 +183,9 @@ true_model = smf.ols(formula="Y ~ X", data=data).fit()
 #| label: tbl-t16.2
 # Present ols_model and true_model results in a table
 results_table = summary_col(results=[error_model, true_model],
-                                         float_format='%0.3f',
-                                        stars=True,
-                                       model_names=["Error model", "True model"])
+                                     float_format='%0.3f',
+                                     stars=True,
+                                     model_names=["Error model", "True model"])
 results_table
 ```
 :::
@@ -215,13 +215,11 @@ $$
 $$
 which is very close to the true value $\beta_1=2$.
 
-In the best guess model, we assume that $\tilde{X}_i$ is related to $X_i$ through $\tilde{X}_i = \E(X_i|W_i)$, where $W_i$ is a variable that satisfies $\E(u_i|W_i) = 0$. In this model, $\text{cov}(\tilde{X}_i, (X_i - \tilde{X}_i)) = 0$ because the measurement error $(X_i - \tilde{X}_i)$ is uncorrelated with $\tilde{X}_i$. Also, since $\E(u_i|W_i) = 0$ and $\tilde{X}_i$ is a function of $W_i$, it follows that $\text{cov}(\tilde{X}_i, u_i) = 0$.  As a result, under the best guess model, we have $\text{cov}(\tilde{X}_i, \tilde{u}_i) = 0$.
+In the best guess model, we assume that $\tilde{X}_i$ is related to $X_i$ through $\tilde{X}_i = \E(X_i|W_i)$, where $W_i$ is a variable that satisfies $\E(u_i|W_i) = 0$. In this model, $\text{cov}(\tilde{X}_i, (X_i - \tilde{X}_i)) = 0$ because the measurement error $(X_i - \tilde{X}_i)$ is uncorrelated with $\tilde{X}_i$. Also, since $\E(u_i|W_i) = 0$ and $\tilde{X}_i$ is a function of $W_i$, it follows that $\text{cov}(\tilde{X}_i, u_i) = 0$. As a result, under the best guess model, we have $\text{cov}(\tilde{X}_i, \tilde{u}_i) = 0$.
 
 Then, under the best guess model, it follows that $\hat{\beta}_1\xrightarrow{p}\beta_1+\frac{\sigma_{\tilde{X}\tilde{u}}}{\sigma^2_{\tilde{X}}}=\beta_1$. Thus, the OLS estimator $\hat{\beta}_1$  is still consistent under the best guess model of measurement error. However, since $\text{var}(\tilde{u}_i) > \text{var}(u_i)$, the variance of $\hat{\beta}_1$ is larger than it would be without measurement error, reducing the precision of the estimator.
 
 So far we only consider measurement error in the independent variable. However, measurement error can also occur in the dependent variable. The classical measurement error in $Y$ does not cause bias in the OLS estimator of $\beta_1$. To see this, assume that $\tilde{Y}_i=Y_i+w_i$, where $\E(w_i|X_i)=0$. Then, the estimation model becomes $\tilde{Y}_i=\beta_0+\beta_1X_i+v_i$ with $v_i=u_i+w_i$. Since this model satisfies the zero-conditional mean assumption $\E(v_i|X_i)=0$, the OLS estimator of $\beta_1$ is unbiased and consistent. Thus, in general, the measurement error in $Y$ that satisfies the zero-conditional mean assumption does not cause bias in the OLS estimator of $\beta_1$. However, the variance of the OLS estimator becomes larger because $\text{var}(v_i)>\text{var}(u_i)$. 
-
-
 
 **Solutions to errors-in-variables bias**: The following approaches can be used to address errors-in-variables bias:
 
@@ -240,7 +238,6 @@ The second case, where data is missing based on the value of a regressor, also d
 
 Under the third case, where data is missing due to a selection process that depends on the dependent variable, the OLS estimator is biased and inconsistent. In the literature, this is called the sample selection bias. The sample selection bias occurs when the sample used for estimation is not a random sample from the population of interest. For example, if data is missing for school districts with low test scores, our sample will no longer be a random sample from the population consisting of all school districts.
 
-
 **Solutions to missing data and sample selection bias**: The following solutions can be used to address missing data and sample selection bias:
 
 * We can resort to a design-based approach for collecting data to minimize the effect of missing data and sample selection bias. For example, through a randomized controlled experiment, we can ensure that the sample is representative of the population of interest. We discuss randomized controlled experiments in Chapter 20.
@@ -256,7 +253,6 @@ The zero-conditional mean assumption does not hold under simultaneous causality.
 - $X_i = \delta_0 + \delta_1 Y_i + v_i$,
 
 where $u_i$ and $v_i$ are the error terms. In the first equation, a large $u_i$ leads to a large $Y_i$, which implies a large $X_i$ (if $\delta_1 > 0$) through the second equation. Thus, $\cov(X_i, u_i) \neq 0$ in the first model, i.e., the zero-conditional mean assumption does not hold. As a result, the OLS estimator of $\beta_1$ is biased and inconsistent.
-
 
 **Solutions to simultaneous causality bias**: The following solutions can be used to address simultaneous causality bias:
 
@@ -286,7 +282,6 @@ The threats to the internal validity of a multiple regression study are:
 Hypothesis tests and confidence intervals based on inconsistent standard errors are invalid. The inconsistency of OLS standard errors can arise from heteroscedasticity and correlation in the error terms. To handle heteroskedasticity, we can use heteroscedasticity-robust standard errors. To address the correlation in the error terms, we should use standard errors that are robust to both heteroskedasticity and correlation.
 :::
  
-
 ## Threats to external validity of multiple regression analysis
 Recall that a study has external validity if its results can be generalized to the population of interest. Thus, differences between the population and setting studied and the population and setting of interest can pose threats to external validity.
 
@@ -309,7 +304,6 @@ For prediction exercises, external validity is more important than internal vali
 - **Choice of predictors**: Predictors should be selected to maximize the accuracy of out-of-sample predictions.
 
 - **Estimation method**: The estimation method must be suitable for handling high-dimensional data when there are many predictors. In such cases, specialized estimators can provide more accurate out-of-sample predictions than the OLS estimator. We discuss these specialized estimators in Chapter 21.
-
 
 ## Example: Test Scores and Class Size
 
@@ -335,7 +329,7 @@ mcas = pd.read_excel("data/mcas.xlsx")
 mcas.columns
 ```
 
-Previously, we used data from California school districts to study the relationship between test scores and class size. It will be useful to compare the Massachusetts dataset with the California dataset. In @tbl-t16.3, we present descriptive statistics for selected variables from the Massachusetts and California datasets. For Massachusetts, the average test score is 709.83, the average student–teacher ratio is 17.34, the average percentage of English learners is 1.12%, the average percentage of students receiving subsidized lunch is 15.32%, and the average per-capita income is $18,750. For California, the corresponding averages are 654.16 for test scores, 19.64 for student–teacher ratio, 15.77% for English learners, 45.71% for subsidized lunch recipients, and $15,320 for per-capita income.
+Previously, we used data from California school districts to study the relationship between test scores and class size. It will be useful to compare the Massachusetts dataset with the California dataset. In @tbl-t16.3, we present descriptive statistics for selected variables from the Massachusetts and California datasets. For Massachusetts, the average test score is 709.83, the average student–teacher ratio is 17.34, the average percentage of English learners is $1.12\%$, the average percentage of students receiving subsidized lunch is $15.32\%$, and the average per-capita income is $18,750. For California, the corresponding averages are 654.16 for test scores, 19.64 for student–teacher ratio, $15.77\%$ for English learners, $45.71\%$ for subsidized lunch recipients, and $15,320 for per-capita income.
 
 While Massachusetts has a higher average test score, we cannot make a direct comparison because different tests are administered in both states. Massachusetts also has lower averages for the student–teacher ratio, the percentage of subsidized lunch recipients, and the percentage of English learners. Its average per-capita income is larger than that of California.
 
@@ -369,7 +363,6 @@ combined_stats
 :::
 
 In @fig-t16.3, we examine the relationship between test scores and average district income based on the Massachusetts dataset. The scatter plot shows a positive relationship, with the slope being steeper for lower income values and flatter for higher income values. To model the relationship between test scores and average district income, we consider three regression models: (i) the linear regression model, (ii) the cubic regression model, and (iii) the linear-log regression model. The fitted regression functions in @fig-t16.3 indicate that the cubic regression provides a better fit compared to the linear and linear-log regressions.
-
 
 ```{python}
 #| fig-cap: "The relationship between test scores and district income for the Massachusetts dataset"
@@ -413,7 +406,6 @@ plt.xlabel('District income')
 plt.ylabel('Test score')
 plt.legend(frameon=False)
 plt.show()
-
 ```
 
 ### Models
@@ -452,29 +444,32 @@ mydata = mcas.copy()
 mydata["hiel"] = mydata["pctel"] > np.median(mydata["pctel"])
 ```
 
-
 ### Estimation results
 We use the following code chunk can to estimate all models. Note that we use heteroskedasticity-robust standard errors in all models.
 ```{python}
 # Model 1
-r1=smf.ols(formula="totsc4~tchratio",data=mydata).fit(cov_type="HC1")
+r1 = smf.ols(formula="totsc4~tchratio",
+            data=mydata).fit(cov_type="HC1")
 
 # Model 2
-r2=smf.ols(formula="totsc4~tchratio+pctel+lnch_pct+np.log(percap)",
-      data=mydata).fit(cov_type="HC1")
+r2 = smf.ols(formula="totsc4~tchratio+pctel+lnch_pct+np.log(percap)",
+             data=mydata).fit(cov_type="HC1")
 
 # Model 3
-r3=smf.ols(formula="totsc4~tchratio+pctel+lnch_pct+percap+I(percap**2)+I(percap**3)",data=mydata).fit(cov_type="HC1") 
+r3 = smf.ols(formula="totsc4~tchratio+pctel+lnch_pct+percap+I(percap**2)+I(percap**3)",
+             data=mydata).fit(cov_type="HC1") 
 
 # Model 4
-r4=smf.ols(formula="totsc4~tchratio+I(tchratio**2)+I(tchratio**3)+pctel+lnch_pct+percap+I(percap**2)+I(percap**3)",data=mydata).fit(cov_type="HC1")
+r4 = smf.ols(formula="totsc4~tchratio+I(tchratio**2)+I(tchratio**3)+pctel+lnch_pct+percap+I(percap**2)+I(percap**3)",
+             data=mydata).fit(cov_type="HC1")
 
 # Model 5
-r5=smf.ols(formula="totsc4~tchratio+hiel+hiel*tchratio +lnch_pct+percap+I(percap**2)+I(percap**3)",data=mydata).fit(cov_type="HC1")
+r5 = smf.ols(formula="totsc4~tchratio+hiel+hiel*tchratio +lnch_pct+percap+I(percap**2)+I(percap**3)",
+             data=mydata).fit(cov_type="HC1")
 
 # Model 6
-r6=smf.ols(formula="totsc4~tchratio+lnch_pct+percap+I(percap**2)+I(percap**3)",data=mydata).fit(cov_type="HC1")
-
+r6 = smf.ols(formula="totsc4~tchratio+lnch_pct+percap+I(percap**2)+I(percap**3)",
+             data=mydata).fit(cov_type="HC1")
 ```
 
 :::{layout-ncol=1}
@@ -497,42 +492,40 @@ The estimation results for Models 1–6 are presented in @tbl-t16.4. We list our
 
 - The results in the second and third columns indicate that the class size effect is statistically significant at the 5% level after controlling for student and district characteristics. Comparing $\bar{R}^2$ values in Models 2 and 3, the cubic specification provides a better fit than the logarithmic specification.
 
-- In Model 3, we can use the F-statistic to test $H_0:\beta_5=\beta_6=0$ versus $H_1$: At least one coefficient is non zero.  The F-statistic given below is $7.74$ with a p-value of $0.0006$. Thus, we reject the null hyptohesis.
-  
+- In Model 3, we can use the $F$-statistic to test $H_0:\beta_5=\beta_6=0$ versus $H_1$: At least one coefficient is non zero.  The $F$-statistic given below is $7.74$ with a p-value of $0.0006$. Thus, we reject the null hyptohesis.
+
 ```{python}
 # Testing H_0: beta_5=beta_6=0 in Model 3
-hypothesis="I(percap ** 2)=0, I(percap ** 3)=0"
+hypothesis = "I(percap ** 2)=0, I(percap ** 3)=0"
 print(r3.f_test(hypothesis))
 ```
 
-- The results for Model 4 show that there is no statistically significant evidence of a nonlinear relationship between test scores and the student–teacher ratio. The F-statistic for $H_0:\beta_2=\beta_3=0$ can be obtained using the code chunk given below. The F-statistic is $0.45$ with a p-value of  $0.640$. Thus, we fail to reject the null hypothesis. 
-  
+- The results for Model 4 show that there is no statistically significant evidence of a nonlinear relationship between test scores and the student–teacher ratio. The $F$-statistic for $H_0:\beta_2=\beta_3=0$ can be obtained using the code chunk given below. The $F$-statistic is $0.45$ with a $p$-value of $0.640$. Thus, we fail to reject the null hypothesis. 
+
 ```{python}
 # Testing H_0: beta_2=beta_3=0 in Model 4
-hypothesis="I(tchratio ** 2)=0, I(tchratio ** 3)=0"
+hypothesis = "I(tchratio ** 2)=0, I(tchratio ** 3)=0"
 print(r4.f_test(hypothesis))
 ```
 
-- The results for Model 5 show that the estimated coefficents for both `HiEL` and `HiELxtchratio` are statistically insignifcant at the 5% significance level. The F-statistic for $H_0:\beta_5=\beta_6=0$ can be obtained using the following code chunk. The F-statistic is $1.58$ with a p-value of  $0.207$. Thus, we fail to reject the null hypothesis and conclude that the percentage of English learners does not have a statistically significant effect on test scores after controlling for the student–teacher ratio and other variables.
-  
+- The results for Model 5 show that the estimated coefficents for both `HiEL` and `HiELxtchratio` are statistically insignifcant at the 5% significance level. The $F$-statistic for $H_0:\beta_5=\beta_6=0$ can be obtained using the following code chunk. The $F$-statistic is $1.58$ with a $p$-value of $0.207$. Thus, we fail to reject the null hypothesis and conclude that the percentage of English learners does not have a statistically significant effect on test scores after controlling for the student–teacher ratio and other variables.
+
 ```{python}
 # Testing H_0: beta_5=beta_6=0 in Model 5
-hypothesis="hiel[T.True]=0, hiel[T.True]:tchratio=0"
+hypothesis = "hiel[T.True]=0, hiel[T.True]:tchratio=0"
 print(r5.f_test(hypothesis))
 ```
 
 - The results for Model 6 indicate that the percentage of English learners can be omitted as a regressor.
-  
+
 - Finally, since Models 4–6 do not produce substantially different results compared to Model 3, we select Model 3 as the most suitable specification.
-
-
 
 ### Internal validity assessment
 **Omitted variable bias**: We control for student characteristics such as the percentage of English learners and the percentage of students receiving subsidized lunch, as well as district characteristics such as per-capita income. If these control variables are effective for acheiving the conditional mean independence assumption, then the OLS estimator of the coefficient of the student-teacher ratio is unbiased and consistent. However, there can be some other omitted causal factors such as outside learning resources, parental involvement, and teacher quality that can affect test scores. If these omitted variables are also correlated with the student-teacher ratio, then the OLS estimator of the student-teacher ratio will be biased and inconsistent.
 
 **Functional form misspecification**: We consider several different functional forms, including logarithmic and polynomial specifications. Our findings on the estimated coefficient for the student-teacher ratio are unlikely to be sensitive to the choice of nonlinear regression specifications. 
 
-**Errors in variables bias**:  The data are administrative, so it is unlikely that there are substantial reporting or typographical errors. However, the student-teacher ratio is an average for the district, which may not accurately reflect the actual student-teacher ratio in each classroom. The district income is based on data from the 1990 Census, while the other data pertain to 1998. If the economic composition of the district changed substantially over the 1990s, this would result in an imprecise measure of the actual average district income.
+**Errors in variables bias**: The data are administrative, so it is unlikely that there are substantial reporting or typographical errors. However, the student-teacher ratio is an average for the district, which may not accurately reflect the actual student-teacher ratio in each classroom. The district income is based on data from the 1990 Census, while the other data pertain to 1998. If the economic composition of the district changed substantially over the 1990s, this would result in an imprecise measure of the actual average district income.
 
 **Missing data and sample selection bias**: The sample data cover all elementary public school districts in California and Massachusetts, and there are no missing values. Therefore, this threat is not a concern in our analysis.
 
@@ -543,6 +536,3 @@ print(r5.f_test(hypothesis))
 ### External validity assessment
 Our results, presented in @tbl-t16.4, suggest conclusions similar to those obtained in Chapter 15 based on the California dataset. Based on this observation, @Stock2020 conclude that the multiple linear regression models are externally valid and therefore the results can be generalized to other elementary school districts in the United States.
 
-
-
-  

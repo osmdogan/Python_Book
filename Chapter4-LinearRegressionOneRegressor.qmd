@@ -106,15 +106,15 @@ plt.show()
 
 
 ### Estimation Results
-We use the `statsmodels.api` and the `statsmodels.formula.api` modules to estimate regressions. We import these modules under the names `sm` and `smf`, respectively. There are two options for running OLS regressions: (i) the `smf.ols` function  and (ii) the `sm.OLS` function. To see all available models that can be esitmated by these functions,  we can use `dir(smf)` and `dir(sm)`. 
+We use the `statsmodels.api` and the `statsmodels.formula.api` modules to estimate regressions. We import these modules under the names `sm` and `smf`, respectively. There are two options for running OLS regressions: (i) the `smf.ols()` function and (ii) the `sm.OLS()` function. To see all available models that can be esitmated by these functions, we can use `dir(smf)` and `dir(sm)`. 
 
-In the case of `smf`, we can use `R`-style formulas to specify estimation equations. In the following, we use the `smf.ols` function to estimate the model. Note that the estimation equation is specified as `formula='testscr~str'`, where `~` symbol separates the dependent and independent variables.
+In the case of `smf`, we can use `R`-style formulas to specify estimation equations. In the following, we use the `smf.ols()` function to estimate the model. Note that the estimation equation is specified as `formula='testscr ~ str'`, where `~` symbol separates the dependent and independent variables.
 
 ```{python}
 # Specify the model
-model1=smf.ols(formula='testscr~str',data=CAschool)
+model1 = smf.ols(formula='testscr ~ str', data=CAschool)
 # Use the fit function to obtain parameter estimates
-result1=model1.fit()
+result1 = model1.fit()
 # Print the estimation results
 print(result1.summary())
 ```
@@ -122,17 +122,17 @@ print(result1.summary())
 All estimated quantities are stored in the `result1` object. We can use `dir(result1)` to see available attributes. In @tbl-t11-2, we list some important attributes of the `result1` object. 
 
 ::: {style="font-size: 90%"}
-| Attribute| Description|
-|:-|:-|
-| `nobs`|returns the number of observations used in the estimation.|
-| `params`| returns the estimated parameters in list.|
-| `resid`| returns the residuals in list.|
-| `predict`| returns predicted values in array.|
-|`model.exog`|& returns exogenous variables in array.|
-|`model.exog_names`| returns the names of exogenous variables in a list.|
-|`model.endog`,`model.endog_names`| returns the endogenous variable values/name.|
-|`model.loglike`| returns  the likelihood function evaluated at params.|
-|`rsquared`, `rsquared_adj`| returns  unadjusted/adjusted $R^2$.|
+| Attribute                          | Description                                                |
+|:-----------------------------------|:-----------------------------------------------------------|
+| `nobs`                             | returns the number of observations used in the estimation. |
+| `params`                           | returns the estimated parameters in a list.                |
+| `resid`                            | returns the residuals in a list.                           |
+| `predict`                          | returns predicted values in an array.                      |
+| `model.exog`                       | returns exogenous variables in an array.                   |
+| `model.exog_names`                 | returns the names of exogenous variables in a list.        |
+| `model.endog`, `model.endog_names` | returns the endogenous variable values/name.               |
+| `model.loglike`                    | returns the likelihood function evaluated at params.       |
+| `rsquared`, `rsquared_adj`         | returns unadjusted/adjusted $R^2$.                         |
 : Some important attributes {#tbl-t11-2}
 :::
 
@@ -163,23 +163,23 @@ result1.predict()[0:5]
 result1.fittedvalues[0:5]
 ```
 
-Next, we describe how to use the `sm.OLS` function for regression analysis. In this case, we need to supply the dependent and independent variable(s) as arrays through the `endog` and `exog` arguments, respectively. 
+Next, we describe how to use the `sm.OLS()` function for regression analysis. In this case, we need to supply the dependent and independent variable(s) as arrays through the `endog` and `exog` arguments, respectively. 
 
 ```{python}
 # Arrange the data
-CAschool["const"]=1 # add a constant column
+CAschool["const"] = 1 # add a constant column
 # Define the dependent and independent variables
-y= CAschool.testscr
-X=CAschool[["const","str"]]
+y = CAschool.testscr
+X = CAschool[["const", "str"]]
 ```
 
-Note that we need to explicitly specify the intercept term: `CAschool["const"]=1`, which adds a column of ones to the dataframe `CAschool`. 
+Note that we need to explicitly specify the intercept term: `CAschool["const"] = 1`, which adds a column of ones to the dataframe `CAschool`. 
 
 ```{python}
 # Specify the model
-model2=sm.OLS(endog=y,exog=X)
+model2 = sm.OLS(endog=y, exog=X)
 # Fit the model
-result2=model2.fit()
+result2 = model2.fit()
 # Print estimation results
 print(result2.summary())
 ```
@@ -238,15 +238,14 @@ The $R^2$ ranges between $0$ and $1$, and a high value of $R^2$ indicates that t
 
 In the following code chunk, we compute both measures of fit for the test score regression in @eq-eq11-3. The estimates are given in @tbl-t11-3. The $R^2=0.05$ means that the `STR` regressor explains $5\%$ of the variance of the dependent variable `TestScore`. The SER estimate is $18.6$, providing an estimate of the standard deviation of the error terms in units of test score points.
 
-
 ```{python}
 # Measures of fit
 y = CAschool.testscr
 n = result1.nobs
-R2 = 1- (np.sum(result1.resid**2)/(np.sum((y-np.mean(y))**2)))
-SER = np.sqrt(np.sum(result1.resid**2)/(n-2))
+R2 = 1 - (np.sum(result1.resid**2) / (np.sum((y-np.mean(y))**2)))
+SER = np.sqrt(np.sum(result1.resid**2) / (n-2))
 fit_measures = pd.DataFrame([R2,SER])
-fit_measures.index = ["R^2","SER"]
+fit_measures.index = ["R^2", "SER"]
 fit_measures.columns = [""]
 ```
 
@@ -283,7 +282,7 @@ ax.set_ylabel('Test score', fontsize=12)
 # Show legend
 ax.legend(frameon=False)
 # Display the plot
-plt.tight_layout()  # Ensure everything fits well in the figure
+plt.tight_layout() # Ensure everything fits well in the figure
 plt.show()
 
 ```
@@ -307,7 +306,7 @@ $$
 $$
 This last result is important because it provides a way to check the zero-conditional mean assumption. If we think that the error term $u_i$ includes a variable that is correlated with the regressor $X_i$, then we can claim that $\E(u_i |X_i)\ne 0$.
 
-In the following code chunk, we consider two data-generating processes to illustrate the zero-conditional mean assumption. We assume that the zero-conditional mean assumption holds in the first process but is violated in the second. In both cases,  we assume that $X$ takes integer values between $-4$ and $4$: ` x_values = np.random.randint(low=-4, high=5, size=size)`. In the first process, we generate the error terms idependently from the standard normal distribution, i.e., $u \sim N(0, 1)$. In this case, since $u$ is independent of $X$, we have $\E(u|X)=\E(u)=0$. In contrast, in the second process, we generate the error terms according to $u \sim N(0.5X, 1)$ so that $\E(u|X)=0.5X$. 
+In the following code chunk, we consider two data-generating processes to illustrate the zero-conditional mean assumption. We assume that the zero-conditional mean assumption holds in the first process but is violated in the second. In both cases, we assume that $X$ takes integer values between $-4$ and $4$: ` x_values = np.random.randint(low=-4, high=5, size=size)`. In the first process, we generate the error terms idependently from the standard normal distribution, i.e., $u \sim N(0, 1)$. In this case, since $u$ is independent of $X$, we have $\E(u|X)=\E(u)=0$. In contrast, in the second process, we generate the error terms according to $u \sim N(0.5X, 1)$ so that $\E(u|X)=0.5X$. 
 
 In @fig-f11.3, we use boxplots to illustrate the distribution of $u$ conditional on $X$. In @fig-f11.3-1, the conditional mean of $u$ remains close to zero across all values of $X$, indicating that $\mathbb{E}(u|X)$ does not depend on $X$. In contrast, @fig-f11.3-2 shows that the mean of $u$ varies systematically with $X$, suggesting that $\mathbb{E}(u|X)$ depends on $X$.
 
@@ -379,7 +378,6 @@ df2 = generate_data(seed=45, size=2000, zero_conditional_mean=False)
 # Plot
 plot_boxplot(df1, title="Zero-Conditional Mean Assumption Holds")
 plot_boxplot(df2, title="Zero-Conditional Mean Assumption Does Not Hold")
-
 ```
 
 The second assumption requires a random sample on $X$ and $Y$. This assumption generally holds because data are usually collected on a randomly selected sample from the population of interest. 
@@ -413,8 +411,8 @@ We can use @eq-eq11-6 to determine $\E(\hat{\beta}_1|X_1,\dots,X_n)$:
 
 $$
 \begin{align}
-\E(\hat{\beta}_1|X_1,\dots,X_n)&=\beta_1+\E\left(\frac{\sum_{i=1}^n(X_i - \bar{X})u_i}{\sum_{i=1}^n(X_i - \bar{X})^2}\bigg|X_1,\dots,X_n\right)\nonumber\\
-&=\beta_1+\frac{\sum_{i=1}^n(X_i - \bar{X})\E\left(u_i|X_1,\dots,X_n\right)}{\sum_{i=1}^n(X_i - \bar{X})^2}.
+\E(\hat{\beta}_1|X_1,\dots,X_n) &= \beta_1+\E\left(\frac{\sum_{i=1}^n(X_i - \bar{X})u_i}{\sum_{i=1}^n(X_i - \bar{X})^2}\bigg|X_1,\dots,X_n\right)\nonumber\\
+&= \beta_1+\frac{\sum_{i=1}^n(X_i - \bar{X})\E\left(u_i|X_1,\dots,X_n\right)}{\sum_{i=1}^n(X_i - \bar{X})^2}.
 \end{align}
 $$
 
@@ -422,7 +420,7 @@ Under Assumptions 1 and 2, we have $\E\left(u_i|X_1,\dots,X_n\right)=\E(u_i|X_i)
 Finally, the unbiasedness of $\hat{\beta}_1$ follows from the law of iterated expectations: 
 $$ 
 \begin{align}
-\E(\hat{\beta}_1)=\E\left(\E\left(\hat{\beta}_1|X_1,\dots,X_n\right)\right)=E(\beta_1)=\beta_1.
+\E(\hat{\beta}_1) = \E\left(\E\left(\hat{\beta}_1|X_1,\dots,X_n\right)\right) = E(\beta_1)=\beta_1.
 \end{align}
 $$
 
@@ -431,14 +429,14 @@ $$
 \begin{align}
 \E(\hat{\beta}_0|X_1,\dots,X_n) &= \E(\bar{Y} - \hat{\beta}_1\bar{X}|X_1,\dots,X_n)\\
 &= \E(\bar{Y}|X_1,\dots,X_n)-\bar{X}\E(\hat{\beta}_1|X_1,\dots,X_n)\\
-&=\beta_0+\bar{X}\beta_1-\bar{X}\beta_1=\beta_0.
+&= \beta_0+\bar{X}\beta_1-\bar{X}\beta_1=\beta_0.
 \end{align}
 $$
 
 where the third equality follows from $\E(\bar{Y}|X_1,\dots,X_n)=\beta_0+\bar{X}\beta_1$. Then, it follows from the law of iterated expectations that 
 $$
 \begin{align}
-\E(\hat{\beta}_0)=\E\left(\E\left(\hat{\beta}_0|X_1,\dots,X_n\right)\right)=E(\beta_0)=\beta_0.
+\E(\hat{\beta}_0) = \E\left(\E\left(\hat{\beta}_0|X_1,\dots,X_n\right)\right) = E(\beta_0)=\beta_0.
 \end{align}
 $$
 Let $\mu_X$ and $\sigma^2_X$ be the population mean and variance of $X$. In the following theorem, we show the asymptotic distributions of the OLS estimators.
@@ -474,9 +472,9 @@ reps = 1000
 # Set sample sizes
 n = [50, 100, 200, 500]
 # Population regression model
-N = 5000  
+N = 5000
 X = np.random.normal(size=N)
-Y = 1.5 + 3 * X + np.random.normal(size=N)  
+Y = 1.5 + 3 * X + np.random.normal(size=N)
 population = pd.DataFrame({'X': X, 'Y': Y})
 # Initialize the matrix of outcomes
 fit = np.zeros((reps, 2))
@@ -507,6 +505,3 @@ plt.show()
 ```
 
 In the next chapter, we will show how to formulate estimators for $\sigma^2_{\hat{\beta}_1}$ and $\sigma^2_{\hat{\beta}_0}$ given in @thm-thm11.1. We will also show how to use these estimators to conduct hypothesis tests and construct confidence intervals for the parameters $\beta_0$ and $\beta_1$.
-
-
-

@@ -20,17 +20,17 @@ $$
 Y_i=\beta_0+\beta_1X_{1i}+\beta_2X_{2i}+\dots+\beta_kX_{ki}+u_i,
 \end{align}
 $${#eq-eq14-1}
-for $i=1,2,\dots,n$. We want to test $H_0:\beta_j=\beta_{j0}$ versus  $H_1:\beta_j\ne\beta_{j0}$, where $\beta_{j0}$ is the hypothesized value (known) and $j=1,2,\dots,k$. As in Chapter 12, we can follow the following steps to test the null hypothesis:
+for $i=1,2,\dots,n$. We want to test $H_0:\beta_j=\beta_{j0}$ versus $H_1:\beta_j\ne\beta_{j0}$, where $\beta_{j0}$ is the hypothesized value (known) and $j=1,2,\dots,k$. As in Chapter 12, we can follow the following steps to test the null hypothesis:
  
 - Step 1: Use Python to compute the standard error of $\hat{\beta}_j$, denoted as $\text{SE}(\hat{\beta}_j)$.
 
-- Step 2: Compute the t-statistic under $H_0$: $t=\frac{\hat{\beta}_j-\beta_{j0}}{\text{SE}(\hat{\beta}_j)}$.
+- Step 2: Compute the $t$-statistic under $H_0$: $t=\frac{\hat{\beta}_j-\beta_{j0}}{\text{SE}(\hat{\beta}_j)}$.
 
-- Step 3: Compute the p-value under $H_0$: $\text{p-value}=2\times\Phi(-|t^{act}|)$, where $t_{calc}$ is the t-statistic computed in Step 2.
+- Step 3: Compute the $p$-value under $H_0$: $\text{p-value}=2\times\Phi(-|t^{act}|)$, where $t_{calc}$ is the $t$-statistic computed in Step 2.
 
 - Step 4: Reject $H_0$ at the $5\%$ significance level if $\text{p-value}<0.05$, or equivalently, if $|t_{calc}|>1.96$.
 
-The theoretical justification for this procedure is based on the large-sample properties of the OLS estimators, as summarized in @thm-thm13-1 of Chapter 13. In particular, this testing approach requires a large sample size to ensure that the normal distribution provides a good approximation to the sampling distribution of the t-statistic. 
+The theoretical justification for this procedure is based on the large-sample properties of the OLS estimators, as summarized in @thm-thm13-1 of Chapter 13. In particular, this testing approach requires a large sample size to ensure that the normal distribution provides a good approximation to the sampling distribution of the $t$-statistic. 
 
 Recall that  the $95\%$ two-sided confidence interval for $\beta_j$ is an interval that contains $\beta_j$ with a $95\%$ probability. When the sample size is large, the $95\%$ two-sided confidence interval for $\beta_j$ is given by
 $$
@@ -89,9 +89,9 @@ results_table
 :::
 
 We consider testing $H_0:\beta_1=0$ versus $H_1:\beta_1\ne0$. 
-Using heteroskedasticity-robust standard errors, we can compute the t-statistic as $t=\frac{\hat{\beta}_1-0}{\text{SE}(\hat{\beta}_1)}=-0.29/0.48=-0.60$. Since $|t|=0.60<1.96$, we fail to reject $H_0$. 
+Using heteroskedasticity-robust standard errors, we can compute the $t$-statistic as $t=\frac{\hat{\beta}_1-0}{\text{SE}(\hat{\beta}_1)}=-0.29/0.48=-0.60$. Since $|t|=0.60<1.96$, we fail to reject $H_0$. 
 
-The p-value is $2\Phi(-|t_{calc}|)=2\Phi(-0.60)$. Using the following code chunk, we find that  p-value$=0.552>0.05$, and thus, we fail to reject $H_0$ at the $5\%$ significance level. Both the t-statistic and the p-value suggest that the student-teacher ratio does not have a statistically significant effect on the test scores at the $5\%$ significance level.
+The p-value is $2\Phi(-|t_{calc}|)=2\Phi(-0.60)$. Using the following code chunk, we find that $p$-value$=0.552>0.05$, and thus, we fail to reject $H_0$ at the $5\%$ significance level. Both the $t$-statistic and the $p$-value suggest that the student-teacher ratio does not have a statistically significant effect on the test scores at the $5\%$ significance level.
 
 ```{python}
 # p-value
@@ -137,7 +137,7 @@ $$
 \end{align*}
 $$
 
-Note that in both examples, the joint null hypothesis specifies linear restrictions for the coefficients. A joint null hypothesis can be tested using an **F-statistic**. To express the F-statistic, we first need to formulate the null hypothesis in matrix form. Using matrix notation, we note that a joint null hypothesis that involve $q$ linear restrictions on parameters can be expressed as
+Note that in both examples, the joint null hypothesis specifies linear restrictions for the coefficients. A joint null hypothesis can be tested using an **$F$-statistic**. To express the $F$-statistic, we first need to formulate the null hypothesis in matrix form. Using matrix notation, we note that a joint null hypothesis that involve $q$ linear restrictions on parameters can be expressed as
 
 $$ 
 \begin{align}
@@ -185,22 +185,22 @@ $$
 Note that in the second case, we have the restriction $\beta_2+2\beta_3=1$ involving two parameters. However, the total number of restrictions in $H_0:\beta_1=0$ and $\beta_2+2\beta_3=1$ is still $q=2$. 
 :::
 
-To test $H_0:\bs{R}\bs{\beta}=\bs{r}$, we use the following **heteroskedaticity-robust F-statistic**:
+To test $H_0:\bs{R}\bs{\beta}=\bs{r}$, we use the following **heteroskedaticity-robust $F$-statistic**:
 $$
 \begin{align}
 F=\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)^{'}\left(\bs{R}\hat{\bs{\Sigma}}\bs{R}^{'}\right)^{-1}\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)/q,
 \end{align}
 $$
 
-where $\hat{\bs{\Sigma}}$ is the estimate of heteroskedasticity-robust variance of $\hat{\bs{\beta}}$. When the sample size is large, the distribution of F-statistic is approximated by $\chi^2_q/q\equiv F_{q,\infty}$. In Chapter 26, we prove that the sampling distribution of the F-statistic is approximated by $F_{q,\infty}$ under the null hypothesis.
+where $\hat{\bs{\Sigma}}$ is the estimate of heteroskedasticity-robust variance of $\hat{\bs{\beta}}$. When the sample size is large, the distribution of $F$-statistic is approximated by $\chi^2_q/q\equiv F_{q,\infty}$. In Chapter 26, we prove that the sampling distribution of the $F$-statistic is approximated by $F_{q,\infty}$ under the null hypothesis.
 
 To test the null hypothesis, we can follow the steps below: 
 
-* Step 1: Use Python to compute the F-statistic.
+* Step 1: Use Python to compute the $F$-statistic.
 
-* Step 2: For a given significance level $\alpha$, use Python to determine the critical value shown in @fig-fig14-1. If F-statistic$>$critical value, then reject the null hypothesis at the $5\%$ significance level.
+* Step 2: For a given significance level $\alpha$, use Python to determine the critical value shown in @fig-fig14-1. If $F$-statistic$>$critical value, then reject the null hypothesis at the $5\%$ significance level.
 
-* Step 3: The p-value is $P(F_{q,\infty}>F_{calc})$, where $F_{calc}$ is the actual value computed in Step 1. If p-value$<0.05$, reject the null hypothesis at the $5\%$ significance level.
+* Step 3: The $p$-value is $P(F_{q,\infty}>F_{calc})$, where $F_{calc}$ is the actual value computed in Step 1. If $p$-value$<0.05$, reject the null hypothesis at the $5\%$ significance level.
 
 ```{python}
 #| fig-cap: The critical value from the F-distribution
@@ -240,7 +240,7 @@ plt.ylim(0, max(y) * 1.1)
 plt.show()
 ```
 
-Most statistical software, including Python, returns an **overall regression F-statistic** by default. This F-statistic is computed for the following null and alternative hypotheses:
+Most statistical software, including Python, returns an **overall regression $F$-statistic** by default. This $F$-statistic is computed for the following null and alternative hypotheses:
 $$
 \begin{align*}
 &H_0: \beta_1=0, \beta_2=0,\dots,\beta_k=0,\\
@@ -248,17 +248,16 @@ $$
 \end{align*}
 $$
 
-Under the null hypothesis, all regressors are irrelevant, yielding a restricted model that only includes an intercept term. In large sample, the overall regression F-statistic has an $F_{k,\infty}$ distribution under the null hypothesis.
+Under the null hypothesis, all regressors are irrelevant, yielding a restricted model that only includes an intercept term. In large sample, the overall regression $F$-statistic has an $F_{k,\infty}$ distribution under the null hypothesis.
 
-A special case arises when we want to test a single restriction, i.e., when we have $q=1$. In this case, the null hypothesis becomes $H_0: \beta_j={\beta_{j0}}$, and the F-statistic is equal to the square of the t-statistic. 
+A special case arises when we want to test a single restriction, i.e., when we have $q=1$. In this case, the null hypothesis becomes $H_0: \beta_j={\beta_{j0}}$, and the $F$-statistic is equal to the square of the $t$-statistic. 
 
-There is a simple formula for the F-statistic that holds only
-under homoskedasticity. To introduce this formula, we first need to define the restricted and unrestricted models. We call the model under the null hypothesis the **restricted model**, and the model under the alternative hypothesis the **unrestricted model**. For example, consider $H_0:\beta_1=0,\beta_2=0$ for the model in @eq-eq14-2. Then, we have
+There is a simple formula for the $F$-statistic that holds only under homoskedasticity. To introduce this formula, we first need to define the restricted and unrestricted models. We call the model under the null hypothesis the **restricted model**, and the model under the alternative hypothesis the **unrestricted model**. For example, consider $H_0:\beta_1=0,\beta_2=0$ for the model in @eq-eq14-2. Then, we have
 
 * Restricted model: $\text{TestScore}=\beta_0+\beta_3\times\text{PctEL}+u$,
 * Unrestricted model: $\text{TestScore}=\beta_0+\beta_1\times\text{STR}+\beta_2\text{Expn}+\beta_3\times\text{PctEL}+u$.
 
-Then, the **homoskedasticity-only F-statistic** is
+Then, the **homoskedasticity-only $F$-statistic** is
 $$
 \begin{align}
 F&=\frac{(SSR_r-SSR_u)/q}{SSR_u/(n-k_u-1)}=\frac{(R^2_u-R^2_r)/q}{(1-R^2_u)/(n-k_u-1)},
@@ -275,11 +274,11 @@ where
 * $k_u$ is the number of regressors in the unrestricted
 regression.
 
-Under homoskedasticity, the difference between the homoskedasticity-only F-statistic and the heteroskedasticity-robust F-statistic vanishes as the sample size gets larger. Thus, the sampling distribution of the homoskedasticity-only F-statistic is approximated by $F_{q,\infty}$ when the sample size is large. That is, we can use the critical values from $F_{q,\infty}$ for the homoskedasticity-only F-statistic. 
+Under homoskedasticity, the difference between the homoskedasticity-only $F$-statistic and the heteroskedasticity-robust $F$-statistic vanishes as the sample size gets larger. Thus, the sampling distribution of the homoskedasticity-only $F$-statistic is approximated by $F_{q,\infty}$ when the sample size is large. That is, we can use the critical values from $F_{q,\infty}$ for the homoskedasticity-only $F$-statistic. 
 
-It is important to note that the homoskedasticity-only F-statistic is only valid when the error terms are homoskedastic. @Stock2020 write that "Because homoskedasticity is a special case that cannot be counted on in applications with economic data—or more generally with data sets typically found in the social sciences—in practice the homoskedasticity-only F-statistic is not a satisfactory substitute for the heteroskedasticity-robust F-statistic." Therefore, we recommend using the heteroskedasticity-robust F-statistic in all cases.
+It is important to note that the homoskedasticity-only $F$-statistic is only valid when the error terms are homoskedastic. @Stock2020 write that "Because homoskedasticity is a special case that cannot be counted on in applications with economic data—or more generally with data sets typically found in the social sciences—in practice the homoskedasticity-only $F$-statistic is not a satisfactory substitute for the heteroskedasticity-robust $F$-statistic." Therefore, we recommend using the heteroskedasticity-robust $F$-statistic in all cases.
 
-There is also a special case where the homoskedasticity-only F-statistic has an exact sampling distribution. This case arises when the error terms are homoskedastic and normally distributed. When this condition holds, the homoskedasticity-only F-statistic in @eq-eq14-3 has an $F_{q,n-k_u-1}$ distribution under the null hypothesis, irrespective of the sample size. Also, recall that $F_{q,n-k_u-1}$ converges to $F_{q,\infty}$ when $n$ is large. Thus, when the sample size is sufficiently large, we expect that the difference between the two distributions will be small. However, when the sample size is small, both distributions can yield different critical values.
+There is also a special case where the homoskedasticity-only $F$-statistic has an exact sampling distribution. This case arises when the error terms are homoskedastic and normally distributed. When this condition holds, the homoskedasticity-only $F$-statistic in @eq-eq14-3 has an $F_{q,n-k_u-1}$ distribution under the null hypothesis, irrespective of the sample size. Also, recall that $F_{q,n-k_u-1}$ converges to $F_{q,\infty}$ when $n$ is large. Thus, when the sample size is sufficiently large, we expect that the difference between the two distributions will be small. However, when the sample size is small, both distributions can yield different critical values.
 
 ### Application to test scores and the student–teacher ratio 
 
@@ -291,7 +290,7 @@ $$
 \end{align*}
 $$
 
-We can use the `result2.f_test` function to compute the heteroskedasticity-robust F-statistic. In the following code chunk, the null hypothesis is specified through `hypothesis="str=0,expn_stu=0"`. 
+We can use the `result2.f_test` function to compute the heteroskedasticity-robust $F$-statistic. In the following code chunk, the null hypothesis is specified through `hypothesis="str=0,expn_stu=0"`. 
 
 ```{python}
 # Define the joint null hypothesis
@@ -301,21 +300,21 @@ f_test_result = result2.f_test(hypothesis)
 print(f_test_result)
 ```
 
-The heteroskedasticity-robust F-statistic is $5.43$ with a p-value of $0.0047$. Since the p-value is less than $0.05$, we reject the null hypothesis at the $5\%$ significance level. 
+The heteroskedasticity-robust $F$-statistic is $5.43$ with a $p$-value of $0.0047$. Since the $p$-value is less than $0.05$, we reject the null hypothesis at the $5\%$ significance level. 
 
-Since  the F-statistic has $F_{2,\infty}=\chi^2_2/2$ under the null distribution, we have 
+Since  the $F$-statistic has $F_{2,\infty}=\chi^2_2/2$ under the null distribution, we have 
 $$
 P(F_{q,\infty}>F_{calc})=P(\chi^2_2/2>F_{calc})=P(\chi^2_2>2\times F_{calc}),
 $$
 
-where $F_{calc}=5.43$. Thus, we can alternatively compute the p-value in the following way:
+where $F_{calc}=5.43$. Thus, we can alternatively compute the $p$-value in the following way:
 
 ```{python}
 # P-value of the F-statistic
 1-stats.chi2.cdf(2*5.43,df=2)
 ```
 
-We know that the F-statistic has $F_{2,\infty}=\chi^2_2/2$ under the null distribution. Thus, the critical value at the the $5\%$ significance level is approximately $3$, as shown below. Since F-statistic$=5.43>3$, the F-statistic also suggests rejection of the null hypothesis at the $5\%$ significance level. 
+We know that the $F$-statistic has $F_{2,\infty}=\chi^2_2/2$ under the null distribution. Thus, the critical value at the the $5\%$ significance level is approximately $3$, as shown below. Since $F$-statistic$=5.43>3$, the $F$-statistic also suggests rejection of the null hypothesis at the $5\%$ significance level. 
 
 ```{python}
 # Critical value
@@ -323,14 +322,14 @@ stats.chi2.ppf(1-0.05,df=2)/2
 ```
 
 
-The overall regression F-statistic given in the output returned by `result2.summary()` is for testing  $H_0:\beta_1=0,\beta_2=0, \beta_3=0$ versus $H_1:\text{At least one coefficient is not zero}$. We can get the same result by using the following code chunk:
+The overall regression $F$-statistic given in the output returned by `result2.summary()` is for testing  $H_0:\beta_1=0,\beta_2=0, \beta_3=0$ versus $H_1:\text{At least one coefficient is not zero}$. We can get the same result by using the following code chunk:
 
 ```{python}
 print(result2.fvalue)
 print(result2.f_pvalue)
 ```
 
-Alternatively, we can compute the overall regression F-statistic in the following way:
+Alternatively, we can compute the overall regression $F$-statistic in the following way:
 
 ```{python}
 # Define the joint null hypothesis
@@ -347,7 +346,7 @@ H_0:\beta_1=\beta_2\quad\text{versus}\quad H_1:\beta_1\ne\beta_2
 $$
 
 The null hypothesis imposes a single restriction ($q = 1$) on
-two parameters. Since the restriction is linear in terms of parameters, we can still use the F-statistic to test this null hypothesis. Thus, we can resort to the `result2.f_test` function to compute the F-statistic. The following code chunk illustrates the computation.
+two parameters. Since the restriction is linear in terms of parameters, we can still use the $F$-statistic to test this null hypothesis. Thus, we can resort to the `result2.f_test` function to compute the $F$-statistic. The following code chunk illustrates the computation.
 
 ```{python}
 # Define the joint null hypothesis
@@ -356,15 +355,15 @@ hypothesis="str=expn"
 print(result2.f_test(hypothesis))
 ```
 
-The heteroskedaticity-robust F-statistic is $8.9$ with a p-value of $0.003$. Thus, we reject the null $H_0:\beta_1=\beta_2$ at the $5\%$ significance level.
+The heteroskedaticity-robust $F$-statistic is $8.9$ with a $p$-value of $0.003$. Thus, we reject the null $H_0:\beta_1=\beta_2$ at the $5\%$ significance level.
 
 ## The Bonferroni test of a joint hypothesis
-In this section, we briefly describe the Benferroni approach for testing joint null hypotheses. In this approach, we use individual t-statistics along with a critical value that ensures the probability of the Type-I error does not exceed the desired significance level.
+In this section, we briefly describe the Benferroni approach for testing joint null hypotheses. In this approach, we use individual $F$-statistics along with a critical value that ensures the probability of the Type-I error does not exceed the desired significance level.
 
 Let $H_0:\beta_1=\beta_{10}$ and $\beta_2=\beta_{20}$, where $\beta_{10}$ and $\beta_{20}$ are the hypothesized values, be the joint null hypothesis. Then, the Bonferroni approach for testing this null hypothesis consists of the following steps:
 
-* Compute the individual t-statistics $t_1$ and $t_2$, where $t_1$ is the t-statistic for $H_0:\beta_1=\beta_{10}$ and $t_2$ is the t-statistic for $H_0:\beta_2=\beta_{20}$.
-* Choose the critical value  $c$ such that the probability of Type-I error is no more than the desired significance level.
+* Compute the individual $F$-statistics $t_1$ and $t_2$, where $t_1$ is the $F$-statistic for $H_0:\beta_1=\beta_{10}$ and $t_2$ is the $F$-statistic for $H_0:\beta_2=\beta_{20}$.
+* Choose the critical value $c$ such that the probability of Type-I error is no more than the desired significance level.
 
 Then, we fail to reject the null hypothesis if $|t_1|\leq c$ and $|t_2|\leq c$; otherwise, we reject the null hypothesis. 
 
@@ -405,21 +404,20 @@ critical_values_df.index.name = "Number of Restrictions (q)"
 critical_values_df
 ```
 
-
 :::{#exm-exm14.2}
 ## The Bonferroni approach for testing joint hypotheses
 We consider testing $H_0:\beta_1=0$ and $\beta_2=0$ in @eq-eq14-2 using the the Bonferroni test. According to the estimation results in the second column of @tbl-t14-1, we have $t_1=-0.60$ and $t_2=2.44$. Since $|t_1|<2.241$ and $|t_2|>2.241$, we reject the null hypothesis at the $5\%$ significance level. However, note that we cannot reject the null hypothesis at the $1\%$ significance level because $|t_1|<2.81$ and $|t_2|<2.81$. 
 :::
 
 ## Confidence sets for multiple coefficients
-In this section we show how to formulate confidence sets for two or more coefficients in a multiple regression model. A $95\%$ confidence set for two or more coefficients is a set that contains the true values of the coefficients in $95\%$ of randomly chosen samples. We can determine this set by collecting the coefficient values that cannot be rejected by the heteroskedasticity-robust F-statistic at the $5%$ significance level. Consider the joint null hypothesis $H_0:\beta_1=\beta_{10}$ and $\beta_2=\beta_{20}$, where $\beta_{10}$ and $\beta_{20}$ are the hypothesized values. Then, the $95\%$ confidence set for $(\beta_1,\beta_2)$ consists of the pairs $(\beta_{10},\beta_{20})$ that are not rejected by the F-statistic at the $5\%$ significance level.
+In this section we show how to formulate confidence sets for two or more coefficients in a multiple regression model. A $95\%$ confidence set for two or more coefficients is a set that contains the true values of the coefficients in $95\%$ of randomly chosen samples. We can determine this set by collecting the coefficient values that cannot be rejected by the heteroskedasticity-robust $F$-statistic at the $5%$ significance level. Consider the joint null hypothesis $H_0:\beta_1=\beta_{10}$ and $\beta_2=\beta_{20}$, where $\beta_{10}$ and $\beta_{20}$ are the hypothesized values. Then, the $95\%$ confidence set for $(\beta_1,\beta_2)$ consists of the pairs $(\beta_{10},\beta_{20})$ that are not rejected by the $F$-statistic at the $5\%$ significance level.
 
-In the following code chunk, we consider the model in @eq-eq14-2 and construct the $95\%$ confidence set for $(\beta_1,\beta_2)$. We first generate a grid of values around the estimated values and store these values in the `str_vals` and `expn_vals` arrays. We then compute the heteroskedasticity-robust F-statistic for each pair of values in the grid and store the resulting F-statistic values in the `f_values` array. The ellipse shown in @fig-fig14-2 includes the pairs of values that are not rejected by the F-statistic at the $5\%$ significance level. This ellipse represents the $95\%$ confidence set for $(\beta_1,\beta_2)$. Note that since the ellipse does not include $(0,0)$, we reject the joint null hypothesis $H_0:\beta_1=0$ and $\beta_2=0$ at the $5\%$ significance level. Also, since the estimated correlation between the OLS estimators $\hat{\beta}_1$ and $\hat{\beta}_2$ is positive, the ellipse is positively oriented, as shown in the figure.  
+In the following code chunk, we consider the model in @eq-eq14-2 and construct the $95\%$ confidence set for $(\beta_1,\beta_2)$. We first generate a grid of values around the estimated values and store these values in the `str_vals` and `expn_vals` arrays. We then compute the heteroskedasticity-robust $F$-statistic for each pair of values in the grid and store the resulting $F$-statistic values in the `f_values` array. The ellipse shown in @fig-fig14-2 includes the pairs of values that are not rejected by the $F$-statistic at the $5\%$ significance level. This ellipse represents the $95\%$ confidence set for $(\beta_1,\beta_2)$. Note that since the ellipse does not include $(0,0)$, we reject the joint null hypothesis $H_0:\beta_1=0$ and $\beta_2=0$ at the $5\%$ significance level. Also, since the estimated correlation between the OLS estimators $\hat{\beta}_1$ and $\hat{\beta}_2$ is positive, the ellipse is positively oriented, as shown in the figure.  
 
 ```{python}
 # Step 1: Define the F-critical value for 5% significance
 alpha = 0.05
-f_critical = stats.chi2.ppf(1-alpha,df=2)/2
+f_critical = stats.chi2.ppf(1-alpha, df=2) / 2
 
 # Step 2: Get estimated coefficients
 coef_estimates = result2.params[['str', 'expn']]
@@ -440,7 +438,6 @@ for i in range(str_grid.shape[0]):
         f_test = result2.f_test(hypothesis)
         # Check if the result is scalar or an array and handle accordingly
         f_values[i, j] = f_test.fvalue 
-
 ```
 
 ```{python}
@@ -469,7 +466,7 @@ In the first step, we specify a **base specification** that includes our variabl
 
 When using this approach, we should remember that measures of fit-such as $R^2$, $\bar{R}^2$, and SER- are useful only for assessing the model’s predictive ability, not for determining whether the coefficients have a causal interpretation. @Stock2020 list the following four potential pitfalls regarding the use of $R^2$ and $\bar{R}^2$:
 
-* An increase in these measures does not necessarily suggest that the added control variable is statistically significant. For assessing statistical significance, it is more appropriate to use the t-statistic, p-value, and confidence interval.
+* An increase in these measures does not necessarily suggest that the added control variable is statistically significant. For assessing statistical significance, it is more appropriate to use the $F$-statistic, $p$-value, and confidence interval.
 * A high value for these measures does not suggest that the model includes the set of regressors that have causal effects on the dependent variable.
 * A high value for these measures does not guarantee that the most appropriate set of regressors is being used. Conversely, a low value does not necessarily mean that the chosen set of regressors is inappropriate.
 * A high value for these measures does not ensure that the model is free from omitted variable bias. Omitted variable bias can only be addressed by satisfying the zero-conditional mean assumption or the conditional mean independence assumption.
@@ -483,7 +480,6 @@ The $R^2$ and $\bar{R}^2$ show the fractions of the sample variance of the depen
 3. Omitted variable bias is present or absent.
 4. The model includes the most appropriate regressors. 
 :::
-
 
 ## Analysis of the test score data set
 In this section, we use our test score data set to illustrate how a multiple linear regression model can mitigate the effect of omitted variable bias. Recall our regression model with one regressor:
@@ -535,7 +531,6 @@ axs[1, 1].axis('off')
 # Show the plots
 plt.tight_layout()
 plt.show()
-
 ```
 
 We consider the following five specifications. We use the second model as our base specification and the others as alternative specifications. 
@@ -550,7 +545,6 @@ $$
 $$
 
 The following code chunk can be used to estimate each model.
-
 
 ```{python}
 # Estimation
@@ -572,15 +566,15 @@ model5 = smf.ols(
 ).fit(cov_type="HC1")
 ```
 
-We use the `summary_col` function to present the estimation results, as shown in @tbl-t14-3.
+We use the `summary_col()` function to present the estimation results, as shown in @tbl-t14-3.
 
 :::{layout-ncol=1}
 ```{python}
 #| tbl-cap: "OLS Estimation Results"
 #| label: tbl-t14-3
 # Print results in table form
-ModelsNames=['Model 1', 'Model 2', "Model 3", "Model 4", "Model 5"]
-models=[model1, model2, model3, model4, model5]
+ModelsNames = ['Model 1', 'Model 2', "Model 3", "Model 4", "Model 5"]
+models = [model1, model2, model3, model4, model5]
 results_table=summary_col(results=models,
                           float_format='%0.3f', 
                           stars=True,

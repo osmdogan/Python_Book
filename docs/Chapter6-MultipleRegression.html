@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.55">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -167,7 +167,7 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Econometrics with Python</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/hadley/r4ds/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/osmdogan/Python_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -422,25 +422,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix1.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixA.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix for Chapter 11</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix2.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixB.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix for Chapter 21</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix3.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixC.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Appendix for Chapter 25</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix4.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixD.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Appendix for Chapter 26</span></span></a>
   </div>
 </li>
@@ -471,7 +471,7 @@ window.Quarto = {
   <li><a href="#multicollinearity" id="toc-multicollinearity" class="nav-link" data-scroll-target="#multicollinearity"><span class="header-section-number">13.7</span> Multicollinearity</a></li>
   <li><a href="#control-variables-and-conditional-mean-independence" id="toc-control-variables-and-conditional-mean-independence" class="nav-link" data-scroll-target="#control-variables-and-conditional-mean-independence"><span class="header-section-number">13.8</span> Control variables and conditional mean independence</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/hadley/r4ds/edit/main/Chapter6-MultipleRegression.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hadley/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/Chapter6-MultipleRegression.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -495,7 +495,7 @@ window.Quarto = {
 </header>
 
 
-<div id="23540efc" class="cell" data-execution_count="1">
+<div id="2fdad99c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -614,14 +614,14 @@ Y_i=\beta_0+\beta_1X_{1i}+\beta_2X_{2i}+\dots+\beta_kX_{ki}+u_i,\quad i=1,2,\dot
 &amp;\text{TestScore}_i=\beta_0+\beta_1\times\text{STR}_i+\beta_2\times\text{PctEL}_i+u_i,
 \end{align}
 \]</span> for <span class="math inline">\(i=1,\dots,420\)</span>, where <span class="math inline">\(\text{PctEL}_i\)</span> is the percentage of English learners in the <span class="math inline">\(i\)</span>th district. We use the following code chunks to import data from the <code>caschool.xlsx</code> file.</p>
-<div id="93a5ee87" class="cell" data-message="false" data-execution_count="2">
+<div id="485d8c7e" class="cell" data-message="false" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>mydata<span class="op">=</span>pd.read_excel(<span class="st">"data/caschool.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="57f48d83" class="cell" data-execution_count="3">
+<div id="7e9015e2" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Column names</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mydata.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>Index(['Observation Number', 'dist_cod', 'county', 'district', 'gr_span',
        'enrl_tot', 'teachers', 'calw_pct', 'meal_pct', 'computer', 'testscr',
        'comp_stu', 'expn_stu', 'str', 'avginc', 'el_pct', 'read_scr',
@@ -641,7 +641,7 @@ Y_i=\beta_0+\beta_1X_{1i}+\beta_2X_{2i}+\dots+\beta_kX_{ki}+u_i,\quad i=1,2,\dot
 Table&nbsp;13.1: Summary statistics
 </figcaption>
 <div aria-describedby="tbl-t13-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="20">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
@@ -716,7 +716,7 @@ Table&nbsp;13.1: Summary statistics
 Table&nbsp;13.2: The sample correlation coefficients
 </figcaption>
 <div aria-describedby="tbl-t13-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
 
@@ -760,7 +760,7 @@ Table&nbsp;13.2: The sample correlation coefficients
 </div>
 </div>
 <p>In the following code chunk, we use the <code>smf.ols</code> function to estimate both models.</p>
-<div id="7087cd01" class="cell" data-execution_count="6">
+<div id="3e5bace4" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimation</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>model1<span class="op">=</span>smf.ols(formula<span class="op">=</span><span class="st">'testscr~str'</span>,data<span class="op">=</span>mydata)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>result1<span class="op">=</span>model1.fit()</span>
@@ -784,7 +784,7 @@ Table&nbsp;13.2: The sample correlation coefficients
 Table&nbsp;13.3: Estimation Results
 </figcaption>
 <div aria-describedby="tbl-t13-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <table class="simpletable do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <tbody>
 <tr class="odd">
@@ -879,7 +879,7 @@ R^2=\frac{ESS}{TSS}=1-\frac{SSR}{TSS},
 \]</span></p>
 <p>Note that <span class="math inline">\(\bar{R}^2&lt; R^2\)</span>, but if <span class="math inline">\(n\)</span> is large, the two will be very close because <span class="math inline">\((n-1)/(n-k-1)\)</span> approaches one as <span class="math inline">\(n\)</span> increases. Also, adding a new regressor to the model affects <span class="math inline">\(\bar{R}^2\)</span> in two opposing directions. On the one hand, the new regressor decreases the <span class="math inline">\(SSR\)</span>, which tends to increase <span class="math inline">\(\bar{R}^2\)</span>. On the other hand, the factor <span class="math inline">\((n-1)(n-k-1)\)</span> increases, which tends to reduce <span class="math inline">\(\bar{R}^2\)</span>. Therefore, the net effect on <span class="math inline">\(\bar{R}^2\)</span> depends on which of these two effects is relatively larger.</p>
 <p>The results in <a href="#tbl-t13-3" class="quarto-xref">Table&nbsp;<span>13.3</span></a> show that including <code>PctEL</code> in the regression increases the <span class="math inline">\(R^2\)</span> from <span class="math inline">\(0.051\)</span> to <span class="math inline">\(0.426\)</span>. Thus, including <code>PctEL</code> substantially improves the fit of the regression. Because <span class="math inline">\(n\)</span> is large and we have only two regressors, the difference between <span class="math inline">\(R^2\)</span> and <span class="math inline">\(\bar{R}^2\)</span> is very small: <span class="math inline">\(R^2 = 0.426\)</span> vs.&nbsp;<span class="math inline">\(\bar{R}^2 = 0.424\)</span>. Note that <a href="#tbl-t13-3" class="quarto-xref">Table&nbsp;<span>13.3</span></a> does not include the SER measures. In the following code chunk, we compute the SER measures for both models.</p>
-<div id="e0d7cf65" class="cell" data-execution_count="8">
+<div id="66b14072" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Computing SER for both models</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>SER1<span class="op">=</span>np.sqrt(np.<span class="bu">sum</span>(result1.resid<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span>result1.df_resid)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>SER2<span class="op">=</span>np.sqrt(np.<span class="bu">sum</span>(result2.resid<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span>result2.df_resid)</span>
@@ -892,7 +892,7 @@ The SER for Model 2 is: 14.5</code></pre>
 </div>
 </div>
 <p>The SER value <span class="math inline">\(18.6\)</span> falls to <span class="math inline">\(14.5\)</span> when <code>PctEL</code> is included as a second regressor into the model. Finally, in the following code chunk, we compute these measures of fit manually for the second model. The results are given in <a href="#tbl-t13-t4" class="quarto-xref">Table&nbsp;<span>13.4</span></a>.</p>
-<div id="3f8e3075" class="cell" data-execution_count="9">
+<div id="4bfc8ced" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Computing SER, RMSE, R^2, and adjusted R^2 for the second model</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> result2.nobs</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> result2.k_constant</span>
@@ -922,7 +922,7 @@ The SER for Model 2 is: 14.5</code></pre>
 Table&nbsp;13.4: Measures of fit for the MLRM
 </figcaption>
 <div aria-describedby="tbl-t13-t4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 
 
@@ -999,7 +999,7 @@ Y_i=\beta_0+\beta_1X_{1i}+\beta_2X_{2i}+u_i,
 \right).
 \]</span></p>
 <p>We set the sample size <span class="math inline">\(n\)</span> to 100 and generate 10000 samples. Using each sample, we estimate the model and store the estimated coefficients in the <code>coefs</code> array. We then generate histograms and density plots for each estimated coefficient. We provide the simulation results in <a href="#fig-fig13-1" class="quarto-xref">Figure&nbsp;<span>13.1</span></a>. The histograms and density plots for <span class="math inline">\(\hat{\beta}_0\)</span>, <span class="math inline">\(\hat{\beta}_1\)</span>, and <span class="math inline">\(\hat{\beta}_2\)</span> are bell-shaped and centered around the respective true parameter values. The surface plot in <a href="#fig-fig13-1" class="quarto-xref">Figure&nbsp;<span>13.1</span></a> resembles that of a bivariate normal distribution, suggesting that <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_2\)</span> have a joint bivariate normal distribution.</p>
-<div id="3022fc24" class="cell" data-execution_count="11">
+<div id="ac8b1d07" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set sample size and number of simulations</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>n_simulations <span class="op">=</span> <span class="dv">10000</span></span>
@@ -1098,7 +1098,7 @@ Y_i=\beta_0+\beta_1X_{1i}+\beta_2X_{2i}+u_i,
 <div id="fig-fig13-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig13-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter6-MultipleRegression_files/figure-html/fig-fig13-1-output-1.png" width="752" height="655" class="figure-img">
+<img src="Chapter6-MultipleRegression_files/figure-html/fig-fig13-1-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig13-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;13.1: Histogram and density plots of the simulation results
@@ -1138,12 +1138,12 @@ Figure&nbsp;13.1: Histogram and density plots of the simulation results
 \]</span></p>
 <p>To resolve this, we will treat the last dummy variable as the <strong>base category</strong> and exclude it from the regression model.</p>
 <p>We use the following code chunks to import the data. <a href="#tbl-t13-5" class="quarto-xref">Table&nbsp;<span>13.5</span></a> provides summary statistics.</p>
-<div id="1353feaf" class="cell" data-execution_count="13">
+<div id="53775d0b" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>mydata<span class="op">=</span>pd.read_excel(<span class="st">"data/ch8_cps.xlsx"</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Display column names</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>mydata.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="29">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>Index(['ahe', 'yrseduc', 'female', 'age', 'northeast', 'midwest', 'south',
        'west'],
       dtype='object')</code></pre>
@@ -1160,7 +1160,7 @@ Figure&nbsp;13.1: Histogram and density plots of the simulation results
 Table&nbsp;13.5: Summary statistics
 </figcaption>
 <div aria-describedby="tbl-t13-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="30">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
 
@@ -1279,7 +1279,7 @@ Table&nbsp;13.5: Summary statistics
 </div>
 </div>
 <p>In the following, we use the <code>smf.ols</code> function from the <code>statsmodels.formula.api</code> module to estimate the regression model.</p>
-<div id="c53003c1" class="cell" data-execution_count="15">
+<div id="009b95e2" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimation</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>model3<span class="op">=</span>smf.ols(formula<span class="op">=</span><span class="st">'ahe ~ yrseduc + female + northeast + midwest + south'</span>,data<span class="op">=</span>mydata)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>result3<span class="op">=</span>model3.fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1302,7 +1302,7 @@ Table&nbsp;13.5: Summary statistics
 Table&nbsp;13.6: The dummy variable trap
 </figcaption>
 <div aria-describedby="tbl-t13-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="32">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <table class="simpletable do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <tbody>
 <tr class="odd">
@@ -1522,7 +1522,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/osmdogan\.github\.io\/Python_Book\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -1870,7 +1870,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hadley/r4ds/edit/main/Chapter6-MultipleRegression.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hadley/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/Chapter6-MultipleRegression.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.55">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -187,7 +187,7 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Econometrics with Python</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/hadley/r4ds/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/osmdogan/Python_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -442,25 +442,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix1.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixA.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix for Chapter 11</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix2.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixB.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix for Chapter 21</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix3.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixC.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Appendix for Chapter 25</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix4.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixD.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Appendix for Chapter 26</span></span></a>
   </div>
 </li>
@@ -497,7 +497,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#nonlinear-effects-on-test-scores-of-the-studentteacher-ratio" id="toc-nonlinear-effects-on-test-scores-of-the-studentteacher-ratio" class="nav-link" data-scroll-target="#nonlinear-effects-on-test-scores-of-the-studentteacher-ratio"><span class="header-section-number">15.5</span> Nonlinear effects on test scores of the student–teacher ratio</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/hadley/r4ds/edit/main/Chapter8-NonlinearRegressions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hadley/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/Chapter8-NonlinearRegressions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -521,7 +521,7 @@ window.Quarto = {
 </header>
 
 
-<div id="3a8a85a8" class="cell" data-execution_count="1">
+<div id="0a786e7b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -552,11 +552,11 @@ window.Quarto = {
 <div id="cell-fig-f15-1" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">50</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> <span class="fl">3.5</span><span class="op">+</span><span class="dv">2</span> <span class="op">*</span> x  <span class="co"># Constant slope</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> <span class="fl">3.5</span><span class="op">+</span><span class="dv">2</span> <span class="op">*</span> x <span class="co"># Constant slope</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>x2 <span class="op">=</span> np.ones_like(x)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>y2_1 <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> x </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>y2_2 <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> x  <span class="op">+</span> <span class="fl">0.5</span><span class="op">*</span>x<span class="op">*</span>x2  </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>y3 <span class="op">=</span> <span class="fl">0.5</span><span class="op">*</span>x<span class="op">**</span><span class="dv">2</span>  </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>y2_2 <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> x <span class="op">+</span> <span class="fl">0.5</span><span class="op">*</span>x<span class="op">*</span>x2</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>y3 <span class="op">=</span> <span class="fl">0.5</span><span class="op">*</span>x<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the figure and subplots</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="fl">7.5</span>, <span class="dv">3</span>))</span>
@@ -588,7 +588,7 @@ window.Quarto = {
 <div id="fig-f15-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f15-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-1-output-1.png" width="707" height="275" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-1-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f15-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;15.1: Population regression functions with different slopes
@@ -660,7 +660,7 @@ Y_i=\beta_0+\beta_1X_{i}+\beta_2X_{i}^2+\cdots+\beta_mX_{i}^m+u_i,\quad i=1,2,\d
 </ul>
 <p>The final model obtained through this sequential testing approach is the polynomial model of the highest degree for which the <span class="math inline">\(t\)</span>-statistic is statistically significant.</p>
 <p>As an example, we consider the test scores data available in the <code>caschool.xlsx</code> file. The following code chunk imports the data and displays the column names.</p>
-<div id="d69ef9ee" class="cell" data-message="false" data-execution_count="3">
+<div id="e774566a" class="cell" data-message="false" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="op">=</span> pd.read_excel(<span class="st">"data/caschool.xlsx"</span>, sheet_name<span class="op">=</span><span class="st">"caschool"</span>, header<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Column names</span></span>
@@ -678,7 +678,7 @@ Y_i=\beta_0+\beta_1X_{i}+\beta_2X_{i}^2+\cdots+\beta_mX_{i}^m+u_i,\quad i=1,2,\d
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Regression of Test Score on STR</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> mydata[<span class="st">'str'</span>]</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> mydata[<span class="st">'testscr'</span>]</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> sm.add_constant(X)  </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> sm.add_constant(X)</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>model1 <span class="op">=</span> sm.OLS(y, X).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>plt.scatter(mydata[<span class="st">'str'</span>], mydata[<span class="st">'testscr'</span>], color<span class="op">=</span><span class="st">'steelblue'</span>, s<span class="op">=</span><span class="dv">15</span>, </span>
@@ -693,7 +693,7 @@ Y_i=\beta_0+\beta_1X_{i}+\beta_2X_{i}^2+\cdots+\beta_mX_{i}^m+u_i,\quad i=1,2,\d
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot of Test Score and Income</span></span>
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> mydata[<span class="st">'avginc'</span>]</span>
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> mydata[<span class="st">'testscr'</span>]</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> sm.add_constant(X)  </span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> sm.add_constant(X)</span>
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>model1 <span class="op">=</span> sm.OLS(y, X).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
 <span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
 <span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>plt.scatter(mydata[<span class="st">'avginc'</span>], mydata[<span class="st">'testscr'</span>], color<span class="op">=</span><span class="st">'steelblue'</span>, s<span class="op">=</span><span class="dv">15</span>, </span>
@@ -712,7 +712,7 @@ Y_i=\beta_0+\beta_1X_{i}+\beta_2X_{i}^2+\cdots+\beta_mX_{i}^m+u_i,\quad i=1,2,\d
 <div id="fig-f15-2-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-f15-2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-2-output-1.png" data-ref-parent="fig-f15-2" width="515" height="354" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-2-output-1.png" class="img-fluid figure-img" data-ref-parent="fig-f15-2">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-f15-2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Scatterplot of TestScore and STR
@@ -724,7 +724,7 @@ Y_i=\beta_0+\beta_1X_{i}+\beta_2X_{i}^2+\cdots+\beta_mX_{i}^m+u_i,\quad i=1,2,\d
 <div id="fig-f15-2-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-f15-2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-2-output-2.png" data-ref-parent="fig-f15-2" width="515" height="354" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-2-output-2.png" class="img-fluid figure-img" data-ref-parent="fig-f15-2">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-f15-2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Scatterplot of Test Score and Income
@@ -747,17 +747,17 @@ Figure&nbsp;15.2: Scatter plots
 &amp;\text{Cubic}:\quad \text{TestScore}=\beta_0+\beta_1\text{Income}+\beta_2\text{Income}^2+\beta_3\text{Income}^3+u.\label{eq5}
 \end{align}
 \]</span></p>
-<p>We estimate these models using the OLS estimator. In the following code chunk, we use the <code>I</code> function to create the quadratic and cubic terms directly within the regression formula. Otherwise, we would need to create these variables manually and add them to the data frame <code>mydata</code>. The estimation results are presented in <a href="#tbl-t15-1" class="quarto-xref">Table&nbsp;<span>15.1</span></a>.</p>
-<div id="fd383032" class="cell" data-execution_count="5">
+<p>We estimate these models using the OLS estimator. In the following code chunk, we use the <code>I()</code> function to create the quadratic and cubic terms directly within the regression formula. Otherwise, we would need to create these variables manually and add them to the data frame <code>mydata</code>. The estimation results are presented in <a href="#tbl-t15-1" class="quarto-xref">Table&nbsp;<span>15.1</span></a>.</p>
+<div id="15fac7af" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Linear model</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>model1<span class="op">=</span>smf.ols(formula<span class="op">=</span><span class="st">'testscr ~ avginc'</span>,data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>model1 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'testscr ~ avginc'</span>,data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Quadratic model</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>model2<span class="op">=</span>smf.ols(formula<span class="op">=</span><span class="st">'testscr ~ avginc + I(avginc**2)'</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>model2 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'testscr ~ avginc + I(avginc**2)'</span>,</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Cubic specification</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>model3<span class="op">=</span>smf.ols(formula<span class="op">=</span><span class="st">'testscr ~ avginc + I(avginc**2) + I(avginc**3)'</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>model3 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'testscr ~ avginc + I(avginc**2) + I(avginc**3)'</span>,</span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print results in table form</span></span>
@@ -883,7 +883,7 @@ Standard errors in parentheses.<br>
 <div id="fig-f15-3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f15-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-3-output-1.png" width="515" height="427" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-3-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f15-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;15.3: Scatter plot and polynomial regression functions
@@ -892,13 +892,13 @@ Figure&nbsp;15.3: Scatter plot and polynomial regression functions
 </div>
 </div>
 </div>
-<p>The estimation results in <a href="#tbl-t15-1" class="quarto-xref">Table&nbsp;<span>15.1</span></a> show that the coefficients of the quadratic and cubic terms are statistically significant. The estimation results of the quadratic model are presented in <a href="#tbl-t15-2" class="quarto-xref">Table&nbsp;<span>15.2</span></a>, where we report the estimated coefficients, standard errors, t-statistics, p-values and 95% two-sided confidence intervals. The table shows that the <span class="math inline">\(t\)</span>-statistics for the quadratic and cubic terms are around <code>-3.3</code> and <code>1.97</code>, respectively, with corresponding <span class="math inline">\(p\)</span>-values of <code>0.001</code> and <code>0.048</code>. Thus, both estimated coefficients are statistically significant at the 5% significance level.</p>
+<p>The estimation results in <a href="#tbl-t15-1" class="quarto-xref">Table&nbsp;<span>15.1</span></a> show that the coefficients of the quadratic and cubic terms are statistically significant. The estimation results of the quadratic model are presented in <a href="#tbl-t15-2" class="quarto-xref">Table&nbsp;<span>15.2</span></a>, where we report the estimated coefficients, standard errors, <span class="math inline">\(t\)</span>-statistics, <span class="math inline">\(p\)</span>-values and 95% two-sided confidence intervals. The table shows that the <span class="math inline">\(t\)</span>-statistics for the quadratic and cubic terms are around <code>-3.3</code> and <code>1.97</code>, respectively, with corresponding <span class="math inline">\(p\)</span>-values of <code>0.001</code> and <code>0.048</code>. Thus, both estimated coefficients are statistically significant at the <span class="math inline">\(5\%\)</span> significance level.</p>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the estimation results of the cubic model</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>model3.summary().tables[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-layout-panel" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="cell quarto-layout-cell" data-message="false" data-execution_count="8" style="flex-basis: 100.0%;justify-content: center;">
-<div id="tbl-t15-2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="8" data-message="false">
+<div id="tbl-t15-2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-message="false" data-execution_count="8">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-t15-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;15.2: Cubic polynomial regression model
@@ -967,15 +967,15 @@ Table&nbsp;15.2: Cubic polynomial regression model
 &amp;H_1:\text{At least one coefficient is not zero}.
 \end{align*}
 \]</span></p>
-<p>The F-statistic for this null hypothesis can be computed by using the <code>model3.f_test</code> function. The following code chunk computes the F-statistic and the associated <span class="math inline">\(p\)</span>-value.</p>
-<div id="35ccd374" class="cell" data-execution_count="9">
+<p>The F-statistic for this null hypothesis can be computed by using the <code>model3.f_test()</code> function. The following code chunk computes the F-statistic and the associated <span class="math inline">\(p\)</span>-value.</p>
+<div id="ed5e91fd" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>hypothesis<span class="op">=</span><span class="st">"I(avginc ** 2)=0, I(avginc ** 3)=0"</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model3.f_test(hypothesis))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;F test: F=37.690774113020424, p=9.042596399187178e-16, df_denom=416, df_num=2&gt;</code></pre>
+<pre><code>&lt;F test: F=37.690774110060744, p=9.042596421844766e-16, df_denom=416, df_num=2&gt;</code></pre>
 </div>
 </div>
-<p>The F-statistic is around 37.7 with a <span class="math inline">\(p\)</span>-value of <code>9.043e-16</code>. Thus, we can reject the null hypothesis at the 5% significance level.</p>
+<p>The <span class="math inline">\(F\)</span>-statistic is around 37.7 with a <span class="math inline">\(p\)</span>-value of <code>9.043e-16</code>. Thus, we can reject the null hypothesis at the <span class="math inline">\(5\%\)</span> significance level.</p>
 </section>
 <section id="logarithmic-regression-models" class="level3" data-number="15.3.2">
 <h3 data-number="15.3.2" class="anchored" data-anchor-id="logarithmic-regression-models"><span class="header-section-number">15.3.2</span> Logarithmic regression models</h3>
@@ -989,12 +989,12 @@ Table&nbsp;15.2: Cubic polynomial regression model
 <div id="cell-fig-f15-4" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exponential and logarithm functions</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate values for x</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>x_exp <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">50</span>)  </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>x_exp <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">50</span>)</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>x_log <span class="op">=</span> np.linspace(<span class="fl">0.01</span>, <span class="dv">4</span>, <span class="dv">50</span>) </span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the function values</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>y_exp <span class="op">=</span> np.exp(x_exp)  </span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>y_log <span class="op">=</span> np.log(x_log)  </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>y_exp <span class="op">=</span> np.exp(x_exp)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>y_log <span class="op">=</span> np.log(x_log)</span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the functions</span></span>
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
@@ -1021,7 +1021,7 @@ Table&nbsp;15.2: Cubic polynomial regression model
 <div id="fig-f15-4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f15-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-4-output-1.png" width="508" height="354" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-4-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f15-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;15.4: Exponential and logarithm functions
@@ -1047,7 +1047,7 @@ Figure&nbsp;15.4: Exponential and logarithm functions
 \tag{15.1}\]</span></span></p>
 <p>where the last approximation follows when <span class="math inline">\(\Delta x/x\)</span> is small. Then, using <a href="#eq-eq15-1" class="quarto-xref">Equation&nbsp;<span>15.1</span></a>, we have <span class="math inline">\(\ln(x_2)-\ln(x_1)\approx\frac{\Delta x}{x_1}\)</span>, where <span class="math inline">\(\Delta x=x_2-x_1\)</span>. We call <span class="math inline">\(\frac{\Delta x}{x}\)</span> the relative change (or the growth rate) in <span class="math inline">\(x\)</span>, and <span class="math inline">\(100\times\frac{\Delta x}{x}\)</span> the percentage change (or the percentage growth rate) in <span class="math inline">\(x\)</span>.</p>
 <div id="exm-exm15-2" class="theorem example">
-<p><span class="theorem-title"><strong>Example 15.2 (Logarithms and percentages)</strong></span> Assume that <span class="math inline">\(x=100\)</span> and <span class="math inline">\(\Delta x=1\)</span>, then <span class="math inline">\(\Delta x/x = 1/100 = 0.01\)</span> (or 1%), while <span class="math inline">\(\ln(x+\Delta x)-\ln(x)=\ln(101)-\ln(100)=0.00995\)</span> or 0.995%. Thus <span class="math inline">\(\Delta x/x\)</span> (which is 0.01) is very close to <span class="math inline">\(\ln(x+\Delta x)-\ln(x)\)</span> (which is <span class="math inline">\(0.00995\)</span>).</p>
+<p><span class="theorem-title"><strong>Example 15.2 (Logarithms and percentages)</strong></span> Assume that <span class="math inline">\(x=100\)</span> and <span class="math inline">\(\Delta x=1\)</span>, then <span class="math inline">\(\Delta x/x = 1/100 = 0.01\)</span> (or <span class="math inline">\(1\%\)</span>), while <span class="math inline">\(\ln(x+\Delta x)-\ln(x)=\ln(101)-\ln(100)=0.00995\)</span> or <span class="math inline">\(0.995\%\)</span>. Thus <span class="math inline">\(\Delta x/x\)</span> (which is 0.01) is very close to <span class="math inline">\(\ln(x+\Delta x)-\ln(x)\)</span> (which is <span class="math inline">\(0.00995\)</span>).</p>
 </div>
 <p>Using logarithms, we can formulate the following three specifications:</p>
 <ol type="1">
@@ -1066,7 +1066,7 @@ Figure&nbsp;15.4: Exponential and logarithm functions
 &amp;\implies\Delta Y\approx(0.01\times\beta_1)\left(100\times\frac{\Delta X}{X}\right).
 \end{align*}
 \]</span></p>
-<p>Thus, in the linear-log model, if <span class="math inline">\(X\)</span> changes by 1%, i.e., <span class="math inline">\(100\times\Delta X/X=1\)</span>, then <span class="math inline">\(Y\)</span> on average changes by <span class="math inline">\(0.01\times\beta_1\)</span> units.</p>
+<p>Thus, in the linear-log model, if <span class="math inline">\(X\)</span> changes by <span class="math inline">\(1\%\)</span>, i.e., <span class="math inline">\(100\times\Delta X/X=1\)</span>, then <span class="math inline">\(Y\)</span> on average changes by <span class="math inline">\(0.01\times\beta_1\)</span> units.</p>
 <p>In the case of the log-linear model, we can express the effect of <span class="math inline">\(\Delta X\)</span> on <span class="math inline">\(Y\)</span> by considering the following models:</p>
 <ul>
 <li>Before the change: <span class="math inline">\(\ln(Y)=\beta_0+\beta_1X+u\)</span>,</li>
@@ -1090,7 +1090,7 @@ Figure&nbsp;15.4: Exponential and logarithm functions
 &amp;\implies100\times\frac{\Delta Y}{Y}\approx\beta_1\times100\times\frac{\Delta X}{X}.
 \end{align*}
 \]</span></p>
-<p>Thus, in the log-log model, if <span class="math inline">\(X\)</span> changes by 1%, i.e., <span class="math inline">\(100\times\Delta X/X=1\)</span>, then <span class="math inline">\(Y\)</span> on average changes by <span class="math inline">\(\beta_1\)</span> percent.</p>
+<p>Thus, in the log-log model, if <span class="math inline">\(X\)</span> changes by <span class="math inline">\(1\%\)</span>, i.e., <span class="math inline">\(100\times\Delta X/X=1\)</span>, then <span class="math inline">\(Y\)</span> on average changes by <span class="math inline">\(\beta_1\)</span> percent.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1102,9 +1102,9 @@ Key Concept 15.2: The three logarithmic regression models
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>The linear-log model is <span class="math inline">\(Y_i=\beta_0+\beta_1\ln(X_i)+u_i\)</span>. In this model, the effect of a 1% change in <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> is <span class="math inline">\(\beta_1\times 0.01\)</span> units.</li>
+<li>The linear-log model is <span class="math inline">\(Y_i=\beta_0+\beta_1\ln(X_i)+u_i\)</span>. In this model, the effect of a <span class="math inline">\(1\%\)</span> change in <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> is <span class="math inline">\(\beta_1\times 0.01\)</span> units.</li>
 <li>The log-linear model is <span class="math inline">\(\ln(Y_i)=\beta_0+\beta_1X_i+u_i\)</span>. In this model, the effect of a 1 unit change in <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> is <span class="math inline">\((100\times\beta_1)\)</span> percent.</li>
-<li>The log-log model is <span class="math inline">\(\ln(Y_i)=\beta_0+\beta_1\ln(X_i)+u_i\)</span>. In this model, the effect of a 1% change in <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> is <span class="math inline">\(\beta_1\)</span> percent.</li>
+<li>The log-log model is <span class="math inline">\(\ln(Y_i)=\beta_0+\beta_1\ln(X_i)+u_i\)</span>. In this model, the effect of a <span class="math inline">\(1\%\)</span> change in <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> is <span class="math inline">\(\beta_1\)</span> percent.</li>
 </ol>
 </div>
 </div>
@@ -1116,23 +1116,23 @@ Key Concept 15.2: The three logarithmic regression models
 <li>The log-linear model: <span class="math inline">\(\ln(\text{TestScore})=\beta_0+\beta_1\text{Income}+u\)</span>,</li>
 <li>The log-log model: <span class="math inline">\(\ln(\text{TestScore})=\beta_0+\beta_1\ln(\text{Income})+u\)</span>.</li>
 </ol>
-<div id="a2c519fa" class="cell" data-execution_count="11">
+<div id="a7ae4284" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Linear model</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>r1<span class="op">=</span>smf.ols(formula<span class="op">=</span><span class="st">'testscr ~ avginc'</span>,data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'testscr ~ avginc'</span>,data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Quadratic model</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>r2<span class="op">=</span>smf.ols(formula<span class="op">=</span><span class="st">'testscr ~ avginc + I(avginc**2)'</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'testscr ~ avginc + I(avginc**2)'</span>,</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Linear-log model</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>r3<span class="op">=</span>smf.ols(formula<span class="op">=</span><span class="st">'testscr~np.log(avginc)'</span>,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>r3 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'testscr~np.log(avginc)'</span>,</span>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Log-linear model</span></span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>r4 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"np.log(testscr) ~ avginc"</span>,</span>
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>         data <span class="op">=</span> mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Log-log model</span></span>
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>r5 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"np.log(testscr) ~ np.log(avginc)"</span>,</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>         data <span class="op">=</span> mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)         </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>         data <span class="op">=</span> mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print results in table form</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>models<span class="op">=</span>[<span class="st">'Linear'</span>, <span class="st">'Quadratic'</span>, <span class="st">"Linear-log"</span>, <span class="st">"Log-linear"</span>, <span class="st">"Log-log"</span>]</span>
@@ -1253,7 +1253,7 @@ Standard errors in parentheses.<br>
 </div>
 </div>
 </div>
-<p>The estimation results are presented in <a href="#tbl-t15-3" class="quarto-xref">Table&nbsp;<span>15.3</span></a>. All estimated coefficients presented in <a href="#tbl-t15-3" class="quarto-xref">Table&nbsp;<span>15.3</span></a> are statistically significant at 5% level. The estimated coefficient of <code>ln(avginc)</code> in the linear-log model is around <code>36.420</code>, which implies that a 1% increase in district income is associated with a 0.3642 points increase in test scores. Using the linear-log model, we can compute the predicted difference in test scores for districts with different income levels. For example, for districts with average income levels of 10000 and 11000, the predicted difference in test scores is <span class="math display">\[
+<p>The estimation results are presented in <a href="#tbl-t15-3" class="quarto-xref">Table&nbsp;<span>15.3</span></a>. All estimated coefficients presented in <a href="#tbl-t15-3" class="quarto-xref">Table&nbsp;<span>15.3</span></a> are statistically significant at 5% level. The estimated coefficient of <code>ln(avginc)</code> in the linear-log model is around <code>36.420</code>, which implies that a <span class="math inline">\(1\%\)</span> increase in district income is associated with a 0.3642 points increase in test scores. Using the linear-log model, we can compute the predicted difference in test scores for districts with different income levels. For example, for districts with average income levels of 10000 and 11000, the predicted difference in test scores is <span class="math display">\[
 \begin{align}
 \widehat{\Delta\text{TestScore}}&amp;=36.420\times\left[\ln(11000)-\ln(10000)\right]\\
 &amp;=36.420\times\ln(1.1)\approx 36.420\times 0.0953\approx 3.47.
@@ -1266,7 +1266,7 @@ Standard errors in parentheses.<br>
 \end{align}
 \]</span></p>
 <p>Thus, the predicted difference in test scores is higher for districts with lower income levels.</p>
-<p>The results in <a href="#tbl-t15-3" class="quarto-xref">Table&nbsp;<span>15.3</span></a> indicates that the estimated coefficient of <code>avginc</code> in the log-linear model is around 0.003, which implies that a 1 unit increase in district income (one unit increase means 1000 dollars increase in average income) is associated with a 0.3% increase in test scores. Finally, the estimated coefficient of <code>ln(avginc)</code> in the log-log model is around 0.055, which implies that a 1% increase in district income is associated with a 0.055% increase in test scores.</p>
+<p>The results in <a href="#tbl-t15-3" class="quarto-xref">Table&nbsp;<span>15.3</span></a> indicates that the estimated coefficient of <code>avginc</code> in the log-linear model is around 0.003, which implies that a 1 unit increase in district income (one unit increase means 1000 dollars increase in average income) is associated with a <span class="math inline">\(0.3\%\)</span> increase in test scores. Finally, the estimated coefficient of <code>ln(avginc)</code> in the log-log model is around 0.055, which implies that a <span class="math inline">\(1\%\)</span> increase in district income is associated with a <span class="math inline">\(0.055\%\)</span> increase in test scores.</p>
 <p>We plot the estimated regression functions in <a href="#fig-f15-5" class="quarto-xref">Figure&nbsp;<span>15.5</span></a> and <a href="#fig-f15-6" class="quarto-xref">Figure&nbsp;<span>15.6</span></a>. In <a href="#fig-f15-5" class="quarto-xref">Figure&nbsp;<span>15.5</span></a>, the quadratic model appears to provide a better fit for the data, while in <a href="#fig-f15-6" class="quarto-xref">Figure&nbsp;<span>15.6</span></a>, the log-log model seems to fit the data more closely.</p>
 <div id="cell-fig-f15-5" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Linear, quadratic and linear-log models</span></span>
@@ -1293,7 +1293,7 @@ Standard errors in parentheses.<br>
 <div id="fig-f15-5" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f15-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-5-output-1.png" width="515" height="354" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-5-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f15-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;15.5: Linear, quadratic and linear-log models
@@ -1325,7 +1325,7 @@ Figure&nbsp;15.5: Linear, quadratic and linear-log models
 <div id="fig-f15-6" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f15-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-6-output-1.png" width="526" height="354" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-6-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f15-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;15.6: Log-linear and log-log models
@@ -1383,20 +1383,20 @@ Y_i=\beta_0+\beta_1D_{1i}+\beta_2D_{2i}+\beta_3\left(D_{1i}\times D_{2i}\right)+
 \end{align*}
 \]</span></p>
 <p>Here, <span class="math inline">\(\text{HiSTR}_i\)</span> is a binary variable equal to 1 if the student-teacher ratio is 20 or more, and 0 otherwise; <span class="math inline">\(\text{HiEL}_i\)</span> is another binary variable equal to 1 if the percentage of English learners is 10% or more, and 0 otherwise. We use the following code chunk to estimate the model and present the results in <a href="#tbl-t15-4" class="quarto-xref">Table&nbsp;<span>15.4</span></a>.</p>
-<div id="c2536982" class="cell" data-execution_count="15">
+<div id="c1bfaa42" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate dummy variables</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>mydata[<span class="st">"histr"</span>] <span class="op">=</span> mydata[<span class="st">"str"</span>] <span class="op">&gt;=</span> <span class="dv">20</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>mydata[<span class="st">"hiel"</span>] <span class="op">=</span> mydata[<span class="st">"el_pct"</span>] <span class="op">&gt;=</span> <span class="dv">10</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimation</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>r1<span class="op">=</span>smf.ols(formula<span class="op">=</span><span class="st">'testscr ~ histr + hiel + histr*hiel'</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'testscr ~ histr + hiel + histr*hiel'</span>,</span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print results in a table form</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>models<span class="op">=</span>[<span class="st">'Model'</span>]</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>results_table<span class="op">=</span>summary_col(results<span class="op">=</span>[r1],</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                          float_format<span class="op">=</span><span class="st">'</span><span class="sc">%0.3f</span><span class="st">'</span>, </span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>                          stars<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>                          model_names<span class="op">=</span>models)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>models <span class="op">=</span> [<span class="st">'Model'</span>]</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>results_table <span class="op">=</span> summary_col(results<span class="op">=</span>[r1],</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                            float_format<span class="op">=</span><span class="st">'</span><span class="sc">%0.3f</span><span class="st">'</span>, </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>                            stars<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>                            model_names<span class="op">=</span>models)</span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>results_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-layout-panel" data-layout-ncol="1">
 <div class="quarto-layout-row">
@@ -1547,7 +1547,7 @@ Y_i=\beta_0+\beta_1X_{i}+\beta_2\left(D_i\times X_i\right)+u_i,\quad i=1,2,\cdot
 <div id="fig-f15-7" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f15-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-7-output-1.png" width="659" height="566" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-7-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f15-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;15.7: Regression functions using binary and continuous variables
@@ -1558,19 +1558,19 @@ Figure&nbsp;15.7: Regression functions using binary and continuous variables
 </div>
 <p>In the test scores example, we consider the following regression model: <span class="math display">\[
 \begin{align}
-\text{TestScore}_i=\beta_0+\beta_1\text{STR}_i+\beta_2\text{HiEL}_i+\beta_3\left(\text{STR}_i\times\text{HiEL}_i\right)+u_i,
+\text{TestScore}_i = \beta_0+\beta_1\text{STR}_i+\beta_2\text{HiEL}_i+\beta_3\left(\text{STR}_i\times\text{HiEL}_i\right)+u_i,
 \end{align}
 \]</span> where <span class="math inline">\(\text{HiEL}_i\)</span> is a binary variable that equals <span class="math inline">\(1\)</span> if the percentage of English learners is 10% or more and 0 otherwise. The estimation results are presented in <a href="#tbl-t15-5" class="quarto-xref">Table&nbsp;<span>15.5</span></a>.</p>
-<div id="a29aad26" class="cell" data-execution_count="18">
+<div id="7882229e" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"testscr ~ str + hiel + str*hiel"</span>,</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>         data <span class="op">=</span> mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print results in table form</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>models<span class="op">=</span>[<span class="st">'Model'</span>]</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>results_table<span class="op">=</span>summary_col(results<span class="op">=</span>[r2],</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                          float_format<span class="op">=</span><span class="st">'</span><span class="sc">%0.3f</span><span class="st">'</span>, </span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>                          stars<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>                          model_names<span class="op">=</span>models)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>models <span class="op">=</span> [<span class="st">'Model'</span>]</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>results_table <span class="op">=</span> summary_col(results<span class="op">=</span>[r2],</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                            float_format<span class="op">=</span><span class="st">'</span><span class="sc">%0.3f</span><span class="st">'</span>, </span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>                            stars<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>                            model_names<span class="op">=</span>models)</span>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>results_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-layout-panel" data-layout-ncol="1">
 <div class="quarto-layout-row">
@@ -1672,7 +1672,7 @@ Standard errors in parentheses.<br>
 <div id="fig-f15-8" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f15-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-8-output-1.png" width="440" height="281" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-8-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f15-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;15.8: Regression lines using continuous and binary variables
@@ -1686,13 +1686,13 @@ Figure&nbsp;15.8: Regression lines using continuous and binary variables
 H_0: \beta_2=0,\,\beta_3=0\quad\text{versus}\quad H_1:\text{At least one is nonzero}.
 \end{align*}
 \]</span></p>
-<p>We use the heteroskedasticity-robust F statistic to test this hypothesis. The F-statistic is around 89.9 with a <span class="math inline">\(p\)</span>-value less than 0.05. Thus, we reject the null hypothesis.</p>
-<div id="f37ebbb7" class="cell" data-execution_count="21">
+<p>We use the heteroskedasticity-robust <span class="math inline">\(F\)</span>-statistic to test this hypothesis. The <span class="math inline">\(F\)</span>-statistic is around 89.9 with a <span class="math inline">\(p\)</span>-value less than 0.05. Thus, we reject the null hypothesis.</p>
+<div id="2c695297" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>hypothesis <span class="op">=</span> <span class="st">"hiel[T.True]=0, str:hiel[T.True]=0"</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>r2.f_test(hypothesis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>&lt;class 'statsmodels.stats.contrast.ContrastResults'&gt;
-&lt;F test: F=89.93943806524757, p=3.455817929259153e-33, df_denom=416, df_num=2&gt;</code></pre>
+&lt;F test: F=89.93943806524955, p=3.455817929254537e-33, df_denom=416, df_num=2&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -1720,7 +1720,7 @@ Y+\Delta Y=\beta_0+\beta_1(X_1+\Delta X_1)+\beta_2X_2+\beta_3\left((X_1+\Delta X
 \end{align}
 \]</span></p>
 <p>We use the following code chunk to estimate the model and present the results in <a href="#tbl-t15-6" class="quarto-xref">Table&nbsp;<span>15.6</span></a>.</p>
-<div id="c670d2f0" class="cell" data-execution_count="22">
+<div id="9cbf77e8" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>r3 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"testscr ~ str + el_pct + str*el_pct"</span>,</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>         data <span class="op">=</span> mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1823,7 +1823,7 @@ Standard errors in parentheses.<br>
 <p>To answer these questions, we also consider the following variables on the economic conditions of school districts:</p>
 <ul>
 <li><p><code>el_pct</code>: the percentage of English learning students.</p></li>
-<li><p><code>HiEL</code>: a binary variable that equals <span class="math inline">\(1\)</span> if the percentage of English learners is 10% or more, and 0 otherwise.</p></li>
+<li><p><code>HiEL</code>: a binary variable that equals <span class="math inline">\(1\)</span> if the percentage of English learners is <span class="math inline">\(10\%\)</span> or more, and 0 otherwise.</p></li>
 <li><p><code>meal_pct</code>: the share of students that qualify for a subsidized or a free lunch at school.</p></li>
 <li><p><code>avginc</code>: the average district income (in $1000’s).</p></li>
 </ul>
@@ -1841,7 +1841,7 @@ Standard errors in parentheses.<br>
 \end{align*}
 \]</span></p>
 <p>The following code chunks can be used to produce the estimation results given in <a href="#tbl-t15-7" class="quarto-xref">Table&nbsp;<span>15.7</span></a>.</p>
-<div id="1f8daf9e" class="cell" data-execution_count="24">
+<div id="e1537ffb" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 1</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"testscr ~ str + el_pct + meal_pct"</span>,</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>         data <span class="op">=</span> mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
@@ -2144,24 +2144,24 @@ Standard errors in parentheses.<br>
 </div>
 <p>Starting with the results for Model 1, we see that the estimated coefficient on <code>STR</code> is statistically significant. The results for Model 2 show that adding <code>ln(avginc)</code> reduces the estimated coefficient on <code>STR</code> to <code>-0.734</code>, though this estimate remains statistically significant. In Models 3 and 4, we aim to assess the effect of allowing for an interaction term, <code>STR × HiEL</code>, both without and with economic control variables. In both models, we observe that the coefficient on the interaction term and the coefficient on <code>HiEL</code> are not statistically significant. Thus, even with economic controls, we cannot reject the null hypothesis that the effect of the student-teacher ratio on test scores is the same for districts with high and low shares of English learners.</p>
 <p>Model 5 includes a cubic term for the student-teacher ratio and omits the interaction <code>STR × HiEL</code>. The results indicate that there is a nonlinear effect of <code>STR</code> on test scores. We can verify this non-linear relationship by testing the joint null hypothesis: <span class="math inline">\(H_0:\beta_2=0,\beta_3=0\)</span>. The F-statistic is around 5 with a <span class="math inline">\(p\)</span>-value less than 0.05. Thus, we reject the null hypothesis at the <span class="math inline">\(5\%\)</span> significance level.</p>
-<div id="a54f6463" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>hypothesis<span class="op">=</span><span class="st">"I(str ** 2)=0, I(str ** 3)=0"</span></span>
+<div id="1e06edd2" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>hypothesis <span class="op">=</span> <span class="st">"I(str ** 2)=0, I(str ** 3)=0"</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r5.f_test(hypothesis))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;F test: F=5.020509901247472, p=0.007009765089114624, df_denom=413, df_num=2&gt;</code></pre>
+<pre><code>&lt;F test: F=5.020509901209685, p=0.0070097650893729746, df_denom=413, df_num=2&gt;</code></pre>
 </div>
 </div>
-<p>Model 6 further examines whether the effect of <code>STR</code> depends not just on its value but also on the fraction of English learners. All individual t-statistics indicate that the estimated coefficients on <code>HiEL</code> and its interaction terms are statistically significant. We can further check this by using a robust F-test for the joint null hypothesis: <span class="math inline">\(H_0:\beta_5=0,\beta_6=0,\beta_7=0\)</span>. The F-statistic is around 2.19 with a <span class="math inline">\(p\)</span>-value less than 0.10. Thus, we only reject the null hypothesis at the 10% significance level.</p>
-<div id="85e390d0" class="cell" data-execution_count="27">
+<p>Model 6 further examines whether the effect of <code>STR</code> depends not just on its value but also on the fraction of English learners. All individual t-statistics indicate that the estimated coefficients on <code>HiEL</code> and its interaction terms are statistically significant. We can further check this by using a robust <span class="math inline">\(F\)</span>-test for the joint null hypothesis: <span class="math inline">\(H_0:\beta_5=0,\beta_6=0,\beta_7=0\)</span>. The F-statistic is around 2.19 with a <span class="math inline">\(p\)</span>-value less than 0.10. Thus, we only reject the null hypothesis at the <span class="math inline">\(10\%\)</span> significance level.</p>
+<div id="198abda2" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>hypothesis<span class="op">=</span><span class="st">"hiel[T.True]:str=0, hiel[T.True]:I(str ** 2)=0, hiel[T.True]:I(str ** 3)=0"</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r6.f_test(hypothesis))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;F test: F=2.1885245156007613, p=0.08881908048613321, df_denom=410, df_num=3&gt;</code></pre>
+<pre><code>&lt;F test: F=2.188524516625023, p=0.08881908036779564, df_denom=410, df_num=3&gt;</code></pre>
 </div>
 </div>
 <p>Model 7 is a modification of Model 5, in which the continuous variable <code>PctEL</code> is used instead of the binary variable <code>HiEL</code> to control for the effect of the percentage of English learners. The coefficients on the other regressors do not change substantially when this modification is made, indicating that the results in Model 5 are not sensitive to whether we use <code>PctEL</code> or <code>HiEL</code>.</p>
 <p>The nonlinear specifications in <a href="#tbl-t15-7" class="quarto-xref">Table&nbsp;<span>15.7</span></a> are most easily interpreted graphically. In <a href="#fig-f15-9" class="quarto-xref">Figure&nbsp;<span>15.9</span></a>, we present plots of the estimated regression functions for Models 2, 5, and 7, along with a scatterplot of <code>testscr</code> and <code>str</code>. For each curve, we compute predicted values by setting each independent variable, other than <code>str</code>, to its sample average. These estimated regression functions show the predicted test scores as a function of <code>str</code>, with other independent variables fixed at their sample averages. The figure illustrates that the estimated regression functions are all quite similar to one another.</p>
-<div id="89230b41" class="cell" data-execution_count="28">
+<div id="5439a3f7" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the estimated regression functions for Models 2, 5, and 7</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating new data for predictions</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>mydata[<span class="st">"hiel"</span>]<span class="op">=</span>mydata[<span class="st">"hiel"</span>].astype(<span class="bu">int</span>) <span class="co"># Convert hiel to 0s and 1s</span></span>
@@ -2207,7 +2207,7 @@ Standard errors in parentheses.<br>
 <div id="fig-f15-9" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f15-9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-9-output-1.png" width="522" height="427" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-9-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f15-9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;15.9: Estimated regression functions for Models 2, 5 and 7
@@ -2217,7 +2217,7 @@ Figure&nbsp;15.9: Estimated regression functions for Models 2, 5 and 7
 </div>
 </div>
 <p>In <a href="#fig-f15-10" class="quarto-xref">Figure&nbsp;<span>15.10</span></a>, we present the estimated regression functions for Model 6 when <code>HiEL = 0</code> and <code>HiEL = 1</code>. Although the two regression functions appear different, the slopes are nearly identical when <code>str</code> take values between 17 and 23. Since this range encompasses nearly all observations, we can reasonably conclude that nonlinear interactions between the fraction of English learners and the student-teacher ratio can be disregarded.</p>
-<div id="0f48fce9" class="cell" data-execution_count="30">
+<div id="f334a306" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the estimated regression functions for Model 6</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating new data for predictions</span></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>new_data <span class="op">=</span> pd.DataFrame({</span>
@@ -2266,7 +2266,7 @@ Figure&nbsp;15.9: Estimated regression functions for Models 2, 5 and 7
 <div id="fig-f15-10" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f15-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-10-output-1.png" width="522" height="427" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-10-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f15-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;15.10: Estimated regression functions for Model 6
@@ -2389,7 +2389,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/osmdogan\.github\.io\/Python_Book\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -2737,7 +2737,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hadley/r4ds/edit/main/Chapter8-NonlinearRegressions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hadley/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/Chapter8-NonlinearRegressions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
