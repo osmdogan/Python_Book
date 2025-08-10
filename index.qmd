@@ -21,7 +21,7 @@ The final part, Theoretical Topics, contains two chapters on econometric theory.
 Finally, we provide some technical details related to Chapters 11, 21, 25, and 26 in the appendices.
 
 # Notation
-We adopt the standard notation used in @Stock2020. In particular, in an econometric model, we use Latin letters such as $Y$, $X$, $W$, and $Z$ to denote variables, and Greek letters such as $\beta$, $\gamma$, and $\delta$ to denote unknown parameters.^[According to econometrician Anil K. Bera, the English phrase “It is all Greek to me”, meaning “I do not understand it at all”, has contributed to the tradition of using Greek letters for unknown quantities in econometrics. There are also similar formulations in other languages. See the [Wikipedia page](https://en.wikipedia.org/wiki/Greek_to_me) for more details. ] For the convenience of readers, we list the Greek letters in the following table.
+We adopt the standard notation used in @Stock2020. In particular, in an econometric model, we use Latin letters such as $Y$, $X$, $W$, and $Z$ to denote variables, and Greek letters such as $\beta$, $\gamma$, and $\delta$ to denote unknown parameters.^[According to econometrician Anil K. Bera, the English phrase “It is all Greek to me”, meaning “I do not understand it at all”, played a role in establishing the tradition of using Greek letters for unknown quantities in econometrics. There are also similar formulations in other languages. See the [Wikipedia page](https://en.wikipedia.org/wiki/Greek_to_me) for more details. ] For the convenience of readers, we list the Greek letters in the following table.
 
 ::: {style="font-size: 80%"}
 | Greek Letter | Name   | Greek Letter | Name   |
