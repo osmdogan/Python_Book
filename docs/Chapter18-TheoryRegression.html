@@ -473,7 +473,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Table of Contents</h2>
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">25.1</span> Introduction</a></li>
@@ -548,7 +548,7 @@ Y_i = \beta_0 + \beta_1 X_i + u_i, \quad i = 1, \ldots, n,
 \hat{\beta}_0 &amp;= \bar{Y} - \hat{\beta}_1 \bar{X},
 \end{align*}
 \]</span> where <span class="math inline">\(\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i\)</span> and <span class="math inline">\(\bar{Y} = \frac{1}{n}\sum_{i=1}^n Y_i\)</span>.</p>
-<p>We consider <a href="#eq-eq25-1" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq25-1</span></a> under the following extended assumptions.</p>
+<p>We consider <a href="#eq-eq25-1" class="quarto-xref">Equation&nbsp;<span>25.1</span></a> under the following extended assumptions.</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -577,7 +577,7 @@ The extended least squares assumptions
 \end{align*}
 \]</span></p>
 </div>
-<p><a href="#thm-thm25-1" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm25-1</span></a> suggests that we can make inference about the population parameters <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> using t-statistics and confidence intervals when the sample size is large.</p>
+<p><a href="#thm-thm25-1" class="quarto-xref">Theorem&nbsp;<span>25.1</span></a> suggests that we can make inference about the population parameters <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> using t-statistics and confidence intervals when the sample size is large.</p>
 <div id="thm-thm25-2" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 25.2 (Gauss-Markov theorem)</strong></span> Under the first four assumptions, the OLS estimators of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are the best linear unbiased estimators (BLUE). The variances of the OLS estimators simplify to <span class="math display">\[
 \begin{align*}
@@ -586,7 +586,7 @@ The extended least squares assumptions
 \]</span></p>
 </div>
 <div id="thm-thm25-3" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 25.3 (Exact sampling distributions of OLS estimators)</strong></span> Under all five assumptions, the OLS estimators of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> follow exact normal sampling distributions with variances given by <a href="#thm-thm25-2" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm25-2</span></a>. The t-statistic for testing hypotheses about <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> follows the Student t-distribution with <span class="math inline">\(n - 2\)</span> degrees of freedom.</p>
+<p><span class="theorem-title"><strong>Theorem 25.3 (Exact sampling distributions of OLS estimators)</strong></span> Under all five assumptions, the OLS estimators of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> follow exact normal sampling distributions with variances given by <a href="#thm-thm25-2" class="quarto-xref">Theorem&nbsp;<span>25.2</span></a>. The t-statistic for testing hypotheses about <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> follows the Student t-distribution with <span class="math inline">\(n - 2\)</span> degrees of freedom.</p>
 </div>
 </section>
 <section id="introduction-to-asymptotic-distribution-theory" class="level2" data-number="25.3">
@@ -610,7 +610,7 @@ The extended least squares assumptions
 \]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-4" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm25-4</span></a>). </span>See <span class="citation" data-cites="Hansen2022b">Hansen (<a href="#ref-Hansen2022b" role="doc-biblioref">2022b</a>)</span>.</p>
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-4" class="quarto-xref">Theorem&nbsp;<span>25.4</span></a>). </span>See <span class="citation" data-cites="Hansen2022b">Hansen (<a href="references.html#ref-Hansen2022b" role="doc-biblioref">2022b</a>)</span>.</p>
 </div>
 <p>Some inequalities based on Jensen’s inequality are listed below.</p>
 <ul>
@@ -627,7 +627,7 @@ The extended least squares assumptions
 \]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-5" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm25-5</span></a>). </span>The function <span class="math inline">\(g(x)=|x|\)</span> is a convex function. Then, we can apply Jensen’s inequality to <span class="math inline">\(g(X)\)</span> to get the result. Alternatively, let <span class="math inline">\(X=X^{+}-X^{-}\)</span>, where <span class="math inline">\(X^{+}=\max(X,0)\)</span> and <span class="math inline">\(X^{-}=\max(-X,0)\)</span>. Then, <span class="math inline">\(|X|=X^{+}+X^{-}\)</span>. By the triangle inequality, we have <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-5" class="quarto-xref">Theorem&nbsp;<span>25.5</span></a>). </span>The function <span class="math inline">\(g(x)=|x|\)</span> is a convex function. Then, we can apply Jensen’s inequality to <span class="math inline">\(g(X)\)</span> to get the result. Alternatively, let <span class="math inline">\(X=X^{+}-X^{-}\)</span>, where <span class="math inline">\(X^{+}=\max(X,0)\)</span> and <span class="math inline">\(X^{-}=\max(-X,0)\)</span>. Then, <span class="math inline">\(|X|=X^{+}+X^{-}\)</span>. By the triangle inequality, we have <span class="math display">\[
 \begin{align*}
 |\E(X)|&amp;=|\E(X^+)-\E(X^-)|\\
 &amp;\leq\E(X^+)+\E(X^-)\\
@@ -645,14 +645,14 @@ The extended least squares assumptions
 \]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-6" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm25-6</span></a>). </span>The function defined by <span class="math inline">\(g(x)=x^{p/r}\)</span> is convex for <span class="math inline">\(x&gt;0\)</span> and <span class="math inline">\(0&lt;r\leq p\)</span>. Let <span class="math inline">\(Y=|X|^r\)</span>. Then, by Jensen’s inequality, we have <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-6" class="quarto-xref">Theorem&nbsp;<span>25.6</span></a>). </span>The function defined by <span class="math inline">\(g(x)=x^{p/r}\)</span> is convex for <span class="math inline">\(x&gt;0\)</span> and <span class="math inline">\(0&lt;r\leq p\)</span>. Let <span class="math inline">\(Y=|X|^r\)</span>. Then, by Jensen’s inequality, we have <span class="math display">\[
 \begin{align*}
 g(\E(Y))&amp;=g(\E(|X|^r))=(\E(|X|^r))^{p/r}\\
 &amp;\leq\E(g(Y))=\E(|X|^p).
 \end{align*}
 \]</span> Then, taking <span class="math inline">\(p\)</span>-th root on both sides yields the result.</p>
 </div>
-<p>Lyapunov’s inequality also holds for random vectors and matrices. For example, if <span class="math inline">\(\bs{X}\in\mathbb{R}^{m\times n}\)</span> is a random matrix, then <span class="math inline">\((\E(\|\bs{X})\|^r))^{1/r}\leq(\E(\|\bs{X}\|^p))^{1/p}\)</span>, where <span class="math inline">\(\|\cdot\|\)</span> denotes any matrix norm (<span class="citation" data-cites="Hansen2022">Hansen (<a href="#ref-Hansen2022" role="doc-biblioref">2022a</a>)</span>).</p>
+<p>Lyapunov’s inequality also holds for random vectors and matrices. For example, if <span class="math inline">\(\bs{X}\in\mathbb{R}^{m\times n}\)</span> is a random matrix, then <span class="math inline">\((\E(\|\bs{X})\|^r))^{1/r}\leq(\E(\|\bs{X}\|^p))^{1/p}\)</span>, where <span class="math inline">\(\|\cdot\|\)</span> denotes any matrix norm (<span class="citation" data-cites="Hansen2022">Hansen (<a href="references.html#ref-Hansen2022" role="doc-biblioref">2022a</a>)</span>).</p>
 <div id="thm-thm25-7" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 25.7 (Markov’s Inequality)</strong></span> Let <span class="math inline">\(V\)</span> be a non-negative random variable and <span class="math inline">\(\delta\)</span> be a positive constant. Then, <span class="math display">\[
 \begin{align}
@@ -661,7 +661,7 @@ P(V\geq\delta)\leq\frac{\E(V)}{\delta}.
 \]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-7" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm25-7</span></a>). </span>Let <span class="math inline">\(f\)</span> be the pdf of <span class="math inline">\(V\)</span>. Then, <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-7" class="quarto-xref">Theorem&nbsp;<span>25.7</span></a>). </span>Let <span class="math inline">\(f\)</span> be the pdf of <span class="math inline">\(V\)</span>. Then, <span class="math display">\[
 \begin{align*}
 \E(V)&amp;=\int_{0}^{\infty}vf(v)\text{d}v=\int_{0}^{\delta}vf(v)\text{d}v+\int_{\delta}^{\infty}vf(v)\text{d}v\\
 &amp;\geq\int_{\delta}^{\infty}vf(v)\text{d}v\geq\delta\int_{\delta}^{\infty}f(v)\text{d}v\\
@@ -678,7 +678,7 @@ P(|V-\mu_V|\geq\delta)\leq\sigma^2_V/\delta^2.
 \]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-5" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm25-5</span></a>). </span>Let <span class="math inline">\(W=V-\mu_V\)</span> and let <span class="math inline">\(f\)</span> be the pdf of <span class="math inline">\(W\)</span>. Then, <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-5" class="quarto-xref">Theorem&nbsp;<span>25.5</span></a>). </span>Let <span class="math inline">\(W=V-\mu_V\)</span> and let <span class="math inline">\(f\)</span> be the pdf of <span class="math inline">\(W\)</span>. Then, <span class="math display">\[
 \begin{align*}
 \E(W^2)&amp;=\int_{-\infty}^{\infty}w^2f(w)\text{d}w\\
 &amp;=\int_{-\infty}^{-\delta}w^2f(w)\text{d}w+\int_{-\delta}^{\delta}w^2f(w)\text{d}w+\int_{\delta}^{\infty}w^2f(w)\text{d}w\\
@@ -693,7 +693,7 @@ P(|V-\mu_V|&lt;\delta)\geq 1-\frac{\sigma^2_V}{\delta^2}.
 \]</span> Thus, Chebychev’s inequality provides a lower bound on the probability that a random variable <span class="math inline">\(V\)</span> is within <span class="math inline">\(\delta\)</span> of its mean <span class="math inline">\(\mu_V\)</span>, i.e., <span class="math display">\[
 P(\mu_V-\delta&lt;V&lt;\mu_V+\delta)\geq 1-\frac{\sigma^2_V}{\delta^2}.
 \]</span></p>
-<p>In the following code chunk, we assume that <span class="math inline">\(V\sim N(0,1)\)</span> and <code>delta = np. arange(1, 10)</code>. We calculate the Chebychev bound and the actual probability that <span class="math inline">\(V\)</span> is within <span class="math inline">\(\delta\)</span> of its mean. <a href="#fig-fig25-1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig25-1</span></a> shows that the Chebychev bound is a conservative estimate of the actual probability.</p>
+<p>In the following code chunk, we assume that <span class="math inline">\(V\sim N(0,1)\)</span> and <code>delta = np. arange(1, 10)</code>. We calculate the Chebychev bound and the actual probability that <span class="math inline">\(V\)</span> is within <span class="math inline">\(\delta\)</span> of its mean. <a href="#fig-fig25-1" class="quarto-xref">Figure&nbsp;<span>25.1</span></a> shows that the Chebychev bound is a conservative estimate of the actual probability.</p>
 <div id="5634636e" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the Chebychev inequality</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sigma2_V <span class="op">=</span> <span class="dv">1</span></span>
@@ -731,7 +731,7 @@ Figure&nbsp;25.1: Chebychev’s inequality
 <p><span class="theorem-title"><strong>Theorem 25.9 (Law of large numbers)</strong></span> Let <span class="math inline">\(\{X_i\}\)</span> be a sequence of i.i.d. random variables with mean <span class="math inline">\(\mu\)</span> and finite variance <span class="math inline">\(\sigma^2\)</span>. Then, the sample mean <span class="math inline">\(\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i\)</span> converges in probability to <span class="math inline">\(\mu\)</span>, i.e., <span class="math inline">\(\bar{X}_n\stackrel{p}{\to}\mu\)</span>.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-9" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm25-9</span></a>). </span>Note that <span class="math inline">\(\E(\bar{X}_n)=\mu\)</span> and <span class="math inline">\(\text{Var}(\bar{X}_n)=\sigma^2/n\)</span>. Then, by Chebychev’s inequality, we have <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-9" class="quarto-xref">Theorem&nbsp;<span>25.9</span></a>). </span>Note that <span class="math inline">\(\E(\bar{X}_n)=\mu\)</span> and <span class="math inline">\(\text{Var}(\bar{X}_n)=\sigma^2/n\)</span>. Then, by Chebychev’s inequality, we have <span class="math display">\[
 \begin{align*}
 P(|\bar{X}_n-\mu|&gt;\delta)\leq\frac{\text{Var}(\bar{X}_n)}{\delta^2}=\frac{\sigma^2}{n\delta^2} \to 0,
 \end{align*}
@@ -760,8 +760,8 @@ P(|\bar{X}_n-\mu|&gt;\delta)\leq\frac{\text{Var}(\bar{X}_n)}{\delta^2}=\frac{\si
 P(|m_c-\mu_Y|\geq\delta)\leq\E\left((\bar{Y}+1/n-\mu_Y)^2\right)/\delta^2=\frac{\sigma^2_Y}{\delta^2n}+\frac{1}{\delta^2n^2}\to0,
 \]</span> as <span class="math inline">\(n\to\infty\)</span>. Thus, <span class="math inline">\(m_c\)</span> is consistent.</p>
 </div>
-<p>In the following code chunk, we illustrate the law of large numbers using the estimators <span class="math inline">\(m_a\)</span>, <span class="math inline">\(m_b\)</span>, and <span class="math inline">\(m_c\)</span> defined in <a href="#exm-exm25-1" class="quarto-xref">Example&nbsp;<span class="quarto-unresolved-ref">exm-exm25-1</span></a>. We set <span class="math inline">\(\mu_Y = 0\)</span>, <span class="math inline">\(\sigma_Y^2 = 1\)</span>, and <span class="math inline">\(a = 0.5\)</span>. We consider three sample sizes: <span class="math inline">\(n = 10\)</span>, <span class="math inline">\(n = 100\)</span>, and <span class="math inline">\(n = 1000\)</span>. For each sample size, we generate 1000 samples and compute each estimator. We then create histograms of each estimator for each sample size.</p>
-<p><a href="#fig-fig25-2" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig25-2</span></a> displays the histograms of <span class="math inline">\(m_a\)</span>, <span class="math inline">\(m_b\)</span>, and <span class="math inline">\(m_c\)</span> for different sample sizes. In the case of <span class="math inline">\(m_a\)</span> and <span class="math inline">\(m_b\)</span>, the histograms do not concentrate around the true mean <span class="math inline">\(\mu_Y = 0\)</span> as the sample size increases. However, since the histograms are centered around the true mean, these estimators are unbiased. On the other hand, the histogram of <span class="math inline">\(m_c\)</span> becomes more concentrated around the true mean as the sample size increases, indicating that <span class="math inline">\(m_c\)</span> is a consistent estimator.</p>
+<p>In the following code chunk, we illustrate the law of large numbers using the estimators <span class="math inline">\(m_a\)</span>, <span class="math inline">\(m_b\)</span>, and <span class="math inline">\(m_c\)</span> defined in <a href="#exm-exm25-1" class="quarto-xref">Example&nbsp;<span>25.1</span></a>. We set <span class="math inline">\(\mu_Y = 0\)</span>, <span class="math inline">\(\sigma_Y^2 = 1\)</span>, and <span class="math inline">\(a = 0.5\)</span>. We consider three sample sizes: <span class="math inline">\(n = 10\)</span>, <span class="math inline">\(n = 100\)</span>, and <span class="math inline">\(n = 1000\)</span>. For each sample size, we generate 1000 samples and compute each estimator. We then create histograms of each estimator for each sample size.</p>
+<p><a href="#fig-fig25-2" class="quarto-xref">Figure&nbsp;<span>25.2</span></a> displays the histograms of <span class="math inline">\(m_a\)</span>, <span class="math inline">\(m_b\)</span>, and <span class="math inline">\(m_c\)</span> for different sample sizes. In the case of <span class="math inline">\(m_a\)</span> and <span class="math inline">\(m_b\)</span>, the histograms do not concentrate around the true mean <span class="math inline">\(\mu_Y = 0\)</span> as the sample size increases. However, since the histograms are centered around the true mean, these estimators are unbiased. On the other hand, the histogram of <span class="math inline">\(m_c\)</span> becomes more concentrated around the true mean as the sample size increases, indicating that <span class="math inline">\(m_c\)</span> is a consistent estimator.</p>
 <div id="2b5ec0d5" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the law of large numbers</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
@@ -916,7 +916,7 @@ Figure&nbsp;25.2: Illustrating the law of large numbers
 </div>
 <p>Note that the Cauchy-Schwarz inequality can also be stated as <span class="math inline">\(|\E(XY)|\leq\sqrt{ \E(X^2)\E(Y^2)}\)</span>.</p>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-10" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm25-10</span></a>). </span>Let <span class="math inline">\(W=Y+bX\)</span>, where <span class="math inline">\(b\)</span> is a constant. Then, <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-10" class="quarto-xref">Theorem&nbsp;<span>25.11</span></a>). </span>Let <span class="math inline">\(W=Y+bX\)</span>, where <span class="math inline">\(b\)</span> is a constant. Then, <span class="math display">\[
 \E(W^2)=\E(Y^2)+2b\E(XY)+b^2\E(X^2).
 \]</span> Setting <span class="math inline">\(b=-\frac{\E(XY)}{\E(X^2)}\)</span> in the above equation yields <span class="math display">\[
 \E(W^2)=\E(Y^2)-\left(\E(XY)\right)^2/\E(X^2).
@@ -940,7 +940,7 @@ S_n\xrightarrow{d}S\iff \lim_{n\to\infty}F_n(t)=F(t),
 \]</span> where the limit holds at all points <span class="math inline">\(t\)</span> at which the limiting distribution <span class="math inline">\(F\)</span> is continuous.</p>
 </div>
 <div id="def-def25-4" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 25.4 (Asymptotic distribution)</strong></span> The distribution <span class="math inline">\(F\)</span> in <a href="#def-def25-3" class="quarto-xref">Definition&nbsp;<span class="quarto-unresolved-ref">def-def25-3</span></a> is called the asymptotic distribution of <span class="math inline">\(S_n\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 25.4 (Asymptotic distribution)</strong></span> The distribution <span class="math inline">\(F\)</span> in <a href="#def-def25-3" class="quarto-xref">Definition&nbsp;<span>25.3</span></a> is called the asymptotic distribution of <span class="math inline">\(S_n\)</span>.</p>
 </div>
 <div id="exm-exm25-3" class="theorem example">
 <p><span class="theorem-title"><strong>Example 25.3</strong></span> Let <span class="math inline">\(S\)</span> be the poisson random variable with parameter <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\{S_n\}\)</span> be a sequence of binomial random variables with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>, i.e., <span class="math inline">\(S_n\sim\text{Binomial}(n,p)\)</span>. We show that <span class="math inline">\(S_n\)</span> converges in distribution to <span class="math inline">\(S\)</span>, i.e., <span class="math inline">\(S_n\xrightarrow{d}S\)</span>. The cumulative distribution function of <span class="math inline">\(S_n\)</span> is given by <span class="math display">\[
@@ -960,7 +960,7 @@ F_n(t)&amp;=\sum_{k=0}^{\lfloor t\rfloor}\binom{n}{k}\left(\frac{\lambda}{n}\rig
 \end{align}
 \]</span> where the last equality follows from the fact that <span class="math inline">\(\lim_{n\to\infty}\left(1-\frac{\lambda}{n}\right)^n=e^{-\lambda}\)</span> and <span class="math inline">\(\lim_{n\to\infty}\left(\frac{1}{1-\frac{\lambda}{n}}\right)^k=1\)</span>. Therefore, we have <span class="math inline">\(S_n\xrightarrow{d}S\)</span>.</p>
 </div>
-<p>In the following code chunk, we illustrate the convergence in distribution between the binomial and poisson random variables. We set <span class="math inline">\(\lambda = 5\)</span> and consider three sample sizes: <span class="math inline">\(n = 10\)</span>, <span class="math inline">\(n = 20\)</span>, and <span class="math inline">\(n = 50\)</span>. For each sample size, we then compute the cumulative distribution functions of the binomial and poisson random variables over the range <span class="math inline">\(t = 0, 1, \ldots, 15\)</span>. <a href="#fig-fig25-3" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig25-3</span></a> shows that the cumulative distribution functions of the binomial random variables converge to the cumulative distribution function of the poisson random variable as the sample size increases.</p>
+<p>In the following code chunk, we illustrate the convergence in distribution between the binomial and poisson random variables. We set <span class="math inline">\(\lambda = 5\)</span> and consider three sample sizes: <span class="math inline">\(n = 10\)</span>, <span class="math inline">\(n = 20\)</span>, and <span class="math inline">\(n = 50\)</span>. For each sample size, we then compute the cumulative distribution functions of the binomial and poisson random variables over the range <span class="math inline">\(t = 0, 1, \ldots, 15\)</span>. <a href="#fig-fig25-3" class="quarto-xref">Figure&nbsp;<span>25.3</span></a> shows that the cumulative distribution functions of the binomial random variables converge to the cumulative distribution function of the poisson random variable as the sample size increases.</p>
 <div id="8aac5125" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the convergence in distribution</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
@@ -1011,7 +1011,7 @@ Figure&nbsp;25.3: Illustrating the convergence in distribution
 \sqrt{12n}(\bar{Y}-1/2)\xrightarrow{d}N(0,1),
 \]</span> which suggests that <span class="math inline">\(\bar{Y}\sim N(1/2,1/12n)\)</span> when <span class="math inline">\(n\)</span> is large.</p>
 </div>
-<p>In the following code chunk, we illustrate the central limit theorem using the uniform random variables defined in <a href="#exm-exm25-4" class="quarto-xref">Example&nbsp;<span class="quarto-unresolved-ref">exm-exm25-4</span></a>. We set <span class="math inline">\(n = 10, 50, 100, 500, 1000, 5000\)</span> and generate 1000 samples for each sample size. We then compute the sample mean <span class="math inline">\(\bar{Y}\)</span> and plot the histograms of <span class="math inline">\(\sqrt{12n}(\bar{Y}-1/2)\)</span> for each sample size. <a href="#fig-fig25-4" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig25-4</span></a> shows the histograms of <span class="math inline">\(\sqrt{12n}(\bar{Y}-1/2)\)</span> along with the standard normal density plot. As the sample size increases, the deviations between the histograms and the standard normal density plot decrease, indicating that the sample mean converges to the standard normal distribution as the sample size grows.</p>
+<p>In the following code chunk, we illustrate the central limit theorem using the uniform random variables defined in <a href="#exm-exm25-4" class="quarto-xref">Example&nbsp;<span>25.4</span></a>. We set <span class="math inline">\(n = 10, 50, 100, 500, 1000, 5000\)</span> and generate 1000 samples for each sample size. We then compute the sample mean <span class="math inline">\(\bar{Y}\)</span> and plot the histograms of <span class="math inline">\(\sqrt{12n}(\bar{Y}-1/2)\)</span> for each sample size. <a href="#fig-fig25-4" class="quarto-xref">Figure&nbsp;<span>25.4</span></a> shows the histograms of <span class="math inline">\(\sqrt{12n}(\bar{Y}-1/2)\)</span> along with the standard normal density plot. As the sample size increases, the deviations between the histograms and the standard normal density plot decrease, indicating that the sample mean converges to the standard normal distribution as the sample size grows.</p>
 <div id="b44d6d63" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the central limit theorem</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
@@ -1035,7 +1035,7 @@ Figure&nbsp;25.3: Illustrating the convergence in distribution
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="cell-fig-fig25-4" class="cell quarto-layout-panel" data-execution_count="9" data-layout-nrow="3">
+<div id="cell-fig-fig25-4" class="cell quarto-layout-panel" data-layout-nrow="3" data-execution_count="9">
 <div class="quarto-layout-row">
 <div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div id="fig-fig25-4" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1071,15 +1071,15 @@ Figure&nbsp;25.4: Illustrating the central limit theorem
 <div id="exm-exm25-5" class="theorem example">
 <p><span class="theorem-title"><strong>Example 25.5</strong></span> Let <span class="math inline">\(g(x)=\sqrt{x}\)</span>. If <span class="math inline">\(s^2_Y\xrightarrow{p}\sigma^2_Y\)</span>, where <span class="math inline">\(s^2_Y\)</span> is the sample variance, then <span class="math display">\[
 g(s^2_Y)=s_Y\xrightarrow{p}g(\sigma^2_Y)=\sigma_Y,
-\]</span> by the first part of <a href="#thm-thm25-12" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm25-12</span></a>. In other words, the sample standard deviation is a consistent estimator of the population standard deviation.</p>
+\]</span> by the first part of <a href="#thm-thm25-12" class="quarto-xref">Theorem&nbsp;<span>25.13</span></a>. In other words, the sample standard deviation is a consistent estimator of the population standard deviation.</p>
 </div>
 <div id="exm-exm25-6" class="theorem example">
-<p><span class="theorem-title"><strong>Example 25.6</strong></span> Let <span class="math inline">\(g(x)=x^2\)</span>. If <span class="math inline">\(S_n\xrightarrow{d}Z\)</span>, where <span class="math inline">\(Z\sim N(0,1)\)</span>, then we have <span class="math inline">\(g(S_n)\xrightarrow{d}g(Z)\)</span> by the second part of <a href="#thm-thm25-12" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm25-12</span></a>. Thus, <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 25.6</strong></span> Let <span class="math inline">\(g(x)=x^2\)</span>. If <span class="math inline">\(S_n\xrightarrow{d}Z\)</span>, where <span class="math inline">\(Z\sim N(0,1)\)</span>, then we have <span class="math inline">\(g(S_n)\xrightarrow{d}g(Z)\)</span> by the second part of <a href="#thm-thm25-12" class="quarto-xref">Theorem&nbsp;<span>25.13</span></a>. Thus, <span class="math display">\[
 S^2_n\xrightarrow{d}Z^2.
 \]</span> In other words, the distribution of <span class="math inline">\(S^2_n\)</span> converges to the distribution of a squared standard normal random variable, which in turn has a <span class="math inline">\(\chi^2_1\)</span> distribution; that is, <span class="math inline">\(S^2_n\xrightarrow{d}\chi^2_1\)</span>.</p>
 </div>
 <div id="exm-exm25-7" class="theorem example">
-<p><span class="theorem-title"><strong>Example 25.7</strong></span> Consider t-statistic for testing <span class="math inline">\(H_0:\E(Y_i)=\mu_0\)</span> based on <span class="math inline">\(\bar{Y}\)</span>. Then, by <a href="#exm-exm25-4" class="quarto-xref">Example&nbsp;<span class="quarto-unresolved-ref">exm-exm25-4</span></a> and <a href="#thm-thm25-11" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm25-11</span></a>, we have <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 25.7</strong></span> Consider t-statistic for testing <span class="math inline">\(H_0:\E(Y_i)=\mu_0\)</span> based on <span class="math inline">\(\bar{Y}\)</span>. Then, by <a href="#exm-exm25-4" class="quarto-xref">Example&nbsp;<span>25.4</span></a> and <a href="#thm-thm25-11" class="quarto-xref">Theorem&nbsp;<span>25.12</span></a>, we have <span class="math display">\[
 t=\frac{\bar{Y}-\mu_0}{s_Y/\sqrt{n}}=\frac{\sqrt{n}(\bar{Y}-\mu_0)}{\sigma_Y}\div\frac{s_Y}{\sigma_Y}\xrightarrow{d}N(0,1).
 \]</span></p>
 </div>
@@ -1110,7 +1110,7 @@ t=\frac{\bar{Y}-\mu_0}{s_Y/\sqrt{n}}=\frac{\sqrt{n}(\bar{Y}-\mu_0)}{\sigma_Y}\di
 </section>
 <section id="asymptotic-distribution-of-the-ols-estimator" class="level2" data-number="25.4">
 <h2 data-number="25.4" class="anchored" data-anchor-id="asymptotic-distribution-of-the-ols-estimator"><span class="header-section-number">25.4</span> Asymptotic distribution of the OLS estimator</h2>
-<p>In this section, we show how to derive the asymptotic distribution of <span class="math inline">\(\widehat{\beta}_1\)</span> and <span class="math inline">\(\widehat{\beta}_0\)</span> as shown in <a href="#thm-thm25-1" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm25-1</span></a>. From <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+u_i\)</span> and <span class="math inline">\(\bar{Y}=\beta_0+\beta_1\bar{X}+\bar{u}\)</span>, we obtain <span class="math display">\[
+<p>In this section, we show how to derive the asymptotic distribution of <span class="math inline">\(\widehat{\beta}_1\)</span> and <span class="math inline">\(\widehat{\beta}_0\)</span> as shown in <a href="#thm-thm25-1" class="quarto-xref">Theorem&nbsp;<span>25.1</span></a>. From <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+u_i\)</span> and <span class="math inline">\(\bar{Y}=\beta_0+\beta_1\bar{X}+\bar{u}\)</span>, we obtain <span class="math display">\[
 \begin{align}
 Y_i-\bar{Y}=\beta_1(X_i-\bar{X})+(u_i-\bar{u}).
 \end{align}
@@ -1130,7 +1130,7 @@ Y_i-\bar{Y}=\beta_1(X_i-\bar{X})+(u_i-\bar{u}).
 &amp;\sqrt{n}\left(\widehat{\beta}_1-\beta_1\right)=\frac{\frac{1}{\sqrt{n}}\sum_{i=1}^nv_i}{\frac{1}{n}\sum_{i=1}^n(X_i - \bar{X})^2}-\frac{\left(\bar{X}-\mu_X\right)\frac{1}{\sqrt{n}}\sum_{i=1}^nu_i}{\frac{1}{n}\sum_{i=1}^n(X_i - \bar{X})^2}.
 \end{align}
 \tag{25.2}\]</span></span></p>
-<p>We first show that the second term in <a href="#eq-eq25-2" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq25-2</span></a> converges in probability to zero:</p>
+<p>We first show that the second term in <a href="#eq-eq25-2" class="quarto-xref">Equation&nbsp;<span>25.2</span></a> converges in probability to zero:</p>
 <ol type="1">
 <li><p><span class="math inline">\(\{u_i\}\)</span> are i.i.d. with mean <span class="math inline">\(\mu_u=0\)</span> and variance <span class="math inline">\(\sigma^2_u\)</span>. Thus, by the central limit theorem, we have <span class="math display">\[
 \begin{align*}
@@ -1144,7 +1144,7 @@ Y_i-\bar{Y}=\beta_1(X_i-\bar{X})+(u_i-\bar{u}).
 <span class="math display">\[
 \frac{\left(\bar{X}-\mu_X\right)\frac{1}{\sqrt{n}}\sum_{i=1}^nu_i}{\frac{1}{n}\sum_{i=1}^n(X_i - \bar{X})^2}\xrightarrow{p}0.
 \]</span></p>
-<p>Next, we consider the first term in <a href="#eq-eq25-2" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq25-2</span></a>. We will show that</p>
+<p>Next, we consider the first term in <a href="#eq-eq25-2" class="quarto-xref">Equation&nbsp;<span>25.2</span></a>. We will show that</p>
 <ol type="1">
 <li><span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i - \bar{X})^2\xrightarrow{p}\sigma^2_X\)</span>,</li>
 <li><span class="math inline">\(\frac{1}{\sqrt{n}}\sum_{i=1}^nv_i\)</span> satisfies the central limit theorem conditions: (i) <span class="math inline">\(\{v_i\}\)</span> are i.i.d., and (ii) <span class="math inline">\(\text{var}(v_i)&lt;\infty\)</span>.</li>
@@ -1170,7 +1170,7 @@ Y_i-\bar{Y}=\beta_1(X_i-\bar{X})+(u_i-\bar{u}).
 \frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}=\left(\frac{n}{n-2}\right)\left(\frac{\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i}{\text{var}(v_i)}\right)\div\left(\frac{\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2}{\sigma^2_X}\right)^2.
 \end{align}
 \tag{25.4}\]</span></span></p>
-<p>The second term in <a href="#eq-eq25-4" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq25-4</span></a> convergence in probability to one by the consistency of the sample variance. Since <span class="math inline">\(n/(n-2)\to1\)</span> as <span class="math inline">\(n\to\infty\)</span>, it will be enough to show that <span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i\xrightarrow{p}\text{var}(v_i)\)</span>. The proof of <span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i\xrightarrow{p}\text{var}(v_i)\)</span> proceeds in two steps:</p>
+<p>The second term in <a href="#eq-eq25-4" class="quarto-xref">Equation&nbsp;<span>25.4</span></a> convergence in probability to one by the consistency of the sample variance. Since <span class="math inline">\(n/(n-2)\to1\)</span> as <span class="math inline">\(n\to\infty\)</span>, it will be enough to show that <span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i\xrightarrow{p}\text{var}(v_i)\)</span>. The proof of <span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i\xrightarrow{p}\text{var}(v_i)\)</span> proceeds in two steps:</p>
 <ol type="1">
 <li><span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\xrightarrow{p}\text{var}(v_i)\)</span>, and</li>
 <li><span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i-\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\xrightarrow{p}0\)</span>.</li>
@@ -1194,7 +1194,7 @@ Y_i-\bar{Y}=\beta_1(X_i-\bar{X})+(u_i-\bar{u}).
 \hat{u}^2_i&amp;=u^2_i+(\hat{\beta}_0-\beta_0)^2+(\hat{\beta}_1-\beta_1)^2X^2_i-2u_i(\hat{\beta}_0-\beta_0)\\
 &amp;-2u_i(\hat{\beta}_1-\beta_1)X_i+2(\hat{\beta}_0-\beta_0)(\hat{\beta}_1-\beta_1)X_i.
 \end{align*}
-\]</span> Substituting this into <a href="#eq-eq25-5" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq25-5</span></a> yields a series of terms each of which can be written as <span class="math inline">\(a_nb_n\)</span>, where <span class="math inline">\(a_n\xrightarrow{p}0\)</span> and <span class="math inline">\(b_n=\frac{1}{n}\sum_{i=1}^nX^r_iu^s_i\)</span>, where <span class="math inline">\(r\)</span> and <span class="math inline">\(s\)</span> are integers. Thus, we will complete the proof if we can show that <span class="math inline">\(b_n=\frac{1}{n}\sum_{i=1}^nX^r_iu^s_i\xrightarrow{p}c\)</span>, where <span class="math inline">\(c\)</span> is a constant. Let <span class="math inline">\(w_i=X^r_iu^s_i\)</span> and note that <span class="math inline">\(\{w_i\}\)</span> are i.i.d. The law of large numbers can then be used for the desired result if <span class="math inline">\(\E(w^2_i)&lt;\infty\)</span>, which is ensured by Assumption 3.</p>
+\]</span> Substituting this into <a href="#eq-eq25-5" class="quarto-xref">Equation&nbsp;<span>25.5</span></a> yields a series of terms each of which can be written as <span class="math inline">\(a_nb_n\)</span>, where <span class="math inline">\(a_n\xrightarrow{p}0\)</span> and <span class="math inline">\(b_n=\frac{1}{n}\sum_{i=1}^nX^r_iu^s_i\)</span>, where <span class="math inline">\(r\)</span> and <span class="math inline">\(s\)</span> are integers. Thus, we will complete the proof if we can show that <span class="math inline">\(b_n=\frac{1}{n}\sum_{i=1}^nX^r_iu^s_i\xrightarrow{p}c\)</span>, where <span class="math inline">\(c\)</span> is a constant. Let <span class="math inline">\(w_i=X^r_iu^s_i\)</span> and note that <span class="math inline">\(\{w_i\}\)</span> are i.i.d. The law of large numbers can then be used for the desired result if <span class="math inline">\(\E(w^2_i)&lt;\infty\)</span>, which is ensured by Assumption 3.</p>
 <p>Asymptotic distribution of <span class="math inline">\(\widehat{\beta}_0\)</span> can be obtained by following the similar steps. Below, we will provide the main points and avoid some of the details. Recall that <span class="math inline">\(\widehat{\beta}_0 = \bar{Y} - \widehat{\beta}_1 \bar{X}\)</span> and <span class="math display">\[
 \begin{align*}
 \widehat{\beta}_1 &amp;= \beta_1+\frac{\sum_{i=1}^n(X_i - \bar{X})(u_i-\bar{u})}{\sum_{i=1}^n(X_i - \bar{X})^2}=\beta_1+\frac{\sum_{i=1}^n(X_i-\bar{X})u_i}{\sum_{i=1}^n(X_i - \bar{X})^2}.
@@ -1247,11 +1247,11 @@ Y_i-\bar{Y}=\beta_1(X_i-\bar{X})+(u_i-\bar{u}).
 \begin{align}
 t=\frac{\hat{\beta}_1-c}{\hat{\sigma}_{\hat{\beta}_1}}=\frac{\sqrt{n}(\hat{\beta}_1-c)}{\sqrt{n\sigma^2_{\hat{\beta}_1}}}\div\sqrt{\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}}
 \end{align}
-\tag{25.6}\]</span></span> We proved that <span class="math inline">\(\sqrt{\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}}\xrightarrow{p}1\)</span>. Also, if <span class="math inline">\(H_0\)</span> holds, then it follows from <a href="#thm-thm25-1" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm25-1</span></a> that <span class="math inline">\(\frac{\sqrt{n}(\hat{\beta}_1-c)}{\sqrt{n\sigma^2_{\hat{\beta}_1}}}\xrightarrow{d}N(0,1)\)</span>. Then, it follows from Slutsky’s theorem that <span class="math inline">\(t\xrightarrow{d}N(0,1)\)</span>.</p>
+\tag{25.6}\]</span></span> We proved that <span class="math inline">\(\sqrt{\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}}\xrightarrow{p}1\)</span>. Also, if <span class="math inline">\(H_0\)</span> holds, then it follows from <a href="#thm-thm25-1" class="quarto-xref">Theorem&nbsp;<span>25.1</span></a> that <span class="math inline">\(\frac{\sqrt{n}(\hat{\beta}_1-c)}{\sqrt{n\sigma^2_{\hat{\beta}_1}}}\xrightarrow{d}N(0,1)\)</span>. Then, it follows from Slutsky’s theorem that <span class="math inline">\(t\xrightarrow{d}N(0,1)\)</span>.</p>
 </section>
 <section id="exact-sampling-distribution-of-the-ols-estimator" class="level2" data-number="25.6">
 <h2 data-number="25.6" class="anchored" data-anchor-id="exact-sampling-distribution-of-the-ols-estimator"><span class="header-section-number">25.6</span> Exact sampling distribution of the OLS estimator</h2>
-<p>In <a href="#thm-thm25-3" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm25-3</span></a>, we claim that the OLS estimator has an exact normal sampling distribution, and the homoskedasticity-only t-statistic has an exact Student t distribution. In this section, we will provide the proof of this result.</p>
+<p>In <a href="#thm-thm25-3" class="quarto-xref">Theorem&nbsp;<span>25.3</span></a>, we claim that the OLS estimator has an exact normal sampling distribution, and the homoskedasticity-only t-statistic has an exact Student t distribution. In this section, we will provide the proof of this result.</p>
 <p>We start with the following expression for <span class="math inline">\((\widehat{\beta}_1-\beta_1)\)</span>: <span class="math display">\[
 \begin{align}\label{eq14}
 \widehat{\beta}_1-\beta_1=\frac{\sum_{i=1}^n(X_i - \bar{X})u_i}{\sum_{i=1}^n(X_i - \bar{X})^2}
@@ -1282,18 +1282,18 @@ t&amp;=\frac{\hat{\beta}_1-c}{\sqrt{\widehat{\text{var}}(\hat{\beta}_1|X_1,\ldot
 </section>
 <section id="weighted-least-squares" class="level2" data-number="25.8">
 <h2 data-number="25.8" class="anchored" data-anchor-id="weighted-least-squares"><span class="header-section-number">25.8</span> Weighted least squares</h2>
-<p>The Gauss-Markov theorem stated in <a href="#thm-thm25-2" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm25-2</span></a> requires that the errors are homoskedastic. If the errors are heteroskedastic, then the OLS estimator is no longer the most efficient estimator. In this section, we will discuss the weighted least squares (WLS) estimator, which is can be efficient under heteroskedasticity.</p>
+<p>The Gauss-Markov theorem stated in <a href="#thm-thm25-2" class="quarto-xref">Theorem&nbsp;<span>25.2</span></a> requires that the errors are homoskedastic. If the errors are heteroskedastic, then the OLS estimator is no longer the most efficient estimator. In this section, we will discuss the weighted least squares (WLS) estimator, which is can be efficient under heteroskedasticity.</p>
 <section id="wls-with-known-heteroskedasticity" class="level3" data-number="25.8.1">
 <h3 data-number="25.8.1" class="anchored" data-anchor-id="wls-with-known-heteroskedasticity"><span class="header-section-number">25.8.1</span> WLS with known heteroskedasticity</h3>
 <p>We assume that the conditional variance of the errors is known up to a factor of proportionality. In other words, we assume that <span class="math inline">\(\text{var}(u_i|X_i)=\lambda h(X_i)\)</span> for <span class="math inline">\(i=1,\ldots,n\)</span>, where <span class="math inline">\(\lambda\)</span> is a constant and <span class="math inline">\(h(X_i)\)</span> is known. Under this assumption, we can express our linear regression model with one explanatory variable as <span id="eq-eq25-8"><span class="math display">\[
 \tilde{Y}_i=\beta_0\tilde{X}_{0i}+\beta_1\tilde{X}_{1i}+\tilde{u}_i,
 \tag{25.8}\]</span></span> where <span class="math inline">\(\tilde{Y}_i=Y_i/\sqrt{h(X_i)}\)</span>, <span class="math inline">\(\tilde{X}_{0i}=1/\sqrt{h(X_i)}\)</span>, <span class="math inline">\(\tilde{X}_{1i}=X_i/\sqrt{h(X_i)}\)</span>, and <span class="math inline">\(\tilde{u}_i=u_i/\sqrt{h(X_i)}\)</span>. Note that the conditional variance of <span class="math inline">\(\tilde{u}_i\)</span> is given by <span class="math display">\[
 \text{var}(\tilde{u}_i|\tilde{X}_{0i},\tilde{X}_{1i})=\frac{\text{var}(u_i|X_i)}{h(X_i)}=\lambda,
-\]</span> suggesting that <span class="math inline">\(\tilde{u}_i\)</span>’s are homoskedastic. The model in <a href="#eq-eq25-8" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq25-8</span></a> is a linear regression model with homoskedastic errors, and we can apply the OLS estimator to this model. The WLS estimator of <span class="math inline">\(\beta_1\)</span> is is the OLS estimator of <span class="math inline">\(\beta_1\)</span> based on the transformed model. Under the first three assumptions of the linear regression model and <span class="math inline">\(\text{var}(u_i|X_i)=\lambda h(X_i)\)</span>, the Gauss-Markov theorem ensures that the WLS estimator is BLUE.</p>
+\]</span> suggesting that <span class="math inline">\(\tilde{u}_i\)</span>’s are homoskedastic. The model in <a href="#eq-eq25-8" class="quarto-xref">Equation&nbsp;<span>25.8</span></a> is a linear regression model with homoskedastic errors, and we can apply the OLS estimator to this model. The WLS estimator of <span class="math inline">\(\beta_1\)</span> is is the OLS estimator of <span class="math inline">\(\beta_1\)</span> based on the transformed model. Under the first three assumptions of the linear regression model and <span class="math inline">\(\text{var}(u_i|X_i)=\lambda h(X_i)\)</span>, the Gauss-Markov theorem ensures that the WLS estimator is BLUE.</p>
 </section>
 <section id="wls-with-a-known-functional-form-for-heteroskedasticity" class="level3" data-number="25.8.2">
 <h3 data-number="25.8.2" class="anchored" data-anchor-id="wls-with-a-known-functional-form-for-heteroskedasticity"><span class="header-section-number">25.8.2</span> WLS with a known functional form for heteroskedasticity</h3>
-<p>In practice, we do not know the functional form of <span class="math inline">\(h(X_i)\)</span>, therefore the WLS approach based on <a href="#eq-eq25-8" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq25-8</span></a> is not feasible. However, if we know the functional form of <span class="math inline">\(h(X_i)\)</span>, we can use the WLS estimator based on the transformed model. For example, if we know that <span id="eq-eq25-9"><span class="math display">\[
+<p>In practice, we do not know the functional form of <span class="math inline">\(h(X_i)\)</span>, therefore the WLS approach based on <a href="#eq-eq25-8" class="quarto-xref">Equation&nbsp;<span>25.8</span></a> is not feasible. However, if we know the functional form of <span class="math inline">\(h(X_i)\)</span>, we can use the WLS estimator based on the transformed model. For example, if we know that <span id="eq-eq25-9"><span class="math display">\[
 \text{var}(u_i|X_i)=\lambda h(X_i)=\lambda_0+\lambda_1X^2_i,
 \tag{25.9}\]</span></span> where <span class="math inline">\(\lambda_0&gt;0\)</span>, and <span class="math inline">\(\lambda_1\geq0\)</span> are unknown parameters. Then, if we know the values of <span class="math inline">\(\lambda_0\)</span> and <span class="math inline">\(\lambda_1\)</span>, we can use the WLS estimator based on the transformed model as in the previous section.</p>
 <p>If we do not know the values of <span class="math inline">\(\lambda_0\)</span> and <span class="math inline">\(\lambda_1\)</span>, we can estimate them using the OLS estimator. Thus, the WLS estimation becomes feasible. The WLS estimator can be computed by the following steps:</p>
@@ -1301,13 +1301,13 @@ t&amp;=\frac{\hat{\beta}_1-c}{\sqrt{\widehat{\text{var}}(\hat{\beta}_1|X_1,\ldot
 <li>Estimate the OLS model using the original data to obtain <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span>.</li>
 <li>Compute the residuals <span class="math inline">\(\hat{u}_i=Y_i-\hat{\beta}_0-\hat{\beta}_1X_i\)</span>.</li>
 <li>Regress <span class="math inline">\(\hat{u}^2_i\)</span> on <span class="math inline">\(X^2_i\)</span> to obtain the predicted values of the conditional variance <span class="math inline">\(\widehat{\text{var}}(u_i|X_i)=\hat{\lambda}_0+\hat{\lambda}_1X^2_i\)</span>.</li>
-<li>Formulate the model in <a href="#eq-eq25-8" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq25-8</span></a> with <span class="math inline">\(\tilde{Y}_i=Y_i/\sqrt{\widehat{\text{var}}(u_i|X_i)}\)</span>, <span class="math inline">\(\tilde{X}_{0i}=1/\sqrt{\widehat{\text{var}}(u_i|X_i)}\)</span>, and <span class="math inline">\(\tilde{X}_{1i}=X_i/\sqrt{\widehat{\text{var}}(u_i|X_i)}\)</span>.</li>
+<li>Formulate the model in <a href="#eq-eq25-8" class="quarto-xref">Equation&nbsp;<span>25.8</span></a> with <span class="math inline">\(\tilde{Y}_i=Y_i/\sqrt{\widehat{\text{var}}(u_i|X_i)}\)</span>, <span class="math inline">\(\tilde{X}_{0i}=1/\sqrt{\widehat{\text{var}}(u_i|X_i)}\)</span>, and <span class="math inline">\(\tilde{X}_{1i}=X_i/\sqrt{\widehat{\text{var}}(u_i|X_i)}\)</span>.</li>
 <li>Estimate the transformed model using the OLS estimator to obtain the WLS estimator of <span class="math inline">\(\beta_1\)</span>.</li>
 </ol>
-<p>The WLS estimator computed in this way is usually called the feasible WLS estimator. The advantage of the feasible WLS estimator is that it is asymptotically efficient if the functional form of the conditional variance is correctly specified. The disadvantage is that it produces invalid inference if the functional form is misspecified. Since, in practice, the functional form is mostly unknown, <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="#ref-Stock2020" role="doc-biblioref">2020</a>)</span> concludes that “it is our opinion that, despite the theoretical appeal of WLS, heteroskedasticity-robust standard errors provide a better way to handle potential heteroskedasticity in most applications.”</p>
+<p>The WLS estimator computed in this way is usually called the feasible WLS estimator. The advantage of the feasible WLS estimator is that it is asymptotically efficient if the functional form of the conditional variance is correctly specified. The disadvantage is that it produces invalid inference if the functional form is misspecified. Since, in practice, the functional form is mostly unknown, <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span> concludes that “it is our opinion that, despite the theoretical appeal of WLS, heteroskedasticity-robust standard errors provide a better way to handle potential heteroskedasticity in most applications.”</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-Hansen2022" class="csl-entry" role="listitem">
 Hansen, Bruce. 2022a. <em>Econometrics</em>. Princeton University Press.
 </div>
