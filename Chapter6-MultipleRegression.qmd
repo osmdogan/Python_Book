@@ -14,9 +14,8 @@ from mpl_toolkits.mplot3d import Axes3D
 
 {{< include latex_macro.qmd >}}
 
-
 ## Omitted variable bias
-In a regression model of $Y$ on $X$, **omitted variable bias** occurs if the regressor $X$ is correlated with an omitted variable that determines $Y$.  Let $Z$ be a variable omitted from the regression model. Then, $Z$ causes omitted variable bias if $Z$ satisfies the following two conditions:
+In a regression model of $Y$ on $X$, **omitted variable bias** occurs if the regressor $X$ is correlated with an omitted variable that determines $Y$. Let $Z$ be a variable omitted from the regression model. Then, $Z$ causes omitted variable bias if $Z$ satisfies the following two conditions:
 
 - $Z$ is a determinant of $Y$ (i.e., $Z$ is part of $u$), and
 - $Z$ is correlated with the regressor $X$ (i.e., corr$(Z,X)\ne0$).
@@ -43,18 +42,18 @@ $$ {#eq-eq13-1}
 
 ::: {.callout-note icon=false}
 ## Key Concept 13.1: Omitted Variable Bias
-If $X$ is correlated with an omitted variable that affects $Y$, then the OLS estimator has omitted variable bias.  
+If $X$ is correlated with an omitted variable that affects $Y$, then the OLS estimator has omitted variable bias.
 
 * Omitted variable causes the OLS estimator to be biased and inconsistent. 
 * The bias is given by $\frac{\sigma_u}{\sigma_X}\times\rho_{Xu}$ and does not vanish even when the sample size is large.
-* The sign and magnitude  of bias depend on $\rho_{Xu}$. 
+* The sign and magnitude of bias depend on $\rho_{Xu}$. 
 :::
 
 ## The multiple regression model
 We can avoid omitted variable bias by extending the simple linear regression model to the multiple linear regression model that includes the omitted variable as an additional regressor. The multiple linear regression model with $k$ regressor is given by
 $$
 \begin{align}
-Y_i=\beta_0+\beta_1X_{1i}+\beta_2X_{2i}+\dots+\beta_kX_{ki}+u_i,\quad i=1,2,\dots,n,
+Y_i = \beta_0+\beta_1X_{1i}+\beta_2X_{2i}+\dots+\beta_kX_{ki}+u_i,\quad i=1,2,\dots,n,
 \end{align}
 $$
 where 
@@ -62,7 +61,7 @@ where
 * $Y_i$ is the $i$th observation on the dependent variable $Y$,
 * $(X_{1i},\dots,X_{ki})$ are the $i$th observations of the $k$ regressors $(X_{1},\dots,X_{k})$,
 * $\beta_0$ is the intercept parameter,
-* $\beta_1,\dots,\beta_k$ are slope coefficients associated with  $(X_{1},\dots,X_{k})$, and
+* $\beta_1,\dots,\beta_k$ are slope coefficients associated with $(X_{1},\dots,X_{k})$, and
 * $u_i$ is the $i$th error term.
 
 The population regression function is 
@@ -90,10 +89,10 @@ The OLS estimator can be obtained using the matrix calculus. In Chapter 26, we u
 
 The predicted values and residuals are defined similarly to the case of a linear regression model with only one regressor:
 
-*  The predicted value of $Y_i$ is $\hat{Y}_i=\hat{\beta}_0+\hat{\beta}_1X_{1i}+\dots+\hat{\beta}_kX_{ki}$ for $i=1,\dots,n$.
-*  The $i$th residual is $\hat{u}_i=Y_i-\hat{Y}_i$ for $i=1,\dots,n$.
+* The predicted value of $Y_i$ is $\hat{Y}_i=\hat{\beta}_0+\hat{\beta}_1X_{1i}+\dots+\hat{\beta}_kX_{ki}$ for $i=1,\dots,n$.
+* The $i$th residual is $\hat{u}_i=Y_i-\hat{Y}_i$ for $i=1,\dots,n$.
 
-In the following theorem, we state an alternative way for computing the OLS estimators.  
+In the following theorem, we state an alternative way for computing the OLS estimators.
 
 ::: {#thm-thm13.0}
 ## The Frisch–Waugh Theorem
@@ -106,9 +105,8 @@ The OLS estimators $\hat{\beta}_0, \dots, \hat{\beta}_k$ can alternatively be co
 
 The Frisch–Waugh theorem shows that by removing the variation associated with $X_1, \dots, X_{j-1}, X_{j+1}, \dots, X_k$ from both $X_j$ and $Y$ through the regressions in Steps 1 and 2, the final regression in Step 3 captures the effect of $X_j$ on $Y$ after accounting for the influence of the other regressors.
 
-
 ## Application to test scores and the student–teacher ratio
-We use the district-level test score data described in Chapter 11  to estimate the following models:
+We use the district-level test score data described in Chapter 11 to estimate the following models:
 $$
 \begin{align}
 &\text{TestScore}_i = \beta_0 + \beta_1 \text{STR}_i + u_i,\\
@@ -121,7 +119,7 @@ for $i=1,\dots,420$, where $\text{PctEL}_i$ is the percentage of English learner
 #| warning: false
 #| message: false
 # Import data
-mydata=pd.read_excel("data/caschool.xlsx")
+mydata = pd.read_excel("data/caschool.xlsx")
 ```
 
 ```{python}
@@ -129,18 +127,18 @@ mydata=pd.read_excel("data/caschool.xlsx")
 mydata.columns
 ```
 
-The `describe` method can be used to get descriptive statistics provided in @tbl-t13-1 on `str`, `el_pct`, and `testscr`.  
+The `describe` method can be used to get descriptive statistics provided in @tbl-t13-1 on `str`, `el_pct`, and `testscr`.
 
 :::{layout-ncol=1}
 ```{python}
 #| tbl-cap: Summary statistics
 #| label: tbl-t13-1
 # Summary statistics
-mydata[["str","el_pct", "testscr"]].round(3).describe().T
+mydata[["str", "el_pct", "testscr"]].round(3).describe().T
 ```
 :::
 
-In @tbl-t13-2, we provide sample correlation coefficients between variables. We see that  `PctEL` is negatively correlated with `testscr` and positively correlated with `str`.
+In @tbl-t13-2, we provide sample correlation coefficients between variables. We see that `PctEL` is negatively correlated with `testscr` and positively correlated with `str`.
 
 :::{layout-ncol=1}
 ```{python}
@@ -151,28 +149,28 @@ mydata[["str","el_pct", "testscr"]].corr()
 ```
 :::
 
-In the following code chunk, we  use the `smf.ols` function to estimate both models.
+In the following code chunk, we use the `smf.ols()` function to estimate both models.
 
 ```{python}
 # Estimation
-model1=smf.ols(formula='testscr~str',data=mydata)
-result1=model1.fit()
-model2=smf.ols(formula='testscr~str+el_pct',data=mydata)
-result2=model2.fit()
+model1 = smf.ols(formula='testscr~str', data=mydata)
+result1 = model1.fit()
+model2 = smf.ols(formula='testscr~str+el_pct', data=mydata)
+result2 = model2.fit()
 ```
 
-Using the `summary_col` function from the `statsmodels.iolib.summary2`, we can present the estimation results contained in `result1` and `result2` as shown in @tbl-t13-3. 
+Using the `summary_col()` function from the `statsmodels.iolib.summary2`, we can present the estimation results contained in `result1` and `result2` as shown in @tbl-t13-3. 
 
 :::{layout-ncol=1}
 ```{python}
 #| tbl-cap: "Estimation Results"
 #| label: tbl-t13-3
 # Print results in table form
-models=['Model 1', 'Model 2']
-results_table=summary_col(results=[result1,result2],
-                          float_format='%0.3f', 
-                          stars=True,
-                          model_names=models)
+models = ['Model 1', 'Model 2']
+results_table = summary_col(results=[result1, result2],
+                            float_format='%0.3f', 
+                            stars=True,
+                            model_names=models)
 results_table
 ```
 :::
@@ -180,32 +178,31 @@ results_table
 Using the estimation results in @tbl-t13-3, we can write the estimated regression equations as
 $$
 \begin{align*}
-&\text{Model 1}:\widehat{TestScore}=698.9-2.280\times STR,\\
+&\text{Model 1}: \widehat{TestScore}=698.9-2.280\times STR,\\
 &\text{Model 2}: \widehat{TestScore}=686-1.10\times STR-0.65\times PctEL.
 \end{align*}
 $$
 
 The estimate $\hat{\beta}_1=-1.10$ in Model 2 indicates that when `STR` increases by one student, the test score on average declines by 1.10 points, holding `PctEL` constant. The estimate $\hat{\beta}_2=-0.65$ in Model 2 shows that one percent increase in `PctEL` reduces the test score on average by $0.65$ points, holding `STR` constant. Note that the estimate $\hat{\beta}_1=-2.280$ in Model 1 is approximately twice as small as the estimate $\hat{\beta}_1=-1.10$ in Model 2, indicating that Model 1 suffers from omitted variable bias. 
 
-
 ## Measures of fit
 In this section, we provide four measures of fit for the multiple linear regression model: (i) the standard error of the regression, (ii) the root mean square errors, (ii) the regression $R^2$, and (iv) the adjusted $R^2$. 
 
 The **standard error of the regression** (SER) is the estimator of the standard deviation of the error term. It is calculated based on the standard deviation of the residuals:
 $$
-\text{SER}=s_{\hat{u}}=\sqrt{\frac{1}{n-k-1}\sum_{i=1}^n\hat{u}^2_i}=\sqrt{\frac{1}{n-k-1}SSR},
+\text{SER} = s_{\hat{u}}=\sqrt{\frac{1}{n-k-1}\sum_{i=1}^n\hat{u}^2_i} = \sqrt{\frac{1}{n-k-1}SSR},
 $$
 
 where $SSR$ is the sum of squared residuals $SSR=\sum_{i=1}^n\hat{u}^2_i$ and $k$ is the number of regressors in the model. The **root mean square errors**  (RMSE) is defined by 
 $$
-RMSE=\sqrt{\frac{1}{n}SSR}.
+RMSE = \sqrt{\frac{1}{n}SSR}.
 $$
 Both SER and RMSE are measures of the spread of the distribution of $Y$ around the regression line. Equivalently, since $\hat{u}_i=Y_i-\hat{Y}_i$, we can interpret SER and RMSE as measures of the spread of the distribution of the prediction errors. The smaller the SER and RMSE, the better the fit of the regression model.
 
 The $R^2$ shows the fraction of the sample variance of $Y$ explained by the regressors. It is given by
 $$
 \begin{align*}
-R^2=\frac{ESS}{TSS}=1-\frac{SSR}{TSS},
+R^2 = \frac{ESS}{TSS} = 1-\frac{SSR}{TSS},
 \end{align*}
 $$
 
@@ -222,17 +219,17 @@ $$
 \end{align*}
 $$
 
-Note that $\bar{R}^2< R^2$, but if $n$ is large, the two will be very close because $(n-1)/(n-k-1)$ approaches one as $n$ increases. Also, adding a new regressor to the model affects $\bar{R}^2$ in two opposing directions. On the one hand, the new regressor decreases the $SSR$, which tends to increase $\bar{R}^2$. On the other hand, the factor $(n-1)(n-k-1)$ increases, which tends to reduce $\bar{R}^2$. Therefore, the net effect on $\bar{R}^2$ depends on which of these two effects is relatively larger.   
+Note that $\bar{R}^2< R^2$, but if $n$ is large, the two will be very close because $(n-1)/(n-k-1)$ approaches one as $n$ increases. Also, adding a new regressor to the model affects $\bar{R}^2$ in two opposing directions. On the one hand, the new regressor decreases the $SSR$, which tends to increase $\bar{R}^2$. On the other hand, the factor $(n-1)(n-k-1)$ increases, which tends to reduce $\bar{R}^2$. Therefore, the net effect on $\bar{R}^2$ depends on which of these two effects is relatively larger.
 
-The results in @tbl-t13-3 show that including `PctEL` in the regression increases the $R^2$ from $0.051$ to $0.426$. Thus, including `PctEL` substantially improves the fit of the regression. Because $n$ is large and we have only two regressors, the difference between $R^2$ and $\bar{R}^2$ is very small: $R^2 = 0.426$ vs. $\bar{R}^2 = 0.424$.  Note that @tbl-t13-3 does not include the SER measures. In the following code chunk, we compute the SER measures for both models.
+The results in @tbl-t13-3 show that including `PctEL` in the regression increases the $R^2$ from $0.051$ to $0.426$. Thus, including `PctEL` substantially improves the fit of the regression. Because $n$ is large and we have only two regressors, the difference between $R^2$ and $\bar{R}^2$ is very small: $R^2 = 0.426$ vs. $\bar{R}^2 = 0.424$. Note that @tbl-t13-3 does not include the SER measures. In the following code chunk, we compute the SER measures for both models.
 
 ```{python}
 # Computing SER for both models
-SER1=np.sqrt(np.sum(result1.resid**2)/result1.df_resid)
-SER2=np.sqrt(np.sum(result2.resid**2)/result2.df_resid)
+SER1 = np.sqrt(np.sum(result1.resid**2) / result1.df_resid)
+SER2 = np.sqrt(np.sum(result2.resid**2) / result2.df_resid)
 # Print the SER values
-print("The SER for Model 1 is:", np.round(SER1,1))
-print("The SER for Model 2 is:", np.round(SER2,1))
+print("The SER for Model 1 is:", np.round(SER1, 1))
+print("The SER for Model 2 is:", np.round(SER2, 1))
 ```
 
 The SER value $18.6$ falls to $14.5$ when `PctEL` is included as a second regressor into the model. Finally, in the following code chunk, we compute these measures of fit manually for the second model. The results are given in @tbl-t13-t4.
@@ -241,17 +238,17 @@ The SER value $18.6$ falls to $14.5$ when `PctEL` is included as a second regres
 # Computing SER, RMSE, R^2, and adjusted R^2 for the second model
 n = result2.nobs
 k = result2.k_constant
-y_mean = np.mean(mydata["testscr"])  # mean of avg. test-scores
+y_mean = np.mean(mydata["testscr"]) # mean of avg. test-scores
 
 SSR = np.sum(result2.resid**2)
 TSS = np.sum((mydata["testscr"] - y_mean) ** 2)
 ESS = np.sum((result2.fittedvalues - y_mean) ** 2)
 
 # Compute measures
-SER = np.sqrt(SSR/(n - k - 1))  
+SER = np.sqrt(SSR/(n - k - 1))
 RMSE = np.sqrt(SSR/n)
-Rsq = 1 - (SSR / TSS)  
-adj_Rsq = 1 - ((n - 1) / (n - k - 1)) * SSR / TSS  
+Rsq = 1 - (SSR / TSS)
+adj_Rsq = 1 - ((n - 1) / (n - k - 1)) * SSR / TSS
 
 # Print measures
 fit_measures = pd.DataFrame([SER, RMSE, Rsq, adj_Rsq], 
@@ -267,7 +264,7 @@ fit_measures
 ```
 
 ## The least squares assumptions for causal inference in multiple regression
-In this section, we provide the least squares assumptions for the multiple linear regression model. As in the case of the linear regression model with one regressor, these assumptions ensure that the OLS estimator has the desired properties. First, these assumptions ensure that the OLS estimator is unbiased, consistent, and has an asymptotic normal distribution. Second, under these assumptions, the OLS estimates of the slope coefficients provide the estimated causal effects of the regressors on the dependent variable. We list these assumptions below.   
+In this section, we provide the least squares assumptions for the multiple linear regression model. As in the case of the linear regression model with one regressor, these assumptions ensure that the OLS estimator has the desired properties. First, these assumptions ensure that the OLS estimator is unbiased, consistent, and has an asymptotic normal distribution. Second, under these assumptions, the OLS estimates of the slope coefficients provide the estimated causal effects of the regressors on the dependent variable. We list these assumptions below. 
 
 ::: {.callout-important icon=false}
 ## The least squares assumptions for multiple regression
@@ -287,12 +284,12 @@ The fourth assumption is new and rules out perfect multicollinearity. In a multi
 
 ::: {#thm-thm13-1}
 ## Properties of OLS Estimators
-Under the four least squares assumptions, we have $\E(\hat{\beta}_j) = \beta_j$ for $j=1,\dots,k$, i.e, the OLS estimators are **unbiased**. As $n\to\infty$, $\hat{\beta}_0,\dots,\hat{\beta}_k$  are consistent and have a joint multivariate normal distribution. 
+Under the four least squares assumptions, we have $\E(\hat{\beta}_j) = \beta_j$ for $j=1,\dots,k$, i.e, the OLS estimators are **unbiased**. As $n\to\infty$, $\hat{\beta}_0,\dots,\hat{\beta}_k$ are consistent and have a joint multivariate normal distribution. 
 :::
 
 According to @thm-thm13-1, the OLS estimators $\hat{\beta}_0, \dots, \hat{\beta}_k$ satisfy three properties: (i) unbiasedness, (ii) consistency, and (iii) asymptotic joint normality. In the following simulation study, we use simulated data to show that these properties hold when $n$ is large enough. We assume that the dependent variable is generated according too
 $$
-Y_i=\beta_0+\beta_1X_{1i}+\beta_2X_{2i}+u_i,
+Y_i = \beta_0+\beta_1X_{1i}+\beta_2X_{2i}+u_i,
 $$
 where $\beta_0=0.5$, $\beta_1=1.5$, $\beta_2=1$ and $u_i\sim t_3$. For the regressors, we assume that they are generated from the following bivariate normal distribution:
 $$
@@ -331,9 +328,9 @@ for i in range(n_simulations):
     Y = 0.5 + 1.5 * X[:, 0] + 1 * X[:, 1] + u
     
     # Fit linear regression using statsmodels
-    X_with_const = sm.add_constant(X)  # Add constant term for intercept
+    X_with_const = sm.add_constant(X) # Add constant term for intercept
     model = sm.OLS(Y, X_with_const).fit()
-    coefs[i, :] = model.params  # Store the coefficients
+    coefs[i, :] = model.params # Store the coefficients
 ```
 
 ```{python}
@@ -404,7 +401,6 @@ ax4.view_init(elev=30, azim=220)
 # Adjust layout for better spacing
 plt.tight_layout()
 plt.show()
-
 ```
 
 ## Multicollinearity
@@ -413,14 +409,14 @@ When there is an exact linear relationship between regressors, we say there is p
 
 The perfect multicollinearity among the dummy variables is called the **dummy variable trap**. To illustrate the dummy variable trap, we use the data set contained in the `ch8_cps.xlsx` file. This data set includes the following variables. 
 
-- `Female`: 1 if female; 0 if male  
-- ` Age`: Age (in Years)  
-- `Ahe`: Average Hourly Earnings in 2015  
+- `Female`: 1 if female; 0 if male
+- ` Age`: Age (in Years)
+- `Ahe`: Average Hourly Earnings in 2015
 - ` Yrseduc`: Years of Education 
 - `Northeast`: 1 if from the Northeast, 0 otherwise 
-- `Midwest`:  1 if from the Midwest, 0 otherwise  
-- `South`: 1 if from the South, 0 otherwise  
-- `West`: 1 if from the West, 0 otherwise  
+- `Midwest`: 1 if from the Midwest, 0 otherwise
+- `South`: 1 if from the South, 0 otherwise
+- `West`: 1 if from the West, 0 otherwise
 
 Note that there are four regional dummy variables, denoted by `Northeast`, `Midwest`, `South`, and `West`. We consider the following regression model:
 $$
@@ -440,7 +436,7 @@ To resolve this, we will treat the last dummy variable as the **base category** 
 We use the following code chunks to import the data. @tbl-t13-5 provides summary statistics.
 ```{python}
 # Import data
-mydata=pd.read_excel("data/ch8_cps.xlsx")
+mydata = pd.read_excel("data/ch8_cps.xlsx")
 # Display column names
 mydata.columns
 ```
@@ -457,8 +453,9 @@ mydata.round(3).describe().T
 In the following, we use the `smf.ols` function from the `statsmodels.formula.api` module to estimate the regression model. 
 ```{python}
 # Estimation
-model3=smf.ols(formula='ahe ~ yrseduc + female + northeast + midwest + south',data=mydata)
-result3=model3.fit()
+model3 = smf.ols(formula='ahe ~ yrseduc + female + northeast + midwest + south',
+                 data=mydata)
+result3 = model3.fit()
 ```
 
 The estimation results contained in the `result3` object are shown in @tbl-t13-6. The coefficient on each dummy variable shows the average difference in the dependent variable relative to the base category. For example, the estimated coefficient on `northeast` is 1.105, meaning that, holding the other variables constant, a person living in the Northeast region earns, on average, 1.105 more dollars hourly than a person living in the West (the base category). 
@@ -470,20 +467,19 @@ The estimated coefficient on `female` is $-6.367$. This estimate indicates that 
 #| tbl-cap: "The dummy variable trap"
 #| label: tbl-t13-6
 # Print results in table form
-models=['Model 3']
-results_table=summary_col(results=[result3],
-                          float_format='%0.3f', 
-                          stars=True,
-                          model_names=models)
+models = ['Model 3']
+results_table = summary_col(results=[result3],
+                            float_format='%0.3f', 
+                            stars=True,
+                            model_names=models)
 results_table
 ```
 :::
 
-
 ## Control variables and conditional mean independence
 In this section, we divide the regressors into two groups. The first group includes the variables of interest, denoted by $X_1, \dots, X_k$. We aim to measure the causal effects of these variables on the dependent variable. The second group of regressors includes control variables, denoted by $W_1, \dots, W_r$. A **control variable** is a regressor that accounts for an omitted factor affecting the dependent variable. Thus, our multiple linear regression model with control variables can be written as
 $$
-Y_i=\beta_0+\beta_1X_{1i}+\dots+\beta_k X_{ki}+\beta_{k+1}W_{1i}+\dots+\beta_{k+r}W_{ri}+u_i,
+Y_i = \beta_0+\beta_1X_{1i}+\dots+\beta_k X_{ki}+\beta_{k+1}W_{1i}+\dots+\beta_{k+r}W_{ri}+u_i,
 $${#eq-eq13-2}
 for $i=1,\dots,n$. We consider this regression model under the following assumptions.
 
@@ -499,7 +495,7 @@ Except for the first assumption, all other assumptions are simple adjustments of
 
 ::: {#thm-thm13.3}
 ## The OLS estimators in multiple regression with control variables
-Under the least squares assumptions for causal inference in the multiple regression model with control variables, the OLS estimators $\hat{\beta}_0, \dots, \hat{\beta}_k$ are unbiased, consistent, and have an asymptotic joint normal distribution.  
+Under the least squares assumptions for causal inference in the multiple regression model with control variables, the OLS estimators $\hat{\beta}_0, \dots, \hat{\beta}_k$ are unbiased, consistent, and have an asymptotic joint normal distribution.
 :::
 
 ::: {.proof}
@@ -511,7 +507,7 @@ $$
 & = \gamma_0 + \gamma_1W_{1i} +\dots+\gamma_k W_{ki},
 \end{align}
 $$
-where $\gamma$'s  are unknown coefficients. That is, we assume that $\E\left(u_i|W_{1i},\dots,W_{ri}\right)$ is a linear function of the control variables. Then, taking the conditional expectation of @eq-eq13-2 with respect to $X_{1i},X_{i2},\dots,X_{ik},W_{1i},\dots,W_{ri}$, we obtain
+where $\gamma$'s are unknown coefficients. That is, we assume that $\E\left(u_i|W_{1i},\dots,W_{ri}\right)$ is a linear function of the control variables. Then, taking the conditional expectation of @eq-eq13-2 with respect to $X_{1i},X_{i2},\dots,X_{ik},W_{1i},\dots,W_{ri}$, we obtain
 $$
 \begin{align}
 &\E\left(Y_i|X_{1i},X_{i2},\dots,X_{ik},W_{1i},\dots,W_{ri}\right)\\

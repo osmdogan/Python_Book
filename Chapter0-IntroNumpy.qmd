@@ -25,6 +25,7 @@ x = [0.0, 1, 2, 3, 4]
 y = np.array(x)
 type(y)
 ```
+
 ```{python}
 y
 ```
@@ -34,17 +35,13 @@ Attributes of an array includes `ndim` (the number of dimension), `shape` (the s
 ```{python}
 y = np.array([0.0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 y
-# The size of each dimension
-y.shape
-# The number of dimensions
-y.ndim
-# The total number of elements
-y.size
-# The data type of the elements
-y.dtype
+y.shape # The size of each dimension
+y.ndim  # The number of dimensions
+y.size  # The total number of elements
+y.dtype # The data type of the elements
 ```
 
-We can create row vectors from 1-dimensional arrays. For example, $x=[1,2,3]$ can be entered as 
+We can create row vectors from 1-dimensional arrays. For example, $x = [1,2,3]$ can be entered as 
 ```{python}
 x = np.array([1, 2, 3])
 x
@@ -71,7 +68,7 @@ x.ndim
 x.size
 ```
 
-Matrices are two dimensional arrays. Matrices follow the rules of linear algebra. We can use the `np.matrix` function on an array-like objects to create matrices. Alternatively, the `np.mat` or `np.asmatrix` functions can be used to coerce an array into a matrix.
+Matrices are two dimensional arrays. Matrices follow the rules of linear algebra. We can use the `np.matrix()` function on an array-like objects to create matrices. Alternatively, the `np.mat()` or `np.asmatrix()` functions can be used to coerce an array into a matrix.
 
 ```{python}
 # A 1x3 matrix
@@ -118,7 +115,6 @@ y
 y.shape
 y.ndim
 ```
-
 
 ## Special arrays
 Some useful functions to create special arrays are listed below. 
@@ -238,28 +234,35 @@ x = np.array([1.0, 2.0, 3.0, 4.0, 5.0])
 y = x[:]
 y
 ```
+
 ```{python}
 y = x[:2] # first two elements
 y
 ```
+
 ```{python}
 x[3:]  # elements after index 3
 ```
+
 ```{python}
 y = x[1::2]  # every second element, starting at index 1
 y
 ```
+
 ```{python}
 y = np.array([[0.0, 1, 2, 3, 4], [5, 6, 7, 8, 9]])
 y
 y[:1, :]  # first row, all columns
 ```
+
 ```{python}
 y[:, :1]  # all rows, first column
 ```
+
 ```{python}
 y[:1, 0:3]  # Row 0, columns 0 to 2
 ```
+
 ```{python}
 y[:, 3:]  # All rows, columns 3 and 4
 ```
@@ -306,7 +309,7 @@ x * 2  # element-wise squaring
 ```{python}
 z = np.matrix([[1, 2, 4], [5, 7, 10]])
 z
-np.transpose(z)  # using the np.transpose function
+np.transpose(z)  # using the np.transpose() function
 ```
 
 ```{python}
@@ -380,8 +383,6 @@ np.diff(x, axis=0)  # difference across rows
 np.diff(x, 2, axis=0)  # Double difference across axis 0
 ```
 
-
-
 ## Arrays and matrix functions
 Some useful array functions are listed below:
 
@@ -394,7 +395,7 @@ Some useful array functions are listed below:
 * `np.tile()`: Replicates an array according to a specified size vector.
 * `np.ravel(x)`, `x.ravel()`: Returns a flattened view (1-dimensional) of the array or matrix.
 * `x.flatten`: Works like `ravel` except that it copies the array when producing the flattened version.
-*  `x.flat`: Poduces a `np.flatiter` object (flat iterator) which is an iterator over a flattened view of an array.
+* `x.flat`: Poduces a `np.flatiter` object (flat iterator) which is an iterator over a flattened view of an array.
 * `np.vstack()`, `np.hstack()`: Stack arrays vertically or horizontally, respectively.
 * `np.concatenate()`: Concatenates arrays along a specified axis.
 * `np.split()`, `np.vsplit()`, `np.hsplit()`: Split arrays vertically or horizontally.
@@ -428,6 +429,7 @@ type(z)
 x = np.array([[1, 2], [3, 4]])
 x
 ```
+
 ```{python}
 # Convert x to a 4x1 array
 y = np.reshape(x, (4, 1))
@@ -439,6 +441,7 @@ y
 z = np.reshape(y, (1, 4))  # return 1 by 4 array
 z
 ```
+
 ```{python}
 # Convert z to a 2x2 array
 w = np.reshape(z, (2, 2))
@@ -473,7 +476,6 @@ z
 y = np.vstack((z, z))  # stacks z 2-times vertically
 y
 ```
-
 
 ```{python}
 # Vertical splitting
@@ -512,13 +514,12 @@ x = np.array([[1, 2], [3, 4]])
 np.tril(x)  # lower triangular part
 ```
 
-
 ## Rounding functions
 NumPy offers several functions for rounding:
 
-* `np.around`: Rounds to the nearest integer (or to a specified number of decimals).
-* `np.floor`: Rounds down to the nearest integer (i.e., the largest integer less than or equal to the input).
-* `np.ceil`: Rounds up to the nearest integer (i.e., the smallest integer greater than or equal to the input).
+* `np.around()`: Rounds to the nearest integer (or to a specified number of decimals).
+* `np.floor()`: Rounds down to the nearest integer (i.e., the largest integer less than or equal to the input).
+* `np.ceil()`: Rounds up to the nearest integer (i.e., the smallest integer greater than or equal to the input).
 
 ```{python}
 # Generate a 2x3 array of draws from N(0,1)
@@ -593,17 +594,16 @@ np.sort(x)  # does not change x
 x
 ```
 
-
 ```{python}
 x = np.random.randn(3, 4)
 x
 ```
 
 ```{python}
-np.amax(x)  # maximum element
-x.max()  # maximum element
-x.max(0)  # maximum element across rows
-x.max(1)  # maximum element across columns
+np.amax(x) # maximum element
+x.max()    # maximum element
+x.max(0)   # maximum element across rows
+x.max(1)   # maximum element across columns
 ```
 
 ```{python}
@@ -620,10 +620,10 @@ x
 ```
 
 ```{python}
-np.max(x)  # return nan
-np.nanmax(x)  # ignore nan value
-np.sum(x)  # return nan
-np.nansum(x)  # ignore nan value
+np.max(x)    # return nan
+np.nanmax(x) # ignore nan value
+np.sum(x)    # return nan
+np.nansum(x) # ignore nan value
 ```
 
 ## Linear algebra functions
@@ -632,7 +632,7 @@ The linear algebra functions are provided in the `linalg` module. For more infor
 * `np.linalg.matrix_power(A, n)`: Raises the square matrix A to the integer power n.
 * `np.linalg.svd(A)`: Computes the singular value decomposition of matrix A.
 * `np.linalg.cond(A)`: Computes the condition number of matrix A.
-* `np.linalg.slogdet()`: Computes the sign and logarithm of the absolute value of the determinant of a square matrix A.
+* `np.linalg.slogdet(A)`: Computes the sign and logarithm of the absolute value of the determinant of a square matrix A.
 * `np.linalg.solve(X, y)`: Solves $X\beta=y$ for $\beta$ when $X$ is invertible.
 * `np.linalg.lstsq(X, y)`: Returns the least squared solution of $y=X\beta$.
 * `np.linalg.cholesky(A)`: Returns the Cholesky decomposition of A.

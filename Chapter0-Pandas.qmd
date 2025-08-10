@@ -89,14 +89,14 @@ In the following examples, we create Series from a tuple and a dictionary, respe
 
 ```{python}
 # Creating a series from a tuple
-a=(1,2,3,4,'abs',np.NaN)
-s2=pd.Series(a)
+a = (1, 2, 3, 4, 'abs', np.nan)
+s2 = pd.Series(a)
 s2
 ```
 
 ```{python}
 # Creating a series from a dictionary
-s3=pd.Series({'a': 0.1, 'b': 1.2, 'c': 2.3})
+s3 = pd.Series({'a': 0.1, 'b': 1.2, 'c': 2.3})
 s3
 ```
 
@@ -104,7 +104,7 @@ Finally, we can create a Series from a list. The index is automatically generate
 ```{python}
 # Creating a series from a list
 c = [0.1, 1.2, 2.3, 3.4, 4.5]
-s4=pd.Series(c)
+s4 = pd.Series(c)
 s4
 ```
 
@@ -319,7 +319,7 @@ There are three ways to delete columns from a DataFrame: (i) using the `drop(lis
 # Using the drop method to remove a column
 df = CAschool[['str', 'read_scr', 'math_scr']].copy()
 # Drop  the str column
-df.drop('str',axis=1).head()
+df.drop('str', axis=1).head()
 ```
 
 ```{python}
@@ -330,7 +330,6 @@ df.head()
 ```
 
 Note that the `drop` method creates a new DataFrame unless we specify `inplace=True`, while `del` modifies the DataFrame in place.
-
 
 Finally, in @tbl-t7.2, we list some useful methods for DataFrame objects.
 

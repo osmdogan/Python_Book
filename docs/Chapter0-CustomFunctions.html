@@ -161,6 +161,7 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Econometrics with Python</a> 
         <div class="sidebar-tools-main">
+    <a href="https://github.com/osmdogan/Python_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -459,7 +460,7 @@ window.Quarto = {
   <li><a href="#defining-functions" id="toc-defining-functions" class="nav-link" data-scroll-target="#defining-functions"><span class="header-section-number">4.2</span> Defining functions</a></li>
   <li><a href="#anonymous-functions" id="toc-anonymous-functions" class="nav-link" data-scroll-target="#anonymous-functions"><span class="header-section-number">4.3</span> Anonymous functions</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/Chapter0-CustomFunctions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -486,7 +487,7 @@ window.Quarto = {
 <section id="introduction" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">4.1</span> Introduction</h2>
 <p>Custom functions are user-defined functions created to automate specific tasks. In this section, we show how to define custom functions in Python.</p>
-<div id="b2323b45" class="cell" data-execution_count="1">
+<div id="05bb79ee" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><span class="math display">\[
@@ -507,15 +508,15 @@ window.Quarto = {
 <section id="defining-functions" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="defining-functions"><span class="header-section-number">4.2</span> Defining functions</h2>
 <p>The following syntax can be used to declare a function in Python:</p>
-<div id="0ff9140c" class="cell" data-execution_count="3">
+<div id="f16a0754" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> function_name(arguments):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""docstring"""</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    statements</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> expression_list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>A function is defined using the <code>def</code> keyword, and its output is returned with the <code>return</code> keyword. The function name, <code>function_name</code>, is user-defined. The <code>arguments</code> are supplied by the user and represent the inputs required to generate the result (output). Inside the function, a <code>docstring</code> (enclosed in triple quotes) can be included to describe the purpose of the function, its inputs, and outputs. Although optional, the docstring is helpful for documentation and can be accessed via <code>help(function_name)</code>. The <code>statements</code> are the set of Python commands that form the function’s body and ultimately produce the <code>expression_list</code>, which represents the function’s output.</p>
-<p>Consider the <span class="math inline">\(L_p\)</span> distance between two vectors <span class="math inline">\(x=(x_1,\dots,x_n)^{'}\)</span> and <span class="math inline">\(y=(y_1,\dots,y_n)^{'}\)</span> defined by <span class="math inline">\(d_p(x,y)=\left(\sum_{i=1}^n|x_i-y_i|^p\right)^{1/p}\)</span>. In the following example, we define the <code>Lp_norm</code> function that returns <span class="math inline">\(d_p(x,y)\)</span>.</p>
-<div id="dd153b73" class="cell" data-execution_count="4">
+<p>Consider the <span class="math inline">\(L_p\)</span> distance between two vectors <span class="math inline">\(x=(x_1,\dots,x_n)^{'}\)</span> and <span class="math inline">\(y=(y_1,\dots,y_n)^{'}\)</span> defined by <span class="math inline">\(d_p(x,y)=\left(\sum_{i=1}^n|x_i-y_i|^p\right)^{1/p}\)</span>. In the following example, we define the <code>Lp_norm()</code> function that returns <span class="math inline">\(d_p(x,y)\)</span>.</p>
+<div id="6370575f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Lp_norm(x, y, p):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the L_p distance between two vectors.</span></span>
@@ -539,8 +540,8 @@ window.Quarto = {
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> (np.<span class="bu">sum</span>(np.<span class="bu">abs</span>(x <span class="op">-</span> y) <span class="op">**</span> p)) <span class="op">**</span> (<span class="dv">1</span> <span class="op">/</span> p)</span>
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The <code>docstring</code> can be accessed using the <code>help</code> function, as shown below:</p>
-<div id="f2b225f6" class="cell" data-execution_count="5">
+<p>The <code>docstring</code> can be accessed using the <code>help()</code> function, as shown below:</p>
+<div id="628387f8" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(Lp_norm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Help on function Lp_norm in module __main__:
@@ -561,8 +562,8 @@ Lp_norm(x, y, p)
 </code></pre>
 </div>
 </div>
-<p>We use the name of the function, <code>Lp_norm</code>, to call the function. The inputs to the function are passed as arguments in the order they are defined in the function declaration. In this case, <code>x</code> and <code>y</code> are the vectors, and <code>p</code> is the order of the norm. The function returns a single output, which is the <span class="math inline">\(L_p\)</span> distance between the two vectors.</p>
-<div id="0cad8756" class="cell" data-execution_count="6">
+<p>We use the name of the function, <code>Lp_norm()</code>, to call the function. The inputs to the function are passed as arguments in the order they are defined in the function declaration. In this case, <code>x</code> and <code>y</code> are the vectors, and <code>p</code> is the order of the norm. The function returns a single output, which is the <span class="math inline">\(L_p\)</span> distance between the two vectors.</p>
+<div id="ce5c6371" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Call the  lp_norm function</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.randn(<span class="dv">10</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.randn(<span class="dv">10</span>)</span>
@@ -571,14 +572,14 @@ Lp_norm(x, y, p)
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>z2 <span class="op">=</span> Lp_norm(p<span class="op">=</span><span class="dv">2</span>, x<span class="op">=</span>x, y<span class="op">=</span>y)  <span class="co"># changing the order of inputs</span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>z2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
-<pre><code>4.055487952912897</code></pre>
+<pre><code>np.float64(3.444817787037608)</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="5">
-<pre><code>4.055487952912897</code></pre>
+<pre><code>np.float64(3.444817787037608)</code></pre>
 </div>
 </div>
 <p>If there are multiple outputs to return, we can return these outputs in tuple form, as shown in the following example:</p>
-<div id="e44272a8" class="cell" data-execution_count="7">
+<div id="97add2c4" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> L12_norm(x, y):</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the L1 and L2 distances between two vectors.</span></span>
@@ -605,7 +606,7 @@ Lp_norm(x, y, p)
 <span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    d2 <span class="op">=</span> (np.<span class="bu">sum</span>(np.<span class="bu">abs</span>(x <span class="op">-</span> y) <span class="op">**</span> <span class="dv">2</span>)) <span class="op">**</span> (<span class="dv">1</span> <span class="op">/</span> <span class="dv">2</span>)  <span class="co"># L2 distance</span></span>
 <span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (d1, d2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f6dd0b43" class="cell" data-execution_count="8">
+<div id="8157134a" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(L12_norm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Help on function L12_norm in module __main__:
@@ -630,7 +631,7 @@ L12_norm(x, y)
 </code></pre>
 </div>
 </div>
-<div id="e5af6bd7" class="cell" data-execution_count="9">
+<div id="5ea8c2a5" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Call the l1_l2_norm function</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.randn(<span class="dv">10</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.randn(<span class="dv">10</span>)</span>
@@ -639,22 +640,22 @@ L12_norm(x, y)
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The L1 distance is "</span>, z[<span class="dv">0</span>])</span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The L2 distance is "</span>, z[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>(7.6115456141184, 2.734375346437689)</code></pre>
+<pre><code>(np.float64(15.005953608196968), np.float64(5.740113334462368))</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>The L1 distance is  7.6115456141184
-The L2 distance is  2.734375346437689</code></pre>
+<pre><code>The L1 distance is  15.005953608196968
+The L2 distance is  5.740113334462368</code></pre>
 </div>
 </div>
 <p>Default values are set in the function declaration using the syntax <code>parameter=default</code>. By using default values, we can call a function with fewer arguments than it is defined to accept. In the following example, the default value of <code>p</code> is set to 2.</p>
-<div id="c690e388" class="cell" data-execution_count="10">
+<div id="1cf963e0" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting default values</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Lp_norm(x, y, p<span class="op">=</span><span class="dv">2</span>):</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> (np.<span class="bu">sum</span>(np.<span class="bu">abs</span>(x <span class="op">-</span> y) <span class="op">**</span> p)) <span class="op">**</span> (<span class="dv">1</span> <span class="op">/</span> p)</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The default value can be overridden by passing a different value for <code>p</code> when calling the function. If no value is provided, the function will use the default value of 2.</p>
-<div id="a3753328" class="cell" data-execution_count="11">
+<div id="5b978ebd" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Call the lp_norm function</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.randn(<span class="dv">10</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.randn(<span class="dv">10</span>)</span>
@@ -663,27 +664,27 @@ The L2 distance is  2.734375346437689</code></pre>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>L1 <span class="op">=</span> Lp_norm(x, y, <span class="dv">1</span>)</span>
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The L1 and L2 distances are "</span>, (L1, L2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>The L1 and L2 distances are  (7.252603492820245, 3.306406432202447)</code></pre>
+<pre><code>The L1 and L2 distances are  (np.float64(12.755473939079131), np.float64(5.0613738324220705))</code></pre>
 </div>
 </div>
 </section>
 <section id="anonymous-functions" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="anonymous-functions"><span class="header-section-number">4.3</span> Anonymous functions</h2>
 <p>Python supports anonymous functions through the <code>lambda</code> keyword. The syntax for a lambda function is as follows:</p>
-<div id="49f18190" class="cell" data-execution_count="12">
+<div id="2bcf2ba2" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>function_name <span class="op">=</span> <span class="kw">lambda</span> arguments: expression</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Lambda functions can accept any number of arguments, but they can only contain a single expression. Consider the following example:</p>
-<div id="d09ab05c" class="cell" data-execution_count="13">
+<div id="a5778578" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Lp_norm_lambda <span class="op">=</span> <span class="kw">lambda</span> x, y, p: (np.<span class="bu">sum</span>(np.<span class="bu">abs</span>(x <span class="op">-</span> y) <span class="op">**</span> p)) <span class="op">**</span> (<span class="dv">1</span> <span class="op">/</span> p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ab2606a2" class="cell" data-execution_count="14">
+<div id="2ef95e50" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Call the Lp_norm_lambda function</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.randn(<span class="dv">10</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.randn(<span class="dv">10</span>)</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>Lp_norm_lambda(x, y, p<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
-<pre><code>6.0976842930683635</code></pre>
+<pre><code>np.float64(3.7371853630661738)</code></pre>
 </div>
 </div>
 
@@ -1131,7 +1132,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/Chapter0-CustomFunctions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.55">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -187,7 +187,7 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Econometrics with Python</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/hadley/r4ds/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/osmdogan/Python_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -442,25 +442,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix1.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixA.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix for Chapter 11</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix2.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixB.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix for Chapter 21</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix3.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixC.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Appendix for Chapter 25</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix4.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixD.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Appendix for Chapter 26</span></span></a>
   </div>
 </li>
@@ -503,7 +503,7 @@ window.Quarto = {
   <li><a href="#external-validity-assessment" id="toc-external-validity-assessment" class="nav-link" data-scroll-target="#external-validity-assessment"><span class="header-section-number">16.5.5</span> External validity assessment</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/hadley/r4ds/edit/main/Chapter9-AssessingStudies.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hadley/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/Chapter9-AssessingStudies.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -527,7 +527,7 @@ window.Quarto = {
 </header>
 
 
-<div id="01c79c92" class="cell" data-execution_count="1">
+<div id="2bd5ef83" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -588,7 +588,7 @@ window.Quarto = {
 <h3 data-number="16.2.2" class="anchored" data-anchor-id="functional-form-misspecification"><span class="header-section-number">16.2.2</span> Functional form misspecification</h3>
 <p>This type of misspecification arises when the estimated regression model does not match the population regression function. Assume that the true relationship (i.e., the population regression function) between the dependent variable and the variable of interest is nonlinear. If we specify a linear relationship between the variable of interest and the dependent variable, then we are committing a functional form misspecification. Such misspecification can lead to biased and inconsistent estimators.</p>
 <p>In the following example, we illustrate the effect of functional form misspecification on the OLS estimator. We simulate data from the following quadratic model: <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+\beta_2X^2_i+u_i\)</span>, where <span class="math inline">\(X_i\sim\text{Uniform}(0,10)\)</span>, <span class="math inline">\((\beta_0,\beta_1,\beta_2)^{'}=(3,2,1.5)^{'}\)</span>, and <span class="math inline">\(u_i\sim N(0,4)\)</span>. We then estimate two models: the misspecified linear model <span class="math inline">\(Y_i=\beta_0+\beta_1X_{i}+u_i\)</span> and the correctly specified quadratic model <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+\beta_2X^2_i+u_i\)</span>.</p>
-<div id="235a7d5a" class="cell" data-execution_count="2">
+<div id="a20c4f3c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">123</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">300</span></span>
@@ -617,7 +617,7 @@ window.Quarto = {
 <div id="fig-t16.1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-t16.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter9-AssessingStudies_files/figure-html/fig-t16.1-output-1.png" width="515" height="354" class="figure-img">
+<img src="Chapter9-AssessingStudies_files/figure-html/fig-t16.1-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-t16.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;16.1: Effect of Functional Form Misspecification
@@ -628,9 +628,9 @@ Figure&nbsp;16.1: Effect of Functional Form Misspecification
 </div>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Present linear_model and nonlinear_model results in a table</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>results_table <span class="op">=</span> summary_col(results<span class="op">=</span>[linear_model, nonlinear_model],</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                                          float_format<span class="op">=</span><span class="st">'</span><span class="sc">%0.3f</span><span class="st">'</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                                          stars<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                                          model_names<span class="op">=</span>[<span class="st">"Linear Model"</span>, <span class="st">"Nonlinear Model"</span>])</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                                     float_format<span class="op">=</span><span class="st">'</span><span class="sc">%0.3f</span><span class="st">'</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                                     stars<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                                     model_names<span class="op">=</span>[<span class="st">"Linear Model"</span>, <span class="st">"Nonlinear Model"</span>])</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>results_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-layout-panel" data-layout-ncol="1">
 <div class="quarto-layout-row">
@@ -641,7 +641,7 @@ Figure&nbsp;16.1: Effect of Functional Form Misspecification
 Table&nbsp;16.1: Regression Results
 </figcaption>
 <div aria-describedby="tbl-t16.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="21">
 <table class="simpletable do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <tbody>
 <tr class="odd">
@@ -708,12 +708,12 @@ Standard errors in parentheses.<br>
 <p>Measurement error occurs when the observed value of a variable differs from its true value. It can arise from various sources, including data entry errors, rounding, recollection errors in surveys, ambiguous survey questions, or intentionally false responses in surveys. Measurement error can result in biased and inconsistent estimators.</p>
 <p>To illustrate the effect of measurent error on the OLS estimator, we consider the following model with one regressor: <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+u_i\)</span>, where <span class="math inline">\(\E(u_i|X_i)=0\)</span>. We assume that <span class="math inline">\(X_i\)</span> is the unobserved true value and <span class="math inline">\(\tilde{X}_i\)</span> is its mismeasured version, i.e., the observed regressor. Then, <span class="math display">\[
 \begin{align}
-Y_i&amp;=\beta_0+\beta_1X_i+u_i=\beta_0+\beta_1\tilde{X}_i+(\beta_1(X_i-\tilde{X}_i)+u_i)\\
+Y_i &amp;= \beta_0+\beta_1X_i+u_i=\beta_0+\beta_1\tilde{X}_i+(\beta_1(X_i-\tilde{X}_i)+u_i)\\
 &amp;=\beta_0+\beta_1\tilde{X}_i+\tilde{u}_i,
 \end{align}
 \]</span> where <span class="math inline">\(\tilde{u}_i=(\beta_1(X_i-\tilde{X}_i)+u_i)\)</span>. Since we only observe <span class="math inline">\(\tilde{X}_i\)</span>, we will estimate the following regression: <span id="eq-eq16.1"><span class="math display">\[
 \begin{align}
-Y_i=\beta_0+\beta_1\tilde{X}_i+\tilde{u}_i.
+Y_i = \beta_0+\beta_1\tilde{X}_i+\tilde{u}_i.
 \end{align}
 \tag{16.1}\]</span></span></p>
 <p>Note that the regression model written in terms of <span class="math inline">\(\tilde{X}_i\)</span> has the error term <span class="math inline">\(\tilde{u}_i\)</span> that contains the measurement error. In <a href="#eq-eq16.1" class="quarto-xref">Equation&nbsp;<span>16.1</span></a>, we can derive <span class="math inline">\(\text{cov}(\tilde{X}_i,\tilde{u}_i)\)</span> as follows: <span id="eq-eq16.2"><span class="math display">\[
@@ -725,13 +725,13 @@ Y_i=\beta_0+\beta_1\tilde{X}_i+\tilde{u}_i.
 <p>It is often plausible that <span class="math inline">\(\text{cov}(\tilde{X}_i, u_i)=0\)</span>. However, <span class="math inline">\(\text{cov}(\tilde{X}_i,(X_i-\tilde{X}_i))\ne0\)</span> typically holds. Thus, our estimation equation in <a href="#eq-eq16.1" class="quarto-xref">Equation&nbsp;<span>16.1</span></a> does not satisfy the zero-conditional mean assumption. Consequently, the OLS estimator of <span class="math inline">\(\beta_1\)</span> is biased and inconsistent when <span class="math inline">\(\text{cov}(\tilde{X}_i,(X_i-\tilde{X}_i))\ne0\)</span>.</p>
 <p>To get more insight, we assume two measurement error models: (i) the <strong>classical measurement error model</strong> and (ii) the <strong>best guess model</strong>. In the case of the classical measurement error model, we assume the following relationship between the true value <span class="math inline">\(X_i\)</span> and the observed value <span class="math inline">\(\tilde{X}_i\)</span>: <span class="math display">\[
 \begin{align}
-\tilde{X}_i=X_i+v_i,
+\tilde{X}_i = X_i+v_i,
 \end{align}
 \]</span> where <span class="math inline">\(v_i\)</span> is an error term with <span class="math inline">\(\E(v_i)=0\)</span>, <span class="math inline">\(\text{var}(v_i)=\sigma^2_v\)</span>, <span class="math inline">\(\text{corr}(X_i, v_i) = 0\)</span>, and <span class="math inline">\(\text{corr}(u_i, v_i) = 0\)</span>. Thus, we have</p>
 <ul>
-<li><span class="math inline">\(\text{var}(\tilde{X}_i)=\text{var}(X_i+v_i)=\sigma^2_X+\sigma^2_v\)</span>,</li>
-<li><span class="math inline">\(\text{cov}(\tilde{X}_i,(X_i-\tilde{X}_i))=\text{cov}\left(X_i+v_i,-v_i\right)=-\sigma^2_v\)</span>, and</li>
-<li><span class="math inline">\(\text{cov}(\tilde{X}_i, u_i)=\text{cov}(X_i+v_i, u_i)=\text{cov}(X_i, u_i)+\text{cov}(v_i, u_i)=0\)</span>.</li>
+<li><span class="math inline">\(\text{var}(\tilde{X}_i) = \text{var}(X_i+v_i)=\sigma^2_X+\sigma^2_v\)</span>,</li>
+<li><span class="math inline">\(\text{cov}(\tilde{X}_i,(X_i-\tilde{X}_i)) = \text{cov}\left(X_i+v_i,-v_i\right)=-\sigma^2_v\)</span>, and</li>
+<li><span class="math inline">\(\text{cov}(\tilde{X}_i, u_i) = \text{cov}(X_i+v_i, u_i)=\text{cov}(X_i, u_i)+\text{cov}(v_i, u_i)=0\)</span>.</li>
 </ul>
 <p>Then, using <a href="#eq-eq16.2" class="quarto-xref">Equation&nbsp;<span>16.2</span></a>, we obtain <span class="math display">\[
 \begin{align}
@@ -745,7 +745,7 @@ Y_i=\beta_0+\beta_1\tilde{X}_i+\tilde{u}_i.
 \tag{16.3}\]</span></span></p>
 <p>Since <span class="math inline">\(\left(\frac{\sigma^2_X}{\sigma^2_X+\sigma^2_v}\right)&lt;1\)</span>, the OLS estimator <span class="math inline">\(\hat{\beta}_1\)</span> is biased towards zero even when the sample size is large. In extreme case, where <span class="math inline">\(\sigma^2_v\rightarrow\infty\)</span>, the OLS estimator <span class="math inline">\(\hat{\beta}_1\)</span> converges to zero. Also note when <span class="math inline">\(\sigma^2_v=0\)</span>, the OLS estimator <span class="math inline">\(\hat{\beta}_1\)</span> is unbiased and consistent.</p>
 <p>In the following code chunk, we use the simulated data to illustrate the classical measurement error model. We assume that <span class="math inline">\(\tilde{X}_i=X_i+v_i\)</span>, where <span class="math inline">\(X_i\sim\text{Uniform}(0,10)\)</span> and <span class="math inline">\(v_i\sim N(0,4)\)</span>. We generate <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+u_i\)</span>, where <span class="math inline">\(\beta_0=3\)</span>, <span class="math inline">\(\beta_1=2\)</span>, and <span class="math inline">\(u_i\sim N(0,4)\)</span>. Then, we estimate the error model <span class="math inline">\(Y_i=\beta_0+\beta_1\tilde{X}_i+\tilde{u}_i\)</span> and the true model <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+u_i\)</span>.</p>
-<div id="f0c1ef78" class="cell" data-execution_count="5">
+<div id="227ee991" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate data</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">123</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">300</span></span>
@@ -763,9 +763,9 @@ Y_i=\beta_0+\beta_1\tilde{X}_i+\tilde{u}_i.
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Present ols_model and true_model results in a table</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>results_table <span class="op">=</span> summary_col(results<span class="op">=</span>[error_model, true_model],</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                                         float_format<span class="op">=</span><span class="st">'</span><span class="sc">%0.3f</span><span class="st">'</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                                        stars<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                                       model_names<span class="op">=</span>[<span class="st">"Error model"</span>, <span class="st">"True model"</span>])</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                                     float_format<span class="op">=</span><span class="st">'</span><span class="sc">%0.3f</span><span class="st">'</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                                     stars<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                                     model_names<span class="op">=</span>[<span class="st">"Error model"</span>, <span class="st">"True model"</span>])</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>results_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-layout-panel" data-layout-ncol="1">
 <div class="quarto-layout-row">
@@ -776,7 +776,7 @@ Y_i=\beta_0+\beta_1\tilde{X}_i+\tilde{u}_i.
 Table&nbsp;16.2: Regression Results
 </figcaption>
 <div aria-describedby="tbl-t16.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <table class="simpletable do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <tbody>
 <tr class="odd">
@@ -852,7 +852,7 @@ Standard errors in parentheses.<br>
 <div id="fig-t16.2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-t16.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter9-AssessingStudies_files/figure-html/fig-t16.2-output-1.png" width="507" height="354" class="figure-img">
+<img src="Chapter9-AssessingStudies_files/figure-html/fig-t16.2-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-t16.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;16.2: The effect of measurement error on the OLS estimator
@@ -970,21 +970,21 @@ Key Concept 16.1: Threats to the internal validity of a multiple regression stud
 <li><code>pctel</code>: Percentage of students still learning English</li>
 </ul>
 <p>The following code chunk imports the data and displays the column names.</p>
-<div id="5ea2f968" class="cell" data-message="false" data-execution_count="8">
+<div id="35984354" class="cell" data-message="false" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mcas <span class="op">=</span> pd.read_excel(<span class="st">"data/mcas.xlsx"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Column names</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>mcas.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>Index(['code', 'municipa', 'district', 'regday', 'specneed', 'bilingua',
        'occupday', 'tot_day', 's_p_c', 'spec_ed', 'lnch_pct', 'tchratio',
        'percap', 'totsc4', 'totsc8', 'avgsalry', 'pctel'],
       dtype='object')</code></pre>
 </div>
 </div>
-<p>Previously, we used data from California school districts to study the relationship between test scores and class size. It will be useful to compare the Massachusetts dataset with the California dataset. In <a href="#tbl-t16.3" class="quarto-xref">Table&nbsp;<span>16.3</span></a>, we present descriptive statistics for selected variables from the Massachusetts and California datasets. For Massachusetts, the average test score is 709.83, the average student–teacher ratio is 17.34, the average percentage of English learners is 1.12%, the average percentage of students receiving subsidized lunch is 15.32%, and the average per-capita income is $18,750. For California, the corresponding averages are 654.16 for test scores, 19.64 for student–teacher ratio, 15.77% for English learners, 45.71% for subsidized lunch recipients, and $15,320 for per-capita income.</p>
+<p>Previously, we used data from California school districts to study the relationship between test scores and class size. It will be useful to compare the Massachusetts dataset with the California dataset. In <a href="#tbl-t16.3" class="quarto-xref">Table&nbsp;<span>16.3</span></a>, we present descriptive statistics for selected variables from the Massachusetts and California datasets. For Massachusetts, the average test score is 709.83, the average student–teacher ratio is 17.34, the average percentage of English learners is <span class="math inline">\(1.12\%\)</span>, the average percentage of students receiving subsidized lunch is <span class="math inline">\(15.32\%\)</span>, and the average per-capita income is $18,750. For California, the corresponding averages are 654.16 for test scores, 19.64 for student–teacher ratio, <span class="math inline">\(15.77\%\)</span> for English learners, <span class="math inline">\(45.71\%\)</span> for subsidized lunch recipients, and $15,320 for per-capita income.</p>
 <p>While Massachusetts has a higher average test score, we cannot make a direct comparison because different tests are administered in both states. Massachusetts also has lower averages for the student–teacher ratio, the percentage of subsidized lunch recipients, and the percentage of English learners. Its average per-capita income is larger than that of California.</p>
-<div id="219cc492" class="cell" data-message="false" data-execution_count="9">
+<div id="3af4af41" class="cell" data-message="false" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary statistics for Massachusetts and California</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>mcas_vars <span class="op">=</span> [<span class="st">"totsc4"</span>, <span class="st">"tchratio"</span>, <span class="st">"pctel"</span>, <span class="st">"lnch_pct"</span>, <span class="st">"percap"</span>]</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>mcas_stats <span class="op">=</span> mcas[mcas_vars].describe().<span class="bu">round</span>(<span class="dv">2</span>).T</span>
@@ -1012,7 +1012,7 @@ Key Concept 16.1: Threats to the internal validity of a multiple regression stud
 Table&nbsp;16.3: Descriptive statistics for Massachusetts and California test score datasets
 </figcaption>
 <div aria-describedby="tbl-t16.3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="27">
 <div>
 
 
@@ -1200,7 +1200,7 @@ Table&nbsp;16.3: Descriptive statistics for Massachusetts and California test sc
 <div id="fig-t16.3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-t16.3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter9-AssessingStudies_files/figure-html/fig-t16.3-output-1.png" width="515" height="357" class="figure-img">
+<img src="Chapter9-AssessingStudies_files/figure-html/fig-t16.3-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-t16.3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;16.3: The relationship between test scores and district income for the Massachusetts dataset
@@ -1236,7 +1236,7 @@ Figure&nbsp;16.3: The relationship between test scores and district income for t
 \end{cases}
 \end{align}
 \]</span></p>
-<div id="c98f4460" class="cell" data-execution_count="12">
+<div id="8c637638" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="op">=</span> mcas.copy()</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create hiel</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>mydata[<span class="st">"hiel"</span>] <span class="op">=</span> mydata[<span class="st">"pctel"</span>] <span class="op">&gt;</span> np.median(mydata[<span class="st">"pctel"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1245,25 +1245,30 @@ Figure&nbsp;16.3: The relationship between test scores and district income for t
 <section id="estimation-results" class="level3" data-number="16.5.3">
 <h3 data-number="16.5.3" class="anchored" data-anchor-id="estimation-results"><span class="header-section-number">16.5.3</span> Estimation results</h3>
 <p>We use the following code chunk can to estimate all models. Note that we use heteroskedasticity-robust standard errors in all models.</p>
-<div id="d3584136" class="cell" data-execution_count="13">
+<div id="d27eece6" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 1</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>r1<span class="op">=</span>smf.ols(formula<span class="op">=</span><span class="st">"totsc4~tchratio"</span>,data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 2</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>r2<span class="op">=</span>smf.ols(formula<span class="op">=</span><span class="st">"totsc4~tchratio+pctel+lnch_pct+np.log(percap)"</span>,</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>      data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 3</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>r3<span class="op">=</span>smf.ols(formula<span class="op">=</span><span class="st">"totsc4~tchratio+pctel+lnch_pct+percap+I(percap**2)+I(percap**3)"</span>,data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>) </span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 4</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>r4<span class="op">=</span>smf.ols(formula<span class="op">=</span><span class="st">"totsc4~tchratio+I(tchratio**2)+I(tchratio**3)+pctel+lnch_pct+percap+I(percap**2)+I(percap**3)"</span>,data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 5</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>r5<span class="op">=</span>smf.ols(formula<span class="op">=</span><span class="st">"totsc4~tchratio+hiel+hiel*tchratio +lnch_pct+percap+I(percap**2)+I(percap**3)"</span>,data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"totsc4~tchratio"</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>            data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 2</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"totsc4~tchratio+pctel+lnch_pct+np.log(percap)"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>             data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 3</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>r3 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"totsc4~tchratio+pctel+lnch_pct+percap+I(percap**2)+I(percap**3)"</span>,</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>             data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>) </span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 4</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>r4 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"totsc4~tchratio+I(tchratio**2)+I(tchratio**3)+pctel+lnch_pct+percap+I(percap**2)+I(percap**3)"</span>,</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>             data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
 <span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 6</span></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>r6<span class="op">=</span>smf.ols(formula<span class="op">=</span><span class="st">"totsc4~tchratio+lnch_pct+percap+I(percap**2)+I(percap**3)"</span>,data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 5</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>r5 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"totsc4~tchratio+hiel+hiel*tchratio +lnch_pct+percap+I(percap**2)+I(percap**3)"</span>,</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>             data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 6</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>r6 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"totsc4~tchratio+lnch_pct+percap+I(percap**2)+I(percap**3)"</span>,</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>             data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print results in table form</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>models<span class="op">=</span>[<span class="st">"Model 1"</span>,<span class="st">"Model 2"</span>, <span class="st">"Model 3"</span>,<span class="st">"Model 4"</span>,<span class="st">"Model 5"</span>,<span class="st">"Model 6"</span>]</span>
@@ -1281,7 +1286,7 @@ Figure&nbsp;16.3: The relationship between test scores and district income for t
 Table&nbsp;16.4: Estimation Results for Models 1-6
 </figcaption>
 <div aria-describedby="tbl-t16.4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="31">
 <table class="simpletable do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <tbody>
 <tr class="odd">
@@ -1543,36 +1548,36 @@ Standard errors in parentheses.<br>
 <ul>
 <li><p>The results in the first three columns show that the estimated coefficient on <code>tchratio</code> decreases from <span class="math inline">\(-1.72\)</span> to <span class="math inline">\(-0.64\)</span> in the second column and <span class="math inline">\(-0.641\)</span> in the third column when we control for student and district characteristics. This suggests that the first model suffers from omitted variable bias.</p></li>
 <li><p>The results in the second and third columns indicate that the class size effect is statistically significant at the 5% level after controlling for student and district characteristics. Comparing <span class="math inline">\(\bar{R}^2\)</span> values in Models 2 and 3, the cubic specification provides a better fit than the logarithmic specification.</p></li>
-<li><p>In Model 3, we can use the F-statistic to test <span class="math inline">\(H_0:\beta_5=\beta_6=0\)</span> versus <span class="math inline">\(H_1\)</span>: At least one coefficient is non zero. The F-statistic given below is <span class="math inline">\(7.74\)</span> with a p-value of <span class="math inline">\(0.0006\)</span>. Thus, we reject the null hyptohesis.</p></li>
+<li><p>In Model 3, we can use the <span class="math inline">\(F\)</span>-statistic to test <span class="math inline">\(H_0:\beta_5=\beta_6=0\)</span> versus <span class="math inline">\(H_1\)</span>: At least one coefficient is non zero. The <span class="math inline">\(F\)</span>-statistic given below is <span class="math inline">\(7.74\)</span> with a p-value of <span class="math inline">\(0.0006\)</span>. Thus, we reject the null hyptohesis.</p></li>
 </ul>
-<div id="55b8d749" class="cell" data-execution_count="15">
+<div id="b0ba6229" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Testing H_0: beta_5=beta_6=0 in Model 3</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>hypothesis<span class="op">=</span><span class="st">"I(percap ** 2)=0, I(percap ** 3)=0"</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>hypothesis <span class="op">=</span> <span class="st">"I(percap ** 2)=0, I(percap ** 3)=0"</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r3.f_test(hypothesis))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;F test: F=7.744799216984443, p=0.0005664381585529111, df_denom=213, df_num=2&gt;</code></pre>
+<pre><code>&lt;F test: F=7.744799217268589, p=0.0005664381584028694, df_denom=213, df_num=2&gt;</code></pre>
 </div>
 </div>
 <ul>
-<li>The results for Model 4 show that there is no statistically significant evidence of a nonlinear relationship between test scores and the student–teacher ratio. The F-statistic for <span class="math inline">\(H_0:\beta_2=\beta_3=0\)</span> can be obtained using the code chunk given below. The F-statistic is <span class="math inline">\(0.45\)</span> with a p-value of <span class="math inline">\(0.640\)</span>. Thus, we fail to reject the null hypothesis.</li>
+<li>The results for Model 4 show that there is no statistically significant evidence of a nonlinear relationship between test scores and the student–teacher ratio. The <span class="math inline">\(F\)</span>-statistic for <span class="math inline">\(H_0:\beta_2=\beta_3=0\)</span> can be obtained using the code chunk given below. The <span class="math inline">\(F\)</span>-statistic is <span class="math inline">\(0.45\)</span> with a <span class="math inline">\(p\)</span>-value of <span class="math inline">\(0.640\)</span>. Thus, we fail to reject the null hypothesis.</li>
 </ul>
-<div id="47277e8a" class="cell" data-execution_count="16">
+<div id="09baf90c" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Testing H_0: beta_2=beta_3=0 in Model 4</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>hypothesis<span class="op">=</span><span class="st">"I(tchratio ** 2)=0, I(tchratio ** 3)=0"</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>hypothesis <span class="op">=</span> <span class="st">"I(tchratio ** 2)=0, I(tchratio ** 3)=0"</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r4.f_test(hypothesis))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;F test: F=0.44627810224037257, p=0.6406084508437917, df_denom=211, df_num=2&gt;</code></pre>
+<pre><code>&lt;F test: F=0.44627810226053666, p=0.6406084508309297, df_denom=211, df_num=2&gt;</code></pre>
 </div>
 </div>
 <ul>
-<li>The results for Model 5 show that the estimated coefficents for both <code>HiEL</code> and <code>HiELxtchratio</code> are statistically insignifcant at the 5% significance level. The F-statistic for <span class="math inline">\(H_0:\beta_5=\beta_6=0\)</span> can be obtained using the following code chunk. The F-statistic is <span class="math inline">\(1.58\)</span> with a p-value of <span class="math inline">\(0.207\)</span>. Thus, we fail to reject the null hypothesis and conclude that the percentage of English learners does not have a statistically significant effect on test scores after controlling for the student–teacher ratio and other variables.</li>
+<li>The results for Model 5 show that the estimated coefficents for both <code>HiEL</code> and <code>HiELxtchratio</code> are statistically insignifcant at the 5% significance level. The <span class="math inline">\(F\)</span>-statistic for <span class="math inline">\(H_0:\beta_5=\beta_6=0\)</span> can be obtained using the following code chunk. The <span class="math inline">\(F\)</span>-statistic is <span class="math inline">\(1.58\)</span> with a <span class="math inline">\(p\)</span>-value of <span class="math inline">\(0.207\)</span>. Thus, we fail to reject the null hypothesis and conclude that the percentage of English learners does not have a statistically significant effect on test scores after controlling for the student–teacher ratio and other variables.</li>
 </ul>
-<div id="f8daea0f" class="cell" data-execution_count="17">
+<div id="f5b2e280" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Testing H_0: beta_5=beta_6=0 in Model 5</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>hypothesis<span class="op">=</span><span class="st">"hiel[T.True]=0, hiel[T.True]:tchratio=0"</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>hypothesis <span class="op">=</span> <span class="st">"hiel[T.True]=0, hiel[T.True]:tchratio=0"</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r5.f_test(hypothesis))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;F test: F=1.5834729215634233, p=0.2076789066396875, df_denom=212, df_num=2&gt;</code></pre>
+<pre><code>&lt;F test: F=1.5834729215633097, p=0.20767890663971691, df_denom=212, df_num=2&gt;</code></pre>
 </div>
 </div>
 <ul>
@@ -1701,7 +1706,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/osmdogan\.github\.io\/Python_Book\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -2049,7 +2054,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/hadley/r4ds/edit/main/Chapter9-AssessingStudies.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hadley/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/Chapter9-AssessingStudies.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

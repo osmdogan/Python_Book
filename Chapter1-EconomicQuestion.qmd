@@ -54,8 +54,6 @@ where $\hat{Y}$ denotes the predicted value. Thus, **prediction** is the process
 
 A **forecast** is a prediction about the value of the dependent variable in the future. It is important to note that prediction and forecasting does not necessitate a causal relationship between $X$ and $Y$.
 
-
-
 ## Data types
 There are two types of data: **experimental data** and **nonexperimental data**. Experimental data are collected through experiments specifically designed to evaluate the effect of a treatment or an intervention. Nonexperimental data, also known as **observational data**, are obtained by observing actual behavior outside of an experimental setting.
 
@@ -66,13 +64,14 @@ We consider three types of data: (i) **cross-sectional data**, (ii) **time-serie
 
 ```{python}
 # Import data
-CAschool=pd.read_csv('data/caschool.csv')
+CAschool = pd.read_csv('data/caschool.csv')
 # Select columns
-names =['Observation Number','testscr','str', 'expn_stu','el_pct']
+names = ['Observation Number', 'testscr', 'str', 'expn_stu', 'el_pct']
 data = CAschool[names]
 # Set the coulmn names
-data.columns = ["Observation Number", "District Average Test Score","Student-Teacher Ratio","Expenditure per Pupil",
-"Percentage of Students Learning English"]
+data.columns = ["Observation Number", "District Average Test Score",
+                "Student-Teacher Ratio", "Expenditure per Pupil",
+                "Percentage of Students Learning English"]
 ```
 
 ```{python}
@@ -85,18 +84,16 @@ data.round(2)
 ### Time Series Data
 Time series data consist of observations on the same entity collected at multiple time periods. We consider the time series data in the `tsdata.xlsx` file on the US GDP growth rate and the term spread (the difference between lon-term and short-term interest rates). The data set is quarterly and cover the period 1960Q1-2017Q4. In @tbl-t8.2, we show a section of the data, where each row corresponds to a different time period. In the last quarter of 2017, the GDP growth rate was 2.5\% and the term spread was 1.16 percentage points.
 
-
 ```{python}
 # Import data
 tsdata = pd.read_excel("data/tsdata.xlsx")
 # Create Quarter column
 tsdata['Quarter'] = pd.PeriodIndex(tsdata.Date, freq='Q')
-names = ["Quarter","YGROWTH","RSPREAD"]
+names = ["Quarter", "YGROWTH", "RSPREAD"]
 data = tsdata[names]
 # Set the coulmn names
 data.columns = ["Date (YearQuarter)", "GDP Growth Rate", "Term Spread"]
 ```
-
 
 ```{python}
 #| tbl-cap: The GDP growth rate and term spread in the United States
@@ -124,9 +121,9 @@ plt.ylim(tsdata['YGROWTH'].min()-0.5,tsdata['YGROWTH'].max()+0.5)
 
 # Highlight recession periods
 recession_periods = tsdata['RECESSION'] == 1
-plt.fill_between(tsdata.Date, tsdata['YGROWTH'].min()-0.5, 
-tsdata['YGROWTH'].max()+0.5, where=recession_periods, 
-color='steelblue', alpha=0.3)
+plt.fill_between(tsdata.Date,
+                 tsdata['YGROWTH'].min()-0.5, tsdata['YGROWTH'].max()+0.5,
+                 where=recession_periods, color='steelblue', alpha=0.3)
 plt.show()
 
 plt.figure(figsize=(7, 3))
@@ -135,23 +132,25 @@ plt.axhline(y=0, color='black', linestyle='-',linewidth=1, alpha=0.5)
 plt.xlabel('Date')
 plt.ylabel('Percentage Point')
 plt.ylim(-2,4)
-plt.fill_between(tsdata.Date, tsdata['RSPREAD'].min()-0.5, tsdata['RSPREAD'].max()+0.5, where=recession_periods, 
-color='steelblue', alpha=0.3)
+plt.fill_between(tsdata.Date,
+                 tsdata['RSPREAD'].min()-0.5, tsdata['RSPREAD'].max()+0.5,
+                 where=recession_periods, color='steelblue', alpha=0.3)
 plt.show()
 ```
 
 ### Panel Data
 **Panel data**, also known as **longitudinal data**, consist of data for multiple entities, with each entity observed at two or more time periods. We consider the panel data on the cigarette consumption in the `cig_ch12.xlsx` file. The data set consists of annual data for the 48 U.S. states over the period 1985-1995. Thus, in this data set, the number of entities is $n=48$ and the number of time peirods is $T=11$. In total, we have $48\times 11=528$ observations. In @tbl-t8.3, we show a section of data.
 
-
 ```{python}
 # Import data
 pdata = pd.read_excel("data/cig_ch12.xlsx")
 # Select columns
-names = ["state","year","packpc","avgprs","taxs"]
+names = ["state", "year", "packpc", "avgprs", "taxs"]
 pdata = pdata[names]
 # Set column names
-pdata.columns = ["State","Year","Cigarette Sales (packs per capita)", "Average Price per Pack(including taxes)", "Total Taxes (cigarette excise tax + sales tax)"]
+pdata.columns = ["State", "Year", "Cigarette Sales (packs per capita)",
+                 "Average Price per Pack(including taxes)",
+                 "Total Taxes (cigarette excise tax + sales tax)"]
 ```
 
 ```{python}

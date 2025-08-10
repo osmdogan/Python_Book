@@ -87,7 +87,7 @@ The best predictor can be found by minimizing $\text{MSPE}$ with respect to $m(X
 $$
 \begin{align*}
 \min_{m} \E{\left(Y - m\right)^2}&= \min_{m} \E\left(\E\left(Y - m\right)^2|X\right)\\
-&=  \E\left(\min_{m}\E\left(Y - m\right)^2|X\right).
+&= \E\left(\min_{m}\E\left(Y - m\right)^2|X\right).
 \end{align*}
 $$
 
@@ -668,10 +668,9 @@ for train_index, val_index in kf.split(X_train):
 
 small_rmse_cv_in_ols = np.mean(rmse_cv)
 print(f"The 10-fold CV estimate of RMSPE = {small_rmse_cv_in_ols:.1f}")
-
 ```
 
-In the following code chunk, we explore an alternative approach to compute the 10-fold cross-validation estimate of the RMSPE. We use the `cross_val_score` function from the `sklearn.model_selection` module to calculate the mean squared error for each fold. To achieve this, we first define the mean squared error as the scoring metric using the `make_scorer` function and then pass this custom scorer to the `cross_val_score` function.
+In the following code chunk, we explore an alternative approach to compute the 10-fold cross-validation estimate of the RMSPE. We use the `cross_val_score()` function from the `sklearn.model_selection` module to calculate the mean squared error for each fold. To achieve this, we first define the mean squared error as the scoring metric using the `make_scorer()` function and then pass this custom scorer to the `cross_val_score()` function.
 
 ```{python}
 # Define the scoring method as negative mean squared error (MSE) since cross_val_score maximizes scores
@@ -690,7 +689,7 @@ rmse_cv_scores = mse_cv_scores ** 0.5
 print(f"The 10-fold CV estimate of RMSPE = {rmse_cv_scores.mean():.1f}")
 ```
 
-Finally, instead of using the `cross_val_score` function, we can use `cross_val_predict` to compute the cross-validated predictions and then calculate the mean squared error using the `mean_squared_error` function, as shown in the following code chunk.
+Finally, instead of using the `cross_val_score()` function, we can use `cross_val_predict()` to compute the cross-validated predictions and then calculate the mean squared error using the `mean_squared_error` function, as shown in the following code chunk.
 
 ```{python}
 # Perform 10-fold cross-validation and get predictions for each fold
@@ -841,7 +840,7 @@ large_rmse_cv_in_ols = pickle.load(open(filename,"rb"))
 print(f"The 10-fold CV estimate of RMSPE in the large case = {large_rmse_cv_in_ols:.1f}")   
 ```
 
-In the following code chunk, similar to the small case, we can use the `cross_val_predict` function to compute the 10-fold cross-validation estimate of the MSPE in an alternative way. 
+In the following code chunk, similar to the small case, we can use the `cross_val_predict()` function to compute the 10-fold cross-validation estimate of the MSPE in an alternative way. 
 
 ```{python}
 #| eval: false
@@ -912,7 +911,6 @@ best_score = np.sqrt(-grid.best_score_ ) # Convert to positive MSE
 
 print(f"The optimal number of PCA components: {best_n_components}")
 print(f"The best 10-fold cross-validated RMSPE: {best_score:.1f}")
-
 ```
 
 In @fig-fig21-4, we plot the 10-fold cross-validation estimate of the MSPE based on the principal component regression in @eq-eq21-pc against the number of principal components used as regressors. The figure shows a significant decline in the MSPE as the number of principal components used as predictors increases. However, after p=30 principal components, the MSPE becomes flat without any further significant decrease. 
@@ -1005,7 +1003,7 @@ large_rmse_oos_pc = np.sqrt(data.loc[data['outofsample'], 'e_pc2'].mean())
 print(f"The out-of-sample RMSPE of PC regression in the large case = {large_rmse_oos_pc:.1f}")        
 ```
 
-Alternatively, we can use the `Pipeline` function to streamline the PCA transformation and regression fitting process as shown in the following code chunk.
+Alternatively, we can use the `Pipeline()` function to streamline the PCA transformation and regression fitting process as shown in the following code chunk.
 
 ```{python}
 #| eval: false
@@ -1041,7 +1039,7 @@ ax.set_ylabel("Fraction of total variance of X explained")
 plt.show()
 ```
 
-Next, we implement the ridge regression using the `RidgeCV` from the `sklearn.linear_model` module. Note that the number of grid points for the ridge shrinkage parameter can be made finer by modifying `alphas` argument in `RidgeCV` at the expense of more computation time. 
+Next, we implement the ridge regression using the `RidgeCV()` function from the `sklearn.linear_model` module. Note that the number of grid points for the ridge shrinkage parameter can be made finer by modifying `alphas` argument in `RidgeCV` at the expense of more computation time. 
 
 ```{python}
 #| eval: false
@@ -1067,11 +1065,10 @@ large_rmse_in_ridge = np.sqrt(data.loc[data['insample'], 'e_ridge2'].mean())
 large_rmse_oos_ridge = np.sqrt(data.loc[data['outofsample'], 'e_ridge2'].mean())
 
 # Print the out-of-sample RMSPE
-print(f"The out-of-sample RMSPE of Ridge regression in the large case = {large_rmse_oos_ridge:.1f}")            
-
+print(f"The out-of-sample RMSPE of Ridge regression in the large case = {large_rmse_oos_ridge:.1f}")
 ```
 
-Instead of the `RidgeCV` function, we may also use the `GridSearchCV` function from the `sklearn.model_selection` module to select the shrinkage parameter. We present this approach in the following code chunk.
+Instead of the `RidgeCV` function, we may also use the `GridSearchCV()` function from the `sklearn.model_selection` module to select the shrinkage parameter. We present this approach in the following code chunk.
 
 ```{python}
 #| eval: false
@@ -1102,7 +1099,7 @@ large_rmse_oos_ridge = np.sqrt(data.loc[data['outofsample'], 'e_ridge2'].mean())
 print(f"The out-of-sample RMSPE of Ridge regression = {large_rmse_oos_ridge:.1f}")
 ```
 
-In the following code chunk, we implement the Lasso approach using the `LassoCV` from the `sklearn.linear_model` module. Note that `LassoCV` uses 100 grid points for the shrinkage parameter and this can significantly increase computational burden in very high-dimensional exercises. You can specify `alphas` argument to modify the grid points for the shrinkage parameter. 
+In the following code chunk, we implement the Lasso approach using the `LassoCV()` function from the `sklearn.linear_model` module. Note that `LassoCV()` uses 100 grid points for the shrinkage parameter and this can significantly increase computational burden in very high-dimensional exercises. You can specify `alphas` argument to modify the grid points for the shrinkage parameter. 
 
 ```{python}
 #| eval: false
@@ -1158,7 +1155,7 @@ large_rmse_oos_lasso = np.sqrt(data.loc[data['outofsample'], 'e_lasso2'].mean())
 print(f"The out-of-sample RMSPE of Lasso regression in the large case = {np.round(large_rmse_oos_lasso,1)}")
 ```
 
-Alternatively, we can compute the split-sample estimate of the MSPE using the `GridSearchCV` function, as shown in the following code chunk.
+Alternatively, we can compute the split-sample estimate of the MSPE using the `GridSearchCV()` function, as shown in the following code chunk.
 
 ```{python}
 #| eval: false
@@ -1182,7 +1179,6 @@ data['e_lasso2'] = data['e_lasso'] ** 2
 large_rmse_oos_lasso = np.sqrt(data.loc[data['outofsample'], 'e_lasso2'].mean())
 
 print(f"The out-of-sample RMSPE of Lasso regression in the large case = {large_rmse_oos_lasso:.1f}")
-
 ```
 
 ```{python}
@@ -1398,7 +1394,6 @@ filename = 'pc_very_large_model.sav'
 pickle.dump(pca, open(filename, 'wb'))
 ```
 
-
 ```{python}
 filename = 'pc_very_large_model.sav'
 pca = pickle.load(open(filename,"rb"))
@@ -1427,7 +1422,6 @@ data['e_pc2'] = data['e_pc'] ** 2
 vlarge_rmse_in_pc = np.sqrt(data.loc[data['insample'], 'e_pc2'].mean())
 vlarge_rmse_oos_pc = np.sqrt(data.loc[data['outofsample'], 'e_pc2'].mean())
 print(f"The out-of-sample RMSPE of PC regression = {np.round(vlarge_rmse_oos_pc,1)}")        
-   
 ```
 
 In the following, we estimate the ridge regression and then return the out-of-sample estimate of the MSPE. 
@@ -1512,7 +1506,6 @@ print(f"The out-of-sample RMSPE of Lasso regression = {vlarge_rmse_oos_lasso:.1f
 del data
 ```
 
-
 ### Estimation results
 In this section, we compare the estimation results in terms of the in-sample and out-of-sample MSPE estimates. The estimation results are presented in @tbl-t21.1. Below, we list some main points from @tbl-t21.1 as follows:
 
@@ -1520,7 +1513,6 @@ In this section, we compare the estimation results in terms of the in-sample and
 * In the large case with k=817, the out-of-sample RMSPE of the OLS estimator is about 35% larger relative to those reported by Ridge, Lasso, and PC regression.
 * In the large and very large cases, the Ridge, Lasso, and PC regression have similar RMSPE estimates.
 * When $k$ increases from 817 to 2065, we do not see an improvement in the out-of-sample RMSPE of the Ridge, Lasso, and PC regression. 
-
 
 ```{python}
 predictor_set = [
@@ -1555,7 +1547,6 @@ cPCs = [
     ' ', '54', f'{vlarge_rmse_in_pc:.1f}',  f'{vlarge_rmse_oos_pc:.1f}'
 ]
 
-
 df = pd.DataFrame([cOLS, cRidge, cLasso, cPCs]).T
 df.index = predictor_set
 df.columns = colnames
@@ -1569,6 +1560,3 @@ df.columns = colnames
 df
 ```
 :::
-
-
-

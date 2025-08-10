@@ -304,7 +304,7 @@ If the realized value of $t$ is in the rejection region, we reject the null hypo
 ```{python}
 #| fig-cap: "Rejection Regions"
 #| label: fig-fig10-4
-#| layout-ncol: 2
+#| layout-ncol: 3
 #| fig-subcap: 
 #|   - "Upper-tailed rejection region"
 #|   - "Lower-tailed rejection region"
@@ -322,8 +322,8 @@ x_fill = np.linspace(stats.norm.ppf(0.90), 5, 1000)
 pdf_fill = stats.norm.pdf(x_fill)
 axs.fill_between(x_fill, 0, pdf_fill, color='lightblue')
 axs.plot(stats.norm.ppf(0.90), 0, 'ko', markersize=4)
-axs.text(-0.025, 0.1, r'$1-\alpha$')
-axs.text(3, 0.05, r'$\alpha$')
+axs.text(-0.6, 0.075, r'$1-\alpha$')
+axs.text(2, 0.075, r'$\alpha$')
 axs.text(stats.norm.ppf(0.90), -0.03, r'$z_\alpha$')
 axs.set_xlim(-5, 5)
 axs.set_ylim(-0.01, max(pdf) + 0.01)
@@ -339,8 +339,8 @@ x_fill = np.linspace(-5, stats.norm.ppf(0.10), 1000)
 pdf_fill = stats.norm.pdf(x_fill)
 axs.fill_between(x_fill, 0, pdf_fill, color='lightblue')
 axs.plot(stats.norm.ppf(0.10), 0, 'ko', markersize=4)
-axs.text(-0.025, 0.1, r'$1-\alpha$')
-axs.text(-3, 0.05, r'$\alpha$')
+axs.text(-0.6, 0.075, r'$1-\alpha$')
+axs.text(-2.5, 0.075, r'$\alpha$')
 axs.text(-stats.norm.ppf(0.90), -0.03, r'$-z_\alpha$')
 axs.set_xlim(-5, 5)
 axs.set_ylim(-0.01, max(pdf) + 0.01)
@@ -362,9 +362,9 @@ pdf_fill = stats.norm.pdf(x_fill)
 axs.fill_between(x_fill, 0, pdf_fill, color='lightblue')
 axs.plot(stats.norm.ppf(0.05), 0, 'ko', markersize=4)
 axs.plot(stats.norm.ppf(0.95), 0, 'ko', markersize=4)
-axs.text(-0.025, 0.1, r'$1-\alpha$')
+axs.text(-0.6, 0.075, r'$1-\alpha$')
 axs.text(-3, 0.07, r'$\alpha/2$')
-axs.text(3, 0.07, r'$\alpha/2$')
+axs.text(2.5, 0.07, r'$\alpha/2$')
 axs.text(stats.norm.ppf(0.95), -0.03, r'$z_{\alpha/2}$')
 axs.text(-stats.norm.ppf(0.95), -0.03, r'$-z_{\alpha/2}$')
 axs.set_xlim(-5, 5)
@@ -401,9 +401,9 @@ $$
 \begin{align*}
 \text{$p$-value}=
 \begin{cases}
-P_{H_0}\left(t > |t_{\text{calc}}|\right)\,\text{for}\,H_1:\mu_Y>20,\\
-P_{H_0}\left(t <-|t_{\text{calc}}|\right)\,\text{for}\,H_1:\mu_Y<20,\\
-P_{H_0}\left(|t| > |t_{\text{calc}}|\right)\,\text{for}\,H_1:\mu_Y\ne20,
+P_{H_0}\left(t > |t_{\text{calc}}|\right), \quad&\text{for }H_1:\mu_Y>20,\\
+P_{H_0}\left(t <-|t_{\text{calc}}|\right), \quad&\text{for }H_1:\mu_Y<20,\\
+P_{H_0}\left(|t| > |t_{\text{calc}}|\right), \quad&\text{for }H_1:\mu_Y\ne20,
 \end{cases}
 \end{align*}
 $$
@@ -412,9 +412,9 @@ $$
 \begin{align*}
 \text{$p$-value}=
 \begin{cases}
-P_{H_0}\left(t > |t_{\text{calc}}|\right)=1-\Phi(|t_{\text{calc}}|)\,\,\text{for}\,\,H_1:\mu_Y>20,\\
-P_{H_0}\left(t <-|t_{\text{calc}}|\right)=\Phi(-|t_{\text{calc}}|)\,\,\text{for}\,\,H_1:\mu_Y<20,\\
-P_{H_0}\left(|t| > |t_{\text{calc}}|\right)=2\times\Phi(-|t_{\text{calc}}|)\,\,\text{for}\,H_1:\mu_Y\ne20.
+P_{H_0}\left(t > |t_{\text{calc}}|\right)=1-\Phi(|t_{\text{calc}}|), \quad&\text{for }H_1:\mu_Y>20,\\
+P_{H_0}\left(t <-|t_{\text{calc}}|\right)=\Phi(-|t_{\text{calc}}|), \quad&\text{for }H_1:\mu_Y<20,\\
+P_{H_0}\left(|t| > |t_{\text{calc}}|\right)=2\times\Phi(-|t_{\text{calc}}|), \quad&\text{for }H_1:\mu_Y\ne20.
 \end{cases}
 \end{align*}
 $$
@@ -475,7 +475,7 @@ $$
 We can express the set $\left\{\mu_Y: \left|\frac{\bar{Y} - \mu_Y}{s_Y/\sqrt{n}}\right| \le 1.96\right\}$ as follows:
 $$
 \begin{align*}
-&\left\{\mu_Y:\left|\frac{\bar{Y} - \mu_Y}{s_Y/\sqrt{n}}\right|\le 1.96\right\}=\left\{\mu_Y:-1.96\le \frac{\bar{Y}-\mu_Y}{s_Y/\sqrt{n}}\le 1.96\right\}\\
+\left\{\mu_Y:\left|\frac{\bar{Y} - \mu_Y}{s_Y/\sqrt{n}}\right|\le 1.96\right\}&=\left\{\mu_Y:-1.96\le \frac{\bar{Y}-\mu_Y}{s_Y/\sqrt{n}}\le 1.96\right\}\\
 &=\left\{\mu_Y:-\bar{Y} - 1.96\times s_Y/\sqrt{n}\le -\mu_Y \le -\bar{Y} + 1.96\times s_Y/\sqrt{n}\right\}\\
 &=\left\{\mu_Y: \bar{Y} - 1.96\times s_Y/\sqrt{n} \le \mu_Y \le \bar{Y} + 1.96\times s_Y/\sqrt{n}\right\}\\
 &=\left\{\mu_Y: \bar{Y} \pm 1.96 \times \text{SE}(\bar{Y})\right\}.
@@ -489,7 +489,7 @@ $$
 \end{align*}
 $$
 
-The confidence interval can be used to test the null hypothesis $H_0:\mu_Y = \mu_0$ against the alternative hypothesis $H_1:\mu_Y \ne \mu_0$. Based on the 95% confidence interval, we reject the null hypothesis at the 5% significance level if the hypothesized value $\mu_0$ is not contained within the interval; otherwise, we fail to reject the null hypothesis.
+The confidence interval can be used to test the null hypothesis $H_0:\mu_Y = \mu_0$ against the alternative hypothesis $H_1:\mu_Y \ne \mu_0$. Based on the 95% confidence interval, we reject the null hypothesis at the $5\%$ significance level if the hypothesized value $\mu_0$ is not contained within the interval; otherwise, we fail to reject the null hypothesis.
 
 Note that we construct the the $95\%$ confidence interval $\{\mu_Y: \bar{Y} \pm 1.96 \times \text{SE}(\bar{Y})\}$ by using the critical values from the standard normal distribution.  That is, our confidence interval is based on the central limit theorem result in @eq-eq10.2, which requires a large sample size. In the following simulation exercise, we compute `nsim=5000` confidence intervals for different sample sizes and then determine the percentage of intervals that includes $\mu_Y$. As the sample size increases, we expect this percentage to approach $95\%$. 
 
@@ -541,22 +541,22 @@ We assume that the random samples $Y_1, \dots, Y_n$ are generated from three dif
 
 ```{python}
 # Population distribution: standard normal distribution
-p1=confidence_int(np.random.normal, n=[30, 100, 500], mu=0, loc=0, scale=1, seed=42)
+p1 = confidence_int(np.random.normal, n=[30, 100, 500], mu=0, loc=0, scale=1, seed=42)
 
 # Population distribution: chi-squared distribution
-p2=confidence_int(np.random.chisquare, n=[30, 100, 500], mu=3, df=3, seed=42)
+p2 = confidence_int(np.random.chisquare, n=[30, 100, 500], mu=3, df=3, seed=42)
 
 # Population distribution: uniform distribution
-p3=confidence_int(np.random.uniform, n=[30, 100, 500], mu=0.5, low=0, high=1, seed=42)
+p3 = confidence_int(np.random.uniform, n=[30, 100, 500], mu=0.5, low=0, high=1, seed=42)
 ```
 
 ```{python}
 #| tbl-cap: Simulation Results
 #| label: tbl-t10.1
 # Simulation results for the confidence intervals
-df = pd.DataFrame([p1,p2,p3])
-df.index = ["Normal", "Chi-squared","Uniform"]
-df.columns = ["n=30","n=100","n=500"]
+df = pd.DataFrame([p1, p2, p3])
+df.index = ["Normal", "Chi-squared", "Uniform"]
+df.columns = ["n=30", "n=100", "n=500"]
 df
 ```
 
@@ -671,7 +671,6 @@ result = pd.DataFrame({
     'CI_Lower': gap_ci_l,
     'CI_Upper': gap_ci_u
 })
-
 ```
 
 ```{python}
@@ -690,7 +689,7 @@ A **scatterplot** is a plot of observations on two variables. We use the scatter
 #| label: fig-fig10-5
 # The scatterplot of test score and student–teacher ratio
 # Import the data
-CAschool=pd.read_csv('data/caschool.csv')
+CAschool = pd.read_csv('data/caschool.csv')
 # Create a scatterplot
 fig, axs = plt.subplots(figsize=(5.5,3.5))
 axs.scatter(CAschool.str, CAschool.testscr, color='steelblue', s=15)

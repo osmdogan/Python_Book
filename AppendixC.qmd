@@ -148,7 +148,6 @@ f_{X,Y}(x,y)=\frac{1}{2\pi\sigma_X\sigma_Y\sqrt{1-\rho^2}}e^{-\frac{1}{2(1-\rho^
 $$
 where $\rho$ is the correlation coefficient between $X$ and $Y$. The marginal distributions of $X$ and $Y$ are univariate normal distributions: $X\sim N(\mu_X,\sigma^2_X)$ and $Y\sim N(\mu_Y,\sigma^2_Y)$. 
 
-
 In @fig-bivariate-normal, we plot the bivariate normal distribution with $\mu_X=\mu_Y=0$, $\sigma_X=\sigma_Y=1$, and $\rho=0.5$. The 3D plot shows the joint pdf of $X$ and $Y$.
 ```{python}
 #| fig-cap: "3D plot of bivariate normal distribution"
@@ -162,6 +161,7 @@ y = np.linspace(-3, 3, 100)
 X, Y = np.meshgrid(x, y)
 pos = np.dstack((X, Y))
 rv = multivariate_normal(mu, sigma)
+
 # Create a 3D plot
 fig = plt.figure(figsize=(8, 4))
 ax = fig.add_subplot(111, projection='3d')
@@ -172,8 +172,8 @@ ax.set_ylabel('Y-axis')
 #ax.set_title('Bivariate Normal Distribution')
 
 # Adjust the limits, ticks and view angle
-ax.set_zlim(0,0.2)
-ax.set_zticks(np.linspace(0,0.2,5))
+ax.set_zlim(0, 0.2)
+ax.set_zticks(np.linspace(0, 0.2, 5))
 ax.view_init(30, -27)
 
 plt.show()
@@ -195,21 +195,17 @@ rho = [-0.8, 0, 0.4, 0.8]
 for ax, rho in zip(axes.flatten(), rho):
     # Define the covariance matrix
     cov_matrix = np.array([[1, rho], [rho, 1]])
-    
     # Generate random samples from the multivariate normal distribution
     samples = np.random.multivariate_normal(mean_vector, cov_matrix, size=500)
-    
     # Plot the samples
     ax.scatter(samples[:, 0], samples[:, 1], alpha=0.5)
     ax.set_title(f"$\\rho$={rho}")
     ax.set_xlabel("X")
     ax.set_ylabel("Y")
     ax.axis('equal')
-    
 # Adjust layout for better spacing
 plt.tight_layout()
 plt.show()
-
 ```
 
 In @fig-normal-contour, we plot the contour plots of bivariate normal distributions that have different correlation coefficients. The contour plots show the level curves of the bivariate normal distribution for different values of $\rho$. @fig-normal-contour shows that as $\rho$ gets larger in absolute value, the contours stretch along the line $y=x$ or $y=-x$.
@@ -227,17 +223,14 @@ rho = [-0.8, 0, 0.4, 0.8]
 for ax, rho in zip(axes.flatten(), rho):
     # Define the covariance matrix
     cov_matrix = np.array([[1, rho], [rho, 1]])
-    
     # Create a grid of points
     x = np.linspace(-3, 3, 100)
     y = np.linspace(-3, 3, 100)
     X, Y = np.meshgrid(x, y)
     pos = np.dstack((X, Y))
-    
     # Calculate the probability density function
     rv = multivariate_normal(mean_vector, cov_matrix)
     Z = rv.pdf(pos)
-    
     # Plot the contour
     ax.contour(X, Y, Z, levels=10)
     ax.set_title(f"$\\rho$={rho}")
@@ -274,7 +267,6 @@ $$
 where $\Gamma(\alpha)=\int_{0}^{\infty}t^{\alpha-1}e^{-t}\text{d}t$ is the gamma function. 
 
 If $X\sim\chi^2_k$, then $\E(X)=k$ and $\text{var}(X)=2k$. Its moment generating function is given by $m(t)=\left(1-2t\right)^{-k/2}$ for $t<1/2$. 
-
 
 The chi-square distribution is also related to the gamma distribution. The chi-square distribution with $k$ degrees of freedom is equivalent to the gamma distribution with shape parameter $k/2$ and scale parameter $2$. See Chapter 9 for the pdf and CDF plots of the chi-square distribution with $k=3,4,10$ degrees of freedom.
 

@@ -37,7 +37,7 @@ In this chapter, we study commonly used panel data models. These models have fea
 We assume that there are $n$ entities and $T$ time periods. Let $i$ and $t$ to denote entities and time periods, respectively. Suppose we have an outcome variable and $k$ explanatory variables in the dataset. Then, our dataset consists of the realizations of
 $$
 \begin{align}
-(X_{1it},\,X_{2it},...,X_{kit},\,Y_{it}),\quad i=1,2,...,n,\quad t=1,2,...,T.
+(X_{1it},\,X_{2it},\dots,X_{kit},\,Y_{it}),\quad i=1,2,\dots,n,\quad t=1,2,\dots,T.
 \end{align}
 $$
 
@@ -47,12 +47,12 @@ We analyze the traffic fatality dataset (**fatality.csv**) provided by @Stock202
 - `state`: state id (FIPS) code 
 - `year`: year
 - `mrall`: per capita vehicle fatality (number of traffic deaths)
-- `beertax`: the real tax on a case of beer  
+- `beertax`: the real tax on a case of beer
 - `mlda`: minimum legal drinking age 
 - `jaild`: a dummy variable that equals to 1 if state requires mandatory jail sentence for an initial drunk driving conviction, 0 otherwise 
 - `comserd`: a dummy variable that equals 1 if state requires mandatory community service for an initial drunk driving conviction, 0 otherwise 
 - `vmiles`: total vehicle miles traveled annually 
-- `unrate`: unemployment rate          
+- `unrate`: unemployment rate
 - `perinc`: per capita personal income 
 
 We will first change the measurement of the per capita vehicle fatality to vehicle fatality per 10,000 people.
@@ -68,7 +68,7 @@ fatality['mrall'] = 1e4*fatality['mrall']
 fatality.columns
 ```
 
-The summary statistics for some of the variables are presented in @tbl-t17-1. The average fatality rate (`mrall`) is roughly 2 per 10,000 people. The average real beer tax (`beertax`) is about $0.50 per case (in 1988 dollars).  The sample means of `jaild` and `comserd` are 0.28 and 0.39, respectively, indicating that 28 percent of the states require mandatory jail sentence for an initial drunk driving conviction, while 39 percent mandate community service. The average annual vehicle miles (`vmiles`) traveled is about 7890 miles. Lastly, the average unemployment rate across states is 7.35 percent.
+The summary statistics for some of the variables are presented in @tbl-t17-1. The average fatality rate (`mrall`) is roughly 2 per 10,000 people. The average real beer tax (`beertax`) is about $0.50 per case (in 1988 dollars). The sample means of `jaild` and `comserd` are 0.28 and 0.39, respectively, indicating that 28 percent of the states require mandatory jail sentence for an initial drunk driving conviction, while 39 percent mandate community service. The average annual vehicle miles (`vmiles`) traveled is about 7890 miles. Lastly, the average unemployment rate across states is 7.35 percent.
 
 :::{layout-ncol=1}
 ```{python}
@@ -78,7 +78,6 @@ The summary statistics for some of the variables are presented in @tbl-t17-1. Th
 fatality[["mrall","beertax","jaild","comserd","vmiles","unrate"]].describe().round(2).T
 ```
 :::
-
 
 Consider first the linear relationship between vehicle fatalities and the real tax on a case of beer, in 1982, and, in 1988. In the following code, we estimate the following simple linear regression model for 1982 and 1988 separately:
 $$
@@ -147,8 +146,8 @@ $${#eq-eq17-1}
 where $Z_i$ is a factor that does not change over time and $\beta_2$ is the associated parameter. Suppose $Z_i$ is not observed. Hence, its omission could result in omitted variable bias. However, the effect of $Z_i$ can be eliminated if have data over multiple time periods. For example, consider @eq-eq17-1 when $t=1982$ and $t=1988$:
 $$
 \begin{align}
-{\tt FatalityRate}_{i1982}=\beta_0+\beta_1{\tt BeerTax}_{i1982}+\beta_2Z_i+u_{i1982},\\
-{\tt FatalityRate}_{i1988}=\beta_0+\beta_1{\tt BeerTax}_{i1988}+\beta_2Z_i+u_{i1988}.
+{\tt FatalityRate}_{i1982} = \beta_0+\beta_1{\tt BeerTax}_{i1982}+\beta_2Z_i+u_{i1982},\\
+{\tt FatalityRate}_{i1988} = \beta_0+\beta_1{\tt BeerTax}_{i1988}+\beta_2Z_i+u_{i1988}.
 \end{align}
 $$
 
@@ -183,12 +182,12 @@ The estimated effect of a change in the real beer tax is negative, as predicted 
 
 Of course using only data from two periods when we have data for more than 2 periods is not reasonable. We now consider the case $T > 2$. Because $Z_i$ varies from one state to the next but is constant over time, the model can be interpreted as having $n$ intercepts, one for each state. Let $\alpha_i = \beta_0 + \beta_2 Z_i$ in @eq-eq17-1, then the model can be written as
 $$
-Y_{it}=\beta_1X_{it}+\alpha_i+u_{it},\quad i=1,2,...,n,\quad t=1,2,...,T.
+Y_{it}=\beta_1X_{it}+\alpha_i+u_{it},\quad i=1,2,\dots,n,\quad t=1,2,\dots,T.
 $$ {#eq-eq17-2}
 
 :::{#def-def17-2}
 ## Fixed effects regression model
-The model in @eq-eq17-2 is called the **fixed effects regression model**, where $\alpha_1,\alpha_2,...,\alpha_n$ are treated as unknown intercepts to be estimated. These terms are also known as **entity fixed effects**. 
+The model in @eq-eq17-2 is called the **fixed effects regression model**, where $\alpha_1,\alpha_2,\dots,\alpha_n$ are treated as unknown intercepts to be estimated. These terms are also known as **entity fixed effects**. 
 :::
 
 Alternatively, we can express @eq-eq17-2 as 
@@ -201,7 +200,7 @@ $$
 Y_{it} = \beta_0 + \beta_1X_{it} + \gamma_2 D2_i + \gamma_3 D3_i + \ldots +\gamma_n Dn_i + u_{it},
 $$ {#eq-eq17-3} 
 
-where the dummy variables $D2,D3,...,Dn$ are the entity dummies with the corresponding parameters $\gamma_2,\gamma_3,\ldots, \gamma_n$. For example, $D2_i$ is a dummy variable that equals 1 if $i=2$ and 0 otherwise:
+where the dummy variables $D2,D3,\dots,Dn$ are the entity dummies with the corresponding parameters $\gamma_2,\gamma_3,\ldots, \gamma_n$. For example, $D2_i$ is a dummy variable that equals 1 if $i=2$ and 0 otherwise:
 
 $$
 D2_i = 
@@ -211,9 +210,9 @@ D2_i =
 \end{cases}
 $$
 
-Note that because there is a common intercept in @eq-eq17-3, the dummy for the first entity $D1$ is not included in the specification to avoid the dummy variable trap. Also, comparing @eq-eq17-2 and @eq-eq17-3, we have $\alpha_1 = \beta_0$ and $\alpha_i = \beta_0 + \gamma_i$ for $i=2,...,n$. 
+Note that because there is a common intercept in @eq-eq17-3, the dummy for the first entity $D1$ is not included in the specification to avoid the dummy variable trap. Also, comparing @eq-eq17-2 and @eq-eq17-3, we have $\alpha_1 = \beta_0$ and $\alpha_i = \beta_0 + \gamma_i$ for $i=2,\dots,n$. 
 
-If the set of regressors includes $X_1$, $X_2$, ..., $X_k$, then the fixed effects regression model can be extended to include multiple regressors. The model with multiple regressors can be expressed in the following forms:
+If the set of regressors includes $X_1$, $X_2$, \dots, $X_k$, then the fixed effects regression model can be extended to include multiple regressors. The model with multiple regressors can be expressed in the following forms:
 
 * Fixed effects form with multiple regressors:
 $$
@@ -256,7 +255,7 @@ Y_{it}&=\beta_0+\beta_1X_{1it}+\beta_2X_{2it}+\ldots+\beta_kX_{kit}\\
 \end{align} 
 $$
 
-where $D2,D3,...,Dn$ are the entity dummies.  For example, $D2_i$ is a dummy variable that equals 1 if $i=2$ and 0 otherwise.
+where $D2,D3,\dots,Dn$ are the entity dummies. For example, $D2_i$ is a dummy variable that equals 1 if $i=2$ and 0 otherwise.
 :::
 
 There are two approaches that can be used to estimate the fixed effects regression model: the least squares dummy variables (LSDV) method and the within (or entity-demeaned) transformation. The LSDV method is based on estimating @eq-eq17-3 by the OLS estimator. 
@@ -277,8 +276,8 @@ For our traffic fatality dataset, we consider the following versions:
 
 $$
 \begin{align}
-&{\tt FatalityRate}_{it}=\beta_0+\beta_1{\tt BeerTax}_{it}+\gamma_2D2_i+\gamma_3D3_i+\ldots+\gamma_nD47_i+u_{it},\\
-&{\tt FatalityRate}_{it}=\beta_0+\beta_1{\tt BeerTax}_{it}+\alpha_i+u_{it}.
+&{\tt FatalityRate}_{it} = \beta_0+\beta_1{\tt BeerTax}_{it}+\gamma_2D2_i+\gamma_3D3_i+\ldots+\gamma_nD47_i+u_{it},\\
+&{\tt FatalityRate}_{it} = \beta_0+\beta_1{\tt BeerTax}_{it}+\alpha_i+u_{it}.
 \end{align}
 $$
 
@@ -301,7 +300,7 @@ $$
 
 The estimated coefficient on ${\tt BeerTax}_{it}$ is negative and statistically significant at the 5% significance level. This estimate indicates that if the real beer tax increases by $1 dollar, then on average the traffic fatalities decline by 0.66 per 10,000 people. 
 
-The fixed effects form can be estimated using the `PanelOLS` function from the `linearmodels` package. We first set the index of the dataset to the entity and time variables using the `set_index` function. The entity fixed effects are included in the model by specifying the `EntityEffects` option in the formula. We use the `cov_type='clustered'` and `cluster_entity = True` options to compute the clustered standard errors. The following code chunk estimates the fixed effects model using the within transformation.
+The fixed effects form can be estimated using the `PanelOLS()` function from the `linearmodels` package. We first set the index of the dataset to the entity and time variables using the `set_index()` function. The entity fixed effects are included in the model by specifying the `EntityEffects` option in the formula. We use the `cov_type='clustered'` and `cluster_entity = True` options to compute the clustered standard errors. The following code chunk estimates the fixed effects model using the within transformation.
 
 ```{python}
 df = fatality.set_index(['state','year'])
@@ -319,12 +318,11 @@ The coefficient on `BeerTax` is negative and statistically significant at the 5%
 
 Overall, including state fixed effects in the regression helps avoid omitted variable bias caused by unobserved factors, such as cultural attitudes toward drinking and driving, that vary across states but remain constant over time within a state. Therefore, we obtain a negative relationship between the real beer tax and traffic fatalities, as expected.
 
-
 ### Time fixed effects
 
 Along the same lines in the previous section, we can also consider potential omitted variable bias due to unobserved variables that vary over time but do not vary across entities. Let $S_t$ denote the combined effect of variables which changes over time but not over states. For example, $S_t$ could represent technological improvements that reduce traffic fatalities, or government regulations that lead to the production of safer cars. All of these factors are assumed to be constant across states but change over time. Using $S_t$, consider the following panel data model:
 $$
-Y_{it}=\beta_0+\beta_1X_{it}+\beta_3S_t+u_{it},\quad i=1,2,...,n,\quad t=1,2,...,T.
+Y_{it}=\beta_0+\beta_1X_{it}+\beta_3S_t+u_{it},\quad i=1,2,\dots,n,\quad t=1,2,\dots,T.
 $$
 
 In this model, setting $\lambda_t = \beta_0 + \beta_3S_t$, we can recast the model as having an intercept that varies from one year to the next:
@@ -332,11 +330,11 @@ $$
 Y_{it}=\beta_1X_{it}+\lambda_t+u_{it},
 $$ {#eq-eq17-5}
 
-where $\lambda_t = \beta_0 + \beta_3S_t$ for $t=1,2,...,T$.
+where $\lambda_t = \beta_0 + \beta_3S_t$ for $t=1,2,\dots,T$.
 
 :::{#def-def17-3}
 ## Time fixed effects regression model
-The model in @eq-eq17-5 is called the **time fixed effects regression model**, where $\lambda_1,\lambda_2,...,\lambda_T$ are treated as unknown time-varying intercepts to be estimated. These terms are called **time fixed effects**. 
+The model in @eq-eq17-5 is called the **time fixed effects regression model**, where $\lambda_1,\lambda_2,\dots,\lambda_T$ are treated as unknown time-varying intercepts to be estimated. These terms are called **time fixed effects**. 
 :::
 
 Using the indicator function, we can alternatively express this model as
@@ -348,10 +346,10 @@ where $\mathbf{1}(t=s)$ is the indicator function that equals 1 if $t=s$, and 0 
 
 Also, using the period dummy variables, the model alternatively can be expressed as
 $$
-Y_{it}=\beta_0+\beta_1X_{it}+\delta_2 B2_t+\delta_3 B3_t+...+\delta_T BT_t+u_{it},
+Y_{it}=\beta_0+\beta_1X_{it}+\delta_2 B2_t+\delta_3 B3_t+\dots+\delta_T BT_t+u_{it},
 $$ {#eq-eq17-6}
 
-where $B2,B3,\ldots,BT$ are the period dummies and $\delta_2,\delta_3,...,\delta_T$ are the corresponding unknown coefficients. The period dummies are defined as 
+where $B2,B3,\ldots,BT$ are the period dummies and $\delta_2,\delta_3,\dots,\delta_T$ are the corresponding unknown coefficients. The period dummies are defined as 
 $$
 \begin{align}
 B2_t=
@@ -364,7 +362,7 @@ $$
 
 and other dummy variables $B3_t,\ldots,BT_t$ are defined similarly. 
 
-Note that because there is a common intercept in @eq-eq17-6, the first time period $B1$ is not included in the specification to prevent the dummy variable trap. Also, by comparing the two representations, we have $\lambda_1 = \beta_0$ and $\lambda_t = \beta_0 + \delta_t$ for $t=2,\ldots,T$.  If additional explanatory variables are available, then these specifications can  be extended to include multiple regressors.
+Note that because there is a common intercept in @eq-eq17-6, the first time period $B1$ is not included in the specification to prevent the dummy variable trap. Also, by comparing the two representations, we have $\lambda_1 = \beta_0$ and $\lambda_t = \beta_0 + \delta_t$ for $t=2,\ldots,T$. If additional explanatory variables are available, then these specifications can be extended to include multiple regressors.
 
 ::: {.callout-note icon=false}
 ## Key Concept 17.1: Time fixed effects regression model
@@ -387,12 +385,12 @@ where $\mathbf{1}(s=t)$ is the indicator function that equals 1 if $s=t$, and 0 
 3. The dummy variables form: 
 $$
 \begin{align}
-Y_{it}&=\beta_0+\beta_1X_{1it}+\beta_2X_{2it}+\ldots+\beta_kX_{kit}\\
+Y_{it} &= \beta_0+\beta_1X_{1it}+\beta_2X_{2it}+\ldots+\beta_kX_{kit}\\
 &+\delta_2B2_t+\delta_3B3_t+\ldots+\delta_n BT_t+u_{it},
 \end{align} 
 $$
 
-where $B2,B3,...,BT$ are the period dummies.  For example, $B2_t$ is a dummy variable that equals 1 if $t=2$ and 0 otherwise. The other dummy variables $B3_t,...,BT_t$ are defined similarly.
+where $B2,B3,\dots,BT$ are the period dummies. For example, $B2_t$ is a dummy variable that equals 1 if $t=2$ and 0 otherwise. The other dummy variables $B3_t,\dots,BT_t$ are defined similarly.
 :::
 The estimation can be based on two approaches: the least squares dummy variables (LSDV) method and the within (or time-demeaned) transformation. The LSDV method is based on estimating @eq-eq17-6 by the OLS estimator. The within transformation involves estimating the following transformation of @eq-eq17-5:
 $$
@@ -415,7 +413,7 @@ $$
 \widehat{\text{FatalityRate}}_{it} = 1.89 + 0.37 \text{BeerTax}_{it} -0.08 B2_t -0.07B3_t + \ldots -0.001 B7_t.
 $$
 
-The estimated coefficient on ${\tt BeerTax}_{it}$ is positive and statistically significant at the 5% significance level. This estimate indicates that if the real beer tax increases by $1 dollar, then on average the traffic fatalities increase by  $0.37$ per $10.000$ people, which is contrary to what we would expect.
+The estimated coefficient on ${\tt BeerTax}_{it}$ is positive and statistically significant at the 5% significance level. This estimate indicates that if the real beer tax increases by $1 dollar, then on average the traffic fatalities increase by $0.37$ per $10.000$ people, which is contrary to what we would expect.
 
 ```{python}
 LSDVreg = smf.ols(formula = 'mrall ~ beertax + C(year)', data = fatality)
@@ -442,10 +440,10 @@ The coefficient on `BeerTax` is the same as the one obtained using the LSDV meth
 
 We now consider omitted variable bias problem due to unobserved factors that vary over entities but do not vary across time, as well as unobserved factors that vary over time but do not vary across entities. Hence, the regression model include both entity and time fixed effects:
 $$
-Y_{it}=\beta_1X_{it}+\alpha_i+\lambda_t+u_{it},
+Y_{it} = \beta_1X_{it}+\alpha_i+\lambda_t+u_{it},
 $$ {#eq-eq17-7}
 
-for $i=1,2,...,n$ and $t=1,2,...,T$, where $\alpha_i$ and $\lambda_t$ are the entity and time fixed effects, respectively. 
+for $i=1,2,\dots,n$ and $t=1,2,\dots,T$, where $\alpha_i$ and $\lambda_t$ are the entity and time fixed effects, respectively. 
 
 :::{#def-def17-4}
 ## Entity and time fixed effects regression model
@@ -454,23 +452,23 @@ The model in @eq-eq17-7 is called the **entity and time fixed effects regression
 
 Note that we can also use the indicator function to express the model in @eq-eq17-7 as
 $$
-Y_{it}=\beta_1X_{it}+\sum_{j=1}^n\mathbf{1}(j=i)\alpha_j+\sum_{s=1}^T\mathbf{1}(s=t)\lambda_s+u_{it}.
+Y_{it} = \beta_1X_{it}+\sum_{j=1}^n\mathbf{1}(j=i)\alpha_j+\sum_{s=1}^T\mathbf{1}(s=t)\lambda_s+u_{it}.
 $$
 
 The model can equivalently be represented using $n-1$ entity dummies and $T-1$ period dummies, along with an intercept:
 $$
 \begin{align*}
-Y_{it} &= \beta_0+\beta_1X_{it}+\gamma_2D2_i+\gamma_3D3_i+...+\gamma_nDn_i\\
-       &\quad+\delta_2B2_t+\delta_3B3_t+...+\delta_TBT_t+u_{it},
+Y_{it} &= \beta_0+\beta_1X_{it}+\gamma_2D2_i+\gamma_3D3_i+\dots+\gamma_nDn_i\\
+       &\quad+\delta_2B2_t+\delta_3B3_t+\dots+\delta_TBT_t+u_{it},
 \end{align*}
 $${#eq-eq17-8}
 
-where $D2,D3,...,Dn$ are the entity dummies and $B2,B3,...,BT$ are the period dummies. 
+where $D2,D3,\dots,Dn$ are the entity dummies and $B2,B3,\dots,BT$ are the period dummies. 
 
 The estimation of the entity and time fixed effects regression model can be carried out by estimating the dummy specification above (LSDV method) by the OLS estimator. The within approach involves estimating the following transformed model by the OLS estimator:
 
 $$
-\widetilde{Y}_{it}=\beta_1\widetilde{X}_{it}+\widetilde{u}_{it}
+\widetilde{Y}_{it} = \beta_1\widetilde{X}_{it}+\widetilde{u}_{it}
 $$
 
 where $\widetilde{Y}_{it}=Y_{it}-\frac{1}{T}\sum_{t=1}^TY_{it}-\frac{1}{n}\sum_{j=1}^nY_{jt}+\frac{1}{nT}\sum_{j=1}^n\sum_{t=1}^TY_{jt}$, $\widetilde{X}_{it}$ and $\widetilde{u}_{it}$ are defined similarly. The addition term at the end appears because time demeaning after entity demeaning (or vice versa) results in taking out the grand mean of the variable and it must be added back. 
@@ -479,21 +477,21 @@ For the traffic fatality dataset, we consider the following versions:
 
 $$
 \begin{align}
-{\tt FatalityRate}_{it}&=\beta_0+\beta_1{\tt BeerTax}_{it}+\gamma_2D2_i+\gamma_3D3_i+\ldots+\gamma_nD47_i\\
+{\tt FatalityRate}_{it} &= \beta_0+\beta_1{\tt BeerTax}_{it}+\gamma_2D2_i+\gamma_3D3_i+\ldots+\gamma_nD47_i\\
 &+\delta_2B2_t+\delta_3B3_t+\ldots+\delta_7B7_t+u_{it},\\
 \end{align}
 $$
 
 $$
 \begin{align}
-{\tt FatalityRate}_{it}&=\beta_0+\beta_1{\tt BeerTax}_{it}+\alpha_i+\lambda_t+u_{it}.
+{\tt FatalityRate}_{it} &= \beta_0+\beta_1{\tt BeerTax}_{it}+\alpha_i+\lambda_t+u_{it}.
 \end{align}
 $$
 
 We can use the following code chunk to estimate the first model by the LSDV method. In the formula, the entity and period dummy variables are added by the `C(state)+C(year)` term. According to the estimation results, the estimated model is
 $$
 \begin{align}
-\widehat{\text{FatalityRate}}_{it}& = 3.51 - 0.64 \text{BeerTax}_{it} -0.54 D2_i -0.64D3_i + \ldots -0.20 D47_i\\
+\widehat{\text{FatalityRate}}_{it} &= 3.51 - 0.64 \text{BeerTax}_{it} -0.54 D2_i -0.64D3_i + \ldots -0.20 D47_i\\
 & -0.08 B2_t -0.07B3_t + \ldots -0.05 B7_t.
 \end{align}
 $$
@@ -527,17 +525,16 @@ In the previous sections, we show that fixed effects regressions can be estimate
 
 ::: {.callout-important icon=false title="The fixed effects regression assumptions"}
 1. The zero-conditional mean assumption: $\E\left(u_{it}|X_{i1},X_{i2},\ldots,X_{iT},\alpha_i \right)=0$. 
-2. The random sampling assumption: $(X_{i1},\,X_{i2},\ldots,X_{iT}, u_{i1},u_{i2},...,u_{iT})$, $i=1,2,\ldots,n$, are $i.i.d.$ draws from their joint distribution.
+2. The random sampling assumption: $(X_{i1},\,X_{i2},\ldots,X_{iT}, u_{i1},u_{i2},\dots,u_{iT})$, $i=1,2,\ldots,n$, are $i.i.d.$ draws from their joint distribution.
 3. The no large outliers assumption: $(X_{it},u_{it})$ have finite fourth moments.
 4. The no perfect multicollinearity assumption: There is no perfect multicollinearity (if there are multiple $X$'s).
 :::
 
 In the case of the model with multiple regressors $X_1,X_2,\ldots,X_k$, we need to replace $X_{it}$ with $X_{1it},X_{2it},\ldots,X_{kit}$ in these assumptions. Assumption 1 requires that for any entity the conditional mean of $u$ can not depend on past, present and future values of $X$. This assumption is violated if current $u$ for an entity is correlated with past, present, or future values of $X$. This assumption is also known as the **strict exogeneity assumption** or simply the **exogeneity assumption**.
 
-Assumption 2 indicates that the variables for one entity are distributed identically to, but independently of, the variables for another entity; that is, the variables are i.i.d. across entities for $i=1,...,n$. Assumption 2 holds if entities are selected by simple random sampling from the population. Note that Assumption 2 requires that the variables are independent across entities but makes no such restriction within an entity. Therefore, it allows $u$ to be correlated over time within an entity (i.e. it allows for serial correlation).
+Assumption 2 indicates that the variables for one entity are distributed identically to, but independently of, the variables for another entity; that is, the variables are i.i.d. across entities for $i=1,\dots,n$. Assumption 2 holds if entities are selected by simple random sampling from the population. Note that Assumption 2 requires that the variables are independent across entities but makes no such restriction within an entity. Therefore, it allows $u$ to be correlated over time within an entity (i.e. it allows for serial correlation).
 
 The third and fourth assumptions for fixed effects regression are analogous to the third and fourth least squares assumptions for the multiple linear regression model.
-
 
 ::: {#thm-thm17-1}
 ## Properties of the fixed effects OLS estimator
@@ -594,7 +591,7 @@ Since $\hat{\sigma}^2_{\eta}$ is a consistent estimator of $\sigma^2_{\eta}$ eve
 
 In fixed-effects regression models, we assume that the entity- and time-invariant unobserved factors (the entity and time fixed effects) are arbitrarily correlated with the included regressors. However, if we are willing to assume that these unobserved factors are uncorrelated with the regressors, they can be treated as random variables, leading to random-effects regression models. The *two-way* random effects regression model is 
 $$
-Y_{it}=\beta_0 + \beta_1X_{1it} + \beta_2X_{2it} + ... + \beta_k X_{kit} + \alpha_i + \lambda_t + u_{it},
+Y_{it}=\beta_0 + \beta_1X_{1it} + \beta_2X_{2it} + \dots + \beta_k X_{kit} + \alpha_i + \lambda_t + u_{it},
 $$ {#eq-eq17-9}
 
 where $\alpha_i$ and $\lambda_t$ are the entity and time random effects, respectively. The random effects are assumed to be uncorrelated with the regressors. For example, we may assume that $\alpha_i \sim N(0, \sigma^2_{\alpha})$ for $i = 1, 2, \dots, n$ and $\lambda_t \sim N(0, \sigma^2_{\lambda})$ for $t = 1, 2, \dots, T$, where $\alpha_i$ and $\lambda_t$ are independent of each other and of the regressors. Here, $\sigma^2_{\alpha}$ and $\sigma^2_{\lambda}$ represent the unknown variances of the random effects. The random effects model can be estimated using the maximum likelihood estimator or the generalized least squares estimator. For the details of the estimation, see @Hansen2022.
@@ -606,7 +603,7 @@ $$
 \end{align}
 $$
 
-The `RandomEffects` function from the `linearmodels` package is used to estimate the random effects model. The `from_formula` method is used to specify the model formula. 
+The `RandomEffects()` function from the `linearmodels` package is used to estimate the random effects model. The `from_formula` method is used to specify the model formula. 
 
 ```{python}
 Randomreg = RandomEffects.from_formula('mrall ~ 1 + beertax + EntityEffects + TimeEffects', data = df)
@@ -685,7 +682,7 @@ df['drink20'] = (df['mlda'] == 20).astype(int)
 df['punish'] = ((df['jaild'] == 1)|(df['comserd'] == 1)).astype(int)
 ```
 
-We use the `PooledOLS` and `PanelOLS` functions from the `linearmodels` package to estimate all models. The models are specified using the `from_formula` method, and clustered standard errors are computed by setting `cov_type='clustered'` and `cluster_entity=True`.
+We use the `PooledOLS()` and `PanelOLS()` functions from the `linearmodels` package to estimate all models. The models are specified using the `from_formula` method, and clustered standard errors are computed by setting `cov_type='clustered'` and `cluster_entity=True`.
 
 ```{python}
 #| warning: false
@@ -721,7 +718,7 @@ reg6 = reg6.fit(cov_type = 'clustered', cluster_entity = True)
 # Model 7: Fixed effects with multiple regressors based on the data from 1982 and 1988 only
 reg7 = PanelOLS.from_formula('mrall ~ 1 + beertax + drink18 + drink19 +\
                              drink20 + punish + vmiles + unrate + lperinc +\
-                                 EntityEffects + TimeEffects',
+                             EntityEffects + TimeEffects',
                                  df.loc[(slice(None), slice(1982, 1988, 6)), :])
 reg7 = reg7.fit(cov_type = 'clustered', cluster_entity = True)
 

@@ -24,29 +24,28 @@ Finally, we provide some technical details related to Chapters 11, 21, 25, and 2
 We adopt the standard notation used in @Stock2020. In particular, in an econometric model, we use Latin letters such as $Y$, $X$, $W$, and $Z$ to denote variables, and Greek letters such as $\beta$, $\gamma$, and $\delta$ to denote unknown parameters.^[According to econometrician Anil K. Bera, the English phrase “It is all Greek to me”, meaning “I do not understand it at all”, played a role in establishing the tradition of using Greek letters for unknown quantities in econometrics. There are also similar formulations in other languages. See the [Wikipedia page](https://en.wikipedia.org/wiki/Greek_to_me) for more details. ] For the convenience of readers, we list the Greek letters in the following table.
 
 ::: {style="font-size: 80%"}
-| Greek Letter | Name   | Greek Letter | Name   |
-|--------------|--------|--------------|--------|
-| $\alpha$     | alpha  | $\beta$      | beta   |
-| $\gamma$     | gamma  | $\delta$, $\Delta$     | delta  |
-| $\epsilon$, $\varepsilon$   | epsilon| $\zeta$      | zeta   |
-| $\eta$       | eta    | $\theta$, $\Theta$     | theta  |
-| $\iota$      | iota   | $\kappa$     | kappa  |
-| $\lambda$, $\Lambda$    | lambda | $\mu$        | mu     |
-| $\nu$        | nu     | $\xi$, $\Xi$ | xi     |
-| $o$          | omicron| $\pi$, $\Pi$ | pi     |
-| $\rho$, $\varrho$       | rho    | $\sigma$, $\varsigma$, $\Sigma$     | sigma  |
-| $\tau$       | tau    | $\upsilon$, $\Upsilon$   | upsilon|
-| $\phi$, $\Phi$       | phi    | $\chi$       | chi    |
-| $\psi$, $\Psi$       | psi    | $\omega$, $\Omega$     | omega  |
+| Greek Letter              | Name    | Greek Letter                    | Name    |
+|---------------------------|---------|---------------------------------|---------|
+| $\alpha$                  | alpha   | $\beta$                         | beta    |
+| $\gamma$                  | gamma   | $\delta$, $\Delta$              | delta   |
+| $\epsilon$, $\varepsilon$ | epsilon | $\zeta$                         | zeta    |
+| $\eta$                    | eta     | $\theta$, $\Theta$              | theta   |
+| $\iota$                   | iota    | $\kappa$                        | kappa   |
+| $\lambda$, $\Lambda$      | lambda  | $\mu$                           | mu      |
+| $\nu$                     | nu      | $\xi$, $\Xi$                    | xi      |
+| $o$                       | omicron | $\pi$, $\Pi$                    | pi      |
+| $\rho$, $\varrho$         | rho     | $\sigma$, $\varsigma$, $\Sigma$ | sigma   |
+| $\tau$                    | tau     | $\upsilon$, $\Upsilon$          | upsilon |
+| $\varphi$, $\phi$, $\Phi$ | phi     | $\chi$                          | chi     |
+| $\psi$, $\Psi$            | psi     | $\omega$, $\Omega$              | omega   |
 : Greek Letters {#tbl-GreekLetters .striped .hover}
 :::
 
-We use hat or tilde notation to denote estimators and estimates; for example, $\hat{\beta}_0$ and $\hat{\beta}_1$ are the estimators or estimates of $\beta_0$ and $\beta_1$, respectively. 
+We use the hat or tilde notation to denote estimators and estimates; for example, $\hat{\beta}_0$ and $\hat{\beta}_1$ are the estimators or estimates of the parameters $\beta_0$ and $\beta_1$, respectively.
 
 For vectors, we use lowercase boldface letters such as $\boldsymbol{y}$, $\boldsymbol{x}$, $\boldsymbol{w}$, and $\boldsymbol{z}$, and for matrices, we use uppercase boldface letters such as $\boldsymbol{Y}$, $\boldsymbol{X}$, $\boldsymbol{W}$, and $\boldsymbol{Z}$. 
 
 We denote a random sample on the random variable $Y$ as $\{Y_1, Y_2, \ldots, Y_n\}$ or $\{Y_i\}_{i=1}^n$, where $n$ is the sample size. In the case of time series data, we use $\{Y_t\}_{t=1}^T$ to denote the random sample. In the case of panel data, we use double subscripts to denote observations, such as ${Y_{it}}$ for the $i$th entity at time $t$.
-
 
 # Import Conventions 
 In each chapter, we first import all the modules required for the econometric analysis introduced in that chapter. We follow the alias conventions used by the Python community for commonly used modules:
@@ -86,7 +85,7 @@ x.append(99) # adding 99 to the list x
 x
 ```
 
-The above cell displays the updated list `x`.  If a code cell returns multiple outputs, these outputs are displayed in separate cells, in the order they are produced. For example, the code below returns `type(x) = list` and `type(y) = tuple` in separate cells:
+The above cell displays the updated list `x`. If a code cell returns multiple outputs, these outputs are displayed in separate cells, in the order they are produced. For example, the code below returns `type(x) = list` and `type(y) = tuple` in separate cells:
 
 ```{python}
 x = [10, 2, 35, 11, 12] # list
@@ -102,8 +101,8 @@ In @Stock2020, key concepts are highlighted in bold and defined within the relev
 ## Key Concept 9.2: Variance and standard deviation
 Let $Y$ be a random variable with mean $\mu_Y$. The variance of $Y$ is defined as:
 
-* Discrete case: $\sigma^2_Y=\E[(Y-\mu_Y)^2]=\sum_{i=1}^k(y_i-\mu_Y)^2\times P(Y=y_i)$, where $y_i$ are the possible values of $Y$.
-* Continuous case: $\sigma^2_Y=\E[(Y-\mu_Y)^2]=\int_D (y-\mu_Y)^2f_Y(y)\text{d}y$, where $D$ is the support of $Y$.
+* Discrete case: $\sigma^2_Y=\E\left[(Y-\mu_Y)^2\right]=\sum_{i=1}^k(y_i-\mu_Y)^2\times P(Y=y_i)$, where $y_i$ are the possible values of $Y$.
+* Continuous case: $\sigma^2_Y=\E\left[(Y-\mu_Y)^2\right]=\int_D (y-\mu_Y)^2f_Y(y)\text{d}y$, where $D$ is the support of $Y$.
 
 The square root of the variance is called the standard deviation of $Y$ and is denoted by $\sigma_Y$. The units of the standard deviation are the same as the units of $Y$.
 :::
@@ -115,7 +114,6 @@ We also use a callout block to state econometric assumptions. For example, we us
 2. The random sampling assumption: $(X_i, Y_i):\, i =1,2,\dots,n$ are independently and identically distributed (i.i.d.) across observations.
 3. The no large outliers assumption: $\E(X_i^4)<\infty$ and $\E(Y_i^4)<\infty$.
 :::
-
 
 # Data for Applications
 For each methodological topic, @Stock2020 provide an application based on real-world data. We reproduce all tables, figures, and estimation results using the same datasets provided on the textbook's [web page](https://www.princeton.edu/~mwatson/Stock-Watson_4E/Stock-Watson-Resources-4e.html). The datasets are also available in the "data" folder of this book's GitHub repository.

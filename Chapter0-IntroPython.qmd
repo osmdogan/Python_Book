@@ -145,7 +145,7 @@ Some built-in binary operators are listed below:
 -   multiplication: `x*y`
 -   division: `x/y`
 -   integer division: `x//y`=$\lfloor\frac{x}{y}\rfloor$
--   exponentiation: `x**y=`$x^y$
+-   exponentiation: `x**y`=$x^y$
 
 Consider the following examples:
 ```{python}
@@ -158,7 +158,7 @@ x * y  # returns 6
 ```
 
 ```{python}
-x//y # returns 1
+x // y # returns 1
 ```
 
 ```{python}
@@ -169,7 +169,7 @@ x**y  # returns 9
 In Python, the Boolean data type is used to represent truth values, with `True` and `False` as the reserved keywords.
 
 ```{python}
-x=True
+x = True
 type(x)
 ```
 

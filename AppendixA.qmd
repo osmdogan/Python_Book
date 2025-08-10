@@ -21,7 +21,7 @@ $$
 (\hat{\beta}_0,\,\hat{\beta}_1)^{'}&=\argmin_{\beta_0,\,\beta_1}\sum_{i=1}^n\big(Y_i-\beta_0-\beta_1X_i\big)^2.
 \end{align}
 $$
-We set the first order conditions of the objective function with respect to $\beta_0$ and $\beta_1$ to zero:
+We set the first-order conditions of the objective function with respect to $\beta_0$ and $\beta_1$ equal to zero:
 $$
 \begin{align*}
 \frac{\partial \sum_{i=1}^n\big(Y_i-\beta_0-\beta_1X_i\big)^2}{\partial\beta_0}&=-2\sum_{i=1}^n\big(Y_i-\beta_0-\beta_1X_i\big)=0,\\
@@ -84,13 +84,13 @@ $$
 \end{align*}
 $$
 
-## Algebraic properties of the OLS estimators
+## Algebraic properties of the OLS estimators {#sec-AlgebraicProperties}
 We show that the least squares residuals sum to zero, i.e., $\sum_{i=1}^n\hat{u}_i=0$. Using $\hat{u}_i=(Y_i-\hat{\beta}_0-\hat{\beta}_1X_i)$, we have
 $$
 \begin{align*}
 \sum_{i=1}^n\hat{u}_i &=\sum_{i=1}^n\big(Y_i-\hat{\beta}_0-\hat{\beta}_1X_i\big)=\sum_{i=1}^n\big(Y_i-[\bar{Y}-\hat{\beta}_1\bar{X}]-\hat{\beta}_1X_i\big)\\
 &=\sum_{i=1}^n\big(Y_i-\bar{Y}\big)-\hat{\beta}_1\sum_{i=1}^n\big(X_i-\bar{X}\big)\\
-&=\sum_{i=1}^n\big(Y_i-\bar{Y}\big)-\bigg(\frac{\sum_{i=1}^nX_i\big(Y_i-\bar{Y})}{\sum_{i=1}^nX_i\big(X_i-\bar{X}\big)}\bigg)\sum_{i=1}^n\big(X_i-\bar{X}\big)=0,
+&=\sum_{i=1}^n\big(Y_i-\bar{Y}\big)-\left(\frac{\sum_{i=1}^nX_i\big(Y_i-\bar{Y})}{\sum_{i=1}^nX_i\big(X_i-\bar{X}\big)}\right)\sum_{i=1}^n\big(X_i-\bar{X}\big)=0,
 \end{align*}
 $$
 because $\sum_{i=1}^n\big(Y_i-\bar{Y}\big)=\sum_{i=1}^nY_i-\sum_{i=1}^n\bar{Y}=n\bar{Y}-n\bar{Y}=0$ and $\sum_{i=1}^n\big(X_i-\bar{X}\big)=\sum_{i=1}^nX_i-\sum_{i=1}^n\bar{X}=n\bar{X}-n\bar{X}=0$.
@@ -100,7 +100,7 @@ $$
 \begin{align*}
 \sum_{i=1}^nX_i\hat{u}_i &=\sum_{i=1}^nX_i\big(Y_i-\hat{\beta}_0-\hat{\beta}_1X_i\big)=\sum_{i=1}^nX_i\big(Y_i-[\bar{Y}-\hat{\beta}_1\bar{X}]-\hat{\beta}_1X_i\big)\\
 &=\sum_{i=1}^nX_i\big(Y_i-\bar{Y}\big)-\hat{\beta}_1\sum_{i=1}^nX_i\big(X_i-\bar{X}\big)\\
-&=\sum_{i=1}^nX_i\big(Y_i-\bar{Y}\big)-\bigg(\frac{\sum_{i=1}^nX_i\big(Y_i-\bar{Y})}{\sum_{i=1}^nX_i\big(X_i-\bar{X}\big)}\bigg)\sum_{i=1}^nX_i\big(X_i-\bar{X}\big)\\
+&=\sum_{i=1}^nX_i\big(Y_i-\bar{Y}\big)-\left(\frac{\sum_{i=1}^nX_i\big(Y_i-\bar{Y})}{\sum_{i=1}^nX_i\big(X_i-\bar{X}\big)}\right)\sum_{i=1}^nX_i\big(X_i-\bar{X}\big)\\
 &=\sum_{i=1}^nX_i\big(Y_i-\bar{Y}\big)-\sum_{i=1}^nX_i\big(Y_i-\bar{Y}\big)=0.
 \end{align*}
 $$

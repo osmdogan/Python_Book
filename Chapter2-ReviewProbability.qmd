@@ -109,7 +109,6 @@ $$
 $$
 :::
 
-
 ## Probability distribution of a discrete random variable
 The **probability distribution** (or **probability mass function**) of a discrete random variable lists all possible values the variable can take, along with the probability associated with each value.
 
@@ -236,12 +235,12 @@ The last row of @tbl-t9.1 in @exm-example9.6 gives the cumulative probability di
 The CDF of $M$ is given by
 $$
 F_M(m)=P(M\leq m)=\begin{cases}
-0,\quad\text{if } m<0,\\
-0.80,\quad\text{if } 0\leq m<1,\\
-0.90,\quad\text{if } 1\leq m<2,\\
-0.96,\quad\text{if } 2\leq m<3,\\
-0.99,\quad\text{if } 3\leq m<4,\\
-1,\quad\text{if } m\geq 4.
+0,\quad&\text{if } m<0,\\
+0.80,\quad&\text{if } 0\leq m<1,\\
+0.90,\quad&\text{if } 1\leq m<2,\\
+0.96,\quad&\text{if } 2\leq m<3,\\
+0.99,\quad&\text{if } 3\leq m<4,\\
+1,\quad&\text{if } m\geq 4.
 \end{cases}
 $$
 
@@ -257,7 +256,7 @@ yn = np.insert(y, 0, 0)
 fig, ax = plt.subplots(figsize=(5, 3.5))
 ax.hlines(y=yn, xmin=data[:-1], xmax=data[1:], color="steelblue")
 ax.vlines(
-    x=data[1:-1], ymin=yn[:-1], ymax=yn[1:], color="steelblue", linestyle="dashed"
+    x = data[1:-1], ymin=yn[:-1], ymax=yn[1:], color="steelblue", linestyle="dashed"
 )
 ax.scatter(data[1:-1], y, color="steelblue", s=20)
 ax.scatter(data[1:-1], yn[:-1], color="white", s=20, edgecolor="steelblue", zorder=2)
@@ -281,8 +280,8 @@ Let $F$ be the CDF of a random variable. Then, $F$ has the following properties:
 Consider the following CDF:
 $$
 F(y)=\begin{cases}
-0,\quad\text{if } y<0,\\
-1-e^{-y^2/2},\quad\text{if } 0\leq y<\infty.\\
+0,           \quad&\text{if } y<0,\\
+1-e^{-y^2/2},\quad&\text{if } 0\leq y<\infty.\\
 \end{cases}
 $$
 We want to show that $F$ is a CDF. We need to check the properties of $F$ listed in @thm-theorem9.3.
@@ -292,8 +291,8 @@ We want to show that $F$ is a CDF. We need to check the properties of $F$ listed
 * To show that $F(y)$ is nondecreasing, we compute its derivative:
 $$
 F'(y)=\begin{cases}
-0,\quad\text{if } y<0,\\
-e^{-y^2/2}y,\quad\text{if } 0\leq y<\infty.\\
+0,          \quad&\text{if } y<0,\\
+e^{-y^2/2}y,\quad&\text{if } 0\leq y<\infty.\\
 \end{cases}
 $$
 Since $F'(y)\geq 0$ for all $y\in\mathbb{R}$, we conclude that $F(y)$ is nondecreasing.
@@ -314,7 +313,6 @@ ax.set_xlabel("y")
 ax.set_ylabel("F(y)")
 plt.show()
 ```
-
 :::
 
 ## Probability distribution of a continuous random variable
@@ -338,9 +336,9 @@ $$
 \begin{align*}
 F_Y(y)=
 \begin{cases}
-0,\quad\text{for}\quad y<0,\\
-y^2,\quad\text{for}\quad 0\leq y\leq 1,\\
-1,\quad\text{for}\quad y>1.
+0,\quad&\text{for}\quad y<0,\\
+y^2,\quad&\text{for}\quad 0\leq y\leq 1,\\
+1,\quad&\text{for}\quad y>1.
 \end{cases}
 \end{align*}
 $$
@@ -349,9 +347,9 @@ $$
 \begin{align*}
 f_Y(y)=\frac{d}{dy}F_Y(y)=
 \begin{cases}
-\frac{d}{dy}0=0,\quad\text{for}\quad y<0,\\
-\frac{d}{dy}y^2=2y, \quad\text{for}\quad 0\leq y< 1,\\
-\frac{d}{dy}1=0,\quad\text{for}\quad y>1.
+\frac{d}{dy}0=0,\quad&\text{for}\quad y<0,\\
+\frac{d}{dy}y^2=2y, \quad&\text{for}\quad 0\leq y< 1,\\
+\frac{d}{dy}1=0,\quad&\text{for}\quad y>1.
 \end{cases}
 \end{align*}
 $$
@@ -410,8 +408,8 @@ Let $Y$ be a continuous random variable with the following PDF:
 $$
 \begin{align*}
 f_Y(y)=\begin{cases}
-3y^{2},\quad\text{for}\quad 0\leq y\leq 1,\\
-0,\quad\text{otherwise}.
+3y^{2},\quad&\text{for}\quad 0\leq y\leq 1,\\
+0,\quad&\text{otherwise}.
 \end{cases}
 \end{align*}
 $$
@@ -420,9 +418,9 @@ $$
 \begin{align*}
 F(y)=\int_{-\infty}^yf(x)\text{d}x=
 \begin{cases}
-\int_{-\infty}^y0\text{d}x=0,\quad\text{for}\quad y<0,\\
-\int_{-\infty}^00\text{d}x+\int_{0}^y3x^2\text{d}x=y^3,\quad\text{for}\quad 0\leq y\leq 1,\\
-\int_{-\infty}^00\text{d}x+\int_{0}^13x^2\text{d}x+\int_{1}^y0\text{d}x=1,\quad\text{for}\quad y>1.
+\int_{-\infty}^y0\text{d}x=0,\quad&\text{for}\quad y<0,\\
+\int_{-\infty}^00\text{d}x+\int_{0}^y3x^2\text{d}x=y^3,\quad&\text{for}\quad 0\leq y\leq 1,\\
+\int_{-\infty}^00\text{d}x+\int_{0}^13x^2\text{d}x+\int_{1}^y0\text{d}x=1,\quad&\text{for}\quad y>1.
 \end{cases}
 \end{align*}
 $$
@@ -675,7 +673,7 @@ $$
 We can use **skewness** to measure the asymmetry of the probability distribution of a random variable. The **skewness** of the distribution of $Y$ is defined by
 $$
 \begin{align}
-\text{Skewness}=\frac{\E[\left(Y - \mu_Y\right)^3]}{\sigma_Y^3}.
+\text{Skewness}=\frac{\E\left[\left(Y - \mu_Y\right)^3\right]}{\sigma_Y^3}.
 \end{align}
 $$
 
@@ -688,7 +686,7 @@ Skewness is unit-free; that is, changing the units of $Y$ does not affect its sk
 The **kurtosis** is the fourth standardized moment of $Y$. It measures the extent to which the probability mass of a distribution is concentrated in the tails.  For the random variable $Y$, it is defined by
 $$
 \begin{align}
-\text{Kurtosis}=\frac{\E[\left(Y - \mu_Y\right)^4]}{\sigma_Y^4}.
+\text{Kurtosis}=\frac{\E\left[\left(Y - \mu_Y\right)^4\right]}{\sigma_Y^4}.
 \end{align}
 $$
 
@@ -717,7 +715,7 @@ x_leptokurtic = np.linspace(-4, 4, 1000)
 
 # Calculate the density functions
 symmetric_pdf = stats.norm.pdf(x_symmetric, loc=0, scale=1) # Normal distribution
-left_skewed_pdf = stats.skewnorm.pdf(x_skewed_right, a=-4,loc=0,scale=1)                   # Skew-normal distribution
+left_skewed_pdf = stats.skewnorm.pdf(x_skewed_right, a=-4,loc=0,scale=1) # Skew-normal distribution
 right_skewed_pdf = stats.gamma.pdf(x_skewed_left, a=2) # Gamma distribution
 leptokurtic_pdf = stats.laplace.pdf(x_leptokurtic, loc=0, scale=1) # Laplace distribution
 
@@ -754,7 +752,7 @@ plt.show()
 Let $G$ be the Bernoulli random variable defined in @eq-eq9.1 with $p=0.7$. Note that $\E(G)=p$ and $\sigma^2_G=p(1-p)$. Then, the skewness of $G$ is given by
 $$
 \begin{align*}
-\text{Skewness} &= \frac{\E[(G - \mu_G)^3]}{\sigma_G^3} = \frac{p(1-p)(1-2p)}{(p(1-p))^{3/2}}\\
+\text{Skewness} &= \frac{\E\left[(G - \mu_G)^3\right]}{\sigma_G^3} = \frac{p(1-p)(1-2p)}{(p(1-p))^{3/2}}\\
 &= \frac{0.7(1-0.7)(1-2\times0.7)}{(0.7(1-0.7))^{3/2}} = −0.872.
 \end{align*}
 $$
@@ -762,7 +760,7 @@ $$
 The kurtosis of $G$ is given by
 $$
 \begin{align*}
-\text{Kurtosis} &= \frac{\E[(G - \mu_G)^4]}{\sigma_G^4} = \frac{(0-p)^4(1-p)+(1-p)^4p}{(p(1-p))^2}\\
+\text{Kurtosis} &= \frac{\E\left[(G - \mu_G)^4\right]}{\sigma_G^4} = \frac{(0-p)^4(1-p)+(1-p)^4p}{(p(1-p))^2}\\
 &= \frac{(-0.7)^4(1-0.7)+(1-0.7)^4\times0.7}{(0.7(1-0.7))^2} = 1.762.
 \end{align*}
 $$
@@ -804,8 +802,8 @@ $$
 \begin{align*}
 F_Y(y)=
 \begin{cases}
-0,\quad\text{for}\quad y<0,\\
-1-\left(\frac{4.5}{4.5+y}\right)^3,\quad\text{for}\quad y\geq 0.
+0,\quad&\text{for}\quad y<0,\\
+1-\left(\frac{4.5}{4.5+y}\right)^3,\quad&\text{for}\quad y\geq 0.
 \end{cases}
 \end{align*}
 $$
@@ -822,8 +820,8 @@ $$
 \begin{align*}
 f_Y(y) = \frac{d}{dy} F_Y(y) =
 \begin{cases}
-0,\quad y < 0, \\
-3 \times (4.5)^3 \times (4.5 + y)^{-4}, \quad y \geq 0.
+0,\quad&\text{for}\quad y < 0, \\
+3 \times (4.5)^3 \times (4.5 + y)^{-4}, \quad&\text{for}\quad y \geq 0.
 \end{cases}
 \end{align*}
 $$
@@ -1031,8 +1029,8 @@ $$
 \begin{align*}
 f(x,y)=
 \begin{cases}
-30xy^2,\quad x-1\leq y\leq 1-x,\, 0\leq x\leq1,\\
-0,\quad\text{elsewhere}.
+30xy^2,\quad&x-1\leq y\leq 1-x,\, 0\leq x\leq1,\\
+0,\quad&\text{elsewhere}.
 \end{cases}
 \end{align*}
 $$
@@ -1040,7 +1038,7 @@ $$
 We want to compute $F_{X,Y}(0.5, 0.5)$. The following code chunk illustrates the integration region, which is defined by the intersection of the inequalities $x - 1 \leq y \leq 1 - x$, $0 \leq x \leq 1$, $x \leq 0.5$, and $y \leq 0.5$. In @fig-fig9.11, this region is shaded in orange. The joint CDF $F_{X,Y}(0.5, 0.5)$ is given by the integral of the joint PDF over this region.
 $$
 \begin{align*}
-&F(0.5,0.5)=P(X\leq0.5, Y\leq0.5)=\int_{0}^{0.5}\int_{x-1}^{0.5}30xy^2dydx\\
+F(0.5,0.5)&=P(X\leq0.5, Y\leq0.5)=\int_{0}^{0.5}\int_{x-1}^{0.5}30xy^2dydx\\
 &=\int_{0}^{0.5}\left(10xy^3\bigg|^{y=0.5}_{y=x-1}\right)dx=\int_{0}^{0.5}\left(\frac{10x}{8}-10x(x-1)^3\right)dx=9/16.
 \end{align*}
 $$
@@ -1096,7 +1094,6 @@ result, error = dblquad(joint_pdf, 0, 0.5, y_lower, y_upper)
 print("Joint CDF F_{X,Y}(0.5, 0.5):", result)
 ```
 :::
-
 
 :::{#def-definition9.12}
 ## Marginal probability density function
@@ -1460,8 +1457,8 @@ $$
 \begin{align*}
 \phi_Y(y) =
 \begin{cases}
-\frac{1}{b-a},\quad a\leq y\leq b,\\
-0,\quad\text{elsewhere}.
+\frac{1}{b-a},\quad&a\leq y\leq b,\\
+0,\quad& \text{elsewhere}.
 \end{cases}
 \end{align*}
 $$
@@ -1471,9 +1468,9 @@ $$
 \begin{align*}
 \Phi_Y(y) =
 \begin{cases}
-0,\quad y<a,\\
-\frac{y-a}{b-a},\quad a\leq y\leq b,\\
-1,\quad y>b.
+0,\quad&y<a,\\
+\frac{y-a}{b-a},\quad&a\leq y\leq b,\\
+1,\quad&y>b.
 \end{cases}
 \end{align*}
 $$
@@ -1634,7 +1631,7 @@ d) If $X_1,\dots,X_n$ are independent and identically distributed (i.i.d.) rando
 The **chi-squared distribution** is used when testing certain types of hypotheses in econometrics. The chi-squared distribution that has $m$ degrees of freedom, denoted by $\chi^2_{m}$, is the distribution of the sum of $m$ squared independent standard normal random variables. The mean and variance of the chi-squared distribution are given by $m$ and $2m$, respectively. 
 
 :::{#exm-example9.27}
-Let $Z_1$, $Z_2$ and $Z_3$ be independent standard normal random variables. If we define $Y=Z^2_1+Z^2_2+Z^2_3$, then $Y\sim \chi^2_3$. We can use the `scipy.stats.chi2` function to compute the PDF and CDF of $Y$. For example, we can compute $P(Y\leq 5)$ as follows:
+Let $Z_1$, $Z_2$ and $Z_3$ be independent standard normal random variables. If we define $Y=Z^2_1+Z^2_2+Z^2_3$, then $Y\sim \chi^2_3$. We can use the `scipy.stats.chi2()` function to compute the PDF and CDF of $Y$. For example, we can compute $P(Y\leq 5)$ as follows:
 ```{python}
 p = stats.chi2.cdf(5, df=3)
 np.round(p, 4)
@@ -1732,12 +1729,11 @@ plt.show()
 Let $Y\sim N(0,1)$ and $X\sim t_{5}$. We want to compute $P(Y\geq2)$ and $P(X\geq2)$ using the `scipy.stats` module. The following code chunk shows how to compute these probabilities:
 ```{python}
 p_y = stats.norm.sf(2, loc=0, scale=1)  # P(Y >= 2)
-p_x = stats.t.sf(2, df=5)  # P(X >= 2)
+p_x = stats.t.sf(2, df=5)               # P(X >= 2)
 np.round(p_y, 4), np.round(p_x, 4)
 ```
-Note that `stats.norm.sf` and `stats.t.sf` compute the survival function, which is equal to $1 - F_Y(y)$ and $1 - F_X(x)$, respectively. We see that $P(Y\geq2)$ is larger than $P(X\geq2)$, which indicates that the $t$ distribution has more mass in the tails compared to the normal distribution.
+Note that `stats.norm.sf()` and `stats.t.sf()` compute the survival function, which is equal to $1 - F_Y(y)$ and $1 - F_X(x)$, respectively. We see that $P(Y\geq2)$ is larger than $P(X\geq2)$, which indicates that the $t$ distribution has more mass in the tails compared to the normal distribution.
 :::
-
 
 ### F distribution
 
@@ -1799,7 +1795,7 @@ plt.show()
 In econometrics, an important special case of the $F$ distribution arises when the denominator degrees of freedom is large enough that the $F_{m,n}$ can be approximated by $F_{m,\infty}$. $F_{m,\infty}$ distribution is the distribution of a chi-squared random variable with $m$ degrees of freedom divided by $m$, i.e., $F_{m,\infty}=W/m$, where $W\sim\chi^2_m$. 
 
 :::{#exm-example9.29}
-Let $Y\sim F_{2,10}$. We can compute the PDF and CDF of $Y$ using the `scipy.stats.f` function. For example, we can compute $P(Y\leq 3)$ as follows:
+Let $Y\sim F_{2,10}$. We can compute the PDF and CDF of $Y$ using the `scipy.stats.f()` function. For example, we can compute $P(Y\leq 3)$ as follows:
 ```{python}
 p = stats.f.cdf(3, dfn=2, dfd=10)
 np.round(p, 4)
@@ -1832,8 +1828,6 @@ ax.set_xticklabels(['0', '1', '2', '3', '4', '5', '6', '7'])
 plt.show()
 ```
 :::
-
-
 
 ## Random sampling and the distribution of the sample average
 If $Y_1,\dots,Y_n$ are independent random variables from the same population distribution, then they are said to be **independently and identically distributed (i.i.d.)** random variables. We say that $Y_1,\dots,Y_n$ constitute a **random sample** or an **i.i.d. sample** from the population distribution. 
