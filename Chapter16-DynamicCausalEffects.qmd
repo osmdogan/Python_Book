@@ -64,7 +64,7 @@ We can use the OLS estimator to estimate distributed lag models. The assumptions
 ::: {.callout-important icon=false}
 ## The distributed lag model assumptions
 1. Exogeneity assumption:  $\E(u_t|X_t, X_{t-1}, X_{t-2}, \ldots) = 0$.
-2. Stationarity and weak dependence assumption: (i) $Y_t$ and $X_t$ have a stationary distribution, and (2) $(Y_t, X_{t})$ and $(Y_{t-k}, X_{t-k})$ become independent as $k$ gets larger.
+2. Stationarity and weak dependence assumption: (i) $Y_t$ and $X_t$ have a stationary distribution, and (ii) $(Y_t, X_{t})$ and $(Y_{t-k}, X_{t-k})$ become independent as $k$ gets larger.
 3. No large outliers assumption: $X_{t}$ and $Y_t$ have more than eight nonzero finite moments.
 4. No perfect multicollinearity assumption: There is no perfect multicollinearity.
 :::
@@ -377,7 +377,6 @@ df1 = pd.merge(df, month_dummies,  left_index=True, right_index=True)
 formula3 = formula2 + ' + ' + ' + '.join(month_dummies.columns)
 df1 = df1.dropna(subset=[col for col in df1.columns if 'shift' in col or col.startswith('month')])
 model3 = smf.ols(formula=formula3, data=df1).fit(cov_type='HAC', cov_kwds={'maxlags': 7})
-
 ```
 
 ### Estimation results
@@ -386,9 +385,9 @@ We use the `Stargazer` package to present the estimation results. The following 
 
 ```{python}
 # Prepare the table
-v1=[f'fdd.shift({lag})' for lag in range(19)] 
-v2=[f'dFDD.shift({lag})' for lag in range(18)]
-v=v1+v2
+v1 = [f'fdd.shift({lag})' for lag in range(19)] 
+v2 = [f'dFDD.shift({lag})' for lag in range(18)]
+v = v1+v2
 HAC_truncation= [7, 7, 14, 7]
 
 # Create the table
@@ -414,7 +413,6 @@ table1
 The results in the first column of @tbl-t23-2 show the effect of a one-unit increase in the number of freezing degree days in a month on the percentage change in real prices. If the number of freezing degree days increases by one, real prices increase by 0.51% over the month in which the freezing degree days occur. The other estimated coefficients in this column shows the subsequent effects in later months. For example, the estimated coefficient for the first lag is 0.17, which indicates that real prices increase by a further 0.17% in the month following the month with the freezing degree days. Similarly, the estimated coefficient 0.07 for the second lag term indicates that real prices increase by a further 0.07% in the second month following the month with the freezing degree days.
 
 It is more convenient to present dynamic multipliers through a plot. @fig-f23-2 displays point estimates of dynamic multipliers along with upper and lower bounds of their 95% confidence intervals computed using the HAC standard errors. The figure indicates that the effect of an initial increase in the number of freezing degree days on real prices remains positive for the first six months. However, apart from the first month, the dynamic multipliers are not statistically different from zero at the 5% significance level, i.e., the confidence intervals include the zero line.
-
 
 ```{python}
 #| fig-cap: Dynamic Effect of FDD on Orange Juice Price
@@ -476,7 +474,7 @@ $$
 \end{align*}
 $$
 
-We use the F-statistic to test the joint null hypothesis. The p-value for the test is 0.47, indicating that the monthly dummy variables do not have a statistically significant effect on the percentage change in real prices. 
+We use the $F$-statistic to test the joint null hypothesis. The $p$-value for the test is 0.47, indicating that the monthly dummy variables do not have a statistically significant effect on the percentage change in real prices. 
 
 ```{python}
 # F-test for the joint null hypothesis

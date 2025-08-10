@@ -322,7 +322,6 @@ $$
 \rho(k) = \text{corr}(Y_{t},Y_{t-k})=\frac{\gamma(k)}{\sqrt{\text{var}(Y_t)\text{var}(Y_{t-k})}}=\frac{\gamma(k)}{\sigma_Y^2}.
 \end{align*}
 $${#eq-eq22-2}
-
 :::
 
 The $k$-th autocorrelation coefficient is also called the $k$-th serial correlation coefficient and it is a measure of linear dependence. We can use the sample counterparts of the terms in @def-autocorrelation to estimate the autocorrelation coefficients. The sample variance of $Y$ is given by
@@ -348,9 +347,9 @@ $${#eq-eq22-4}
 
 In Python, the `statsmodels.tsa` module contains classes and functions for time-series analysis. For details, see the [documentation](https://www.statsmodels.org/stable/tsa.html). The `statsmodels.tsa.stattools` module contains a variety of functions that are useful for time series analysis, some of which are listed below:
 
-- `acf`: Compute the autocorrelation function.
-- `pacf`: Compute the partial autocorrelation function.
-- `adfuller`: Augmented Dickey-Fuller unit root test.
+- `acf()`: Compute the autocorrelation function.
+- `pacf()`: Compute the partial autocorrelation function.
+- `adfuller()`: Augmented Dickey-Fuller unit root test.
 
 As an example, we compute the sample serial correlations of the U.S. GDP growth rate.
 The first four sample autocorrelations are $\hat{\rho}_1 = 0.33$, $\hat{\rho}_2 = 0.26$, $\hat{\rho}_3 = 0.10$, and $\hat{\rho}_4 = 0.11$. These values suggest that GDP growth rates are mildly positively autocorrelated: when GDP grows faster than average in one period, it tends to grow faster than average in the subsequent period as well.
@@ -360,7 +359,7 @@ The first four sample autocorrelations are $\hat{\rho}_1 = 0.33$, $\hat{\rho}_2 
 stt.acf(dfGrowth.YGROWTH, nlags=12).round(3)
 ```
 
-We use the `plot_acf` function to plot the sample serial correlations of the GDP growth rate (up to 12 lags) and its first-differenced version. In @fig-f22-6, we observe that the autocorrelation of the GDP growth rate is positive and declines to zero after two lags. In contrast, the autocorrelations of the first-differenced GDP growth rate drop to zero after the first lag.
+We use the `plot_acf()` function to plot the sample serial correlations of the GDP growth rate (up to 12 lags) and its first-differenced version. In @fig-f22-6, we observe that the autocorrelation of the GDP growth rate is positive and declines to zero after two lags. In contrast, the autocorrelations of the first-differenced GDP growth rate drop to zero after the first lag.
 
 ```{python}
 #| fig-cap: "The serial correlation in the US GDP growth rate"
@@ -499,7 +498,7 @@ $$
 \end{align}
 $$
 
-Note that we use the sample data over the period 1962:Q1-2017:Q3 to estimate both models. Thus, the last time period in the sample is $T=2017:Q3$. We want to obtain the forecast of the growth rate in $T+1=2017:Q4$ based on the estimated AR(2) model. The estimated model suggests that 
+Note that we use the sample data over the period 1962:Q1-2017:Q3 to estimate both models. Thus, the last time period in the sample is $T=2017:Q3$. We want to obtain the forecast of the growth rate in $T+1=2017:Q4$ based on the estimated AR($2$) model. The estimated model suggests that 
 $$
 \begin{align*}
 \text{GDPGR}_{2017:Q4|2017:Q3} &= 1.61 + 0.28 \text{GDPGR}_{2017:Q3} + 0.18 \text{GDPGR}_{2017:Q2}\\
@@ -508,7 +507,7 @@ $$
 $$
 Since the actual growth rate in 2017:Q4 is $2.5\%$, the forecast error is $2.5\% - 3.0\% = -0.5$ percentage points.
 
-We used the `smf.ols` function to estimate the AR(1) and AR(2) models for the GDP growth rate above. Below, we use the `ARIMA` function from the `statsmodels.tsa.arima.model` module to estimate the AR(1) and AR(2) models for the GDP growth rate. In the `ARIMA` function, the order of the model is specified as `(p, d, q)`, where `p` is the order of the autoregressive part, `d` is the order of differencing, and `q` is the order of the moving average part. Note that although the estimated coefficients are the same as those presented in @tbl-t22-3, the standard errors are different because the `ARIMA` function does not use the heteroskedasticity-robust standard errors.
+We used the `smf.ols()` function to estimate the AR($1$) and AR($2$) models for the GDP growth rate above. Below, we use the `ARIMA` function from the `statsmodels.tsa.arima.model` module to estimate the AR($1$) and AR($2$) models for the GDP growth rate. In the `ARIMA` function, the order of the model is specified as `(p, d, q)`, where `p` is the order of the autoregressive part, `d` is the order of differencing, and `q` is the order of the moving average part. Note that although the estimated coefficients are the same as those presented in @tbl-t22-3, the standard errors are different because the `ARIMA` function does not use the heteroskedasticity-robust standard errors.
 
 ```{python}
 # Read the data
@@ -531,7 +530,7 @@ print("\nAR(2) Model Summary:")
 print(ar2_model.summary())
 ```	
 
-We can also use the ARIMA function to generate forecasts. For example, we can generate 10-step-ahead forecast for the GDP growth rate. The forecasted growth rates are presented in @tbl-t22-4forecast and @fig-f22-7forecast. The table also includes the 95% forecast intervals for the forecasted growth rates. We discuss how to construct the forecast intervals in @sec-estimation-msfe.
+We can also use the `ARIMA()` function to generate forecasts. For example, we can generate 10-step-ahead forecast for the GDP growth rate. The forecasted growth rates are presented in @tbl-t22-4forecast and @fig-f22-7forecast. The table also includes the 95% forecast intervals for the forecasted growth rates. We discuss how to construct the forecast intervals in @sec-estimation-msfe.
 
 ```{python}
 #| tbl-cap: "The 10-step-ahead forecast of the GDP growth rate"
@@ -580,7 +579,7 @@ plt.legend(loc="upper left", fontsize=10, frameon=False)
 plt.show()
 ```
 
-In the next example, we use the data set in `macroseries.csv` to estimate the AR(1) and AR(4) models for the change in the U.S. inflation rate. 
+In the next example, we use the data set in `macroseries.csv` to estimate the AR($1$) and AR($4$) models for the change in the U.S. inflation rate. 
 
 ```{python}
 # AR(1) and AR(4) models for the change U.S. inflation rate
@@ -601,16 +600,16 @@ AR_4 = smf.ols(formula = 'Delta_Inf ~ L1_Delta_Inf + L2_Delta_Inf + L3_Delta_Inf
 #| tbl-cap: "The AR(1) and AR(4) models for the U.S. inflation rate"
 #| label: tbl-t22-5
 # Present the models using summary_col
-info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),
-           'AIC':lambda x: "{:.2f}".format(x.aic),
-           'BIC':lambda x: "{:.2f}".format(x.bic),
-            }
+info_dict = {'N':lambda x: "{0:d}".format(int(x.nobs)),
+            'AIC':lambda x: "{:.2f}".format(x.aic),
+            'BIC':lambda x: "{:.2f}".format(x.bic),
+             }
 results_table = summary_col([AR_1, AR_4], stars=True, model_names=['AR(1)', 'AR(4)'], info_dict=info_dict, float_format='%0.3f')
 results_table
 ```
 :::
 
-The estimation results are presented in @tbl-t22-5. The estimated AR(1) model is
+The estimation results are presented in @tbl-t22-5. The estimated AR($1$) model is
 $$
 \widehat{\Delta \text{inf}}_t = 0.017 - 0.238 \Delta \text{inf}_{t-1}.
 $$
@@ -622,7 +621,7 @@ $$
 \widehat{\Delta \text{inf}}_t = 0.022 - 0.258 \Delta \text{inf}_{t-1} - 0.322 \Delta \text{inf}_{t-2} + 0.158 \Delta \text{inf}_{t-3} - 0.030 \Delta \text{inf}_{t-4}. 
 $$
 
-We observe that the fit of the model improves significantly compared to the AR(1) model, as indicated by an increase in the adjusted R-squared to 0.185. Furthermore, in the AR(4) model, the additional time lag terms are jointly statistically significant, as shown by the $F$-test result below.
+We observe that the fit of the model improves significantly compared to the AR($1$) model, as indicated by an increase in the adjusted R-squared to 0.185. Furthermore, in the AR($4$) model, the additional time lag terms are jointly statistically significant, as shown by the $F$-test result below.
 
 ```{python}
 hypotheses = ['L2_Delta_Inf=0', 'L3_Delta_Inf=0', 'L4_Delta_Inf=0']
@@ -657,7 +656,7 @@ $${#eq-eq22-10}
 
 where $q_1$ lags of the first predictor, $q_2$ lags of the second predictor, and so forth are included in the model. 
 
-In the following ADL(2,1) and ADL(2,2) models, we consider the U.S. term spread (TSpread) as an additional predictor for the GDP growth rate. 
+In the following ADL($2,1$) and ADL($2,2$) models, we consider the U.S. term spread (TSpread) as an additional predictor for the GDP growth rate. 
 $$
 \begin{align*}
 &\text{GDPGR}_t=\beta_0+\beta_1{\tt GDPGR}_{t-1}+\beta_2{\tt GDPGR}_{t-2}+\delta_1{\tt TSpread}_{t-1}+u_t,\\
@@ -704,7 +703,7 @@ plt.ylabel('Percentage points', fontsize=10)
 plt.show()
 ```
 
-We use the following code chunk to estimate the ADL(2,1) and ADL(2,2) models. The estimation results are presented in @tbl-t22-6. The estimated models are
+We use the following code chunk to estimate the ADL($2,1$) and ADL($2,2$) models. The estimation results are presented in @tbl-t22-6. The estimated models are
 $$
 \begin{align}
 &\widehat{\text{GDPGR}}_t=0.95+0.27{\tt GDPGR}_{t-1}+0.19{\tt GDPGR}_{t-2}+0.42{\tt TSpread}_{t-1},\\
@@ -747,7 +746,7 @@ results_table
 ```
 :::
 
-The estimated coefficients in the ADL(2,2) model on `TSpread` are statistically insignificant at the 5% level. The joint null hypothesis $H_0:\delta_1=\delta_2=0$ can be tested using the F-statistic. The $F$-test result below shows that the coefficients on the term spread are jointly statistically significant.
+The estimated coefficients in the ADL($2,2$) model on `TSpread` are statistically insignificant at the 5% level. The joint null hypothesis $H_0:\delta_1=\delta_2=0$ can be tested using the F-statistic. The $F$-test result below shows that the coefficients on the term spread are jointly statistically significant.
 
 ```{python}
 hypotheses = ['RSPREAD.shift(1)=0', 'RSPREAD.shift(2)=0']
@@ -755,7 +754,7 @@ ftest = adl22_model.f_test(hypotheses)
 print(ftest)
 ```
 
-Finally, we use the ADL(2,2) model to forecast the GDP growth rate in 2017:Q4. The forecasted GDP growth rate is
+Finally, we use the ADL($2,2$) model to forecast the GDP growth rate in 2017:Q4. The forecasted GDP growth rate is
 $$
 \begin{align*}
 \widehat{\text{GDPGR}}_{2017:Q4|2017:Q3} &=0.95+0.24{\tt GDPGR}_{2017:Q3}+0.18{\tt GDPGR}_{2017:Q2}\\
@@ -766,7 +765,7 @@ $$
 $$
 The actual GDP growth rate in 2017:Q4 was 2.5. Hence, the forecast error is $2.5 - 2.93 = -0.43$ percentage points.
 
-In the following code chunk, we estimate the ADL(2,1) and ADL(2,2) models for the GDP growth rate using the `ARIMA` function from the `statsmodels.tsa.arima.model` module. Note that the parameter estimates are slightly different from those in @tbl-t22-6, as the `ARIMA` function uses a different estimation method.
+In the following code chunk, we estimate the ADL($2,1$) and ADL($2,2$) models for the GDP growth rate using the `ARIMA()` function from the `statsmodels.tsa.arima.model` module. Note that the parameter estimates are slightly different from those in @tbl-t22-6, as the `ARIMA()` function uses a different estimation method.
 
 ```{python}
 mydata = pd.merge(dfGrowth, dfTermSpread, left_index=True, right_index=True)
@@ -849,7 +848,7 @@ results_table
 ```
 :::
 
-We observe that the fit improves significantly compared to the AR(4) model in @tbl-t22-5, as the reported adjusted R-squared is 0.335. Furthermore, the F-statistic for the joint null hypothesis $H_0:\delta_1=\ldots=\delta_4=0$ indicates that the additional time lag terms for the unemployment rate are jointly statistically significant at the 5% level.
+We observe that the fit improves significantly compared to the AR($4$) model in @tbl-t22-5, as the reported adjusted R-squared is 0.335. Furthermore, the F-statistic for the joint null hypothesis $H_0:\delta_1=\ldots=\delta_4=0$ indicates that the additional time lag terms for the unemployment rate are jointly statistically significant at the 5% level.
 
 ```{python}
 hypotheses = ['L1_u_rate=0', 'L2_u_rate=0', 'L3_u_rate=0', 'L4_u_rate=0']
@@ -923,7 +922,7 @@ T[\ln(SSR(2)/T)-\ln(SSR(1)/T)] +\ln(T)\\
 &=T\ln(SSR(2)/SSR(1))+\ln(T)=-T\ln(1+F/(T-2))+\ln(T),
 \end{align*}
 $$
-where $F=(SSR(1)-SSR(2))/(SSR(2)/(T-2))$ is the homoskedasticity-only $F$-statistic for testing $H_0:\beta_2=0$ in the AR(2) model. Then,
+where $F=(SSR(1)-SSR(2))/(SSR(2)/(T-2))$ is the homoskedasticity-only $F$-statistic for testing $H_0:\beta_2=0$ in the AR($2$) model. Then,
 $$
 \begin{align*}
 P(\text{BIC}(2)-\text{BIC}(1)<0)&= P(T[\text{BIC}(2)-\text{BIC}(1)]<0)\\
@@ -955,7 +954,7 @@ $$
 In general, we have $P(\hat{p}<p)\to0$, but $P(\hat{p}>p)\not\to0$. Thus, the AIC can overestimate the number of lags even in large samples.
 :::
 
-In Python, we can use `statsmodels.api.tsa.arma_order_select_ic` to calculate AIC and BIC and the corresponding lag orders. As an example, consider determining the lag order of an AR model for the GDP growth rate. The lag order selected by the AIC is 4, while the BIC selects 2.
+In Python, we can use `statsmodels.api.tsa.arma_order_select_ic()` to calculate AIC and BIC and the corresponding lag orders. As an example, consider determining the lag order of an AR model for the GDP growth rate. The lag order selected by the AIC is 4, while the BIC selects 2.
 ```{python}
 mydata = dfGrowth.loc['1962-01-01':'2017-07-01', ['YGROWTH']]
 lag_order = sm.tsa.arma_order_select_ic(mydata.YGROWTH, 
@@ -966,7 +965,7 @@ lag_order = sm.tsa.arma_order_select_ic(mydata.YGROWTH,
 print('The lag order selected by AIC is {0:1.0f} and by BIC is {1:1.0f}.'.format(lag_order.aic_min_order[0], lag_order.bic_min_order[0]))
 ```
 
-As another example, we consider the inflation rate in the `macroseries.csv` file. According to the results given below, the AIC suggests an AR(3) model, while the BIC suggests an AR(2) model for the change in inflation rate.
+As another example, we consider the inflation rate in the `macroseries.csv` file. According to the results given below, the AIC suggests an AR($3$) model, while the BIC suggests an AR($2$) model for the change in inflation rate.
 
 ```{python}
 lag_order = sm.tsa.arma_order_select_ic(df_subset.Delta_Inf, 
@@ -1235,7 +1234,6 @@ for t in range(T - t1 + 1):
 RMSFE_POOS = np.sqrt(np.mean(savers_adl44[:,0] ** 2))
 ```
 
-
 ```{python}
 #| tbl-cap: The RMSFE estimates for the ADL(4,4) model
 #| label: tbl-t22-9
@@ -1247,7 +1245,7 @@ pd.DataFrame({
 }).round(3)
 ```
 
-Finally, we plot the one-step-ahead forecasted values obtained using the POOS method for the ADL(4,4) model of the change in the inflation rate. In @fig-f22-11, we provide the plots of forecasts and the 95% forecast interval.
+Finally, we plot the one-step-ahead forecasted values obtained using the POOS method for the ADL($4,4$) model of the change in the inflation rate. In @fig-f22-11, we provide the plots of forecasts and the $95\%$ forecast interval.
 
 ```{python}
 #| fig-cap: Actual inflation and forecasts
@@ -1306,7 +1304,7 @@ plt.show()
 ## Nonstationarity
 The second assumption given in Section 22.8 requires that the random variables $(Y_t, X_{1t}, \dots, X_{mt})$ are stationary. If this assumption fails, forecasts, hypothesis tests, and confidence intervals become unreliable.
 
-We begin by investigating the necessary and sufficient conditions under which the AR(1) model is weakly stationary. To this end, consider the following AR($1$) process (with no intercept for simplicity):
+We begin by investigating the necessary and sufficient conditions under which the AR($1$) model is weakly stationary. To this end, consider the following AR($1$) process (with no intercept for simplicity):
 $$
 Y_t = \beta_1 Y_{t-1} + u_t,
 $$
@@ -1389,7 +1387,7 @@ plt.show()
 
 @fig-f22-12 shows that the log of the U.S. real GDP exhibits an upward trend. It appears that the log of real GDP fluctuates around a linear trend. The U.S. inflation rate shows long-term swings, with periods of persistently high levels (e.g., the 1970s and early 1980s) and periods of persistently low levels. The inflation rate for the U.S., therefore, is a candidate for having a stochastic trend. On the other hand, the FX returns show no apparent trend. While there are periods of persistently high volatility, this does not constitute a trend. Based on these observations, the log of real GDP and the inflation rate are clearly not stationary, whereas the FX returns appear to be stationary. 
 
-Next, to better visualize the behavior of a random-walk process over time, we simulate 8 random-walk processes (without a drift) over 100 periods. @fig-f22-13 shows the simulated random-walk processes. We observe that the random walk processes wander up and down and do not revert to a mean. 
+Next, to better visualize the behavior of a random-walk process over time, we simulate 8 random-walk processes (without a drift) over 100 periods. @fig-f22-13 shows the simulated random-walk processes. We observe that the random walk processes wander up and down and do not revert to a mean.
 
 ```{python}
 #| fig-cap: Simulated random-walk processes
@@ -1490,7 +1488,7 @@ $$
 
 For the AR($p$) model to be stationary, the roots of this polynomial must all be greater than $1$ in absolute value (lie outside the unit circle). For example, the stationarity condition for the AR($1$) model was $|\beta_1|<1$, which implies that $|z|>1$.
 
-In the AR(1) model, if $Y$ has a unit root, then its first difference becomes stationary because $\Delta Y_t = Y_t - Y_{t-1} = (1 - \beta_1 L)Y_t = \beta_0+u_t$. Hence, the first difference of a unit-root process is stationary. This is the reason why we often take first differences of nonstationary series to make them stationary.
+In the AR($1$) model, if $Y$ has a unit root, then its first difference becomes stationary because $\Delta Y_t = Y_t - Y_{t-1} = (1 - \beta_1 L)Y_t = \beta_0+u_t$. Hence, the first difference of a unit-root process is stationary. This is the reason why we often take first differences of nonstationary series to make them stationary.
 
 ### Problems caused by stochastic trends
 Recall that the OLS estimator requires that the random variables $(Y_t, X_{1t}, \dots, X_{mt})$ are stationary. If the series have a stochastic trend, the OLS estimator can be misleading. Morveover, the t-statistic does not have the standard normal distribution even in large samples. If $Y$ and $X$ are independent unit-root processes, they can look related in regressions, a phenomenon known as **spurious regressions**.
@@ -1502,7 +1500,7 @@ Recall that the OLS estimator requires that the random variables $(Y_t, X_{1t}, 
 * If $Y$ and $X$ are independent unit-root processes then they can look related in regressions (i.e., *spurious regressions*).
 :::
 
-In the next example, we simulate a random walk process and estimate an AR(1) model using the OLS estimator. We repeat this simulation 1,000 times for three different sample sizes: 100, 500, and 1,000. In each simulation, we estimate the AR(1) model and record the estimate of the AR(1) coefficient, bias, and the t-statistic for testing the null hypothesis that the AR(1) coefficient is zero.
+In the next example, we simulate a random walk process and estimate an AR($1$) model using the OLS estimator. We repeat this simulation 1,000 times for three different sample sizes: 100, 500, and 1,000. In each simulation, we estimate the AR($1$) model and record the estimate of the AR($1$) coefficient, bias, and the t-statistic for testing the null hypothesis that the AR($1$) coefficient is zero.
 
 In @tbl-t22-t9, we present the average coefficient estimate, average bias, and average t-statistic for each sample size. The simulation results show that the OLS estimator exhibits a negative bias, and the magnitude of this bias decreases as the sample size increases. Also, the average t-statistic increases as the sample size grows. @fig-f22-15 shows histograms of the estimates and t-statistics. These histograms indicate that the finite-sample distribution of the OLS estimator is left-skewed, while that of the t-statistic is right-skewed. Both finite sample distributions deviate from normality. Therefore, inference based on the standard normal distribution is not valid in the presence of a stochastic trend even when the sample size is large.
 
@@ -1587,9 +1585,9 @@ plt.tight_layout()
 plt.show()
 ```
 
-In the next example, we use a simulation study to illustrate the spurious regression phenomenon. We generate $Y$ and $X$ from independent random walk with drift processes and estimate the following regression model: $Y_t=\beta_0+\beta_1X_t+u_t$. We repeat this simulation 1,000 times for three different sample sizes: 100, 500, and 1,000. In each simulation, we estimate the regression model and record the slope coefficient estimate, bias, and the t-statistic for testing the null hypothesis that the slope coefficient is zero.
+In the next example, we use a simulation study to illustrate the spurious regression phenomenon. We generate $Y$ and $X$ from independent random walk with drift processes and estimate the following regression model: $Y_t=\beta_0+\beta_1X_t+u_t$. We repeat this simulation 1,000 times for three different sample sizes: 100, 500, and 1,000. In each simulation, we estimate the regression model and record the slope coefficient estimate, bias, and the $t$-statistic for testing the null hypothesis that the slope coefficient is zero.
 
-The simulation results are presented in @tbl-t22-t10. The OLS estimator reports large positive bias, and the bias does not decrease as the sample size increases. The t-statistics are also large, indicating a statistically significant relationship between $Y$ and $X$.  @fig-f22-16 shows histograms of the estimates and t-statistics. 
+The simulation results are presented in @tbl-t22-t10. The OLS estimator reports large positive bias, and the bias does not decrease as the sample size increases. The $t$-statistics are also large, indicating a statistically significant relationship between $Y$ and $X$.  @fig-f22-16 shows histograms of the estimates and t-statistics. 
 
 ```{python}
 # Simulation to show the spurious regression phenomenon
@@ -1673,7 +1671,6 @@ plt.tight_layout()
 plt.show()
 ```
 
-
 ### How to detect stochastic trends? 
 
 The plot of time series data may help detecting a stochastic trend. We may look for persistent long-run movements. We can also use a regression-based test for a stochastic trend, e.g., the augmented Dickey-Fuller test.
@@ -1700,7 +1697,7 @@ $$
 &=\beta_0 + \delta Y_{t-1}  + \gamma_1 \Delta Y_{t-1} + u_t,
 \end{align*}
 $${#eq-eq22-25}
-where $\delta=\beta_1+\beta_2-1$ and $\gamma_1 = -\beta_2$. Also, note that the AR(2) model can be written as
+where $\delta=\beta_1+\beta_2-1$ and $\gamma_1 = -\beta_2$. Also, note that the AR($2$) model can be written as
 $$
 (1 - \beta_1 L -\beta_2L^2)Y_t = \beta_0 + u_t. 
 $$
@@ -1710,15 +1707,15 @@ $$
 1 - \beta_1 z -\beta_2z^2 = 0.
 $$
 
-Clearly, if one of the roots is unity, then $\beta_1+\beta_2=1$. In that case $\delta = 0$, and the AR(2) process becomes
+Clearly, if one of the roots is unity, then $\beta_1+\beta_2=1$. In that case $\delta = 0$, and the AR($2$) process becomes
 $$
 \Delta Y_t = \beta_0 + \gamma \Delta Y_{t-1} + u_t.
 $$
 
-Hence, if an AR(2) process has a unit root, it can be written as an AR(1) process in the first differences. For testing stationarity in the AR(2) model, the null hypothesis for the Dickey-Fuller test is $H_0:\delta = 0$ (unit root), and the alternative is $H_1:\delta < 0$ (stationary). 
+Hence, if an AR($2$) process has a unit root, it can be written as an AR($1$) process in the first differences. For testing stationarity in the AR($2$) model, the null hypothesis for the Dickey-Fuller test is $H_0:\delta = 0$ (unit root), and the alternative is $H_1:\delta < 0$ (stationary). 
 
 
-Using similar arguments, the discussion can be generalized to AR(p) processes:
+Using similar arguments, the discussion can be generalized to AR($p$) processes:
 $$
 \Delta Y_t = \beta_0 + \delta Y_{t-1} + \gamma_1 \Delta Y_{t-1} + \gamma_2 \Delta Y_{t-2} + \cdots + \gamma_{p-1}\Delta Y_{t-p+1}+ u_t,
 $${#eq-eq22-26}
@@ -1780,7 +1777,6 @@ for i in range(n_simulations):
 #%% Calculate critical values at 1%, 5%, and 10% significance levels for both models
 percentiles_intercept_only = np.percentile(adf_stats_intercept_only, [1, 5, 10])
 percentiles_intercept_trend = np.percentile(adf_stats_intercept_trend, [1, 5, 10])
-
 ```
 
 ```{python}
@@ -1834,12 +1830,10 @@ adf_gdp = stt.adfuller(dfGrowth['Y'], maxlag = 4, regression = 'ct')
 print(adf_gdp)
 ```
 
-
 In the next example, we use the Dickey-Fuller test for testing a unit root in the U.S. inflation series. In the `stt.adfuller` function call, we set `maxlag=4` to include four lags in the regression. The regression type is set to `'c'` to include a constant in the regression. The p-value from the Dickey-Fuller test is approximately 7.5%. Therefore, at the 5% significance level, we fail to reject the null hypothesis of a unit root in the U.S. inflation series.
 ```{python}
 stt.adfuller(df_subset['Inf'], maxlag = 4, regression = 'c')
 ```
-
 
 ### Structural Breaks
 
@@ -1850,7 +1844,7 @@ The second type of nonstationarity we consider is that the coefficients of the m
 
 ###  Test for a known break date
 
-Suppose the break is known to have occurred at date $\tau$. Then, the stability of the model can be tested by a fully interacted regression model. For example, consider the ADL(1,1) model and let $D_t(\tau)$ be the dummy variable for the periods after $\tau$, i.e., $D_t(\tau) = 0$ if $t\le\tau$ and $D_t(\tau) = 1$ if $t>\tau$. We can estimate the following fully interacted regression ADL(1,1) specification
+Suppose the break is known to have occurred at date $\tau$. Then, the stability of the model can be tested by a fully interacted regression model. For example, consider the ADL($1,1$) model and let $D_t(\tau)$ be the dummy variable for the periods after $\tau$, i.e., $D_t(\tau) = 0$ if $t\le\tau$ and $D_t(\tau) = 1$ if $t>\tau$. We can estimate the following fully interacted regression ADL($1,1$) specification
 $$
 Y_t = \beta_0 + \beta_1Y_{t-1} + \delta X_{t-1} + \gamma_0D_t(\tau) + \gamma_1 D_t(\tau)Y_{t-1}
 +\gamma_2D_t(\tau)X_{t-1} + u_t.
@@ -1869,7 +1863,7 @@ $$
 
 A conventional choice for $\tau_0$ and $\tau_1$ are the $0.15$th and $0.85$th quantiles of the sample data, i.e., use the inner $70\%$ of the data for a possible break point. The large sample distribution of the QLR test is not standard. For details, see Chapter 15 in @Stock2020. Therefore, the critical values must be tabulated through simulation methods.
 
-In the following example, we consider the ADL(2,2) model for the U.S. GDP growth rate given in @eq-eq22-11. We want to test whether there is a break in the coefficients of `TSpread`. Specifically, we want to test whether the intercept term and the coefficients on the lags of `TSpread` are constant over the full sample. For each possible break date, we estimate the following regression model:
+In the following example, we consider the ADL($2,2$) model for the U.S. GDP growth rate given in @eq-eq22-11. We want to test whether there is a break in the coefficients of `TSpread`. Specifically, we want to test whether the intercept term and the coefficients on the lags of `TSpread` are constant over the full sample. For each possible break date, we estimate the following regression model:
 $$
 \begin{align*}
 \text{GDPGR}_t& = \beta_0 + \beta_1\text{GDPGR}_{t-1} + \beta_2\text{GDPGR}_{t-2} + \delta_1\text{TSpread}_{t-1} + \delta_2\text{TSpread}_{t-2}\\
@@ -1933,7 +1927,6 @@ ax.set(ylabel='F-statistic', xlabel='time')
 plt.show()
 ```
 
-
 In the next example, we consider the ADL($4,4$) model in @eq-eq22-12 for the change in the inflation rate. We want to test whether the intercept term and the coefficients on the lags of the unemployment rate are constant over the full sample. For each possible break date, we estimate the following regression model:
 $$
 \begin{align*}
@@ -1986,7 +1979,7 @@ plt.show()
 ### Using pseudo out-of-sample forecast for detecting breaks
 We can also use the pseudo out-of-sample forecast to check the stability of the coefficients. To that end, we can plot the in-sample predicted values, the pseudo out-of-sample forecast, and the actual values. If the coefficients are stable, we should not observe any deterioration in the pseduo out-of-sample forecasts. Another way that we can check the stability of the coefficients is to compare the estimates of MSFE$_\text{POOS}$ and MSFE$_\text{FPE}$. If the series is stationary, the two estimates should be similar. A large deviation between the estimates of MSFE$_\text{POOS}$ and MSFE$_\text{FPE}$ indicates that the coefficients are not stable.
 
-Using the QLR statistic, we show that the intercept and the coefficients on the lags of the term spread in the ADL(2,2) model for the U.S. growth rate are not stable. The QLR statistic is 6.39, suggesting a break date of 1980:Q4. In the next example, we compute pseudo-out-of-sample forecasts for the U.S. GDP growth rate over the period 2003:Q1–2017:Q3, using an estimation sample from 1981:Q1 to 2002:Q4. The RMSFE estimates are reported in @tbl-t22-t12. The RMSFE values based on the SER and FPE methods in this table are computed from the model fitted to the data over the 1981:Q1–2002:Q4 sample period. The RMSFE based on the POOS method is 2.29, which is slightly smaller than the RMSFE based on the FPE method (2.35).
+Using the QLR statistic, we show that the intercept and the coefficients on the lags of the term spread in the ADL($2,2$) model for the U.S. growth rate are not stable. The QLR statistic is 6.39, suggesting a break date of 1980:Q4. In the next example, we compute pseudo-out-of-sample forecasts for the U.S. GDP growth rate over the period 2003:Q1–2017:Q3, using an estimation sample from 1981:Q1 to 2002:Q4. The RMSFE estimates are reported in @tbl-t22-t12. The RMSFE values based on the SER and FPE methods in this table are computed from the model fitted to the data over the 1981:Q1–2002:Q4 sample period. The RMSFE based on the POOS method is 2.29, which is slightly smaller than the RMSFE based on the FPE method (2.35).
 
 ```{python}
 # Prepare the data for the pseudo out-of-sample forecast
@@ -2056,10 +2049,9 @@ pd.DataFrame({
 }).round(2)
 ```
 
-
 In @fig-f22-20, we plot the actual growth rate, the forecasted growth rate, and the forecast errors. The forecasted growth rate closely tracks the actual U.S. GDP growth rate, except for a single period in 2008:Q4, when the forecast error is notably large.
 
-Based on our results in @tbl-t22-t12 and @fig-f22-20, we conclude that-aside from the large forecast error in 2008:Q4-the performance of the ADL(2,2) forecasting model during the pseudo-out-of-sample period (2003:Q1–2017:Q4) is relatively better than its performance during the in-sample period (1981:Q1–2002:Q4).
+Based on our results in @tbl-t22-t12 and @fig-f22-20, we conclude that-aside from the large forecast error in 2008:Q4-the performance of the ADL($2,2$) forecasting model during the pseudo-out-of-sample period (2003:Q1–2017:Q4) is relatively better than its performance during the in-sample period (1981:Q1–2002:Q4).
 
 ```{python}
 #| fig-cap: Plot of the actual GDP growth rate, the forecasted GDP growth rate, and the forecast errors

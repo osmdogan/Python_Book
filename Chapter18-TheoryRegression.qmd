@@ -27,7 +27,6 @@ $$
 $$
 where $\bar{X} = \frac{1}{n}\sum_{i=1}^n X_i$ and $\bar{Y} = \frac{1}{n}\sum_{i=1}^n Y_i$.
 
-
 We consider @eq-eq25-1 under the following extended assumptions.
 
 ::: {.callout-important icon=false}
@@ -52,7 +51,6 @@ $$
 :::
 
 @thm-thm25-1 suggests that we can make inference about the population parameters $\beta_0$ and $\beta_1$ using t-statistics and confidence intervals when the sample size is large. 
-
 
 :::{#thm-thm25-2}
 ## Gauss-Markov theorem
@@ -139,7 +137,6 @@ $$
 :::
 
 The expectation inequality also holds for random vectors. For example, if $\bs{X}\in\mathbb{R}^m$ is a random vector, then $\|\E(\bs{X})\|\leq\E(\|\bs{X}\|)$, where $\|\cdot\|$ can be any valid vector norm. See Appendix D for more details on vector and matrix norms.
-
 
 :::{#thm-thm25-6}   
 ## Lyapunov’s Inequality
@@ -248,7 +245,6 @@ plt.xlabel(r'$\delta$')
 plt.ylabel('Probability')
 plt.legend()
 plt.show()
-
 ```
 
 Using Chebychev's inequality, we can show the law of large numbers given in the following theorem.
@@ -308,7 +304,6 @@ In the following code chunk, we illustrate the law of large numbers using the es
 
 @fig-fig25-2 displays the histograms of $m_a$, $m_b$, and $m_c$ for different sample sizes. In the case of $m_a$ and $m_b$, the histograms do not concentrate around the true mean $\mu_Y = 0$ as the sample size increases. However, since the histograms are centered around the true mean, these estimators are unbiased. On the other hand, the histogram of $m_c$ becomes more concentrated around the true mean as the sample size increases, indicating that $m_c$ is a consistent estimator.
 
-
 ```{python}
 # Illustrating the law of large numbers
 # Parameters
@@ -334,7 +329,6 @@ for i in range(len(n)):
         m_b[i, j] = ((1-a**n[i])/(1-a))**(-1)*np.sum(a**(np.arange(n[i]))*Y)
         m_c[i, j] = np.mean(Y) + 1/n[i]
 ```
-
 
 ```{python}
 #| fig-cap: Illustrating the law of large numbers
@@ -526,7 +520,6 @@ plt.xlabel('t')
 plt.ylabel('Cumulative Distribution Function')
 plt.legend()
 plt.show()
-
 ```
 
 We now state the central limit theorem using the concept of convergence in distribution.
@@ -544,7 +537,6 @@ Note that when $n$ is large, $\sqrt{n}(\bar{Y}-\mu_Y)/\sigma_Y\xrightarrow{d}N(0
 $$
 \bar{Y}\sim N(\mu_Y,\sigma^2_Y/n).
 $$
-
 
 :::{#exm-exm25-4}
 ## Central limit theorem

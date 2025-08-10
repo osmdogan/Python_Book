@@ -154,7 +154,7 @@ For the third question, we should use economic theory to select VAR variables th
 So far, we have only considered using VAR models for prediction and forecasting. However, VAR models can also be used to study causal relationships among the VAR variables. This type of VAR model is called a structural VAR model (SVAR). SVAR models are typically used to analyze the dynamic effects of a structural shock in one variable on the other VAR variables. These models require assumptions to specify which VAR variables are exogenous. For further discussion on SVAR models, see @Lutkepohl2005 and @Hansen2022.
 
 ### An empirical application
-In this section, we consider a VAR($2$) model for the GDP growth rate (GDPGR) and the term spread (TSpread) for the U.S. economy. The model takes the following form: 
+In this section, we consider a VAR($2$) model for the GDP growth rate (GDPGR) and the term spread (TSpread) for the U.S. economy. The model takes the following form:
 $$
 \begin{align*}
 &\text{GDPGR}_t=\beta_{10}+\beta_{11}\text{GDPGR}_{t-1}+
@@ -260,7 +260,7 @@ In the following code chunk, we use the `test_whiteness` method, which provides 
 var_model.test_whiteness(nlags=4).summary()
 ```
 
-Thus, both `acos_ljungbox` and `test_whiteness` tests indicate that there is no serial correlation in the residuals, suggesting that two lags are sufficient to capture the dynamics of the GDP growth rate and the term spread. 
+Thus, both `acos_ljungbox()` and `test_whiteness()` tests indicate that there is no serial correlation in the residuals, suggesting that two lags are sufficient to capture the dynamics of the GDP growth rate and the term spread.
 
 Next, to determine whether `TSpread` Granger-causes `GDPGR`, we use the $F$-statistic for the following null and alternative hypotheses:
 $$
@@ -301,7 +301,7 @@ fig = var_model.plot_forecast(10)
 plt.show()
 ```
 
-Finally, we consider the effect of a shock in the term spread on the GDP growth rate. Suppose that we are willing to assume that `GDPGR` has a contemporaneous effect on `TSpread`  but `TSpread` affects the  `GDPGR` sequence with a one-period lag. To impose such an assumption, we need to order the variable such that `GDPGR` is the first column in `varData` (which is the case). That is, the order of variables in the system is important, and the variable that has the contemporaneous effect should be the first variable in the system. 
+Finally, we consider the effect of a shock in the term spread on the GDP growth rate. Suppose that we are willing to assume that `GDPGR` has a contemporaneous effect on `TSpread` but `TSpread` affects the  `GDPGR` sequence with a one-period lag. To impose such an assumption, we need to order the variable such that `GDPGR` is the first column in `varData` (which is the case). That is, the order of variables in the system is important, and the variable that has the contemporaneous effect should be the first variable in the system. 
 
 The effect of a shock in `TSpread` on `GDPGR` can be analysed through the impulse-response analysis. To that end, we can use the `irf` method. The response function of `GDPGR` is plotted in @fig-fig24-irf1. The plot shows that a shock in the term spread has a negative effect on the GDP growth rate in the first period.
 
@@ -637,7 +637,7 @@ $$
 \end{align} 
 $$
 
-In the following code chunk, we use the `VECM` function to estimate the VECM model for `tb3ms` and `gs10`. The option `k_ar_diff=3` specifies that the lag order for the differenced variables is 3. The option `coint_rank=1` indicates that there is one cointegrating relationship between the variables. The option `deterministic='ci'` ensures that the VECM includes an intercept term in the vector error correction term.
+In the following code chunk, we use the `VECM()` function to estimate the VECM model for `tb3ms` and `gs10`. The option `k_ar_diff=3` specifies that the lag order for the differenced variables is 3. The option `coint_rank=1` indicates that there is one cointegrating relationship between the variables. The option `deterministic='ci'` ensures that the VECM includes an intercept term in the vector error correction term.
 
 ```{python}
 mydata = df.copy()
@@ -649,17 +649,17 @@ print(vecm_model_fit.summary())
 
 The last block of the estimation output presents the estimated cointegrating vector, given by $\bs{\beta}=(\beta_1,\beta_2)^{'}=(1,-\theta)^{'}$. The estimated cointegrating parameter is $\hat{\theta}=-\hat{\beta}_2=1.01$, which is close to the value obtained from the two-step approach.
 
-The estimated coefficients for the lag terms appear in the first and second blocks of the estimation output. For $\Delta\text{tb3ms}$, only its own lag terms are statistically significant at the 5% level. For $\Delta\text{gs10}$, only the first lag of its own term is statistically significant at the 5% level.
+The estimated coefficients for the lag terms appear in the first and second blocks of the estimation output. For $\Delta\text{tb3ms}$, only its own lag terms are statistically significant at the 5% level. For $\Delta\text{gs10}$, only the first lag of its own term is statistically significant at the $5\%$ level.
 
 The estimated coefficients for the error correction terms are provided in the third and fourth blocks of the estimation output. These coefficients are $\hat{\alpha}_1=-0.095$ and $\hat{\alpha}_2=0.069$, both statistically significant at the 5% level. The estimate $\hat{\alpha}_1=-0.095$ suggests that the error correction term $(\text{tb3ms}_{t-1}-\theta\text{gs10}_{t-1}-\mu)$ negatively affects $\Delta\text{tb3ms}_t$, while $\hat{\alpha}_2=0.069$ indicates a positive effect on $\Delta\text{gs10}_t$. These estimates imply that if the short-run interest rate exceeds the long-run interest rate by more than 1.6, the short-run interest rate will decrease while the long-run interest rate will increase, and vice versa.
 
-In the following code chunk, we use the `coint_johansen` function to implement the Johansen cointegration test. The option `det_order=0` indicates that the error correction term includes a constant term, and the option `k_ar_diff=3` specifies that the lag order for the differenced variables is 3. The function returns the trace and maximum eigenvalue statistics and their critical values. 
+In the following code chunk, we use the `coint_johansen()` function to implement the Johansen cointegration test. The option `det_order=0` indicates that the error correction term includes a constant term, and the option `k_ar_diff=3` specifies that the lag order for the differenced variables is 3. The function returns the trace and maximum eigenvalue statistics and their critical values. 
 ```{python}
 # Johansen cointegration test
 johansen_results = coint_johansen(vecmData, det_order=0, k_ar_diff=3)
 ```	
 
-The trace statistic is returned in the `trace_stat` attribute, and the critical values at the 10%, 5%, and 1% significance levels are returned in the `trace_stat_crit_vals` attribute. The trace statistics for $H_0:\text{rank}(\bs{\Pi})=0$ and $H_0:\text{rank}(\bs{\Pi})=1$ are $31.56$ and $2.77$, respectively. The corresponding critical values at the 5% significance level are $15.49$ and $3.84$.
+The trace statistic is returned in the `trace_stat` attribute, and the critical values at the $10\%$, $5\%$, and $1\%$ significance levels are returned in the `trace_stat_crit_vals` attribute. The trace statistics for $H_0:\text{rank}(\bs{\Pi})=0$ and $H_0:\text{rank}(\bs{\Pi})=1$ are $31.56$ and $2.77$, respectively. The corresponding critical values at the $5\%$ significance level are $15.49$ and $3.84$.
 Thus, we can reject $H_0:\text{rank}(\bs{\Pi})=0$ but fail to reject $H_0:\text{rank}(\bs{\Pi})=1$. As a result, we conclude that there is one cointegrating relationship according to the trace statistic.
 
 ```{python}
@@ -671,7 +671,7 @@ print(johansen_results.trace_stat)
 print(johansen_results.trace_stat_crit_vals)
 ```	
 
-The maximum eigenvalue statistic is returned in the `max_eig_stat` attribute, and the critical values at the 10%, 5%, and 1% significance levels are returned in the `max_eig_stat_crit_vals` attribute. The maximum eigenvalue statistics for $H_0:\text{rank}(\bs{\Pi})=0$ and $H_0:\text{rank}(\bs{\Pi})=1$ are $28.8$ and $2.77$, respectively. The corresponding critical values at the 5% significance level are $14.26$ and $3.84$. Again, we can reject $H_0:\text{rank}(\bs{\Pi})=0$ but fail to reject $H_0:\text{rank}(\bs{\Pi})=1$. As a result, we conclude that there is also one cointegrating relationship according to the maximum eigenvalue statistic.
+The maximum eigenvalue statistic is returned in the `max_eig_stat` attribute, and the critical values at the $10\%$, $5\%$, and $1\%$ significance levels are returned in the `max_eig_stat_crit_vals` attribute. The maximum eigenvalue statistics for $H_0:\text{rank}(\bs{\Pi})=0$ and $H_0:\text{rank}(\bs{\Pi})=1$ are $28.8$ and $2.77$, respectively. The corresponding critical values at the $5\%$ significance level are $14.26$ and $3.84$. Again, we can reject $H_0:\text{rank}(\bs{\Pi})=0$ but fail to reject $H_0:\text{rank}(\bs{\Pi})=1$. As a result, we conclude that there is also one cointegrating relationship according to the maximum eigenvalue statistic.
 
 ```{python}
 # Print maximum eigenvalue statistic
@@ -1073,4 +1073,4 @@ results_t = garch_model_t.fit(disp='off')
 print(results_t.summary())
 ```
 
-The log-likelihood value of the GARCH model with the Student t-distribution is higher than that of the GARCH model with the normal distribution. The AIC and BIC values of the GARCH model with the Student t-distribution are lower than those of the GARCH model with the normal distribution. These observations suggest that the GARCH model with the Student t-distribution provides relatively a better fit for the sample data.
+The log-likelihood value of the GARCH model with the Student $t$-distribution is higher than that of the GARCH model with the normal distribution. The AIC and BIC values of the GARCH model with the Student $t$-distribution are lower than those of the GARCH model with the normal distribution. These observations suggest that the GARCH model with the Student $t$-distribution provides relatively a better fit for the sample data.

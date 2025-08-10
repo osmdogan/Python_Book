@@ -85,7 +85,7 @@ x.append(99) # adding 99 to the list x
 x
 ```
 
-The above cell displays the updated list `x`.  If a code cell returns multiple outputs, these outputs are displayed in separate cells, in the order they are produced. For example, the code below returns `type(x) = list` and `type(y) = tuple` in separate cells:
+The above cell displays the updated list `x`. If a code cell returns multiple outputs, these outputs are displayed in separate cells, in the order they are produced. For example, the code below returns `type(x) = list` and `type(y) = tuple` in separate cells:
 
 ```{python}
 x = [10, 2, 35, 11, 12] # list
@@ -101,8 +101,8 @@ In @Stock2020, key concepts are highlighted in bold and defined within the relev
 ## Key Concept 9.2: Variance and standard deviation
 Let $Y$ be a random variable with mean $\mu_Y$. The variance of $Y$ is defined as:
 
-* Discrete case: $\sigma^2_Y=\E[(Y-\mu_Y)^2]=\sum_{i=1}^k(y_i-\mu_Y)^2\times P(Y=y_i)$, where $y_i$ are the possible values of $Y$.
-* Continuous case: $\sigma^2_Y=\E[(Y-\mu_Y)^2]=\int_D (y-\mu_Y)^2f_Y(y)\text{d}y$, where $D$ is the support of $Y$.
+* Discrete case: $\sigma^2_Y=\E\left[(Y-\mu_Y)^2\right]=\sum_{i=1}^k(y_i-\mu_Y)^2\times P(Y=y_i)$, where $y_i$ are the possible values of $Y$.
+* Continuous case: $\sigma^2_Y=\E\left[(Y-\mu_Y)^2\right]=\int_D (y-\mu_Y)^2f_Y(y)\text{d}y$, where $D$ is the support of $Y$.
 
 The square root of the variance is called the standard deviation of $Y$ and is denoted by $\sigma_Y$. The units of the standard deviation are the same as the units of $Y$.
 :::
@@ -114,7 +114,6 @@ We also use a callout block to state econometric assumptions. For example, we us
 2. The random sampling assumption: $(X_i, Y_i):\, i =1,2,\dots,n$ are independently and identically distributed (i.i.d.) across observations.
 3. The no large outliers assumption: $\E(X_i^4)<\infty$ and $\E(Y_i^4)<\infty$.
 :::
-
 
 # Data for Applications
 For each methodological topic, @Stock2020 provide an application based on real-world data. We reproduce all tables, figures, and estimation results using the same datasets provided on the textbook's [web page](https://www.princeton.edu/~mwatson/Stock-Watson_4E/Stock-Watson-Resources-4e.html). The datasets are also available in the "data" folder of this book's GitHub repository.
