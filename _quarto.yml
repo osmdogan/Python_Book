@@ -7,7 +7,7 @@ book:
   reader-mode: true
   author: ["Osman Doğan", "Süleyman Taşpınar"]
   date: "today"
-  repo-url: https://github.com/osmdogan/Python_Book
+  repo-url: https://osmdogan.github.io/Python_Book/
   repo-actions: [edit, issue]
   site-url: https://osmdogan.github.io/Python_Book/
   cover-image: cover.png
@@ -79,7 +79,7 @@ format:
      - cosmo
      - r4ds.scss
     code-link: true
-  pdf:
-    documentclass: scrreprt
+    toc: true
+    toc-title: "Table of Contents"
 
   

@@ -187,7 +187,7 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Econometrics with Python</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/osmdogan/Python_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://osmdogan.github.io/Python_Book/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-git"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -479,7 +479,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Table of Contents</h2>
    
   <ul>
   <li><a href="#potential-outcomes-causal-effects-and-idealized-experiments" id="toc-potential-outcomes-causal-effects-and-idealized-experiments" class="nav-link active" data-scroll-target="#potential-outcomes-causal-effects-and-idealized-experiments"><span class="header-section-number">20.1</span> Potential outcomes, causal effects, and idealized experiments</a></li>
@@ -501,7 +501,7 @@ window.Quarto = {
   <li><a href="#application-the-effect-of-an-anti-poverty-program-on-child-mortality" id="toc-application-the-effect-of-an-anti-poverty-program-on-child-mortality" class="nav-link" data-scroll-target="#application-the-effect-of-an-anti-poverty-program-on-child-mortality"><span class="header-section-number">20.6.3</span> Application: The effect of an anti-poverty program on child mortality</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/Chapter13-Experiments.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://osmdogan.github.io/Python_Book/edit/main/Chapter13-Experiments.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://osmdogan.github.io/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -525,7 +525,7 @@ window.Quarto = {
 </header>
 
 
-<div id="d8c2d426" class="cell" data-execution_count="1">
+<div id="ade84602" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -697,14 +697,14 @@ Y_i=\beta_0+\beta_1D_i+\beta_2W_{1i}+\dots+\beta_{r+1}W_{ri}+u_i,
 <li>Small class (13-17 students).</li>
 </ul>
 <p>The interventions began when students entered kindergarten and continued through third grade. Teachers are also randomly assigned to classes. Students in regular classes were re-randomized after the first year to either a regular class or a regular class with a teacher’s aide. Students initially assigned to small classes remained in small classes throughout the experiment. Each year, students in the experiment were given standardized tests (the Stanford Achievement Test) in reading and math.</p>
-<div id="a4e5d4bc" class="cell" data-execution_count="2">
+<div id="6c19dec6" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>STAR <span class="op">=</span> pd.read_csv(<span class="st">"data/STAR.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="17dadfbb" class="cell" data-execution_count="3">
+<div id="555711b6" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Column names</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>STAR.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="96">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>Index(['gender', 'ethnicity', 'birth', 'stark', 'star1', 'star2', 'star3',
        'readk', 'read1', 'read2', 'read3', 'mathk', 'math1', 'math2', 'math3',
        'lunchk', 'lunch1', 'lunch2', 'lunch3', 'schoolk', 'school1', 'school2',
@@ -743,7 +743,7 @@ Y_i=\beta_0+\beta_1{\tt SmallClass}_i+\beta_2{\tt RegAid}_i+u_i,
 <li><span class="math inline">\(\beta_2\)</span> gives the effect of being in a regular class with teacher’s aid on the test score, relative to being in a regular class.</li>
 </ul>
 <p>We estimate the model by using observations from kindergarten through third grade. We expect that the error terms to be correlated for students in the same school because these student may share similar observed and unobserved characteristics. To account for this correlation in <span class="math inline">\(u\)</span>, we use standard errors clustered at the school level. This is achieved by using <code>model.fit(cov_type='cluster', cov_kwds={'groups': STAR_k['schoolidk']})</code> in the following code chunk.</p>
-<div id="014b2d2f" class="cell" data-execution_count="4">
+<div id="b731dcc3" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model K: Kindergarten</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>STAR_k <span class="op">=</span> STAR[[<span class="st">"readk"</span>,<span class="st">"mathk"</span>,<span class="st">"stark"</span>,<span class="st">"schoolidk"</span>]].dropna()</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>modelK <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'I(readk + mathk) ~ stark'</span>, data<span class="op">=</span>STAR_k)</span>
@@ -765,7 +765,7 @@ Y_i=\beta_0+\beta_1{\tt SmallClass}_i+\beta_2{\tt RegAid}_i+u_i,
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>result3 <span class="op">=</span> model3.fit(cov_type<span class="op">=</span><span class="st">'cluster'</span>, cov_kwds<span class="op">=</span>{<span class="st">'groups'</span>: STAR_3[<span class="st">'schoolid3'</span>]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The estimation results are presented in <a href="#tbl-t20.1" class="quarto-xref">Table&nbsp;<span>20.1</span></a>. For kindergarten students, those in a small class have, on average, 13.9 more points on the test compared to those in a regular class. The estimated effect of being in a regular class with a teacher’s aid is 0.31 points and is statistically insignificant. The average estimated effect of being in a small class, relative to being in a regular class, is 29.8 points for first grade, 19.4 points for second grade, and 15.6 points for third grade. The estimated effect of being in a regular class with a teacher’s aid, relative to being in a regular class, is statistically insignificant for each grade. Overall, these results suggest that reducing class size has a positive effect on test scores, while adding teacher’s aides to regular classes has no effect on test scores.</p>
-<div id="b037b401" class="cell" data-execution_count="5">
+<div id="12c4ed19" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Stargazer</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>table1 <span class="op">=</span> Stargazer([resultK,result1,result2,result3])</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>table1.custom_columns([<span class="st">'Model K'</span>, <span class="st">'Model 1'</span>, <span class="st">"Model 2"</span>, <span class="st">"Model 3"</span>])</span>
@@ -784,7 +784,7 @@ Y_i=\beta_0+\beta_1{\tt SmallClass}_i+\beta_2{\tt RegAid}_i+u_i,
 Table&nbsp;20.1: Project STAR: Estimation Results
 </figcaption>
 <div aria-describedby="tbl-t20.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="99">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <table style="text-align:center"><tbody><tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr>
 <tr><td style="text-align:left"></td></tr><tr><td></td><td colspan="1">Model K</td><td colspan="1">Model 1</td><td colspan="1">Model 2</td><td colspan="1">Model 3</td></tr>
 <tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr>
@@ -827,7 +827,7 @@ Table&nbsp;20.1: Project STAR: Estimation Results
 <li><code>race</code>: Student’s race is other than black or white (a dummy variable)</li>
 <li><code>schoolid</code>: School indicator variables (school fixed effects)</li>
 </ul>
-<div id="3bffdf1a" class="cell" data-execution_count="7">
+<div id="f848197e" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create new columns based on conditions</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>STAR[<span class="st">'black'</span>] <span class="op">=</span> (STAR[<span class="st">'ethnicity'</span>] <span class="op">==</span> <span class="st">'afam'</span>).astype(<span class="bu">int</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>STAR[<span class="st">'race'</span>] <span class="op">=</span> (<span class="op">~</span>(STAR[<span class="st">'ethnicity'</span>].isin([<span class="st">'afam'</span>, <span class="st">'cauc'</span>]))).astype(<span class="bu">int</span>)</span>
@@ -846,7 +846,7 @@ Table&nbsp;20.1: Project STAR: Estimation Results
 \end{align}
 \]</span></p>
 <p>As in <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span>, we estimate these models using the sample data only from the kindergarten.</p>
-<div id="0e538a46" class="cell" data-execution_count="8">
+<div id="7b4f86fe" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>variables <span class="op">=</span> [<span class="st">"readk"</span>,<span class="st">"mathk"</span>,<span class="st">"stark"</span>,<span class="st">"schoolidk"</span>,<span class="st">"experiencek"</span>,<span class="st">"boy"</span>,<span class="st">"lunchk"</span>,<span class="st">"black"</span>,<span class="st">"race"</span>]</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>STAR_k<span class="op">=</span>STAR[variables].dropna()</span>
@@ -870,7 +870,7 @@ Table&nbsp;20.1: Project STAR: Estimation Results
 <span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>result4<span class="op">=</span>model4.fit(cov_type<span class="op">=</span><span class="st">'cluster'</span>, cov_kwds<span class="op">=</span>{<span class="st">'groups'</span>: STAR_k[<span class="st">'schoolidk'</span>]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The estimation results are presented in <a href="#tbl-t20.2" class="quarto-xref">Table&nbsp;<span>20.2</span></a>. The results in this table show that adding these additional covariates and school fixed effects to the model does not lead to substantially different estimates of the treatment effects. However, note that the reported standard errors are relatively smaller than those reported in <a href="#tbl-t20.1" class="quarto-xref">Table&nbsp;<span>20.1</span></a>, suggesting an efficiency gain from including these covariates.</p>
-<div id="1de17bd5" class="cell" data-execution_count="9">
+<div id="1f616285" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Stargazer</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>table2 <span class="op">=</span> Stargazer([result1,result2,result3,result4])</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>table2.custom_columns([<span class="st">'Model 1'</span>, <span class="st">'Model 2'</span>, <span class="st">"Model 3"</span>, <span class="st">"Model 4"</span>])</span>
@@ -892,7 +892,7 @@ Table&nbsp;20.1: Project STAR: Estimation Results
 Table&nbsp;20.2: Project STAR: Estimation Results with Covariates
 </figcaption>
 <div aria-describedby="tbl-t20.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="103">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <table style="text-align:center"><tbody><tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr>
 <tr><td style="text-align:left"></td></tr><tr><td></td><td colspan="1">Model 1</td><td colspan="1">Model 2</td><td colspan="1">Model 3</td><td colspan="1">Model 4</td></tr>
 <tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr>
@@ -1005,7 +1005,7 @@ Figure&nbsp;20.1: Minimum wage by state (Source: <a href="https://en.m.wikipedia
 <div id="fig-f20.2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f20.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter13-Experiments_files/figure-html/fig-f20.2-output-1.png" class="img-fluid figure-img">
+<img src="Chapter13-Experiments_files/figure-html/fig-f20.2-output-1.png" width="589" height="441" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f20.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;20.2: The DiD estimator
@@ -1081,10 +1081,10 @@ Y_{it}=\alpha_i+\lambda_t+\beta_3(D_i\times{\tt Period}_t)+u_{it},
 <li><code>hoursopen</code>: Number hours open per day</li>
 <li><code>time</code>: 0 if first survey (2/15/1992 – 3/4/1992), 1 if second survey (11/5/1992 – 12/31/1992)</li>
 </ul>
-<div id="5657dc67" class="cell" data-execution_count="12">
+<div id="e0b4af4f" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_stata(<span class="st">"data/CK1994.dta"</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="105">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>Index(['store', 'chain', 'co_owned', 'state', 'southj', 'centralj', 'northj',
        'pa1', 'pa2', 'shore', 'ncalls', 'empft', 'emppt', 'nmgrs', 'wage_st',
        'inctime', 'firstinc', 'meals', 'open', 'hoursopen', 'pricesoda',
@@ -1122,7 +1122,7 @@ Y_{it}=\alpha_i+\lambda_t+\beta_3(D_i\times{\tt Period}_t)+u_{it},
 Table&nbsp;20.3: Average Employment at Fast Food Restaurants
 </figcaption>
 <div aria-describedby="tbl-t20.3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="106">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
 
@@ -1166,7 +1166,7 @@ Table&nbsp;20.3: Average Employment at Fast Food Restaurants
 </div>
 </div>
 <p>Next, we use <a href="#eq-eq20.6" class="quarto-xref">Equation&nbsp;<span>20.6</span></a> to estimate the effect of the increase in the minimum wage on employment. In the following code chunk, we generate the <span class="math inline">\(\Delta Y\)</span> and <span class="math inline">\(D\)</span> variables, and then use the OLS estimator to estimate the DiD parameter <span class="math inline">\(\beta_1\)</span>. The DiD estimate of <span class="math inline">\(\beta_1\)</span> is <span class="math inline">\(2.75\)</span>, which is exactly the same as the one in <a href="#tbl-t20.3" class="quarto-xref">Table&nbsp;<span>20.3</span></a>.</p>
-<div id="0b174315" class="cell" data-execution_count="14">
+<div id="c0d0ab66" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>DeltaY<span class="op">=</span>df.fte[df.time<span class="op">==</span><span class="dv">1</span>].values<span class="op">-</span>df.fte[df.time<span class="op">==</span><span class="dv">0</span>].values</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>D<span class="op">=</span>df.state[df.time<span class="op">==</span><span class="dv">1</span>]</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>df1<span class="op">=</span>pd.DataFrame({<span class="st">"DeltaY"</span>:DeltaY,<span class="st">"D"</span>:D})</span>
@@ -1180,7 +1180,7 @@ Dep. Variable:                 DeltaY   R-squared:                       0.015
 Model:                            OLS   Adj. R-squared:                  0.012
 Method:                 Least Squares   F-statistic:                     4.226
 Date:                Sun, 10 Aug 2025   Prob (F-statistic):             0.0405
-Time:                        09:32:20   Log-Likelihood:                -1386.2
+Time:                        14:40:01   Log-Likelihood:                -1386.2
 No. Observations:                 384   AIC:                             2776.
 Df Residuals:                     382   BIC:                             2784.
 Df Model:                           1                                         
@@ -1202,7 +1202,7 @@ Notes:
 </div>
 </div>
 <p>We can also use <a href="#eq-eq20.8" class="quarto-xref">Equation&nbsp;<span>20.8</span></a> to estimate the DiD parameter <span class="math inline">\(\beta_3\)</span>. In the following code chunk, we first create the <code>treatment</code> variable, which represents <span class="math inline">\(D_i \times {\tt Period}_t\)</span>, and then use the OLS estimator to estimate <span class="math inline">\(\beta_3\)</span>. Note that we use clustered standard errors at the store level to account for correlation in the error terms across stores. The DiD estimate of <span class="math inline">\(\beta_3\)</span> is 2.75 with a <span class="math inline">\(t\)</span>-value of 2.05.</p>
-<div id="0cdddb57" class="cell" data-execution_count="15">
+<div id="ccead238" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimation of (20.7)</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create treatment variable</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'treatment'</span>] <span class="op">=</span> df[<span class="st">'time'</span>] <span class="op">*</span> df[<span class="st">'state'</span>]</span>
@@ -1218,7 +1218,7 @@ Dep. Variable:                    fte   R-squared:                       0.008
 Model:                            OLS   Adj. R-squared:                  0.004
 Method:                 Least Squares   F-statistic:                     1.655
 Date:                Sun, 10 Aug 2025   Prob (F-statistic):              0.176
-Time:                        09:32:20   Log-Likelihood:                -2817.6
+Time:                        14:40:01   Log-Likelihood:                -2817.6
 No. Observations:                 768   AIC:                             5643.
 Df Residuals:                     764   BIC:                             5662.
 Df Model:                           3                                         
@@ -1242,7 +1242,7 @@ Notes:
 </div>
 </div>
 <p>Finally, we use the two-way fixed effects model in <a href="#eq-eq20.9" class="quarto-xref">Equation&nbsp;<span>20.9</span></a> to estimate the DiD parameter <span class="math inline">\(\beta_3\)</span>. The following code chunk provides the same estimate as the previous methods.</p>
-<div id="58a23136" class="cell" data-execution_count="16">
+<div id="bde16e94" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting panel structure</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"Time"</span>] <span class="op">=</span> df.time</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>df_panel <span class="op">=</span> df.set_index([<span class="st">'store'</span>, <span class="st">'time'</span>])</span>
@@ -1258,7 +1258,7 @@ Dep. Variable:                    fte   R-squared:                        0.0147
 Estimator:                   PanelOLS   R-squared (Between):             -0.0048
 No. Observations:                 768   R-squared (Within):               0.0147
 Date:                Sun, Aug 10 2025   R-squared (Overall):             -0.0041
-Time:                        09:32:20   Log-likelihood                   -2240.1
+Time:                        14:40:01   Log-likelihood                   -2240.1
 Cov. Estimator:             Clustered                                           
                                         F-statistic:                      2.8495
 Entities:                         384   P-value                           0.0591
@@ -1275,8 +1275,8 @@ Max Obs:                       384.00
 ==============================================================================
             Parameter  Std. Err.     T-stat    P-value    Lower CI    Upper CI
 ------------------------------------------------------------------------------
-treatment      2.7500     1.3360     2.0584     0.0402      0.1232      5.3768
 Time          -2.2833     1.2465    -1.8318     0.0678     -4.7342      0.1675
+treatment      2.7500     1.3360     2.0584     0.0402      0.1232      5.3768
 ==============================================================================
 
 F-test for Poolability: 3.5246
@@ -1346,7 +1346,7 @@ Y_{it} = \alpha_i + \lambda_t + \sum_{s=1}^{t_0-2}\beta_s (D_i\times P_s) + \sum
 <li><code>block</code>: block id</li>
 </ul>
 <p>The outcome variable is <code>thefts</code> which is the average monthly number of motor vehicle thefts. Below, we load the data and create the <code>treat</code> and <code>post</code> variables. The <code>treat</code> variable is the treatment indicator and the <code>post</code> variable is the post-treatment indicator. We present the summary statistics of the data in <a href="#tbl-t20.4" class="quarto-xref">Table&nbsp;<span>20.4</span></a>. According to this table, 4.2% of the blocks are treated, and the average number of car theft is around 0.093.</p>
-<div id="3c67f8a2" class="cell" data-execution_count="17">
+<div id="9997845f" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_stata(<span class="st">"data/DS2004.dta"</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>df.rename(columns<span class="op">=</span>{<span class="st">'sameblock'</span>: <span class="st">'treat'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
@@ -1363,7 +1363,7 @@ Y_{it} = \alpha_i + \lambda_t + \sum_{s=1}^{t_0-2}\beta_s (D_i\times P_s) + \sum
 Table&nbsp;20.4: Summary statistics
 </figcaption>
 <div aria-describedby="tbl-t20.4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="111">
+<div class="cell-output cell-output-display" data-execution_count="18">
 <div>
 
 
@@ -1386,7 +1386,7 @@ Table&nbsp;20.4: Summary statistics
 <td style="text-align: left;" data-quarto-table-cell-role="th">block</td>
 <td style="text-align: left;">7884.0</td>
 <td style="text-align: left;">438.500</td>
-<td style="text-align: left;">252.895</td>
+<td style="text-align: left;">252.897</td>
 <td style="text-align: left;">1.0</td>
 <td style="text-align: left;">219.75</td>
 <td style="text-align: left;">438.5</td>
@@ -1504,7 +1504,7 @@ Table&nbsp;20.4: Summary statistics
 </div>
 </div>
 <p>We first consider estimating the average treatment effect in the post-period. To this end, we use <a href="#eq-eq20.9" class="quarto-xref">Equation&nbsp;<span>20.9</span></a> as if we have only 2 periods, pre- and post-treament. We can use the <code>PanelOLS()</code> function from <code>linearmodels</code> module to estimate the model. We use the clustered standard errors at the block level to account for correlation in the error terms within blocks.</p>
-<div id="42442457" class="cell" data-execution_count="19">
+<div id="2d57c5a7" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the data to a panel data structure</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>df_panel <span class="op">=</span> df.set_index([<span class="st">'block'</span>, <span class="st">'month'</span>])</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1519,7 +1519,7 @@ Dep. Variable:                 thefts   R-squared:                        0.0013
 Estimator:                   PanelOLS   R-squared (Between):             -0.0149
 No. Observations:                7884   R-squared (Within):               0.0005
 Date:                Sun, Aug 10 2025   R-squared (Overall):             -0.0040
-Time:                        09:32:20   Log-likelihood                    870.52
+Time:                        14:40:01   Log-likelihood                    870.52
 Cov. Estimator:             Clustered                                           
                                         F-statistic:                      8.9506
 Entities:                         876   P-value                           0.0028
@@ -1532,12 +1532,12 @@ Avg Obs:                       876.00
 Min Obs:                       876.00                                           
 Max Obs:                       876.00                                           
                                                                                 
-                                Parameter Estimates                                
-===================================================================================
-                 Parameter  Std. Err.     T-stat    P-value    Lower CI    Upper CI
------------------------------------------------------------------------------------
-I(treat * post)    -0.0775     0.0249    -3.1111     0.0019     -0.1264     -0.0287
-===================================================================================
+                               Parameter Estimates                               
+=================================================================================
+               Parameter  Std. Err.     T-stat    P-value    Lower CI    Upper CI
+---------------------------------------------------------------------------------
+I(treat*post)    -0.0775     0.0249    -3.1111     0.0019     -0.1264     -0.0287
+=================================================================================
 
 F-test for Poolability: 1.9474
 P-value: 0.0000
@@ -1548,7 +1548,7 @@ Included effects: Entity, Time</code></pre>
 </div>
 <p>The estimate of the average treatment effect (on treated blocks) in the post-period is <span class="math inline">\(-0.078\)</span>, i.e., police presence, on average, reduced car thefts by <span class="math inline">\(0.078\)</span> in the treated blocks. This estimate is almost the same as the one reported in the first column of Table 3 in <span class="citation" data-cites="Tella:2004">Tella and Schargrodsky (<a href="references.html#ref-Tella:2004" role="doc-biblioref">2004</a>)</span>. Given that the average number of car theft is around <span class="math inline">\(0.093\)</span>, this estimate is not negligible.</p>
 <p>Next, we will consider an event study analysis and estimate <a href="#eq-eq20.10" class="quarto-xref">Equation&nbsp;<span>20.10</span></a>. First, we need to generate the interactions of the treatment dummy with pre and post periods.</p>
-<div id="f6a61208" class="cell" data-execution_count="20">
+<div id="f9a82b52" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'lead4'</span>] <span class="op">=</span> ((df[<span class="st">'treat'</span>] <span class="op">==</span> <span class="dv">1</span>) <span class="op">&amp;</span> (df[<span class="st">'month'</span>] <span class="op">==</span> <span class="dv">4</span>)).astype(<span class="bu">int</span>) <span class="co"># april</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'lead3'</span>] <span class="op">=</span> ((df[<span class="st">'treat'</span>] <span class="op">==</span> <span class="dv">1</span>) <span class="op">&amp;</span> (df[<span class="st">'month'</span>] <span class="op">==</span> <span class="dv">5</span>)).astype(<span class="bu">int</span>) <span class="co"># may</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'lead2'</span>] <span class="op">=</span> ((df[<span class="st">'treat'</span>] <span class="op">==</span> <span class="dv">1</span>) <span class="op">&amp;</span> (df[<span class="st">'month'</span>] <span class="op">==</span> <span class="dv">6</span>)).astype(<span class="bu">int</span>) <span class="co"># june</span></span>
@@ -1560,7 +1560,7 @@ Included effects: Entity, Time</code></pre>
 <span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'lag4'</span>] <span class="op">=</span> ((df[<span class="st">'treat'</span>] <span class="op">==</span> <span class="dv">1</span>) <span class="op">&amp;</span> (df[<span class="st">'month'</span>] <span class="op">==</span> <span class="dv">12</span>)).astype(<span class="bu">int</span>) <span class="co"># december</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The common treatment timing <span class="math inline">\(t_0\)</span> is August and the <span class="math inline">\(t_0-1\)</span> period is July. Thus, in the event study analysis, July will be the baseline period (reference period) and <span class="math inline">\(\beta_{\text{july}}=0\)</span>. We use the fixed effects estimator to estimate the event study regression in <a href="#eq-eq20.10" class="quarto-xref">Equation&nbsp;<span>20.10</span></a>.</p>
-<div id="ea79bd07" class="cell" data-execution_count="21">
+<div id="fbd36213" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the data to a panel data structure</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>df_panel <span class="op">=</span> df.set_index([<span class="st">'block'</span>, <span class="st">'month'</span>])</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1576,7 +1576,7 @@ Dep. Variable:                 thefts   R-squared:                        0.0017
 Estimator:                   PanelOLS   R-squared (Between):             -0.0041
 No. Observations:                7884   R-squared (Within):               0.0011
 Date:                Sun, Aug 10 2025   R-squared (Overall):             -0.0004
-Time:                        09:32:20   Log-likelihood                    872.05
+Time:                        14:40:01   Log-likelihood                    872.05
 Cov. Estimator:             Clustered                                           
                                         F-statistic:                      1.4589
 Entities:                         876   P-value                           0.1667
@@ -1593,14 +1593,14 @@ Max Obs:                       876.00
 ==============================================================================
             Parameter  Std. Err.     T-stat    P-value    Lower CI    Upper CI
 ------------------------------------------------------------------------------
-lead4          0.0322     0.0655     0.4920     0.6227     -0.0962      0.1606
-lead3          0.0089     0.0388     0.2287     0.8191     -0.0671      0.0849
-lead2          0.0729     0.0479     1.5214     0.1282     -0.0210      0.1669
-lead0         -0.0430     0.0353    -1.2168     0.2237     -0.1123      0.0263
 lag1          -0.0646     0.0193    -3.3491     0.0008     -0.1024     -0.0268
 lag2          -0.0265     0.0413    -0.6417     0.5211     -0.1075      0.0545
 lag3          -0.0528     0.0217    -2.4375     0.0148     -0.0953     -0.0103
 lag4          -0.0582     0.0218    -2.6642     0.0077     -0.1010     -0.0154
+lead0         -0.0430     0.0353    -1.2168     0.2237     -0.1123      0.0263
+lead2          0.0729     0.0479     1.5214     0.1282     -0.0210      0.1669
+lead3          0.0089     0.0388     0.2287     0.8191     -0.0671      0.0849
+lead4          0.0322     0.0655     0.4920     0.6227     -0.0962      0.1606
 ==============================================================================
 
 F-test for Poolability: 1.9466
@@ -1611,7 +1611,7 @@ Included effects: Entity, Time</code></pre>
 </div>
 </div>
 <p>Alternatively, we can resort to the OLS estimator to estimate <a href="#eq-eq20.10" class="quarto-xref">Equation&nbsp;<span>20.10</span></a>. The following code chunk produces the same estimates as the fixed effects estimator. Note that we use the <code>C(month)</code> and <code>C(block)</code> to include month and block fixed effects, respectively.</p>
-<div id="6e1065f4" class="cell" data-execution_count="22">
+<div id="a64e1ea7" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># model formula</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>formula <span class="op">=</span> <span class="st">'thefts ~ lead4 + lead3 + lead2 + lead0 + lag1 + lag2 + lag3 + lag4 + C(month) + C(block)'</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1619,7 +1619,7 @@ Included effects: Entity, Time</code></pre>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>results6 <span class="op">=</span> smf.ols(formula, data<span class="op">=</span>df).fit(cov_type<span class="op">=</span><span class="st">'cluster'</span>, cov_kwds<span class="op">=</span>{<span class="st">'groups'</span>: df[<span class="st">'block'</span>]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To generate the event study plot, we next extract the point estimates and standard errors. We then generate (pointwise) 95% confidence intervals.</p>
-<div id="9a9b7b07" class="cell" data-execution_count="23">
+<div id="35858def" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract point estimates</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> results6.params[[<span class="st">'lead4'</span>, <span class="st">'lead3'</span>, <span class="st">'lead2'</span>, <span class="st">'lead0'</span>, <span class="st">'lag1'</span>, <span class="st">'lag2'</span>, <span class="st">'lag3'</span>, <span class="st">'lag4'</span>]].values</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> <span class="bu">list</span>(theta[:<span class="dv">3</span>]) <span class="op">+</span> [<span class="dv">0</span>] <span class="op">+</span> <span class="bu">list</span>(theta[<span class="dv">3</span>:])</span>
@@ -1650,7 +1650,7 @@ Included effects: Entity, Time</code></pre>
 <div id="fig-fig-f20.3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig-f20.3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter13-Experiments_files/figure-html/fig-fig-f20.3-output-1.png" class="img-fluid figure-img">
+<img src="Chapter13-Experiments_files/figure-html/fig-fig-f20.3-output-1.png" width="527" height="367" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig-f20.3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;20.3: The pre- and post-treatment estimates of the ATT parameter
@@ -1697,7 +1697,7 @@ Figure&nbsp;20.3: The pre- and post-treatment estimates of the ATT parameter
 <div id="fig-f20.4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f20.4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter13-Experiments_files/figure-html/fig-f20.4-output-1.png" class="img-fluid figure-img">
+<img src="Chapter13-Experiments_files/figure-html/fig-f20.4-output-1.png" width="593" height="435" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f20.4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;20.4: Hypothetical regression discontinuity design scatterplot
@@ -1772,7 +1772,7 @@ Identification Assumption for the Sharp RDD
 <div id="fig-f20.4-4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f20.4-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter13-Experiments_files/figure-html/fig-f20.4-4-output-1.png" class="img-fluid figure-img">
+<img src="Chapter13-Experiments_files/figure-html/fig-f20.4-4-output-1.png" width="603" height="435" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f20.4-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;20.5: The conditional mean functions of potential outcomes
@@ -1862,7 +1862,7 @@ Identification Assumption for the Sharp RDD
 <div id="fig-f20.6" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f20.6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter13-Experiments_files/figure-html/fig-f20.6-output-1.png" class="img-fluid figure-img">
+<img src="Chapter13-Experiments_files/figure-html/fig-f20.6-output-1.png" width="447" height="361" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f20.6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;20.6: The probability of treatment in the fuzzy RDD
@@ -1898,10 +1898,10 @@ Figure&nbsp;20.6: The probability of treatment in the fuzzy RDD
 <li><code>census1960_pop</code>: Census 1960: county population</li>
 </ul>
 <p>The outcome variable is denoted by <code>mort_age59_related_postHS</code> and the running variable by <code>povrate60</code>. <a href="#tbl-t20.5" class="quarto-xref">Table&nbsp;<span>20.5</span></a> provides the summary statistics for these two variables.</p>
-<div id="4aca0a35" class="cell" data-execution_count="28">
+<div id="6c3d247a" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>df_head <span class="op">=</span> pd.read_stata(<span class="st">"data/LM2007.dta"</span>)</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>df_head.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="121">
+<div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>Index(['state', 'povrate60', 'mort_age59_related_postHS',
        'mort_age59_injury_postHS', 'mort_age59_all_postHS',
        'mort_age25plus_related_postHS', 'mort_age25plus_injuries_postHS',
@@ -1925,7 +1925,7 @@ Figure&nbsp;20.6: The probability of treatment in the fuzzy RDD
 Table&nbsp;20.5: Summary statistics
 </figcaption>
 <div aria-describedby="tbl-t20.5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="122">
+<div class="cell-output cell-output-display" data-execution_count="29">
 <div>
 
 
@@ -1978,7 +1978,7 @@ Table&nbsp;20.5: Summary statistics
 </div>
 </div>
 <p>We use the <code>rdrobust()</code> function with the cutoff <code>c=59.1984</code> to estimate the RDD parameter <span class="math inline">\(\tau\)</span>. The following code chunk generates the estimation results. The estimated RDD parameter is -2.409 with a robust <span class="math inline">\(t\)</span>-statistic -2.032. This is a large estimate given that the mean child mortality rate is around 2.254 as shown in <a href="#tbl-t20.5" class="quarto-xref">Table&nbsp;<span>20.5</span></a>. This estimate indicates that the federal grant-writing assistence reduced mortality by 2.032 children per 100,000.</p>
-<div id="c5b80f7e" class="cell" data-execution_count="30">
+<div id="0d7419a6" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> df_head[<span class="st">"mort_age59_related_postHS"</span>]</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>W <span class="op">=</span> df_head[<span class="st">"povrate60"</span>]</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>rdd_result <span class="op">=</span> rdrobust(x<span class="op">=</span>W, y<span class="op">=</span>Y, c<span class="op">=</span><span class="fl">59.1984</span>)</span>
@@ -2009,7 +2009,7 @@ Robust                 -        -   -2.032   4.213e-02   [-5.462, -0.099]
 </div>
 </div>
 <p>We can use the <code>rdplot()</code> function to generate the fitted polynomials along with sample averages of outcome variable within each bin as shown in the following figure. The jump in the figure at the cutoff <span class="math inline">\(w_0=59.1984\)</span> indicates that the treatment effect is evident.</p>
-<div id="49daf1d1" class="cell" data-execution_count="31">
+<div id="aa121903" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>rdplot(y<span class="op">=</span>Y, x<span class="op">=</span>W,</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>       binselect<span class="op">=</span><span class="st">"qsmv"</span>,</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>       c<span class="op">=</span><span class="fl">59.1984</span>,</span>
@@ -2020,7 +2020,7 @@ Robust                 -        -   -2.032   4.213e-02   [-5.462, -0.099]
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Chapter13-Experiments_files/figure-html/cell-32-output-1.png" width="672" height="480" class="figure-img"></p>
+<p><img src="Chapter13-Experiments_files/figure-html/cell-32-output-1.png" width="640" height="480" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -2033,7 +2033,7 @@ Polynomial Order Est. (p):                  4
                                 Left      Right
 ------------------------------------------------
 Number of Observations          2489        294
-Number of Effective Obs         2489        294
+Number of Effective Obs         2489        293
 Bandwith poly. fit (h)         43.99     22.372
 Number of bins scale               1          1
 Bins Selected                     44         43
@@ -2047,7 +2047,7 @@ Implied scale                  6.286        8.6
 WIMSE variance weight          0.004      0.002
 WIMSE bias weight              0.996      0.998</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="124">
+<div class="cell-output cell-output-display" data-execution_count="31">
 <pre><code></code></pre>
 </div>
 </div>
@@ -2539,7 +2539,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/Chapter13-Experiments.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://osmdogan.github.io/Python_Book/edit/main/Chapter13-Experiments.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://osmdogan.github.io/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

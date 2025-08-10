@@ -124,10 +124,7 @@ div.csl-indent {
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -187,7 +184,7 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Econometrics with Python</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/osmdogan/Python_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://osmdogan.github.io/Python_Book/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-git"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -503,7 +500,7 @@ window.Quarto = {
   <li><a href="#external-validity-assessment" id="toc-external-validity-assessment" class="nav-link" data-scroll-target="#external-validity-assessment"><span class="header-section-number">16.5.5</span> External validity assessment</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/Chapter9-AssessingStudies.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://osmdogan.github.io/Python_Book/edit/main/Chapter9-AssessingStudies.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://osmdogan.github.io/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -527,7 +524,7 @@ window.Quarto = {
 </header>
 
 
-<div id="2bd5ef83" class="cell" data-execution_count="1">
+<div id="2eeaff62" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -575,7 +572,7 @@ window.Quarto = {
 <h3 data-number="16.2.1" class="anchored" data-anchor-id="omitted-variable-bias"><span class="header-section-number">16.2.1</span> Omitted variable bias</h3>
 <p>An omitted variable is a variable that affects the dependent variable <span class="math inline">\(Y\)</span> (i.e., is part of the error term) and is correlated with our variable of interest <span class="math inline">\(X\)</span>. The bias resulting from an omitted variable is referred to as omitted variable bias. Since omitted variable bias violates the zero-conditional mean assumption, the OLS estimator becomes biased and inconsistent.</p>
 <p><strong>Solution when the omitted variable is observed or control variables are available</strong>: In this case, the omitted variable can be included in the regression model to eliminate omitted variable bias. This approach is feasible if the omitted variable is observed and measurable. If the omitted variable is not available, we must instead rely on control variables and try to achieve the conditional mean independence assumption for the variable of interest. If the control variables are effective, then including them in the model can also address the omitted variable bias.</p>
-<p>It is important to keep in mind that adding a variable to the model involves a trade-off between bias and variance. On the one hand, adding a variable can reduce bias; on the other hand, it can increase the variance of the estimator. <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span> suggests a four-step process for deciding whether to include a variable or a set of variables in the model:</p>
+<p>It is important to keep in mind that adding a variable to the model involves a trade-off between bias and variance. On the one hand, adding a variable can reduce bias; on the other hand, it can increase the variance of the estimator. <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="#ref-Stock2020" role="doc-biblioref">2020</a>)</span> suggests a four-step process for deciding whether to include a variable or a set of variables in the model:</p>
 <ul>
 <li><p>We first identify the variable of interest in the model. For example, in the test score example, the variable of interest is the student-teacher ratio.</p></li>
 <li><p>We then identify potential omitted variables that are correlated with the variable of interest. Using economic theory and expert knowledge, we determine plausible omitted variables as well as some questionable variables. Finally, we formulate a base specification that includes the variable of interest and plausible omitted variables.</p></li>
@@ -588,7 +585,7 @@ window.Quarto = {
 <h3 data-number="16.2.2" class="anchored" data-anchor-id="functional-form-misspecification"><span class="header-section-number">16.2.2</span> Functional form misspecification</h3>
 <p>This type of misspecification arises when the estimated regression model does not match the population regression function. Assume that the true relationship (i.e., the population regression function) between the dependent variable and the variable of interest is nonlinear. If we specify a linear relationship between the variable of interest and the dependent variable, then we are committing a functional form misspecification. Such misspecification can lead to biased and inconsistent estimators.</p>
 <p>In the following example, we illustrate the effect of functional form misspecification on the OLS estimator. We simulate data from the following quadratic model: <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+\beta_2X^2_i+u_i\)</span>, where <span class="math inline">\(X_i\sim\text{Uniform}(0,10)\)</span>, <span class="math inline">\((\beta_0,\beta_1,\beta_2)^{'}=(3,2,1.5)^{'}\)</span>, and <span class="math inline">\(u_i\sim N(0,4)\)</span>. We then estimate two models: the misspecified linear model <span class="math inline">\(Y_i=\beta_0+\beta_1X_{i}+u_i\)</span> and the correctly specified quadratic model <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+\beta_2X^2_i+u_i\)</span>.</p>
-<div id="a20c4f3c" class="cell" data-execution_count="2">
+<div id="3d0f4b58" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">123</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">300</span></span>
@@ -602,7 +599,7 @@ window.Quarto = {
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate quadratic model</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>nonlinear_model <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"Y ~ X + I(X**2)"</span>, data<span class="op">=</span>data).fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="#fig-t16.1" class="quarto-xref">Figure&nbsp;<span>16.1</span></a> shows the scatterplot of data along with the line plots of predicted values. The figure shows that the nonlinear model accurately captures the quadratic relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>. The estimation results in the first column of <a href="#tbl-t16.1" class="quarto-xref">Table&nbsp;<span>16.1</span></a> indicate that the OLS estimator reports a large bias for the coefficient of <span class="math inline">\(X\)</span> under the linear specification. In contrast, the OLS estimator reports almost no bias under the quadratic specification, as shown in the second column of <a href="#tbl-t16.1" class="quarto-xref">Table&nbsp;<span>16.1</span></a>.</p>
+<p><a href="#fig-t16.1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-t16.1</span></a> shows the scatterplot of data along with the line plots of predicted values. The figure shows that the nonlinear model accurately captures the quadratic relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>. The estimation results in the first column of <a href="#tbl-t16.1" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t16.1</span></a> indicate that the OLS estimator reports a large bias for the coefficient of <span class="math inline">\(X\)</span> under the linear specification. In contrast, the OLS estimator reports almost no bias under the quadratic specification, as shown in the second column of <a href="#tbl-t16.1" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t16.1</span></a>.</p>
 <div id="cell-fig-t16.1" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot results</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
@@ -617,7 +614,7 @@ window.Quarto = {
 <div id="fig-t16.1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-t16.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter9-AssessingStudies_files/figure-html/fig-t16.1-output-1.png" class="img-fluid figure-img">
+<img src="Chapter9-AssessingStudies_files/figure-html/fig-t16.1-output-1.png" width="515" height="354" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-t16.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;16.1: Effect of Functional Form Misspecification
@@ -641,7 +638,7 @@ Figure&nbsp;16.1: Effect of Functional Form Misspecification
 Table&nbsp;16.1: Regression Results
 </figcaption>
 <div aria-describedby="tbl-t16.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <table class="simpletable do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <tbody>
 <tr class="odd">
@@ -716,13 +713,13 @@ Y_i &amp;= \beta_0+\beta_1X_i+u_i=\beta_0+\beta_1\tilde{X}_i+(\beta_1(X_i-\tilde
 Y_i = \beta_0+\beta_1\tilde{X}_i+\tilde{u}_i.
 \end{align}
 \tag{16.1}\]</span></span></p>
-<p>Note that the regression model written in terms of <span class="math inline">\(\tilde{X}_i\)</span> has the error term <span class="math inline">\(\tilde{u}_i\)</span> that contains the measurement error. In <a href="#eq-eq16.1" class="quarto-xref">Equation&nbsp;<span>16.1</span></a>, we can derive <span class="math inline">\(\text{cov}(\tilde{X}_i,\tilde{u}_i)\)</span> as follows: <span id="eq-eq16.2"><span class="math display">\[
+<p>Note that the regression model written in terms of <span class="math inline">\(\tilde{X}_i\)</span> has the error term <span class="math inline">\(\tilde{u}_i\)</span> that contains the measurement error. In <a href="#eq-eq16.1" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq16.1</span></a>, we can derive <span class="math inline">\(\text{cov}(\tilde{X}_i,\tilde{u}_i)\)</span> as follows: <span id="eq-eq16.2"><span class="math display">\[
 \begin{align}
 \text{cov}(\tilde{X}_i,\tilde{u}_i)&amp;=\text{cov}(\tilde{X}_i,\beta_1(X_i-\tilde{X}_i)+u_i)\\
 &amp;=\beta_1\text{cov}(\tilde{X}_i,(X_i-\tilde{X}_i))+\text{cov}(\tilde{X}_i, u_i).
 \end{align}
 \tag{16.2}\]</span></span></p>
-<p>It is often plausible that <span class="math inline">\(\text{cov}(\tilde{X}_i, u_i)=0\)</span>. However, <span class="math inline">\(\text{cov}(\tilde{X}_i,(X_i-\tilde{X}_i))\ne0\)</span> typically holds. Thus, our estimation equation in <a href="#eq-eq16.1" class="quarto-xref">Equation&nbsp;<span>16.1</span></a> does not satisfy the zero-conditional mean assumption. Consequently, the OLS estimator of <span class="math inline">\(\beta_1\)</span> is biased and inconsistent when <span class="math inline">\(\text{cov}(\tilde{X}_i,(X_i-\tilde{X}_i))\ne0\)</span>.</p>
+<p>It is often plausible that <span class="math inline">\(\text{cov}(\tilde{X}_i, u_i)=0\)</span>. However, <span class="math inline">\(\text{cov}(\tilde{X}_i,(X_i-\tilde{X}_i))\ne0\)</span> typically holds. Thus, our estimation equation in <a href="#eq-eq16.1" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq16.1</span></a> does not satisfy the zero-conditional mean assumption. Consequently, the OLS estimator of <span class="math inline">\(\beta_1\)</span> is biased and inconsistent when <span class="math inline">\(\text{cov}(\tilde{X}_i,(X_i-\tilde{X}_i))\ne0\)</span>.</p>
 <p>To get more insight, we assume two measurement error models: (i) the <strong>classical measurement error model</strong> and (ii) the <strong>best guess model</strong>. In the case of the classical measurement error model, we assume the following relationship between the true value <span class="math inline">\(X_i\)</span> and the observed value <span class="math inline">\(\tilde{X}_i\)</span>: <span class="math display">\[
 \begin{align}
 \tilde{X}_i = X_i+v_i,
@@ -733,7 +730,7 @@ Y_i = \beta_0+\beta_1\tilde{X}_i+\tilde{u}_i.
 <li><span class="math inline">\(\text{cov}(\tilde{X}_i,(X_i-\tilde{X}_i)) = \text{cov}\left(X_i+v_i,-v_i\right)=-\sigma^2_v\)</span>, and</li>
 <li><span class="math inline">\(\text{cov}(\tilde{X}_i, u_i) = \text{cov}(X_i+v_i, u_i)=\text{cov}(X_i, u_i)+\text{cov}(v_i, u_i)=0\)</span>.</li>
 </ul>
-<p>Then, using <a href="#eq-eq16.2" class="quarto-xref">Equation&nbsp;<span>16.2</span></a>, we obtain <span class="math display">\[
+<p>Then, using <a href="#eq-eq16.2" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq16.2</span></a>, we obtain <span class="math display">\[
 \begin{align}
 \text{cov}(\tilde{X}_i,\tilde{u}_i)=\beta_1\text{cov}(\tilde{X}_i,(X_i-\tilde{X}_i))+\text{cov}(\tilde{X}_i, u_i)=-\beta_1\sigma^2_v.
 \end{align}
@@ -745,7 +742,7 @@ Y_i = \beta_0+\beta_1\tilde{X}_i+\tilde{u}_i.
 \tag{16.3}\]</span></span></p>
 <p>Since <span class="math inline">\(\left(\frac{\sigma^2_X}{\sigma^2_X+\sigma^2_v}\right)&lt;1\)</span>, the OLS estimator <span class="math inline">\(\hat{\beta}_1\)</span> is biased towards zero even when the sample size is large. In extreme case, where <span class="math inline">\(\sigma^2_v\rightarrow\infty\)</span>, the OLS estimator <span class="math inline">\(\hat{\beta}_1\)</span> converges to zero. Also note when <span class="math inline">\(\sigma^2_v=0\)</span>, the OLS estimator <span class="math inline">\(\hat{\beta}_1\)</span> is unbiased and consistent.</p>
 <p>In the following code chunk, we use the simulated data to illustrate the classical measurement error model. We assume that <span class="math inline">\(\tilde{X}_i=X_i+v_i\)</span>, where <span class="math inline">\(X_i\sim\text{Uniform}(0,10)\)</span> and <span class="math inline">\(v_i\sim N(0,4)\)</span>. We generate <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+u_i\)</span>, where <span class="math inline">\(\beta_0=3\)</span>, <span class="math inline">\(\beta_1=2\)</span>, and <span class="math inline">\(u_i\sim N(0,4)\)</span>. Then, we estimate the error model <span class="math inline">\(Y_i=\beta_0+\beta_1\tilde{X}_i+\tilde{u}_i\)</span> and the true model <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+u_i\)</span>.</p>
-<div id="227ee991" class="cell" data-execution_count="5">
+<div id="3471ed52" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate data</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">123</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">300</span></span>
@@ -776,7 +773,7 @@ Y_i = \beta_0+\beta_1\tilde{X}_i+\tilde{u}_i.
 Table&nbsp;16.2: Regression Results
 </figcaption>
 <div aria-describedby="tbl-t16.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <table class="simpletable do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <tbody>
 <tr class="odd">
@@ -836,7 +833,7 @@ Standard errors in parentheses.<br>
 </div>
 </div>
 </div>
-<p>The estimation results are presented in <a href="#tbl-t16.2" class="quarto-xref">Table&nbsp;<span>16.2</span></a>. The results in the first column indicate that the OLS estimator introduces a significant bias in <span class="math inline">\(\beta_1\)</span>. In contrast, the OLS estimator reports only a small bias in the second column. In <a href="#fig-t16.2" class="quarto-xref">Figure&nbsp;<span>16.2</span></a>, we plot the predicted values as line plots alongside the scatterplot of the data. The red line represents the fitted line based on the error model, while the black line represents the fitted line based on the true model. The figure shows that the predicted values based on the error model differ significantly from those based on the true model.</p>
+<p>The estimation results are presented in <a href="#tbl-t16.2" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t16.2</span></a>. The results in the first column indicate that the OLS estimator introduces a significant bias in <span class="math inline">\(\beta_1\)</span>. In contrast, the OLS estimator reports only a small bias in the second column. In <a href="#fig-t16.2" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-t16.2</span></a>, we plot the predicted values as line plots alongside the scatterplot of the data. The red line represents the fitted line based on the error model, while the black line represents the fitted line based on the true model. The figure shows that the predicted values based on the error model differ significantly from those based on the true model.</p>
 <div id="cell-fig-t16.2" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot results</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
@@ -852,7 +849,7 @@ Standard errors in parentheses.<br>
 <div id="fig-t16.2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-t16.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter9-AssessingStudies_files/figure-html/fig-t16.2-output-1.png" class="img-fluid figure-img">
+<img src="Chapter9-AssessingStudies_files/figure-html/fig-t16.2-output-1.png" width="507" height="354" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-t16.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;16.2: The effect of measurement error on the OLS estimator
@@ -861,7 +858,7 @@ Figure&nbsp;16.2: The effect of measurement error on the OLS estimator
 </div>
 </div>
 </div>
-<p>Note that we can use <span class="math inline">\(\hat{\beta}_1\xrightarrow{p}\left(\frac{\sigma^2_X}{\sigma^2_X+\sigma^2_v}\right)\beta_1\)</span> to construct a bias corrected estimator of <span class="math inline">\(\beta_1\)</span>, which is given by <span class="math inline">\(\hat{\beta}^{bc}_1=\hat{\beta}_1\left(\sigma^2_X+\sigma^2_v\right)/\sigma^2_X\)</span>. Using our simulated data and the estimation result in the first column of <a href="#tbl-t16.2" class="quarto-xref">Table&nbsp;<span>16.2</span></a>, we can get an estimate of <span class="math inline">\(\hat{\beta}^{bc}_1\)</span> as <span class="math display">\[
+<p>Note that we can use <span class="math inline">\(\hat{\beta}_1\xrightarrow{p}\left(\frac{\sigma^2_X}{\sigma^2_X+\sigma^2_v}\right)\beta_1\)</span> to construct a bias corrected estimator of <span class="math inline">\(\beta_1\)</span>, which is given by <span class="math inline">\(\hat{\beta}^{bc}_1=\hat{\beta}_1\left(\sigma^2_X+\sigma^2_v\right)/\sigma^2_X\)</span>. Using our simulated data and the estimation result in the first column of <a href="#tbl-t16.2" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t16.2</span></a>, we can get an estimate of <span class="math inline">\(\hat{\beta}^{bc}_1\)</span> as <span class="math display">\[
 \begin{align}
 \hat{\beta}^{bc}_1=\hat{\beta}_1\frac{\sigma^2_X+\sigma^2_v}{\sigma^2_X}=1.358\times\frac{10^2/12+4}{10^2/12}\approx 2.009,
 \end{align}
@@ -885,7 +882,7 @@ Figure&nbsp;16.2: The effect of measurement error on the OLS estimator
 <p><strong>Solutions to missing data and sample selection bias</strong>: The following solutions can be used to address missing data and sample selection bias:</p>
 <ul>
 <li><p>We can resort to a design-based approach for collecting data to minimize the effect of missing data and sample selection bias. For example, through a randomized controlled experiment, we can ensure that the sample is representative of the population of interest. We discuss randomized controlled experiments in Chapter 20.</p></li>
-<li><p>We can use sample selection models in which we specify both the selection and outcome processes. For further details on these types of models, among others, see <span class="citation" data-cites="Greene2017">Greene (<a href="references.html#ref-Greene2017" role="doc-biblioref">2017</a>)</span> and <span class="citation" data-cites="Hansen2022">Hansen (<a href="references.html#ref-Hansen2022" role="doc-biblioref">2022</a>)</span>.</p></li>
+<li><p>We can use sample selection models in which we specify both the selection and outcome processes. For further details on these types of models, among others, see <span class="citation" data-cites="Greene2017">Greene (<a href="#ref-Greene2017" role="doc-biblioref">2017</a>)</span> and <span class="citation" data-cites="Hansen2022">Hansen (<a href="#ref-Hansen2022" role="doc-biblioref">2022</a>)</span>.</p></li>
 </ul>
 </section>
 <section id="simultaneous-causality-bias" class="level3" data-number="16.2.5">
@@ -900,7 +897,7 @@ Figure&nbsp;16.2: The effect of measurement error on the OLS estimator
 <p><strong>Solutions to simultaneous causality bias</strong>: The following solutions can be used to address simultaneous causality bias:</p>
 <ul>
 <li><p>When feasible, we can conduct a randomized controlled experiment. The random assignment mechanism in such experiments ensures that <span class="math inline">\(X_i\)</span> is uncorrelated with <span class="math inline">\(u_i\)</span>. We discuss randomized controlled experiments in Chapter 20.</p></li>
-<li><p>We can use a simultaneous equation model to estimate a complete system that captures both directions of causality. For further details on these types of models, see <span class="citation" data-cites="Greene2017">Greene (<a href="references.html#ref-Greene2017" role="doc-biblioref">2017</a>)</span> and <span class="citation" data-cites="Hansen2022">Hansen (<a href="references.html#ref-Hansen2022" role="doc-biblioref">2022</a>)</span>.</p></li>
+<li><p>We can use a simultaneous equation model to estimate a complete system that captures both directions of causality. For further details on these types of models, see <span class="citation" data-cites="Greene2017">Greene (<a href="#ref-Greene2017" role="doc-biblioref">2017</a>)</span> and <span class="citation" data-cites="Hansen2022">Hansen (<a href="#ref-Hansen2022" role="doc-biblioref">2022</a>)</span>.</p></li>
 <li><p>We can use the instrumental variable (IV) regression to estimate the causal effect of interest (i.e., the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>). We cover this topic in Chapter 19.</p></li>
 </ul>
 </section>
@@ -970,21 +967,21 @@ Key Concept 16.1: Threats to the internal validity of a multiple regression stud
 <li><code>pctel</code>: Percentage of students still learning English</li>
 </ul>
 <p>The following code chunk imports the data and displays the column names.</p>
-<div id="35984354" class="cell" data-message="false" data-execution_count="8">
+<div id="ec78c606" class="cell" data-message="false" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mcas <span class="op">=</span> pd.read_excel(<span class="st">"data/mcas.xlsx"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Column names</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>mcas.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>Index(['code', 'municipa', 'district', 'regday', 'specneed', 'bilingua',
        'occupday', 'tot_day', 's_p_c', 'spec_ed', 'lnch_pct', 'tchratio',
        'percap', 'totsc4', 'totsc8', 'avgsalry', 'pctel'],
       dtype='object')</code></pre>
 </div>
 </div>
-<p>Previously, we used data from California school districts to study the relationship between test scores and class size. It will be useful to compare the Massachusetts dataset with the California dataset. In <a href="#tbl-t16.3" class="quarto-xref">Table&nbsp;<span>16.3</span></a>, we present descriptive statistics for selected variables from the Massachusetts and California datasets. For Massachusetts, the average test score is 709.83, the average student–teacher ratio is 17.34, the average percentage of English learners is <span class="math inline">\(1.12\%\)</span>, the average percentage of students receiving subsidized lunch is <span class="math inline">\(15.32\%\)</span>, and the average per-capita income is $18,750. For California, the corresponding averages are 654.16 for test scores, 19.64 for student–teacher ratio, <span class="math inline">\(15.77\%\)</span> for English learners, <span class="math inline">\(45.71\%\)</span> for subsidized lunch recipients, and $15,320 for per-capita income.</p>
+<p>Previously, we used data from California school districts to study the relationship between test scores and class size. It will be useful to compare the Massachusetts dataset with the California dataset. In <a href="#tbl-t16.3" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t16.3</span></a>, we present descriptive statistics for selected variables from the Massachusetts and California datasets. For Massachusetts, the average test score is 709.83, the average student–teacher ratio is 17.34, the average percentage of English learners is <span class="math inline">\(1.12\%\)</span>, the average percentage of students receiving subsidized lunch is <span class="math inline">\(15.32\%\)</span>, and the average per-capita income is $18,750. For California, the corresponding averages are 654.16 for test scores, 19.64 for student–teacher ratio, <span class="math inline">\(15.77\%\)</span> for English learners, <span class="math inline">\(45.71\%\)</span> for subsidized lunch recipients, and $15,320 for per-capita income.</p>
 <p>While Massachusetts has a higher average test score, we cannot make a direct comparison because different tests are administered in both states. Massachusetts also has lower averages for the student–teacher ratio, the percentage of subsidized lunch recipients, and the percentage of English learners. Its average per-capita income is larger than that of California.</p>
-<div id="3af4af41" class="cell" data-message="false" data-execution_count="9">
+<div id="afffc8b3" class="cell" data-message="false" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary statistics for Massachusetts and California</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>mcas_vars <span class="op">=</span> [<span class="st">"totsc4"</span>, <span class="st">"tchratio"</span>, <span class="st">"pctel"</span>, <span class="st">"lnch_pct"</span>, <span class="st">"percap"</span>]</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>mcas_stats <span class="op">=</span> mcas[mcas_vars].describe().<span class="bu">round</span>(<span class="dv">2</span>).T</span>
@@ -1012,7 +1009,7 @@ Key Concept 16.1: Threats to the internal validity of a multiple regression stud
 Table&nbsp;16.3: Descriptive statistics for Massachusetts and California test score datasets
 </figcaption>
 <div aria-describedby="tbl-t16.3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="27">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 
 
@@ -1155,7 +1152,7 @@ Table&nbsp;16.3: Descriptive statistics for Massachusetts and California test sc
 </div>
 </div>
 </div>
-<p>In <a href="#fig-t16.3" class="quarto-xref">Figure&nbsp;<span>16.3</span></a>, we examine the relationship between test scores and average district income based on the Massachusetts dataset. The scatter plot shows a positive relationship, with the slope being steeper for lower income values and flatter for higher income values. To model the relationship between test scores and average district income, we consider three regression models: (i) the linear regression model, (ii) the cubic regression model, and (iii) the linear-log regression model. The fitted regression functions in <a href="#fig-t16.3" class="quarto-xref">Figure&nbsp;<span>16.3</span></a> indicate that the cubic regression provides a better fit compared to the linear and linear-log regressions.</p>
+<p>In <a href="#fig-t16.3" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-t16.3</span></a>, we examine the relationship between test scores and average district income based on the Massachusetts dataset. The scatter plot shows a positive relationship, with the slope being steeper for lower income values and flatter for higher income values. To model the relationship between test scores and average district income, we consider three regression models: (i) the linear regression model, (ii) the cubic regression model, and (iii) the linear-log regression model. The fitted regression functions in <a href="#fig-t16.3" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-t16.3</span></a> indicate that the cubic regression provides a better fit compared to the linear and linear-log regressions.</p>
 <div id="cell-fig-t16.3" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define dependent and independent variables</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> mcas[<span class="st">'percap'</span>]</span>
@@ -1200,7 +1197,7 @@ Table&nbsp;16.3: Descriptive statistics for Massachusetts and California test sc
 <div id="fig-t16.3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-t16.3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter9-AssessingStudies_files/figure-html/fig-t16.3-output-1.png" class="img-fluid figure-img">
+<img src="Chapter9-AssessingStudies_files/figure-html/fig-t16.3-output-1.png" width="515" height="357" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-t16.3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;16.3: The relationship between test scores and district income for the Massachusetts dataset
@@ -1212,7 +1209,7 @@ Figure&nbsp;16.3: The relationship between test scores and district income for t
 </section>
 <section id="models" class="level3" data-number="16.5.2">
 <h3 data-number="16.5.2" class="anchored" data-anchor-id="models"><span class="header-section-number">16.5.2</span> Models</h3>
-<p>Following <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span>, we consider six models given below. The first model includes only the student–teacher ratio as a regressor. The second model adds the percentage of English learners, the percentage of students receiving subsidized lunch, and the logarithm of per-capita income as additional regressors. The third model incorporates the third-order polynomial terms of per-capita income as regressors. The fourth model extends this by including quadratic and cubic terms for the student–teacher ratio. The fifth model introduces an interaction term between the student–teacher ratio and the percentage of English learners. Finally, the sixth model includes both the percentage of students receiving subsidized lunch and the third-order polynomial terms of per-capita income.</p>
+<p>Following <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="#ref-Stock2020" role="doc-biblioref">2020</a>)</span>, we consider six models given below. The first model includes only the student–teacher ratio as a regressor. The second model adds the percentage of English learners, the percentage of students receiving subsidized lunch, and the logarithm of per-capita income as additional regressors. The third model incorporates the third-order polynomial terms of per-capita income as regressors. The fourth model extends this by including quadratic and cubic terms for the student–teacher ratio. The fifth model introduces an interaction term between the student–teacher ratio and the percentage of English learners. Finally, the sixth model includes both the percentage of students receiving subsidized lunch and the third-order polynomial terms of per-capita income.</p>
 <p><span class="math display">\[
 \begin{align*}
 &amp;1.\, {\tt totsc4}=\beta_0+\beta_1{\tt tchratio}+u,\\
@@ -1236,7 +1233,7 @@ Figure&nbsp;16.3: The relationship between test scores and district income for t
 \end{cases}
 \end{align}
 \]</span></p>
-<div id="8c637638" class="cell" data-execution_count="12">
+<div id="b0c0cb7d" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="op">=</span> mcas.copy()</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create hiel</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>mydata[<span class="st">"hiel"</span>] <span class="op">=</span> mydata[<span class="st">"pctel"</span>] <span class="op">&gt;</span> np.median(mydata[<span class="st">"pctel"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1245,7 +1242,7 @@ Figure&nbsp;16.3: The relationship between test scores and district income for t
 <section id="estimation-results" class="level3" data-number="16.5.3">
 <h3 data-number="16.5.3" class="anchored" data-anchor-id="estimation-results"><span class="header-section-number">16.5.3</span> Estimation results</h3>
 <p>We use the following code chunk can to estimate all models. Note that we use heteroskedasticity-robust standard errors in all models.</p>
-<div id="d27eece6" class="cell" data-execution_count="13">
+<div id="8cdc18eb" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 1</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"totsc4~tchratio"</span>,</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>            data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
@@ -1286,7 +1283,7 @@ Figure&nbsp;16.3: The relationship between test scores and district income for t
 Table&nbsp;16.4: Estimation Results for Models 1-6
 </figcaption>
 <div aria-describedby="tbl-t16.4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="31">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <table class="simpletable do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <tbody>
 <tr class="odd">
@@ -1544,40 +1541,40 @@ Standard errors in parentheses.<br>
 </div>
 </div>
 </div>
-<p>The estimation results for Models 1–6 are presented in <a href="#tbl-t16.4" class="quarto-xref">Table&nbsp;<span>16.4</span></a>. We list our key results below:</p>
+<p>The estimation results for Models 1–6 are presented in <a href="#tbl-t16.4" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t16.4</span></a>. We list our key results below:</p>
 <ul>
 <li><p>The results in the first three columns show that the estimated coefficient on <code>tchratio</code> decreases from <span class="math inline">\(-1.72\)</span> to <span class="math inline">\(-0.64\)</span> in the second column and <span class="math inline">\(-0.641\)</span> in the third column when we control for student and district characteristics. This suggests that the first model suffers from omitted variable bias.</p></li>
 <li><p>The results in the second and third columns indicate that the class size effect is statistically significant at the 5% level after controlling for student and district characteristics. Comparing <span class="math inline">\(\bar{R}^2\)</span> values in Models 2 and 3, the cubic specification provides a better fit than the logarithmic specification.</p></li>
 <li><p>In Model 3, we can use the <span class="math inline">\(F\)</span>-statistic to test <span class="math inline">\(H_0:\beta_5=\beta_6=0\)</span> versus <span class="math inline">\(H_1\)</span>: At least one coefficient is non zero. The <span class="math inline">\(F\)</span>-statistic given below is <span class="math inline">\(7.74\)</span> with a p-value of <span class="math inline">\(0.0006\)</span>. Thus, we reject the null hyptohesis.</p></li>
 </ul>
-<div id="b0ba6229" class="cell" data-execution_count="15">
+<div id="f7e87c0d" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Testing H_0: beta_5=beta_6=0 in Model 3</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>hypothesis <span class="op">=</span> <span class="st">"I(percap ** 2)=0, I(percap ** 3)=0"</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r3.f_test(hypothesis))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;F test: F=7.744799217268589, p=0.0005664381584028694, df_denom=213, df_num=2&gt;</code></pre>
+<pre><code>&lt;F test: F=7.744799216984443, p=0.0005664381585529111, df_denom=213, df_num=2&gt;</code></pre>
 </div>
 </div>
 <ul>
 <li>The results for Model 4 show that there is no statistically significant evidence of a nonlinear relationship between test scores and the student–teacher ratio. The <span class="math inline">\(F\)</span>-statistic for <span class="math inline">\(H_0:\beta_2=\beta_3=0\)</span> can be obtained using the code chunk given below. The <span class="math inline">\(F\)</span>-statistic is <span class="math inline">\(0.45\)</span> with a <span class="math inline">\(p\)</span>-value of <span class="math inline">\(0.640\)</span>. Thus, we fail to reject the null hypothesis.</li>
 </ul>
-<div id="09baf90c" class="cell" data-execution_count="16">
+<div id="85b17e62" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Testing H_0: beta_2=beta_3=0 in Model 4</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>hypothesis <span class="op">=</span> <span class="st">"I(tchratio ** 2)=0, I(tchratio ** 3)=0"</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r4.f_test(hypothesis))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;F test: F=0.44627810226053666, p=0.6406084508309297, df_denom=211, df_num=2&gt;</code></pre>
+<pre><code>&lt;F test: F=0.44627810224037257, p=0.6406084508437917, df_denom=211, df_num=2&gt;</code></pre>
 </div>
 </div>
 <ul>
 <li>The results for Model 5 show that the estimated coefficents for both <code>HiEL</code> and <code>HiELxtchratio</code> are statistically insignifcant at the 5% significance level. The <span class="math inline">\(F\)</span>-statistic for <span class="math inline">\(H_0:\beta_5=\beta_6=0\)</span> can be obtained using the following code chunk. The <span class="math inline">\(F\)</span>-statistic is <span class="math inline">\(1.58\)</span> with a <span class="math inline">\(p\)</span>-value of <span class="math inline">\(0.207\)</span>. Thus, we fail to reject the null hypothesis and conclude that the percentage of English learners does not have a statistically significant effect on test scores after controlling for the student–teacher ratio and other variables.</li>
 </ul>
-<div id="f5b2e280" class="cell" data-execution_count="17">
+<div id="b73dda40" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Testing H_0: beta_5=beta_6=0 in Model 5</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>hypothesis <span class="op">=</span> <span class="st">"hiel[T.True]=0, hiel[T.True]:tchratio=0"</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r5.f_test(hypothesis))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;F test: F=1.5834729215633097, p=0.20767890663971691, df_denom=212, df_num=2&gt;</code></pre>
+<pre><code>&lt;F test: F=1.5834729215634233, p=0.2076789066396875, df_denom=212, df_num=2&gt;</code></pre>
 </div>
 </div>
 <ul>
@@ -1591,15 +1588,15 @@ Standard errors in parentheses.<br>
 <p><strong>Functional form misspecification</strong>: We consider several different functional forms, including logarithmic and polynomial specifications. Our findings on the estimated coefficient for the student-teacher ratio are unlikely to be sensitive to the choice of nonlinear regression specifications.</p>
 <p><strong>Errors in variables bias</strong>: The data are administrative, so it is unlikely that there are substantial reporting or typographical errors. However, the student-teacher ratio is an average for the district, which may not accurately reflect the actual student-teacher ratio in each classroom. The district income is based on data from the 1990 Census, while the other data pertain to 1998. If the economic composition of the district changed substantially over the 1990s, this would result in an imprecise measure of the actual average district income.</p>
 <p><strong>Missing data and sample selection bias</strong>: The sample data cover all elementary public school districts in California and Massachusetts, and there are no missing values. Therefore, this threat is not a concern in our analysis.</p>
-<p><strong>Simultaneous causality bias</strong>: This threat could arise if the student-teacher ratio is influenced by test scores. For instance, school funding equalization based on test scores or policies that allocate resources according to test scores could lead to simultaneous causality. However, such policies were not in place in California or Massachusetts during the periods covered by these samples. Therefore, <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span> conclude that simultaneous causality bias is arguably not a significant concern.</p>
+<p><strong>Simultaneous causality bias</strong>: This threat could arise if the student-teacher ratio is influenced by test scores. For instance, school funding equalization based on test scores or policies that allocate resources according to test scores could lead to simultaneous causality. However, such policies were not in place in California or Massachusetts during the periods covered by these samples. Therefore, <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="#ref-Stock2020" role="doc-biblioref">2020</a>)</span> conclude that simultaneous causality bias is arguably not a significant concern.</p>
 <p><strong>Inconsistency of OLS standard errors</strong>: We use heteroskedasticity-robust standard errors in all models to address this issue.</p>
 </section>
 <section id="external-validity-assessment" class="level3" data-number="16.5.5">
 <h3 data-number="16.5.5" class="anchored" data-anchor-id="external-validity-assessment"><span class="header-section-number">16.5.5</span> External validity assessment</h3>
-<p>Our results, presented in <a href="#tbl-t16.4" class="quarto-xref">Table&nbsp;<span>16.4</span></a>, suggest conclusions similar to those obtained in Chapter 15 based on the California dataset. Based on this observation, <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span> conclude that the multiple linear regression models are externally valid and therefore the results can be generalized to other elementary school districts in the United States.</p>
+<p>Our results, presented in <a href="#tbl-t16.4" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t16.4</span></a>, suggest conclusions similar to those obtained in Chapter 15 based on the California dataset. Based on this observation, <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="#ref-Stock2020" role="doc-biblioref">2020</a>)</span> conclude that the multiple linear regression models are externally valid and therefore the results can be generalized to other elementary school districts in the United States.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Greene2017" class="csl-entry" role="listitem">
 Greene, W. H. 2017. <em>Econometric Analysis</em>. 8th ed. Pearson.
 </div>
@@ -2054,7 +2051,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/Chapter9-AssessingStudies.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://osmdogan.github.io/Python_Book/edit/main/Chapter9-AssessingStudies.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://osmdogan.github.io/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

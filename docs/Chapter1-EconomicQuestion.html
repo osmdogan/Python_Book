@@ -124,10 +124,7 @@ div.csl-indent {
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -187,7 +184,7 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Econometrics with Python</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/osmdogan/Python_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://osmdogan.github.io/Python_Book/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-git"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -495,7 +492,7 @@ window.Quarto = {
   <li><a href="#panel-data" id="toc-panel-data" class="nav-link" data-scroll-target="#panel-data"><span class="header-section-number">8.3.3</span> Panel Data</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/Chapter1-EconomicQuestion.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://osmdogan.github.io/Python_Book/edit/main/Chapter1-EconomicQuestion.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://osmdogan.github.io/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -519,7 +516,7 @@ window.Quarto = {
 </header>
 
 
-<div id="7555e565" class="cell" data-execution_count="1">
+<div id="6c61d86d" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -527,7 +524,7 @@ window.Quarto = {
 </div>
 <section id="econometrics-and-economic-questions" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="econometrics-and-economic-questions"><span class="header-section-number">8.1</span> Econometrics and economic questions</h2>
-<p>According to <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span>, “<strong>econometrics</strong> is the science and art of using economic theory and statistical techniques to analyze economic data.” Using econometrics, we aim to provide quantitative answers to economic questions such as the following ones:</p>
+<p>According to <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="#ref-Stock2020" role="doc-biblioref">2020</a>)</span>, “<strong>econometrics</strong> is the science and art of using economic theory and statistical techniques to analyze economic data.” Using econometrics, we aim to provide quantitative answers to economic questions such as the following ones:</p>
 <ul>
 <li>What is the quantitative effect of class size on test scores?</li>
 <li>What is the quantitative effect of race on home loan approval?</li>
@@ -543,13 +540,13 @@ window.Quarto = {
 <h2 data-number="8.2" class="anchored" data-anchor-id="causal-effects-and-idealized-experiments"><span class="header-section-number">8.2</span> Causal effects and idealized experiments</h2>
 <section id="estimation-of-causal-effects" class="level3" data-number="8.2.1">
 <h3 data-number="8.2.1" class="anchored" data-anchor-id="estimation-of-causal-effects"><span class="header-section-number">8.2.1</span> Estimation of causal effects</h3>
-<p>Econometrics primarily focuses on <em>causal relationships</em> among economic variables. Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two variables. According to <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span>, we say that <span class="math inline">\(X\)</span> <em>causes</em> <span class="math inline">\(Y\)</span> if <span class="math inline">\(Y\)</span> is a direct result or conseqence of <span class="math inline">\(X\)</span>. Thus, we can define the <strong>causal effect</strong> of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> as the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> when all other factors that can effect <span class="math inline">\(Y\)</span> are held constant.</p>
+<p>Econometrics primarily focuses on <em>causal relationships</em> among economic variables. Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two variables. According to <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="#ref-Stock2020" role="doc-biblioref">2020</a>)</span>, we say that <span class="math inline">\(X\)</span> <em>causes</em> <span class="math inline">\(Y\)</span> if <span class="math inline">\(Y\)</span> is a direct result or conseqence of <span class="math inline">\(X\)</span>. Thus, we can define the <strong>causal effect</strong> of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> as the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> when all other factors that can effect <span class="math inline">\(Y\)</span> are held constant.</p>
 <p>One way to measure the causal effect is by conducting a <strong>randomized controlled experiment</strong>. In a randomized controlled experiment, we measure the effect of a treatment or a policy intervention by randomly assigning eperimental units to a treatment group and a control group, and then compare the groups based on a measured outcome variable. Thus, a randomized controlled experiment has the following features:</p>
 <ul>
 <li>It is <em>controlled</em> because the treatment group receive the treatment whereas the control group does not participate in the treatment.</li>
 <li>It is <em>randomized</em> in the sense that the eperimental units are assigned to the control and treatment groups randomly. In this way, we aim to <em>eliminate systematic differences</em> between the control and treatment groups.</li>
 </ul>
-<p>According to <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span>, “the <strong>causal effect</strong> is defined to be the effect on an outcome of a given action or treatment, as measured in an ideal randomized controlled experiment.”</p>
+<p>According to <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="#ref-Stock2020" role="doc-biblioref">2020</a>)</span>, “the <strong>causal effect</strong> is defined to be the effect on an outcome of a given action or treatment, as measured in an ideal randomized controlled experiment.”</p>
 </section>
 <section id="estimation-prediction-and-forecasting" class="level3" data-number="8.2.2">
 <h3 data-number="8.2.2" class="anchored" data-anchor-id="estimation-prediction-and-forecasting"><span class="header-section-number">8.2.2</span> Estimation, prediction and forecasting</h3>
@@ -577,8 +574,8 @@ Y=\beta_0+\beta_1X+u,
 <p>We consider three types of data: (i) <strong>cross-sectional data</strong>, (ii) <strong>time-series data</strong>, and (iii) <strong>panel data</strong> or <strong>longitudinal data</strong>.</p>
 <section id="cross-sectional-data" class="level3" data-number="8.3.1">
 <h3 data-number="8.3.1" class="anchored" data-anchor-id="cross-sectional-data"><span class="header-section-number">8.3.1</span> Cross-sectional data</h3>
-<p><strong>Cross-sectional data</strong> consist of observations on entities at a single point in time. For example, consider the California school district data in the <code>caschool.csv</code> file. These data were collected in 1999 on <span class="math inline">\(n=420\)</span> school district and include measurements on several district-level variables. We consider the following variables: District Average Test Score, Student-Teacher Ratio, Expenditure per Pupil, and Percentage of Students Learning English. These variables are derived from district-level average measurements. A section of this data is shown in <a href="#tbl-t8.1" class="quarto-xref">Table&nbsp;<span>8.1</span></a>. For example, for the first school district, the average test score is 690.8, the average student-teacher ratio is 17.89, the average expenditure per pupil is 6384.91 dollars, and the average percentage of students learning English is 0 percent.</p>
-<div id="e6786d54" class="cell" data-execution_count="2">
+<p><strong>Cross-sectional data</strong> consist of observations on entities at a single point in time. For example, consider the California school district data in the <code>caschool.csv</code> file. These data were collected in 1999 on <span class="math inline">\(n=420\)</span> school district and include measurements on several district-level variables. We consider the following variables: District Average Test Score, Student-Teacher Ratio, Expenditure per Pupil, and Percentage of Students Learning English. These variables are derived from district-level average measurements. A section of this data is shown in <a href="#tbl-t8.1" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t8.1</span></a>. For example, for the first school district, the average test score is 690.8, the average student-teacher ratio is 17.89, the average expenditure per pupil is 6384.91 dollars, and the average percentage of students learning English is 0 percent.</p>
+<div id="79d29d56" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>CAschool <span class="op">=</span> pd.read_csv(<span class="st">'data/caschool.csv'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Select columns</span></span>
@@ -598,7 +595,7 @@ Y=\beta_0+\beta_1X+u,
 Table&nbsp;8.1: Selected observations on test scores and other variables for California School Districts in 1999
 </figcaption>
 <div aria-describedby="tbl-t8.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="43">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -715,8 +712,8 @@ Table&nbsp;8.1: Selected observations on test scores and other variables for Cal
 </section>
 <section id="time-series-data" class="level3" data-number="8.3.2">
 <h3 data-number="8.3.2" class="anchored" data-anchor-id="time-series-data"><span class="header-section-number">8.3.2</span> Time Series Data</h3>
-<p>Time series data consist of observations on the same entity collected at multiple time periods. We consider the time series data in the <code>tsdata.xlsx</code> file on the US GDP growth rate and the term spread (the difference between lon-term and short-term interest rates). The data set is quarterly and cover the period 1960Q1-2017Q4. In <a href="#tbl-t8.2" class="quarto-xref">Table&nbsp;<span>8.2</span></a>, we show a section of the data, where each row corresponds to a different time period. In the last quarter of 2017, the GDP growth rate was 2.5% and the term spread was 1.16 percentage points.</p>
-<div id="706794f1" class="cell" data-execution_count="4">
+<p>Time series data consist of observations on the same entity collected at multiple time periods. We consider the time series data in the <code>tsdata.xlsx</code> file on the US GDP growth rate and the term spread (the difference between lon-term and short-term interest rates). The data set is quarterly and cover the period 1960Q1-2017Q4. In <a href="#tbl-t8.2" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t8.2</span></a>, we show a section of the data, where each row corresponds to a different time period. In the last quarter of 2017, the GDP growth rate was 2.5% and the term spread was 1.16 percentage points.</p>
+<div id="6b6b45be" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>tsdata <span class="op">=</span> pd.read_excel(<span class="st">"data/tsdata.xlsx"</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create Quarter column</span></span>
@@ -735,7 +732,7 @@ Table&nbsp;8.1: Selected observations on test scores and other variables for Cal
 Table&nbsp;8.2: The GDP growth rate and term spread in the United States
 </figcaption>
 <div aria-describedby="tbl-t8.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="45">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
 
@@ -825,7 +822,7 @@ Table&nbsp;8.2: The GDP growth rate and term spread in the United States
 </figure>
 </div>
 </div>
-<p>In <a href="#fig-f8.1" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>, we show the time series plots of the GDP growth rate and the term spread, with shaded areas indicating the recession periods.</p>
+<p>In <a href="#fig-f8.1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-f8.1</span></a>, we show the time series plots of the GDP growth rate and the term spread, with shaded areas indicating the recession periods.</p>
 <div class="cell" data-layout-nrow="2" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(style<span class="op">=</span><span class="st">"darkgrid"</span>) </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">3</span>))</span>
@@ -860,7 +857,7 @@ Table&nbsp;8.2: The GDP growth rate and term spread in the United States
 <div id="fig-f8.1-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-f8.1-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter1-EconomicQuestion_files/figure-html/fig-f8.1-output-1.png" class="img-fluid figure-img" data-ref-parent="fig-f8.1">
+<img src="Chapter1-EconomicQuestion_files/figure-html/fig-f8.1-output-1.png" data-ref-parent="fig-f8.1" width="598" height="287" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-f8.1-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) GDP growth rate
@@ -874,7 +871,7 @@ Table&nbsp;8.2: The GDP growth rate and term spread in the United States
 <div id="fig-f8.1-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-f8.1-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter1-EconomicQuestion_files/figure-html/fig-f8.1-output-2.png" class="img-fluid figure-img" data-ref-parent="fig-f8.1">
+<img src="Chapter1-EconomicQuestion_files/figure-html/fig-f8.1-output-2.png" data-ref-parent="fig-f8.1" width="598" height="293" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-f8.1-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Term spread
@@ -893,8 +890,8 @@ Figure&nbsp;8.1: Growth Rate of GDP and the Term Spread in the United States
 </section>
 <section id="panel-data" class="level3" data-number="8.3.3">
 <h3 data-number="8.3.3" class="anchored" data-anchor-id="panel-data"><span class="header-section-number">8.3.3</span> Panel Data</h3>
-<p><strong>Panel data</strong>, also known as <strong>longitudinal data</strong>, consist of data for multiple entities, with each entity observed at two or more time periods. We consider the panel data on the cigarette consumption in the <code>cig_ch12.xlsx</code> file. The data set consists of annual data for the 48 U.S. states over the period 1985-1995. Thus, in this data set, the number of entities is <span class="math inline">\(n=48\)</span> and the number of time peirods is <span class="math inline">\(T=11\)</span>. In total, we have <span class="math inline">\(48\times 11=528\)</span> observations. In <a href="#tbl-t8.3" class="quarto-xref">Table&nbsp;<span>8.3</span></a>, we show a section of data.</p>
-<div id="97de00be" class="cell" data-execution_count="7">
+<p><strong>Panel data</strong>, also known as <strong>longitudinal data</strong>, consist of data for multiple entities, with each entity observed at two or more time periods. We consider the panel data on the cigarette consumption in the <code>cig_ch12.xlsx</code> file. The data set consists of annual data for the 48 U.S. states over the period 1985-1995. Thus, in this data set, the number of entities is <span class="math inline">\(n=48\)</span> and the number of time peirods is <span class="math inline">\(T=11\)</span>. In total, we have <span class="math inline">\(48\times 11=528\)</span> observations. In <a href="#tbl-t8.3" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t8.3</span></a>, we show a section of data.</p>
+<div id="6296a7d3" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>pdata <span class="op">=</span> pd.read_excel(<span class="st">"data/cig_ch12.xlsx"</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Select columns</span></span>
@@ -914,7 +911,7 @@ Figure&nbsp;8.1: Growth Rate of GDP and the Term Spread in the United States
 Table&nbsp;8.3: Cigarette sales, prices, and taxes
 </figcaption>
 <div aria-describedby="tbl-t8.3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="48">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
 
@@ -1047,7 +1044,7 @@ Key Concept 8.1: Cross-sectional data, time series, and panel data
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Stock2020" class="csl-entry" role="listitem">
 Stock, James H., and Mark W. Watson. 2020. <em>Introduction to Econometrics</em>. Fourth edition. Pearson.
 </div>
@@ -1496,7 +1493,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/Chapter1-EconomicQuestion.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://osmdogan.github.io/Python_Book/edit/main/Chapter1-EconomicQuestion.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://osmdogan.github.io/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

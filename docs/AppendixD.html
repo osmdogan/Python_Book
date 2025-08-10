@@ -181,7 +181,7 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Econometrics with Python</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/osmdogan/Python_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://osmdogan.github.io/Python_Book/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-git"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -491,7 +491,7 @@ window.Quarto = {
   <li><a href="#vector-calculus" id="toc-vector-calculus" class="nav-link" data-scroll-target="#vector-calculus"><span class="header-section-number">D.13</span> Vector Calculus</a></li>
   <li><a href="#random-vectors" id="toc-random-vectors" class="nav-link" data-scroll-target="#random-vectors"><span class="header-section-number">D.14</span> Random vectors</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/AppendixD.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://osmdogan.github.io/Python_Book/edit/main/AppendixD.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://osmdogan.github.io/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -515,7 +515,7 @@ window.Quarto = {
 </header>
 
 
-<div id="95475d18" class="cell" data-execution_count="1">
+<div id="4a1d9905" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -540,7 +540,7 @@ window.Quarto = {
 \]</span></p>
 <section id="introduction" class="level2" data-number="D.1">
 <h2 data-number="D.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">D.1</span> Introduction</h2>
-<p>In this appendix, we introduce some topics from linear algebra, vector calculus, and random vectors that are essential for econometric analysis. Our treatment of these topics is not exhaustive, and we refer the reader to <span class="citation" data-cites="Abadir2005">Abadir and Magnus (<a href="references.html#ref-Abadir2005" role="doc-biblioref">2005</a>)</span> and <span class="citation" data-cites="Strang2023">Strang (<a href="references.html#ref-Strang2023" role="doc-biblioref">2023</a>)</span> for a more detailed treatment.</p>
+<p>In this appendix, we introduce some topics from linear algebra, vector calculus, and random vectors that are essential for econometric analysis. Our treatment of these topics is not exhaustive, and we refer the reader to <span class="citation" data-cites="Abadir2005">Abadir and Magnus (<a href="#ref-Abadir2005" role="doc-biblioref">2005</a>)</span> and <span class="citation" data-cites="Strang2023">Strang (<a href="#ref-Strang2023" role="doc-biblioref">2023</a>)</span> for a more detailed treatment.</p>
 </section>
 <section id="vectors" class="level2" data-number="D.2">
 <h2 data-number="D.2" class="anchored" data-anchor-id="vectors"><span class="header-section-number">D.2</span> Vectors</h2>
@@ -621,7 +621,7 @@ c_1\bs{x}_1+c_2\bs{x}_2=\bs{0}\implies3c_1+c_2=0,\quad c_1+2c_2=0\implies c_1=c_
 <p><span class="theorem-title"><strong>Theorem D.1 (Cauchy-Schwarz inequality)</strong></span> For any two vectors <span class="math inline">\(\bs{x}\)</span> and <span class="math inline">\(\bs{y}\)</span> in <span class="math inline">\(\mathbb{R}^n\)</span>, <span class="math inline">\(|\bs{x}^{'} \bs{y}| \leq \|\bs{x}\|\times\|\bs{y}\|\)</span>.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>See <span class="citation" data-cites="Abadir2005">Abadir and Magnus (<a href="references.html#ref-Abadir2005" role="doc-biblioref">2005</a>)</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>See <span class="citation" data-cites="Abadir2005">Abadir and Magnus (<a href="#ref-Abadir2005" role="doc-biblioref">2005</a>)</span>.</p>
 </div>
 <p>The Cauchy-Schwarz inequality can also be stated as <span class="math inline">\(|\langle\bs{x},\bs{y}\rangle|\leq \|\bs{x}\|\times\|\bs{y}\|\)</span> or <span class="math inline">\(\langle\bs{x},\bs{y}\rangle^2\leq \|\bs{x}\|^2\times \|\bs{y}\|^2\)</span>. This inequality can be used to show the triangle inequality: <span class="math inline">\(\|\bs{x} + \bs{y}\| \leq \|\bs{x}\| + \|\bs{y}\|\)</span>.</p>
 <div id="thm-norm-properties" class="theorem">
@@ -724,7 +724,7 @@ x_{1k} &amp; x_{2k} &amp; \ldots &amp; x_{nk}
 \]</span> Thus, <span class="math inline">\(\bs{b}^{'}\bs{A}\)</span> is a linear combination of the rows of <span class="math inline">\(\bs{A}\)</span>, where the coefficients are the elements of <span class="math inline">\(\bs{b}\)</span>.</p>
 </div>
 <div id="exm-matrix-multiplication2" class="theorem example">
-<p><span class="theorem-title"><strong>Example D.8</strong></span> We can generalize the operations in <a href="#exm-matrix-multiplication1" class="quarto-xref">Example&nbsp;<span>D.7</span></a> to matrices. Let <span class="math inline">\(\bs{A}_{m\times n}\)</span> and <span class="math inline">\(\bs{B}_{n\times k}\)</span> be two matrices. Then, the <span class="math inline">\(j\)</span>th column of the product <span class="math inline">\(\bs{A}\bs{B}\)</span> is given by <span class="math display">\[
+<p><span class="theorem-title"><strong>Example D.8</strong></span> We can generalize the operations in <a href="#exm-matrix-multiplication1" class="quarto-xref">Example&nbsp;<span class="quarto-unresolved-ref">exm-matrix-multiplication1</span></a> to matrices. Let <span class="math inline">\(\bs{A}_{m\times n}\)</span> and <span class="math inline">\(\bs{B}_{n\times k}\)</span> be two matrices. Then, the <span class="math inline">\(j\)</span>th column of the product <span class="math inline">\(\bs{A}\bs{B}\)</span> is given by <span class="math display">\[
 \begin{align*}
 (\bs{A}\bs{B})_{\cdot j} = B_{1j}\bs{A}_{\cdot1} + B_{2j}\bs{A}_{\cdot2} + \ldots + B_{nj}\bs{A}_{\cdot n},
 \end{align*}
@@ -741,7 +741,7 @@ x_{1k} &amp; x_{2k} &amp; \ldots &amp; x_{nk}
 <div id="def-trace" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition D.9 (Trace)</strong></span> The <strong>trace</strong> of a square matrix <span class="math inline">\(\bs{X}\)</span> is the sum of the diagonal elements of the matrix and is denoted by <span class="math inline">\(\text{tr}(\bs{X}) = \sum_{i=1}^{n} x_{ii}\)</span>.</p>
 </div>
-<p>We close this section with some properties of the transpose and trace operators. The proofs of these properties are straightforward and can be found in any standard linear algebra textbook, e.g., among others, see <span class="citation" data-cites="Abadir2005">Abadir and Magnus (<a href="references.html#ref-Abadir2005" role="doc-biblioref">2005</a>)</span>.</p>
+<p>We close this section with some properties of the transpose and trace operators. The proofs of these properties are straightforward and can be found in any standard linear algebra textbook, e.g., among others, see <span class="citation" data-cites="Abadir2005">Abadir and Magnus (<a href="#ref-Abadir2005" role="doc-biblioref">2005</a>)</span>.</p>
 <ul>
 <li><span class="math inline">\((\bs{A}^{'})^{'} = \bs{A}\)</span>,</li>
 <li><span class="math inline">\((\alpha \bs{A})^{'} = \alpha \bs{A}^{'}\)</span>,</li>
@@ -932,7 +932,7 @@ Properties of determinants
 \bs{0}&amp;\bs{A}_{22}\\
 \end{array}\right)\)</span>, then <span class="math inline">\(|\bs{A}|=|\bs{A}_{11}||\bs{A}_{22}|\)</span>.</li>
 </ul>
-<p>The proof of these properties can be found in any standard linear algebra textbook, e.g., see <span class="citation" data-cites="Abadir2005">Abadir and Magnus (<a href="references.html#ref-Abadir2005" role="doc-biblioref">2005</a>)</span>.</p>
+<p>The proof of these properties can be found in any standard linear algebra textbook, e.g., see <span class="citation" data-cites="Abadir2005">Abadir and Magnus (<a href="#ref-Abadir2005" role="doc-biblioref">2005</a>)</span>.</p>
 </div>
 </div>
 </div>
@@ -1033,7 +1033,7 @@ Properties of rank
 </ol>
 </div>
 </div>
-<p>The first two properties follow from the definition of rank. The third property follows from the fact that the sum of two matrices can be expressed as a linear combination of the columns of the two matrices. Thus, the column space of <span class="math inline">\((\bs{A}+\bs{B})\)</span> is a subspace of the sum of the column spaces of <span class="math inline">\(\bs{A}\)</span> and <span class="math inline">\(\bs{B}\)</span>. The fourth property follows from the fact that the product of two matrices can be expressed as a linear combination of the columns of the first matrix and the rows of the second matrix. See <a href="#exm-matrix-multiplication2" class="quarto-xref">Example&nbsp;<span>D.8</span></a>. Finally, the last property follows from the second and the fourth properties.</p>
+<p>The first two properties follow from the definition of rank. The third property follows from the fact that the sum of two matrices can be expressed as a linear combination of the columns of the two matrices. Thus, the column space of <span class="math inline">\((\bs{A}+\bs{B})\)</span> is a subspace of the sum of the column spaces of <span class="math inline">\(\bs{A}\)</span> and <span class="math inline">\(\bs{B}\)</span>. The fourth property follows from the fact that the product of two matrices can be expressed as a linear combination of the columns of the first matrix and the rows of the second matrix. See <a href="#exm-matrix-multiplication2" class="quarto-xref">Example&nbsp;<span class="quarto-unresolved-ref">exm-matrix-multiplication2</span></a>. Finally, the last property follows from the second and the fourth properties.</p>
 <div>
 <div id="exm-rank0" class="theorem example">
 <p><span class="theorem-title"><strong>Example D.12</strong></span> Let <span class="math inline">\(\bs{a}\in\mathbb{R}^n\)</span>. Then, the rank of <span class="math inline">\(\bs{a}\bs{a}^{'}\)</span> is 1. To see this, note that <span class="math inline">\(\bs{a}\bs{a}^{'}\)</span> is a <span class="math inline">\(n\times n\)</span> matrix and it can be expressed as <span class="math display">\[
@@ -1051,11 +1051,11 @@ a_n a_1 &amp; a_n a_2 &amp; \ldots &amp; a_na_n
 </div>
 <div>
 <div id="exm-rank1-matrix" class="theorem example">
-<p><span class="theorem-title"><strong>Example D.13</strong></span> Let <span class="math inline">\(\bs{X}\)</span> be an <span class="math inline">\(n\times k\)</span> matrix. In <a href="#eq-matrix-sum" class="quarto-xref">Equation&nbsp;<span>D.1</span></a>, we show that we can express <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> as <span class="math display">\[
+<p><span class="theorem-title"><strong>Example D.13</strong></span> Let <span class="math inline">\(\bs{X}\)</span> be an <span class="math inline">\(n\times k\)</span> matrix. In <a href="#eq-matrix-sum" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-matrix-sum</span></a>, we show that we can express <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> as <span class="math display">\[
 \begin{align}
 \bs{X}^{'}\bs{X} = \sum_{i=1}^{n} \bs{x}_i\bs{x}^{'}_i.
 \end{align}
-\]</span> Since <span class="math inline">\(\text{rank}(\bs{x}_i\bs{x}^{'}_i)=1\)</span> by <a href="#exm-rank0" class="quarto-xref">Example&nbsp;<span>D.12</span></a>, <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> is the sum of <span class="math inline">\(n\)</span> <span class="math inline">\(k\times k\)</span> matrices, each of which has rank <span class="math inline">\(1\)</span>. Hence, <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> can be full rank.</p>
+\]</span> Since <span class="math inline">\(\text{rank}(\bs{x}_i\bs{x}^{'}_i)=1\)</span> by <a href="#exm-rank0" class="quarto-xref">Example&nbsp;<span class="quarto-unresolved-ref">exm-rank0</span></a>, <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> is the sum of <span class="math inline">\(n\)</span> <span class="math inline">\(k\times k\)</span> matrices, each of which has rank <span class="math inline">\(1\)</span>. Hence, <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> can be full rank.</p>
 </div>
 </div>
 <div>
@@ -1065,7 +1065,7 @@ a_n a_1 &amp; a_n a_2 &amp; \ldots &amp; a_na_n
 </div>
 <div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (Proof <a href="#thm-determinant-rank" class="quarto-xref">Theorem&nbsp;<span>D.3</span></a>). </span>See <span class="citation" data-cites="Abadir2005">Abadir and Magnus (<a href="references.html#ref-Abadir2005" role="doc-biblioref">2005, 94</a>)</span>.</p>
+<p><span class="proof-title"><em>Proof</em> (Proof <a href="#thm-determinant-rank" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-determinant-rank</span></a>). </span>See <span class="citation" data-cites="Abadir2005">Abadir and Magnus (<a href="#ref-Abadir2005" role="doc-biblioref">2005, 94</a>)</span>.</p>
 </div>
 </div>
 </section>
@@ -1078,15 +1078,15 @@ a_n a_1 &amp; a_n a_2 &amp; \ldots &amp; a_na_n
 \begin{align}
 \bs{A}\bs{x}=\lambda\bs{x}.
 \end{align}
-\tag{D.2}\]</span></span> A non-zero vector <span class="math inline">\(\bs{x}\)</span> that solves <a href="#eq-eqDD-1" class="quarto-xref">Equation&nbsp;<span>D.2</span></a> is called an <strong>eigenvector</strong>, and the associated <span class="math inline">\(\lambda\)</span> is called an <strong>eigenvalue</strong>.</p>
+\tag{D.2}\]</span></span> A non-zero vector <span class="math inline">\(\bs{x}\)</span> that solves <a href="#eq-eqDD-1" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eqDD-1</span></a> is called an <strong>eigenvector</strong>, and the associated <span class="math inline">\(\lambda\)</span> is called an <strong>eigenvalue</strong>.</p>
 </div>
 </div>
-<p><a href="#eq-eqDD-1" class="quarto-xref">Equation&nbsp;<span>D.2</span></a> suggests that if <span class="math inline">\(\bs{x}\)</span> is an eigenvector of <span class="math inline">\(\bs{A}\)</span>, then <span class="math inline">\(c\bs{x}\)</span> is also an eigenvector of <span class="math inline">\(\bs{A}\)</span> for any non-zero scalar <span class="math inline">\(c\)</span>. To remove this ambiguity, eigenvectors are usually normalized so that <span class="math inline">\(\|\bs{x}\|=1\)</span>.</p>
-<p>Eigenvalues and eigenvectors are also called <strong>characteristic roots</strong> and <strong>characteristic vectors</strong>, respectively. We can write <a href="#eq-eqDD-1" class="quarto-xref">Equation&nbsp;<span>D.2</span></a> in the following way: <span id="eq-eqDD-2"><span class="math display">\[
+<p><a href="#eq-eqDD-1" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eqDD-1</span></a> suggests that if <span class="math inline">\(\bs{x}\)</span> is an eigenvector of <span class="math inline">\(\bs{A}\)</span>, then <span class="math inline">\(c\bs{x}\)</span> is also an eigenvector of <span class="math inline">\(\bs{A}\)</span> for any non-zero scalar <span class="math inline">\(c\)</span>. To remove this ambiguity, eigenvectors are usually normalized so that <span class="math inline">\(\|\bs{x}\|=1\)</span>.</p>
+<p>Eigenvalues and eigenvectors are also called <strong>characteristic roots</strong> and <strong>characteristic vectors</strong>, respectively. We can write <a href="#eq-eqDD-1" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eqDD-1</span></a> in the following way: <span id="eq-eqDD-2"><span class="math display">\[
 \begin{align}
 (\bs{A}-\lambda\bs{I}_n)\bs{x}=\bs{0},
 \end{align}
-\tag{D.3}\]</span></span> where <span class="math inline">\(\bs{I}_n\)</span> is the <span class="math inline">\(n\times n\)</span> identity matrix. The system in <a href="#eq-eqDD-2" class="quarto-xref">Equation&nbsp;<span>D.3</span></a> has a solution <span class="math inline">\(\bs{x}\ne\bs{0}\)</span> if and only if <span class="math inline">\(|\bs{A}-\lambda\bs{I}_n|=0\)</span>. We can use this result to compute <span class="math inline">\(\lambda\)</span>. Once we have <span class="math inline">\(\lambda\)</span>, we can compute the eigenvector <span class="math inline">\(\bs{x}\)</span> by solving <a href="#eq-eqDD-2" class="quarto-xref">Equation&nbsp;<span>D.3</span></a>.</p>
+\tag{D.3}\]</span></span> where <span class="math inline">\(\bs{I}_n\)</span> is the <span class="math inline">\(n\times n\)</span> identity matrix. The system in <a href="#eq-eqDD-2" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eqDD-2</span></a> has a solution <span class="math inline">\(\bs{x}\ne\bs{0}\)</span> if and only if <span class="math inline">\(|\bs{A}-\lambda\bs{I}_n|=0\)</span>. We can use this result to compute <span class="math inline">\(\lambda\)</span>. Once we have <span class="math inline">\(\lambda\)</span>, we can compute the eigenvector <span class="math inline">\(\bs{x}\)</span> by solving <a href="#eq-eqDD-2" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eqDD-2</span></a>.</p>
 <p>The characteristic polynomial of <span class="math inline">\(\bs{A}\)</span> is defined by <span class="math inline">\(p(\lambda)=|\bs{A}-\lambda\bs{I}_n|\)</span>, which is an <span class="math inline">\(n\)</span>th order polynomial in <span class="math inline">\(\lambda\)</span>. The eigenvalues of <span class="math inline">\(\bs{A}\)</span> are the roots of the characteristic polynomial. Since the characteristic polynomial has at most <span class="math inline">\(n\)</span> roots, <span class="math inline">\(\bs{A}\)</span> can have at most <span class="math inline">\(n\)</span> eigenvalues. The eigenvalues can be real or complex numbers. If the eigenvalues are complex, they come in conjugate pairs as shown in the following example.</p>
 <div>
 <div id="exm-eigenvalue" class="theorem example">
@@ -1124,7 +1124,7 @@ a_n a_1 &amp; a_n a_2 &amp; \ldots &amp; a_na_n
 \end{align}
 \]</span></p>
 <p>In Python, we can solve the equation <span class="math inline">\(1-\lambda^3=0\)</span> symbolically using the <code>sympy</code> package. The <code>solve</code> function from this package returns the roots of the equation.</p>
-<div id="94b0298b" class="cell" data-execution_count="3">
+<div id="42dff790" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solving 1-lambda^3=0 symbolically</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> symbols(<span class="st">'x'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> <span class="dv">1</span><span class="op">-</span>x<span class="op">**</span><span class="dv">3</span></span>
@@ -1151,7 +1151,7 @@ x_1/2-3x_3=0
 \end{align}
 \]</span></p>
 <p>Let <span class="math inline">\(x_3=t\)</span>, then <span class="math inline">\(x_1=6t\)</span> and <span class="math inline">\(x_2=3t\)</span>, where <span class="math inline">\(t\in\mathbb{R}\)</span> and <span class="math inline">\(t\ne0\)</span>. Thus, the associated eigenvector is <span class="math inline">\(\bs{x}=t(6,3,1)^{'}\)</span>, where <span class="math inline">\(t\ne0\)</span>. In the following code chunk, we set <span class="math inline">\(t=-1\)</span> and normalize <span class="math inline">\(\bs{x}\)</span>:</p>
-<div id="5124052a" class="cell" data-execution_count="4">
+<div id="10b56558" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Normalize x=t*(6,3,1)</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="op">-</span><span class="dv">6</span>,<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">1</span>])</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>norm_x <span class="op">=</span> np.linalg.norm(x)</span>
@@ -1162,7 +1162,7 @@ x_1/2-3x_3=0
 </div>
 </div>
 <p>We can compute eigenvalues and normalized eigenvectors using the <code>np.linalg.eig</code> function. Note that <code>e</code> returns the same eigenvalues that we derived analytically above. Also, <code>ev[:,2]</code> returns the same vector as <code>normalized_x</code>.</p>
-<div id="7a3203f8" class="cell" data-execution_count="5">
+<div id="4058a0c0" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute eigenvalues and normalized eigenvectors of A</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">6</span>],</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">0</span>],</span>
@@ -1170,14 +1170,14 @@ x_1/2-3x_3=0
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>e,ev<span class="op">=</span>np.linalg.eig(A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f041a0cd" class="cell" data-execution_count="6">
+<div id="b11ba5a1" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Eigenvalues</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>e </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>array([-0.5+0.8660254j, -0.5-0.8660254j,  1. +0.j       ])</code></pre>
 </div>
 </div>
-<div id="d7511f28" class="cell" data-execution_count="7">
+<div id="9d62f019" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Eigenvectors</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>ev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
@@ -1189,7 +1189,7 @@ x_1/2-3x_3=0
         -0.14744196+0.j        ]])</code></pre>
 </div>
 </div>
-<div id="aa2c971e" class="cell" data-execution_count="8">
+<div id="91efa0c6" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Eigenvector corresponding to eigenvalue 1</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>ev[:,<span class="dv">2</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
@@ -1243,7 +1243,7 @@ x_1/2-3x_3=0
 </ol>
 <p>If <span class="math inline">\(\bs{A}\)</span> is positive definite, then it is invertible. Any symmetric positive-definite matrix <span class="math inline">\(\bs{A}\)</span> can be written as the product of a lower triangular matrix <span class="math inline">\(\bs{L}\)</span> and its transpose <span class="math inline">\(\bs{L}^{'}=\bs{U}\)</span>, i.e., <span class="math inline">\(\bs{A}=\bs{LU}\)</span>. This decomposition is called the <strong>Cholesky decomposition</strong> of <span class="math inline">\(\bs{A}\)</span>. More conveniently, <span class="math inline">\(\bs{A}^{-1}=\bs{U}^{-1}\bs{L}^{-1}\)</span>. The Cholesky decomposition provides a fast and numerically stable way to compute the inverse of a matrix.</p>
 <p>The Cholesky decomposition can be computed using the <code>np.linalg.cholesky</code> function in Python. The inverse of a matrix can be computed using the <code>np.linalg.inv</code> function. In the following code junks, we compute the Cholesky decomposition of a symmetric positive-definite matrix <span class="math inline">\(\bs{A}\)</span> and its inverse. We also measure the computation time for the inverse of <span class="math inline">\(\bs{A}\)</span> using the Cholesky decomposition and the <code>np.linalg.inv</code> function.</p>
-<div id="6d32976e" class="cell" data-execution_count="9">
+<div id="3d3f3dd5" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cholesky decomposition</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>], </span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="fl">0.7</span>, <span class="dv">0</span>], </span>
@@ -1270,10 +1270,10 @@ x_1/2-3x_3=0
        [ 0.00159087, -0.01155424,  0.03439   , -0.05881663,  0.26499301]])</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>0.001998424530029297</code></pre>
+<pre><code>0.0</code></pre>
 </div>
 </div>
-<div id="df83f827" class="cell" data-execution_count="10">
+<div id="f7d07dc4" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Measure computation time for A_inv</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>A_inv <span class="op">=</span> np.linalg.inv(A)</span>
@@ -1291,7 +1291,7 @@ x_1/2-3x_3=0
        [ 0.00209721, -0.01151878,  0.0295556 , -0.04968963,  0.25651129]])</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="10">
-<pre><code>0.0014796257019042969</code></pre>
+<pre><code>0.0</code></pre>
 </div>
 </div>
 <div id="thm-quadratic-form" class="theorem">
@@ -1306,14 +1306,14 @@ x_1/2-3x_3=0
 </div>
 <div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-quadratic-form" class="quarto-xref">Theorem&nbsp;<span>D.4</span></a>). </span>Since <span class="math inline">\(\bs{A}\)</span> is symmetric, it is diagonalizable. Thus, there exists an orthogonal matrix <span class="math inline">\(\bs{P}\)</span> such that <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-quadratic-form" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-quadratic-form</span></a>). </span>Since <span class="math inline">\(\bs{A}\)</span> is symmetric, it is diagonalizable. Thus, there exists an orthogonal matrix <span class="math inline">\(\bs{P}\)</span> such that <span class="math display">\[
 \bs{P}^{'}\bs{A}\bs{P}=\text{diag}(\lambda_1,\ldots,\lambda_n),
 \]</span> where <span class="math inline">\(\text{diag}(\lambda_1,\ldots,\lambda_n)\)</span> is the diagonal matrix with the eigenvalues of <span class="math inline">\(\bs{A}\)</span> on the diagonal. Let <span class="math inline">\(\bs{y}=(y_1,\ldots,y_n)^{'}\)</span> be the <span class="math inline">\(n\times1\)</span> vector defined by <span class="math inline">\(\bs{y}=\bs{P}^{'}\bs{x}\)</span>. Then, <span class="math inline">\(\bs{x}=\bs{P}\bs{y}\)</span>, which implies <span id="eq-quadratic-form"><span class="math display">\[
 \begin{align}
 \bs{x}^{'}\bs{A}\bs{x}=\bs{y}^{'}\bs{P}^{'}\bs{A}\bs{P}\bs{y}=\bs{y}^{'}\text{diag}(\lambda_1,\ldots,\lambda_n)\bs{y}=\sum_{i=1}^n\lambda_iy^2_i.
 \end{align}
 \tag{D.4}\]</span></span> It follows that <span class="math inline">\(\bs{x}^{'}\bs{A}\bs{x}\geq0\)</span> (res.<span class="math inline">\(\leq0\)</span>) for all <span class="math inline">\(\bs{x}\)</span> if and only if <span class="math inline">\(\bs{y}^{'}\bs{P}^{'}\bs{A}\bs{P}\bs{y}\geq0\)</span> (res.<span class="math inline">\(\leq0\)</span>) for all <span class="math inline">\(\bs{y}\ne0\)</span>.</p>
-<p>Also, <span class="math inline">\(\bs{x}=\bs{0}\)</span> if and only if <span class="math inline">\(\bs{y}=\bs{0}\)</span>, and so <span class="math inline">\(\bs{x}^{'}\bs{A}\bs{x}&gt;0\)</span> (res.<span class="math inline">\(&lt;0\)</span>) for all <span class="math inline">\(\bs{x}\ne\bs{0}\)</span> if and only if <span class="math inline">\(\bs{y}^{'}\bs{P}^{'}\bs{A}\bs{P}\bs{y}&gt;0\)</span> (res.<span class="math inline">\(&lt;0\)</span>) for all <span class="math inline">\(\bs{y}\ne\bs{0}\)</span>. Then, the conclusion follows from <a href="#eq-quadratic-form" class="quarto-xref">Equation&nbsp;<span>D.4</span></a> immediately.</p>
+<p>Also, <span class="math inline">\(\bs{x}=\bs{0}\)</span> if and only if <span class="math inline">\(\bs{y}=\bs{0}\)</span>, and so <span class="math inline">\(\bs{x}^{'}\bs{A}\bs{x}&gt;0\)</span> (res.<span class="math inline">\(&lt;0\)</span>) for all <span class="math inline">\(\bs{x}\ne\bs{0}\)</span> if and only if <span class="math inline">\(\bs{y}^{'}\bs{P}^{'}\bs{A}\bs{P}\bs{y}&gt;0\)</span> (res.<span class="math inline">\(&lt;0\)</span>) for all <span class="math inline">\(\bs{y}\ne\bs{0}\)</span>. Then, the conclusion follows from <a href="#eq-quadratic-form" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-quadratic-form</span></a> immediately.</p>
 </div>
 </div>
 <div>
@@ -1323,7 +1323,7 @@ x_1/2-3x_3=0
 </div>
 <div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-quadratic-form2" class="quarto-xref">Theorem&nbsp;<span>D.5</span></a>). </span>Let <span class="math inline">\(\bs{x}\ne\bs{0}\)</span>. Then, <span class="math inline">\(\bs{x}^{'}\bs{X}^{'}\bs{X}\bs{x}=(\bs{X}\bs{x})^{'}(\bs{X}\bs{x})=\|\bs{X}\bs{x}\|^2\geq0\)</span>. Since <span class="math inline">\(\bs{x}\ne\bs{0}\)</span> and <span class="math inline">\(\bs{X}\)</span> has rank <span class="math inline">\(k\)</span>, the columns of <span class="math inline">\(\bs{X}\)</span> are linearly independent. Therefore, <span class="math inline">\(\bs{X}\bs{x} \ne \bs{0}\)</span>, suggesting that <span class="math inline">\(\|\bs{X}\bs{x}\|^2&gt;0\)</span>. Thus, <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> is positive definite.</p>
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-quadratic-form2" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-quadratic-form2</span></a>). </span>Let <span class="math inline">\(\bs{x}\ne\bs{0}\)</span>. Then, <span class="math inline">\(\bs{x}^{'}\bs{X}^{'}\bs{X}\bs{x}=(\bs{X}\bs{x})^{'}(\bs{X}\bs{x})=\|\bs{X}\bs{x}\|^2\geq0\)</span>. Since <span class="math inline">\(\bs{x}\ne\bs{0}\)</span> and <span class="math inline">\(\bs{X}\)</span> has rank <span class="math inline">\(k\)</span>, the columns of <span class="math inline">\(\bs{X}\)</span> are linearly independent. Therefore, <span class="math inline">\(\bs{X}\bs{x} \ne \bs{0}\)</span>, suggesting that <span class="math inline">\(\|\bs{X}\bs{x}\|^2&gt;0\)</span>. Thus, <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> is positive definite.</p>
 <p>Let <span class="math inline">\(\bs{y}\ne\bs{0}\)</span>. Then, <span class="math inline">\(\bs{y}^{'}\bs{X}\bs{X}^{'}\bs{y}=(\bs{X}^{'}\bs{y})^{'}(\bs{X}^{'}\bs{y})=\|\bs{X}^{'}\bs{y}\|^2\ge0\)</span>. Thus, <span class="math inline">\(\bs{X}\bs{X}^{'}\)</span> is positive semidefinite.</p>
 </div>
 </div>
@@ -1332,18 +1332,18 @@ x_1/2-3x_3=0
 <h2 data-number="D.11" class="anchored" data-anchor-id="matrix-square-root"><span class="header-section-number">D.11</span> Matrix square root</h2>
 <p>Let <span class="math inline">\(\bs{A}\)</span> be an <span class="math inline">\(n\times n\)</span> positive definite matrix. Then, we can find a matrix <span class="math inline">\(\bs{B}\)</span> such that <span class="math inline">\(\bs{A}=\bs{B}^{'}\bs{B}\)</span>. The matrix <span class="math inline">\(\bs{B}\)</span> is called the <strong>matrix square root</strong> of <span class="math inline">\(\bs{A}\)</span> and is usually denoted by <span class="math inline">\(\bs{B}=\bs{A}^{1/2}\)</span>. Note that if <span class="math inline">\(\bs{B}\)</span> is symmetric, then <span class="math inline">\(\bs{A}=\bs{B}^2\)</span>. The matrix square root of a positive-definite matrix always exists, but is not unique. For example, if <span class="math inline">\(\bs{A}\)</span> has the spectral decomposition <span class="math inline">\(\bs{A}=\bs{Q}\bs{\Lambda}\bs{Q}^{'}\)</span>, then its matrix square root is given by <span class="math inline">\(\bs{B}=\bs{Q}\bs{\Lambda}^{1/2}\bs{Q}^{'}\)</span>, where <span class="math inline">\(\bs{\Lambda}^{1/2}\)</span> is the diagonal matrix with the square roots of the eigenvalues of <span class="math inline">\(\bs{A}\)</span> on the diagonal. Another way to compute the matrix square root is to use the Cholesky decomposition of <span class="math inline">\(\bs{A}\)</span>, which gives us <span class="math inline">\(\bs{B}=\bs{L}^{'}\)</span>, where <span class="math inline">\(\bs{L}\)</span> is the lower triangular matrix such that <span class="math inline">\(\bs{A}=\bs{L}\bs{L}^{'}\)</span>.</p>
 <p>In Python, the square root of a matrix can be computed using the <code>scipy.linalg.sqrtm</code> function.</p>
-<div id="d067c36c" class="cell" data-execution_count="11">
+<div id="8be0bc13" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matrix square root</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">4</span>, <span class="dv">2</span>], [<span class="dv">2</span>, <span class="dv">3</span>]])</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> sqrtm(A)</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># B is the matrix square root of A</span></span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
-<pre><code>array([[1.91936596, 0.56216928],
-       [0.56216928, 1.63828133]])</code></pre>
+<pre><code>array([[1.919366  , 0.56216925],
+       [0.56216925, 1.6382813 ]], dtype=float32)</code></pre>
 </div>
 </div>
-<div id="428bac73" class="cell" data-execution_count="12">
+<div id="9299f432" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify that B is the matrix square root of A</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>np.allclose(A, B.T <span class="op">@</span> B) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
@@ -1351,7 +1351,7 @@ x_1/2-3x_3=0
 </div>
 </div>
 <p>The matrix square root <span class="math inline">\(\bs{B}\)</span> satifies the following properties: (i) <span class="math inline">\(\bs{B}\bs{A}^{-1}\bs{B}^{'}=\bs{I}_n\)</span>, and (ii) <span class="math inline">\(\bs{B}^{'-1}\bs{A}\bs{B}^{-1}=\bs{I}_n\)</span>. In Python, these properties can be verified as follows:</p>
-<div id="921a7603" class="cell" data-execution_count="13">
+<div id="9c1e4224" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify the properties of matrix square root</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>B_inv <span class="op">=</span> np.linalg.inv(B)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>A_inv <span class="op">=</span> np.linalg.inv(A)</span>
@@ -1368,7 +1368,7 @@ x_1/2-3x_3=0
 </div>
 <div>
 <div id="rem-matrix-square-root" class="proof remark">
-<p><span class="proof-title"><em>Remark D.1</em> (Alternative definition of the matrix square root). </span>Alternatively, the matrix square root of the positive definite matrix <span class="math inline">\(\bs{A}\)</span> can be defined as a matrix <span class="math inline">\(\bs{B}\)</span> such that <span class="math inline">\(\bs{A} = \bs{B}\bs{B}^{'}\)</span> (<span class="citation" data-cites="Hansen2022">Hansen (<a href="references.html#ref-Hansen2022" role="doc-biblioref">2022</a>)</span>). In this case, the matrix square root <span class="math inline">\(\bs{B}\)</span> satisfies the following properties: (i) <span class="math inline">\(\bs{B}^{'}\bs{A}^{-1}\bs{B} = \bs{I}_n\)</span>, and (ii) <span class="math inline">\(\bs{B}^{-1}\bs{A}\bs{B}^{'-1} = \bs{I}_n\)</span>.</p>
+<p><span class="proof-title"><em>Remark D.1</em> (Alternative definition of the matrix square root). </span>Alternatively, the matrix square root of the positive definite matrix <span class="math inline">\(\bs{A}\)</span> can be defined as a matrix <span class="math inline">\(\bs{B}\)</span> such that <span class="math inline">\(\bs{A} = \bs{B}\bs{B}^{'}\)</span> (<span class="citation" data-cites="Hansen2022">Hansen (<a href="#ref-Hansen2022" role="doc-biblioref">2022</a>)</span>). In this case, the matrix square root <span class="math inline">\(\bs{B}\)</span> satisfies the following properties: (i) <span class="math inline">\(\bs{B}^{'}\bs{A}^{-1}\bs{B} = \bs{I}_n\)</span>, and (ii) <span class="math inline">\(\bs{B}^{-1}\bs{A}\bs{B}^{'-1} = \bs{I}_n\)</span>.</p>
 </div>
 </div>
 </section>
@@ -1430,7 +1430,7 @@ x_1/2-3x_3=0
 \end{align}
 \]</span></p>
 <p>In Python, we can use the <code>np.linalg.norm()</code> function to compute the Frobenius and spectral norms of a matrix. The following code chunk demonstrates how to compute these norms for a given matrix <span class="math inline">\(\bs{A}\)</span>.</p>
-<div id="a918e98f" class="cell" data-execution_count="14">
+<div id="df7297ce" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a matrix</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">3</span>,<span class="dv">2</span>],[<span class="dv">2</span>,<span class="dv">4</span>]])</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1447,7 +1447,7 @@ x_1/2-3x_3=0
 Frobenius Norm (manual calculation): 5.74</code></pre>
 </div>
 </div>
-<div id="64db2337" class="cell" data-execution_count="15">
+<div id="81f01cc1" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the spectral norm (largest singular value)</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>spectral_norm <span class="op">=</span> np.linalg.norm(A, <span class="bu">ord</span><span class="op">=</span><span class="dv">2</span>)  <span class="co"># 'ord=2' specifies the spectral norm</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1540,11 +1540,11 @@ a_1&amp;\ldots&amp;a_n
 \begin{align}
 \frac{\partial(\bs{z}^{'}\bs{A}\bs{x})}{\partial\bs{x}}=\frac{\partial(\bs{c}^{'}\bs{x})}{\partial\bs{x}}=\bs{c}=\bs{A}^{'}\bs{z},
 \end{align}
-\]</span> where the second equality follows from <a href="#eq-vector-calculus-2" class="quarto-xref">Equation&nbsp;<span>D.6</span></a>. Let <span class="math inline">\(\bs{d}=\bs{A}\bs{x}\)</span>, then <span class="math display">\[
+\]</span> where the second equality follows from <a href="#eq-vector-calculus-2" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-vector-calculus-2</span></a>. Let <span class="math inline">\(\bs{d}=\bs{A}\bs{x}\)</span>, then <span class="math display">\[
 \begin{align}
 \frac{\partial(\bs{z}^{'}\bs{A}\bs{x})}{\partial\bs{z}}=\frac{\partial(\bs{z}^{'}\bs{d})}{\partial\bs{z}}=\bs{d}=\bs{A}\bs{x},
 \end{align}
-\]</span> where the second equality follows from <a href="#eq-vector-calculus-2" class="quarto-xref">Equation&nbsp;<span>D.6</span></a>.</p>
+\]</span> where the second equality follows from <a href="#eq-vector-calculus-2" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-vector-calculus-2</span></a>.</p>
 <p>Now, we assume that <span class="math inline">\(\bs{x}\)</span> and <span class="math inline">\(\bs{z}\)</span> are functions of <span class="math inline">\(\bs{\alpha}\in\mb{R}^r\)</span>, and consider the quadratic form <span class="math inline">\(\bs{z}^{'}\bs{A}\bs{x}\)</span>. Then, we have <span class="math display">\[
 \begin{align}
 \frac{\partial(\bs{z}^{'}\bs{A}\bs{x})}{\partial\bs{\alpha}}&amp;=\frac{\partial\bs{x}^{'}}{\partial\bs{\alpha}}\bs{A}^{'}\bs{z}+\frac{\partial\bs{z}^{'}}{\partial\bs{\alpha}}\bs{A}\bs{x}.
@@ -1647,7 +1647,7 @@ f(\bs{v})=(2\pi)^m\left|\bs{\Sigma}_{\bs{v}}\right|^{-1}\exp\left(-\frac{1}{2}(\
 </div>
 <div>
 <div id="exm-chi-squared0" class="theorem example">
-<p><span class="theorem-title"><strong>Example D.19</strong></span> Let <span class="math inline">\(\bs{x}\sim N(\bs{\mu}_{\bs{x}},\,\bs{\Sigma}_{\bs{x}})\)</span>. Then, the random variable <span class="math inline">\(\bs{y}=\left(\bs{x}-\bs{\mu}_{\bs{x}}\right)^{'}\bs{\Sigma}^{-1}_{\bs{x}}\left(\bs{x}-\bs{\mu}_{\bs{x}}\right)\)</span> has a chi-squared distribution with <span class="math inline">\(m\)</span> degrees of freedom, where <span class="math inline">\(m=\text{rank}(\bs{\Sigma}_{\bs{x}})\)</span>. To see this, first note that we can express <span class="math inline">\(\bs{y}\)</span> as <span class="math inline">\(\bs{y}=\bs{u}^{'}\bs{u}\)</span>, where <span class="math inline">\(\bs{u}=\bs{\Sigma}^{-1/2}\left(\bs{x}-\bs{\mu}_{\bs{x}}\right)\)</span>. Also, it follows from <a href="#exm-multivariate-normal0" class="quarto-xref">Example&nbsp;<span>D.17</span></a> that <span class="math inline">\(\bs{u}\sim N(\bs{0}_m,\bs{I}_m)\)</span>, thus we have <span class="math inline">\(\bs{y}\sim \chi^2_m\)</span>.</p>
+<p><span class="theorem-title"><strong>Example D.19</strong></span> Let <span class="math inline">\(\bs{x}\sim N(\bs{\mu}_{\bs{x}},\,\bs{\Sigma}_{\bs{x}})\)</span>. Then, the random variable <span class="math inline">\(\bs{y}=\left(\bs{x}-\bs{\mu}_{\bs{x}}\right)^{'}\bs{\Sigma}^{-1}_{\bs{x}}\left(\bs{x}-\bs{\mu}_{\bs{x}}\right)\)</span> has a chi-squared distribution with <span class="math inline">\(m\)</span> degrees of freedom, where <span class="math inline">\(m=\text{rank}(\bs{\Sigma}_{\bs{x}})\)</span>. To see this, first note that we can express <span class="math inline">\(\bs{y}\)</span> as <span class="math inline">\(\bs{y}=\bs{u}^{'}\bs{u}\)</span>, where <span class="math inline">\(\bs{u}=\bs{\Sigma}^{-1/2}\left(\bs{x}-\bs{\mu}_{\bs{x}}\right)\)</span>. Also, it follows from <a href="#exm-multivariate-normal0" class="quarto-xref">Example&nbsp;<span class="quarto-unresolved-ref">exm-multivariate-normal0</span></a> that <span class="math inline">\(\bs{u}\sim N(\bs{0}_m,\bs{I}_m)\)</span>, thus we have <span class="math inline">\(\bs{y}\sim \chi^2_m\)</span>.</p>
 </div>
 </div>
 <div>
@@ -1655,7 +1655,7 @@ f(\bs{v})=(2\pi)^m\left|\bs{\Sigma}_{\bs{v}}\right|^{-1}\exp\left(-\frac{1}{2}(\
 <p><span class="theorem-title"><strong>Theorem D.6</strong></span> Let <span class="math inline">\(\bs{u}\sim N(\bs{0}_m,\bs{I}_m)\)</span> and <span class="math inline">\(\bs{C}\)</span> be a symmetric idempotent matrix. Then, <span class="math inline">\(\bs{y}=\bs{u}^{'}\bs{C}\bs{u}\)</span> has a chi-squared distribution with <span class="math inline">\(r\)</span> degrees of freedom, where <span class="math inline">\(r=\text{rank}(\bs{C})\)</span>.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-chi-squared" class="quarto-xref">Theorem&nbsp;<span>D.6</span></a>). </span>Recall that the eigenvalues of <span class="math inline">\(\bs{C}\)</span> are either <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. Then, by the spectral decomposition of <span class="math inline">\(\bs{C}\)</span>, we have <span class="math inline">\(\bs{C}=\bs{Q}\bs{\Lambda}\bs{Q}^{'}\)</span>, where <span class="math inline">\(\bs{Q}\)</span> is an orthogonal matrix (<span class="math inline">\(\bs{Q}^{'}\bs{Q}=\bs{Q}\bs{Q}^{'}=\bs{I}\)</span>) and <span class="math inline">\(\bs{\Lambda}\)</span> is a diagonal matrix with <span class="math inline">\(r\)</span> non-zero eigenvalues, i.e.,<span class="math inline">\(\bs{\Lambda}=\text{diag}(1,\ldots,1,0,\ldots,0)\)</span>. Let <span class="math inline">\(\bs{z}=\bs{Q}^{'}\bs{u}\)</span>. Since <span class="math inline">\(\bs{Q}\)</span> is an orthogonal matrix, <span class="math inline">\(\bs{z}\sim N(\bs{0}_m,\bs{I}_m)\)</span>. Then, we have <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-chi-squared" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-chi-squared</span></a>). </span>Recall that the eigenvalues of <span class="math inline">\(\bs{C}\)</span> are either <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. Then, by the spectral decomposition of <span class="math inline">\(\bs{C}\)</span>, we have <span class="math inline">\(\bs{C}=\bs{Q}\bs{\Lambda}\bs{Q}^{'}\)</span>, where <span class="math inline">\(\bs{Q}\)</span> is an orthogonal matrix (<span class="math inline">\(\bs{Q}^{'}\bs{Q}=\bs{Q}\bs{Q}^{'}=\bs{I}\)</span>) and <span class="math inline">\(\bs{\Lambda}\)</span> is a diagonal matrix with <span class="math inline">\(r\)</span> non-zero eigenvalues, i.e.,<span class="math inline">\(\bs{\Lambda}=\text{diag}(1,\ldots,1,0,\ldots,0)\)</span>. Let <span class="math inline">\(\bs{z}=\bs{Q}^{'}\bs{u}\)</span>. Since <span class="math inline">\(\bs{Q}\)</span> is an orthogonal matrix, <span class="math inline">\(\bs{z}\sim N(\bs{0}_m,\bs{I}_m)\)</span>. Then, we have <span class="math display">\[
 \begin{align*}
 \bs{y}=\bs{u}^{'}\bs{C}\bs{u}&amp;=\bs{u}^{'}\bs{Q}\bs{\Lambda}\bs{Q}^{'}\bs{u}=\bs{z}^{'}\bs{\Lambda}\bs{z}\\
 &amp;=\sum_{i=1}^m\lambda_i z_i^2=\sum_{i=1}^r z_i^2,
@@ -1672,7 +1672,7 @@ f(\bs{v})=(2\pi)^m\left|\bs{\Sigma}_{\bs{v}}\right|^{-1}\exp\left(-\frac{1}{2}(\
 </ol>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-independent-quadratics" class="quarto-xref">Theorem&nbsp;<span>D.7</span></a>). </span>See Appendix B in <span class="citation" data-cites="Greene2017">Greene (<a href="references.html#ref-Greene2017" role="doc-biblioref">2017</a>)</span>.</p>
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-independent-quadratics" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-independent-quadratics</span></a>). </span>See Appendix B in <span class="citation" data-cites="Greene2017">Greene (<a href="#ref-Greene2017" role="doc-biblioref">2017</a>)</span>.</p>
 </div>
 </div>
 <div>
@@ -1703,7 +1703,7 @@ f(v_2|v_1)=\frac{1}{\sqrt{2\pi(1-\rho^2)\sigma^2_2}}\exp\left(-\frac{(v_2-\mu_2-
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Abadir2005" class="csl-entry" role="listitem">
 Abadir, K. M., and J. R. Magnus. 2005. <em>Matrix Algebra</em>. Econometric Exercises. Cambridge University Press.
 </div>
@@ -2160,7 +2160,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/AppendixD.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://osmdogan.github.io/Python_Book/edit/main/AppendixD.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://osmdogan.github.io/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

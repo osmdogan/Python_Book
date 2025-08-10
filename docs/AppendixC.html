@@ -161,7 +161,7 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Econometrics with Python</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/osmdogan/Python_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://osmdogan.github.io/Python_Book/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-git"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -461,7 +461,7 @@ window.Quarto = {
   <li><a href="#student-t-distribution" id="toc-student-t-distribution" class="nav-link" data-scroll-target="#student-t-distribution"><span class="header-section-number">C.3</span> Student t distribution</a></li>
   <li><a href="#f-distribution" id="toc-f-distribution" class="nav-link" data-scroll-target="#f-distribution"><span class="header-section-number">C.4</span> F distribution</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/AppendixC.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://osmdogan.github.io/Python_Book/edit/main/AppendixC.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://osmdogan.github.io/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -485,7 +485,7 @@ window.Quarto = {
 </header>
 
 
-<div id="61ba0ced" class="cell" data-execution_count="1">
+<div id="b9bedd36" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -539,7 +539,7 @@ I^2&amp;=\frac{1}{2\pi}\int_{0}^{2\pi}\int_{0}^{\infty}e^{-r^2/2}rdrd\theta=\fra
 \]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thmC-1" class="quarto-xref">Theorem&nbsp;<span>C.1</span></a>). </span>Let <span class="math inline">\(f\)</span> be the pdf of <span class="math inline">\(Y\)</span>. Then, for any integer <span class="math inline">\(k\geq0\)</span>, we have <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thmC-1" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thmC-1</span></a>). </span>Let <span class="math inline">\(f\)</span> be the pdf of <span class="math inline">\(Y\)</span>. Then, for any integer <span class="math inline">\(k\geq0\)</span>, we have <span class="math display">\[
 \begin{align*}
 \frac{d^km(t)}{dt^k}&amp;=\frac{d^k}{dt^k}\E\left(e^tY \right)=\frac{d^k}{dt^k}\int e^{ty}f(y)\text{d}y=\int\frac{d^k}{dt^k}e^{ty}f(y)\text{d}y\\
 &amp;=\int y^ke^{ty}f(y)\text{d}y=\E\left(Y^ke^{tY}\right).
@@ -554,7 +554,7 @@ m(t) = e^{\mu t + \frac{\sigma^2 t^2}{2}}.
 \]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thmC-2" class="quarto-xref">Theorem&nbsp;<span>C.2</span></a>). </span>We can express <span class="math inline">\(m(t)\)</span> as <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thmC-2" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thmC-2</span></a>). </span>We can express <span class="math inline">\(m(t)\)</span> as <span class="math display">\[
 \begin{align*}
 m(t)=\E(e^{tY})=\int_{-\infty}^{\infty}e^{ty}\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\left(\frac{y-\mu}{\sigma}\right)^2}dy=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{ty-\frac{1}{2}\left(\frac{y-\mu}{\sigma}\right)^2}dy.
 \end{align*}
@@ -577,7 +577,7 @@ m(t)&amp;=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{b}dy=\frac{1}{\si
 \]</span></p>
 </div>
 <div id="exm-exmC-1" class="theorem example">
-<p><span class="theorem-title"><strong>Example C.1</strong></span> Using <a href="#thm-thmC-2" class="quarto-xref">Theorem&nbsp;<span>C.2</span></a>, we can find the moments of a normal random variable. For example, the first moment is given by <span class="math display">\[
+<p><span class="theorem-title"><strong>Example C.1</strong></span> Using <a href="#thm-thmC-2" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thmC-2</span></a>, we can find the moments of a normal random variable. For example, the first moment is given by <span class="math display">\[
 \begin{align*}
 \mu^{'}_1&amp;=\frac{d^1m(t)}{dt^1}\bigg|_{t=0}=\frac{d}{dt}\left(e^{\mu t+\sigma^2t^2/2}\right)\bigg|_{t=0}\\
 &amp;=\frac{d}{dt}\left(e^{\mu t}\right)\bigg|_{t=0}+\frac{d}{dt}\left(e^{\sigma^2t^2/2}\right)\bigg|_{t=0}\\
@@ -603,7 +603,7 @@ m(t)&amp;=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{b}dy=\frac{1}{\si
 <p>The bivariate normal pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is given by <span class="math display">\[
 f_{X,Y}(x,y)=\frac{1}{2\pi\sigma_X\sigma_Y\sqrt{1-\rho^2}}e^{-\frac{1}{2(1-\rho^2)}\left(\frac{(x-\mu_X)^2}{\sigma_X^2}+\frac{(y-\mu_Y)^2}{\sigma_Y^2}-\frac{2\rho(x-\mu_X)(y-\mu_Y)}{\sigma_X\sigma_Y}\right)},
 \]</span> where <span class="math inline">\(\rho\)</span> is the correlation coefficient between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. The marginal distributions of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are univariate normal distributions: <span class="math inline">\(X\sim N(\mu_X,\sigma^2_X)\)</span> and <span class="math inline">\(Y\sim N(\mu_Y,\sigma^2_Y)\)</span>.</p>
-<p>In <a href="#fig-bivariate-normal" class="quarto-xref">Figure&nbsp;<span>C.1</span></a>, we plot the bivariate normal distribution with <span class="math inline">\(\mu_X=\mu_Y=0\)</span>, <span class="math inline">\(\sigma_X=\sigma_Y=1\)</span>, and <span class="math inline">\(\rho=0.5\)</span>. The 3D plot shows the joint pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
+<p>In <a href="#fig-bivariate-normal" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-bivariate-normal</span></a>, we plot the bivariate normal distribution with <span class="math inline">\(\mu_X=\mu_Y=0\)</span>, <span class="math inline">\(\sigma_X=\sigma_Y=1\)</span>, and <span class="math inline">\(\rho=0.5\)</span>. The 3D plot shows the joint pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
 <div id="cell-fig-bivariate-normal" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3D plot of bivariate normal distribution</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
@@ -634,7 +634,7 @@ f_{X,Y}(x,y)=\frac{1}{2\pi\sigma_X\sigma_Y\sqrt{1-\rho^2}}e^{-\frac{1}{2(1-\rho^
 <div id="fig-bivariate-normal" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bivariate-normal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="AppendixC_files/figure-html/fig-bivariate-normal-output-1.png" class="img-fluid figure-img">
+<img src="AppendixC_files/figure-html/fig-bivariate-normal-output-1.png" width="345" height="326" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bivariate-normal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;C.1: 3D plot of bivariate normal distribution
@@ -643,7 +643,7 @@ Figure&nbsp;C.1: 3D plot of bivariate normal distribution
 </div>
 </div>
 </div>
-<p>In <a href="#fig-normal-scatter" class="quarto-xref">Figure&nbsp;<span>C.2</span></a>, we plot the scatter plots of random draws obtained from bivariate normal distributions that have different correlation coefficients. The correlation coefficient <span class="math inline">\(\rho\)</span> takes values from <span class="math inline">\(\{-0.8, 0, 0.4, 0.8\}\)</span>. The scatter plots show the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> for different values of <span class="math inline">\(\rho\)</span>. As <span class="math inline">\(\rho\)</span> gets larger in absolute value, the points in the scatter plot become more aligned along the line <span class="math inline">\(y=x\)</span> or <span class="math inline">\(y=-x\)</span>.</p>
+<p>In <a href="#fig-normal-scatter" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-normal-scatter</span></a>, we plot the scatter plots of random draws obtained from bivariate normal distributions that have different correlation coefficients. The correlation coefficient <span class="math inline">\(\rho\)</span> takes values from <span class="math inline">\(\{-0.8, 0, 0.4, 0.8\}\)</span>. The scatter plots show the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> for different values of <span class="math inline">\(\rho\)</span>. As <span class="math inline">\(\rho\)</span> gets larger in absolute value, the points in the scatter plot become more aligned along the line <span class="math inline">\(y=x\)</span> or <span class="math inline">\(y=-x\)</span>.</p>
 <div id="cell-fig-normal-scatter" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a 2x2 subplot for the plots</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
@@ -671,7 +671,7 @@ Figure&nbsp;C.1: 3D plot of bivariate normal distribution
 <div id="fig-normal-scatter" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-normal-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="AppendixC_files/figure-html/fig-normal-scatter-output-1.png" class="img-fluid figure-img">
+<img src="AppendixC_files/figure-html/fig-normal-scatter-output-1.png" width="758" height="565" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normal-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;C.2: Scatter plots of random samples from a bivariate normal distribution with different correlation coefficients
@@ -680,7 +680,7 @@ Figure&nbsp;C.2: Scatter plots of random samples from a bivariate normal distrib
 </div>
 </div>
 </div>
-<p>In <a href="#fig-normal-contour" class="quarto-xref">Figure&nbsp;<span>C.3</span></a>, we plot the contour plots of bivariate normal distributions that have different correlation coefficients. The contour plots show the level curves of the bivariate normal distribution for different values of <span class="math inline">\(\rho\)</span>. <a href="#fig-normal-contour" class="quarto-xref">Figure&nbsp;<span>C.3</span></a> shows that as <span class="math inline">\(\rho\)</span> gets larger in absolute value, the contours stretch along the line <span class="math inline">\(y=x\)</span> or <span class="math inline">\(y=-x\)</span>.</p>
+<p>In <a href="#fig-normal-contour" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-normal-contour</span></a>, we plot the contour plots of bivariate normal distributions that have different correlation coefficients. The contour plots show the level curves of the bivariate normal distribution for different values of <span class="math inline">\(\rho\)</span>. <a href="#fig-normal-contour" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-normal-contour</span></a> shows that as <span class="math inline">\(\rho\)</span> gets larger in absolute value, the contours stretch along the line <span class="math inline">\(y=x\)</span> or <span class="math inline">\(y=-x\)</span>.</p>
 <div id="cell-fig-normal-contour" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a 2x2 subplot for the plots</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
@@ -713,7 +713,7 @@ Figure&nbsp;C.2: Scatter plots of random samples from a bivariate normal distrib
 <div id="fig-normal-contour" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-normal-contour-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="AppendixC_files/figure-html/fig-normal-contour-output-1.png" class="img-fluid figure-img">
+<img src="AppendixC_files/figure-html/fig-normal-contour-output-1.png" width="756" height="565" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normal-contour-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;C.3: Contour plots of bivariate normal distribution with different correlation coefficients
@@ -1212,7 +1212,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osmdogan/Python_Book/edit/main/AppendixC.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://osmdogan.github.io/Python_Book/edit/main/AppendixC.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://osmdogan.github.io/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.55">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -98,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Econometrics with Python</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/hadley/r4ds/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://osmdogan.github.io/Python_Book/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-git"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -353,25 +353,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix1.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixA.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix for Chapter 11</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix2.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixB.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix for Chapter 21</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix3.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixC.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Appendix for Chapter 25</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Appendix4.html" class="sidebar-item-text sidebar-link">
+  <a href="./AppendixD.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Appendix for Chapter 26</span></span></a>
   </div>
 </li>
@@ -415,12 +415,12 @@ ul.task-list li input[type="checkbox"] {
 
 <p>This section contains the following chapters on the fundamentals of regression analysis:</p>
 <ul>
-<li><a href="Chapter4-LinearRegressionOneRegressor.html" class="quarto-xref">Chapter&nbsp;<span>11&nbsp; Linear Regression with One Regressor</span></a></li>
-<li><a href="Chapter5-LinearRegressionOneRegressorInference.html" class="quarto-xref">Chapter&nbsp;<span>12&nbsp; Regression with a Single Regressor: Hypothesis Tests and Confidence Intervals</span></a></li>
-<li><a href="Chapter6-MultipleRegression.html" class="quarto-xref">Chapter&nbsp;<span>13&nbsp; Linear Regression with Multiple Regressors</span></a></li>
-<li><a href="Chapter7-MultipleRegressionInference.html" class="quarto-xref">Chapter&nbsp;<span>14&nbsp; Hypothesis Tests and Confidence Intervals in Multiple Regression</span></a></li>
-<li><a href="Chapter8-NonlinearRegressions.html" class="quarto-xref">Chapter&nbsp;<span>15&nbsp; Nonlinear Regression Functions</span></a></li>
-<li><a href="Chapter9-AssessingStudies.html" class="quarto-xref">Chapter&nbsp;<span>16&nbsp; Assessing Studies Based on Multiple Regression</span></a></li>
+<li><a href="#sec-lrmone" class="quarto-xref">Chapter&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-lrmone</span></a></li>
+<li><a href="#sec-inference1" class="quarto-xref">Chapter&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-inference1</span></a></li>
+<li><a href="#sec-multiple" class="quarto-xref">Chapter&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-multiple</span></a></li>
+<li><a href="#sec-inference2" class="quarto-xref">Chapter&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-inference2</span></a></li>
+<li><a href="#sec-nonlinear" class="quarto-xref">Chapter&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-nonlinear</span></a></li>
+<li><a href="#sec-assess" class="quarto-xref">Chapter&nbsp;<span class="quarto-unresolved-ref ref-noprefix">sec-assess</span></a></li>
 </ul>
 <p>In Chapter 11, we introduce the linear regression model with one regressor and define the least squares estimator for its parameter. We also define two measures of fit for assessing prediction accuracy. Next, we provide the least squares assumptions that ensure a causal interpretation for the slope parameter. Under these assumptions, we discuss that the least squares estimator is consistent and has an asymptotic normal distribution. In the accompanying Appendix A, we show how to derive the OLS estimator and discuss its algebraic properties for the linear regression model with one regressor.</p>
 <p>In Chapter 12, we show how the asymptotic variance of the least squares estimator can be estimated under both homoskedastic and heteroskedastic error terms. We cover how to test null hypotheses formulated for the slope parameter and how to construct confidence intervals for it. We discuss the interpretation of the slope parameter when the regressor is a binary variable. We conclude the chapter by presenting the Gauss-Markov theorem, which shows that the OLS estimator is the best linear conditionally unbiased estimator.</p>
@@ -523,7 +523,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/osmdogan\.github\.io\/Python_Book\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -871,7 +871,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/hadley/r4ds/edit/main/Part2-FundamentalRegressionAnalysis.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/hadley/r4ds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://osmdogan.github.io/Python_Book/edit/main/Part2-FundamentalRegressionAnalysis.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://osmdogan.github.io/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
