@@ -793,7 +793,7 @@ In an RDD study, the treatment effect parameter is the average treatment effect 
 
 :::{#def-def20.6}
 ## Average treatment effect at the threshold
-The average treatment effect at the threshold $W_0$, denoted by $\tau$, is defined as
+The average treatment effect at the threshold $w_0$, denoted by $\tau$, is defined as
 $$
 \tau=\E[Y_i(1)-Y_i(0)|W_i=w_0],
 $$
@@ -870,10 +870,10 @@ $$
 &=\lim_{w\downarrow w_0}\E[Y_i|W_i=w]-\lim_{w\uparrow w_0}\E[Y_i|W_i=w]
 \end{align}
 $$
-where the second equality follows from the continuity assumption and the third equality from the fact that $Y_i=Y_i(1)$ when $W_i>w_0$ and $Y_i=Y_i(0)$ when $W_i<w_0$. This result indicates that $\tau$ is identified because $\E[Y_i|W_i]$ is generally identified.
+where the second equality follows from the continuity assumption and the third equality from the fact that $Y_i=Y_i(1)$ when $W_i\geq w_0$ and $Y_i=Y_i(0)$ when $W_i<w_0$. This result indicates that $\tau$ is identified because $\E[Y_i|W_i]$ is generally identified.
 :::
 
-Let us assume that $E[Y(0)|W]=\alpha_0+\beta_0W$ and $E[Y(1)|W]=\alpha_1+\beta_1W$, where $\alpha_j$ and $\beta_j$ are unknown parameters for $j=0,1$. Also, let $u$ be an error term satisfying $E[u|W]=0$ so that $Y=\alpha_0+\beta_0W+u$ and $Y=\alpha_1+\beta_1W+u$. Then, we can express $\tau$ as
+Let us assume that $E[Y(0)|W]=\alpha_0+\beta_0W$ and $E[Y(1)|W]=\alpha_1+\beta_1W$, where $\alpha_j$ and $\beta_j$ are unknown parameters for $j=0,1$. Also, let $u$ be an error term satisfying $E[u|W]=0$ so that $Y(0)=\alpha_0+\beta_0W+u$ and $Y(1)=\alpha_1+\beta_1W+u$. Then, we can express $\tau$ as
 $$
 \tau=(\alpha_1+\beta_1w_0)-(\alpha_0+\beta_0w_0)=(\alpha_1-\alpha_0)+(\beta_1-\beta_0)w_0.
 $$
@@ -887,15 +887,15 @@ Y&=D(\alpha_1+\beta_1W+u)+(1-D)(\alpha_0+\beta_0W+u)\\
 &=\alpha_0+\beta_0W+\tau D+(\beta_1-\beta_0)D(W-w_0)+u,\\
 \end{align}
 $$
-where we use $\tau=(\alpha_1-\alpha_0)+(\beta_1-\beta_0)w_0$ in the third equality. This result shows that we can estimate $\tau$ by regressing $Y$ on $D$, $W$, and the interaction term $D(W-w_0)$. Since  $\tau$ is a local parameter, the literature suggests that we should not use all observations in the sample, but rather only those close to the threshold $w_0$. That is, given a bandwidth $h$, we should restrict the sample to observations with $W_i\in(w_0-h,w_0+h)$ for estimation. This is because the observations close to the threshold are more comparable in terms of characteristics, and thus more suitable for estimating the treatment effect at the threshold.
+where we use $\tau=(\alpha_1-\alpha_0)+(\beta_1-\beta_0)w_0$ in the third equality. This result shows that we can estimate $\tau$ by regressing $Y$ on $W$, $D$, and the interaction term $D(W-w_0)$, where the coefficient on $D$ gives the estimate of $\tau$. Since  $\tau$ is a local parameter, the literature suggests that we should not use all observations in the sample, but rather only those close to the threshold $w_0$. That is, given a bandwidth $h$, we should restrict the sample to observations with $W_i\in(w_0-h,w_0+h)$ for estimation. This is because the observations close to the threshold are more comparable in terms of characteristics, and thus more suitable for estimating the treatment effect at the threshold.
 
-There are alternative methods for choosing the bandwidth $h$ (@Calonico2014, @Imbens2012,@Hansen2022). It is also common to weight the observations using a kernel function, which assigns relatively more weights to observations closer to the threshold. Let $K$ be a kernel function.^[A kernel is a non-negative real-valued function. See [Wikipedia](https://en.wikipedia.org/wiki/Kernel_(statistics)) for commonly used kernel functions in non-parametric econometrics.] Then, we can estimate $\tau$ by the following weighted least squares estimator:
+In the literature, there are alternative methods for choosing the bandwidth $h$ (@Calonico2014, @Imbens2012, @Hansen2022). It is also common to weight the observations using a kernel function, which assigns relatively more weights to observations that are closer to the threshold. Let $K$ be a kernel function.^[A kernel is a non-negative real-valued function. See [Wikipedia](https://en.wikipedia.org/wiki/Kernel_(statistics)) for commonly used kernel functions in non-parametric econometrics.] Then, we can estimate $\tau$ by the following weighted least squares estimator:
 $$
 \hat{\tau}=e^{'}_3\argmin_{\theta\in\mathbb{R}^4}\sum_{i=1}^nK_h(W_i-w_0)(Y_i-V_i\theta)^2,
 $$
 where $K_h(W_i-w_0)=K\left((W_i-w_0)/h\right)/h$, $V_i=\left(1, W_i, D_i, D_i(W_i-w_0)\right)$, and $e_3=(0,0,1,0)^{'}$.
 
-Among kernel-based estimators, the local linear estimator is widely used. @Calonico2014 show how to choose an optimal bandwidth and propose a bias-corrected local linear estimator with adjusted standard errors. Their method can be implemented using the `rdrobust` module. See <https://rdpackages.github.io/rdrobust> for details. This module can be installed by typing `pip install rdrobust` in a console. 
+Among kernel-based estimators, the local linear estimator is widely used for estimating $\tau$. @Calonico2014 show how to choose an optimal bandwidth and propose a bias-corrected local linear estimator with adjusted standard errors. Their method can be implemented using the `rdrobust` module. See <https://rdpackages.github.io/rdrobust> for details. This module can be installed by typing `pip install rdrobust` in a console. 
 
 ### Fuzzy regression discontinuity designs
 In the fuzzy RDD, the probability of treatment changes continuously with the running variable, except at the threshold $w_0$, where it exhibits a discontinuous jump. Let $p(w)=P(D=1|W=w)$ be the probability of treatment (the propensity score) given the running variable $W=w$. The fuzzy RDD requires that $p(w)$ is discontinuous at the threshold, i.e., $\lim_{w\downarrow w_0}p(w)\neq \lim_{w\uparrow w_0}p(w)$. 
