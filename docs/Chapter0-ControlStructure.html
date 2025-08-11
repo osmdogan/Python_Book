@@ -453,7 +453,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Table of Contents</h2>
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">3.1</span> Introduction</a></li>
@@ -503,7 +503,7 @@ window.Quarto = {
 <li>Control statements: <code>break</code> and <code>continue</code></li>
 <li>Exception handling: <code>try...except</code></li>
 </ul>
-<div id="3e5c1277" class="cell" data-execution_count="1">
+<div id="6115c000" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -526,7 +526,7 @@ window.Quarto = {
 <section id="conditional-statements" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="conditional-statements"><span class="header-section-number">3.2</span> Conditional statements</h2>
 <p>The structure of <code>if...elif...else</code> is as follows:</p>
-<div id="3b11b494" class="cell" data-execution_count="3">
+<div id="3b176401" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> logical_1:</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    Code to run <span class="cf">if</span> logical_1</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> logical_2:</span>
@@ -539,7 +539,7 @@ window.Quarto = {
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    Code to run <span class="cf">if</span> <span class="bu">all</span> previous logicals are false</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This structure allows us to execute the block of the code based on the conditions specified by the logical statements (<code>logical_1</code>, <code>logical_2</code>, and so on). If none of the logical statements are true, then the structure executes the code following the <code>else</code> statement. Consider the following interaction with Python:</p>
-<div id="f168cba4" class="cell" data-execution_count="4">
+<div id="3a47eeb3" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> y <span class="op">&lt;</span> <span class="dv">5</span>:</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    y <span class="op">+=</span> <span class="dv">1</span>  <span class="co"># equivalent to y=y+1</span></span>
@@ -551,7 +551,7 @@ window.Quarto = {
 </div>
 </div>
 <p>In the above example, since <code>y</code> is not less than 5, the code in the <code>else</code> block is executed, and <code>y</code> becomes 4. In the following example, the logical condition <code>x&gt;= 5</code> is true, so the code in the <code>elif</code> block is executed:</p>
-<div id="569de522" class="cell" data-execution_count="5">
+<div id="a0e97232" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">5</span>:</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> x <span class="op">+</span> <span class="dv">1</span>  <span class="co"># equivalent to x+=1</span></span>
@@ -568,13 +568,13 @@ window.Quarto = {
 <section id="loops" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="loops"><span class="header-section-number">3.3</span> Loops</h2>
 <p>The syntax for the <code>for</code> loop is as follows:</p>
-<div id="8cfec773" class="cell" data-execution_count="6">
+<div id="fbacc89b" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> iterable:</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    Code to run</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Here, <code>item</code> is called the loop index. It takes on each successive value in the <code>iterable</code>, and the code in the body is executed once for each value. An <code>iterable</code> can be any object that is iterable in Python. Common examples include <code>range</code>, <code>np.arange</code>, <code>list</code>, <code>tuple</code>, <code>array</code>, and <code>matrix</code>.</p>
 <p>In the following example, we use a <code>for</code> loop to sum the first 100 integers:</p>
-<div id="5bbbe180" class="cell" data-execution_count="7">
+<div id="ab331337" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">101</span>):</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    count <span class="op">+=</span> i  <span class="co"># equivalent to count += i</span></span>
@@ -588,7 +588,7 @@ window.Quarto = {
 </div>
 </div>
 <p>In the above example, <code>count</code> is initialized to 0, and then we iterate through the integers from 0 to 100 (inclusive) using <code>range(101)</code>. In each iteration, we add the current integer <code>i</code> to <code>count</code>. After the loop, <code>count</code> contains the sum of the first 100 integers. The result can also be verified using <code>np.sum(range(101))</code>.</p>
-<div id="d956f9ad" class="cell" data-execution_count="8">
+<div id="0bf1d368" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">500</span>, <span class="dv">50</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> x:</span>
@@ -602,7 +602,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Consider the following AR(2) model: <span class="math inline">\(y_t=\phi_1y_{t-1}+\phi_2y_{t-2}+\epsilon_t\)</span> for <span class="math inline">\(t=1,\dots,T\)</span>, where <span class="math inline">\(\phi_1 = 0.6\)</span>, <span class="math inline">\(\phi_2 = 0.2\)</span>, and <span class="math inline">\(\epsilon_t\sim N(0,1)\)</span>. In the following example, we use a <code>for</code> loop to simulate the sample path of this model. We first set the seed through <code>np.random.seed(42)</code> for reproducibility. We then set the parameters of the AR(2) model, initialize <code>y</code>, and generate the error term <code>epsilon</code>. Finally, we use a <code>for</code> loop to simulate the AR(2) process for <span class="math inline">\(t=2,\dots,T+1\)</span>:</p>
-<div id="784e9ec3" class="cell" data-execution_count="9">
+<div id="e7fca491" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set seed for reproducibility</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters for AR(2) model</span></span>
@@ -616,7 +616,7 @@ window.Quarto = {
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, T):</span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    y[t] <span class="op">=</span> phi_1 <span class="op">*</span> y[t <span class="op">-</span> <span class="dv">1</span>] <span class="op">+</span> phi_2 <span class="op">*</span> y[t <span class="op">-</span> <span class="dv">2</span>] <span class="op">+</span> epsilon[t]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In <a href="#fig-fig3.1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig3.1</span></a>, we provide the plot of the simulated <span class="math inline">\(y_t\)</span>.</p>
+<p>In <a href="#fig-fig3.1" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>, we provide the plot of the simulated <span class="math inline">\(y_t\)</span>.</p>
 <div>
 <div id="cell-fig-fig3.1" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot of y</span></span>
@@ -641,7 +641,7 @@ Figure&nbsp;3.1: The sample path of the AR(2) model using the for loop
 </div>
 </div>
 <p>A <code>for</code> loop can be nested inside another <code>for</code> loop, as illustrated in the following example:</p>
-<div id="3d05ba7e" class="cell" data-execution_count="12">
+<div id="15a0301b" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):  <span class="co"># nested for loop</span></span>
@@ -652,14 +652,14 @@ Figure&nbsp;3.1: The sample path of the AR(2) model using the for loop
 </div>
 </div>
 <p>The <code>while</code> loop executes as long as a specified condition is true. The syntax for the <code>while</code> loop as follows:</p>
-<div id="33dce238" class="cell" data-execution_count="14">
+<div id="8e295162" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> logical:</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    Code to run</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    Update logical</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This structure keeps executing the block of code as long as the <code>logical</code> condition remains true. Therefore, it is important to update the logical condition within the loop to eventually break out of it; otherwise, the loop will run indefinitely.</p>
 <p>In the following example, we use a <code>while</code> loop to sum the first 9 integers. Note that we initialize <code>count</code> to 0 and <code>i</code> to 1. The loop continues as long as <code>i</code> is less than 10, and in each iteration, we add <code>i</code> to <code>count</code> and increment <code>i</code> by 1:</p>
-<div id="8e23b624" class="cell" data-execution_count="15">
+<div id="2cb3b128" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">10</span>:</span>
@@ -671,7 +671,7 @@ Figure&nbsp;3.1: The sample path of the AR(2) model using the for loop
 </div>
 </div>
 <p>In the following example, we use a <code>while</code> loop to simulate the AR(2) model described above. We set the seed for reproducibility, initialize the parameters, and generate the error term <code>epsilon</code>. The loop runs from <code>t=2</code> to <code>T-1</code>, updating <code>y[t]</code> based on the AR(2) equation. Also, we update <code>t</code> in each iteration to ensure the loop eventually terminates:</p>
-<div id="18dd9fdd" class="cell" data-execution_count="16">
+<div id="335b6365" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set seed for reproducibility</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters for AR(2) model</span></span>
@@ -687,7 +687,7 @@ Figure&nbsp;3.1: The sample path of the AR(2) model using the for loop
 <span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    y[t] <span class="op">=</span> phi_1 <span class="op">*</span> y[t <span class="op">-</span> <span class="dv">1</span>] <span class="op">+</span> phi_2 <span class="op">*</span> y[t <span class="op">-</span> <span class="dv">2</span>] <span class="op">+</span> epsilon[t]</span>
 <span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    t <span class="op">+=</span> <span class="dv">1</span>  <span class="co"># Update logical condition</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The simulated sample path of the AR(2) model is shown in <a href="#fig-fig3.2" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig3.2</span></a>. Note that the sample path is the same as the one generated using the <code>for</code> loop in <a href="#fig-fig3.1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig3.1</span></a>.</p>
+<p>The simulated sample path of the AR(2) model is shown in <a href="#fig-fig3.2" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>. Note that the sample path is the same as the one generated using the <code>for</code> loop in <a href="#fig-fig3.1" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>.</p>
 <div>
 <div id="cell-fig-fig3.2" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot of y</span></span>
@@ -718,12 +718,12 @@ Figure&nbsp;3.2: The sample path of the AR(2) model using the while loop
 <section id="list-comprehensions" class="level3" data-number="3.4.1">
 <h3 data-number="3.4.1" class="anchored" data-anchor-id="list-comprehensions"><span class="header-section-number">3.4.1</span> List comprehensions</h3>
 <p>The syntax for the <code>list</code> comprehension is as follows:</p>
-<div id="591300ac" class="cell" data-execution_count="19">
+<div id="69927bef" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>output<span class="op">=</span>[expression <span class="cf">for</span> item <span class="kw">in</span> iterable <span class="cf">if</span> (item satisfies this condition)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Here, <code>expression</code> is the value to be included in the list, <code>item</code> is the loop index, and <code>iterable</code> is any iterable object. The <code>if</code> condition is optional and can be used to filter items based on a specific condition.</p>
 <p>In the following example, we use a <code>for</code> loop to compute the exponential of each element in an array <code>x</code>:</p>
-<div id="d48c7334" class="cell" data-execution_count="20">
+<div id="0daede32" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using a for loop</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="fl">3.0</span>)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> []</span>
@@ -735,7 +735,7 @@ Figure&nbsp;3.2: The sample path of the AR(2) model using the while loop
 </div>
 </div>
 <p>Instead of using a <code>for</code> loop, we can achieve the same result using a list comprehension as follows:</p>
-<div id="c9cad579" class="cell" data-execution_count="21">
+<div id="914356af" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using a list comprehension</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> [np.exp(x[i]) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(x))]</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -744,7 +744,7 @@ Figure&nbsp;3.2: The sample path of the AR(2) model using the while loop
 </div>
 </div>
 <p>In the following example, we use a <code>for</code> loop to compute the square of every second element in an array <code>x</code> and store the results in a list <code>y</code>. Instead of using a <code>for</code> loop, we can use a list comprehension to achieve the same result as shown in the following code chunk.</p>
-<div id="acfde3dd" class="cell" data-execution_count="22">
+<div id="d595c308" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using a for loop</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="fl">5.0</span>)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> []</span>
@@ -756,7 +756,7 @@ Figure&nbsp;3.2: The sample path of the AR(2) model using the while loop
 <pre><code>[0.0, 4.0, 16.0]</code></pre>
 </div>
 </div>
-<div id="ba3c5af2" class="cell" data-execution_count="23">
+<div id="f6e675d4" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using a list comprehension</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> [x[i] <span class="op">**</span> <span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(x)) <span class="cf">if</span> np.floor(i <span class="op">/</span> <span class="dv">2</span>) <span class="op">==</span> i <span class="op">/</span> <span class="dv">2</span>]</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -768,7 +768,7 @@ Figure&nbsp;3.2: The sample path of the AR(2) model using the while loop
 <section id="set-comprehensions" class="level3" data-number="3.4.2">
 <h3 data-number="3.4.2" class="anchored" data-anchor-id="set-comprehensions"><span class="header-section-number">3.4.2</span> Set comprehensions</h3>
 <p>Set comprehensions are like list comprehension but use <code>{}</code> instead of <code>[]</code>. Consider the following <code>for</code> loop example, which computes the square of each element in an array <code>x</code> and stores the results in a set <code>z</code>:</p>
-<div id="07e7ce23" class="cell" data-execution_count="24">
+<div id="40285a2e" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using a for loop</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="op">-</span><span class="fl">5.0</span>, <span class="fl">5.0</span>)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="bu">set</span>()</span>
@@ -780,7 +780,7 @@ Figure&nbsp;3.2: The sample path of the AR(2) model using the while loop
 </div>
 </div>
 <p>Instead of using a <code>for</code> loop, we can use a set comprehension to achieve the same result. A set comprehension is similar to a list comprehension but uses <code>{}</code> to create a set:</p>
-<div id="08f526fe" class="cell" data-execution_count="25">
+<div id="cd5f9a61" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using a set comprehension</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>z_set <span class="op">=</span> {x[i] <span class="op">**</span> <span class="fl">2.0</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(x))}</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>z_set</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -789,7 +789,7 @@ Figure&nbsp;3.2: The sample path of the AR(2) model using the while loop
 </div>
 </div>
 <p>In the following example, we have an <code>if</code> conditional nested inside a <code>for</code> loop:</p>
-<div id="a7028a8b" class="cell" data-execution_count="26">
+<div id="3a4310f1" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>input_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">7</span>]</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>set_comp <span class="op">=</span> {np.exp(var) <span class="cf">for</span> var <span class="kw">in</span> input_list <span class="cf">if</span> var <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>}</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>set_comp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -801,11 +801,11 @@ Figure&nbsp;3.2: The sample path of the AR(2) model using the while loop
 <section id="dictionary-comprehensions" class="level3" data-number="3.4.3">
 <h3 data-number="3.4.3" class="anchored" data-anchor-id="dictionary-comprehensions"><span class="header-section-number">3.4.3</span> Dictionary comprehensions</h3>
 <p>Dictionary comprehensions also use <code>{}</code>. The syntax of a dictionary comprehension is as follows:</p>
-<div id="f18e91a5" class="cell" data-execution_count="27">
+<div id="633def16" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>output <span class="op">=</span> {key:value <span class="cf">for</span> (key, value) <span class="kw">in</span> iterable <span class="cf">if</span> (key, value satisfy this condition)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In the following example, we use a <code>for</code> loop to create a dictionary <code>y</code> where the keys are odd numbers from 1 to 7, and the values are the cubes of those keys:</p>
-<div id="9424afd7" class="cell" data-execution_count="28">
+<div id="36726428" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>]</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> {var: var<span class="op">**</span><span class="dv">3</span> <span class="cf">for</span> var <span class="kw">in</span> x <span class="cf">if</span> var <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span>}</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -814,7 +814,7 @@ Figure&nbsp;3.2: The sample path of the AR(2) model using the while loop
 </div>
 </div>
 <p>In the following example, we use a <code>for</code> loop to create a dictionary <code>x</code> where the keys are the indices of an array <code>y</code>, and the values are the exponential of those indices:</p>
-<div id="46d1ac1e" class="cell" data-execution_count="29">
+<div id="ce28cf92" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using a for loop</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.arange(<span class="op">-</span><span class="fl">5.0</span>, <span class="fl">5.0</span>)</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> {}</span>
@@ -835,11 +835,11 @@ Figure&nbsp;3.2: The sample path of the AR(2) model using the while loop
 <section id="tuple-comprehension" class="level3" data-number="3.4.4">
 <h3 data-number="3.4.4" class="anchored" data-anchor-id="tuple-comprehension"><span class="header-section-number">3.4.4</span> Tuple comprehension</h3>
 <p>Tuple comprehensions use <code>tuple()</code> with the following syntax:</p>
-<div id="babdc47d" class="cell" data-execution_count="30">
+<div id="a14f061f" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>output <span class="op">=</span> <span class="bu">tuple</span>(expression <span class="cf">for</span> item <span class="kw">in</span> iterable <span class="cf">if</span> (item satisfies this condition))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In the following example, we use a <code>for</code> loop to compute the cube of each element in an array <code>x</code> and store the results in a list <code>z</code>. We then use a tuple comprehension to achieve the same result:</p>
-<div id="68fb47e0" class="cell" data-execution_count="31">
+<div id="574921f3" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using a for loop</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="op">-</span><span class="fl">5.0</span>, <span class="fl">5.0</span>)</span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> []</span>
@@ -850,7 +850,7 @@ Figure&nbsp;3.2: The sample path of the AR(2) model using the while loop
 <pre><code>[-125.0, -64.0, -27.0, -8.0, -1.0, 0.0, 1.0, 8.0, 27.0, 64.0]</code></pre>
 </div>
 </div>
-<div id="dd620367" class="cell" data-execution_count="32">
+<div id="021474af" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using a tuple comprehension</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>z_tuple <span class="op">=</span> <span class="bu">tuple</span>(i<span class="op">**</span><span class="dv">3</span> <span class="cf">for</span> i <span class="kw">in</span> x)</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>z_tuple</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -864,7 +864,7 @@ Figure&nbsp;3.2: The sample path of the AR(2) model using the while loop
 <h2 data-number="3.5" class="anchored" data-anchor-id="control-statements-break-and-continue"><span class="header-section-number">3.5</span> Control statements: <code>break</code> and <code>continue</code></h2>
 <p>These statements can be used inside control structures for terminating or skipping certain iterations. The <code>break</code> statement is used when we want to end the loop if a condition is satisfied. If we want to skip specific iterations, we can use the <code>continue</code> statement.</p>
 <p>In the following example, we use a <code>for</code> loop to print numbers from 0 to 9. However, the loop ends when <code>i</code> equals 3 due to the <code>break</code> statement; as a result, it only prints the numbers 0, 1, and 2.</p>
-<div id="8d97b48c" class="cell" data-execution_count="33">
+<div id="3fd007e8" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span>  <span class="co"># Loop ends when i equals 3</span></span>
@@ -876,7 +876,7 @@ Figure&nbsp;3.2: The sample path of the AR(2) model using the while loop
 </div>
 </div>
 <p>In the following example, we use a <code>for</code> loop to print numbers from 0 to 5. However, the <code>continue</code> statement skips the even numbers, so only the odd numbers (1, 3, and 5) are printed:</p>
-<div id="19672d76" class="cell" data-execution_count="34">
+<div id="0940857c" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>):</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span>  <span class="co"># Skips even numbers</span></span>
@@ -892,7 +892,7 @@ Figure&nbsp;3.2: The sample path of the AR(2) model using the while loop
 <h2 data-number="3.6" class="anchored" data-anchor-id="exception-handling"><span class="header-section-number">3.6</span> Exception handling</h2>
 <p>The <code>try...except</code> structure can be used to handle errors and exceptions. For more information, see the <a href="https://docs.python.org/3/tutorial/errors.html">Errors and Exceptions</a> section in the documentation.</p>
 <p>In the following example, we attempt to divide a number by zero, which raises a <code>ZeroDivisionError</code>. The <code>except</code> block catches this error and prints a message:</p>
-<div id="cc16ce6c" class="cell" data-execution_count="35">
+<div id="e3fdc68a" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> x <span class="op">/</span> <span class="dv">0</span></span>
