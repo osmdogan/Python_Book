@@ -751,7 +751,7 @@ plt.show()
 
 ## Regression discontinuity designs
 Another example of quasi-experimental methods is the regression discontinuity design (RDD). In an RDD, the treatment and control groups are formed when a continuous variable $W$, known as the running variable, crosses a threshold $w_0$
-(the cutoff level). The main idea of the RDD is that units with running variable values near the threshold are comparable in terms of characteristics, except for the receipt of treatment.
+(the cutoff level). The main idea of the RDD is that units with running variable values near the threshold are comparable in terms of characteristics, except for the receipt of treatment (@Cattaneo2022).
 
 ::: {#exm-ex20.5}
 ## The effect of attending summer school on the next year's GPA
@@ -804,7 +804,7 @@ In both sharp and fuzzy designs, we first state the assumptions required to iden
 ### Sharp regression discontinuity design
 Let $D$ be the treatment indicator defined by $D=\mathbf{1}(W\geq w_0)$, where $\mathbf{1}(\cdot)$ is the indicator function. Thus, the $i$th unit is treated if its running value is above the treshold value, i.e., $D_i=1$ if $W_i\geq w_0$. We assume that the observed data $\{(Y_i,W_i)\}_{i=1}^n$ constitute a realization of an i.i.d sample from the distribution of $(Y,W)$.
 
-We assume the following assumption for the identification of $\tau$ (@Victor2024, @Hansen2022, @Wooldridge2025).
+We assume the following assumption for the identification of $\tau$ (@Cattaneo2022, @Victor2024, @Hansen2022, @Wooldridge2025).
 
 ::: {.callout-important icon=false title="Identification Assumption for the Sharp RDD"}
 1. Continuity assumption: $\E[Y_i(1)|W_i=w]$ and $\E[Y_i(0)|W_i=w]$ are continuous at the threshold $w_0$.
@@ -910,7 +910,7 @@ The identification of $\tau$ in the fuzzy RDD requires the following assumptions
 :::
 :::
 
-The first assumption is the continuity assumption from the sharp RDD. The second assumption states that the probability of treatment is discontinuous at the threshold $w_0$. We illustrate this assumption in @fig-f20.6 by assuming that the probability of treatment increases with the running variable. The figure shows that the probability of treatment jumps to 0.6 at the threshold $w_0$. This contrasts with the sharp RDD, in which the probability of treatment is 0 below the threshold and 1 above it.
+The first assumption is the continuity assumption from the sharp RDD. The second assumption states that the probability of treatment is discontinuous at the threshold $w_0$. We illustrate this assumption in @fig-f20.6 by assuming that the probability of treatment increases with the running variable. The figure shows that the probability of treatment jumps to 0.6 at the threshold $w_0$. This contrasts with the sharp RDD, in which the probability of treatment is 0 below the threshold and 1 above it, i.e., $p(w)=0$ if $w<w_0$ and $p(w)=1$ if $w\geq w_0$.
 
 ```{python}
 #| fig-cap: The probability of treatment in the fuzzy RDD
