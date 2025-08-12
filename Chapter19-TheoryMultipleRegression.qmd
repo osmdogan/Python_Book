@@ -176,7 +176,7 @@ $$
 \frac{\partial\mathcal{S}(\bs{b})}{\partial\bs{b}}=-2\bs{X}^{'}\bs{Y}+2\bs{X}^{'}\bs{X}\bs{b}=\bs{0}.
 \end{align}
 $${#eq-eq26-5}
-We can solve @eq-eq26-5 for $\bs{b}$ if $\bs{X}^{'}\bs{X}$ is invertible. Since $\bs{X}$ is full column rank by Assumption 4, $\bs{X}^{'}\bs{X}$ is invertible and we can derive the OLS estimator as
+We can solve @eq-eq26-5 for $\bs{b}$ if $\bs{X}^{'}\bs{X}$ is invertible. Since $\bs{X}$ has full column rank by Assumption 4, $\bs{X}^{'}\bs{X}$ is invertible and we can derive the OLS estimator as
 $$
 \begin{align}
 \hat{\bs{\beta}}=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{Y}.
@@ -255,23 +255,23 @@ $$
 $$
 where the second equality follows from the fact that $\bs{l}^{'}_n\hat{\bs{U}}=0$.
 
-We close this section by defining two useful matrices. From the definition of the least squares residuals, we have the following equation:
+We close this section by defining two useful projection matrices. From the definition of the least squares residuals, we have the following equation:
 $$
 \begin{align*}
 \hat{\bs{U}}&=\bs{Y}-\bs{X}\hat{\bs{\beta}}=\bs{Y}-\bs{X}(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{Y}\\
 &=\left(\bs{I}_n-\bs{X}(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\right)\bs{Y}=\bs{M}_{\bs{X}}\bs{Y},
 \end{align*}
 $$
-where $\bs{M}_{\bs{X}}=\left(\bs{I}_n-\bs{X}(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\right)$. This matrix is called the residual maker matrix or projection matrix. The residual maker matrix is symmetric and idempotent, i.e., $\bs{M}_{\bs{X}}^{'}=\bs{M}_{\bs{X}}$ and $\bs{M}^{2}_{\bs{X}}=\bs{M}_{\bs{X}}$. 
+where $\bs{M}_{\bs{X}}=\left(\bs{I}_n-\bs{X}(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\right)$. This matrix is also called the residual maker matrix or annihilator matrix. It is symmetric and idempotent, i.e., $\bs{M}_{\bs{X}}^{'}=\bs{M}_{\bs{X}}$ and $\bs{M}^{2}_{\bs{X}}=\bs{M}_{\bs{X}}$. 
 
-There is another projection matrix that produces the fitted values $\hat{\bs{Y}}$ from the actual values $\bs{Y}$. To see this, note that
+There is another projection matrix that produces the fitted values $\hat{\bs{Y}}$ from the actual values. To see this, note that
 $$
 \begin{align*}
 \hat{\bs{Y}}&=\bs{Y}-\hat{\bs{U}}=\bs{Y}-\bs{M}_{\bs{X}}\bs{Y}=\big(\bs{I}_n-\bs{I}_n+\bs{X}(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\big)\bs{Y}\\
 &=\bs{X}(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{Y}=\bs{P}_{\bs{X}}\bs{Y},
 \end{align*}
 $$
-where $\bs{P}_{\bs{X}}=\bs{X}(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}$ is the projection matrix. This matrix is also symmetric and idempotent.
+where $\bs{P}_{\bs{X}}=\bs{X}(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}$. This matrix is also symmetric and idempotent.
 
 Note that $\bs{P}_{\bs{X}}\bs{X}=\bs{X}$, $\bs{M}_{\bs{X}}\bs{X}=\bs{0}$, and $\bs{P}_{\bs{X}}\bs{M}_{\bs{X}}=\bs{0}$. Using $\bs{M}_{\bs{X}}$ and $\bs{P}_{\bs{X}}$, we can derive the following useful results.
 

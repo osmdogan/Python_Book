@@ -516,7 +516,7 @@ window.Quarto = {
 </header>
 
 
-<div id="a3bf51af" class="cell" data-execution_count="1">
+<div id="5fb8a954" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -688,7 +688,7 @@ u_n
 \begin{align}
 \frac{\partial\mathcal{S}(\bs{b})}{\partial\bs{b}}=-2\bs{X}^{'}\bs{Y}+2\bs{X}^{'}\bs{X}\bs{b}=\bs{0}.
 \end{align}
-\tag{26.5}\]</span></span> We can solve <a href="#eq-eq26-5" class="quarto-xref">Equation&nbsp;<span>26.5</span></a> for <span class="math inline">\(\bs{b}\)</span> if <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> is invertible. Since <span class="math inline">\(\bs{X}\)</span> is full column rank by Assumption 4, <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> is invertible and we can derive the OLS estimator as <span id="eq-eq26-6"><span class="math display">\[
+\tag{26.5}\]</span></span> We can solve <a href="#eq-eq26-5" class="quarto-xref">Equation&nbsp;<span>26.5</span></a> for <span class="math inline">\(\bs{b}\)</span> if <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> is invertible. Since <span class="math inline">\(\bs{X}\)</span> has full column rank by Assumption 4, <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> is invertible and we can derive the OLS estimator as <span id="eq-eq26-6"><span class="math display">\[
 \begin{align}
 \hat{\bs{\beta}}=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{Y}.
 \end{align}
@@ -749,18 +749,18 @@ u_n
 &amp;=\frac{1}{n}\bs{l}^{'}_n\big(\bs{X}\hat{\bs{\beta}}+\hat{\bs{U}}\big)=\frac{1}{n}\bs{l}^{'}_n\bs{Y}=\bar{\bs{Y}},
 \end{align*}
 \]</span> where the second equality follows from the fact that <span class="math inline">\(\bs{l}^{'}_n\hat{\bs{U}}=0\)</span>.</p>
-<p>We close this section by defining two useful matrices. From the definition of the least squares residuals, we have the following equation: <span class="math display">\[
+<p>We close this section by defining two useful projection matrices. From the definition of the least squares residuals, we have the following equation: <span class="math display">\[
 \begin{align*}
 \hat{\bs{U}}&amp;=\bs{Y}-\bs{X}\hat{\bs{\beta}}=\bs{Y}-\bs{X}(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{Y}\\
 &amp;=\left(\bs{I}_n-\bs{X}(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\right)\bs{Y}=\bs{M}_{\bs{X}}\bs{Y},
 \end{align*}
-\]</span> where <span class="math inline">\(\bs{M}_{\bs{X}}=\left(\bs{I}_n-\bs{X}(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\right)\)</span>. This matrix is called the residual maker matrix or projection matrix. The residual maker matrix is symmetric and idempotent, i.e., <span class="math inline">\(\bs{M}_{\bs{X}}^{'}=\bs{M}_{\bs{X}}\)</span> and <span class="math inline">\(\bs{M}^{2}_{\bs{X}}=\bs{M}_{\bs{X}}\)</span>.</p>
-<p>There is another projection matrix that produces the fitted values <span class="math inline">\(\hat{\bs{Y}}\)</span> from the actual values <span class="math inline">\(\bs{Y}\)</span>. To see this, note that <span class="math display">\[
+\]</span> where <span class="math inline">\(\bs{M}_{\bs{X}}=\left(\bs{I}_n-\bs{X}(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\right)\)</span>. This matrix is also called the residual maker matrix or annihilator matrix. It is symmetric and idempotent, i.e., <span class="math inline">\(\bs{M}_{\bs{X}}^{'}=\bs{M}_{\bs{X}}\)</span> and <span class="math inline">\(\bs{M}^{2}_{\bs{X}}=\bs{M}_{\bs{X}}\)</span>.</p>
+<p>There is another projection matrix that produces the fitted values <span class="math inline">\(\hat{\bs{Y}}\)</span> from the actual values. To see this, note that <span class="math display">\[
 \begin{align*}
 \hat{\bs{Y}}&amp;=\bs{Y}-\hat{\bs{U}}=\bs{Y}-\bs{M}_{\bs{X}}\bs{Y}=\big(\bs{I}_n-\bs{I}_n+\bs{X}(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\big)\bs{Y}\\
 &amp;=\bs{X}(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{Y}=\bs{P}_{\bs{X}}\bs{Y},
 \end{align*}
-\]</span> where <span class="math inline">\(\bs{P}_{\bs{X}}=\bs{X}(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\)</span> is the projection matrix. This matrix is also symmetric and idempotent.</p>
+\]</span> where <span class="math inline">\(\bs{P}_{\bs{X}}=\bs{X}(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\)</span>. This matrix is also symmetric and idempotent.</p>
 <p>Note that <span class="math inline">\(\bs{P}_{\bs{X}}\bs{X}=\bs{X}\)</span>, <span class="math inline">\(\bs{M}_{\bs{X}}\bs{X}=\bs{0}\)</span>, and <span class="math inline">\(\bs{P}_{\bs{X}}\bs{M}_{\bs{X}}=\bs{0}\)</span>. Using <span class="math inline">\(\bs{M}_{\bs{X}}\)</span> and <span class="math inline">\(\bs{P}_{\bs{X}}\)</span>, we can derive the following useful results.</p>
 <ul>
 <li><p>We can decompose <span class="math inline">\(\bs{Y}\)</span> as <span class="math inline">\(\bs{Y}=\bs{X}\hat{\bs{\beta}}+\hat{\bs{U}}=\bs{P}_{\bs{X}}\bs{Y}+\bs{M}_{\bs{X}}\bs{Y}\)</span>. In this decomposition, <span class="math inline">\(\bs{P}_{\bs{X}}\bs{Y}\)</span> is the projection of <span class="math inline">\(\bs{Y}\)</span> onto the space spanned by the columns of <span class="math inline">\(\bs{X}\)</span>, and <span class="math inline">\(\bs{M}_{\bs{X}}\bs{Y}\)</span> is the projection of <span class="math inline">\(\bs{Y}\)</span> onto the orthogonal complement of the column space of <span class="math inline">\(\bs{X}\)</span>. The two projections are orthogonal to each other because <span class="math inline">\(\bs{P}_{\bs{X}}\bs{M}_{\bs{X}}=\bs{0}\)</span>. Thus, the predicted values <span class="math inline">\(\hat{\bs{Y}}\)</span> and the residuals <span class="math inline">\(\hat{\bs{U}}\)</span> are orthogonal to each other, i.e., <span class="math inline">\(\hat{\bs{Y}}^{'}\hat{\bs{U}}=\bs{0}\)</span>.</p></li>

@@ -573,7 +573,7 @@ $$
 
 ## Rank of a matrix
 
-The **rank** of a matrix $\bs{A}_{m\times n}$ is the maximum number of linearly independent columns or rows in $\bs{A}$. The rank of a matrix is denoted by $\text{rank}(\bs{A})$. If $\text{rank}(\bs{A})=n$, then the matrix is said to be **full rank**. 
+The **rank** of a matrix $\bs{A}_{m\times n}$ is the maximum number of linearly independent columns or rows in $\bs{A}$. The rank of a matrix is denoted by $\text{rank}(\bs{A})$. If $\text{rank}(\bs{A})=n$, then the matrix is said to have **full column rank**. 
 
 ::: {.callout-note icon=false}
 ## Properties of rank
@@ -614,7 +614,7 @@ $$
 \bs{X}^{'}\bs{X} = \sum_{i=1}^{n} \bs{x}_i\bs{x}^{'}_i.
 \end{align}
 $$
-Since $\text{rank}(\bs{x}_i\bs{x}^{'}_i)=1$ by @exm-rank0, $\bs{X}^{'}\bs{X}$ is the sum of $n$ $k\times k$ matrices, each of which has rank $1$. Hence, $\bs{X}^{'}\bs{X}$ can be full rank. 
+Since $\text{rank}(\bs{x}_i\bs{x}^{'}_i)=1$ by @exm-rank0, $\bs{X}^{'}\bs{X}$ is the sum of $n$ matrices, each of which has rank $1$.
 :::
 :::
 
