@@ -901,15 +901,18 @@ In the fuzzy RDD, the probability of treatment changes continuously with the run
 
 The identification of $\tau$ in the fuzzy RDD requires the following assumptions (@Hansen2022, @Wooldridge2025).
 
-:::{}
+:::
+:::
 ::: {.callout-important icon=false title="Identification Assumption for the Sharp RDD"}
 1. Continuity assumption: $\E[Y_i(1)|W_i=w]$ and $\E[Y_i(0)|W_i=w]$ are continuous at the threshold $w_0$.
 2. Discontinuity assumption: $\lim_{w\downarrow w_0}p(w)\neq \lim_{w\uparrow w_0}p(w)$
 3. No selection on gain assumption: $\E[Y_i(1)-Y_i(0)|D_i,W_i=w]=\E[Y_i(1)-Y_i(0)|W_i=w]$ for all $w\in(w_0-\epsilon,w_0+\epsilon)$ with some $\epsilon>0$. 
 :::
 :::
+:::
 
 The first assumption is the continuity assumption from the sharp RDD. The second assumption states that the probability of treatment is discontinuous at the threshold $w_0$. We illustrate this assumption in @fig-f20.6 by assuming that the probability of treatment increases with the running variable. The figure shows that the probability of treatment jumps to 0.6 at the threshold $w_0$. This contrasts with the sharp RDD, in which the probability of treatment is 0 below the threshold and 1 above it, i.e., $p(w)=0$ if $w<w_0$ and $p(w)=1$ if $w\geq w_0$.
+
 
 ```{python}
 #| fig-cap: The probability of treatment in the fuzzy RDD
@@ -995,7 +998,8 @@ rdd_result = rdrobust(x=W, y=Y, c=59.1984)
 print(rdd_result)
 ```
 
-We can use the `rdplot()` function to generate the fitted polynomials along with sample averages of outcome variable within each bin as shown in the following figure. The jump in the figure at the cutoff $w_0=59.1984$ indicates that the treatment effect is evident.
+In RDD studies, it is common to use plots to assess whether the discontinuity in the outcome variable at the cutoff is unusual. These plots display $\E(Y \mid W = w)$ as a function of $w$ on either side of the cutoff. Typically, $\E(Y \mid W = w)$ is estimated using a fourth-degree polynomial. The `rdrobust` module provides the `rdplot` function, which generates the fitted polynomials evaluated at the midpoint of each bin. The jump in the following figure at the cutoff $w_0 = 59.1984$ indicates that the treatment effect is evident in this application.
+
 
 ```{python} 
 rdplot(y=Y, x=W,
