@@ -516,7 +516,7 @@ window.Quarto = {
 </header>
 
 
-<div id="b93690ce" class="cell" data-execution_count="1">
+<div id="ef11c287" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -679,23 +679,23 @@ u_n
 \bs{U}|\bs{X}\sim N(\bs{0},\sigma^2_u\bs{I}_n).
 \end{align}
 \]</span></p>
-<p>The OLS estimator minimizes the sum of squared prediction errors <span class="math inline">\(\sum_{i=1}^n(Y_i-\bs{X}^{'}_i\bs{\beta})^{2}\)</span>. Thus, the OLS estimator is defined by <span id="eq-eq26-4"><span class="math display">\[
+<p>The OLS estimator minimizes the sum of squared prediction errors <span class="math inline">\(\sum_{i=1}^n(Y_i-\bs{X}^{'}_i\bs{b})^{2}\)</span>, where <span class="math inline">\(\bs{b}\)</span> is a <span class="math inline">\((k+1)\times1\)</span> vector of coefficients. Thus, the OLS estimator is defined by <span id="eq-eq26-4"><span class="math display">\[
 \begin{align}
-\hat{\bs{\beta}}=\argmin_{\bs{\beta}}\;\sum_{i=1}^n(Y_i-\bs{X}^{'}_i\bs{\beta})^{2}=\argmin_{\bs{\beta}}\;(\bs{Y}-\bs{X}\bs{\beta})^{'}(\bs{Y}-\bs{X}\bs{\beta}).
+\hat{\bs{\beta}}=\argmin_{\bs{b}}\;\sum_{i=1}^n(Y_i-\bs{X}^{'}_i\bs{b})^{2}=\argmin_{\bs{b}}\;(\bs{Y}-\bs{X}\bs{b})^{'}(\bs{Y}-\bs{X}\bs{b}).
 \end{align}
 \tag{26.4}\]</span></span></p>
-<p>Let <span class="math inline">\(\mathcal{S}(\bs{\beta})\)</span> denote <span class="math inline">\((\bs{Y}-\bs{X}\bs{\beta})^{'}(\bs{Y}-\bs{X}\bs{\beta})\)</span>. The first-order condition for a minimum is <span id="eq-eq26-5"><span class="math display">\[
+<p>Let <span class="math inline">\(\mathcal{S}(\bs{b})=(\bs{Y}-\bs{X}\bs{b})^{'}(\bs{Y}-\bs{X}\bs{b})\)</span>. The first-order condition for a minimum is <span id="eq-eq26-5"><span class="math display">\[
 \begin{align}
-\frac{\partial\mathcal{S}(\bs{\beta})}{\partial\bs{\beta}}=-2\bs{X}^{'}\bs{Y}+2\bs{X}^{'}\bs{X}\bs{\beta}=\bs{0}.
+\frac{\partial\mathcal{S}(\bs{b})}{\partial\bs{b}}=-2\bs{X}^{'}\bs{Y}+2\bs{X}^{'}\bs{X}\bs{b}=\bs{0}.
 \end{align}
-\tag{26.5}\]</span></span> We can solve <a href="#eq-eq26-5" class="quarto-xref">Equation&nbsp;<span>26.5</span></a> for <span class="math inline">\(\bs{\beta}\)</span> if <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> is invertible. Since <span class="math inline">\(\bs{X}\)</span> is full column rank by Assumption 4, <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> is invertible and we can derive the OLS estimator as <span id="eq-eq26-6"><span class="math display">\[
+\tag{26.5}\]</span></span> We can solve <a href="#eq-eq26-5" class="quarto-xref">Equation&nbsp;<span>26.5</span></a> for <span class="math inline">\(\bs{b}\)</span> if <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> is invertible. Since <span class="math inline">\(\bs{X}\)</span> is full column rank by Assumption 4, <span class="math inline">\(\bs{X}^{'}\bs{X}\)</span> is invertible and we can derive the OLS estimator as <span id="eq-eq26-6"><span class="math display">\[
 \begin{align}
 \hat{\bs{\beta}}=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{Y}.
 \end{align}
 \tag{26.6}\]</span></span></p>
-<p>To see that this solution is the global minimum, we need to show that <span class="math inline">\(\mathcal{S}(\bs{\beta})\)</span> is strictly convex. To that end, it suffices to show that the matrix of second-order derivatives (the Hessian matrix) is positive definite. The Hessian matrix is given by <span id="eq-eq26-7"><span class="math display">\[
+<p>To see that this solution is the global minimum, we need to show that <span class="math inline">\(\mathcal{S}(\bs{b})\)</span> is strictly convex. To that end, it suffices to show that the matrix of second-order derivatives (the Hessian matrix) is positive definite. The Hessian matrix is given by <span id="eq-eq26-7"><span class="math display">\[
 \begin{align}
-\frac{\partial^2\mathcal{S}(\bs{\beta})}{\partial\bs{\beta}\partial\bs{\beta}^{'}} = 2\bs{X}^{'}\bs{X},
+\frac{\partial^2\mathcal{S}(\bs{b})}{\partial\bs{b}\partial\bs{b}^{'}} = 2\bs{X}^{'}\bs{X},
 \end{align}
 \tag{26.7}\]</span></span> which must be positive definite. Let <span class="math inline">\(\bs{c}\)</span> be an arbitrary <span class="math inline">\((k+1)\times 1\)</span> nonzero vector, and define <span class="math inline">\(\bs{v}=\bs{X}\bs{c}\)</span>. Then, <span class="math display">\[
 \begin{align}

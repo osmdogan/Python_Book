@@ -163,30 +163,30 @@ $$
 \end{align}
 $$
 
-The OLS estimator minimizes the sum of squared prediction errors $\sum_{i=1}^n(Y_i-\bs{X}^{'}_i\bs{\beta})^{2}$. Thus, the OLS estimator is defined by
+The OLS estimator minimizes the sum of squared prediction errors $\sum_{i=1}^n(Y_i-\bs{X}^{'}_i\bs{b})^{2}$, where $\bs{b}$ is a $(k+1)\times1$ vector of coefficients. Thus, the OLS estimator is defined by
 $$
 \begin{align}
-\hat{\bs{\beta}}=\argmin_{\bs{\beta}}\;\sum_{i=1}^n(Y_i-\bs{X}^{'}_i\bs{\beta})^{2}=\argmin_{\bs{\beta}}\;(\bs{Y}-\bs{X}\bs{\beta})^{'}(\bs{Y}-\bs{X}\bs{\beta}).
+\hat{\bs{\beta}}=\argmin_{\bs{b}}\;\sum_{i=1}^n(Y_i-\bs{X}^{'}_i\bs{b})^{2}=\argmin_{\bs{b}}\;(\bs{Y}-\bs{X}\bs{b})^{'}(\bs{Y}-\bs{X}\bs{b}).
 \end{align}
 $${#eq-eq26-4}
 
-Let $\mathcal{S}(\bs{\beta})$ denote $(\bs{Y}-\bs{X}\bs{\beta})^{'}(\bs{Y}-\bs{X}\bs{\beta})$. The first-order condition for a minimum is
+Let $\mathcal{S}(\bs{b})=(\bs{Y}-\bs{X}\bs{b})^{'}(\bs{Y}-\bs{X}\bs{b})$. The first-order condition for a minimum is
 $$
 \begin{align}
-\frac{\partial\mathcal{S}(\bs{\beta})}{\partial\bs{\beta}}=-2\bs{X}^{'}\bs{Y}+2\bs{X}^{'}\bs{X}\bs{\beta}=\bs{0}.
+\frac{\partial\mathcal{S}(\bs{b})}{\partial\bs{b}}=-2\bs{X}^{'}\bs{Y}+2\bs{X}^{'}\bs{X}\bs{b}=\bs{0}.
 \end{align}
 $${#eq-eq26-5}
-We can solve @eq-eq26-5 for $\bs{\beta}$ if $\bs{X}^{'}\bs{X}$ is invertible. Since $\bs{X}$ is full column rank by Assumption 4, $\bs{X}^{'}\bs{X}$ is invertible and we can derive the OLS estimator as
+We can solve @eq-eq26-5 for $\bs{b}$ if $\bs{X}^{'}\bs{X}$ is invertible. Since $\bs{X}$ is full column rank by Assumption 4, $\bs{X}^{'}\bs{X}$ is invertible and we can derive the OLS estimator as
 $$
 \begin{align}
 \hat{\bs{\beta}}=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{Y}.
 \end{align}
 $${#eq-eq26-6}
 
-To see that this solution is the global minimum, we need to show that $\mathcal{S}(\bs{\beta})$ is strictly convex. To that end, it suffices to show that the matrix of second-order derivatives (the Hessian matrix) is positive definite. The Hessian matrix is given by
+To see that this solution is the global minimum, we need to show that $\mathcal{S}(\bs{b})$ is strictly convex. To that end, it suffices to show that the matrix of second-order derivatives (the Hessian matrix) is positive definite. The Hessian matrix is given by
 $$
 \begin{align}
-\frac{\partial^2\mathcal{S}(\bs{\beta})}{\partial\bs{\beta}\partial\bs{\beta}^{'}} = 2\bs{X}^{'}\bs{X},
+\frac{\partial^2\mathcal{S}(\bs{b})}{\partial\bs{b}\partial\bs{b}^{'}} = 2\bs{X}^{'}\bs{X},
 \end{align}
 $${#eq-eq26-7}
 which must be positive definite. Let $\bs{c}$ be an arbitrary $(k+1)\times 1$ nonzero vector, and define $\bs{v}=\bs{X}\bs{c}$. Then,
