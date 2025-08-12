@@ -22,7 +22,7 @@ InteractiveShell.ast_node_interactivity = "all"
 In this appendix, we introduce some topics from linear algebra, vector calculus, and random vectors that are essential for econometric analysis. Our treatment of these topics is not exhaustive, and we refer the reader to @Abadir2005 and @Strang2023 for a more detailed treatment.
 
 ## Vectors
-A **vector** is a one-dimensional array of numbers. We use lowercase bold symbols such as $\bs{x}$, $\bs{a}$, or $\bs{b}$ to represent vectors. Let $\bs{x}$ be $n \times 1$ column vector and $\bs{y}$ be the $1 \times n$ row vector. We denote these vectors as
+A **vector** is a one-dimensional array of numbers. We use lowercase bold symbols such as $\bs{x}$, $\bs{a}$, or $\bs{b}$ to represent vectors. Let $\bs{x}$ be an $n \times 1$ column vector and $\bs{y}$ be a $1 \times n$ row vector. We denote these vectors as
 
 $$
 \begin{align}
@@ -180,7 +180,7 @@ x_{n1} & x_{n2} & \ldots & x_{nk}
 \end{pmatrix},
 \end{align*}
 $$
-where $x_{ij}$ is the element in the $i$th row and $j$th column of the matrix. The order of the matrix is $n\times k$. If $n = k$, the matrix is a **square matrix**; if $n = 1$, the matrix is a $1\times k$ row vector; and if $k = 1$, the matrix is a $n\times1$ column vector. 
+where $x_{ij}$ is the element in the $i$th row and $j$th column of the matrix. The order of the matrix is $n\times k$. If $n = k$, the matrix is a **square matrix**; if $n = 1$, the matrix is a $1\times k$ row vector; and if $k = 1$, the matrix is an $n\times1$ column vector. 
 
 A square matrix is called a **diagonal matrix** if all the off-diagonal elements are zero. The **identity matrix** is a diagonal matrix with all the diagonal elements equal to 1. We use $\bs{I}_n$ to denote the $n \times n$ identity matrix:
 
