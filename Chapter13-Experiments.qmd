@@ -12,6 +12,7 @@ from linearmodels.panel import PanelOLS
 from rdrobust import rdrobust,rdbwselect,rdplot
 from warnings import simplefilter
 simplefilter(action="ignore")
+sns.set(style='darkgrid')
 ```
 
 {{< include latex_macro.qmd >}}
@@ -408,7 +409,6 @@ The DiD approach is based on the assumption that, on average, the treatment and 
 #| label: fig-f20.2
 # The DiD estimator
 # Create a figure and axis object
-sns.set(style='darkgrid')
 fig, ax = plt.subplots(figsize=(7, 5))
 # Plot scatter points
 ax.scatter([0, 1], [20, 30], color='steelblue', s=40, label='Control Group')
@@ -736,6 +736,7 @@ Finally, we plot the event study estimates and confidence intervals. The plot is
 #| message: false
 #| fig-cap: The pre- and post-treatment estimates of the ATT parameter
 #| label: fig-fig-f20.3
+# The event study plot
 plt.figure(figsize=(6, 4))
 plt.plot(xax, theta, 'bo-', label='Estimates', color='steelblue')
 plt.errorbar(xax, theta, yerr=[theta - thetal, thetau - theta], fmt='o', color='steelblue', capsize=5)
@@ -815,7 +816,6 @@ The continuity assumption states that the conditional means of potential outcome
 #| fig-cap: The conditional mean functions of potential outcomes
 #| label: fig-f20.4-4
 # Conditional means of potential outcomes
-sns.set(style='darkgrid')
 # Create the x values
 x1 = np.arange(0, 1.01, 0.01)
 x2 = np.arange(1, 2.51, 0.01)
