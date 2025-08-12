@@ -806,7 +806,7 @@ Let $D$ be the treatment indicator defined by $D=\mathbf{1}(W\geq w_0)$, where $
 We assume the following assumption for the identification of $\tau$ (@Cattaneo2022, @Victor2024, @Hansen2022, @Wooldridge2025).
 
 ::: {.callout-important icon=false title="Identification Assumption for the Sharp RDD"}
-1. Continuity assumption: $\E[Y_i(1)|W_i=w]$ and $\E[Y_i(0)|W_i=w]$ are continuous at the threshold $w_0$.
+Continuity assumption: $\E[Y_i(1)|W_i=w]$ and $\E[Y_i(0)|W_i=w]$ are continuous at the threshold $w_0$.
 :::
 
 The continuity assumption states that the conditional means of potential outcomes are continuous at $w_0$. This assumption holds if the conditional means are continuous functions of the running variable, as illustrated in @fig-f20.4. 
@@ -901,14 +901,10 @@ In the fuzzy RDD, the probability of treatment changes continuously with the run
 
 The identification of $\tau$ in the fuzzy RDD requires the following assumptions (@Hansen2022, @Wooldridge2025).
 
-:::
-:::
-::: {.callout-important icon=false title="Identification Assumption for the Sharp RDD"}
+::: {.callout-important icon=false title="Identification Assumptions for the fuzzy RDD"}
 1. Continuity assumption: $\E[Y_i(1)|W_i=w]$ and $\E[Y_i(0)|W_i=w]$ are continuous at the threshold $w_0$.
 2. Discontinuity assumption: $\lim_{w\downarrow w_0}p(w)\neq \lim_{w\uparrow w_0}p(w)$
 3. No selection on gain assumption: $\E[Y_i(1)-Y_i(0)|D_i,W_i=w]=\E[Y_i(1)-Y_i(0)|W_i=w]$ for all $w\in(w_0-\epsilon,w_0+\epsilon)$ with some $\epsilon>0$. 
-:::
-:::
 :::
 
 The first assumption is the continuity assumption from the sharp RDD. The second assumption states that the probability of treatment is discontinuous at the threshold $w_0$. We illustrate this assumption in @fig-f20.6 by assuming that the probability of treatment increases with the running variable. The figure shows that the probability of treatment jumps to 0.6 at the threshold $w_0$. This contrasts with the sharp RDD, in which the probability of treatment is 0 below the threshold and 1 above it, i.e., $p(w)=0$ if $w<w_0$ and $p(w)=1$ if $w\geq w_0$.
@@ -941,19 +937,19 @@ plt.show()
 
 The third assumption is also known as the **local unconfoundedness of treatment gains**. It states that the average treatment effect at $w\in(w_0-\epsilon,w_0+\epsilon)$ is the same for treated and untreated units.
 
-:::{}
 :::{#thm-th20.4}
 ## Identification of $\tau$ in the fuzzy RDD
 Under Assumptions 1-3, $\tau$ is identified as
 $$
+\begin{align}
 \tau=\frac{\lim_{w\downarrow w_0}\E[Y_i|W_i=w]-\lim_{w\uparrow w_0}\E[Y_i|W_i=w]}{\lim_{w\downarrow w_0}p(w)-\lim_{w\uparrow w_0}p(w)}.
+\end{align}
 $$
 :::
 
 :::{.proof}
 ## Proof of @thm-th20.4
 See @Hansen2022 or @Wooldridge2025 for the proof.
-:::
 :::
 
 @thm-th20.4 indicates that $\tau$ is given by the ratio of the jump in the conditional mean of the outcome variable at the threshold to the jump in the probability of treatment at the same threshold. The identification result indicates that we can resort to the local linear estimator to estimate both the numerator and the denominator. See @Calonico2014 and @Hansen2022 for details. The `rdrobust` module can also handle the estimation of $\tau$ in the fuzzy RDD.
@@ -989,7 +985,7 @@ df.describe().round(3).T
 ```
 :::
 
-We use the `rdrobust()` function with the cutoff `c=59.1984` to estimate the RDD parameter $\tau$. The following code chunk generates the estimation results. The estimated RDD parameter is -2.409 with a robust $t$-statistic -2.032. This is a large estimate given that the mean child mortality rate is around 2.254 as shown in @tbl-t20.5. This estimate indicates that the federal grant-writing assistence reduced mortality by 2.032 children per 100,000.
+We use the `rdrobust` function with the cutoff `c=59.1984` to estimate the RDD parameter $\tau$. The following code chunk generates the estimation results. The estimated RDD parameter is -2.409 with a robust $t$-statistic -2.032. This is a large estimate given that the mean child mortality rate is around 2.254 as shown in @tbl-t20.5. This estimate indicates that the federal grant-writing assistence reduced mortality by 2.032 children per 100,000.
 
 ```{python}
 Y = df_head["mort_age59_related_postHS"]
