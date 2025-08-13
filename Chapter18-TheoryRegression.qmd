@@ -418,7 +418,7 @@ $$
 $$
 :::
 
-Note that the Cauchy-Schwarz inequality can also be stated as  $|\E(XY)|\leq\sqrt{ \E(X^2)\E(Y^2)}$. 
+Note that the Cauchy-Schwarz inequality can also be stated as  $|\E(XY)|\leq\sqrt{ \E(X^2)\E(Y^2)}$. It also holds for random vectors and matrices, e.g., see (B.32) in @Hansen2022.
 
 :::{.proof}
 ## Proof of @thm-thm25-10
@@ -446,6 +446,30 @@ $$
 Therefore, the Cauchy-Schwarz inequality implies that
 $$
 \left(\E(XY)\right)^2=4\leq\E(X^2)\E(Y^2)=5.
+$$
+:::
+
+:::{#thm-thm25-10-1}
+##  Minkowski’s Inequality
+Let $X$ and $Y$ be random variables. Then,
+$$
+\left(\E(|X+Y|^p)\right)^{1/p} \leq \left(\E(|X|^p)\right)^{1/p} + \left(\E(|Y|^p)\right)^{1/p}, \quad p \geq 1.
+$$
+:::
+
+This inequality also holds for random vectors and matrices, e.g., see (B.34) in @Hansen2022.
+
+:::{#exm-exm25-2}
+## Minkowski’s Inequality
+Let $Y=X\beta+u$, where $\beta$ is a scalar parameter. Then, we have
+$$
+\begin{align*}
+\left(\E(|Y|^p)\right)^{1/p} &= \left(\E(|X\beta+u|^p)\right)^{1/p} \leq |\beta|\left(\E(|X|^p)\right)^{1/p} + \left(\E(|u|^p)\right)^{1/p}.
+\end{align*}
+$$
+Also, from $u=Y-X\beta$, we have
+$$
+\left(\E(|u|^p)\right)^{1/p} = \left(\E(|Y-X\beta|^p)\right)^{1/p} \leq \left(\E(|Y|^p)\right)^{1/p} + |\beta|\left(\E(|X|^p)\right)^{1/p}.
 $$
 :::
 
