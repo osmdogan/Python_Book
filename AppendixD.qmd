@@ -590,7 +590,7 @@ The first two properties follow from the definition of rank. The third property 
 
 :::{}
 :::{#exm-rank0}
-Let $\bs{a}\in\mathbb{R}^n$. Then, the rank of $\bs{a}\bs{a}^{'}$ is 1. To see this, note that $\bs{a}\bs{a}^{'}$ is a $n\times n$ matrix and it can be expressed as
+Let $\bs{a} \in \mathbb{R}^n$. Then, the rank of $\bs{a}\bs{a}^{\prime}$ is $1$. To see this, note that $\bs{a}\bs{a}^{\prime}$ is an $n\times n$ matrix, which can be expressed as
 $$
 \begin{align*}
 \bs{a}\bs{a}^{'} = 
