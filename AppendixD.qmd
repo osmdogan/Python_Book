@@ -504,7 +504,7 @@ The inverse of a matrix is defined only for square matrices.
 
 :::{#def-inverse}
 ## Inverse of a matrix
-If $\bs{A}$ is nonsingular, then there exists a unique matrix $\bs{A}^{-1}$ such that $\bs{A} \bs{A}^{-1} = \bs{A}^{-1} \bs{A} = \bs{I}$. The matrix $\bs{A}^{-1}$ is called the **inverse** of $\bs{A}$. 
+If the $n\times n$ matrix $\bs{A}$ is nonsingular, then there exists a unique matrix $\bs{A}^{-1}$ such that $\bs{A} \bs{A}^{-1} = \bs{A}^{-1} \bs{A} = \bs{I}_n$. The matrix $\bs{A}^{-1}$ is called the **inverse** of $\bs{A}$. 
 :::
 
 :::{}
@@ -573,11 +573,11 @@ $$
 
 ## Rank of a matrix
 
-The **rank** of a matrix $\bs{A}_{m\times n}$ is the maximum number of linearly independent columns or rows in $\bs{A}$. The rank of a matrix is denoted by $\text{rank}(\bs{A})$. If $\text{rank}(\bs{A})=n$, then the matrix is said to have **full column rank**. 
+The **rank** of the matrix $\bs{A}_{m\times n}$ is the maximum number of linearly independent columns or rows of $\bs{A}$. We denote the rank of $\bs{A}$ by $\text{rank}(\bs{A})$. If $\text{rank}(\bs{A})=n$, then the matrix is said to have **full column rank**.
 
 ::: {.callout-note icon=false}
 ## Properties of rank
-The rank of a matrix satisfies the following properties:
+The rank satisfies the following properties:
 
 a. $0\le \text{rank}(\bs{A})\le\min(m,n)$,
 b. $\text{rank}(\bs{A})=\text{rank}(\bs{A}^{'})$,
