@@ -12,7 +12,7 @@ import statsmodels.formula.api as smf
 {{< include latex_macro.qmd >}}
 
 ## The linear regression model
-The linear regression model with one regressor is
+We assume that we have a random sample $\{(Y_i, X_i)\}_{i=1}^n$ on the random variables $(Y,X)$. Then, the linear regression model between $Y$ and $X$ is specified as
 $$
 \begin{align}
 Y_i = \beta_0 + \beta_1 X_i + u_i, \quad i=1,\dots,n,
