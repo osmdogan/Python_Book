@@ -21,7 +21,7 @@ The final part, Theoretical Topics, contains two chapters on econometric theory.
 Finally, we provide some technical details related to Chapters 11, 21, 25, and 26 in the appendices.
 
 # Notation
-We adopt the standard notation used in @Stock2020. In particular, in an econometric model, we use Latin letters such as $Y$, $X$, $W$, and $Z$ to denote variables, and Greek letters such as $\beta$, $\gamma$, and $\delta$ to denote unknown parameters.^[According to econometrician Anil K. Bera, the English phrase “It is all Greek to me”, meaning “I do not understand it at all”, played a role in establishing the tradition of using Greek letters for unknown quantities in econometrics. There are also similar formulations in other languages. See the [Wikipedia page](https://en.wikipedia.org/wiki/Greek_to_me) for more details. ] For the convenience of readers, we list the Greek letters in the following table.
+We adopt the standard notation used in @Stock2020. In particular, for an econometric model, we use Latin letters such as $Y$, $X$, $W$, and $Z$ to denote variables, and Greek letters such as $\beta$, $\gamma$, and $\delta$ to denote unknown parameters.^[According to econometrician Anil K. Bera, the English phrase “It is all Greek to me”, meaning “I do not understand it at all”, played a role in establishing the tradition of using Greek letters for unknown quantities in econometrics. There are also similar formulations in other languages. See the [Wikipedia page](https://en.wikipedia.org/wiki/Greek_to_me) for more details. ] For the convenience of readers, we list the Greek letters in the following table. 
 
 ::: {style="font-size: 80%"}
 | Greek Letter              | Name    | Greek Letter                    | Name    |
@@ -40,6 +40,8 @@ We adopt the standard notation used in @Stock2020. In particular, in an economet
 | $\psi$, $\Psi$            | psi     | $\omega$, $\Omega$              | omega   |
 : Greek Letters {#tbl-GreekLetters .striped .hover}
 :::
+
+The notation used for the error term (or disturbance term) is not uniform in the literature. Some authors use Latin letters because it is a random variable, while others use Greek letters because it is an unknown term. Following @Stock2020, we use lowercase $u$, $v$, or $e$ to denote the error term.
 
 We use the hat or tilde notation to denote estimators and estimates; for example, $\hat{\beta}_0$ and $\hat{\beta}_1$ are the estimators or estimates of the parameters $\beta_0$ and $\beta_1$, respectively.
 
