@@ -515,7 +515,7 @@ window.Quarto = {
 </header>
 
 
-<div id="17300dc4" class="cell" data-execution_count="1">
+<div id="c92c4ae3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -736,7 +736,7 @@ x_{1k} &amp; x_{2k} &amp; \ldots &amp; x_{nk}
 \]</span> where <span class="math inline">\((\bs{A}\bs{B})_{l\cdot}\)</span> is the <span class="math inline">\(l\)</span>th row of <span class="math inline">\(\bs{A}\bs{B}\)</span>, <span class="math inline">\(\bs{B}_{i\cdot}\)</span> is the <span class="math inline">\(i\)</span>th row of <span class="math inline">\(\bs{B}\)</span>, and <span class="math inline">\(A_{lh}\)</span> is the <span class="math inline">\((l,h)\)</span>th element of <span class="math inline">\(\bs{A}\)</span>. Thus, each row of the product <span class="math inline">\(\bs{A}\bs{B}\)</span> is a linear combination of the rows of <span class="math inline">\(\bs{B}\)</span>.</p>
 </div>
 <div id="def-orthogonal-idempotent" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition D.8 (Orthogonal and idempotent matrices)</strong></span> A square matrix is called <strong>orthogonal</strong> if <span class="math inline">\(\bs{A}^{'}\bs{A} = \bs{A}\bs{A}^{'} = \bs{I}\)</span>. A square matrix is called <strong>idempotent</strong> if <span class="math inline">\(\bs{A}^2 = \bs{A}\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition D.8 (Orthogonal and idempotent matrices)</strong></span> A square <span class="math inline">\(n\times n\)</span> matrix <span class="math inline">\(\bs{A}\)</span> is orthogonal if <span class="math inline">\(\bs{A}^{'}\bs{A} = \bs{A}\bs{A}^{'} = \bs{I}_n\)</span>, and idempotent if <span class="math inline">\(\bs{A}^2 = \bs{A}\)</span>.</p>
 </div>
 <div id="def-trace" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition D.9 (Trace)</strong></span> The <strong>trace</strong> of a square matrix <span class="math inline">\(\bs{X}\)</span> is the sum of the diagonal elements of the matrix and is denoted by <span class="math inline">\(\text{tr}(\bs{X}) = \sum_{i=1}^{n} x_{ii}\)</span>.</p>
@@ -857,7 +857,7 @@ a_{41} &amp; a_{42}&amp; a_{43}
 <li><span class="math inline">\(\prod_{i=1}^nx^p_i=(\prod_{i=1}^n x_i)^p\)</span>, and</li>
 <li><span class="math inline">\(\prod_{i=1}^n (x_iy_i)=(\prod_{i=1}^n x_i)(\prod_{i=1}^n y_i)\)</span>.</li>
 </ul>
-<p>Let <span class="math inline">\(\bs{l}\)</span> be the <span class="math inline">\(n\times1\)</span> vector of ones. Then, the sum of the elements of <span class="math inline">\(\bs{x}\)</span> can be written as <span class="math inline">\(\bs{l}^{'}\bs{x}\)</span>. Also, the mean of the elements of <span class="math inline">\(\bs{x}\)</span> is defined as <span class="math inline">\(\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i = \frac{1}{n}\bs{l}^{'}\bs{x}\)</span>. Note that <span class="math inline">\(\sum_{i=1}^{n} x_i=n\bar{x}\)</span>.</p>
+<p>Let <span class="math inline">\(\bs{l}_n\)</span> be the <span class="math inline">\(n\times1\)</span> vector of ones. Then, the sum of the elements of <span class="math inline">\(\bs{x}\)</span> can be written as <span class="math inline">\(\bs{l}^{'}_n\bs{x}\)</span>. Also, the mean of the elements of <span class="math inline">\(\bs{x}\)</span> can be expressed as <span class="math inline">\(\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i = \frac{1}{n}\bs{l}^{'}_n\bs{x}\)</span>. Note that <span class="math inline">\(\sum_{i=1}^{n} x_i=n\bar{x}\)</span>.</p>
 <p>Let <span class="math inline">\(\bs{X}\)</span> be an <span class="math inline">\(n\times k\)</span> matrix. In terms of row vectors, we can express <span class="math inline">\(\bs{X}\)</span> as <span class="math display">\[
 \begin{align*}
 \bs{X} = \begin{pmatrix}
@@ -872,9 +872,9 @@ a_{41} &amp; a_{42}&amp; a_{43}
 \bs{X}^{'}\bs{X} = \sum_{i=1}^{n} \bs{x}_i\bs{x}^{'}_i.
 \end{align}
 \tag{D.1}\]</span></span></p>
-<p>A useful <span class="math inline">\(n\times n\)</span> symmetric and idempotent matrix is <span class="math inline">\(\mathbb{M}_0=\bs{I}_n-\frac{1}{n}\bs{l}\bs{l}^{'}\)</span>. The matrix <span class="math inline">\(\mathbb{M}_0\)</span> is called the <strong>centering matrix</strong>. The centering matrix is used to center the data by subtracting the mean from each element of the data matrix. For example, <span class="math inline">\(\mathbb{M}_0\bs{x}\)</span> is <span class="math display">\[
+<p>A useful <span class="math inline">\(n\times n\)</span> symmetric and idempotent matrix is <span class="math inline">\(\mathbb{M}_0=\bs{I}_n-\frac{1}{n}\bs{l}_n\bs{l}^{'}_n\)</span>. The matrix <span class="math inline">\(\mathbb{M}_0\)</span> is called the <strong>centering matrix</strong>. The centering matrix is used to center the data by subtracting the mean from each element of the data matrix. For example, <span class="math inline">\(\mathbb{M}_0\bs{x}\)</span> is <span class="math display">\[
 \begin{align*}
-\mathbb{M}_0\bs{x} = \bs{x} -\frac{1}{n}\bs{l}\bs{l}^{'}\bs{x}=\bs{x}- \bar{x}\bs{l} = \begin{pmatrix}
+\mathbb{M}_0\bs{x} = \bs{x} -\frac{1}{n}\bs{l}_n\bs{l}^{'}_n\bs{x}=\bs{x}- \bar{x}\bs{l}_n = \begin{pmatrix}
 x_1 - \bar{x} \\
 x_2 - \bar{x} \\
 \vdots \\
@@ -1124,13 +1124,13 @@ a_n a_1 &amp; a_n a_2 &amp; \ldots &amp; a_na_n
 \end{align}
 \]</span></p>
 <p>In Python, we can solve the equation <span class="math inline">\(1-\lambda^3=0\)</span> symbolically using the <code>sympy</code> package. The <code>solve</code> function from this package returns the roots of the equation.</p>
-<div id="728395e8" class="cell" data-execution_count="3">
+<div id="8479dbd6" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solving 1-lambda^3=0 symbolically</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> symbols(<span class="st">'x'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>equation <span class="op">=</span> <span class="dv">1</span><span class="op">-</span>x<span class="op">**</span><span class="dv">3</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>roots <span class="op">=</span> solve(equation, x)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>roots</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
+<div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>[1, -1/2 - sqrt(3)*I/2, -1/2 + sqrt(3)*I/2]</code></pre>
 </div>
 </div>
@@ -1151,18 +1151,18 @@ x_1/2-3x_3=0
 \end{align}
 \]</span></p>
 <p>Let <span class="math inline">\(x_3=t\)</span>, then <span class="math inline">\(x_1=6t\)</span> and <span class="math inline">\(x_2=3t\)</span>, where <span class="math inline">\(t\in\mathbb{R}\)</span> and <span class="math inline">\(t\ne0\)</span>. Thus, the associated eigenvector is <span class="math inline">\(\bs{x}=t(6,3,1)^{'}\)</span>, where <span class="math inline">\(t\ne0\)</span>. In the following code chunk, we set <span class="math inline">\(t=-1\)</span> and normalize <span class="math inline">\(\bs{x}\)</span>:</p>
-<div id="529b1104" class="cell" data-execution_count="4">
+<div id="c91644c4" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Normalize x=t*(6,3,1)</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="op">-</span><span class="dv">6</span>,<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">1</span>])</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>norm_x <span class="op">=</span> np.linalg.norm(x)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>normalized_x <span class="op">=</span> x <span class="op">/</span> norm_x </span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>normalized_x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>array([-0.88465174, -0.44232587, -0.14744196])</code></pre>
 </div>
 </div>
 <p>We can compute eigenvalues and normalized eigenvectors using the <code>np.linalg.eig</code> function. Note that <code>e</code> returns the same eigenvalues that we derived analytically above. Also, <code>ev[:,2]</code> returns the same vector as <code>normalized_x</code>.</p>
-<div id="a87ecb9d" class="cell" data-execution_count="5">
+<div id="2b5579a4" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute eigenvalues and normalized eigenvectors of A</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">6</span>],</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">0</span>],</span>
@@ -1170,17 +1170,17 @@ x_1/2-3x_3=0
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>e,ev<span class="op">=</span>np.linalg.eig(A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="989ed4a8" class="cell" data-execution_count="6">
+<div id="6a07c9d9" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Eigenvalues</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>e </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>array([-0.5+0.8660254j, -0.5-0.8660254j,  1. +0.j       ])</code></pre>
 </div>
 </div>
-<div id="9c06ad12" class="cell" data-execution_count="7">
+<div id="183e7352" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Eigenvectors</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>ev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
+<div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>array([[ 0.88465174+0.j        ,  0.88465174-0.j        ,
         -0.88465174+0.j        ],
        [-0.22116293-0.38306544j, -0.22116293+0.38306544j,
@@ -1189,10 +1189,10 @@ x_1/2-3x_3=0
         -0.14744196+0.j        ]])</code></pre>
 </div>
 </div>
-<div id="6a0fc37f" class="cell" data-execution_count="8">
+<div id="49bea9ea" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Eigenvector corresponding to eigenvalue 1</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>ev[:,<span class="dv">2</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div class="cell-output cell-output-display" data-execution_count="38">
 <pre><code>array([-0.88465174+0.j, -0.44232587+0.j, -0.14744196+0.j])</code></pre>
 </div>
 </div>
@@ -1243,7 +1243,7 @@ x_1/2-3x_3=0
 </ol>
 <p>If <span class="math inline">\(\bs{A}\)</span> is positive definite, then it is invertible. Any symmetric positive-definite matrix <span class="math inline">\(\bs{A}\)</span> can be written as the product of a lower triangular matrix <span class="math inline">\(\bs{L}\)</span> and its transpose <span class="math inline">\(\bs{L}^{'}=\bs{U}\)</span>, i.e., <span class="math inline">\(\bs{A}=\bs{LU}\)</span>. This decomposition is called the <strong>Cholesky decomposition</strong> of <span class="math inline">\(\bs{A}\)</span>. More conveniently, <span class="math inline">\(\bs{A}^{-1}=\bs{U}^{-1}\bs{L}^{-1}\)</span>. The Cholesky decomposition provides a fast and numerically stable way to compute the inverse of a matrix.</p>
 <p>The Cholesky decomposition can be computed using the <code>np.linalg.cholesky</code> function in Python. The inverse of a matrix can be computed using the <code>np.linalg.inv</code> function. In the following code junks, we compute the Cholesky decomposition of a symmetric positive-definite matrix <span class="math inline">\(\bs{A}\)</span> and its inverse. We also measure the computation time for the inverse of <span class="math inline">\(\bs{A}\)</span> using the Cholesky decomposition and the <code>np.linalg.inv</code> function.</p>
-<div id="b14595fd" class="cell" data-execution_count="9">
+<div id="e484ca69" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cholesky decomposition</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>], </span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="fl">0.7</span>, <span class="dv">0</span>], </span>
@@ -1262,18 +1262,18 @@ x_1/2-3x_3=0
 <span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Computation time </span></span>
 <span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>computation_time <span class="op">=</span> end_time <span class="op">-</span> start_time</span>
 <span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>computation_time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="24">
+<div class="cell-output cell-output-display" data-execution_count="39">
 <pre><code>array([[ 0.38594437, -0.23163026, -0.08555684,  0.01679956,  0.00159087],
        [-0.23163026,  0.53944032, -0.1500415 , -0.00772707, -0.01155424],
        [-0.08555684, -0.1500415 ,  0.6790771 , -0.12255586,  0.03439   ],
        [ 0.01679956, -0.00772707, -0.12255586,  0.23603923, -0.05881663],
        [ 0.00159087, -0.01155424,  0.03439   , -0.05881663,  0.26499301]])</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="24">
-<pre><code>0.004541635513305664</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="39">
+<pre><code>0.0</code></pre>
 </div>
 </div>
-<div id="56c45889" class="cell" data-execution_count="10">
+<div id="ffde59b9" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Measure computation time for A_inv</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>A_inv <span class="op">=</span> np.linalg.inv(A)</span>
@@ -1283,15 +1283,15 @@ x_1/2-3x_3=0
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Computation time</span></span>
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>computation_time <span class="op">=</span> end_time <span class="op">-</span> start_time</span>
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>computation_time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div class="cell-output cell-output-display" data-execution_count="40">
 <pre><code>array([[ 0.38720573, -0.23275877, -0.09242827,  0.03040958,  0.01088326],
        [-0.23625412,  0.54003213, -0.10978588, -0.08420624,  0.04300874],
        [-0.07631469, -0.14902917,  0.58928483,  0.04677419, -0.12955051],
        [ 0.01523656, -0.0079281 , -0.1072438 ,  0.20717914, -0.03034602],
        [ 0.00209721, -0.01151878,  0.0295556 , -0.04968963,  0.25651129]])</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="25">
-<pre><code>0.0020782947540283203</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="40">
+<pre><code>0.001909017562866211</code></pre>
 </div>
 </div>
 <div id="thm-quadratic-form" class="theorem">
@@ -1332,26 +1332,26 @@ x_1/2-3x_3=0
 <h2 data-number="D.11" class="anchored" data-anchor-id="matrix-square-root"><span class="header-section-number">D.11</span> Matrix square root</h2>
 <p>Let <span class="math inline">\(\bs{A}\)</span> be an <span class="math inline">\(n\times n\)</span> positive definite matrix. Then, we can find a matrix <span class="math inline">\(\bs{B}\)</span> such that <span class="math inline">\(\bs{A}=\bs{B}^{'}\bs{B}\)</span>. The matrix <span class="math inline">\(\bs{B}\)</span> is called the <strong>matrix square root</strong> of <span class="math inline">\(\bs{A}\)</span> and is usually denoted by <span class="math inline">\(\bs{B}=\bs{A}^{1/2}\)</span>. Note that if <span class="math inline">\(\bs{B}\)</span> is symmetric, then <span class="math inline">\(\bs{A}=\bs{B}^2\)</span>. The matrix square root of a positive-definite matrix always exists, but is not unique. For example, if <span class="math inline">\(\bs{A}\)</span> has the spectral decomposition <span class="math inline">\(\bs{A}=\bs{Q}\bs{\Lambda}\bs{Q}^{'}\)</span>, then its matrix square root is given by <span class="math inline">\(\bs{B}=\bs{Q}\bs{\Lambda}^{1/2}\bs{Q}^{'}\)</span>, where <span class="math inline">\(\bs{\Lambda}^{1/2}\)</span> is the diagonal matrix with the square roots of the eigenvalues of <span class="math inline">\(\bs{A}\)</span> on the diagonal. Another way to compute the matrix square root is to use the Cholesky decomposition of <span class="math inline">\(\bs{A}\)</span>, which gives us <span class="math inline">\(\bs{B}=\bs{L}^{'}\)</span>, where <span class="math inline">\(\bs{L}\)</span> is the lower triangular matrix such that <span class="math inline">\(\bs{A}=\bs{L}\bs{L}^{'}\)</span>.</p>
 <p>In Python, the square root of a matrix can be computed using the <code>scipy.linalg.sqrtm</code> function.</p>
-<div id="18c175d0" class="cell" data-execution_count="11">
+<div id="ea74a39c" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Matrix square root</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">4</span>, <span class="dv">2</span>], [<span class="dv">2</span>, <span class="dv">3</span>]])</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> sqrtm(A)</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># B is the matrix square root of A</span></span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div class="cell-output cell-output-display" data-execution_count="41">
 <pre><code>array([[1.919366  , 0.56216925],
        [0.56216925, 1.6382813 ]], dtype=float32)</code></pre>
 </div>
 </div>
-<div id="795e4642" class="cell" data-execution_count="12">
+<div id="fd6ec4d0" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify that B is the matrix square root of A</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>np.allclose(A, B.T <span class="op">@</span> B) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="27">
+<div class="cell-output cell-output-display" data-execution_count="42">
 <pre><code>True</code></pre>
 </div>
 </div>
 <p>The matrix square root <span class="math inline">\(\bs{B}\)</span> satifies the following properties: (i) <span class="math inline">\(\bs{B}\bs{A}^{-1}\bs{B}^{'}=\bs{I}_n\)</span>, and (ii) <span class="math inline">\(\bs{B}^{'-1}\bs{A}\bs{B}^{-1}=\bs{I}_n\)</span>. In Python, these properties can be verified as follows:</p>
-<div id="09f6e669" class="cell" data-execution_count="13">
+<div id="acd813b2" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify the properties of matrix square root</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>B_inv <span class="op">=</span> np.linalg.inv(B)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>A_inv <span class="op">=</span> np.linalg.inv(A)</span>
@@ -1359,10 +1359,10 @@ x_1/2-3x_3=0
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>np.allclose(B <span class="op">@</span> A_inv <span class="op">@</span> B.T, np.eye(A.shape[<span class="dv">0</span>]), atol<span class="op">=</span><span class="fl">1e-7</span>)</span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Property (ii)</span></span>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>np.allclose(B_inv.T <span class="op">@</span> A <span class="op">@</span> B_inv, np.eye(A.shape[<span class="dv">0</span>]), atol<span class="op">=</span><span class="fl">1e-7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="28">
+<div class="cell-output cell-output-display" data-execution_count="43">
 <pre><code>True</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="28">
+<div class="cell-output cell-output-display" data-execution_count="43">
 <pre><code>True</code></pre>
 </div>
 </div>
@@ -1430,7 +1430,7 @@ x_1/2-3x_3=0
 \end{align}
 \]</span></p>
 <p>In Python, we can use the <code>np.linalg.norm()</code> function to compute the Frobenius and spectral norms of a matrix. The following code chunk demonstrates how to compute these norms for a given matrix <span class="math inline">\(\bs{A}\)</span>.</p>
-<div id="fe477d84" class="cell" data-execution_count="14">
+<div id="887d0069" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a matrix</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">3</span>,<span class="dv">2</span>],[<span class="dv">2</span>,<span class="dv">4</span>]])</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1447,7 +1447,7 @@ x_1/2-3x_3=0
 Frobenius Norm (manual calculation): 5.74</code></pre>
 </div>
 </div>
-<div id="b7faea02" class="cell" data-execution_count="15">
+<div id="ed83458f" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the spectral norm (largest singular value)</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>spectral_norm <span class="op">=</span> np.linalg.norm(A, <span class="bu">ord</span><span class="op">=</span><span class="dv">2</span>)  <span class="co"># 'ord=2' specifies the spectral norm</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>

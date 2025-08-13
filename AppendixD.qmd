@@ -275,7 +275,7 @@ where $(\bs{A}\bs{B})_{l\cdot}$ is the $l$th row of $\bs{A}\bs{B}$, $\bs{B}_{i\c
 
 :::{#def-orthogonal-idempotent}
 ## Orthogonal and idempotent matrices
-A square matrix is called **orthogonal** if $\bs{A}^{'}\bs{A} = \bs{A}\bs{A}^{'} = \bs{I}$. A square matrix is called **idempotent** if $\bs{A}^2 = \bs{A}$. 
+A square $n\times n$ matrix $\bs{A}$ is orthogonal if $\bs{A}^{'}\bs{A} = \bs{A}\bs{A}^{'} = \bs{I}_n$, and idempotent if $\bs{A}^2 = \bs{A}$.
 :::
 
 :::{#def-trace}
@@ -408,7 +408,7 @@ The product operator $\prod$ satisfies the following properties:
 - $\prod_{i=1}^nx^p_i=(\prod_{i=1}^n x_i)^p$, and
 - $\prod_{i=1}^n (x_iy_i)=(\prod_{i=1}^n x_i)(\prod_{i=1}^n y_i)$.
 
-Let $\bs{l}$ be the $n\times1$ vector of ones. Then, the sum of the elements of $\bs{x}$ can be written as $\bs{l}^{'}\bs{x}$. Also, the mean of the elements of $\bs{x}$ is defined as $\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i = \frac{1}{n}\bs{l}^{'}\bs{x}$. Note that $\sum_{i=1}^{n} x_i=n\bar{x}$.
+Let $\bs{l}_n$ be the $n\times1$ vector of ones. Then, the sum of the elements of $\bs{x}$ can be written as $\bs{l}^{'}_n\bs{x}$. Also, the mean of the elements of $\bs{x}$ can be expressed as $\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i = \frac{1}{n}\bs{l}^{'}_n\bs{x}$. Note that $\sum_{i=1}^{n} x_i=n\bar{x}$.
 
 Let $\bs{X}$ be an $n\times k$ matrix. In terms of row vectors, we can express $\bs{X}$ as 
 $$
@@ -428,10 +428,10 @@ $$
 \end{align}
 $${#eq-matrix-sum}
 
-A useful $n\times n$ symmetric and idempotent matrix is $\mathbb{M}_0=\bs{I}_n-\frac{1}{n}\bs{l}\bs{l}^{'}$. The matrix $\mathbb{M}_0$ is called the **centering matrix**. The centering matrix is used to center the data by subtracting the mean from each element of the data matrix. For example, $\mathbb{M}_0\bs{x}$ is
+A useful $n\times n$ symmetric and idempotent matrix is $\mathbb{M}_0=\bs{I}_n-\frac{1}{n}\bs{l}_n\bs{l}^{'}_n$. The matrix $\mathbb{M}_0$ is called the **centering matrix**. The centering matrix is used to center the data by subtracting the mean from each element of the data matrix. For example, $\mathbb{M}_0\bs{x}$ is
 $$
 \begin{align*}
-\mathbb{M}_0\bs{x} = \bs{x} -\frac{1}{n}\bs{l}\bs{l}^{'}\bs{x}=\bs{x}- \bar{x}\bs{l} = \begin{pmatrix}
+\mathbb{M}_0\bs{x} = \bs{x} -\frac{1}{n}\bs{l}_n\bs{l}^{'}_n\bs{x}=\bs{x}- \bar{x}\bs{l}_n = \begin{pmatrix}
 x_1 - \bar{x} \\
 x_2 - \bar{x} \\
 \vdots \\
