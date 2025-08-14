@@ -821,7 +821,7 @@ $$
 \tilde{\bs{Y}} =\tilde{\bs{X}}\bs{\beta}+\tilde{\bs{U}},
 \end{align}
 $$
-where $\tilde{\bs{Y}}=\bs{F}^{'}\bs{Y}$, $\tilde{\bs{X}}=\bs{F}^{'}\bs{X}$, and $\tilde{\bs{U}}=\bs{F}^{'}\bs{U}$. Note that $\E(\tilde{\bs{U}}|\tilde{\bs{X}})=\E(\bs{F}^{'}\bs{U}|\tilde{\bs{X}})=\bs{F}^{'}\E(\bs{U}|\tilde{\bs{X}})=\bs{0}_{n\times1}$. Also note that $\E(\tilde{\bs{U}}\tilde{\bs{U}}^{'}|\tilde{\bs{X}})=\E(\bs{F}^{'}\bs{U}\bs{U}^{'}\bs{F}|\tilde{\bs{X}})=\E(\bs{F}^{'}\bs{\Omega}\bs{F}|\tilde{\bs{X}})=\bs{F}^{'}\bs{\Omega}\bs{F}=\bs{I}_n$. Thus, the transformed model has homoskedastic errors. 
+where $\tilde{\bs{Y}}=\bs{F}^{'}\bs{Y}$, $\tilde{\bs{X}}=\bs{F}^{'}\bs{X}$, and $\tilde{\bs{U}}=\bs{F}^{'}\bs{U}$. Note that $\E(\tilde{\bs{U}}|\tilde{\bs{X}})=\E(\bs{F}^{'}\bs{U}|\tilde{\bs{X}})=\bs{F}^{'}\E(\bs{U}|\tilde{\bs{X}})=\bs{0}_{n\times1}$. Also note that $\E(\tilde{\bs{U}}\tilde{\bs{U}}^{'}|\tilde{\bs{X}})=\E(\bs{F}^{'}\bs{U}\bs{U}^{'}\bs{F}|\tilde{\bs{X}})=\bs{F}^{'}\E(\bs{U}\bs{U}^{'}|\tilde{\bs{X}})\bs{F}=\bs{F}^{'}\bs{\Omega}\bs{F}=\bs{I}_n$. Thus, the transformed model has homoskedastic errors. 
 
 The GLS estimator is the OLS estimator of the transformed model and is given by
 $$
@@ -830,7 +830,16 @@ $$
 &=\left(\bs{X}^{'}\bs{\Omega}^{-1}\bs{X}\right)^{-1}\left(\bs{X}^{'}\bs{\Omega}^{-1}\bs{Y}\right).
 \end{align}
 $${#eq-eq26-22}
-Since the transformed model satisfies the Gauss-Markov conditions, we can use the Gauss-Markov theorem to show that the GLS estimator is efficient among all linear and conditionally unbiased estimators. That is, the GLS estimator is the best linear unbiased estimator (BLUE).
+
+Given the fact that the transformed model is homoskedastic, it follows that
+$$
+\begin{align}
+&\E(\tilde{\bs{\beta}}^{GLS}|\bs{X})=\bs{\beta},\\
+&\text{var}(\tilde{\bs{\beta}}^{GLS}|\bs{X})=\left(\bs{X}^{'}\bs{\Omega}^{-1}\bs{X}\right)^{-1}.
+\end{align}
+$$
+
+Also, since the transformed model satisfies the Gauss-Markov conditions, we can use the Gauss-Markov theorem to show that the GLS estimator is efficient among all linear and conditionally unbiased estimators. That is, the GLS estimator is the best linear unbiased estimator (BLUE).
 
 In the second case, we assume that the functional form of $\bs{\Omega}$ is known up to some unknown parameters. In this case, we can use an estimator of $\bs{\Omega}$ to formulate the following estimator:
 $$
