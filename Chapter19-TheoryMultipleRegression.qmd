@@ -691,7 +691,7 @@ $$
 $$
 where in the last equality we use the fact that $\text{var}(\bs{Y}|\bs{X})=\text{var}(\bs{U}|\bs{X})=\sigma^2_u\bs{I}_n$. Thus, we need to show that 
 $$
-\sigma^2_u\bs{A}^{'}\bs{A}-\sigma^2_u(\bs{X}^{'}\bs{X})^{-1}\geq0
+\sigma^2_u\bs{A}^{'}\bs{A}-\sigma^2_u(\bs{X}^{'}\bs{X})^{-1}\geq0.
 $$
 
 Let $\bs{C}=\bs{A}-\bs{X}(\bs{X}^{'}\bs{X})^{-1}$. Then, we have
