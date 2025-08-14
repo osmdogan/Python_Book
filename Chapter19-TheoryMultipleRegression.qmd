@@ -562,21 +562,24 @@ $$
 &=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}(\sigma^2_u\bs{I}_n)\bs{X}(\bs{X}^{'}\bs{X})^{-1}=\sigma^2_u(\bs{X}^{'}\bs{X})^{-1},
 \end{align*}
 $$
-where the third equality follows from Assumption 5. Thus, under Assumptions 1-6, it follows that the finite-sample conditional distribution of $\hat{\bs{\beta}}$ given $\bs{X}$ is
+where the third equality follows from Assumption 5. 
+
+Note that we have $\bs{U}|\bs{X}\sim N(\bs{0},\sigma^2_u\bs{I}_n)$ under Assumptions 1-6. From $\hat{\bs{\beta}}=\bs{\beta}+(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}$, we see that $\hat{\bs{\beta}}$ is a linear function of $\bs{U}$. Then, using the properties of the multivariate normal distribution given in Appendix D, we can determine the conditional distribution of $\hat{\bs{\beta}}$ given $\bs{X}$ as
 $$
 \begin{align}
-\hat{\bs{\beta}}\sim N\left(\bs{\beta},\,\bs{\Sigma}_{\hat{\bs{\beta}}|\bs{X}}\right).
+\hat{\bs{\beta}}|\bs{X}\sim N\left(\bs{\beta},\,\bs{\Sigma}_{\hat{\bs{\beta}}|\bs{X}}\right).
 \end{align}
 $$
+
+It is important to note that this result is exact in the sense that it holds for any sample size. In particular, we do not need a large sample size for this result to hold.
+
 The standard error of regression (SER) is
 $$
 \begin{align}
 s^2_{\hat{u}}=\frac{1}{n-k-1}\sum_{i=1}^n\hat{u}^2_i=\frac{1}{n-k-1}\hat{\bs{U}}^{'}\hat{\bs{U}}=\frac{1}{n-k-1}\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U},
 \end{align}
 $$
-where the final equality follows because $\hat{\bs{U}}^{'}\hat{\bs{U}}=(\bs{M}_{\bs{X}}\bs{U})^{'}(\bs{M}_{\bs{X}}\bs{U})=\bs{U}^{'}\bs{M}_{\bs{X}}\bs{M}_{\bs{X}}\bs{U}=\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U}$. 
-
-The degrees-of-freedom adjustment ensures that $s^2_{\hat{u}}$ is unbiased. This can be seen from
+where the final equality follows because $\hat{\bs{U}}^{'}\hat{\bs{U}}=(\bs{M}_{\bs{X}}\bs{U})^{'}(\bs{M}_{\bs{X}}\bs{U})=\bs{U}^{'}\bs{M}_{\bs{X}}\bs{M}_{\bs{X}}\bs{U}=\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U}$. The degrees-of-freedom adjustment ensures that $s^2_{\hat{u}}$ is unbiased. This can be seen from
 $$
 \begin{align*}
 \E(s^2_{\hat{u}}|\bs{X})&=\frac{1}{n-k-1}\E\left(\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U}|\bs{X}\right)=\frac{1}{n-k-1}\E\left(\tr\left(\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U}\right)|\bs{X}\right)\\
@@ -584,7 +587,9 @@ $$
 &=\frac{1}{n-k-1}\tr\left(\bs{M}_{\bs{X}}\E\left(\bs{U}\bs{U}^{'}|\bs{X}\right)\right)=\frac{\sigma^2_u}{n-k-1}\tr\left(\bs{M}_{\bs{X}}\right)=\sigma^2_u.
 \end{align*}
 $$
-Then, $\E(s^2_{\hat{u}})=\E\left(\E(s^2_{\hat{u}}|\bs{X})\right)=\E(\sigma^2_u)=\sigma^2_u$. We can also determine the exact sampling distribution of $s^2_{\hat{u}}$. Since $s^2_{\hat{u}}=\frac{1}{n-k-1}\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U}$, by Theorem D.6 in Appendix D, we have
+Then, $\E(s^2_{\hat{u}})=\E\left(\E(s^2_{\hat{u}}|\bs{X})\right)=\E(\sigma^2_u)=\sigma^2_u$. 
+
+Under Assumptions 1-6, we can also determine the exact sampling distribution of $s^2_{\hat{u}}$. Since $s^2_{\hat{u}}=\frac{1}{n-k-1}\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U}$, by Theorem D.6 in Appendix D, we have
 $$
 \begin{align*}
 \frac{(n-k-1)s^2_{\hat{u}}}{\sigma^2_u}=(\bs{U}/\sigma_u)^{'}\bs{M}_{\bs{X}}(\bs{U}/\sigma_u)\sim \chi^2_{n-k-1},
@@ -596,7 +601,6 @@ $$
 s^2_{\hat{u}}\sim \frac{\sigma^2_u}{n-k-1}\chi^2_{n-k-1}.
 \end{align}
 $$
-
 
 The homoskedasticity-only estimator of $\bs{\Sigma}_{\hat{\bs{\beta}}|\bs{X}}$ is given by
 $$
@@ -632,7 +636,7 @@ $$
 where $W=\frac{(n-k-1)s^2_{\hat{u}}}{\sigma^2_u}$. Under the null, the numerator is distributed as $N(0,1)$. The variable $W$ in the denominator is distributed as $W\sim \chi_{n-k-1}$ by @eq-eq26-18. If we can also show that $W$ is independent of the numerator, then we can conclude that $\tilde{t}$ has the Student t distribution with $n-k-1$ degrees of freedom. For independence, it is enough to show that $\hat{\bs{\beta}}$ and $W$ are independent. Note that $\hat{\bs{\beta}}-\bs{\beta}_0=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}$ and $W=\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U}/\sigma^2_u$. That is, $\hat{\bs{\beta}}-\bs{\beta}_0$ is a linear function of $\bs{U}$, and $W$ is a quadratic form in $\bs{U}$. Since $(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{M}_{\bs{X}}=\bs{0}$, it follows from @thm-independent-quadratics in Appendix D that  $\hat{\bs{\beta}}$ and $W$ are independent. In particular, this result shows that $\hat{\bs{\beta}}$ and $\hat{s}^2_{\hat{u}}$ are independent.
 :::
 
-The homoskedasticity-only $F$-statistic for testing $H_0:\bs{R}\bs{\beta}=\bs{r}$ is
+Finally, we determine the distribution of the homoskedasticity-only $F$-statistic under Assumptions 1-6. The homoskedasticity-only $F$-statistic for testing $H_0:\bs{R}\bs{\beta}=\bs{r}$ is
 $$ 
 \begin{align}
 \tilde{F}=\frac{\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)^{'}\left(\bs{R}(\bs{X}^{'}\bs{X})^{-1}\bs{R}^{'}\right)^{-1}\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)/q}{s^2_{\hat{u}}}.

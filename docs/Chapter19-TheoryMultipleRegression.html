@@ -516,7 +516,7 @@ window.Quarto = {
 </header>
 
 
-<div id="880dfd8c" class="cell" data-execution_count="1">
+<div id="1c80230c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -977,22 +977,25 @@ F\xrightarrow{d}F_{q,\infty}.
 \bs{\Sigma}_{\hat{\bs{\beta}}|\bs{X}}&amp;=\E\left((\hat{\bs{\beta}}-\bs{\beta})(\hat{\bs{\beta}}-\bs{\beta})^{'}|\bs{X}\right)=\E\left((\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}\bs{U}^{'}\bs{X}(\bs{X}^{'}\bs{X})^{-1}|\bs{X}\right)\\
 &amp;=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}(\sigma^2_u\bs{I}_n)\bs{X}(\bs{X}^{'}\bs{X})^{-1}=\sigma^2_u(\bs{X}^{'}\bs{X})^{-1},
 \end{align*}
-\]</span> where the third equality follows from Assumption 5. Thus, under Assumptions 1-6, it follows that the finite-sample conditional distribution of <span class="math inline">\(\hat{\bs{\beta}}\)</span> given <span class="math inline">\(\bs{X}\)</span> is <span class="math display">\[
+\]</span> where the third equality follows from Assumption 5.</p>
+<p>Note that we have <span class="math inline">\(\bs{U}|\bs{X}\sim N(\bs{0},\sigma^2_u\bs{I}_n)\)</span> under Assumptions 1-6. From <span class="math inline">\(\hat{\bs{\beta}}=\bs{\beta}+(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}\)</span>, we see that <span class="math inline">\(\hat{\bs{\beta}}\)</span> is a linear function of <span class="math inline">\(\bs{U}\)</span>. Then, using the properties of the multivariate normal distribution given in Appendix D, we can determine the conditional distribution of <span class="math inline">\(\hat{\bs{\beta}}\)</span> given <span class="math inline">\(\bs{X}\)</span> as <span class="math display">\[
 \begin{align}
-\hat{\bs{\beta}}\sim N\left(\bs{\beta},\,\bs{\Sigma}_{\hat{\bs{\beta}}|\bs{X}}\right).
+\hat{\bs{\beta}}|\bs{X}\sim N\left(\bs{\beta},\,\bs{\Sigma}_{\hat{\bs{\beta}}|\bs{X}}\right).
 \end{align}
-\]</span> The standard error of regression (SER) is <span class="math display">\[
+\]</span></p>
+<p>It is important to note that this result is exact in the sense that it holds for any sample size. In particular, we do not need a large sample size for this result to hold.</p>
+<p>The standard error of regression (SER) is <span class="math display">\[
 \begin{align}
 s^2_{\hat{u}}=\frac{1}{n-k-1}\sum_{i=1}^n\hat{u}^2_i=\frac{1}{n-k-1}\hat{\bs{U}}^{'}\hat{\bs{U}}=\frac{1}{n-k-1}\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U},
 \end{align}
-\]</span> where the final equality follows because <span class="math inline">\(\hat{\bs{U}}^{'}\hat{\bs{U}}=(\bs{M}_{\bs{X}}\bs{U})^{'}(\bs{M}_{\bs{X}}\bs{U})=\bs{U}^{'}\bs{M}_{\bs{X}}\bs{M}_{\bs{X}}\bs{U}=\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U}\)</span>.</p>
-<p>The degrees-of-freedom adjustment ensures that <span class="math inline">\(s^2_{\hat{u}}\)</span> is unbiased. This can be seen from <span class="math display">\[
+\]</span> where the final equality follows because <span class="math inline">\(\hat{\bs{U}}^{'}\hat{\bs{U}}=(\bs{M}_{\bs{X}}\bs{U})^{'}(\bs{M}_{\bs{X}}\bs{U})=\bs{U}^{'}\bs{M}_{\bs{X}}\bs{M}_{\bs{X}}\bs{U}=\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U}\)</span>. The degrees-of-freedom adjustment ensures that <span class="math inline">\(s^2_{\hat{u}}\)</span> is unbiased. This can be seen from <span class="math display">\[
 \begin{align*}
 \E(s^2_{\hat{u}}|\bs{X})&amp;=\frac{1}{n-k-1}\E\left(\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U}|\bs{X}\right)=\frac{1}{n-k-1}\E\left(\tr\left(\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U}\right)|\bs{X}\right)\\
 &amp;=\frac{1}{n-k-1}\E\left(\tr\left(\bs{M}_{\bs{X}}\bs{U}\bs{U}^{'}\right)|\bs{X}\right)=\frac{1}{n-k-1}\tr\left(\E\left(\bs{M}_{\bs{X}}\bs{U}\bs{U}^{'}|\bs{X}\right)\right)\\
 &amp;=\frac{1}{n-k-1}\tr\left(\bs{M}_{\bs{X}}\E\left(\bs{U}\bs{U}^{'}|\bs{X}\right)\right)=\frac{\sigma^2_u}{n-k-1}\tr\left(\bs{M}_{\bs{X}}\right)=\sigma^2_u.
 \end{align*}
-\]</span> Then, <span class="math inline">\(\E(s^2_{\hat{u}})=\E\left(\E(s^2_{\hat{u}}|\bs{X})\right)=\E(\sigma^2_u)=\sigma^2_u\)</span>. We can also determine the exact sampling distribution of <span class="math inline">\(s^2_{\hat{u}}\)</span>. Since <span class="math inline">\(s^2_{\hat{u}}=\frac{1}{n-k-1}\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U}\)</span>, by Theorem D.6 in Appendix D, we have <span id="eq-eq26-18"><span class="math display">\[
+\]</span> Then, <span class="math inline">\(\E(s^2_{\hat{u}})=\E\left(\E(s^2_{\hat{u}}|\bs{X})\right)=\E(\sigma^2_u)=\sigma^2_u\)</span>.</p>
+<p>Under Assumptions 1-6, we can also determine the exact sampling distribution of <span class="math inline">\(s^2_{\hat{u}}\)</span>. Since <span class="math inline">\(s^2_{\hat{u}}=\frac{1}{n-k-1}\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U}\)</span>, by Theorem D.6 in Appendix D, we have <span id="eq-eq26-18"><span class="math display">\[
 \begin{align*}
 \frac{(n-k-1)s^2_{\hat{u}}}{\sigma^2_u}=(\bs{U}/\sigma_u)^{'}\bs{M}_{\bs{X}}(\bs{U}/\sigma_u)\sim \chi^2_{n-k-1},
 \end{align*}
@@ -1021,7 +1024,7 @@ SE(\hat{\beta}_j)=\sqrt{\tilde{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}},
 \tilde{t}=\frac{(\hat{\beta}_j-\beta_{j,0})/\sqrt{\bs{\Sigma}_{\hat{\bs{\beta}},jj}}}{\sqrt{W/(n-k-1)}},
 \]</span> where <span class="math inline">\(W=\frac{(n-k-1)s^2_{\hat{u}}}{\sigma^2_u}\)</span>. Under the null, the numerator is distributed as <span class="math inline">\(N(0,1)\)</span>. The variable <span class="math inline">\(W\)</span> in the denominator is distributed as <span class="math inline">\(W\sim \chi_{n-k-1}\)</span> by <a href="#eq-eq26-18" class="quarto-xref">Equation&nbsp;<span>26.11</span></a>. If we can also show that <span class="math inline">\(W\)</span> is independent of the numerator, then we can conclude that <span class="math inline">\(\tilde{t}\)</span> has the Student t distribution with <span class="math inline">\(n-k-1\)</span> degrees of freedom. For independence, it is enough to show that <span class="math inline">\(\hat{\bs{\beta}}\)</span> and <span class="math inline">\(W\)</span> are independent. Note that <span class="math inline">\(\hat{\bs{\beta}}-\bs{\beta}_0=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}\)</span> and <span class="math inline">\(W=\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U}/\sigma^2_u\)</span>. That is, <span class="math inline">\(\hat{\bs{\beta}}-\bs{\beta}_0\)</span> is a linear function of <span class="math inline">\(\bs{U}\)</span>, and <span class="math inline">\(W\)</span> is a quadratic form in <span class="math inline">\(\bs{U}\)</span>. Since <span class="math inline">\((\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{M}_{\bs{X}}=\bs{0}\)</span>, it follows from <a href="AppendixD.html#thm-independent-quadratics" class="quarto-xref">Theorem&nbsp;<span>D.7</span></a> in Appendix D that <span class="math inline">\(\hat{\bs{\beta}}\)</span> and <span class="math inline">\(W\)</span> are independent. In particular, this result shows that <span class="math inline">\(\hat{\bs{\beta}}\)</span> and <span class="math inline">\(\hat{s}^2_{\hat{u}}\)</span> are independent.</p>
 </div>
-<p>The homoskedasticity-only <span class="math inline">\(F\)</span>-statistic for testing <span class="math inline">\(H_0:\bs{R}\bs{\beta}=\bs{r}\)</span> is <span class="math display">\[
+<p>Finally, we determine the distribution of the homoskedasticity-only <span class="math inline">\(F\)</span>-statistic under Assumptions 1-6. The homoskedasticity-only <span class="math inline">\(F\)</span>-statistic for testing <span class="math inline">\(H_0:\bs{R}\bs{\beta}=\bs{r}\)</span> is <span class="math display">\[
 \begin{align}
 \tilde{F}=\frac{\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)^{'}\left(\bs{R}(\bs{X}^{'}\bs{X})^{-1}\bs{R}^{'}\right)^{-1}\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)/q}{s^2_{\hat{u}}}.
 \end{align}
