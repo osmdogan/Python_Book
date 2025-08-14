@@ -702,7 +702,7 @@ $$
 &=\bs{C}^{'}\bs{C}\geq0,
 \end{align}
 $$
-where the last equality follows from $\bs{C}^{'}\bs{X}=\bs{A}^{'}\bs{X}-(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{X}=\bs{A}^{'}\bs{X}-\bs{I}_k=\bs{0}_{k\times k}$. 
+where the third equality follows from $\bs{C}^{'}\bs{X}=\bs{A}^{'}\bs{X}-(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{X}=\bs{A}^{'}\bs{X}-\bs{I}_k=\bs{0}_{k\times k}$. 
 :::
 
 ## Control variables and the conditional mean independence assumption
