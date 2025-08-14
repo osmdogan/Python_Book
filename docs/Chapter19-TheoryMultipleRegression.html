@@ -516,7 +516,7 @@ window.Quarto = {
 </header>
 
 
-<div id="5fb8a954" class="cell" data-execution_count="1">
+<div id="c0d439b4" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -1059,7 +1059,20 @@ SE(\hat{\beta}_j)=\sqrt{\tilde{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}},
 <p><span class="theorem-title"><strong>Theorem 26.6 (Gauss-Markov Theorem)</strong></span> Suppose the three Gauss-Markov conditions hold. Then, the OLS estimator is efficient among all linear and conditionally unbiased estimators; that is, the OLS estimator is the best linear unbiased estimator (BLUE).</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-6-1" class="quarto-xref">Theorem&nbsp;<span>26.6</span></a>). </span>See <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span>.</p>
+<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-6-1" class="quarto-xref">Theorem&nbsp;<span>26.6</span></a>). </span>Note that under the Gauss-Markov conditions, the conditional variance of the OLS estimator is given by <span class="math inline">\(\sigma^2_u(\bs{X}^{'}\bs{X})^{-1}\)</span>. Let <span class="math inline">\(\tilde{\beta}=\bs{A}^{'}\bs{Y}\)</span> be a conditionally unbiased linear estimator of <span class="math inline">\(\bs{\beta}\)</span>. Then, under the first assumption, we have <span class="math display">\[
+\E(\tilde{\bs{\beta}}|\bs{X})=\bs{A}^{'}\E(\bs{Y}|\bs{X})=\bs{A}^{'}\bs{X}\bs{\beta},
+\]</span> indicating that <span class="math inline">\(\bs{A}^{'}\bs{X}=\bs{I}_k\)</span>. The conditional variance of <span class="math inline">\(\tilde{\bs{\beta}}\)</span> is given by <span class="math display">\[
+\text{var}(\tilde{\bs{\beta}}|\bs{X})=\text{var}(\bs{A}^{'}\bs{Y}|\bs{X})=\bs{A}^{'}\text{var}(\bs{Y}|\bs{X})\bs{A}=\sigma^2_u\bs{A}^{'}\bs{A},
+\]</span> where in the last equality we use the fact that <span class="math inline">\(\text{var}(\bs{Y}|\bs{X})=\text{var}(\bs{U}|\bs{X})=\sigma^2_u\bs{I}_n\)</span>. Thus, we need to show that <span class="math display">\[
+\sigma^2_u\bs{A}^{'}\bs{A}-\sigma^2_u(\bs{X}^{'}\bs{X})^{-1}\geq0
+\]</span></p>
+<p>Let <span class="math inline">\(\bs{C}=\bs{A}-\bs{X}(\bs{X}^{'}\bs{X})^{-1}\)</span>. Then, we have <span class="math display">\[
+\begin{align}
+\bs{A}^{'}\bs{A}-(\bs{X}^{'}\bs{X})^{-1}&amp;=\left(\bs{C}+\bs{X}(\bs{X}^{'}\bs{X})^{-1}\right)^{'}\left(\bs{C}+\bs{X}(\bs{X}^{'}\bs{X})^{-1}\right)-(\bs{X}^{'}\bs{X})^{-1}\\
+&amp;=\bs{C}^{'}\bs{C}+\bs{C}^{'}\bs{X}(\bs{X}^{'}\bs{X})^{-1}+(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{C}\\
+&amp;=\bs{C}^{'}\bs{C}\geq0,
+\end{align}
+\]</span> where the last equality follows from <span class="math inline">\(\bs{C}^{'}\bs{X}=\bs{A}^{'}\bs{X}-(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{X}=\bs{A}^{'}\bs{X}-\bs{I}_k=\bs{0}_{k\times k}\)</span>.</p>
 </div>
 </section>
 <section id="control-variables-and-the-conditional-mean-independence-assumption" class="level2" data-number="26.8">
@@ -1402,9 +1415,6 @@ J^{GMM}=(\bs{Z}^{'}\hat{\bs{U}})^{'}\hat{\bs{H}}^{-1}(\bs{Z}^{'}\hat{\bs{U}})/n,
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-MacKinnon1985" class="csl-entry" role="listitem">
 MacKinnon, James G, and Halbert White. 1985. <span>“Some Heteroskedasticity-Consistent Covariance Matrix Estimators with Improved Finite Sample Properties.”</span> <em>Journal of Econometrics</em> 29 (3): 305–25.
-</div>
-<div id="ref-Stock2020" class="csl-entry" role="listitem">
-Stock, James H., and Mark W. Watson. 2020. <em>Introduction to Econometrics</em>. Fourth edition. Pearson.
 </div>
 <div id="ref-White1980" class="csl-entry" role="listitem">
 White, Halbert. 1980. <span>“A Heteroskedasticity-Consistent Covariance Matrix Estimator and a Direct Test for Heteroskedasticity.”</span> <em>Econometrica</em> 48 (4): 817–38.
