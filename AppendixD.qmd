@@ -34,7 +34,7 @@ x_n
 \end{pmatrix}, \quad \text{and} \quad \bs{y} = (y_1, y_2, \ldots, y_n),
 \end{align}
 $$
-where $x_i$ and $y_i$ are the $i$th elements of the vectors $\bs{x}$ and $\bs{y}$, respectively. The transpose of a vector $\bs{x}$ is denoted by $\bs{x}^{'}$, which is a $1 \times n$ row vector. The transpose of a row vector $\bs{y}$ is denoted by $\bs{y}^{'}$, which is an $n \times 1$ column vector. 
+where $x_i$ and $y_i$ are the $i$th elements of the vectors $\bs{x}$ and $\bs{y}$, respectively. The transpose of the vector $\bs{x}$ is denoted by $\bs{x}^{'}$, which is a $1 \times n$ row vector. The transpose of the row vector $\bs{y}$ is denoted by $\bs{y}^{'}$, which is an $n \times 1$ column vector. 
 
 Let $\bs{x}\in\mathbb{R}^n$ and $\bs{y}\in\mathbb{R}^n$. Some basic operations associated with vectors are defined as follows:
 
