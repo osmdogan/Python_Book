@@ -516,7 +516,7 @@ window.Quarto = {
 </header>
 
 
-<div id="5ac5858c" class="cell" data-execution_count="1">
+<div id="ee1aca59" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -879,15 +879,11 @@ R^2=\frac{ESS}{TSS}=\frac{\hat{\bs{\beta}}^{'}\bs{X}^{'}\mb{M}_0\bs{X}\hat{\bs{\
 \frac{1}{\sqrt{n}}\bs{X}^{'}\bs{U}\xrightarrow{d}N\left(\bs{0}_{k+1},\,\bs{\Sigma}_{\bs{V}}\right).
 \]</span> Finally, the desired result follows from Slutsky’s theorem.</p>
 </div>
-<p><a href="#thm-thm26-1" class="quarto-xref">Theorem&nbsp;<span>26.1</span></a> indicates that when the sample size is large, we have <span class="math display">\[
-\begin{align}
-\hat{\bs{\beta}}\sim N\left(\bs{\beta},\frac{1}{n}\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\right).
-\end{align}
-\]</span> The heteroskedasticity-robust estimator of <span class="math inline">\(\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span> is given by <span id="eq-eq26-12"><span class="math display">\[
+<p>The heteroskedasticity-robust estimator of <span class="math inline">\(\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span> is given by <span class="math display">\[
 \begin{align}
 \hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}=\left(\frac{\bs{X}^{'}\bs{X}}{n}\right)^{-1}\hat{\bs{\Sigma}}_{\bs{V}}\left(\frac{\bs{X}^{'}\bs{X}}{n}\right)^{-1},
 \end{align}
-\tag{26.10}\]</span></span> where <span class="math inline">\(\hat{\bs{\Sigma}}_{\bs{V}}=\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_i\hat{u}^2_i\)</span>. <span class="citation" data-cites="White1980">White (<a href="references.html#ref-White1980" role="doc-biblioref">1980</a>)</span> showed tat <span class="math inline">\(\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span> is a consistent estimator of <span class="math inline">\(\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span>. The estimator <span class="math inline">\(\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span> is called the <strong>heteroskedasticity-robust covariance matrix estimator</strong>. In particular, it is called the HC1 covariance matrix estimator. The HC1 estimator is the most commonly used one in practice, but it is not the only heteroskedasticity-robust variance estimator. See <span class="citation" data-cites="MacKinnon1985">MacKinnon and White (<a href="references.html#ref-MacKinnon1985" role="doc-biblioref">1985</a>)</span> for further discussion of heteroskedasticity-robust covariance matrix estimators.</p>
+\]</span> where <span class="math inline">\(\hat{\bs{\Sigma}}_{\bs{V}}=\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_i\hat{u}^2_i\)</span>. <span class="citation" data-cites="White1980">White (<a href="references.html#ref-White1980" role="doc-biblioref">1980</a>)</span> showed tat <span class="math inline">\(\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span> is a consistent estimator of <span class="math inline">\(\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span>. The estimator <span class="math inline">\(\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span> is called the <strong>heteroskedasticity-robust covariance matrix estimator</strong>. In particular, it is called the HC0 covariance matrix estimator, indicating that it is a baseline estimator. By scaling this estimator with <span class="math inline">\(n/(n-k-1)\)</span>, we obtain another version, called the HC1 estimator. The HC1 estimator is the most commonly used in practice. See <span class="citation" data-cites="MacKinnon1985">MacKinnon and White (<a href="references.html#ref-MacKinnon1985" role="doc-biblioref">1985</a>)</span> for further discussion of heteroskedasticity-robust covariance matrix estimators.</p>
 <p>Note that the asymptotic variance of <span class="math inline">\(\hat{\bs{\beta}}\)</span> is <span class="math inline">\(\text{var}(\hat{\bs{\beta}})=\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}=n^{-1}\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span>. The heteroskedasticity-robust standard error for the <span class="math inline">\(j\)</span>th regression coefficient is the square root of the <span class="math inline">\(j\)</span>th diagonal element of <span class="math inline">\(\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}\)</span>: <span class="math display">\[
 \begin{align}
 SE(\hat{\beta}_j)=\sqrt{\hat{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}},
@@ -916,7 +912,7 @@ t\xrightarrow{d}N(0,1).
 \begin{align}
 H_0:\bs{R}\bs{\beta}=\bs{r},
 \end{align}
-\tag{26.11}\]</span></span> where <span class="math inline">\(\bs{R}\)</span> is a <span class="math inline">\(q\times(k + 1)\)</span> nonrandom matrix with full row rank and <span class="math inline">\(\bs{r}\)</span> is a nonrandom <span class="math inline">\(q\times1\)</span> vector.</p>
+\tag{26.10}\]</span></span> where <span class="math inline">\(\bs{R}\)</span> is a <span class="math inline">\(q\times(k + 1)\)</span> nonrandom matrix with full row rank and <span class="math inline">\(\bs{r}\)</span> is a nonrandom <span class="math inline">\(q\times1\)</span> vector.</p>
 <div id="exm-exm26-1" class="theorem example">
 <p><span class="theorem-title"><strong>Example 26.1</strong></span> Consider <span class="math inline">\(H_0:\beta_1=0,\beta_2=0, \beta_3=3\)</span>. This null hypothesis imposes <span class="math inline">\(q=3\)</span> restrictions. Then, for this null hypothesis, we have <span class="math display">\[
 \begin{align}
@@ -948,7 +944,7 @@ H_0:\bs{R}\bs{\beta}=\bs{r},
 \end{align}
 \]</span></p>
 </div>
-<p>We can use the heteroskedasticity-robust F-statistic for testing the joint hypothesis in <a href="#eq-eq26-14" class="quarto-xref">Equation&nbsp;<span>26.11</span></a>. The heteroskedasticity-robust F-statistic is given by <span class="math display">\[
+<p>We can use the heteroskedasticity-robust F-statistic for testing the joint hypothesis in <a href="#eq-eq26-14" class="quarto-xref">Equation&nbsp;<span>26.10</span></a>. The heteroskedasticity-robust F-statistic is given by <span class="math display">\[
 \begin{align}
 F=\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)^{'}\left(\bs{R}\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}\bs{R}^{'}\right)^{-1}\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)/q.
 \end{align}
@@ -1000,7 +996,7 @@ s^2_{\hat{u}}=\frac{1}{n-k-1}\sum_{i=1}^n\hat{u}^2_i=\frac{1}{n-k-1}\hat{\bs{U}}
 \begin{align*}
 \frac{(n-k-1)s^2_{\hat{u}}}{\sigma^2_u}=(\bs{U}/\sigma_u)^{'}\bs{M}_{\bs{X}}(\bs{U}/\sigma_u)\sim \chi^2_{n-k-1},
 \end{align*}
-\tag{26.12}\]</span></span> where the degrees of freedom of the chi-squared distribution is <span class="math inline">\(n-k-1\)</span> because the rank of <span class="math inline">\(\bs{M}_{\bs{X}}\)</span> is <span class="math inline">\(n-k-1\)</span>. Thus, we have <span class="math display">\[
+\tag{26.11}\]</span></span> where the degrees of freedom of the chi-squared distribution is <span class="math inline">\(n-k-1\)</span> because the rank of <span class="math inline">\(\bs{M}_{\bs{X}}\)</span> is <span class="math inline">\(n-k-1\)</span>. Thus, we have <span class="math display">\[
 \begin{align}
 s^2_{\hat{u}}\sim \frac{\sigma^2_u}{n-k-1}\chi^2_{n-k-1}.
 \end{align}
@@ -1023,7 +1019,7 @@ SE(\hat{\beta}_j)=\sqrt{\tilde{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}},
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-3" class="quarto-xref">Theorem&nbsp;<span>26.4</span></a>). </span>Note that we can write <span class="math inline">\(\tilde{t}\)</span> as <span class="math display">\[
 \tilde{t}=\frac{(\hat{\beta}_j-\beta_{j,0})/\sqrt{\bs{\Sigma}_{\hat{\bs{\beta}},jj}}}{\sqrt{W/(n-k-1)}},
-\]</span> where <span class="math inline">\(W=\frac{(n-k-1)s^2_{\hat{u}}}{\sigma^2_u}\)</span>. Under the null, the numerator is distributed as <span class="math inline">\(N(0,1)\)</span>. The variable <span class="math inline">\(W\)</span> in the denominator is distributed as <span class="math inline">\(W\sim \chi_{n-k-1}\)</span> by <a href="#eq-eq26-18" class="quarto-xref">Equation&nbsp;<span>26.12</span></a>. If we can also show that <span class="math inline">\(W\)</span> is independent of the numerator, then we can conclude that <span class="math inline">\(\tilde{t}\)</span> has the Student t distribution with <span class="math inline">\(n-k-1\)</span> degrees of freedom. For independence, it is enough to show that <span class="math inline">\(\hat{\bs{\beta}}\)</span> and <span class="math inline">\(W\)</span> are independent. Note that <span class="math inline">\(\hat{\bs{\beta}}-\bs{\beta}_0=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}\)</span> and <span class="math inline">\(W=\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U}/\sigma^2_u\)</span>. That is, <span class="math inline">\(\hat{\bs{\beta}}-\bs{\beta}_0\)</span> is a linear function of <span class="math inline">\(\bs{U}\)</span>, and <span class="math inline">\(W\)</span> is a quadratic form in <span class="math inline">\(\bs{U}\)</span>. Since <span class="math inline">\((\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{M}_{\bs{X}}=\bs{0}\)</span>, it follows from <a href="AppendixD.html#thm-independent-quadratics" class="quarto-xref">Theorem&nbsp;<span>D.7</span></a> in Appendix D that <span class="math inline">\(\hat{\bs{\beta}}\)</span> and <span class="math inline">\(W\)</span> are independent. In particular, this result shows that <span class="math inline">\(\hat{\bs{\beta}}\)</span> and <span class="math inline">\(\hat{s}^2_{\hat{u}}\)</span> are independent.</p>
+\]</span> where <span class="math inline">\(W=\frac{(n-k-1)s^2_{\hat{u}}}{\sigma^2_u}\)</span>. Under the null, the numerator is distributed as <span class="math inline">\(N(0,1)\)</span>. The variable <span class="math inline">\(W\)</span> in the denominator is distributed as <span class="math inline">\(W\sim \chi_{n-k-1}\)</span> by <a href="#eq-eq26-18" class="quarto-xref">Equation&nbsp;<span>26.11</span></a>. If we can also show that <span class="math inline">\(W\)</span> is independent of the numerator, then we can conclude that <span class="math inline">\(\tilde{t}\)</span> has the Student t distribution with <span class="math inline">\(n-k-1\)</span> degrees of freedom. For independence, it is enough to show that <span class="math inline">\(\hat{\bs{\beta}}\)</span> and <span class="math inline">\(W\)</span> are independent. Note that <span class="math inline">\(\hat{\bs{\beta}}-\bs{\beta}_0=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}\)</span> and <span class="math inline">\(W=\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U}/\sigma^2_u\)</span>. That is, <span class="math inline">\(\hat{\bs{\beta}}-\bs{\beta}_0\)</span> is a linear function of <span class="math inline">\(\bs{U}\)</span>, and <span class="math inline">\(W\)</span> is a quadratic form in <span class="math inline">\(\bs{U}\)</span>. Since <span class="math inline">\((\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{M}_{\bs{X}}=\bs{0}\)</span>, it follows from <a href="AppendixD.html#thm-independent-quadratics" class="quarto-xref">Theorem&nbsp;<span>D.7</span></a> in Appendix D that <span class="math inline">\(\hat{\bs{\beta}}\)</span> and <span class="math inline">\(W\)</span> are independent. In particular, this result shows that <span class="math inline">\(\hat{\bs{\beta}}\)</span> and <span class="math inline">\(\hat{s}^2_{\hat{u}}\)</span> are independent.</p>
 </div>
 <p>The homoskedasticity-only <span class="math inline">\(F\)</span>-statistic for testing <span class="math inline">\(H_0:\bs{R}\bs{\beta}=\bs{r}\)</span> is <span class="math display">\[
 \begin{align}
@@ -1194,7 +1190,7 @@ The generalized least squares assumptions
 \tilde{\bs{\beta}}^{GLS}&amp;=\left(\tilde{\bs{X}}^{'}\tilde{\bs{X}}\right)^{-1}\tilde{\bs{X}}^{'}\tilde{\bs{Y}}=\left(\bs{X}^{'}\bs{F}\bs{F}^{'}\bs{X}\right)^{-1}\left(\bs{X}^{'}\bs{F}\bs{F}^{'}\bs{Y}\right)\\
 &amp;=\left(\bs{X}^{'}\bs{\Omega}^{-1}\bs{X}\right)^{-1}\left(\bs{X}^{'}\bs{\Omega}^{-1}\bs{Y}\right).
 \end{align}
-\tag{26.13}\]</span></span></p>
+\tag{26.12}\]</span></span></p>
 <p>Given the fact that the transformed model is homoskedastic, it follows that <span class="math display">\[
 \begin{align}
 &amp;\E(\tilde{\bs{\beta}}^{GLS}|\bs{X})=\bs{\beta},\\
@@ -1206,7 +1202,7 @@ The generalized least squares assumptions
 \begin{align}
 \hat{\bs{\beta}}^{GLS}=\left(\bs{X}^{'}\hat{\bs{\Omega}}^{-1}\bs{X}\right)^{-1}\left(\bs{X}^{'}\hat{\bs{\Omega}}^{-1}\bs{Y}\right),
 \end{align}
-\tag{26.14}\]</span></span> where <span class="math inline">\(\hat{\bs{\Omega}}\)</span> is an estimator of <span class="math inline">\(\bs{\Omega}\)</span>. This GLS estimator is called the feasible generalized least squares (FGLS) estimator.</p>
+\tag{26.13}\]</span></span> where <span class="math inline">\(\hat{\bs{\Omega}}\)</span> is an estimator of <span class="math inline">\(\bs{\Omega}\)</span>. This GLS estimator is called the feasible generalized least squares (FGLS) estimator.</p>
 </section>
 <section id="instrumental-variables-and-generalized-method-of-moments-estimation" class="level2" data-number="26.10">
 <h2 data-number="26.10" class="anchored" data-anchor-id="instrumental-variables-and-generalized-method-of-moments-estimation"><span class="header-section-number">26.10</span> Instrumental variables and generalized method of moments estimation</h2>
@@ -1216,13 +1212,13 @@ The generalized least squares assumptions
 \begin{align}
 \E(\bs{Z}_iu_i)=\bs{0}.
 \end{align}
-\tag{26.15}\]</span></span></p>
+\tag{26.14}\]</span></span></p>
 <p>Let <span class="math inline">\(\hat{\bs{X}}\)</span> be the matrix of predicted values with the <span class="math inline">\(i\)</span>th row given by <span class="math inline">\((1, \hat{X}_{1i}, \hat{X}_{2i},\ldots, \hat{X}_{ki}, W_{1i}, W_{2i},\ldots,W_{ri})\)</span>, where <span class="math inline">\(\hat{X}_{1i}\)</span> is the predicted value from the regression of <span class="math inline">\(X_{1i}\)</span> on <span class="math inline">\(\bs{Z}\)</span> and so forth. Because the <span class="math inline">\(W's\)</span> are contained in <span class="math inline">\(\bs{Z}\)</span>, the predicted value from a regression of <span class="math inline">\(W_{1i}\)</span> on <span class="math inline">\(\bs{Z}\)</span> is just <span class="math inline">\(W_{1i}\)</span> and so forth. Using the projection matrix <span class="math inline">\(\bs{P}_{\bs{Z}} = \bs{Z}(\bs{Z}^{'}\bs{Z})^{-1}\bs{Z}^{'}\)</span>, the predicted values are <span class="math inline">\(\hat{\bs{X}}=\bs{P}_{\bs{Z}}\bs{X}\)</span>.</p>
 <p>The TSLS estimator is the OLS estimator of the regression of <span class="math inline">\(\bs{Y}\)</span> on <span class="math inline">\(\hat{\bs{X}}\)</span> and is given by <span id="eq-eq26-25"><span class="math display">\[
 \begin{align}
 \hat{\bs{\beta}}^{TSLS}=(\hat{\bs{X}}^{'}\hat{\bs{X}})^{-1}\hat{\bs{X}}^{'}\bs{Y}=(\bs{X}^{'}\bs{P}_{\bs{Z}}\bs{X})^{-1}\bs{X}^{'}\bs{P}_{\bs{Z}}\bs{Y}.
 \end{align}
-\tag{26.16}\]</span></span></p>
+\tag{26.15}\]</span></span></p>
 <p>Using <span class="math inline">\(\bs{Y}=\bs{X}\bs{\beta}+\bs{U}\)</span>, we can express the TSLS estimator as <span class="math display">\[
 \begin{align}
 \sqrt{n}(\hat{\bs{\beta}}^{TSLS}-\bs{\beta})&amp;=\left(\frac{\bs{X}^{'}\bs{P}_{\bs{Z}}\bs{X}}{n}\right)^{-1}\frac{\bs{X}^{'}\bs{P}_{\bs{Z}}\bs{Y}}{\sqrt{n}}\\
@@ -1272,16 +1268,16 @@ The generalized least squares assumptions
 \begin{align}
 \E\left((\bs{Y}-\bs{X}\bs{\beta})^{'}\bs{Z}\right)=0.
 \end{align}
-\tag{26.17}\]</span></span> This moment condition constitutes <span class="math inline">\(m+r+1\)</span> equations involving <span class="math inline">\(k+r+1\)</span> unknowns. When <span class="math inline">\(m=k\)</span>, we can consider the sample analog of <a href="#eq-eq26-27" class="quarto-xref">Equation&nbsp;<span>26.17</span></a>: <span class="math inline">\((\bs{Y}-\bs{X}\bs{b})^{'}\bs{Z}=0\)</span>. Then, the IV estimator is the value of <span class="math inline">\(\bs{b}\)</span> that satisfies the sample analog of <a href="#eq-eq26-27" class="quarto-xref">Equation&nbsp;<span>26.17</span></a>. However, when <span class="math inline">\(m&gt;k\)</span>, there are infinitely many values of <span class="math inline">\(\bs{b}\)</span> that satisfy the sample analog of <a href="#eq-eq26-27" class="quarto-xref">Equation&nbsp;<span>26.17</span></a>.</p>
+\tag{26.16}\]</span></span> This moment condition constitutes <span class="math inline">\(m+r+1\)</span> equations involving <span class="math inline">\(k+r+1\)</span> unknowns. When <span class="math inline">\(m=k\)</span>, we can consider the sample analog of <a href="#eq-eq26-27" class="quarto-xref">Equation&nbsp;<span>26.16</span></a>: <span class="math inline">\((\bs{Y}-\bs{X}\bs{b})^{'}\bs{Z}=0\)</span>. Then, the IV estimator is the value of <span class="math inline">\(\bs{b}\)</span> that satisfies the sample analog of <a href="#eq-eq26-27" class="quarto-xref">Equation&nbsp;<span>26.16</span></a>. However, when <span class="math inline">\(m&gt;k\)</span>, there are infinitely many values of <span class="math inline">\(\bs{b}\)</span> that satisfy the sample analog of <a href="#eq-eq26-27" class="quarto-xref">Equation&nbsp;<span>26.16</span></a>.</p>
 <p>When parameters are overidentified, we can resort to the second way of defining the IV estimator. The second way is based on minimizing the quadratic form involving all the moment conditions. Let <span class="math inline">\(\bs{A}\)</span> be a <span class="math inline">\((m+r+1)\times(m+r+1)\)</span> matrix of weights. Then, the IV estimator is the value of <span class="math inline">\(\bs{b}\)</span> that minimizes <span id="eq-eq26-28"><span class="math display">\[
 \begin{align}
 \bs{Q}(\bs{b})=\left(\bs{Y}-\bs{X}\bs{b}\right)^{'}\bs{Z}\bs{A}\bs{Z}^{'}\left(\bs{Y}-\bs{X}\bs{b}\right).
 \end{align}
-\tag{26.18}\]</span></span> The minimization problem is solved by differentiating <span class="math inline">\(\bs{Q}(\bs{b})\)</span> with respect to <span class="math inline">\(\bs{b}\)</span> and setting the resulting derivative equal to zero. The solution is given by <span id="eq-eq26-29"><span class="math display">\[
+\tag{26.17}\]</span></span> The minimization problem is solved by differentiating <span class="math inline">\(\bs{Q}(\bs{b})\)</span> with respect to <span class="math inline">\(\bs{b}\)</span> and setting the resulting derivative equal to zero. The solution is given by <span id="eq-eq26-29"><span class="math display">\[
 \begin{align}
 \hat{\bs{\beta}}^{IV}_{\bs{A}}=\left(\bs{X}^{'}\bs{Z}\bs{A}\bs{Z}^{'}\bs{X}\right)^{-1}\bs{X}^{'}\bs{Z}\bs{A}\bs{Z}^{'}\bs{Y}.
 \end{align}
-\tag{26.19}\]</span></span> The TSLS estimator is a special case of the IV estimator when <span class="math inline">\(\bs{A}=(\bs{Z}^{'}\bs{Z})^{-1}\)</span>. Thus, the TSLS estimator is the IV estimator that minimizes the quadratic form involving the sample moment conditions with the weights given by <span class="math inline">\(\bs{A}=(\bs{Z}^{'}\bs{Z})^{-1}\)</span>.</p>
+\tag{26.18}\]</span></span> The TSLS estimator is a special case of the IV estimator when <span class="math inline">\(\bs{A}=(\bs{Z}^{'}\bs{Z})^{-1}\)</span>. Thus, the TSLS estimator is the IV estimator that minimizes the quadratic form involving the sample moment conditions with the weights given by <span class="math inline">\(\bs{A}=(\bs{Z}^{'}\bs{Z})^{-1}\)</span>.</p>
 <p>Using the same argument as in the case of the TSLS estimator, we can show that the IV estimator is asymptotically normally distributed. The asymptotic distribution of the IV estimator is given by <span class="math display">\[
 \begin{align*}
 \sqrt{n}(\hat{\bs{\beta}}^{IV}_{\bs{A}}-\bs{\beta})\xrightarrow{d}N(\bs{0},\bs{\Sigma}^{IV}_{\bs{A}}),
@@ -1325,7 +1321,7 @@ J&amp;=(m+r)\times F\\
 &amp;=\frac{\left(\hat{\bs{U}}^{'}\hat{\bs{U}}-\hat{\bs{U}}^{'}\bs{M}_{\bs{Z}}\hat{\bs{U}} \right)}{\hat{\bs{U}}^{'}\bs{M}_{\bs{Z}}\hat{\bs{U}}/(n-m-r-1)}\\
 &amp;=\frac{\hat{\bs{U}}^{'}\bs{P}_{\bs{Z}}\hat{\bs{U}}}{\hat{\bs{U}}^{'}\bs{M}_{\bs{Z}}\hat{\bs{U}}/(n-m-r-1)}.
 \end{align}
-\tag{26.20}\]</span></span></p>
+\tag{26.19}\]</span></span></p>
 <div id="thm-thm26-6" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 26.9 (The <span class="math inline">\(J\)</span> statistic under homoskedasticity)</strong></span> If the errors are homoskedastic, then under the null hypothesis that <span class="math inline">\(\E(\bs{Z}_iu_i)=0\)</span>, we have <span class="math display">\[
 \begin{align}
@@ -1369,21 +1365,21 @@ J=\frac{\hat{\bs{U}}^{'}\bs{P}_{\bs{Z}}\hat{\bs{U}}}{\hat{\bs{U}}^{'}\bs{M}_{\bs
 <section id="generalized-method-of-moments" class="level3" data-number="26.10.3">
 <h3 data-number="26.10.3" class="anchored" data-anchor-id="generalized-method-of-moments"><span class="header-section-number">26.10.3</span> Generalized method of moments</h3>
 <p>When the error terms are heteroskedastic, the TSLS estimator is not the most efficient estimator within the class of IV estimators. Also, the distributional result given in <a href="#thm-thm26-6" class="quarto-xref">Theorem&nbsp;<span>26.9</span></a> for the J-statistic does not hold. In this case, we can use the generalized method of moments (GMM) estimator. We use the GMM estimator to formulate a J-statistic that is valid under heteroskedasticity.</p>
-<p>When the moment conditions are linear, the cass of the GMM estimator consists of all the estimators that can be obtained by minimizing the quadratic form in <a href="#eq-eq26-28" class="quarto-xref">Equation&nbsp;<span>26.18</span></a>. Our goal is to find the GMM estimator that is efficient among all the estimators in the class of GMM estimators. To do this, we need to find the optimal weighting matrix <span class="math inline">\(\bs{A}\)</span>. In the heteroskedastic case, the optimal wieghting matrix is given by <span class="math inline">\(\bs{A}=\bs{H}^{-1}\)</span>, where <span class="math inline">\(\bs{H}=\E(\bs{Z}_i\bs{Z}^{'}_iu^2_i)\)</span>. The GMM estimator is obtained by minimizing the quadratic form <span id="eq-eq26-31"><span class="math display">\[
+<p>When the moment conditions are linear, the cass of the GMM estimator consists of all the estimators that can be obtained by minimizing the quadratic form in <a href="#eq-eq26-28" class="quarto-xref">Equation&nbsp;<span>26.17</span></a>. Our goal is to find the GMM estimator that is efficient among all the estimators in the class of GMM estimators. To do this, we need to find the optimal weighting matrix <span class="math inline">\(\bs{A}\)</span>. In the heteroskedastic case, the optimal wieghting matrix is given by <span class="math inline">\(\bs{A}=\bs{H}^{-1}\)</span>, where <span class="math inline">\(\bs{H}=\E(\bs{Z}_i\bs{Z}^{'}_iu^2_i)\)</span>. The GMM estimator is obtained by minimizing the quadratic form <span id="eq-eq26-31"><span class="math display">\[
 \begin{align}
 \bs{Q}(\bs{b})=\left(\bs{Y}-\bs{X}\bs{b}\right)^{'}\bs{Z}\bs{H}^{-1}\bs{Z}^{'}\left(\bs{Y}-\bs{X}\bs{b}\right).
 \end{align}
-\tag{26.21}\]</span></span> Then, the efficient GMM estimator is given by <span id="eq-eq26-32"><span class="math display">\[
+\tag{26.20}\]</span></span> Then, the efficient GMM estimator is given by <span id="eq-eq26-32"><span class="math display">\[
 \begin{align}
 \tilde{\bs{\beta}}^{GMM}=(\bs{X}^{'}\bs{Z}\bs{H}^{-1}\bs{Z}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{Z}\bs{H}^{-1}\bs{Z}^{'}\bs{Y}.
 \end{align}
-\tag{26.22}\]</span></span> The asymptotic distribution can be determined by using the same arguments as in the case of the IV estimator. In particular, the covariance matrix of the GMM estimator is obtained by substituting <span class="math inline">\(\bs{A}=\bs{H}^{-1}\)</span> into the covariance matrix of the IV estimator. The asymptotic distribution of the GMM estimator is given by <span class="math display">\[
+\tag{26.21}\]</span></span> The asymptotic distribution can be determined by using the same arguments as in the case of the IV estimator. In particular, the covariance matrix of the GMM estimator is obtained by substituting <span class="math inline">\(\bs{A}=\bs{H}^{-1}\)</span> into the covariance matrix of the IV estimator. The asymptotic distribution of the GMM estimator is given by <span class="math display">\[
 \begin{align*}
 \sqrt{n}(\tilde{\bs{\beta}}^{GMM}-\bs{\beta})\xrightarrow{d}N(\bs{0},\bs{\Sigma}^{GMM}),
 \end{align*}
 \]</span> where <span class="math inline">\(\bs{\Sigma}^{GMM}=(\bs{Q}_{\bs{X}\bs{Z}}\bs{H}^{-1}\bs{Q}_{\bs{Z}\bs{X}})^{-1}\)</span>.</p>
 <div id="thm-thm26-7" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 26.10 (The GMM estimator)</strong></span> The GMM estimator in <a href="#eq-eq26-32" class="quarto-xref">Equation&nbsp;<span>26.22</span></a> is the most efficient estimator among all the estimators in the class of GMM estimators.</p>
+<p><span class="theorem-title"><strong>Theorem 26.10 (The GMM estimator)</strong></span> The GMM estimator in <a href="#eq-eq26-32" class="quarto-xref">Equation&nbsp;<span>26.21</span></a> is the most efficient estimator among all the estimators in the class of GMM estimators.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-7" class="quarto-xref">Theorem&nbsp;<span>26.10</span></a>). </span>The proof requires showing that <span class="math inline">\(\bs{c}(\bs{\Sigma}^{GMM}-\bs{\Sigma}^{IV}_{\bs{A}})\bs{c}\leq0\)</span> for all <span class="math inline">\(\bs{c}\in\mathbb{R}^{k+r+1}\)</span>. We can follow the same steps as in the proof of <a href="#thm-thm26-5" class="quarto-xref">Theorem&nbsp;<span>26.8</span></a>. The only difference is that we need to replace <span class="math inline">\(\sigma^2_u\bs{Q}_{\bs{Z}\bs{Z}}\)</span> with <span class="math inline">\(\bs{H}^{-1}\)</span>. We omit the details here.</p>
@@ -1394,12 +1390,12 @@ J=\frac{\hat{\bs{U}}^{'}\bs{P}_{\bs{Z}}\hat{\bs{U}}}{\hat{\bs{U}}^{'}\bs{M}_{\bs
 \begin{align}
 \hat{\bs{H}}=\frac{1}{n}\sum_{i=1}^n\bs{Z}_i\bs{Z}^{'}_i\hat{u}^2_i,
 \end{align}
-\tag{26.23}\]</span></span> where <span class="math inline">\(\hat{u}_i\)</span> is the <span class="math inline">\(i\)</span>th element of <span class="math inline">\(\hat{\bs{U}}=\bs{Y}-\bs{X}\hat{\bs{\beta}}^{TSLS}\)</span>.</li>
+\tag{26.22}\]</span></span> where <span class="math inline">\(\hat{u}_i\)</span> is the <span class="math inline">\(i\)</span>th element of <span class="math inline">\(\hat{\bs{U}}=\bs{Y}-\bs{X}\hat{\bs{\beta}}^{TSLS}\)</span>.</li>
 <li>Second, we replace <span class="math inline">\(\bs{H}\)</span> with <span class="math inline">\(\hat{\bs{H}}\)</span> in the GMM estimator. The feasible GMM estimator is given by <span id="eq-eq26-35"><span class="math display">\[
 \begin{align}
 \hat{\bs{\beta}}^{GMM}=(\bs{X}^{'}\bs{Z}\hat{\bs{H}}^{-1}\bs{Z}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{Z}\hat{\bs{H}}^{-1}\bs{Z}^{'}\bs{Y}.
 \end{align}
-\tag{26.24}\]</span></span></li>
+\tag{26.23}\]</span></span></li>
 </ol>
 <p>Since <span class="math inline">\(\hat{\bs{H}}\)</span> is a consistent estimator of <span class="math inline">\(\bs{H}\)</span>, it follows that <span class="math display">\[
 \begin{align*}
@@ -1410,7 +1406,7 @@ J=\frac{\hat{\bs{U}}^{'}\bs{P}_{\bs{Z}}\hat{\bs{U}}}{\hat{\bs{U}}^{'}\bs{M}_{\bs
 \begin{align}
 J^{GMM}=(\bs{Z}^{'}\hat{\bs{U}})^{'}\hat{\bs{H}}^{-1}(\bs{Z}^{'}\hat{\bs{U}})/n,
 \end{align}
-\tag{26.25}\]</span></span> where <span class="math inline">\(\hat{\bs{U}}=\bs{Y}-\bs{X}\hat{\bs{\beta}}^{GMM}\)</span>.</p>
+\tag{26.24}\]</span></span> where <span class="math inline">\(\hat{\bs{U}}=\bs{Y}-\bs{X}\hat{\bs{\beta}}^{GMM}\)</span>.</p>
 <div id="thm-thm26-8" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 26.11 (The <span class="math inline">\(J^{GMM}\)</span> statistic)</strong></span> The <span class="math inline">\(J^{GMM}\)</span> statistic is asymptotically distributed as <span class="math inline">\(\chi^2_{m-k}\)</span> under the null hypothesis that <span class="math inline">\(\E(\bs{Z}_iu_i)=0\)</span>.</p>
 </div>

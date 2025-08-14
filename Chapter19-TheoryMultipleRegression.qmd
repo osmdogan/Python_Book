@@ -431,19 +431,13 @@ $$
 Finally, the desired result follows from Slutsky's theorem.
 :::
 
-@thm-thm26-1 indicates that when the sample size is large,  we have
-$$
-\begin{align}
-\hat{\bs{\beta}}\sim N\left(\bs{\beta},\frac{1}{n}\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\right).
-\end{align}
-$$
 The heteroskedasticity-robust estimator of $\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$ is given by
 $$
 \begin{align}
 \hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}=\left(\frac{\bs{X}^{'}\bs{X}}{n}\right)^{-1}\hat{\bs{\Sigma}}_{\bs{V}}\left(\frac{\bs{X}^{'}\bs{X}}{n}\right)^{-1},
 \end{align}
-$${#eq-eq26-12}
-where $\hat{\bs{\Sigma}}_{\bs{V}}=\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_i\hat{u}^2_i$. @White1980 showed tat $\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$ is a consistent estimator of $\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$. The estimator $\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$ is called the **heteroskedasticity-robust covariance matrix estimator**. In particular, it is called the HC1 covariance matrix estimator. The HC1 estimator is the most commonly used one in practice, but it is not the only heteroskedasticity-robust variance estimator. See @MacKinnon1985 for further discussion of heteroskedasticity-robust covariance matrix estimators.
+$$
+where $\hat{\bs{\Sigma}}_{\bs{V}}=\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_i\hat{u}^2_i$. @White1980 showed tat $\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$ is a consistent estimator of $\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$. The estimator $\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$ is called the **heteroskedasticity-robust covariance matrix estimator**. In particular, it is called the HC0 covariance matrix estimator, indicating that it is a baseline estimator. By scaling this estimator with $n/(n-k-1)$, we obtain another version, called the HC1 estimator. The HC1 estimator is the most commonly used in practice. See @MacKinnon1985 for further discussion of heteroskedasticity-robust covariance matrix estimators.
 
 Note that the asymptotic variance of $\hat{\bs{\beta}}$ is $\text{var}(\hat{\bs{\beta}})=\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}=n^{-1}\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$. The heteroskedasticity-robust standard error for the $j$th regression coefficient is the square root of the $j$th diagonal element of $\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}$:
 $$

@@ -888,7 +888,7 @@ r4 = smf.ols(formula="testscr ~ str + hiel + hiel*str + meal_pct + np.log(avginc
 r5 = smf.ols(formula="testscr ~ str + I(str**2) + I(str**3) + hiel + meal_pct + np.log(avginc)", data = mydata).fit(cov_type="HC3")
 # Model 6
 r6 = smf.ols(formula="testscr ~ str + I(str**2) + I(str**3) + hiel + hiel*str + hiel*I(str**2) + hiel * I(str**3) + meal_pct + np.log(avginc)",
-data = mydata).fit(cov_type="HC3")
+data = mydata).fit(cov_type="HC1")
 # Model 7
 r7 = smf.ols(formula="testscr ~ str + I(str**2) + I(str**3) + el_pct + meal_pct + np.log(avginc)", data = mydata).fit(cov_type="HC1")
 ```
