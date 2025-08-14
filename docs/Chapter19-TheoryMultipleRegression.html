@@ -516,7 +516,7 @@ window.Quarto = {
 </header>
 
 
-<div id="ee1aca59" class="cell" data-execution_count="1">
+<div id="880dfd8c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -879,7 +879,7 @@ R^2=\frac{ESS}{TSS}=\frac{\hat{\bs{\beta}}^{'}\bs{X}^{'}\mb{M}_0\bs{X}\hat{\bs{\
 \frac{1}{\sqrt{n}}\bs{X}^{'}\bs{U}\xrightarrow{d}N\left(\bs{0}_{k+1},\,\bs{\Sigma}_{\bs{V}}\right).
 \]</span> Finally, the desired result follows from Slutsky’s theorem.</p>
 </div>
-<p>The heteroskedasticity-robust estimator of <span class="math inline">\(\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span> is given by <span class="math display">\[
+<p>For inference, we need an estimator of <span class="math inline">\(\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span>. The heteroskedasticity-robust estimator of <span class="math inline">\(\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span> is given by <span class="math display">\[
 \begin{align}
 \hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}=\left(\frac{\bs{X}^{'}\bs{X}}{n}\right)^{-1}\hat{\bs{\Sigma}}_{\bs{V}}\left(\frac{\bs{X}^{'}\bs{X}}{n}\right)^{-1},
 \end{align}

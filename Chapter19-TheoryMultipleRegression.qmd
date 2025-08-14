@@ -431,7 +431,7 @@ $$
 Finally, the desired result follows from Slutsky's theorem.
 :::
 
-The heteroskedasticity-robust estimator of $\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$ is given by
+For inference, we need an estimator of $\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$. The heteroskedasticity-robust estimator of $\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$ is given by
 $$
 \begin{align}
 \hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}=\left(\frac{\bs{X}^{'}\bs{X}}{n}\right)^{-1}\hat{\bs{\Sigma}}_{\bs{V}}\left(\frac{\bs{X}^{'}\bs{X}}{n}\right)^{-1},
