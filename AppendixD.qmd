@@ -500,10 +500,10 @@ A square matrix $\bs{A}$ is said to be **singular** if $|\bs{A}|=0$. Otherwise, 
 :::
 
 ## Inverse of a matrix
-The inverse of a matrix is defined only for square matrices.
+The inverse is defined only for square matrices.
 
 :::{#def-inverse}
-## Inverse of a matrix
+## Inverse
 If the $n\times n$ matrix $\bs{A}$ is nonsingular, then there exists a unique matrix $\bs{A}^{-1}$ such that $\bs{A} \bs{A}^{-1} = \bs{A}^{-1} \bs{A} = \bs{I}_n$. The matrix $\bs{A}^{-1}$ is called the **inverse** of $\bs{A}$. 
 :::
 
