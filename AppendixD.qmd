@@ -262,7 +262,7 @@ $$
 (\bs{A}\bs{B})_{\cdot j} = B_{1j}\bs{A}_{\cdot1} + B_{2j}\bs{A}_{\cdot2} + \ldots + B_{nj}\bs{A}_{\cdot n},
 \end{align*}
 $$
-where $(\bs{A}\bs{B})_{\cdot j}$ is the $j0$th column of $\bs{A}\bs{B}$, $B_{ij}$ is the $(i,j)$th element of $\bs{B}$, and $\bs{A}_{\cdot i}$ is the $i$th column of $\bs{A}$. Thus, each column of the product $\bs{A}\bs{B}$ is a linear combination of the columns of $\bs{A}$.
+where $(\bs{A}\bs{B})_{\cdot j}$ is the $j$th column of $\bs{A}\bs{B}$, $B_{ij}$ is the $(i,j)$th element of $\bs{B}$, and $\bs{A}_{\cdot i}$ is the $i$th column of $\bs{A}$. Thus, each column of the product $\bs{A}\bs{B}$ is a linear combination of the columns of $\bs{A}$.
 
 Similarly, we can show that the $l$th row of the product $\bs{A}\bs{B}$ is given by
 $$
