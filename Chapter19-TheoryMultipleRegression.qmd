@@ -626,7 +626,7 @@ $$
 \end{align*}
 $${#eq-eq26-11-2}
 
-Also, it is important to note that $\text{Cov}(\hat{\bs{\beta}},\hat{\bs{U}}|\bs{X})=\bs{0}_{(k+1)\times n}$ implies that $\hat{\bs{\beta}}$ is statistically independent of $\hat{\bs{U}}$. In particular, $\hat{\bs{\beta}}$ is statistically independent of any function $\hat{\bs{U}}$, and vice versa.
+Also, it is important to note that $\text{Cov}(\hat{\bs{\beta}},\hat{\bs{U}}|\bs{X})=\bs{0}_{(k+1)\times n}$ implies that $\hat{\bs{\beta}}$ is statistically independent of $\hat{\bs{U}}$. In particular, any function of $\hat{\bs{\beta}}$ is statistically independent of any function of $\hat{\bs{U}}$.
 
 The standard error of regression (SER) is
 $$

@@ -516,7 +516,7 @@ window.Quarto = {
 </header>
 
 
-<div id="24db5ece" class="cell" data-execution_count="1">
+<div id="cb7a4f99" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -1024,7 +1024,7 @@ F\xrightarrow{d}F_{q,\infty}.
 \end{pmatrix}\right).
 \end{align*}
 \tag{26.11}\]</span></span></p>
-<p>Also, it is important to note that <span class="math inline">\(\text{Cov}(\hat{\bs{\beta}},\hat{\bs{U}}|\bs{X})=\bs{0}_{(k+1)\times n}\)</span> implies that <span class="math inline">\(\hat{\bs{\beta}}\)</span> is statistically independent of <span class="math inline">\(\hat{\bs{U}}\)</span>. In particular, <span class="math inline">\(\hat{\bs{\beta}}\)</span> is statistically independent of any function <span class="math inline">\(\hat{\bs{U}}\)</span>, and vice versa.</p>
+<p>Also, it is important to note that <span class="math inline">\(\text{Cov}(\hat{\bs{\beta}},\hat{\bs{U}}|\bs{X})=\bs{0}_{(k+1)\times n}\)</span> implies that <span class="math inline">\(\hat{\bs{\beta}}\)</span> is statistically independent of <span class="math inline">\(\hat{\bs{U}}\)</span>. In particular, any function of <span class="math inline">\(\hat{\bs{\beta}}\)</span> is statistically independent of any function of <span class="math inline">\(\hat{\bs{U}}\)</span>.</p>
 <p>The standard error of regression (SER) is <span class="math display">\[
 \begin{align}
 s^2_{\hat{u}}=\frac{1}{n-k-1}\sum_{i=1}^n\hat{u}^2_i=\frac{1}{n-k-1}\hat{\bs{U}}^{'}\hat{\bs{U}}=\frac{1}{n-k-1}\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U},
