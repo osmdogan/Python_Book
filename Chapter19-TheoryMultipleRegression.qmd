@@ -789,7 +789,7 @@ To show the large sample properties of the OLS estimator $\hat{\bs{\beta}}$, we 
 These assumptions are identical to those stated in Section 13.8, except that we use matrix algebra notation to express them.
 
 :::{#thm-thm26-control}
-## Consistency of the OLS estimator with control variables
+## The OLS estimator for the model with control variables
 Assume that the least squares assumptions for the model with control variables hold. Then, the OLS estimator $\hat{\bs{\beta}}$ is consistent and has an asymptotic normal distribution.
 :::
 :::{.proof}
