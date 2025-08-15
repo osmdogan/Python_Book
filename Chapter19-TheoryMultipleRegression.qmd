@@ -555,7 +555,7 @@ Thus, $F\xrightarrow{d}\chi^2_q/q\equiv F_{q,\infty}$.
 :::
 
 ## Exact sampling distribution of the OLS estimator
-In this section, we also assume that Assumptions 5 and 6 hold. In the proof @thm-thm26-1, we show that $\hat{\bs{\beta}}=\bs{\beta}+(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}$. The covariance of $\hat{\bs{\beta}}$ conditional on $\bs{X}$ is
+In this section, we also assume that Assumptions 5 and 6 hold. In the proof @thm-thm26-1, we show that $\hat{\bs{\beta}}=\bs{\beta}+(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}$. The conditional variance of $\hat{\bs{\beta}}$ given $\bs{X}$ is
 $$
 \begin{align*}
 \bs{\Sigma}_{\hat{\bs{\beta}}|\bs{X}}&=\E\left((\hat{\bs{\beta}}-\bs{\beta})(\hat{\bs{\beta}}-\bs{\beta})^{'}|\bs{X}\right)=\E\left((\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}\bs{U}^{'}\bs{X}(\bs{X}^{'}\bs{X})^{-1}|\bs{X}\right)\\
@@ -564,7 +564,7 @@ $$
 $$
 where the third equality follows from Assumption 5. 
 
-Note that we have $\bs{U}|\bs{X}\sim N(\bs{0},\sigma^2_u\bs{I}_n)$ under Assumptions 1-6. From $\hat{\bs{\beta}}=\bs{\beta}+(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}$, we see that $\hat{\bs{\beta}}$ is a linear function of $\bs{U}$. Then, using the properties of the multivariate normal distribution given in Appendix D, we can determine the conditional distribution of $\hat{\bs{\beta}}$ given $\bs{X}$ as
+Note that we have $\bs{U}|\bs{X}\sim N(\bs{0},\sigma^2_u\bs{I}_n)$ under Assumptions 1-6. Also, $\hat{\bs{\beta}}=\bs{\beta}+(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}$ indicates that $\hat{\bs{\beta}}$ is a linear function of $\bs{U}$. Then, using the properties of the multivariate normal distribution given in Appendix D, we can determine the conditional distribution of $\hat{\bs{\beta}}$ given $\bs{X}$ as
 $$
 \begin{align}
 \hat{\bs{\beta}}|\bs{X}\sim N\left(\bs{\beta},\,\bs{\Sigma}_{\hat{\bs{\beta}}|\bs{X}}\right).
@@ -573,22 +573,22 @@ $$
 
 It is important to note that this result is exact in the sense that it holds for any sample size. In particular, we do not need a large sample size for this result to hold.
 
-We can also determine the exact conditional distribution of the OLS residuals. Note that we can express the OLS residuals as
+We can also determine the exact conditional distribution of the OLS residuals. First, note that we can express the OLS residuals as
 $$
 \begin{align*}
 \hat{\bs{U}}=\bs{M}_{\bs{X}}\bs{Y}=\bs{M}_{\bs{X}}(\bs{X}\hat{\bs{\beta}}+\bs{U})=\bs{M}_{\bs{X}}\bs{U},
 \end{align*}
 $$
-where the last equality follows from the fact that $\bs{M}_{\bs{X}}\bs{X}=\bs{0}$. Then, we have
+where the last equality follows from the fact that $\bs{M}_{\bs{X}}\bs{X}=\bs{0}$. Then, using $\hat{\bs{U}}=\bs{M}_{\bs{X}}\bs{U}$, we can determine the conditional mean and variance of $\hat{\bs{U}}$ as
 $$
 \begin{align*}
 &\E(\hat{\bs{U}}|\bs{X})=\E\left(\bs{M}_{\bs{X}}\bs{U}|\bs{X}\right)=\bs{M}_{\bs{X}}\E\left(\bs{U}|\bs{X}\right)=\bs{0},\\
-&\text{Var}(\hat{\bs{U}}|\bs{X})=\text{Var}\left(\bs{M}_{\bs{X}}\bs{U}|\bs{X}\right)=\bs{M}_{\bs{X}}\text{Var}\left(\bs{U}|\bs{X}\right)\bs{M}_{\bs{X}}^{'}=\sigma^2_u\bs{M}_{\bs{X}},
+&\text{var}(\hat{\bs{U}}|\bs{X})=\text{var}\left(\bs{M}_{\bs{X}}\bs{U}|\bs{X}\right)=\bs{M}_{\bs{X}}\text{var}\left(\bs{U}|\bs{X}\right)\bs{M}_{\bs{X}}^{'}=\sigma^2_u\bs{M}_{\bs{X}},
 \end{align*}
 $$
-where we use the fact that $\text{Var}(\bs{U}|\bs{X})=\sigma^2_u\bs{I}_n$ and $\bs{M}_{\bs{X}}\bs{M}_{\bs{X}}=\bs{M}_{\bs{X}}$. 
+where we use the fact that $\text{var}(\bs{U}|\bs{X})=\sigma^2_u\bs{I}_n$ and $\bs{M}_{\bs{X}}\bs{M}_{\bs{X}}=\bs{M}_{\bs{X}}$. 
 
-Since $\hat{\bs{U}}$ is a linear function of $\bs{U}$ and $\bs{U}|\bs{X}\sim N(\bs{0},\sigma^2_u\bs{I}_n)$, we can determine the conditional distribution of $\hat{\bs{U}}$ given $\bs{X}$ as
+Finally, since $\hat{\bs{U}}$ is a linear function of $\bs{U}$ and $\bs{U}|\bs{X}\sim N(\bs{0},\sigma^2_u\bs{I}_n)$, we can determine the conditional distribution of $\hat{\bs{U}}$ given $\bs{X}$ as
 $$
 \begin{align*}
 \hat{\bs{U}}|\bs{X}\sim N\left(\bs{0},\,\bs{\Sigma}_{\hat{\bs{U}}|\bs{X}}\right),
@@ -599,16 +599,14 @@ where $\bs{\Sigma}_{\hat{\bs{U}}|\bs{X}}=\sigma^2_u\bs{M}_{\bs{X}}$.
 Also, note that the conditional covariance between $\hat{\bs{\beta}}$ and $\hat{\bs{U}}$ is zero:
 $$
 \begin{align*}
-\text{Cov}(\hat{\bs{\beta}},\hat{\bs{U}}|\bs{X})&=\E\left((\hat{\bs{\beta}}-\bs{\beta})(\hat{\bs{U}})^{'}|\bs{X}\right)\\
+\text{cov}(\hat{\bs{\beta}},\hat{\bs{U}}|\bs{X})&=\E\left((\hat{\bs{\beta}}-\bs{\beta})(\hat{\bs{U}})^{'}|\bs{X}\right)\\
 &=\E\left((\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}(\bs{M}_{\bs{X}}\bs{U})^{'}|\bs{X}\right)\\
 &=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\E\left(\bs{U}\bs{U}^{'}|\bs{X}\right)\bs{M}_{\bs{X}}\\
 &=\sigma^2_u(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{M}_{\bs{X}}\\
 &=\bs{0}_{(k+1)\times n},
 \end{align*}
 $$
-where the last equality follows from the fact that $\bs{X}^{'}\bs{M}_{\bs{X}}=\bs{0}_{(k+1)\times n}$.
-
-Using this fact and the properties of the multivariate normal distribution, we can determine the joint conditional distribution of $(\hat{\bs{\beta}},\hat{\bs{U}})$ given $\bs{X}$ as
+where the last equality follows from the fact that $\bs{X}^{'}\bs{M}_{\bs{X}}=\bs{0}_{(k+1)\times n}$. Using this fact and the properties of the multivariate normal distribution, we can determine the joint conditional distribution of $(\hat{\bs{\beta}},\hat{\bs{U}})$ given $\bs{X}$ as
 $$
 \begin{align*}
 \begin{pmatrix}
@@ -626,7 +624,7 @@ $$
 \end{align*}
 $${#eq-eq26-11-2}
 
-Also, it is important to note that $\text{Cov}(\hat{\bs{\beta}},\hat{\bs{U}}|\bs{X})=\bs{0}_{(k+1)\times n}$ implies that $\hat{\bs{\beta}}$ is statistically independent of $\hat{\bs{U}}$. In particular, any function of $\hat{\bs{\beta}}$ is statistically independent of any function of $\hat{\bs{U}}$.
+The joint normality and $\text{cov}(\hat{\bs{\beta}},\hat{\bs{U}}|\bs{X})=\bs{0}_{(k+1)\times n}$ imply that $\hat{\bs{\beta}}$ is statistically independent of $\hat{\bs{U}}$. In particular, any function of $\hat{\bs{\beta}}$ is statistically independent of any function of $\hat{\bs{U}}$. We use this fact to determine the exact sampling distributions of the $t$ and $F$ statistics below.
 
 The standard error of regression (SER) is
 $$
