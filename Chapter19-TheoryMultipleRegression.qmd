@@ -573,6 +573,61 @@ $$
 
 It is important to note that this result is exact in the sense that it holds for any sample size. In particular, we do not need a large sample size for this result to hold.
 
+We can also determine the exact conditional distribution of the OLS residuals. Note that we can express the OLS residuals as
+$$
+\begin{align*}
+\hat{\bs{U}}=\bs{M}_{\bs{X}}\bs{Y}=\bs{M}_{\bs{X}}(\bs{X}\hat{\bs{\beta}}+\bs{U})=\bs{M}_{\bs{X}}\bs{U},
+\end{align*}
+$$
+where the last equality follows from the fact that $\bs{M}_{\bs{X}}\bs{X}=\bs{0}$. Then, we have
+$$
+\begin{align*}
+&\E(\hat{\bs{U}}|\bs{X})=\E\left(\bs{M}_{\bs{X}}\bs{U}|\bs{X}\right)=\bs{M}_{\bs{X}}\E\left(\bs{U}|\bs{X}\right)=\bs{0},\\
+&\text{Var}(\hat{\bs{U}}|\bs{X})=\text{Var}\left(\bs{M}_{\bs{X}}\bs{U}|\bs{X}\right)=\bs{M}_{\bs{X}}\text{Var}\left(\bs{U}|\bs{X}\right)\bs{M}_{\bs{X}}^{'}=\sigma^2_u\bs{M}_{\bs{X}},
+\end{align*}
+$$
+where we use the fact that $\text{Var}(\bs{U}|\bs{X})=\sigma^2_u\bs{I}_n$ and $\bs{M}_{\bs{X}}\bs{M}_{\bs{X}}=\bs{M}_{\bs{X}}$. 
+
+Since $\hat{\bs{U}}$ is a linear function of $\bs{U}$ and $\bs{U}|\bs{X}\sim N(\bs{0},\sigma^2_u\bs{I}_n)$, we can determine the conditional distribution of $\hat{\bs{U}}$ given $\bs{X}$ as
+$$
+\begin{align*}
+\hat{\bs{U}}|\bs{X}\sim N\left(\bs{0},\,\bs{\Sigma}_{\hat{\bs{U}}|\bs{X}}\right),
+\end{align*}
+$$
+where $\bs{\Sigma}_{\hat{\bs{U}}|\bs{X}}=\sigma^2_u\bs{M}_{\bs{X}}$.
+
+Also, note that the conditional covariance between $\hat{\bs{\beta}}$ and $\hat{\bs{U}}$ is zero:
+$$
+\begin{align*}
+\text{Cov}(\hat{\bs{\beta}},\hat{\bs{U}}|\bs{X})&=\E\left((\hat{\bs{\beta}}-\bs{\beta})(\hat{\bs{U}})^{'}|\bs{X}\right)\\
+&=\E\left((\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}(\bs{M}_{\bs{X}}\bs{U})^{'}|\bs{X}\right)\\
+&=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\E\left(\bs{U}\bs{U}^{'}|\bs{X}\right)\bs{M}_{\bs{X}}\\
+&=\sigma^2_u(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{M}_{\bs{X}}\\
+&=\bs{0}_{(k+1)\times n},
+\end{align*}
+$$
+where the last equality follows from the fact that $\bs{X}^{'}\bs{M}_{\bs{X}}=\bs{0}_{(k+1)\times n}$.
+
+Using this fact and the properties of the multivariate normal distribution, we can determine the joint conditional distribution of $(\hat{\bs{\beta}},\hat{\bs{U}})$ given $\bs{X}$ as
+$$
+\begin{align*}
+\begin{pmatrix}
+\hat{\bs{\beta}}\\
+\hat{\bs{U}}
+\end{pmatrix}
+\bigg|\bs{X}
+\sim N\left(\begin{pmatrix}
+\bs{\beta}\\
+\bs{0}
+\end{pmatrix},\,\begin{pmatrix}
+\bs{\Sigma}_{\hat{\bs{\beta}}|\bs{X}} & \bs{0}_{(k+1)\times n}\\
+\bs{0}_{n\times (k+1)} & \bs{\Sigma}_{\hat{\bs{U}}|\bs{X}}
+\end{pmatrix}\right).
+\end{align*}
+$${#eq-eq26-11-2}
+
+Also, it is important to note that $\text{Cov}(\hat{\bs{\beta}},\hat{\bs{U}}|\bs{X})=\bs{0}_{(k+1)\times n}$ implies that $\hat{\bs{\beta}}$ is statistically independent of $\hat{\bs{U}}$. In particular, $\hat{\bs{\beta}}$ is statistically independent of any function $\hat{\bs{U}}$, and vice versa.
+
 The standard error of regression (SER) is
 $$
 \begin{align}
@@ -616,7 +671,7 @@ SE(\hat{\beta}_j)=\sqrt{\tilde{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}},
 $$
 where $\tilde{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}$ is the $(j,j)$th element of $\tilde{\bs{\Sigma}}_{\hat{\bs{\beta}}}$.
 
- Consider $H_0:\beta_j=\beta_{j,0}$, where $\beta_{j,0}$ is a known constant. Then, the $t$-statistic for testing this hypothesis is 
+Consider $H_0:\beta_j=\beta_{j,0}$, where $\beta_{j,0}$ is a known constant. Then, the $t$-statistic for testing this hypothesis is 
 $$
 \tilde{t}=\frac{\hat{\beta}_j-\beta_{j,0}}{\sqrt{\tilde{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}}}.
 $$
@@ -633,7 +688,7 @@ Note that we can write $\tilde{t}$ as
 $$
 \tilde{t}=\frac{(\hat{\beta}_j-\beta_{j,0})/\sqrt{\bs{\Sigma}_{\hat{\bs{\beta}},jj}}}{\sqrt{W/(n-k-1)}},
 $$
-where $W=\frac{(n-k-1)s^2_{\hat{u}}}{\sigma^2_u}$. Under the null, the numerator is distributed as $N(0,1)$. The variable $W$ in the denominator is distributed as $W\sim \chi_{n-k-1}$ by @eq-eq26-18. If we can also show that $W$ is independent of the numerator, then we can conclude that $\tilde{t}$ has the Student t distribution with $n-k-1$ degrees of freedom. For independence, it is enough to show that $\hat{\bs{\beta}}$ and $W$ are independent. Note that $\hat{\bs{\beta}}-\bs{\beta}_0=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}$ and $W=\bs{U}^{'}\bs{M}_{\bs{X}}\bs{U}/\sigma^2_u$. That is, $\hat{\bs{\beta}}-\bs{\beta}_0$ is a linear function of $\bs{U}$, and $W$ is a quadratic form in $\bs{U}$. Since $(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{M}_{\bs{X}}=\bs{0}$, it follows from @thm-independent-quadratics in Appendix D that  $\hat{\bs{\beta}}$ and $W$ are independent. In particular, this result shows that $\hat{\bs{\beta}}$ and $\hat{s}^2_{\hat{u}}$ are independent.
+where $W=\frac{(n-k-1)s^2_{\hat{u}}}{\sigma^2_u}$. Under the null, the numerator is distributed as $N(0,1)$. The variable $W$ in the denominator is distributed as $W\sim \chi_{n-k-1}$ by @eq-eq26-18. If we can also show that $W$ is independent of the numerator, then we can conclude that $\tilde{t}$ has the Student t distribution with $n-k-1$ degrees of freedom. The independence result follows from @eq-eq26-11-2.
 :::
 
 Finally, we determine the distribution of the homoskedasticity-only $F$-statistic under Assumptions 1-6. The homoskedasticity-only $F$-statistic for testing $H_0:\bs{R}\bs{\beta}=\bs{r}$ is
@@ -660,7 +715,7 @@ Note that we can express $\tilde{F}$ as $\tilde{F}=(W_1/q)/(W_2/(n-k-1))$, where
 * $W_1=\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)^{'}\left(\sigma^2_u\bs{R}(\bs{X}^{'}\bs{X})^{-1}\bs{R}^{'}\right)^{-1}\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)$, and
 * $W_2=\frac{(n-k-1)s^2_{\hat{u}}}{\sigma^2_u}$.
 
-The numerator is distributed as $\chi^2_q$ and the denominator is distributed as $\chi^2_{n-k-1}$. The independence of $W_1$ and $W_2$ follows from @thm-independent-quadratics in Appendix D. Thus, we have $\tilde{F}\sim F_{q,n-k-1}$.
+The numerator is distributed as $\chi^2_q$ and the denominator is distributed as $\chi^2_{n-k-1}$. The independence of $W_1$ and $W_2$ follows from @eq-eq26-11-2. Thus, we have $\tilde{F}\sim F_{q,n-k-1}$.
 :::
 
 ## Efficiency of the OLS estimator with homoskedastic errors
