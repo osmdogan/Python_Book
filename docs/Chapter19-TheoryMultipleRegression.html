@@ -516,7 +516,7 @@ window.Quarto = {
 </header>
 
 
-<div id="1b1e6080" class="cell" data-execution_count="1">
+<div id="63229dc3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -894,7 +894,7 @@ R^2=\frac{ESS}{TSS}=\frac{\hat{\bs{\beta}}^{'}\bs{X}^{'}\mb{M}_0\bs{X}\hat{\bs{\
 <p>The first result follows from the law of large numbers as shown in the proof of <a href="#thm-thm26-1-0" class="quarto-xref">Theorem&nbsp;<span>26.1</span></a>. Thus, we need to only show the second result. Note that <span class="math inline">\(\frac{1}{\sqrt{n}}\bs{X}^{'}\bs{U}=\frac{1}{\sqrt{n}}\sum_{i=1}^n\bs{V}_i\)</span>, where <span class="math inline">\(\bs{V}_i=\bs{X}_iu_i\)</span>. By Assumption 1, we have <span class="math display">\[
 \E(\bs{V}_i)=\E\left(\bs{X}_iu_i\right)=\E\left(\E\left(\bs{X}_iu_i|\bs{X}_i\right)\right)=\E\left(\bs{X}_i\E\left(u_i|\bs{X}_i\right)\right)=\bs{0}.
 \]</span></p>
-<p>It follows from Assumption 2 that <span class="math inline">\(\{\bs{V}_i\}\)</span> are i.i.d across <span class="math inline">\(i\)</span>. Next, we need to show that <span class="math inline">\(\bs{\Sigma}_{\bs{V}}\)</span> is finite. The <span class="math inline">\((h,l)\)</span>th element of <span class="math inline">\(\bs{\Sigma}_{\bs{V}}=\E\left(\bs{V}_i\bs{V}^{'}_i\right)=\E\left(\bs{X}_i\bs{X}^{'}_iu^2_i\right)\)</span> is given by <span class="math display">\[
+<p>To apply the multivariate central limit theorem in <a href="#def-def26-1" class="quarto-xref">Definition&nbsp;<span>26.1</span></a>, we need to show that <span class="math inline">\(\{\bs{V}_i\}\)</span> are i.i.d across <span class="math inline">\(i\)</span> and <span class="math inline">\(\bs{\Sigma}_{\bs{V}}\)</span> is finite. Assumption 2 ensures that <span class="math inline">\(\{\bs{V}_i\}\)</span> are i.i.d across <span class="math inline">\(i\)</span>. To show that <span class="math inline">\(\bs{\Sigma}_{\bs{V}}\)</span> is finite, we consider the <span class="math inline">\((h,l)\)</span>th element of <span class="math inline">\(\bs{\Sigma}_{\bs{V}}=\E\left(\bs{V}_i\bs{V}^{'}_i\right)=\E\left(\bs{X}_i\bs{X}^{'}_iu^2_i\right)\)</span>, which is given by <span class="math display">\[
 \bs{\Sigma}_{\bs{V},hl}=\E\left(X_{hi}u_iX_{li}u_i\right)=\E\left(X_{hi}X_{li}u^2_i\right),
 \]</span> where <span class="math inline">\(h,l\in\{1,\ldots,k+1\}\)</span>. Then, applying the expectation inequality and the Cauchy-Cauchy–Schwarz inequality, we obtain <span class="math display">\[
 \begin{align*}
