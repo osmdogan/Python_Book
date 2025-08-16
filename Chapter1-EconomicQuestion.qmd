@@ -24,7 +24,7 @@ We can answer these types of questions by estimating econometric models that qua
 ### Estimation of causal effects
 Econometrics primarily focuses on *causal relationships* among economic variables. Let $X$ and $Y$ be two variables. According to @Stock2020, we say that $X$ *causes* $Y$ if $Y$ is a direct result  or conseqence of $X$. Thus, we can define the **causal effect** of $X$ on $Y$ as the effect of $X$ on $Y$ when all other factors that can effect $Y$ are held constant. 
 
-One way to measure the causal effect is by conducting a **randomized controlled experiment**. In a randomized controlled experiment, we measure the effect of a treatment or a policy intervention by randomly assigning eperimental units to a treatment group and a control group, and then compare the groups based on a measured outcome variable. Thus, a randomized controlled experiment has the following features:
+One way to measure the causal effect is by conducting a **randomized controlled experiment**. In a randomized controlled experiment, we measure the effect of a treatment or a policy intervention on an outcome variable by randomly assigning eperimental units to a treatment group and a control group, and then compare the groups based on the measured outcome variable. A randomized controlled experiment has the following features:
 
 * It is *controlled* because the treatment group receive the treatment whereas the control group does not participate in the treatment.
 * It is *randomized* in the sense that the eperimental units are assigned to the control and treatment groups randomly. In this way, we aim to *eliminate systematic differences* between the control and treatment groups.
