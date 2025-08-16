@@ -375,7 +375,7 @@ Next, we show that the OLS estimator is consistent in the following theorem.
 
 :::{#thm-thm26-1-0}
 ## Consistency of the OLS estimator
-Assume that $\bs{Q}_{\bs{X}}=\E(\bs{X}_i\bs{X}^{'}_i)$ is positive definite. Then, under Assumptions 1-4, the OLS estimator $\hat{\bs{\beta}}$ is consistent, i.e., $\hat{\bs{\beta}}\xrightarrow{p}\bs{\beta}$ as $n\to\infty$.
+Assume that Assumptions 1-4 hold and that $\bs{Q}_{\bs{X}}=\E(\bs{X}_i\bs{X}^{'}_i)$ is positive definite. Then, the OLS estimator $\hat{\bs{\beta}}$ is consistent, i.e., $\hat{\bs{\beta}}\xrightarrow{p}\bs{\beta}$ as $n\to\infty$.
 :::
 
 :::{.proof}
@@ -426,7 +426,7 @@ Using the multivariate central limit theorem, we can derive the asymptotic distr
 
 :::{#thm-thm26-1}
 ## Asymptotic distribution of the OLS estimator
-Let $\bs{Q}_{\bs{X}}=\E(\bs{X}_i\bs{X}^{'}_i)$ and $\bs{\Sigma}_{\bs{V}}=\E(\bs{V}_i\bs{V}^{'}_i)$, where $\bs{V}_i=\bs{X}_iu_i$. Assume that $\bs{Q}_{\bs{X}}$ and $\bs{\Sigma}_{\bs{V}}$ are positive definite.  Then, under Assumptions 1-4,  we have 
+Assume that Assumptions 1-4 hold. Let $\bs{Q}_{\bs{X}}=\E(\bs{X}_i\bs{X}^{'}_i)$ and $\bs{\Sigma}_{\bs{V}}=\E(\bs{V}_i\bs{V}^{'}_i)$, where $\bs{V}_i=\bs{X}_iu_i$. Assume that $\bs{Q}_{\bs{X}}$ is positive definite.  Then, we have
 $$
 \sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})\xrightarrow{d}N\left(\bs{0}_{k+1},\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\right),
 $$
