@@ -516,7 +516,7 @@ window.Quarto = {
 </header>
 
 
-<div id="63229dc3" class="cell" data-execution_count="1">
+<div id="ced2a541" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -912,17 +912,17 @@ R^2=\frac{ESS}{TSS}=\frac{\hat{\bs{\beta}}^{'}\bs{X}^{'}\mb{M}_0\bs{X}\hat{\bs{\
 \hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}=\left(\frac{\bs{X}^{'}\bs{X}}{n}\right)^{-1}\hat{\bs{\Sigma}}_{\bs{V}}\left(\frac{\bs{X}^{'}\bs{X}}{n}\right)^{-1},
 \end{align}
 \]</span> where <span class="math inline">\(\hat{\bs{\Sigma}}_{\bs{V}}=\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_i\hat{u}^2_i\)</span>. <span class="citation" data-cites="White1980">White (<a href="references.html#ref-White1980" role="doc-biblioref">1980</a>)</span> showed tat <span class="math inline">\(\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span> is a consistent estimator of <span class="math inline">\(\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span>. The estimator <span class="math inline">\(\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span> is called the <strong>heteroskedasticity-robust covariance matrix estimator</strong>. In particular, it is called the HC0 covariance matrix estimator, indicating that it is a baseline estimator. By scaling this estimator with <span class="math inline">\(n/(n-k-1)\)</span>, we obtain another version, called the HC1 estimator. The HC1 estimator is the most commonly used one in practice.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>Note that the asymptotic variance of <span class="math inline">\(\hat{\bs{\beta}}\)</span> is <span class="math inline">\(\text{var}(\hat{\bs{\beta}})=\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}=n^{-1}\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span>. The heteroskedasticity-robust standard error for the <span class="math inline">\(j\)</span>th regression coefficient is the square root of the <span class="math inline">\(j\)</span>th diagonal element of <span class="math inline">\(\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}\)</span>: <span class="math display">\[
+<p>Note that the asymptotic variance of <span class="math inline">\(\hat{\bs{\beta}}\)</span> is <span class="math inline">\(\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}=n^{-1}\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span>. The heteroskedasticity-robust standard error for the <span class="math inline">\(j\)</span>th regression coefficient is the square root of the <span class="math inline">\(j\)</span>th diagonal element of <span class="math inline">\(\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}\)</span>: <span class="math display">\[
 \begin{align}
 SE(\hat{\beta}_j)=\sqrt{\hat{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}},
 \end{align}
-\]</span> where <span class="math inline">\(\hat{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}\)</span> is the <span class="math inline">\((j,j)\)</span>th element of <span class="math inline">\(\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}\)</span>.</p>
-<div id="thm-thm26-t" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 26.3 (Asymptotic distribution of the heteroskedasticity-robust t-statistic)</strong></span> Assume that Assumptions 1-4 hold. Let <span class="math inline">\(\beta_j\)</span> be the <span class="math inline">\(j\)</span>th regression coefficient. Consider the null hypothesis that the <span class="math inline">\(j\)</span>th regression coefficient is equal to <span class="math inline">\(c\)</span>, i.e., <span class="math inline">\(H_0:\beta_j=c\)</span>, where <span class="math inline">\(c\)</span> is a known constant. The heteroskedasticity-robust t-statistic for testing this null hypothesis is given by <span class="math display">\[
+\]</span> where <span class="math inline">\(\hat{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}\)</span> is the <span class="math inline">\((j,j)\)</span>th element of <span class="math inline">\(\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}\)</span>. Then, the heteroskedasticity-robust t-statistic for testing the null hypothesis <span class="math inline">\(H_0:\beta_j=c\)</span> is given by <span class="math display">\[
 \begin{align}
 t=\frac{\hat{\beta}_j-c}{SE(\hat{\beta}_j)}.
 \end{align}
-\]</span> Under the null hypothesis, <span class="math inline">\(t\)</span> has the asymptotic standard normal distribution, i.e., <span class="math inline">\(t\xrightarrow{d}N(0,1)\)</span>.</p>
+\]</span></p>
+<div id="thm-thm26-t" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 26.3 (Asymptotic distribution of the heteroskedasticity-robust t-statistic)</strong></span> Assume that Assumptions 1-4 hold. Under the null hypothesis, <span class="math inline">\(t\)</span> has the asymptotic standard normal distribution, i.e., <span class="math inline">\(t\xrightarrow{d}N(0,1)\)</span>.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-t" class="quarto-xref">Theorem&nbsp;<span>26.3</span></a>). </span>The heteroskedasticity-robust t-statistic can be written as <span class="math display">\[
@@ -935,8 +935,7 @@ t\xrightarrow{d}N(0,1).
 \end{align}
 \]</span></p>
 </div>
-<p>In Chapter 14, we show that a joint null hypothesis that imposes <span class="math inline">\(q\)</span> restrictions can be expressed as</p>
-<p><span id="eq-eq26-14"><span class="math display">\[
+<p>In Chapter 14, we show that a joint null hypothesis that imposes <span class="math inline">\(q\)</span> linear restrictions on the regression coefficients can be expressed as <span id="eq-eq26-14"><span class="math display">\[
 \begin{align}
 H_0:\bs{R}\bs{\beta}=\bs{r},
 \end{align}

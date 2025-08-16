@@ -481,23 +481,22 @@ $$
 $$
 where $\hat{\bs{\Sigma}}_{\bs{V}}=\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_i\hat{u}^2_i$. @White1980 showed tat $\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$ is a consistent estimator of $\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$. The estimator $\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$ is called the **heteroskedasticity-robust covariance matrix estimator**. In particular, it is called the HC0 covariance matrix estimator, indicating that it is a baseline estimator. By scaling this estimator with $n/(n-k-1)$, we obtain another version, called the HC1 estimator. The HC1 estimator is the most commonly used one in practice.^[See @MacKinnon1985 and @Hansen2022 for further discussion of heteroskedasticity-robust covariance matrix estimators.]
 
-Note that the asymptotic variance of $\hat{\bs{\beta}}$ is $\text{var}(\hat{\bs{\beta}})=\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}=n^{-1}\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$. The heteroskedasticity-robust standard error for the $j$th regression coefficient is the square root of the $j$th diagonal element of $\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}$:
+Note that the asymptotic variance of $\hat{\bs{\beta}}$ is $\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}=n^{-1}\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$. The heteroskedasticity-robust standard error for the $j$th regression coefficient is the square root of the $j$th diagonal element of $\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}$:
 $$
 \begin{align}
 SE(\hat{\beta}_j)=\sqrt{\hat{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}},
 \end{align}
 $$
-where $\hat{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}$ is the $(j,j)$th element of $\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}$. 
-
-:::{#thm-thm26-t}
-## Asymptotic distribution of the heteroskedasticity-robust t-statistic
-Assume that Assumptions 1-4 hold. Let $\beta_j$ be the $j$th regression coefficient. Consider the null hypothesis that the $j$th regression coefficient is equal to $c$, i.e., $H_0:\beta_j=c$, where $c$ is a known constant. The heteroskedasticity-robust t-statistic for testing this null hypothesis is given by
+where $\hat{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}$ is the $(j,j)$th element of $\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}$. Then, the heteroskedasticity-robust t-statistic for testing the null hypothesis $H_0:\beta_j=c$ is given by
 $$
 \begin{align}
 t=\frac{\hat{\beta}_j-c}{SE(\hat{\beta}_j)}.
 \end{align}
 $$
-Under the null hypothesis, $t$ has the asymptotic standard normal distribution, i.e., $t\xrightarrow{d}N(0,1)$.
+
+:::{#thm-thm26-t}
+## Asymptotic distribution of the heteroskedasticity-robust t-statistic
+Assume that Assumptions 1-4 hold. Under the null hypothesis, $t$ has the asymptotic standard normal distribution, i.e., $t\xrightarrow{d}N(0,1)$.
 :::
 
 :::{.proof}
@@ -516,8 +515,7 @@ t\xrightarrow{d}N(0,1).
 $$
 :::
 
-In Chapter 14, we show that a joint null hypothesis that imposes $q$ restrictions can be expressed as
-
+In Chapter 14, we show that a joint null hypothesis that imposes $q$ linear restrictions on the regression coefficients can be expressed as
 $$
 \begin{align}
 H_0:\bs{R}\bs{\beta}=\bs{r},
