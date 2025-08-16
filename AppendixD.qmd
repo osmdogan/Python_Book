@@ -1159,7 +1159,7 @@ $$
 $$
 
 ## Random vectors
-Let $\bs{v}=(v_1,\ldots,v_m)^{'}$ be an $m\times1$ vector of random variables. Its first and second moments are summarized by its mean vector and variance-covariance matrix. The mean vector is given by
+Let $\bs{v}=(v_1,\ldots,v_m)^{'}$ be an $m\times1$ vector of random variables. Its first and second moments are summarized by its mean vector and variance-covariance matrix (or simply the variance matrix). The mean vector is given by
 $$
 \begin{align}
 \bs{\mu}_{\bs{v}}=\E(\bs{v})=
@@ -1176,14 +1176,14 @@ $$
 \begin{align*}
 \bs{\Sigma}_{\bs{v}}&=\E\left((\bs{v}-\bs{\mu}_{\bs{v}})(\bs{v}-\bs{\mu}_{\bs{v}})^{'}\right)=
 \begin{pmatrix}
-\text{Var}(v_1)&\cdots&\text{Cov}(v_1,v_m)\\
+\text{var}(v_1)&\cdots&\text{cov}(v_1,v_m)\\
 \vdots&\ddots&\vdots\\
-\text{Cov}(v_m,v_1)&\cdots&\text{Var}(v_m)
+\text{cov}(v_m,v_1)&\cdots&\text{var}(v_m)
 \end{pmatrix}.
 \end{align*}
 $$
 
-Thus, $\bs{\Sigma}_{\bs{v}}$ is an $m \times m$ matrix with diagonal elements corresponding to the variance terms $\text{Var}(v_i)$ and off-diagonal elements representing the covariances $\text{Cov}(v_i, v_j)$. The variance-covariance matrix is also called the **second moment matrix** of $\bs{v}$. Note that $\bs{\Sigma}_{\bs{v}}$ is a symmetric matrix because $\text{Cov}(v_i, v_j) = \text{Cov}(v_j, v_i)$ for all $i$ and $j$.  If $\bs{\Sigma}_{\bs{v}}=\sigma^2\bs{I}_m$, where $\sigma^2$ is a constant and $\bs{I}_m$ is the $m\times m$ identity matrix, then the elements of $\bs{v}$ are uncorrelated. 
+Thus, $\bs{\Sigma}_{\bs{v}}$ is an $m \times m$ matrix with diagonal elements corresponding to the variance terms $\text{var}(v_i)$ and off-diagonal elements representing the covariances $\text{cov}(v_i, v_j)$. The variance-covariance matrix is also called the **second moment matrix** of $\bs{v}$. Note that $\bs{\Sigma}_{\bs{v}}$ is a symmetric matrix because $\text{cov}(v_i, v_j) = \text{cov}(v_j, v_i)$ for all $i$ and $j$.  If $\bs{\Sigma}_{\bs{v}}=\sigma^2\bs{I}_m$, where $\sigma^2$ is a constant and $\bs{I}_m$ is the $m\times m$ identity matrix, then the elements of $\bs{v}$ are uncorrelated.
 
 :::{#exm-random-vector}
 Let $\bs{x}$ be a $n\times1$ random vector with mean $\bs{\mu}_{\bs{x}}$ and variance-covariance matrix $\bs{\Sigma}_{\bs{x}}$, $\bs{a}$ be a $n\times1$ non-random vector, and $\bs{A}$ be a $n\times n$ nonrandom matrix. Define $\bs{y}=\bs{A}\bs{x}+\bs{a}$. Then, the mean and variance-covariance matrix of $\bs{y}$ are given by
@@ -1205,7 +1205,7 @@ $$
 f(\bs{v})=(2\pi)^m\left|\bs{\Sigma}_{\bs{v}}\right|^{-1}\exp\left(-\frac{1}{2}(\bs{v}-\bs{\mu}_{\bs{v}})^{'}\bs{\Sigma}^{-1}_{\bs{v}}(\bs{v}-\bs{\mu}_{\bs{v}})\right).
 \end{align}
 $$
-We use the notation $\bs{v}\sim N(\bs{\mu}_{\bs{v}},\,\bs{\Sigma}_{\bs{v}})$ to denote that $\bs{v}$ follows a multivariate normal distribution with mean $\bs{\mu}_{\bs{v}}$ and covariance matrix $\bs{\Sigma}_{\bs{v}}$.
+We use the notation $\bs{v}\sim N(\bs{\mu}_{\bs{v}},\,\bs{\Sigma}_{\bs{v}})$ to denote that $\bs{v}$ follows a multivariate normal distribution with mean $\bs{\mu}_{\bs{v}}$ and variance matrix $\bs{\Sigma}_{\bs{v}}$.
 :::
 
 Some important properties of the multivariate normal distribution are:
@@ -1216,7 +1216,7 @@ b. If $\bs{v}\sim N(\bs{\mu}_{\bs{v}},\,\bs{\Sigma}_{\bs{V}})$, then $\bs{A}\bs{
 (c) Let $\bs{v}_1$ be a $m_1\times1$ random vector with $\bs{v}_1\sim N(\bs{\mu}_{\bs{v}_1},\,\bs{\Sigma}_{\bs{v}_1})$ and $\bs{v}_2$ be a $m_2\times1$ random vector with $\bs{v}_2\sim N(\bs{\mu}_{\bs{v}_2},\,\bs{\Sigma}_{\bs{v}_2})$. Then, $\bs{v}_1$ and $\bs{v}_2$ are independent if and only if 
 $$
 \begin{align}
-\text{Cov}(\bs{v}_1, \bs{v}_2) = \E\left((\bs{v}_1-\bs{\mu}_{\bs{v}_1})(\bs{v}_2- \bs{\mu}_{\bs{v}_2})^{'}\right)= \bs{0}_{m_1\times m_2}.
+\text{cov}(\bs{v}_1, \bs{v}_2) = \E\left((\bs{v}_1-\bs{\mu}_{\bs{v}_1})(\bs{v}_2- \bs{\mu}_{\bs{v}_2})^{'}\right)= \bs{0}_{m_1\times m_2}.
 \end{align}
 $$
 
@@ -1224,14 +1224,12 @@ $$
 Let $\bs{v}\sim N(\bs{\mu}_{\bs{v}},\,\bs{\Sigma}_{\bs{v}})$ and $\bs{w}=\bs{\Sigma}^{-1/2}_\bs{v}(\bs{v}-\bs{\mu}_{\bs{v}})$, where $\bs{\Sigma}^{-1/2}$ is the inverse of the square root of $\bs{\Sigma}_{\bs{v}}$. Then, $\bs{w}\sim N(\bs{0}_m,\bs{I}_m)$. To see this, note that
 $$
 \begin{align*}
-\text{E}(\bs{w})&=\E\left(\bs{\Sigma}^{-1/2}_{\bs{v}}(\bs{v}-\bs{\mu}_{\bs{v}})\right)=\bs{\Sigma}^{-1/2}_{\bs{v}}\E\left(\bs{v}-\bs{\mu}_{\bs{v}}\right)\\
-&=\bs{\Sigma}^{-1/2}_{\bs{v}}\left(\E\left(\bs{v}\right)-\E\left(\bs{\mu}_{\bs{v}}\right)\right)\\
-&=\bs{\Sigma}^{-1/2}_{\bs{v}}\left(\bs{\mu}_{\bs{v}}-\bs{\mu}_{\bs{v}}\right)=\bs{0}_m.
+\text{E}(\bs{w})&=\E\left(\bs{\Sigma}^{-1/2}_{\bs{v}}(\bs{v}-\bs{\mu}_{\bs{v}})\right)=\bs{\Sigma}^{-1/2}_{\bs{v}}\E\left(\bs{v}-\bs{\mu}_{\bs{v}}\right)=\bs{0}_m.
 \end{align*}
 $$
 $$
 \begin{align*}
-\text{Cov}(\bs{w})&=\E\left((\bs{w}-\bs{\mu}_{\bs{w}})(\bs{w}-\bs{\mu}_{\bs{w}})^{'}\right)\\
+\text{cov}(\bs{w})&=\E\left((\bs{w}-\bs{\mu}_{\bs{w}})(\bs{w}-\bs{\mu}_{\bs{w}})^{'}\right)\\
 &=\E\left((\bs{\Sigma}^{-1/2}_{\bs{v}}(\bs{v}-\bs{\mu}_{\bs{v}}))(\bs{\Sigma}^{-1/2}_{\bs{v}}(\bs{v}-\bs{\mu}_{\bs{v}}))^{'}\right)\\
 &=\E\left(\bs{\Sigma}^{-1/2}_{\bs{v}}(\bs{v}-\bs{\mu}_{\bs{v}})(\bs{v}-\bs{\mu}_{\bs{v}})^{'}\bs{\Sigma}^{-1/2}_{\bs{v}}\right)\\
 &=\bs{\Sigma}^{-1/2}_{\bs{v}}\E\left((\bs{v}-\bs{\mu}_{\bs{v}})(\bs{v}-\bs{\mu}_{\bs{v}})^{'}\right)\bs{\Sigma}^{-1/2}_{\bs{v}}\\
@@ -1244,7 +1242,7 @@ Then, $\bs{w}\sim N(\bs{0}_m,\bs{I}_m)$ follows from the second property of the 
 Let $y$ be an $m\times1$ random vector with $\bs{y}\sim N(\bs{\mu}_{\bs{y}},\,\bs{\Sigma}_{\bs{y}})$, and $\bs{A}$ and $\bs{B}$ be two non-random $m\times m$ matrices. Then, $\bs{A}\bs{y}$ and $\bs{B}\bs{y}$ are independent if and only if $\bs{A}\bs{\Sigma}_{\bs{y}}\bs{B}^{'}=\bs{0}$. To see this, note that
 $$
 \begin{align*}
-\text{Cov}(\bs{A}\bs{y},\,\bs{B}\bs{y})&=\E\left((\bs{A}\bs{y}-\bs{A}\bs{\mu}_{\bs{y}})(\bs{B}\bs{y}-\bs{B}\bs{\mu}_{\bs{y}})^{'}\right)\\
+\text{cov}(\bs{A}\bs{y},\,\bs{B}\bs{y})&=\E\left((\bs{A}\bs{y}-\bs{A}\bs{\mu}_{\bs{y}})(\bs{B}\bs{y}-\bs{B}\bs{\mu}_{\bs{y}})^{'}\right)\\
 &=\E(\bs{A}(\bs{y}-\bs{\mu}_{\bs{y}})(\bs{y}-\bs{\mu}_{\bs{y}})^{'}\bs{B}^{'})\\
 &=\bs{A}\E\left((\bs{y}-\bs{\mu}_{\bs{y}})(\bs{y}-\bs{\mu}_{\bs{y}})^{'}\right)\bs{B}^{'}\\
 &=\bs{A}\bs{\Sigma}_{\bs{y}}\bs{B}^{'}\\
@@ -1269,11 +1267,11 @@ Let $\bs{x}\sim N(\bs{\mu}_{\bs{x}},\,\bs{\Sigma}_{\bs{x}})$. Then, the random v
 
 :::{}
 :::{#thm-chi-squared}
-Let $\bs{u}\sim N(\bs{0}_m,\bs{I}_m)$ and $\bs{C}$ be a symmetric idempotent matrix. Then, $\bs{y}=\bs{u}^{'}\bs{C}\bs{u}$ has a chi-squared distribution with $r$ degrees of freedom, where $r=\text{rank}(\bs{C})$.
+Let $\bs{u}\sim N(\bs{0}_m,\bs{I}_m)$ and $\bs{C}$ be an $m\times m$ symmetric idempotent matrix. Then, $\bs{y}=\bs{u}^{'}\bs{C}\bs{u}$ has a chi-squared distribution with $r$ degrees of freedom, where $r=\text{rank}(\bs{C})$.
 :::
 :::{.proof}
 ## Proof of @thm-chi-squared
-Recall that the eigenvalues of $\bs{C}$ are either $0$ or $1$. Then, by the spectral decomposition of $\bs{C}$, we have $\bs{C}=\bs{Q}\bs{\Lambda}\bs{Q}^{'}$, where $\bs{Q}$ is an orthogonal matrix ($\bs{Q}^{'}\bs{Q}=\bs{Q}\bs{Q}^{'}=\bs{I}$) and $\bs{\Lambda}$ is a diagonal matrix with $r$ non-zero eigenvalues, i.e.,$\bs{\Lambda}=\text{diag}(1,\ldots,1,0,\ldots,0)$. Let $\bs{z}=\bs{Q}^{'}\bs{u}$. Since $\bs{Q}$ is an orthogonal matrix, $\bs{z}\sim N(\bs{0}_m,\bs{I}_m)$. Then, we have
+Recall that the eigenvalues of $\bs{C}$ are either $0$ or $1$. Then, by the spectral decomposition of $\bs{C}$, we have $\bs{C}=\bs{Q}\bs{\Lambda}\bs{Q}^{'}$, where $\bs{Q}$ is an orthogonal matrix ($\bs{Q}^{'}\bs{Q}=\bs{Q}\bs{Q}^{'}=\bs{I}_m$) and $\bs{\Lambda}$ is a diagonal matrix with $r$ non-zero eigenvalues, i.e.,$\bs{\Lambda}=\text{diag}(1,\ldots,1,0,\ldots,0)$. Let $\bs{z}=\bs{Q}^{'}\bs{u}$. Since $\bs{Q}$ is an orthogonal matrix, $\bs{z}\sim N(\bs{0}_m,\bs{I}_m)$. Then, we have
 $$
 \begin{align*}
 \bs{y}=\bs{u}^{'}\bs{C}\bs{u}&=\bs{u}^{'}\bs{Q}\bs{\Lambda}\bs{Q}^{'}\bs{u}=\bs{z}^{'}\bs{\Lambda}\bs{z}\\
@@ -1287,7 +1285,7 @@ where $z_i$'s are the elements of $\bs{z}$. Since $z_i$'s are independent and $z
 :::{}
 :::{#thm-independent-quadratics}
 ## Independence of quadratic forms
-Let $\bs{u}$ be a $m\times1$ random vector with $\bs{u}\sim N(\bs{0}_m,\bs{I}_m)$. Let $\bs{A}$ and $\bs{B}$ be two non-random $m\times m$ symmetric matrices. 
+Let $\bs{u}$ be an $m\times1$ random vector with $\bs{u}\sim N(\bs{0}_m,\bs{I}_m)$. Let $\bs{A}$ and $\bs{B}$ be two non-random $m\times m$ matrices.
 
 a. Assume that $\bs{A}$ and $\bs{B}$ are symmetric and idempotent. Then, $\bs{u}^{'}\bs{A}\bs{u}$ and $\bs{u}^{'}\bs{B}\bs{u}$ are independent if and only if $\bs{A}\bs{B}=\bs{0}_{m\times m}$.
 b. Assume that $\bs{A}$ and $\bs{B}$ are symmetric matrices with $\bs{B}$ idempotent. Then, $\bs{A}\bs{u}$ and $\bs{u}^{'}\bs{B}\bs{u}$ are independent if and only if $\bs{A}\bs{B}=\bs{0}_{m\times m}$.
