@@ -371,60 +371,88 @@ $$
 \E(\hat{\bs{\beta}})=\E(\E(\hat{\bs{\beta}}|\bs{X}))=\E(\bs{\beta})=\bs{\beta}.
 $$
 
+Next, we show that the OLS estimator is consistent in the following theorem.
+
+:::{#thm-thm26-1-0}
+## Consistency of the OLS estimator
+Assume that $\bs{Q}_{\bs{X}}=\E(\bs{X}_i\bs{X}^{'}_i)$ is positive definite. Then, under Assumptions 1-4, the OLS estimator $\hat{\bs{\beta}}$ is consistent, i.e., $\hat{\bs{\beta}}\xrightarrow{p}\bs{\beta}$ as $n\to\infty$.
+:::
+
+:::{.proof}
+## Proof of @thm-thm26-1-0
+Note that we can express the OLS estimator as
+$$
+\begin{align*}
+\hat{\bs{\beta}}=\bs{\beta}+\left(\frac{1}{n}\bs{X}^{'}\bs{X}\right)^{-1}\left(\frac{1}{n}\bs{X}^{'}\bs{U}\right).
+\end{align*}
+$$
+
+We use the law of large numbers to show the following results:
+
+1. $\frac{1}{n}\bs{X}^{'}\bs{X}\xrightarrow{p}\bs{Q}_{\bs{X}}$, and 
+2. $\frac{1}{n}\bs{X}^{'}\bs{U}\xrightarrow{p}\bs{0}_{k+1}$.
+
+Note that $\frac{1}{n}\bs{X}^{'}\bs{X}=\frac{1}{n}\sum_{i=1}^n\bs{X}_i\bs{X}^{'}_i$. The $(j,l)$th element of this matrix is given by $\frac{1}{n}\sum_{i=1}^nX_{ji}X_{li}$. By Assumption 2, $\{X_{ji}X_{li}\}$ are i.i.d. across $i$. By Assumption 3, the elements of $\bs{X}_i$ have finite fourth moments, then it follows form the Cauchy–Schwarz inequality that
+$$
+\begin{align*}
+\E\left(X_{ji}^2X_{li}^2\right)\leq \sqrt{\E(X_{ji}^4)\E(X_{li}^4)}<\infty.
+\end{align*}
+$$
+Thus, $X_{ji}X_{li}$ has a finite variance. Then, by the law of large numbers, we have $\frac{1}{n}\sum_{i=1}^nX_{ji}X_{li}\xrightarrow{p}\E(X_{ji}X_{li})$. Since this is true for all elements of $\frac{1}{n}\bs{X}^{'}\bs{X}$, we obtain $\frac{1}{n}\bs{X}^{'}\bs{X}\xrightarrow{p}\E(\bs{X}_i\bs{X}^{'}_i)=\bs{Q}_{\bs{X}}$.
+
+Similarly, we can express $\frac{1}{n}\bs{X}^{'}\bs{U}$ as $\frac{1}{n}\bs{X}^{'}\bs{U}=\frac{1}{n}\sum_{i=1}^n\bs{X}_iu_i$. Thus, the $j$th element of $\frac{1}{n}\bs{X}^{'}\bs{U}$ is $\frac{1}{n}\sum_{i=1}^nX_{ji}u_i$ for $j=1,\ldots,k+1$. By Assumption 2, $\{X_{ji}u_i\}$ are i.i.d. across $i$. Also, by the Cauchy–Schwarz inequality, we have
+$$
+\E\left(X_{ji}^2u_i^2\right)\leq \sqrt{\E(X_{ji}^4)\E(u_i^4)}<\infty,
+$$
+where the last inequality follows from Assumption 3. Then, by the law of large numbers, we have $\frac{1}{n}\sum_{i=1}^nX_{ji}u_i\xrightarrow{p}\E(X_{ji}u_i)=0$. Thus, we obtain $\frac{1}{n}\bs{X}^{'}\bs{U}\xrightarrow{p}\bs{0}_{k+1}$.
+
+Finally, using the continuous mapping theorem, we obtain
+$$
+\hat{\bs{\beta}}=\bs{\beta}+\left(\frac{1}{n}\bs{X}^{'}\bs{X}\right)^{-1}\left(\frac{1}{n}\bs{X}^{'}\bs{U}\right)\xrightarrow{p}\bs{\beta}+\bs{Q}^{-1}_{\bs{X}}\bs{0}_{k+1}=\bs{\beta}.
+$$
+:::
+
 To derive the asymptotic distribution of $\hat{\bs{\beta}}$, we need a multivariate central limit theorem that applies to vector-valued random variables.
 
 :::{#def-def26-1}
 ## Multivariate central limit theorem
-Let $\{\bs{W}_i\}_{i=1}^n$ be a sequence of i.i.d. $m$-dimensional random variables with mean $\E(\bs{W}_i)=\bs{\mu}_{\bs{W}}$ and covariance matrix $\E\left((\bs{W}_i-\bs{\mu}_{\bs{W}})(\bs{W}_i-\bs{\mu}_{\bs{W}})^{'}\right)=\bs{\Sigma}_{\bs{W}}$, where $\bs{\Sigma}_{\bs{W}}$ is positive definite and finite. Define $\overline{\bs{W}}=\frac{1}{n}\sum_{i=1}^n\bs{W}_i$. Then, $\sqrt{n}(\overline{\bs{W}}-\bs{\mu}_{\bs{W}})\xrightarrow{d}N(\bs{0}_m,\bs{\Sigma}_{\bs{W}})$.
+Let $\{\bs{W}_i\}_{i=1}^n$ be a sequence of i.i.d. $m$-dimensional random variables with mean $\bs{\mu}_{\bs{W}}$ and covariance matrix $\bs{\Sigma}_{\bs{W}}$, where $\bs{\Sigma}_{\bs{W}}$ is positive definite and finite. Define $\overline{\bs{W}}=\frac{1}{n}\sum_{i=1}^n\bs{W}_i$. Then, $\sqrt{n}(\overline{\bs{W}}-\bs{\mu}_{\bs{W}})\xrightarrow{d}N(\bs{0}_m,\bs{\Sigma}_{\bs{W}})$.
 :::
 
 Using the multivariate central limit theorem, we can derive the asymptotic distribution of the OLS estimator. The following theorem states that the OLS estimator is asymptotically normally distributed.
 
 :::{#thm-thm26-1}
 ## Asymptotic distribution of the OLS estimator
-Let $\bs{Q}_{\bs{X}}=\E(\bs{X}_i\bs{X}^{'}_i)$ and $\bs{\Sigma}_{\bs{V}}=\E(\bs{V}_i\bs{V}^{'}_i)$, where $\bs{V}_i=\bs{X}_iu_i$. Assume that $\bs{\Sigma}_{\bs{V}}$ is positive definite.  Then, under Assumptions 1-4,  we have $\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})\xrightarrow{d}N\left(\bs{0}_{k+1},\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\right)$, where $\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}=\bs{Q}^{-1}_{\bs{X}}\bs{\Sigma}_{\bs{V}}\bs{Q}^{-1}_{\bs{X}}$.
+Let $\bs{Q}_{\bs{X}}=\E(\bs{X}_i\bs{X}^{'}_i)$ and $\bs{\Sigma}_{\bs{V}}=\E(\bs{V}_i\bs{V}^{'}_i)$, where $\bs{V}_i=\bs{X}_iu_i$. Assume that $\bs{Q}_{\bs{X}}$ and $\bs{\Sigma}_{\bs{V}}$ are positive definite.  Then, under Assumptions 1-4,  we have $\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})\xrightarrow{d}N\left(\bs{0}_{k+1},\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\right)$, where $\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}=\bs{Q}^{-1}_{\bs{X}}\bs{\Sigma}_{\bs{V}}\bs{Q}^{-1}_{\bs{X}}$.
 :::
 
 :::{.proof}
 ## The proof of @thm-thm26-1
-Note that we can express the OLS estimator as
-$$
-\begin{align*}
-\hat{\bs{\beta}}=\bs{\beta}+(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{U}.
-\end{align*}
-$$
-Thus, we can express $\sqrt{n}\left(\hat{\bs{\beta}}-\bs{\beta}\right)$ as
+Note that we can express $\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})$ as
 $$
 \begin{align}
-\sqrt{n}\left(\hat{\bs{\beta}}-\bs{\beta}\right)=\left(\frac{\bs{X}^{'}\bs{X}}{n}\right)^{-1}\left(\frac{\bs{X}^{'}\bs{U}}{\sqrt{n}}\right).
+\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})=\left(\frac{\bs{X}^{'}\bs{X}}{n}\right)^{-1}\left(\frac{\bs{X}^{'}\bs{U}}{\sqrt{n}}\right).
 \end{align}
 $${#eq-eq26-10}
 
 Thus, we need to show that 
 
-1. $\frac{\bs{X}^{'}\bs{X}}{n}\xrightarrow{p}\bs{Q}_{\bs{X}}$, and 
-2. $\frac{\bs{X}^{'}\bs{U}}{\sqrt{n}}$ obeys the multivariate central limit theorem in @def-def26-1, i.e.,  $\frac{\bs{X}^{'}\bs{U}}{\sqrt{n}}=\frac{1}{\sqrt{n}}\sum_{i=1}^n\bs{X}_iu_i\xrightarrow{d}N\left(\bs{0}_{k+1},\,\bs{\Sigma}_{\bs{V}}\right)$,
-where $\bs{\Sigma}_{\bs{V}}=\E(\bs{V}_i\bs{V}^{'}_i)$.
+1. $\frac{1}{n}\bs{X}^{'}\bs{X}\xrightarrow{p}\bs{Q}_{\bs{X}}$, and 
+2. $\frac{1}{\sqrt{n}}\bs{X}^{'}\bs{U}$ obeys the multivariate central limit theorem in @def-def26-1, i.e.,  $\frac{1}{\sqrt{n}}\bs{X}^{'}\bs{U}\xrightarrow{d}N\left(\bs{0}_{k+1},\,\bs{\Sigma}_{\bs{V}}\right)$.
 
-We first show the first result. Note that $\frac{1}{n}\bs{X}^{'}\bs{X}=\frac{1}{n}\sum_{i=1}^n\bs{X}_i\bs{X}^{'}_i$. The $(j,l)$th element of this matrix is given by $\frac{1}{n}\sum_{i=1}^nX_{ji}X_{li}$. By Assumption 2, $\{X_{ji}X_{li}\}$ are i.i.d. across $i$. By Assumption 3, the elements of $\bs{X}_i$ have finite fourth moments, then it follows form the Cauchy–Schwarz inequality that
-$$
-\begin{align*}
-\E\left(X_{ji}^2X_{li}^2\right)\leq \sqrt{\E\left(X_{ji}^4\right)\E\left(X_{li}^4\right)}<\infty.
-\end{align*}
-$$
-Thus, $X_{ji}X_{li}$ has a finite variance. Then, by the law of large numbers, we have $\frac{1}{n}\sum_{i=1}^nX_{ji}X_{li}\xrightarrow{p}\E(X_{ji}X_{li})$. This is true for all elements of $\frac{1}{n}\bs{X}^{'}\bs{X}$, so $\frac{1}{n}\bs{X}^{'}\bs{X}\xrightarrow{p}\E(\bs{X}_i\bs{X}^{'}_i)=\bs{Q}_{\bs{X}}$.
-
-Next, we show the second result. Note that $\frac{1}{\sqrt{n}}\bs{X}^{'}\bs{U}=\frac{1}{\sqrt{n}}\sum_{i=1}^n\bs{V}_i$, where $\bs{V}_i=\bs{X}_iu_i$. By Assumption 1, we have 
+The first result follows from the law of large numbers as shown in the proof of @thm-thm26-1-0. Thus, we need to only show the second result. Note that $\frac{1}{\sqrt{n}}\bs{X}^{'}\bs{U}=\frac{1}{\sqrt{n}}\sum_{i=1}^n\bs{V}_i$, where $\bs{V}_i=\bs{X}_iu_i$. By Assumption 1, we have
 $$
 \E(\bs{V}_i)=\E\left(\bs{X}_iu_i\right)=\E\left(\E\left(\bs{X}_iu_i|\bs{X}_i\right)\right)=\E\left(\bs{X}_i\E\left(u_i|\bs{X}_i\right)\right)=\bs{0}.
 $$
-It follows from Assumption 2 that $\{\bs{V}_i\}$ are i.i.d across $i$. For all $\bs{c}\in\mathbb{R}^{k+1}$, it follows from the Cauchy–Schwarz inequality and Assumption 3 that
+It follows from Assumption 2 that $\{\bs{V}_i\}$ are i.i.d across $i$. Next, we need to show that $\bs{\Sigma}_{\bs{V}}$ is finite. To that end, let $\bs{c}\in\mathbb{R}^{k+1}$. Then, it follows from the Cauchy–Schwarz inequality and Assumption 3 that
 $$
 \begin{align*}
-\E\left((\bs{c}^{'}\bs{V}_i)^2\right)=\E\left((\bs{c}^{'}\bs{X}_i)^2(u_i)^2\right)\leq \sqrt{\E\left(\bs{c}^{'}\bs{X}_i\right)^4\E(u^4_i)}<\infty.
+\bs{c}^{'}\bs{\Sigma}_{\bs{V}}\bs{c}&=\E\left(\bs{c}^{'}\bs{V}_i\bs{V}^{'}_i\bs{c}\right)=\E\left(\bs{c}^{'}\bs{X}_i\bs{X}^{'}_i\bs{c}u^2_i\right)\\
+&=\E\left((\bs{c}^{'}\bs{X}_i)^2(u_i)^2\right)\leq \sqrt{\E\left(\bs{c}^{'}\bs{X}_i\right)^4\E(u^4_i)}<\infty.
 \end{align*}
 $$
-Thus, $\E(\bs{V}_i\bs{V}^{'}_i) = \bs{\Sigma}_{\bs{V}}$ is finite. Then,  by the multivariate central limit theorem in @def-def26-1, we have
+
+Since $\bs{c}$ is arbitrary, we conclude that $\bs{\Sigma}_{\bs{V}}$ is finite. Then, by the multivariate central limit theorem in @def-def26-1, we have
 $$
 \frac{1}{\sqrt{n}}\bs{X}^{'}\bs{U}\xrightarrow{d}N\left(\bs{0}_{k+1},\,\bs{\Sigma}_{\bs{V}}\right).
 $$
@@ -437,7 +465,7 @@ $$
 \hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}=\left(\frac{\bs{X}^{'}\bs{X}}{n}\right)^{-1}\hat{\bs{\Sigma}}_{\bs{V}}\left(\frac{\bs{X}^{'}\bs{X}}{n}\right)^{-1},
 \end{align}
 $$
-where $\hat{\bs{\Sigma}}_{\bs{V}}=\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_i\hat{u}^2_i$. @White1980 showed tat $\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$ is a consistent estimator of $\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$. The estimator $\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$ is called the **heteroskedasticity-robust covariance matrix estimator**. In particular, it is called the HC0 covariance matrix estimator, indicating that it is a baseline estimator. By scaling this estimator with $n/(n-k-1)$, we obtain another version, called the HC1 estimator. The HC1 estimator is the most commonly used in practice. See @MacKinnon1985 for further discussion of heteroskedasticity-robust covariance matrix estimators.
+where $\hat{\bs{\Sigma}}_{\bs{V}}=\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_i\hat{u}^2_i$. @White1980 showed tat $\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$ is a consistent estimator of $\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$. The estimator $\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$ is called the **heteroskedasticity-robust covariance matrix estimator**. In particular, it is called the HC0 covariance matrix estimator, indicating that it is a baseline estimator. By scaling this estimator with $n/(n-k-1)$, we obtain another version, called the HC1 estimator. The HC1 estimator is the most commonly used in practice.^[See @MacKinnon1985 and @Hansen2022 for further discussion of heteroskedasticity-robust covariance matrix estimators.]
 
 Note that the asymptotic variance of $\hat{\bs{\beta}}$ is $\text{var}(\hat{\bs{\beta}})=\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}=n^{-1}\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$. The heteroskedasticity-robust standard error for the $j$th regression coefficient is the square root of the $j$th diagonal element of $\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}$:
 $$
