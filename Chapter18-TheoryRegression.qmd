@@ -250,8 +250,8 @@ plt.show()
 Using Chebychev's inequality, we can show the law of large numbers given in the following theorem.
 
 :::{#thm-thm25-9}
-## Law of large numbers
-Let $\{X_i\}$ be a sequence of i.i.d. random variables with mean $\mu$ and finite variance $\sigma^2$. Then, the sample mean $\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$ converges in probability to $\mu$, i.e., $\bar{X}_n\stackrel{p}{\to}\mu$.
+## Weak law of large numbers
+Let $\{X_i\}$ be a sequence of i.i.d. random variables with mean $\mu<\infty$ and variance $\sigma^2<\infty$. Then, the sample mean $\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$ converges in probability to $\mu$, i.e., $\bar{X}_n\stackrel{p}{\to}\mu$.
 :::
 
 :::{.proof}
@@ -263,6 +263,18 @@ P(|\bar{X}_n-\mu|>\delta)\leq\frac{\text{Var}(\bar{X}_n)}{\delta^2}=\frac{\sigma
 \end{align*}
 $$
 as $n\to\infty$.
+:::
+
+In @thm-thm25-9, we assume that the second moment $\E(X_i^2)$ is finite, i.e., $\sigma^2<\infty$. We note that this is not necessary for the weak law of large numbers. However, our proof based on Chebychev's inequality requires the existence of the second moment. See @Hansen2022b for a proof of the weak law of large numbers without the finite second moment assumption. For the sake of completeness, we also state this version.
+
+:::{#thm-thm25-9-2}
+## Weak law of large numbers
+Let $\{X_i\}$ be a sequence of i.i.d. random variables with mean $\mu<\infty$. Then, $\bar{X}_n\stackrel{p}{\to}\mu$.
+:::
+
+:::{.proof}
+## Proof of @thm-thm25-9-2
+See the proof of Theorem 7.4 in @Hansen2022b.
 :::
 
 :::{#exm-exm25-1}
