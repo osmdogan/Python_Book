@@ -183,7 +183,7 @@ $$
 \end{align*}
 $$
 
-The estimate $\hat{\beta}_1=-1.10$ in Model 2 indicates that when `STR` increases by one student, the test score on average declines by 1.10 points, holding `PctEL` constant. The estimate $\hat{\beta}_2=-0.65$ in Model 2 shows that one percent increase in `PctEL` reduces the test score on average by $0.65$ points, holding `STR` constant. Note that the estimate $\hat{\beta}_1=-2.280$ in Model 1 is approximately twice as small as the estimate $\hat{\beta}_1=-1.10$ in Model 2, indicating that Model 1 suffers from omitted variable bias. 
+The estimate $\hat{\beta}_1=-1.10$ in Model 2 indicates that when `STR` increases by one student, the test score on average declines by 1.10 points, holding `PctEL` constant. The estimate $\hat{\beta}_2=-0.65$ in Model 2 shows that one percent increase in `PctEL` reduces the test score on average by 0.65 points, holding `STR` constant. Note that the estimate $\hat{\beta}_1=-2.280$ in Model 1 is approximately twice as small as the estimate $\hat{\beta}_1=-1.10$ in Model 2, indicating that Model 1 suffers from omitted variable bias. 
 
 ## Measures of fit
 In this section, we provide four measures of fit for the multiple linear regression model: (i) the standard error of the regression, (ii) the root mean square errors, (ii) the regression $R^2$, and (iv) the adjusted $R^2$. 
@@ -221,7 +221,7 @@ $$
 
 Note that $\bar{R}^2< R^2$, but if $n$ is large, the two will be very close because $(n-1)/(n-k-1)$ approaches one as $n$ increases. Also, adding a new regressor to the model affects $\bar{R}^2$ in two opposing directions. On the one hand, the new regressor decreases the $SSR$, which tends to increase $\bar{R}^2$. On the other hand, the factor $(n-1)(n-k-1)$ increases, which tends to reduce $\bar{R}^2$. Therefore, the net effect on $\bar{R}^2$ depends on which of these two effects is relatively larger.
 
-The results in @tbl-t13-3 show that including `PctEL` in the regression increases the $R^2$ from $0.051$ to $0.426$. Thus, including `PctEL` substantially improves the fit of the regression. Because $n$ is large and we have only two regressors, the difference between $R^2$ and $\bar{R}^2$ is very small: $R^2 = 0.426$ vs. $\bar{R}^2 = 0.424$. Note that @tbl-t13-3 does not include the SER measures. In the following code chunk, we compute the SER measures for both models.
+The results in @tbl-t13-3 show that including `PctEL` in the regression increases the $R^2$ from 0.051 to 0.426. Thus, including `PctEL` substantially improves the fit of the regression. Because $n$ is large and we have only two regressors, the difference between $R^2$ and $\bar{R}^2$ is very small: $R^2 = 0.426$ vs. $\bar{R}^2 = 0.424$. Note that @tbl-t13-3 does not include the SER measures. In the following code chunk, we compute the SER measures for both models.
 
 ```{python}
 # Computing SER for both models
@@ -460,7 +460,7 @@ result3 = model3.fit()
 
 The estimation results contained in the `result3` object are shown in @tbl-t13-6. The coefficient on each dummy variable shows the average difference in the dependent variable relative to the base category. For example, the estimated coefficient on `northeast` is 1.105, meaning that, holding the other variables constant, a person living in the Northeast region earns, on average, 1.105 more dollars hourly than a person living in the West (the base category). 
 
-The estimated coefficient on `female` is $-6.367$. This estimate indicates that holding other variables constant, women earn on average 6.367 fewer dollars hourly than men. The estimated coefficient on `Yrseduc` is $2.981$, which means that for each additional year of education, average hourly earnings increase by $2.981$ dollars, holding other variables constant.
+The estimated coefficient on `female` is -6.367. This estimate indicates that holding other variables constant, women earn on average 6.367 fewer dollars hourly than men. The estimated coefficient on `Yrseduc` is 2.981, which means that for each additional year of education, average hourly earnings increase by 2.981 dollars, holding other variables constant.
 
 :::{layout-ncol=1}
 ```{python}
