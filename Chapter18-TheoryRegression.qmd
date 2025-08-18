@@ -68,9 +68,9 @@ Under all five assumptions, the OLS estimators of $\beta_0$ and $\beta_1$ follow
 :::
 
 ## Introduction to asymptotic distribution theory
-Asymptotic distribution theory investigates the distribution of statistics-including estimators, test statistics, and confidence intervals-in large samples. Our goal is to use the large-sample distribution as an approximation to the exact sampling distribution. Therefore, inference based on the asymptotic distribution requires a large sample size.
+We use asymptotic distribution theory to investigate the distribution of statistics, including estimators, test statistics, and confidence intervals, in large samples. For a statistic, our goal is to determine its asymptotic distribution and then use this distribution as an approximation to the exact sampling distribution. Therefore, we require a sufficiently large sample size for inference based on the asymptotic distribution.
 
-Two important tools of the asymptotic distribution theory are the **law of large numbers (LLN)** and the **central limit theorem (CLT)**. To introduce the law of large numbers, we need to define the concept of convergence in probability.
+There are two important tools in asymptotic distribution theory: the law of large numbers (LLN) and the central limit theorem (CLT). In this section, we review some important probability concepts and inequalities that will help us apply these tools effectively.
 
 :::{#def-def25-1}
 ## Convergence in probability   
