@@ -11,7 +11,12 @@ plt.style.use('seaborn-v0_8-darkgrid')
 {{< include latex_macro.qmd >}}
 
 ## Introduction
-This chapter provides the theoretical foundation for the simple linear regression model with a single regressor. We present extended assumptions for the model and examine both the large-sample and exact-sample distributions of the OLS estimator. To that end, we also offer a brief introduction to the fundamentals of asymptotic analysis.
+This chapter provides the theoretical foundation for the simple linear regression model with a single regressor. We present extended assumptions for the model and study both the asymptotic and exact sampling distributions of the OLS estimator and the $t$ statistic. 
+
+We first introduce the extended least squares assumptions and discuss some properties of the OLS estimator and the $t$-statistic under these assumptions. Next, we cover the basics of asymptotic distribution theory, including the law of large numbers and the central limit theorem. We then present both the asymptotic and exact sampling distributions of the OLS estimator and the $t$-statistic. Finally, we introduce the weighted least squares estimator for the case where the functional form of heteroskedasticity is known.
+
+This chapter is complemented by Appendix C, where we provide additional properties of some well-known distributions.
+
 
 ## The extended least squares assumptions
 The linear regression model with one regressor is
@@ -68,7 +73,7 @@ Under all five assumptions, the OLS estimators of $\beta_0$ and $\beta_1$ follow
 :::
 
 ## Introduction to asymptotic distribution theory
-We use asymptotic distribution theory to investigate the distribution of statistics, including estimators, test statistics, and confidence intervals, in large samples. For a statistic, our goal is to determine its asymptotic distribution and then use this distribution as an approximation to the exact sampling distribution. Therefore, we require a sufficiently large sample size for inference based on the asymptotic distribution.
+We use asymptotic distribution theory to investigate the distribution of statistics, including estimators, test statistics, and confidence intervals, in large samples. For a statistic, our goal is to determine its asymptotic distribution when the sample size is large and then use this distribution as an approximation to the exact sampling distribution. Therefore, we require a sufficiently large sample size when making inference based on the asymptotic distribution.
 
 There are two important tools in asymptotic distribution theory: the law of large numbers (LLN) and the central limit theorem (CLT). In this section, we review some important probability concepts and inequalities that will help us apply these tools effectively.
 
