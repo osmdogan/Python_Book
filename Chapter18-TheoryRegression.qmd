@@ -430,8 +430,6 @@ $$
 $$
 :::
 
-Note that the Cauchy-Schwarz inequality can also be stated as  $|\E(XY)|\leq\sqrt{ \E(X^2)\E(Y^2)}$. It also holds for random vectors and matrices, e.g., see (B.32) in @Hansen2022.
-
 :::{.proof}
 ## Proof of @thm-thm25-10
 Let $W=Y+bX$, where $b$ is a constant. Then,
@@ -444,6 +442,17 @@ $$
 $$
 Since $\E(W^2)\geq0$, this last result gives $\E(Y^2)\E(X^2)\geq \left(\E(XY)\right)^2$. 
 :::
+
+Note that the Cauchy-Schwarz inequality can also be stated as  $|\E(XY)|\leq\sqrt{ \E(X^2)\E(Y^2)}$. Also, applying the Cauchy-Schwarz inequality to $|Y|$ and $|X|$ gives
+$$
+\E(|XY|)=\E(|X||Y|)\leq\sqrt{ \E(X^2)\E(Y^2)}.
+$$
+
+This absolute value form is stronger than the original form because
+$$
+|\E(XY)|\leq \E(|XY|)\leq\sqrt{ \E(X^2)\E(Y^2)},
+$$
+where the first inequality follows from the expectation inequality. Both forms also hold for random vectors and matrices, e.g., see (B.32) in @Hansen2022.
 
 :::{#exm-exm25-2}
 ## Cauchy-Schwarz Inequality
