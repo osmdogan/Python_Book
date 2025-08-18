@@ -265,7 +265,7 @@ $$
 as $n\to\infty$.
 :::
 
-In @thm-thm25-9, we assume that the second moment $\E(X_i^2)$ is finite, i.e., $\sigma^2<\infty$. We note that this is not necessary for the weak law of large numbers. However, our proof based on Chebychev's inequality requires the existence of the second moment. See @Hansen2022b for a proof of the weak law of large numbers without the finite second moment assumption. For the sake of completeness, we also state this version.
+In @thm-thm25-9, we assume that the second moment $\E(X_i^2)$ is finite, i.e., $\sigma^2<\infty$. We note that this is not necessary for the weak law of large numbers. However, our proof based on Chebychev's inequality requires the existence of the second moment. For the sake of completeness, we also state the version without the finite second moment assumption.
 
 :::{#thm-thm25-9-2}
 ## Weak law of large numbers
@@ -470,6 +470,31 @@ $$
 $$
 :::
 
+:::{#thm-thm25-10-0}
+## Hölder’s Inequality
+Let $X$ and $Y$ be random variables. Then, for $1\leq p,q<\infty$ with $\frac{1}{p}+\frac{1}{q}=1$, we have
+$$
+\E(|XY|)\leq \left(\E(|X|^p)\right)^{1/p}\left(\E(|Y|^q)\right)^{1/q}.
+$$
+:::
+
+:::{.proof}
+## Proof of @thm-thm25-10-0
+See @Hansen2022b.
+:::
+
+:::{#exm-exm25-3}
+## Hölder's Inequality
+Consider the following simple linear regression model $Y_i=\beta_0+\beta_1X_i+u_i$. Assume that $X$ and $u$ has finite fourth order moments. Then, $\E(|X|^3_i|u_i|)<\infty$. This can be seen from
+$$
+\begin{align*}
+\E(|X|^3_i|u_i|)&\leq \left(\E\left((|X|^3)^{4/3}\right)\right)^{3/4}\left(\E(|u|^4)\right)^{1/4}\\
+&=\left(\E\left(|X|^4\right)\right)^{3/4}\left(\E(|u|^4)\right)^{1/4}<\infty,
+\end{align*}
+$$
+where the first inequality follows from Hölder's inequality with $p=4/3$ and $q=4$. 
+:::
+
 :::{#thm-thm25-10-1}
 ##  Minkowski’s Inequality
 Let $X$ and $Y$ be random variables. Then, for $1\leq p<\infty$, we have
@@ -483,9 +508,7 @@ $$
 See @Hansen2022b.
 :::
 
-This inequality also holds for random vectors and matrices, e.g., see (B.34) in @Hansen2022.
-
-:::{#exm-exm25-2}
+:::{#exm-exm25-3}
 ## Minkowski’s Inequality
 Let $Y=X\beta+u$, where $\beta$ is a scalar parameter. Then, we have
 $$
@@ -498,6 +521,11 @@ $$
 \left(\E(|u|^p)\right)^{1/p} = \left(\E(|Y-X\beta|^p)\right)^{1/p} \leq \left(\E(|Y|^p)\right)^{1/p} + |\beta|\left(\E(|X|^p)\right)^{1/p}.
 $$
 
+:::
+
+:::{#rem-rmk25-1}
+## Random vectors and matrices
+The Cauchy-Schwarz inequality, Hölder's inequality, and Minkowski's inequality also hold for random vectors and matrices. For these versions, see @Hansen2022.
 :::
 
 Next, we define convergence in distribution and the asymptotic distribution of a sequence of random variables.
