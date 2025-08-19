@@ -490,7 +490,7 @@ See @Hansen2022b.
 
 :::{#exm-exm25-3}
 ## Hölder's Inequality
-Consider the following simple linear regression model $Y_i=\beta_0+\beta_1X_i+u_i$. Assume that $X$ and $u$ has finite fourth order moments. Then, $\E(X^3_iu_i)\leq \E(|X_i|^3|u_i|)<\infty$. This can be seen from
+Consider the following simple linear regression model $Y_i=\beta_0+\beta_1X_i+u_i$. Assume that $X$ and $u$ has finite fourth order moments. Then, $\E(|X_i|^3|u_i|)<\infty$. This can be seen from
 $$
 \begin{align*}
 \E(|X_i|^3|u_i|)&\leq \left(\E\left((|X_i|^3)^{4/3}\right)\right)^{3/4}\left(\E(|u_i|^4)\right)^{1/4}\\
@@ -932,12 +932,17 @@ $$
 &-2u_i(\hat{\beta}_1-\beta_1)X_i+2(\hat{\beta}_0-\beta_0)(\hat{\beta}_1-\beta_1)X_i.
 \end{align*}
 $$
-Substituting this into @eq-eq25-5 yields a series of terms each of which can be written as $a_nb_n$, where $a_n\xrightarrow{p}0$ and $b_n=\frac{1}{n}\sum_{i=1}^nX^r_iu^s_i$, where $r,s\in\{1,2\}$. Thus, we will complete the proof if we can show that $b_n=\frac{1}{n}\sum_{i=1}^nX^r_iu^s_i\xrightarrow{p}\E(X^r_iu^s_i)$. Let $w_i=X^r_iu^s_i$. Note that $\{w_i\}$ are i.i.d under Assumption 2. By the Cauchy-Schwarz inequality, we have
+Substituting this into @eq-eq25-5 yields a series of terms. We provide convergence arguments for some exemplary terms. First, we consider two terms from $(\bar{X}-\mu_X)^2\frac{1}{n}\sum_{i=1}^n\hat{u}^2_i$. For the first term, we have
+$$
+(\bar{X}-\mu_X)^2\frac{1}{n}\sum_{i=1}^nu^2_i\xrightarrow{p}0,
+$$
+because $(\bar{X}-\mu_X)^2\xrightarrow{p}0$ and $\frac{1}{n}\sum_{i=1}^nu^2_i\xrightarrow{p}\E(u^2_i)$ by the law of large numbers. For the second term, we have
+$$
+(\bar{X}-\mu_X)^2(\hat{\beta}_1-\beta_1)\frac{1}{n}\sum_{i=1}^nu_iX_i\xrightarrow{p}0,
+$$
+because $(\bar{X}-\mu_X)^2\xrightarrow{p}0$, $(\hat{\beta}_1-\beta_1)\xrightarrow{p}0$ and $\frac{1}{n}\sum_{i=1}^nu_iX_i\xrightarrow{p}\E(u_iX_i)=0$ by the law of large numbers.
 
-$$
-\E(w_i)=\E(X^{r}_iu^{s}_i)\leq \left(\E(X^{2r}_i)\E(u^{2s}_i)\right)^{1/2}<\infty.
-$$
-where the last inequality is ensured by Assumption 3. This completes the proof. 
+ 
 
 :::
 
