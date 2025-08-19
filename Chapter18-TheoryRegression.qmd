@@ -15,7 +15,7 @@ This chapter provides the theoretical foundation for the simple linear regressio
 
 We first introduce the extended least squares assumptions and discuss some properties of the OLS estimator and the $t$-statistic under these assumptions. Next, we cover the basics of asymptotic distribution theory, including the law of large numbers and the central limit theorem. We then present both the asymptotic and exact sampling distributions of the OLS estimator and the $t$-statistic. Finally, we introduce the weighted least squares estimator for the case where the functional form of heteroskedasticity is known.
 
-This chapter is complemented by Appendix C, where we provide additional properties of some well-known distributions.
+This chapter is supplemented by Appendix C, where we provide additional properties of some well-known distributions.
 
 
 ## The extended least squares assumptions
@@ -43,7 +43,7 @@ We consider @eq-eq25-1 under the following extended assumptions.
 5. **Normal distribution assumption**: The conditional distribution of $u_i$ given $X_i$ is normal, i.e., $u_i|X_i\sim N(0,\sigma^2_u)$.
 :::
 
-The first three assumptions are the usual assumptions that ensure the large sample properties of the OLS estimator. The last two assumptions are additional assumptions that are required to show further properties of the OLS estimator. In particular, the fourth assumption is required to show that the OLS estimator is the best linear unbiased estimators (BLUE). The fifth assumption is required to show the **exact** sampling distribution of the OLS estimator.
+The first three assumptions are the usual assumptions that ensure the large sample properties of the OLS estimator and the $t$-statistic. The last two assumptions are additional assumptions that are required to show further properties of the OLS estimator. In particular, the fourth assumption is required to show that the OLS estimator is the best linear unbiased estimators (BLUE). The fifth assumption is required to show the **exact** sampling distribution of the OLS estimator and the $t$-statistic. We collect these results in the following theorems.
 
 :::{#thm-thm25-1}
 Under the first three assumptions, the OLS estimators of $\beta_0$ and $\beta_1$ are unbiased, consistent and have asymptotic normal distributions in large samples. Specifically, we have
@@ -54,8 +54,6 @@ $$
 \end{align*}
 $$
 :::
-
-@thm-thm25-1 suggests that we can make inference about the population parameters $\beta_0$ and $\beta_1$ using t-statistics and confidence intervals when the sample size is large. 
 
 :::{#thm-thm25-2}
 ## Gauss-Markov theorem
@@ -69,8 +67,10 @@ $$
 
 :::{#thm-thm25-3}
 ## Exact sampling distributions of OLS estimators
-Under all five assumptions, the OLS estimators of $\beta_0$ and $\beta_1$ follow exact normal sampling distributions with variances given by @thm-thm25-2. The t-statistic for testing hypotheses about $\beta_0$ and $\beta_1$ follows the Student t-distribution with $n - 2$ degrees of freedom.
+Under all five assumptions, conditional on $X$, the OLS estimators have exact normal sampling distributions with variances given in @thm-thm25-2. The t-statistic for testing hypotheses about $\beta_0$ and $\beta_1$ follows the Student t-distribution with $n - 2$ degrees of freedom.
 :::
+
+@thm-thm25-1 suggests that we can make inference about the population parameters $\beta_0$ and $\beta_1$ using t-statistics and confidence intervals when the sample size is large. In contrast, @thm-thm25-3 provides the exact sampling distributions of the OLS estimators and the t-statistic under all five assumptions. In this case, a large sample size is not required for inference.
 
 ## Introduction to asymptotic distribution theory
 We use asymptotic distribution theory to investigate the distribution of statistics, including estimators, test statistics, and confidence intervals, in large samples. For a statistic, our goal is to determine its asymptotic distribution when the sample size is large and then use this distribution as an approximation to the exact sampling distribution. Therefore, we require a sufficiently large sample size when making inference based on the asymptotic distribution.
@@ -932,7 +932,7 @@ $$
 &-2u_i(\hat{\beta}_1-\beta_1)X_i+2(\hat{\beta}_0-\beta_0)(\hat{\beta}_1-\beta_1)X_i.
 \end{align*}
 $$
-Substituting this into @eq-eq25-5 yields a series of terms. We provide convergence arguments for some exemplary terms. First, we consider two terms from $(\bar{X}-\mu_X)^2\frac{1}{n}\sum_{i=1}^n\hat{u}^2_i$. For the first term, we have
+Substituting this into @eq-eq25-5 yields a series of terms. We provide convergence arguments for some exemplary terms. For example, we consider two terms from $(\bar{X}-\mu_X)^2\frac{1}{n}\sum_{i=1}^n\hat{u}^2_i$. For the first term, we have
 $$
 (\bar{X}-\mu_X)^2\frac{1}{n}\sum_{i=1}^nu^2_i\xrightarrow{p}0,
 $$
@@ -940,20 +940,39 @@ because $(\bar{X}-\mu_X)^2\xrightarrow{p}0$ and $\frac{1}{n}\sum_{i=1}^nu^2_i\xr
 $$
 (\bar{X}-\mu_X)^2(\hat{\beta}_1-\beta_1)\frac{1}{n}\sum_{i=1}^nu_iX_i\xrightarrow{p}0,
 $$
-because $(\bar{X}-\mu_X)^2\xrightarrow{p}0$, $(\hat{\beta}_1-\beta_1)\xrightarrow{p}0$ and $\frac{1}{n}\sum_{i=1}^nu_iX_i\xrightarrow{p}\E(u_iX_i)=0$ by the law of large numbers.
+because $(\bar{X}-\mu_X)^2\xrightarrow{p}0$, $(\hat{\beta}_1-\beta_1)\xrightarrow{p}0$ and $\frac{1}{n}\sum_{i=1}^nu_iX_i\xrightarrow{p}\E(u_iX_i)=0$ by the law of large numbers. Similar arguments can be made for the remaining terms.
 
- 
+Similarly, we can substitute the expression for $\hat{u}^2_i$ into $\hat{\sigma}^2_{\hat{\beta}_0}$ and show that $\hat{\sigma}^2_{\hat{\beta}_0}\xrightarrow{p}\sigma^2_{\hat{\beta}_0}$. We omit the details for brevity.
 
 :::
 
 ## Asymptotic distribution of the t-statistic
-Consider the null hypothesis $H_0:\beta_1=c$, where $c$ is a known quantity. The heteroskedasticity-robust t-statistic is
+Consider the null hypothesis $H_0:\beta_1=c$, where $c$ is a known quantity. The heteroskedasticity-robust $t$-statistic is
+$$
+t=\frac{\hat{\beta}_1-c}{\hat{\sigma}_{\hat{\beta}_1}}.
+$$
+
+In the next theorem, we provide the asymptotic distribution of the $t$-statistic.
+
+:::{#thm-thm25-t}
+## Asymptotic distribution of the t-statistic
+Assume that Assumptions 1-3 hold. Then, under $H_0$, we have
+$$
+t\xrightarrow{d}N(0,1).
+$$
+:::
+
+:::{.proof}
+## Proof of @thm-thm25-t
+Note that we can express $t$-statistic as
 $$
 \begin{align}
-t=\frac{\hat{\beta}_1-c}{\hat{\sigma}_{\hat{\beta}_1}}=\frac{\sqrt{n}(\hat{\beta}_1-c)}{\sqrt{n\sigma^2_{\hat{\beta}_1}}}\div\sqrt{\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}}
+t=\frac{\hat{\beta}_1-c}{\hat{\sigma}_{\hat{\beta}_1}}=\frac{\sqrt{n}(\hat{\beta}_1-c)}{\sqrt{n\sigma^2_{\hat{\beta}_1}}}\div\sqrt{\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}}.
 \end{align}
-$${#eq-eq25-6}
-We proved that $\sqrt{\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}}\xrightarrow{p}1$. Also, if $H_0$ holds, then it follows from @thm-thm25-1 that $\frac{\sqrt{n}(\hat{\beta}_1-c)}{\sqrt{n\sigma^2_{\hat{\beta}_1}}}\xrightarrow{d}N(0,1)$. Then, it follows from Slutsky's theorem that $t\xrightarrow{d}N(0,1)$.
+$$
+
+We show that $\sqrt{\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}}\xrightarrow{p}1$ in @thm-thm25-var. Also, if $H_0$ holds, then it follows from @thm-thm25-1 that $\frac{\sqrt{n}(\hat{\beta}_1-c)}{\sqrt{n\sigma^2_{\hat{\beta}_1}}}\xrightarrow{d}N(0,1)$. Then, it follows from Slutsky's theorem that $t\xrightarrow{d}N(0,1)$.
+:::
 
 ## Exact sampling distribution of the OLS estimator
 In @thm-thm25-3, we claim that the OLS estimator has an exact normal sampling distribution, and the homoskedasticity-only t-statistic has an exact Student t distribution. In this section, we will provide the proof of this result. 
