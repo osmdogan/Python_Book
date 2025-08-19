@@ -56,7 +56,7 @@ $$
 :::
 
 :::{#thm-thm25-2}
-## Gauss-Markov theorem
+## The Gauss-Markov theorem
 Under the first four assumptions, the OLS estimators of $\beta_0$ and $\beta_1$ are the best linear unbiased estimators (BLUE). The variances of the OLS estimators simplify to
 $$
 \begin{align*}
@@ -67,7 +67,7 @@ $$
 
 :::{#thm-thm25-3}
 ## Exact sampling distributions of OLS estimators
-Under all five assumptions, conditional on $X$, the OLS estimators have exact normal sampling distributions with variances given in @thm-thm25-2. The t-statistic for testing hypotheses about $\beta_0$ and $\beta_1$ follows the Student t-distribution with $n - 2$ degrees of freedom.
+Under all five assumptions, conditional on $\{X_i\}_i^n$, the OLS estimators have exact normal sampling distributions with variances given in @thm-thm25-2. The t-statistic for testing hypotheses about $\beta_0$ and $\beta_1$ follows the Student t-distribution with $n - 2$ degrees of freedom.
 :::
 
 @thm-thm25-1 suggests that we can make inference about the population parameters $\beta_0$ and $\beta_1$ using t-statistics and confidence intervals when the sample size is large. In contrast, @thm-thm25-3 provides the exact sampling distributions of the OLS estimators and the t-statistic under all five assumptions. In this case, a large sample size is not required for inference.
@@ -974,13 +974,41 @@ $$
 We show that $\sqrt{\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}}\xrightarrow{p}1$ in @thm-thm25-var. Also, if $H_0$ holds, then it follows from @thm-thm25-1 that $\frac{\sqrt{n}(\hat{\beta}_1-c)}{\sqrt{n\sigma^2_{\hat{\beta}_1}}}\xrightarrow{d}N(0,1)$. Then, it follows from Slutsky's theorem that $t\xrightarrow{d}N(0,1)$.
 :::
 
+## The Gauss-Markov theorem
+The Gauss-Markov theorem in @thm-thm25-2 states that the OLS estimators are the best linear unbiased estimators (BLUE) under the first four assumptions. We prove this claim in Chapter 26 using matrix algebra. In this section, we show how the variances of the OLS estimators simplify. 
+
+Under the fourth assumption, the numerator of $\sigma^2_{\widehat{\beta}_1}$ can be written as
+$$
+\begin{align*}
+\text{var}((X_i-\mu_X)u_i)&= \E((X_i-\mu_X)^2u^2_i)=\E\left(\E\left((X_i-\mu_X)^2u^2_i|X_i\right)\right)\\
+&=\E\left((X_i-\mu_X)^2\E(u^2_i|X_i)\right)=\E\left((X_i-\mu_X)^2\sigma^2_u\right)\\
+&=\sigma^2_u\E\left((X_i-\mu_X)^2\right)=\sigma^2_u\sigma^2_X,
+\end{align*}
+$$
+where the second equality follows from the law of iterated expectations. Then, substituting this result into $\sigma^2_{\widehat{\beta}_1}$, we obtain $\sigma^2_{\widehat{\beta}_1} = \frac{\sigma^2_u}{n\sigma^2_X}$.
+
+Under the fourth assumption, we can express the numerator of $\sigma^2_{\hat{\beta}_0}$ as
+$$
+\begin{align*}
+\text{var}(H_iu_i)&=\E(H^2_iu^2_i)=\E\left(\E(H^2_iu^2_i|X_i)\right)\\
+&=\E\left(H^2_i\E(u^2_i|X_i)\right)=\E(H^2_i)\sigma^2_u.
+\end{align*}
+$$
+
+Also, in Section 25.4, we show that $\E(H^2_i)=\frac{\sigma^2_X}{\E(X_i^2)}$. Then, using these results, we can express $\sigma^2_{\hat{\beta}_0}$ as
+$$
+\begin{align*}
+\sigma^2_{\hat{\beta}_0} &= \frac{\text{var}(H_iu_i)}{\left(\E(H^2_i)\right)^2} = \frac{\sigma^2_u}{\E(H^2_i)}= \frac{\E(X^2_i)\sigma^2_u}{n\sigma^2_X}.
+\end{align*}
+$$
+
 ## Exact sampling distribution of the OLS estimator
-In @thm-thm25-3, we claim that the OLS estimator has an exact normal sampling distribution, and the homoskedasticity-only t-statistic has an exact Student t distribution. In this section, we will provide the proof of this result. 
+In @thm-thm25-3, we claim that the OLS estimator has an exact conditional normal sampling distribution, and the homoskedasticity-only t-statistic has an exact Student t distribution. In this section, we will provide the proof of this results. 
 
 We start with the following expression for $(\widehat{\beta}_1-\beta_1)$:
 $$
 \begin{align}\label{eq14}
-\widehat{\beta}_1-\beta_1=\frac{\sum_{i=1}^n(X_i - \bar{X})u_i}{\sum_{i=1}^n(X_i - \bar{X})^2}
+\widehat{\beta}_1-\beta_1=\frac{\sum_{i=1}^n(X_i - \bar{X})u_i}{\sum_{i=1}^n(X_i - \bar{X})^2}.
 \end{align}
 $$
 
@@ -1005,16 +1033,32 @@ where $s^2_{\hat{u}}=\frac{1}{n-2}\sum_{i=1}^n\hat{u}^2_i$.
 The exact sampling distribution of the OLS estimator $\hat{\beta}_0$ can be derived in a similar way. We omit the details.
 
 ## Exact sampling distribution of the homoskedasticity-only t-statistic
-Consider the null hypothesis $H_0:\beta_1=c$, where $c$ is a known quantity. The homoskedasticity-only t-statistic can be written as
+Consider the null hypothesis $H_0:\beta_1=c$, where $c$ is a known quantity. The homoskedasticity-only t-statistic is given by
+
+$$
+\begin{align}
+t&=\frac{\hat{\beta}_1-c}{\sqrt{\widehat{\text{var}}(\hat{\beta}_1|X_1,\ldots,X_n)}}.
+\end{align}
+$$
+
+:::{#thm-thm25-t2}
+Assume that all five assumptions hold. Then, under $H_0$, the homoskedasticity-only $t$-statistic has the Student t distribution with $n-2$ degrees of freedom.
+:::
+
+:::{.proof}
+## Proof of @thm-thm25-t2
+We can express the $t$-statistic as
 $$
 \begin{align}
 t&=\frac{\hat{\beta}_1-c}{\sqrt{\widehat{\text{var}}(\hat{\beta}_1|X_1,\ldots,X_n)}}=\frac{\hat{\beta}_1-c}{\sqrt{\frac{\sigma^2_{u}}{\sum_{i=1}^n(X_i - \bar{X})^2}}}\div\sqrt{\frac{s^2_{\hat{u}}}{\sigma^2_u}}\\
 &=\frac{\hat{\beta}_1-c}{\sqrt{\frac{\sigma^2_{u}}{\sum_{i=1}^n(X_i - \bar{X})^2}}}\div\sqrt{W/(n-2)},
 \end{align}
-$${#eq-eq25-7}
-where $W=\sum_{i=1}^n\hat{u}^2_i/\sigma^2_u$. Under $H_0$, we have $\frac{\hat{\beta}_1-c}{\sqrt{\frac{\sigma^2_{u}}{\sum_{i=1}^n(X_i - \bar{X})^2}}}\sim N(0,1)$. In Chapter 26, we show that $W$ has a chi-squared distribution with $n-2$ degrees of freedom and also it is independent of the standardized OLS estimator in the numerator. Then, it follows from the definition of the Student t distribution that the homoskedasticity-only t-statistic has the Student t distribution with $n-2$ degrees of freedom.
+$$
+where $W=\sum_{i=1}^n\hat{u}^2_i/\sigma^2_u$. Under $H_0$, we have $\frac{\hat{\beta}_1-c}{\sqrt{\frac{\sigma^2_{u}}{\sum_{i=1}^n(X_i - \bar{X})^2}}}\sim N(0,1)$. In Chapter 26, we show that $W$ has a chi-squared distribution with $n-2$ degrees of freedom and that it is independent of the standardized OLS estimator in the numerator. It then follows from the definition of the Student’s $t$ distribution that the homoskedasticity-only $t$-statistic has a Student’s $t$ distribution with $n-2$ degrees of freedom.
+:::
 
 ## Weighted least squares
+
 The Gauss-Markov theorem stated in @thm-thm25-2 requires that the errors are homoskedastic. If the errors are heteroskedastic, then the OLS estimator is no longer the most efficient estimator. In this section, we will discuss the weighted least squares (WLS) estimator, which is can be efficient under heteroskedasticity.
 
 ### WLS with known heteroskedasticity
