@@ -513,7 +513,7 @@ window.Quarto = {
 </header>
 
 
-<div id="bf22b13c" class="cell" data-execution_count="1">
+<div id="cd1a6297" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -696,7 +696,7 @@ P(|V-\mu_V|&lt;\delta)\geq 1-\frac{\sigma^2_V}{\delta^2}.
 P(\mu_V-\delta&lt;V&lt;\mu_V+\delta)\geq 1-\frac{\sigma^2_V}{\delta^2}.
 \]</span></p>
 <p>In the following code chunk, we assume that <span class="math inline">\(V\sim N(0,1)\)</span> and <code>delta = np. arange(1, 10)</code>. We calculate the Chebychev bound and the actual probability that <span class="math inline">\(V\)</span> is within <span class="math inline">\(\delta\)</span> of its mean. <a href="#fig-fig25-1" class="quarto-xref">Figure&nbsp;<span>25.1</span></a> shows that the Chebychev bound is a conservative estimate of the actual probability.</p>
-<div id="62a4f37f" class="cell" data-execution_count="2">
+<div id="57b5b3d2" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the Chebychev inequality</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sigma2_V <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>mu_V <span class="op">=</span> <span class="dv">0</span></span>
@@ -771,7 +771,7 @@ P(|m_c-\mu_Y|\geq\delta)\leq\E\left((\bar{Y}+1/n-\mu_Y)^2\right)/\delta^2=\frac{
 </div>
 <p>In the following code chunk, we illustrate the law of large numbers using the estimators <span class="math inline">\(m_a\)</span>, <span class="math inline">\(m_b\)</span>, and <span class="math inline">\(m_c\)</span> defined in <a href="#exm-exm25-1" class="quarto-xref">Example&nbsp;<span>25.1</span></a>. We set <span class="math inline">\(\mu_Y = 0\)</span>, <span class="math inline">\(\sigma_Y^2 = 1\)</span>, and <span class="math inline">\(a = 0.5\)</span>. We consider three sample sizes: <span class="math inline">\(n = 10\)</span>, <span class="math inline">\(n = 100\)</span>, and <span class="math inline">\(n = 1000\)</span>. For each sample size, we generate 1000 samples and compute each estimator. We then create histograms of each estimator for each sample size.</p>
 <p><a href="#fig-fig25-2" class="quarto-xref">Figure&nbsp;<span>25.2</span></a> displays the histograms of <span class="math inline">\(m_a\)</span>, <span class="math inline">\(m_b\)</span>, and <span class="math inline">\(m_c\)</span> for different sample sizes. In the case of <span class="math inline">\(m_a\)</span> and <span class="math inline">\(m_b\)</span>, the histograms do not concentrate around the true mean <span class="math inline">\(\mu_Y = 0\)</span> as the sample size increases. However, since the histograms are centered around the true mean, these estimators are unbiased. On the other hand, the histogram of <span class="math inline">\(m_c\)</span> becomes more concentrated around the true mean as the sample size increases, indicating that <span class="math inline">\(m_c\)</span> is a consistent estimator.</p>
-<div id="925ebdbc" class="cell" data-execution_count="4">
+<div id="65f4ccf9" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the law of large numbers</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>mu_Y <span class="op">=</span> <span class="dv">0</span></span>
@@ -956,13 +956,12 @@ Figure&nbsp;25.2: Illustrating the law of large numbers
 <p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-10-0" class="quarto-xref">Theorem&nbsp;<span>25.12</span></a>). </span>See <span class="citation" data-cites="Hansen2022b">Hansen (<a href="references.html#ref-Hansen2022b" role="doc-biblioref">2022b</a>)</span>.</p>
 </div>
 <div id="exm-exm25-3" class="theorem example">
-<p><span class="theorem-title"><strong>Example 25.3 (Hölder’s Inequality)</strong></span> Consider the following simple linear regression model <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+u_i\)</span>. Assume that <span class="math inline">\(X\)</span> and <span class="math inline">\(u\)</span> has finite fourth order moments. Then, <span class="math inline">\(\E(|X|^3_i|u_i|)&lt;\infty\)</span>. This can be seen from <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 25.5 (Hölder’s Inequality)</strong></span> Consider the following simple linear regression model <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+u_i\)</span>. Assume that <span class="math inline">\(X\)</span> and <span class="math inline">\(u\)</span> has finite fourth order moments. Then, <span class="math inline">\(\E(X^3_iu_i)\leq \E(|X_i|^3|u_i|)&lt;\infty\)</span>. This can be seen from <span class="math display">\[
 \begin{align*}
-\E(|X|^3_i|u_i|)&amp;\leq \left(\E\left((|X|^3)^{4/3}\right)\right)^{3/4}\left(\E(|u|^4)\right)^{1/4}\\
-&amp;=\left(\E\left(|X|^4\right)\right)^{3/4}\left(\E(|u|^4)\right)^{1/4}&lt;\infty,
+\E(|X_i|^3|u_i|)&amp;\leq \left(\E\left((|X_i|^3)^{4/3}\right)\right)^{3/4}\left(\E(|u_i|^4)\right)^{1/4}\\
+&amp;=\left(\E\left(|X_i|^4\right)\right)^{3/4}\left(\E(|u_i|^4)\right)^{1/4}&lt;\infty,
 \end{align*}
 \]</span> where the first inequality follows from Hölder’s inequality with <span class="math inline">\(p=4/3\)</span> and <span class="math inline">\(q=4\)</span>.</p>
-</div>
 <div id="thm-thm25-10-1" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 25.13 (Minkowski’s Inequality)</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be random variables. Then, for <span class="math inline">\(1\leq p&lt;\infty\)</span>, we have <span class="math display">\[
 \left(\E(|X+Y|^p)\right)^{1/p} \leq \left(\E(|X|^p)\right)^{1/p} + \left(\E(|Y|^p)\right)^{1/p}.
@@ -972,7 +971,7 @@ Figure&nbsp;25.2: Illustrating the law of large numbers
 <p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-10-1" class="quarto-xref">Theorem&nbsp;<span>25.13</span></a>). </span>See <span class="citation" data-cites="Hansen2022b">Hansen (<a href="references.html#ref-Hansen2022b" role="doc-biblioref">2022b</a>)</span>.</p>
 </div>
 <div id="exm-exm25-3" class="theorem example">
-<p><span class="theorem-title"><strong>Example 25.4 (Minkowski’s Inequality)</strong></span> Let <span class="math inline">\(Y=X\beta+u\)</span>, where <span class="math inline">\(\beta\)</span> is a scalar parameter. Then, we have <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 25.3 (Minkowski’s Inequality)</strong></span> Let <span class="math inline">\(Y=X\beta+u\)</span>, where <span class="math inline">\(\beta\)</span> is a scalar parameter. Then, we have <span class="math display">\[
 \begin{align*}
 \left(\E(|Y|^p)\right)^{1/p} &amp;= \left(\E(|X\beta+u|^p)\right)^{1/p} \leq |\beta|\left(\E(|X|^p)\right)^{1/p} + \left(\E(|u|^p)\right)^{1/p}.
 \end{align*}
@@ -992,8 +991,9 @@ S_n\xrightarrow{d}S\iff \lim_{n\to\infty}F_n(t)=F(t),
 <div id="def-def25-4" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 25.4 (Asymptotic distribution)</strong></span> The distribution <span class="math inline">\(F\)</span> in <a href="#def-def25-3" class="quarto-xref">Definition&nbsp;<span>25.3</span></a> is called the asymptotic distribution of <span class="math inline">\(S_n\)</span>.</p>
 </div>
+<div>
 <div id="exm-exm25-3" class="theorem example">
-<p><span class="theorem-title"><strong>Example 25.5</strong></span> Let <span class="math inline">\(S\)</span> be the poisson random variable with parameter <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\{S_n\}\)</span> be a sequence of binomial random variables with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>, i.e., <span class="math inline">\(S_n\sim\text{Binomial}(n,p)\)</span>. We show that <span class="math inline">\(S_n\)</span> converges in distribution to <span class="math inline">\(S\)</span>, i.e., <span class="math inline">\(S_n\xrightarrow{d}S\)</span>. The cumulative distribution function of <span class="math inline">\(S_n\)</span> is given by <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 25.4</strong></span> Let <span class="math inline">\(S\)</span> be the poisson random variable with parameter <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\{S_n\}\)</span> be a sequence of binomial random variables with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>, i.e., <span class="math inline">\(S_n\sim\text{Binomial}(n,p)\)</span>. We show that <span class="math inline">\(S_n\)</span> converges in distribution to <span class="math inline">\(S\)</span>, i.e., <span class="math inline">\(S_n\xrightarrow{d}S\)</span>. The cumulative distribution function of <span class="math inline">\(S_n\)</span> is given by <span class="math display">\[
 F_n(t)=\sum_{k=0}^{\lfloor t\rfloor}\binom{n}{k}p^k(1-p)^{n-k},
 \]</span> where <span class="math inline">\(\lfloor t\rfloor\)</span> is the largest integer less than or equal to <span class="math inline">\(t\)</span>. The cumulative distribution function of <span class="math inline">\(S\)</span> is given by <span class="math display">\[
 F(t)=\sum_{k=0}^{\lfloor t\rfloor}\frac{\lambda^k}{k!}e^{-\lambda}.
@@ -1010,8 +1010,9 @@ F_n(t)&amp;=\sum_{k=0}^{\lfloor t\rfloor}\binom{n}{k}\left(\frac{\lambda}{n}\rig
 \end{align}
 \]</span> where the last equality follows from the fact that <span class="math inline">\(\lim_{n\to\infty}\left(1-\frac{\lambda}{n}\right)^n=e^{-\lambda}\)</span> and <span class="math inline">\(\lim_{n\to\infty}\left(\frac{1}{1-\frac{\lambda}{n}}\right)^k=1\)</span>. Therefore, we have <span class="math inline">\(S_n\xrightarrow{d}S\)</span>.</p>
 </div>
+</div>
 <p>In the following code chunk, we illustrate the convergence in distribution between the binomial and poisson random variables. We set <span class="math inline">\(\lambda = 5\)</span> and consider three sample sizes: <span class="math inline">\(n = 10\)</span>, <span class="math inline">\(n = 20\)</span>, and <span class="math inline">\(n = 50\)</span>. For each sample size, we then compute the cumulative distribution functions of the binomial and poisson random variables over the range <span class="math inline">\(t = 0, 1, \ldots, 15\)</span>. <a href="#fig-fig25-3" class="quarto-xref">Figure&nbsp;<span>25.3</span></a> shows that the cumulative distribution functions of the binomial random variables converge to the cumulative distribution function of the poisson random variable as the sample size increases.</p>
-<div id="db9f74d2" class="cell" data-execution_count="6">
+<div id="34db1f38" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the convergence in distribution</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>lambda_p <span class="op">=</span> <span class="dv">5</span></span>
@@ -1048,11 +1049,13 @@ Figure&nbsp;25.3: Illustrating the convergence in distribution
 </div>
 </div>
 <p>We now state the central limit theorem using the concept of convergence in distribution.</p>
+</div>
 <div id="thm-thm25-10" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 25.14 (The central limit theorem)</strong></span> If <span class="math inline">\(\{Y_i\}_{i=1}^n\)</span> are i.i.d with mean <span class="math inline">\(\E(Y_i)=\mu_Y\)</span> and variance <span class="math inline">\(0&lt;\sigma^2_Y&lt;\infty\)</span>, then the asymptotic distribution of <span class="math inline">\((\bar{Y}-\mu_{\bar{Y}})/\sigma_{\bar{Y}}=\sqrt{n}(\bar{Y}-\mu_Y)/\sigma_Y\)</span> is <span class="math inline">\(N(0,1)\)</span>. Conventional shorthand notation is <span class="math display">\[
 \frac{(\bar{Y}-\mu_{\bar{Y}})}{\sigma_{\bar{Y}}}=\frac{\sqrt{n}(\bar{Y}-\mu_Y)}{\sigma_Y}\xrightarrow{d}N(0,1).
 \]</span></p>
 </div>
+<p>:::</p>
 <p>Note that when <span class="math inline">\(n\)</span> is large, <span class="math inline">\(\sqrt{n}(\bar{Y}-\mu_Y)/\sigma_Y\xrightarrow{d}N(0,1)\)</span> implies that <span class="math display">\[
 \bar{Y}\sim N(\mu_Y,\sigma^2_Y/n).
 \]</span></p>
@@ -1062,7 +1065,7 @@ Figure&nbsp;25.3: Illustrating the convergence in distribution
 \]</span> which suggests that <span class="math inline">\(\bar{Y}\sim N(1/2,1/12n)\)</span> when <span class="math inline">\(n\)</span> is large.</p>
 </div>
 <p>In the following code chunk, we illustrate the central limit theorem using the uniform random variables defined in <a href="#exm-exm25-4" class="quarto-xref">Example&nbsp;<span>25.6</span></a>. We set <span class="math inline">\(n = 10, 50, 100, 500, 1000, 5000\)</span> and generate 1000 samples for each sample size. We then compute the sample mean <span class="math inline">\(\bar{Y}\)</span> and plot the histograms of <span class="math inline">\(\sqrt{12n}(\bar{Y}-1/2)\)</span> for each sample size. <a href="#fig-fig25-4" class="quarto-xref">Figure&nbsp;<span>25.4</span></a> shows the histograms of <span class="math inline">\(\sqrt{12n}(\bar{Y}-1/2)\)</span> along with the standard normal density plot. As the sample size increases, the deviations between the histograms and the standard normal density plot decrease, indicating that the sample mean converges to the standard normal distribution as the sample size grows.</p>
-<div id="ddbaaff8" class="cell" data-execution_count="8">
+<div id="9ceb8054" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the central limit theorem</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>n_values <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">5000</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1085,7 +1088,7 @@ Figure&nbsp;25.3: Illustrating the convergence in distribution
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="cell-fig-fig25-4" class="cell quarto-layout-panel" data-execution_count="9" data-layout-nrow="3">
+<div id="cell-fig-fig25-4" class="cell quarto-layout-panel" data-layout-nrow="3" data-execution_count="9">
 <div class="quarto-layout-row">
 <div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div id="fig-fig25-4" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1211,40 +1214,6 @@ Y_i-\bar{Y}=\beta_1(X_i-\bar{X})+(u_i-\bar{u}).
 \sqrt{n}\left(\widehat{\beta}_1-\beta_1\right)\xrightarrow{d}N\left(0,\text{var}(v_i)/(\sigma^2_X)^2\right).
 \end{align}
 \tag{25.3}\]</span></span></p>
-<p>We can estimate <span class="math inline">\(\sigma^2_{\hat{\beta}_1}\)</span> by <span class="math display">\[
-\begin{align}
-\hat{\sigma}^2_{\hat{\beta}_1}=\frac{1}{n}\frac{\frac{1}{n-2}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i}{\left(\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\right)^2}.
-\end{align}
-\]</span> We show that <span class="math inline">\(\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}\xrightarrow{p}1\)</span>, i.e., <span class="math inline">\(\hat{\sigma}^2_{\hat{\beta}_1}\)</span> is a consistent estimator of <span class="math inline">\(\sigma^2_{\hat{\beta}_1}\)</span>. <span id="eq-eq25-4"><span class="math display">\[
-\begin{align}
-\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}=\left(\frac{n}{n-2}\right)\left(\frac{\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i}{\text{var}(v_i)}\right)\div\left(\frac{\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2}{\sigma^2_X}\right)^2.
-\end{align}
-\tag{25.4}\]</span></span></p>
-<p>The second term in <a href="#eq-eq25-4" class="quarto-xref">Equation&nbsp;<span>25.4</span></a> convergence in probability to one by the consistency of the sample variance. Since <span class="math inline">\(n/(n-2)\to1\)</span> as <span class="math inline">\(n\to\infty\)</span>, it will be enough to show that <span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i\xrightarrow{p}\text{var}(v_i)\)</span>. The proof of <span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i\xrightarrow{p}\text{var}(v_i)\)</span> proceeds in two steps:</p>
-<ol type="1">
-<li><span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\xrightarrow{p}\text{var}(v_i)\)</span>, and</li>
-<li><span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i-\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\xrightarrow{p}0\)</span>.</li>
-</ol>
-<p>For the first result, we need to show that <span class="math inline">\(\{(X_i-\mu_X)^2u^2_i\}\)</span> obeys the law of large numbers. Under Assumption 2, we know that <span class="math inline">\(\{(X_i-\mu_X)^2u^2_i\}\)</span> are i.i.d., thus it remains to show that <span class="math inline">\(\text{Var}((X_i-\mu_X)^2u^2_i)&lt;\infty\)</span>. Note that <span class="math display">\[
-\begin{align*}
-\text{Var}((X_i-\mu_X)^2u^2_i)\leq \E\left((X_i-\mu_X)^4u^4_i\right)\leq \left(\E\left((X_i-\mu_X)^8\right)\E\left(u^8_i\right)\right)^{1/2},
-\end{align*}
-\]</span> where the second inequality follows from the Cauchy-Schwarz inequality. Thus, under the assumption that <span class="math inline">\(\E(X^8_i)&lt;\infty\)</span> and <span class="math inline">\(\E(u^8_i)&lt;\infty\)</span>, we have <span class="math inline">\(\text{Var}((X_i-\mu_X)^2u^2_i)&lt;\infty\)</span>. Then, by the law of large numbers, we have <span class="math display">\[
-\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\xrightarrow{p}\E\left((X_i-\mu_X)^2u^2_i\right)=\text{Var}(v_i).
-\]</span></p>
-<p>Next, we will show the second part: <span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i-\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\xrightarrow{p}0\)</span>. Using the identity <span class="math inline">\(\bar{X}=\mu_X+(\bar{X}-\mu_X)\)</span>, we have <span id="eq-eq25-5"><span class="math display">\[
-\begin{align}
-&amp;\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i-\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\\
-&amp;=(\bar{X}-\mu_X)^2\frac{1}{n}\sum_{i=1}^n\hat{u}^2_i-2(\bar{X}-\mu_X)\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)\hat{u}^2_i\\
-&amp;+\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2(\hat{u}^2_i-u^2_i).
-\end{align}
-\tag{25.5}\]</span></span></p>
-<p>We use <span class="math inline">\(\hat{u}_i=u_i-(\hat{\beta}_0-\beta_0)-(\hat{\beta}_1-\beta_1)X_i\)</span> to express <span class="math inline">\(\hat{u}^2_i\)</span> as <span class="math display">\[
-\begin{align*}
-\hat{u}^2_i&amp;=u^2_i+(\hat{\beta}_0-\beta_0)^2+(\hat{\beta}_1-\beta_1)^2X^2_i-2u_i(\hat{\beta}_0-\beta_0)\\
-&amp;-2u_i(\hat{\beta}_1-\beta_1)X_i+2(\hat{\beta}_0-\beta_0)(\hat{\beta}_1-\beta_1)X_i.
-\end{align*}
-\]</span> Substituting this into <a href="#eq-eq25-5" class="quarto-xref">Equation&nbsp;<span>25.5</span></a> yields a series of terms each of which can be written as <span class="math inline">\(a_nb_n\)</span>, where <span class="math inline">\(a_n\xrightarrow{p}0\)</span> and <span class="math inline">\(b_n=\frac{1}{n}\sum_{i=1}^nX^r_iu^s_i\)</span>, where <span class="math inline">\(r\)</span> and <span class="math inline">\(s\)</span> are integers. Thus, we will complete the proof if we can show that <span class="math inline">\(b_n=\frac{1}{n}\sum_{i=1}^nX^r_iu^s_i\xrightarrow{p}c\)</span>, where <span class="math inline">\(c\)</span> is a constant. Let <span class="math inline">\(w_i=X^r_iu^s_i\)</span> and note that <span class="math inline">\(\{w_i\}\)</span> are i.i.d. The law of large numbers can then be used for the desired result if <span class="math inline">\(\E(w^2_i)&lt;\infty\)</span>, which is ensured by Assumption 3.</p>
 <p>Asymptotic distribution of <span class="math inline">\(\widehat{\beta}_0\)</span> can be obtained by following the similar steps. Below, we will provide the main points and avoid some of the details. Recall that <span class="math inline">\(\widehat{\beta}_0 = \bar{Y} - \widehat{\beta}_1 \bar{X}\)</span> and <span class="math display">\[
 \begin{align*}
 \widehat{\beta}_1 &amp;= \beta_1+\frac{\sum_{i=1}^n(X_i - \bar{X})(u_i-\bar{u})}{\sum_{i=1}^n(X_i - \bar{X})^2}=\beta_1+\frac{\sum_{i=1}^n(X_i-\bar{X})u_i}{\sum_{i=1}^n(X_i - \bar{X})^2}.
@@ -1290,6 +1259,53 @@ Y_i-\bar{Y}=\beta_1(X_i-\bar{X})+(u_i-\bar{u}).
 \sqrt{n}\left(\widehat{\beta}_0-\beta_0\right)\xrightarrow{d}N\left(0,\text{var}(H_iu_i)/(\E(H_i^2))^2\right).
 \end{align}
 \]</span></p>
+<p>For statistical inference, we need to estimate the asymptotic variances of <span class="math inline">\(\widehat{\beta}_1\)</span> and <span class="math inline">\(\widehat{\beta}_0\)</span>. We can estimate the variance terms by replacing the unknown terms in <span class="math inline">\(\sigma^2_{\hat{\beta}_1}\)</span> and <span class="math inline">\(\sigma^2_{\hat{\beta}_0}\)</span> by their sample counterparts:</p>
+<p><span class="math display">\[
+\begin{align}
+&amp;\hat{\sigma}^2_{\hat{\beta}_1} = \frac{1}{n}\frac{\frac{1}{n-2}\sum_{i=1}^n(X_i - \bar{X})^2\hat{u}_i^2}{\left(\frac{1}{n}\sum_{i=1}^n(X_i - \bar{X})^2\right)^2},\\
+&amp;\hat{\sigma}^2_{\hat{\beta}_0} = \frac{1}{n}\frac{\frac{1}{n-2}\sum_{i=1}^n\hat{H}^2\hat{u}_i^2}{\left(\frac{1}{n}\sum_{i=1}^n\hat{H}_i^2\right)^2}\quad\text{and}\quad  \hat{H}_i = 1 - \frac{\bar{X}}{\frac{1}{n}\sum_{i=1}^nX_i^2}X_i.
+\end{align}
+\]</span></p>
+<div id="thm-thm25-var" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 25.17 (Consistent estimators of the asymptotic variances)</strong></span> Under Assumptions 1-3, the estimators <span class="math inline">\(\hat{\sigma}^2_{\hat{\beta}_1}\)</span> and <span class="math inline">\(\hat{\sigma}^2_{\hat{\beta}_0}\)</span> are consistent for the asymptotic variances <span class="math inline">\(\sigma^2_{\hat{\beta}_1}\)</span> and <span class="math inline">\(\sigma^2_{\hat{\beta}_0}\)</span>, respectively. That is, <span class="math display">\[
+\hat{\sigma}^2_{\hat{\beta}_1}\xrightarrow{p}\sigma^2_{\hat{\beta}_1}\quad\text{and}\quad \hat{\sigma}^2_{\hat{\beta}_0}\xrightarrow{p}\sigma^2_{\hat{\beta}_0}.
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-var" class="quarto-xref">Theorem&nbsp;<span>25.17</span></a>). </span>We show that <span class="math inline">\(\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}\xrightarrow{p}1\)</span>. We can express <span class="math inline">\(\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}\)</span> as</p>
+<p><span id="eq-eq25-4"><span class="math display">\[
+\begin{align}
+\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}=\left(\frac{n}{n-2}\right)\left(\frac{\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i}{\text{var}(v_i)}\right)\div\left(\frac{\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2}{\sigma^2_X}\right)^2,
+\end{align}
+\tag{25.4}\]</span></span> where <span class="math inline">\(\text{var}(v_i)=\E\left((X_i-\mu_X)^2u^2_i\right)\)</span>. The second term in <a href="#eq-eq25-4" class="quarto-xref">Equation&nbsp;<span>25.4</span></a> convergences in probability to one by the consistency of the sample variance. Since <span class="math inline">\(n/(n-2)\to1\)</span> as <span class="math inline">\(n\to\infty\)</span>, it will be enough to show that <span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i\xrightarrow{p}\text{var}(v_i)\)</span>. The proof of <span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i\xrightarrow{p}\text{var}(v_i)\)</span> proceeds in two steps:</p>
+<ol type="1">
+<li><span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\xrightarrow{p}\text{var}(v_i)\)</span>, and</li>
+<li><span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i-\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\xrightarrow{p}0\)</span>.</li>
+</ol>
+<p>For the first result, we need to show that <span class="math inline">\(\{(X_i-\mu_X)^2u^2_i\}\)</span> obeys the law of large numbers. Under Assumption 2, we know that <span class="math inline">\(\{(X_i-\mu_X)^2u^2_i\}\)</span> are i.i.d., thus it remains to show that <span class="math inline">\(\E((X_i-\mu_X)^2u^2_i)&lt;\infty\)</span>. Note that <span class="math display">\[
+\begin{align*}
+\E((X_i-\mu_X)^2u^2_i)\leq \left(\E\left((X_i-\mu_X)^4\right)\E\left(u^4_i\right)\right)^{1/2}&lt;\infty,
+\end{align*}
+\]</span> where the first inequality follows from the Cauchy-Schwarz inequality and the last inequality from Assumption 3. Then, by the law of large numbers, we have <span class="math display">\[
+\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\xrightarrow{p}\E\left((X_i-\mu_X)^2u^2_i\right)=\text{var}(v_i).
+\]</span></p>
+<p>Next, we will show the second part: <span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i-\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\xrightarrow{p}0\)</span>. Using the identity <span class="math inline">\(\bar{X}=\mu_X+(\bar{X}-\mu_X)\)</span>, we have <span id="eq-eq25-5"><span class="math display">\[
+\begin{align}
+&amp;\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i-\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\\
+&amp;=(\bar{X}-\mu_X)^2\frac{1}{n}\sum_{i=1}^n\hat{u}^2_i-2(\bar{X}-\mu_X)\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)\hat{u}^2_i\\
+&amp;+\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2(\hat{u}^2_i-u^2_i).
+\end{align}
+\tag{25.5}\]</span></span></p>
+<p>We use <span class="math inline">\(\hat{u}_i=u_i-(\hat{\beta}_0-\beta_0)-(\hat{\beta}_1-\beta_1)X_i\)</span> to express <span class="math inline">\(\hat{u}^2_i\)</span> as <span class="math display">\[
+\begin{align*}
+\hat{u}^2_i&amp;=u^2_i+(\hat{\beta}_0-\beta_0)^2+(\hat{\beta}_1-\beta_1)^2X^2_i-2u_i(\hat{\beta}_0-\beta_0)\\
+&amp;-2u_i(\hat{\beta}_1-\beta_1)X_i+2(\hat{\beta}_0-\beta_0)(\hat{\beta}_1-\beta_1)X_i.
+\end{align*}
+\]</span> Substituting this into <a href="#eq-eq25-5" class="quarto-xref">Equation&nbsp;<span>25.5</span></a> yields a series of terms each of which can be written as <span class="math inline">\(a_nb_n\)</span>, where <span class="math inline">\(a_n\xrightarrow{p}0\)</span> and <span class="math inline">\(b_n=\frac{1}{n}\sum_{i=1}^nX^r_iu^s_i\)</span>, where <span class="math inline">\(r,s\in\{1,2\}\)</span>. Thus, we will complete the proof if we can show that <span class="math inline">\(b_n=\frac{1}{n}\sum_{i=1}^nX^r_iu^s_i\xrightarrow{p}\E(X^r_iu^s_i)\)</span>. Let <span class="math inline">\(w_i=X^r_iu^s_i\)</span>. Note that <span class="math inline">\(\{w_i\}\)</span> are i.i.d under Assumption 2. By the Cauchy-Schwarz inequality, we have</p>
+<p><span class="math display">\[
+\E(w_i)=\E(X^{r}_iu^{s}_i)\leq \left(\E(X^{2r}_i)\E(u^{2s}_i)\right)^{1/2}&lt;\infty.
+\]</span> where the last inequality is ensured by Assumption 3. This completes the proof.</p>
+</div>
 </section>
 <section id="asymptotic-distribution-of-the-t-statistic" class="level2" data-number="25.5">
 <h2 data-number="25.5" class="anchored" data-anchor-id="asymptotic-distribution-of-the-t-statistic"><span class="header-section-number">25.5</span> Asymptotic distribution of the t-statistic</h2>

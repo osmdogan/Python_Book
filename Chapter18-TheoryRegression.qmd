@@ -490,15 +490,14 @@ See @Hansen2022b.
 
 :::{#exm-exm25-3}
 ## Hölder's Inequality
-Consider the following simple linear regression model $Y_i=\beta_0+\beta_1X_i+u_i$. Assume that $X$ and $u$ has finite fourth order moments. Then, $\E(|X|^3_i|u_i|)<\infty$. This can be seen from
+Consider the following simple linear regression model $Y_i=\beta_0+\beta_1X_i+u_i$. Assume that $X$ and $u$ has finite fourth order moments. Then, $\E(X^3_iu_i)\leq \E(|X_i|^3|u_i|)<\infty$. This can be seen from
 $$
 \begin{align*}
-\E(|X|^3_i|u_i|)&\leq \left(\E\left((|X|^3)^{4/3}\right)\right)^{3/4}\left(\E(|u|^4)\right)^{1/4}\\
-&=\left(\E\left(|X|^4\right)\right)^{3/4}\left(\E(|u|^4)\right)^{1/4}<\infty,
+\E(|X_i|^3|u_i|)&\leq \left(\E\left((|X_i|^3)^{4/3}\right)\right)^{3/4}\left(\E(|u_i|^4)\right)^{1/4}\\
+&=\left(\E\left(|X_i|^4\right)\right)^{3/4}\left(\E(|u_i|^4)\right)^{1/4}<\infty,
 \end{align*}
 $$
-where the first inequality follows from Hölder's inequality with $p=4/3$ and $q=4$. 
-:::
+where the first inequality follows from Hölder's inequality with $p=4/3$ and $q=4$.
 
 :::{#thm-thm25-10-1}
 ##  Minkowski’s Inequality
@@ -549,6 +548,7 @@ where the limit holds at all points $t$ at which the limiting distribution $F$ i
 The distribution $F$ in @def-def25-3 is called the asymptotic distribution of $S_n$.
 :::
 
+:::{}
 :::{#exm-exm25-3}
 Let $S$ be the poisson random variable with parameter $\lambda$ and $\{S_n\}$ be a sequence of binomial random variables with parameters $n$ and $p$, i.e., $S_n\sim\text{Binomial}(n,p)$. We show that $S_n$ converges in distribution to $S$, i.e., $S_n\xrightarrow{d}S$. The cumulative distribution function of $S_n$ is given by
 $$
@@ -574,6 +574,7 @@ $$
 \end{align}
 $$
 where the last equality follows from the fact that $\lim_{n\to\infty}\left(1-\frac{\lambda}{n}\right)^n=e^{-\lambda}$ and $\lim_{n\to\infty}\left(\frac{1}{1-\frac{\lambda}{n}}\right)^k=1$. Therefore, we have $S_n\xrightarrow{d}S$.
+:::
 :::
 
 In the following code chunk, we illustrate the convergence in distribution between the binomial and poisson random variables. We set $\lambda = 5$ and consider three sample sizes: $n = 10$, $n = 20$, and $n = 50$. For each sample size, we then compute the cumulative distribution functions of the binomial and poisson random variables over the range $t = 0, 1, \ldots, 15$. @fig-fig25-3 shows that the cumulative distribution functions of the binomial random variables converge to the cumulative distribution function of the poisson random variable as the sample size increases.
@@ -608,6 +609,7 @@ plt.show()
 
 We now state the central limit theorem using the concept of convergence in distribution.
 
+:::
 :::{#thm-thm25-10}
 ## The central limit theorem
 If $\{Y_i\}_{i=1}^n$ are i.i.d with mean $\E(Y_i)=\mu_Y$ and variance $0<\sigma^2_Y<\infty$, then the asymptotic distribution of $(\bar{Y}-\mu_{\bar{Y}})/\sigma_{\bar{Y}}=\sqrt{n}(\bar{Y}-\mu_Y)/\sigma_Y$ is $N(0,1)$. Conventional
@@ -615,6 +617,7 @@ shorthand notation is
 $$
 \frac{(\bar{Y}-\mu_{\bar{Y}})}{\sigma_{\bar{Y}}}=\frac{\sqrt{n}(\bar{Y}-\mu_Y)}{\sigma_Y}\xrightarrow{d}N(0,1).
 $$
+:::
 :::
 
 Note that when $n$ is large, $\sqrt{n}(\bar{Y}-\mu_Y)/\sigma_Y\xrightarrow{d}N(0,1)$ implies that
@@ -812,53 +815,6 @@ $$
 \end{align}
 $${#eq-eq25-3}
 
-We can estimate $\sigma^2_{\hat{\beta}_1}$ by
-$$
-\begin{align}
-\hat{\sigma}^2_{\hat{\beta}_1}=\frac{1}{n}\frac{\frac{1}{n-2}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i}{\left(\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\right)^2}.
-\end{align}
-$$
-We show that $\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}\xrightarrow{p}1$, i.e., $\hat{\sigma}^2_{\hat{\beta}_1}$ is a consistent estimator of $\sigma^2_{\hat{\beta}_1}$.
-$$
-\begin{align}
-\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}=\left(\frac{n}{n-2}\right)\left(\frac{\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i}{\text{var}(v_i)}\right)\div\left(\frac{\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2}{\sigma^2_X}\right)^2.
-\end{align}
-$${#eq-eq25-4}
-
-The second term in @eq-eq25-4 convergence in probability to one by the consistency of the sample variance. Since $n/(n-2)\to1$ as $n\to\infty$, it will be enough to show that $\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i\xrightarrow{p}\text{var}(v_i)$. The proof of $\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i\xrightarrow{p}\text{var}(v_i)$ proceeds in two steps:
-
-1. $\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\xrightarrow{p}\text{var}(v_i)$, and 
-2. $\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i-\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\xrightarrow{p}0$.
-
-For the first result, we need to show that $\{(X_i-\mu_X)^2u^2_i\}$ obeys the law of large numbers. Under Assumption 2, we know that $\{(X_i-\mu_X)^2u^2_i\}$ are i.i.d., thus it remains to show that $\text{Var}((X_i-\mu_X)^2u^2_i)<\infty$. Note that
-$$
-\begin{align*}
-\text{Var}((X_i-\mu_X)^2u^2_i)\leq \E\left((X_i-\mu_X)^4u^4_i\right)\leq \left(\E\left((X_i-\mu_X)^8\right)\E\left(u^8_i\right)\right)^{1/2},
-\end{align*}
-$$
-where the second inequality follows from  the Cauchy-Schwarz inequality. Thus, under the assumption that $\E(X^8_i)<\infty$ and $\E(u^8_i)<\infty$, we have $\text{Var}((X_i-\mu_X)^2u^2_i)<\infty$. Then, by the law of large numbers, we have 
-$$
-\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\xrightarrow{p}\E\left((X_i-\mu_X)^2u^2_i\right)=\text{Var}(v_i).
-$$
-
-Next, we will show the second part: $\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i-\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\xrightarrow{p}0$.  Using the identity $\bar{X}=\mu_X+(\bar{X}-\mu_X)$, we have 
-$$
-\begin{align}
-&\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i-\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\\
-&=(\bar{X}-\mu_X)^2\frac{1}{n}\sum_{i=1}^n\hat{u}^2_i-2(\bar{X}-\mu_X)\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)\hat{u}^2_i\\
-&+\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2(\hat{u}^2_i-u^2_i).
-\end{align}
-$${#eq-eq25-5}
-
-We use $\hat{u}_i=u_i-(\hat{\beta}_0-\beta_0)-(\hat{\beta}_1-\beta_1)X_i$ to express $\hat{u}^2_i$ as
-$$
-\begin{align*}
-\hat{u}^2_i&=u^2_i+(\hat{\beta}_0-\beta_0)^2+(\hat{\beta}_1-\beta_1)^2X^2_i-2u_i(\hat{\beta}_0-\beta_0)\\
-&-2u_i(\hat{\beta}_1-\beta_1)X_i+2(\hat{\beta}_0-\beta_0)(\hat{\beta}_1-\beta_1)X_i.
-\end{align*}
-$$
-Substituting this into @eq-eq25-5 yields a series of terms each of which can be written as $a_nb_n$, where $a_n\xrightarrow{p}0$ and $b_n=\frac{1}{n}\sum_{i=1}^nX^r_iu^s_i$, where $r$ and $s$ are integers. Thus, we will complete the proof if we can show that $b_n=\frac{1}{n}\sum_{i=1}^nX^r_iu^s_i\xrightarrow{p}c$, where $c$ is a constant. Let $w_i=X^r_iu^s_i$ and note that $\{w_i\}$ are i.i.d. The law of large numbers can then be used for the desired result if $\E(w^2_i)<\infty$, which is ensured by Assumption 3.
-
 Asymptotic distribution of $\widehat{\beta}_0$ can be obtained by following the similar steps. Below, we will provide the main points and avoid some of the details. Recall that $\widehat{\beta}_0 = \bar{Y} - \widehat{\beta}_1 \bar{X}$ and
 $$
 \begin{align*}
@@ -917,6 +873,73 @@ $$
 \sqrt{n}\left(\widehat{\beta}_0-\beta_0\right)\xrightarrow{d}N\left(0,\text{var}(H_iu_i)/(\E(H_i^2))^2\right).
 \end{align}
 $$
+
+For statistical inference, we need to estimate the asymptotic variances of $\widehat{\beta}_1$ and $\widehat{\beta}_0$. We can estimate the variance terms by replacing the unknown terms in $\sigma^2_{\hat{\beta}_1}$ and $\sigma^2_{\hat{\beta}_0}$ by their sample counterparts:
+
+$$
+\begin{align}
+&\hat{\sigma}^2_{\hat{\beta}_1} = \frac{1}{n}\frac{\frac{1}{n-2}\sum_{i=1}^n(X_i - \bar{X})^2\hat{u}_i^2}{\left(\frac{1}{n}\sum_{i=1}^n(X_i - \bar{X})^2\right)^2},\\
+&\hat{\sigma}^2_{\hat{\beta}_0} = \frac{1}{n}\frac{\frac{1}{n-2}\sum_{i=1}^n\hat{H}^2\hat{u}_i^2}{\left(\frac{1}{n}\sum_{i=1}^n\hat{H}_i^2\right)^2}\quad\text{and}\quad  \hat{H}_i = 1 - \frac{\bar{X}}{\frac{1}{n}\sum_{i=1}^nX_i^2}X_i.
+\end{align}
+$$
+
+:::{#thm-thm25-var}
+## Consistent estimators of the asymptotic variances
+Under Assumptions 1-3, the estimators $\hat{\sigma}^2_{\hat{\beta}_1}$ and $\hat{\sigma}^2_{\hat{\beta}_0}$ are consistent for the asymptotic variances $\sigma^2_{\hat{\beta}_1}$ and $\sigma^2_{\hat{\beta}_0}$, respectively. That is,
+$$
+\hat{\sigma}^2_{\hat{\beta}_1}\xrightarrow{p}\sigma^2_{\hat{\beta}_1}\quad\text{and}\quad \hat{\sigma}^2_{\hat{\beta}_0}\xrightarrow{p}\sigma^2_{\hat{\beta}_0}.
+$$
+:::
+
+:::{.proof}
+## Proof of @thm-thm25-var
+We show that $\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}\xrightarrow{p}1$. We can express $\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}$ as
+
+$$
+\begin{align}
+\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}=\left(\frac{n}{n-2}\right)\left(\frac{\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i}{\text{var}(v_i)}\right)\div\left(\frac{\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2}{\sigma^2_X}\right)^2,
+\end{align}
+$${#eq-eq25-4}
+where $\text{var}(v_i)=\E\left((X_i-\mu_X)^2u^2_i\right)$. The second term in @eq-eq25-4 convergences in probability to one by the consistency of the sample variance. Since $n/(n-2)\to1$ as $n\to\infty$, it will be enough to show that $\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i\xrightarrow{p}\text{var}(v_i)$. The proof of $\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i\xrightarrow{p}\text{var}(v_i)$ proceeds in two steps:
+
+1. $\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\xrightarrow{p}\text{var}(v_i)$, and 
+2. $\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i-\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\xrightarrow{p}0$.
+
+For the first result, we need to show that $\{(X_i-\mu_X)^2u^2_i\}$ obeys the law of large numbers. Under Assumption 2, we know that $\{(X_i-\mu_X)^2u^2_i\}$ are i.i.d., thus it remains to show that $\E((X_i-\mu_X)^2u^2_i)<\infty$. Note that
+$$
+\begin{align*}
+\E((X_i-\mu_X)^2u^2_i)\leq \left(\E\left((X_i-\mu_X)^4\right)\E\left(u^4_i\right)\right)^{1/2}<\infty,
+\end{align*}
+$$
+where the first inequality follows from the Cauchy-Schwarz inequality and the last inequality from Assumption 3. Then, by the law of large numbers, we have
+$$
+\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\xrightarrow{p}\E\left((X_i-\mu_X)^2u^2_i\right)=\text{var}(v_i).
+$$
+
+Next, we will show the second part: $\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i-\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\xrightarrow{p}0$.  Using the identity $\bar{X}=\mu_X+(\bar{X}-\mu_X)$, we have 
+$$
+\begin{align}
+&\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i-\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2u^2_i\\
+&=(\bar{X}-\mu_X)^2\frac{1}{n}\sum_{i=1}^n\hat{u}^2_i-2(\bar{X}-\mu_X)\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)\hat{u}^2_i\\
+&+\frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)^2(\hat{u}^2_i-u^2_i).
+\end{align}
+$${#eq-eq25-5}
+
+We use $\hat{u}_i=u_i-(\hat{\beta}_0-\beta_0)-(\hat{\beta}_1-\beta_1)X_i$ to express $\hat{u}^2_i$ as
+$$
+\begin{align*}
+\hat{u}^2_i&=u^2_i+(\hat{\beta}_0-\beta_0)^2+(\hat{\beta}_1-\beta_1)^2X^2_i-2u_i(\hat{\beta}_0-\beta_0)\\
+&-2u_i(\hat{\beta}_1-\beta_1)X_i+2(\hat{\beta}_0-\beta_0)(\hat{\beta}_1-\beta_1)X_i.
+\end{align*}
+$$
+Substituting this into @eq-eq25-5 yields a series of terms each of which can be written as $a_nb_n$, where $a_n\xrightarrow{p}0$ and $b_n=\frac{1}{n}\sum_{i=1}^nX^r_iu^s_i$, where $r,s\in\{1,2\}$. Thus, we will complete the proof if we can show that $b_n=\frac{1}{n}\sum_{i=1}^nX^r_iu^s_i\xrightarrow{p}\E(X^r_iu^s_i)$. Let $w_i=X^r_iu^s_i$. Note that $\{w_i\}$ are i.i.d under Assumption 2. By the Cauchy-Schwarz inequality, we have
+
+$$
+\E(w_i)=\E(X^{r}_iu^{s}_i)\leq \left(\E(X^{2r}_i)\E(u^{2s}_i)\right)^{1/2}<\infty.
+$$
+where the last inequality is ensured by Assumption 3. This completes the proof. 
+
+:::
 
 ## Asymptotic distribution of the t-statistic
 Consider the null hypothesis $H_0:\beta_1=c$, where $c$ is a known quantity. The heteroskedasticity-robust t-statistic is
