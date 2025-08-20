@@ -998,7 +998,7 @@ $$
 Also, in Section 25.4, we show that $\E(H^2_i)=\frac{\sigma^2_X}{\E(X_i^2)}$. Then, using these results, we can express $\sigma^2_{\hat{\beta}_0}$ as
 $$
 \begin{align*}
-\sigma^2_{\hat{\beta}_0} &= \frac{\text{var}(H_iu_i)}{\left(\E(H^2_i)\right)^2} = \frac{\sigma^2_u}{\E(H^2_i)}= \frac{\E(X^2_i)\sigma^2_u}{n\sigma^2_X}.
+\sigma^2_{\hat{\beta}_0} &= \frac{\text{var}(H_iu_i)}{n\left(\E(H^2_i)\right)^2} = \frac{\sigma^2_u}{n\E(H^2_i)}= \frac{\E(X^2_i)\sigma^2_u}{n\sigma^2_X}.
 \end{align*}
 $$
 
