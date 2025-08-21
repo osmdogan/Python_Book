@@ -795,7 +795,7 @@ In an RDD study, the treatment effect parameter is the average treatment effect 
 ## Average treatment effect at the threshold
 The average treatment effect at the threshold $w_0$, denoted by $\tau$, is defined as
 $$
-\tau=\E[Y_i(1)-Y_i(0)|W_i=w_0],
+\tau=\E[Y_i(1)-Y_i(0)|W_i=w_0].
 $$
 :::
 
@@ -866,7 +866,7 @@ $$
 \begin{align}
 \tau&=\E\left[Y_i(1)|W_i=w_0\right]-\E\left[Y_i(0)|W_i=w_0\right]\\
 &=\lim_{w\downarrow w_0}\E[Y_i(1)|W_i=w]-\lim_{w\uparrow w_0}\E[Y_i(0)|W_i=w]\\
-&=\lim_{w\downarrow w_0}\E[Y_i|W_i=w]-\lim_{w\uparrow w_0}\E[Y_i|W_i=w]
+&=\lim_{w\downarrow w_0}\E[Y_i|W_i=w]-\lim_{w\uparrow w_0}\E[Y_i|W_i=w],
 \end{align}
 $$
 where the second equality follows from the continuity assumption and the third equality from the fact that $Y_i=Y_i(1)$ when $W_i\geq w_0$ and $Y_i=Y_i(0)$ when $W_i<w_0$. This result indicates that $\tau$ is identified because $\E[Y_i|W_i]$ is generally identified.
@@ -903,7 +903,7 @@ The identification of $\tau$ in the fuzzy RDD requires the following assumptions
 
 ::: {.callout-important icon=false title="Identification Assumptions for the fuzzy RDD"}
 1. Continuity assumption: $\E[Y_i(1)|W_i=w]$ and $\E[Y_i(0)|W_i=w]$ are continuous at the threshold $w_0$.
-2. Discontinuity assumption: $\lim_{w\downarrow w_0}p(w)\neq \lim_{w\uparrow w_0}p(w)$
+2. Discontinuity assumption: $\lim_{w\downarrow w_0}p(w)\neq \lim_{w\uparrow w_0}p(w)$.
 3. No selection on gain assumption: $\E[Y_i(1)-Y_i(0)|D_i,W_i=w]=\E[Y_i(1)-Y_i(0)|W_i=w]$ for all $w\in(w_0-\epsilon,w_0+\epsilon)$ with some $\epsilon>0$. 
 :::
 
