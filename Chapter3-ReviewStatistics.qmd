@@ -71,7 +71,7 @@ plt.show()
 ```
 :::
 
-Among the biased estimators, we may choose the one that minimizes the **mean squared error** (MSE), which is defined as $\text{MSE}(\hat{\mu}_Y) = \E((\hat{\mu}_Y - \mu_Y)^2)$. TThe MSE provides a measure of the average squared deviation of the estimator $\hat{\mu}_Y$ from the true value $\mu_Y$. It can be decomposed into the variance and the square of the bias:
+Among the biased estimators, we may choose the one that minimizes the **mean squared error** (MSE), which is defined as $\text{MSE}(\hat{\mu}_Y) = \E((\hat{\mu}_Y - \mu_Y)^2)$. The MSE provides a measure of the average squared deviation of the estimator $\hat{\mu}_Y$ from the true value $\mu_Y$. It can be decomposed into the variance and the square of the bias:
 $$
 \begin{align*}
 \text{MSE}(\hat{\mu}_Y) &= \E((\hat{\mu}_Y - \mu_Y)^2) = \E((\hat{\mu}_Y - \E(\hat{\mu}_Y) + \E(\hat{\mu}_Y) - \mu_Y)^2)\\
@@ -275,7 +275,7 @@ In this process, we can commit two types of errors: **Type-I error** and **Type-
 
 We consider the following **$t$ statistic** as our test statistic:
 $$
-\begin{align}\label{eq1}
+\begin{align}
 t &= \frac{\bar{Y} - \mu_Y}{s_{\bar{Y}}},
 \end{align}
 $$ {#eq-eq10.1}
@@ -299,7 +299,7 @@ In @fig-fig10-4, we show the rejection regions according to the type of $H_1$. I
 * In the case of $H_1:\mu_Y<20$, the critical value $-z_{\alpha}$ is the $\alpha$ quantile of the sampling distribution of the test statistic.
 * If we consider the two-sided alternative hypothesis $H_1:\mu_Y\ne20$, then the critical values are $-z_{\alpha/2}$ and $z_{\alpha/2}$, which are the $\alpha/2$ and $1-\alpha/2$ quantiles of the sampling distribution of the test statistic, respectively.
 
-If the realized value of $t$ is in the rejection region, we reject the null hypothesis $H_0$; otherwise, we fail to reject $H_0$. Intiuitively, if the realized value of $t$ is in the rejection region, it means that the sample mean $\bar{Y}$ is far away from the null value $\mu_Y=20$, which suggests that the null hypothesis $H_0$ can not be true.
+If the realized value of $t$ is in the rejection region, we reject the null hypothesis $H_0$; otherwise, we fail to reject $H_0$. Intuitively, if the realized value of $t$ is in the rejection region, it means that the sample mean $\bar{Y}$ is far away from the null value $\mu_Y=20$, which suggests that the null hypothesis $H_0$ can not be true.
 
 ```{python}
 #| fig-cap: "Rejection Regions"
