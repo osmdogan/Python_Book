@@ -442,6 +442,26 @@ $$
 \end{align}
 $${#eq-eq24-4.2}
 
+The augmentation of the VAR with the error correction term is not arbitrary. To see this, consider a VAR(2) model for $k$ variables:
+$$
+\begin{align*}
+\bs{Y}_t &= \bs{a} + \bs{A}_1\bs{Y}_{t-1}+\bs{A}_2\bs{Y}_{t-2}+\bs{u}_t.
+\end{align*}
+$$
+
+Subtracting $\bs{Y}_{t-1}$ from both sides and re-arranging, we obtain
+$$
+\begin{align*}
+\bs{Y}_t - \bs{Y}_{t-1}&= \bs{a} + \bs{A}_1\bs{Y}_{t-1} - \bs{Y}_{t-1}+\bs{A}_2\bs{Y}_{t-2}+\bs{u}_t\\
+\bs{\Delta Y}_t &= \bs{a} - (\bf{I}_k - \bs{A}_1)\bs{Y}_{t-1}+\bs{A}_2\bs{Y}_{t-2}+\bs{u}_t\\
+&= \bs{a} - (\bf{I}_k - \bs{A}_1 - \bs{A}_2)\bs{Y}_{t-1}-\bs{A}_2\bs{Y}_{t-1}+\bs{A}_2\bs{Y}_{t-2}+\bs{u}_t\\
+&=\bs{a} + \bs{\Pi} \bs{Y}_{t-1} + \bs{B}_1 \bs{\Delta Y}_{t-1}+\bs{u}_t,
+\end{align*}
+$$
+where $\bs{\Pi} = - (\bf{I}_k - \bs{A}_1 - \bs{A}_2)$ and $\bs{B}_1 = -\bs{A}_2$. If $\bs{Y}_t$ has a stochastic trend, then one or more of the roots of $\operatorname{det}(\bf{I}_k - \bs{A}_1 - \bs{A}_2)$ must be unity [@Lutkepohl2005, chapter 2]. In that case, $\bs{\Pi}$ is singular and its rank $r$ must be less than $k$. Hence, $\bs{\Pi}$ can be decomposed as $\bs{\Pi}=\bs{\alpha}\bs{\beta}^{'}$, where $\bs{\alpha}$ and $\bs{\beta}$ are $k\times r$ matrices.
+
+This decomposition of $\bs{\Pi}$ is not unique. For any positive definite $r\times r$ matrix $\bs{Q}$, we can write $\bs{\Pi}=\bs{\alpha}^\star\bs{\beta}^{\star'}$, where $\bs{\alpha}^\star = \bs{\alpha}\bs{Q}$ and $\bs{\beta}^{\star}=\bs{\beta}\bs{Q}^{-1}$. Therefore, cointegration relations are not unique. To avoid this problem, restrictions on $\bs{\beta}$ and/or $\bs{\alpha}$ can be imposed. Normalizing the first component of $\bs{\beta}$ to unity in the definition above serves to avoid the identification problem.
+
 In the VECM model, our goal is to use the past value of the error correction term to predict the future values of $\Delta Y_{1t}$ and $\Delta Y_{2t}$. 
 
 ### Estimating the cointegrating parameter
