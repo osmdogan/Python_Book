@@ -51,6 +51,12 @@ In this experiment, students then took standardized tests (the Stanford Achievem
 * $D_2=1$ if the student is in a regular class with a teacher's aide (i.e., the student is in the treatment group) and $D_2=0$ if the student is in a regular class (i.e., the student is in the control group).
 :::
 
+In all these examples, the experiment is deliberately designed and implemented to assess the causal effect of a treatment or intervention on the outcome variable. The assignment mechanism is the key feature that distinguishes randomized controlled experiments from other types of studies. A randomized controlled experiment is one in which the assignment mechanism satisfies the following properties (@Imbens2015, @Titiunik2021):
+
+1. It is designed and implemented by the researchers.
+2. It is known to the researchers.
+3. It ensures randomization such that the probability of participating in the treatment does not depend on the potential outcomes (defined below) of the experimental units.
+
 To define the treatment effect, we need to first introduce the potential outcomes framework.
 
 :::{#def-def20.1}
