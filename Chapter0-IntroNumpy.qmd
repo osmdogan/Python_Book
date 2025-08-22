@@ -30,7 +30,7 @@ type(y)
 y
 ```
 
-Attributes of an array includes `ndim` (the number of dimension), `shape` (the size of each dimension), `size` (the total number of elements), and `dtype` (the data type). Consider the following examples:
+Attributes of an array include `ndim` (the number of dimension), `shape` (the size of each dimension), `size` (the total number of elements), and `dtype` (the data type). Consider the following examples:
 
 ```{python}
 y = np.array([0.0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
@@ -201,7 +201,7 @@ There are four methods for accessing elements in an array:
 - Numerical indexing: Uses arrays of integers to access multiple specific elements.
 - Logical (or Boolean) indexing: Uses Boolean arrays to select elements that satisfy certain conditions.
 
-Scalar selection is implemented using `[i]` for 1-dimensional arrays, `[i,j]` for 2-dimensional arrays and `[i_1,i_2,...,i_n]` for general n-dimensional arrays. Some illustrative examples are given below.
+Scalar selection is implemented using `[i]` for 1-dimensional arrays, `[i,j]` for 2-dimensional arrays and `[i_1,i_2,...,i_n]` for general n-dimensional arrays. Some illustrative examples are given below. 
 
 ```{python}
 x = np.array([1.0, 2.0, 3.0, 4.0, 5.0])

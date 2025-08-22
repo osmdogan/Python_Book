@@ -941,10 +941,10 @@ From the joint probability distribution, we can derive the **marginal probabilit
 
 :::{#def-definition9.9}
 ## Marginal distributions
-If $X$ can take on $l$ different values $x_1,\dots,x_l$, then the **marginal probability** that $Y$ takes on the value $y$ is
+If $X$ can take on $l$ different values $x_1,\dots,x_\ell$, then the **marginal probability** that $Y$ takes on the value $y$ is
 $$ 
 \begin{align}
-P(Y=y)=\sum_{i=1}^lP(Y=y, X=x_i).
+P(Y=y)=\sum_{i=1}^\ell P(Y=y, X=x_i).
 \end{align} 
 $$
 :::
@@ -954,7 +954,7 @@ $$
 Consider the joint probability distribution of $X$ and $Y$ given in @tbl-t9.2. Then, the  probability of a long commute, i.e., $P(Y=0)$, is
 $$
 \begin{align*}
-P(Y=0)&=\sum_{i=1}^lP(Y=0, X=x_i)\\
+P(Y=0)&=\sum_{i=1}^\ell P(Y=0, X=x_i)\\
 &=P(Y=0,X=0)+P(Y=0,X=1)\\
 &=0.15+0.07=0.22.
 \end{align*}
@@ -974,11 +974,11 @@ $$
 :::
 :::
 
-Note that if $X$ is a discrete random variable, taking values $x_1,\dots,x_l$, and $Y$ is a discrete random variable taking values $y_1,\dots,y_k$, then the joint CDF can be computed as
+Note that if $X$ is a discrete random variable, taking values $x_1,\dots,x_\ell$, and $Y$ is a discrete random variable taking values $y_1,\dots,y_k$, then the joint CDF can be computed as
 $$
 \begin{align*}
 F_{X,Y}(x,y) &= P(X\leq x, Y\leq y)\\
-&= \sum_{x_i\leq x}^l\sum_{y_j\leq y}^k P(X=x_i,Y=y_j),
+&= \sum_{x_i\leq x}^\ell\sum_{y_j\leq y}^k P(X=x_i,Y=y_j),
 \end{align*}
 $$
 where the first summation is over all values of $X$ that are less than or equal to $x$, and the second summation is over all values of $Y$ that are less than or equal to $y$.
@@ -1231,30 +1231,37 @@ $$
 where the outer expectation is with respect to the marginal distribution of $X$.
 :::
 
-Let $X$ and $Y$ be two discrete random variables, taking values $x_1,\dots,x_l$ and $y_1,\dots,y_k$. The LIE suggests that the unconditional expectation of $Y$, i.e., $\E(Y)$, can be defined as the weighted average of the conditional expectations of $Y$ given $X$, where the weights come from the marginal distribution of $X$:
+Let $X$ and $Y$ be two discrete random variables, taking values $x_1,\dots,x_\ell$ and $y_1,\dots,y_k$. The LIE suggests that the unconditional expectation of $Y$, i.e., $\E(Y)$, can be defined as the weighted average of the conditional expectations of $Y$ given $X$, where the weights come from the marginal distribution of $X$:
 $$
 \begin{align}
-\E(Y) =\E\left(\E(Y|X)\right)= \sum_{i=1}^l \E(Y|X=x_i) P(X=x_i).
+\E(Y) =\E\left(\E(Y|X)\right)= \sum_{i=1}^\ell \E(Y|X=x_i) P(X=x_i).
 \end{align}
 $$
 
 :::{}
 :::{.proof}
 ## Proof of @thm-theorem9.8
-Let $X$ and $Y$ be discrete random variables taking values $x_1,\dots,x_l$ and $y_1,\dots,y_k$. Then,
+Let $X$ and $Y$ be discrete random variables taking values $x_1,\dots,x_\ell$ and $y_1,\dots,y_k$. Then,
 $$
 \begin{align}
-\E\left(\E(Y|X)\right)&=\sum_{i=1}^l\E(Y|X=x_i)P(X=x_i)=\sum_{i=1}^l\sum_{j=1}^ky_jP(Y=y_j|X=x_i)P(X=x_i)\\
-&=\sum_{i=1}^l\sum_{j=1}^ky_j\frac{P(Y=y_j,X=x_i)}{P(X=x_i)}P(X=x_i)=\sum_{i=1}^l\sum_{j=1}^ky_jP(Y=y_j,X=x_i)\\
-&=\sum_{j=1}^ky_j\sum_{i=1}^lP(Y=y_j,X=x_i)=\sum_{j=1}^ky_jP(Y=y_j)=\E(Y),
+\E\left(\E(Y|X)\right)&=\sum_{i=1}^\ell\E(Y|X=x_i)P(X=x_i)\\
+&=\sum_{i=1}^\ell\sum_{j=1}^ky_jP(Y=y_j|X=x_i)P(X=x_i)\\
+&=\sum_{i=1}^\ell\sum_{j=1}^ky_j\frac{P(Y=y_j,X=x_i)}{P(X=x_i)}P(X=x_i)\\
+&=\sum_{i=1}^\ell\sum_{j=1}^ky_jP(Y=y_j,X=x_i)\\
+&=\sum_{j=1}^ky_j\sum_{i=1}^\ell P(Y=y_j,X=x_i)\\
+&=\sum_{j=1}^ky_jP(Y=y_j)\\
+&=\E(Y),
 \end{align}
 $$
-where the sixth equality follows from $\sum_{i=1}^lP(Y=y_j,X=x_i)=P(Y=y_j)$. If $X$ and $Y$ are continuous random variables with densities $f_X$ and $f_Y$, then we have
+where the sixth equality follows from $\sum_{i=1}^\ell P(Y=y_j,X=x_i)=P(Y=y_j)$. If $X$ and $Y$ are continuous random variables with densities $f_X$ and $f_Y$, then we have
 $$
 \begin{align}
-\E\left(\E(Y|X)\right)&=\int\E(Y|X=x)f_X(x)dx=\int\int yf_{Y|X}(y|x)f_X(x)dydx\\
-&=\int\int y\frac{f_{Y,X}(y,x)}{f_X(x)}f_X(x)dydx=\int\int yf_{Y,X}(y,x)dydx\\
-&=\int yf_{Y}(y)dy=\E(Y).
+\E\left(\E(Y|X)\right)&=\int\E(Y|X=x)f_X(x)dx\\
+&=\int\int yf_{Y|X}(y|x)f_X(x)dydx\\
+&=\int\int y\frac{f_{Y,X}(y,x)}{f_X(x)}f_X(x)dydx\\
+&=\int\int yf_{Y,X}(y,x)dydx\\
+&=\int yf_{Y}(y)dy\\
+&=\E(Y).
 \end{align}
 $$
 :::
@@ -1347,11 +1354,11 @@ $$
 \end{align}
 $$
 
-Suppose again both $Y$ and $X$ are discrete and $Y$ takes on $k$ values and $X$ takes on $l$ values. Then,
+Suppose again both $Y$ and $X$ are discrete and $Y$ takes on $k$ values and $X$ takes on $\ell$ values. Then,
 $$
 \begin{align*}
-\text{cov}(X,Y) &= \sum_{i=1}^k\sum_{j=1}^l (x_j-\mu_X)(y_i-\mu_Y)P(X=x_j,Y=y_i)\\
-&=\sum_{i=1}^k\sum_{j=1}^lx_jy_iP(X=x_j,Y=y_i)-\mu_X\mu_Y.
+\text{cov}(X,Y) &= \sum_{i=1}^k\sum_{j=1}^\ell (x_j-\mu_X)(y_i-\mu_Y)P(X=x_j,Y=y_i)\\
+&=\sum_{i=1}^k\sum_{j=1}^\ell x_jy_iP(X=x_j,Y=y_i)-\mu_X\mu_Y.
 \end{align*}
 $$
 
@@ -1368,7 +1375,7 @@ Some properties of covariance are as follows:
 
 a) $\text{cov}(X,X)=\E(X^2)-\mu_X^2=\sigma^2_X$, which is the variance of $X$.
 b) $\text{cov}(X,Y)=\text{cov}(Y,X)$, i.e., covariance is symmetric.
-c) $\text{cov}(aX+bY,V)=a\text{cov}(X,V)+b\text{cov}(Y,V)$, where $a$ and $b$ are constants.
+c) $\text{cov}(a\,X+b\,Y,V)=a\,\text{cov}(X,V)+b\,\text{cov}(Y,V)$, where $a$ and $b$ are constants.
 d) If $X$ and $Y$ are independent, then $\text{cov}(X,Y)=0$, because $\text{cov}(X,Y)=\E(XY)-\mu_X\mu_Y=\E(X)\E(Y)-\mu_X\mu_Y=0$. 
 e) If $\text{cov}(X,Y)>0$, then $X$ and $Y$ move in the same direction. If $\text{cov}(X,Y)<0$, then $X$ and $Y$ moves in opposite directions.
 
@@ -1388,12 +1395,12 @@ The correlation measure is unit free and satisfies $-1\le \text{corr}(X,Y)\le 1$
 ## Key Concept 9.4: Mean, variance, and covariance
 Let $X$, $Y$, and $V$ be random variables and let $a$, $b$ and $c$ be constants. Then, the following results hold:
 
-a) $E(a + bX + cY) = a+ b\mu_X +c\mu_Y$,
+a) $\E(a + bX + cY) = a+ b\,\mu_X +c\,\mu_Y$,
 b) $\text{var}(a + bY) = b^2\sigma_Y^2$,
-c) $\text{var}(aX + bY) = a^2\sigma_X^2 + b^2\sigma_Y^2 + 2ab\sigma_X\sigma_Y$,
-d) $E(Y^2) = \sigma_Y^2 + \mu_Y^2$,
-e) $\text{cov}(a + bX + cY, V) = b\sigma_{XV} + c\sigma_{YV}$,
-f) $E(XY) = \sigma_{XY} + \mu_X\mu_Y$,
+c) $\text{var}(aX + bY) = a^2\sigma_X^2 + b^2\sigma_Y^2 + 2ab\,\sigma_X\sigma_Y$,
+d) $\E(Y^2) = \sigma_Y^2 + \mu_Y^2$,
+e) $\text{cov}(a + bX + cY, V) = b\,\sigma_{XV} + c\,\sigma_{YV}$,
+f) $\E(XY) = \sigma_{XY} + \mu_X\mu_Y$,
 g) $|\text{corr}(X,Y)|\le 1$ and $|\sigma_{XY}|\le\sigma_X\sigma_Y$.
 :::
 :::
@@ -1592,7 +1599,7 @@ The normal distribution is symmetric around its mean $\mu$ and has a bell-shaped
 # Define y values
 y = np.arange(-10, 10, 0.01)
 # Create a figure and axis object for PDF
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(6,3))
 # Plot the PDFs
 ax.plot(y, stats.norm.pdf(y, 0, 1), linestyle='-', color='red', linewidth=1.5, label=r'$\mu=0, \sigma=1$')
 ax.plot(y, stats.norm.pdf(y, -2, 1), linestyle='-', color='black', linewidth=1.5, label=r'$\mu=-2, \sigma=1$')
@@ -1605,7 +1612,7 @@ ax.legend(loc='upper left', frameon=False)
 plt.show()
 
 # Create a figure and axis object for CDF
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(6,3))
 # Plot the CDFs
 ax.plot(y, stats.norm.cdf(y, 0, 1), linestyle='-', color='red', linewidth=1.5, label=r'$\mu=0, \sigma=1$')
 ax.plot(y, stats.norm.cdf(y, -2, 1), linestyle='-', color='black', linewidth=1.5, label=r'$\mu=-2, \sigma=1$')
@@ -1651,7 +1658,7 @@ In @fig-f9.6, we show the PDF and CDF of  $\chi^2_3$, $\chi^2_4$, and $\chi^2_{1
 # Define y values
 y = np.arange(0, 20, 0.01)
 # Create a figure and axis object for PDF
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(6,3))
 # Plot the PDFs
 ax.plot(y, stats.chi2.pdf(y, df=3), linestyle='-', color='red', linewidth=1.5, label=r'$m=3$')
 ax.plot(y, stats.chi2.pdf(y, df=4), linestyle='-', color='black', linewidth=1.5, label=r'$m=4$')
@@ -1664,7 +1671,7 @@ ax.legend(loc='upper right', frameon=False)
 plt.show()
 
 # Create a figure and axis object for CDF
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(6,3))
 # Plot the CDFs
 ax.plot(y, stats.chi2.cdf(y, df=3), linestyle='-', color='red', linewidth=1.5, label=r'$m=3$')
 ax.plot(y, stats.chi2.cdf(y, df=4), linestyle='-', color='black', linewidth=1.5, label=r'$m=4$')
@@ -1697,7 +1704,7 @@ In @fig-f9.7, we compare the PDF and CDF of $t_1$ and $t_{10}$ with that of $N(0
 # Define t values
 t_values = np.arange(-4, 4, 0.01)
 # Create a figure and axis object for PDF
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(6,3))
 # Plot the PDFs
 ax.plot(t_values, stats.norm.pdf(t_values, 0, 1), linestyle='-', color='red', linewidth=1.5, label='N(0,1)')
 ax.plot(t_values, stats.t.pdf(t_values, df=1), linestyle='-', color='steelblue', linewidth=1.5, label=r'$t_1$')
@@ -1711,7 +1718,7 @@ ax.legend(loc='upper left', frameon=False)
 plt.show()
 
 # Create a figure and axis object for CDF
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(6,3))
 # Plot the CDFs
 ax.plot(t_values, stats.norm.cdf(t_values, 0, 1), linestyle='-', color='red', linewidth=1.5, label='N(0,1)')
 ax.plot(t_values, stats.t.cdf(t_values, df=1), linestyle='-', color='steelblue', linewidth=1.5, label=r'$t_1$')
@@ -1764,7 +1771,7 @@ The $F$ distribution is right-skewed, and as $m$ and $n$ increase, the distribut
 # Define u values
 u = np.arange(0, 8, 0.01)
 # Create a figure and axis object for PDF
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(6,3))
 # Plot the PDFs
 ax.plot(u, stats.f.pdf(u, dfn=1, dfd=10), linestyle='-', color='red', linewidth=1.5, label= 'm = 1, n = 10')
 ax.plot(u, stats.f.pdf(u, dfn=5, dfd=50), linestyle='-', color='steelblue', linewidth=1.5, label= 'm = 5, n = 50')
@@ -1778,7 +1785,7 @@ ax.legend(loc='upper right', frameon=False)
 plt.show()
 
 # Create a figure and axis object for CDF
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(6,3))
 # Plot the CDFs
 ax.plot(u, stats.f.cdf(u, dfn=1, dfd=10), linestyle='-', color='red', linewidth=2, label='m = 1, n = 10')
 ax.plot(u, stats.f.cdf(u, dfn=5, dfd=50), linestyle='-', color='steelblue', linewidth=2, label='m = 5, n= 50')

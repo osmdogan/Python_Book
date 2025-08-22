@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -528,7 +528,7 @@ window.Quarto = {
 </header>
 
 
-<div id="7e7a8e03" class="cell" data-execution_count="1">
+<div id="97292518" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
@@ -648,7 +648,7 @@ P(X=x_i) = p_i,\quad i=1,2,\dots,k,
 </div>
 <div id="exm-example9.6" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9.6</strong></span> Let <span class="math inline">\(M\)</span> be a random variable that measures the number of times your wireless network connection fails while you are writing a term paper. Let us assume that <span class="math inline">\(M\)</span> takes <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(4\)</span>, <span class="math inline">\(5\)</span>, with the corresponding probabilities given by <span class="math inline">\(0.80\)</span>, <span class="math inline">\(0.10\)</span>, <span class="math inline">\(0.06\)</span>, <span class="math inline">\(0.03\)</span>, <span class="math inline">\(0.01\)</span>. In the following, we summarize the probability distribution of <span class="math inline">\(M\)</span> in a table.</p>
-<div id="be8c7437" class="cell" data-execution_count="2">
+<div id="15803070" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability distribution of M</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>outcomes <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># probabilities</span></span>
@@ -1093,7 +1093,7 @@ Figure&nbsp;9.6: The CDF and PDF plots of <span class="math inline">\(Y\)</span>
 \end{align*}
 \]</span></p>
 <p>Thus, <span class="math inline">\(f_Y(y)\)</span> is a proper density function. Numerically, we can use the <code>quad</code> method from the <code>scipy.integrate</code> module to compute the above integral, as illustrated below.</p>
-<div id="dabc3bad" class="cell" data-execution_count="10">
+<div id="1bbd5710" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fun(z):</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">3</span> <span class="op">/</span> z<span class="op">**</span><span class="dv">4</span></span>
@@ -1176,7 +1176,7 @@ P(a &lt; Y &lt; b) &amp;= P(a\leq Y &lt; b) = P(a &lt; Y \leq b) = P(a \leq Y \l
 \end{align*}
 \]</span></p>
 <p>Using the <code>quad</code> function from the <code>scipy.integrate</code> module, we can compute the expected value of <span class="math inline">\(Y\)</span> numerically as follows:</p>
-<div id="c66ec7a7" class="cell" data-execution_count="11">
+<div id="5a4bfb8f" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function for the expected value</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fun(y):</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y <span class="op">*</span> <span class="dv">3</span> <span class="op">/</span> y<span class="op">**</span><span class="dv">4</span></span>
@@ -1645,16 +1645,16 @@ Figure&nbsp;9.10: Joint distribution of weather conditions and commuting times
 <p>The first property states that the joint probabilities are nonnegative, while the second property states that the sum of all joint probabilities is equal to <span class="math inline">\(1\)</span>.</p>
 <p>From the joint probability distribution, we can derive the <strong>marginal probability distributions</strong> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
 <div id="def-definition9.9" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 9.9 (Marginal distributions)</strong></span> If <span class="math inline">\(X\)</span> can take on <span class="math inline">\(l\)</span> different values <span class="math inline">\(x_1,\dots,x_l\)</span>, then the <strong>marginal probability</strong> that <span class="math inline">\(Y\)</span> takes on the value <span class="math inline">\(y\)</span> is <span class="math display">\[
+<p><span class="theorem-title"><strong>Definition 9.9 (Marginal distributions)</strong></span> If <span class="math inline">\(X\)</span> can take on <span class="math inline">\(l\)</span> different values <span class="math inline">\(x_1,\dots,x_\ell\)</span>, then the <strong>marginal probability</strong> that <span class="math inline">\(Y\)</span> takes on the value <span class="math inline">\(y\)</span> is <span class="math display">\[
 \begin{align}
-P(Y=y)=\sum_{i=1}^lP(Y=y, X=x_i).
+P(Y=y)=\sum_{i=1}^\ell P(Y=y, X=x_i).
 \end{align}
 \]</span></p>
 </div>
 <div id="exm-example9.21" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9.21</strong></span> Consider the joint probability distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> given in <a href="#tbl-t9.2" class="quarto-xref">Table&nbsp;<span>9.2</span></a>. Then, the probability of a long commute, i.e., <span class="math inline">\(P(Y=0)\)</span>, is <span class="math display">\[
 \begin{align*}
-P(Y=0)&amp;=\sum_{i=1}^lP(Y=0, X=x_i)\\
+P(Y=0)&amp;=\sum_{i=1}^\ell P(Y=0, X=x_i)\\
 &amp;=P(Y=0,X=0)+P(Y=0,X=1)\\
 &amp;=0.15+0.07=0.22.
 \end{align*}
@@ -1669,10 +1669,10 @@ F_{X,Y}(x,y) = P(X\leq x, Y\leq y).
 \]</span></p>
 </div>
 </div>
-<p>Note that if <span class="math inline">\(X\)</span> is a discrete random variable, taking values <span class="math inline">\(x_1,\dots,x_l\)</span>, and <span class="math inline">\(Y\)</span> is a discrete random variable taking values <span class="math inline">\(y_1,\dots,y_k\)</span>, then the joint CDF can be computed as <span class="math display">\[
+<p>Note that if <span class="math inline">\(X\)</span> is a discrete random variable, taking values <span class="math inline">\(x_1,\dots,x_\ell\)</span>, and <span class="math inline">\(Y\)</span> is a discrete random variable taking values <span class="math inline">\(y_1,\dots,y_k\)</span>, then the joint CDF can be computed as <span class="math display">\[
 \begin{align*}
 F_{X,Y}(x,y) &amp;= P(X\leq x, Y\leq y)\\
-&amp;= \sum_{x_i\leq x}^l\sum_{y_j\leq y}^k P(X=x_i,Y=y_j),
+&amp;= \sum_{x_i\leq x}^\ell\sum_{y_j\leq y}^k P(X=x_i,Y=y_j),
 \end{align*}
 \]</span> where the first summation is over all values of <span class="math inline">\(X\)</span> that are less than or equal to <span class="math inline">\(x\)</span>, and the second summation is over all values of <span class="math inline">\(Y\)</span> that are less than or equal to <span class="math inline">\(y\)</span>.</p>
 <div id="exm-example9.22" class="theorem example">
@@ -1763,7 +1763,7 @@ Figure&nbsp;9.11: The integration region for computing <span class="math inline"
 </div>
 </div>
 <p>Using the <code>dblquad</code> function from the <code>scipy.integrate</code> module, we can compute the joint CDF <span class="math inline">\(F_{X,Y}(0.5, 0.5)\)</span> numerically as follows:</p>
-<div id="6ef39c4e" class="cell" data-execution_count="18">
+<div id="6c767daf" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the joint PDF function</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> joint_pdf(y, x):</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">30</span> <span class="op">*</span> x <span class="op">*</span> y<span class="op">**</span><span class="dv">2</span></span>
@@ -1876,24 +1876,31 @@ f_{Y|X}(y|x) = \frac{f_{X,Y}(x,y)}{f_X(x)}.
 \end{align}
 \]</span> where the outer expectation is with respect to the marginal distribution of <span class="math inline">\(X\)</span>.</p>
 </div>
-<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two discrete random variables, taking values <span class="math inline">\(x_1,\dots,x_l\)</span> and <span class="math inline">\(y_1,\dots,y_k\)</span>. The LIE suggests that the unconditional expectation of <span class="math inline">\(Y\)</span>, i.e., <span class="math inline">\(\E(Y)\)</span>, can be defined as the weighted average of the conditional expectations of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span>, where the weights come from the marginal distribution of <span class="math inline">\(X\)</span>: <span class="math display">\[
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two discrete random variables, taking values <span class="math inline">\(x_1,\dots,x_\ell\)</span> and <span class="math inline">\(y_1,\dots,y_k\)</span>. The LIE suggests that the unconditional expectation of <span class="math inline">\(Y\)</span>, i.e., <span class="math inline">\(\E(Y)\)</span>, can be defined as the weighted average of the conditional expectations of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X\)</span>, where the weights come from the marginal distribution of <span class="math inline">\(X\)</span>: <span class="math display">\[
 \begin{align}
-\E(Y) =\E\left(\E(Y|X)\right)= \sum_{i=1}^l \E(Y|X=x_i) P(X=x_i).
+\E(Y) =\E\left(\E(Y|X)\right)= \sum_{i=1}^\ell \E(Y|X=x_i) P(X=x_i).
 \end{align}
 \]</span></p>
 <div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-theorem9.8" class="quarto-xref">Theorem&nbsp;<span>9.8</span></a>). </span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be discrete random variables taking values <span class="math inline">\(x_1,\dots,x_l\)</span> and <span class="math inline">\(y_1,\dots,y_k\)</span>. Then, <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-theorem9.8" class="quarto-xref">Theorem&nbsp;<span>9.8</span></a>). </span>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be discrete random variables taking values <span class="math inline">\(x_1,\dots,x_\ell\)</span> and <span class="math inline">\(y_1,\dots,y_k\)</span>. Then, <span class="math display">\[
 \begin{align}
-\E\left(\E(Y|X)\right)&amp;=\sum_{i=1}^l\E(Y|X=x_i)P(X=x_i)=\sum_{i=1}^l\sum_{j=1}^ky_jP(Y=y_j|X=x_i)P(X=x_i)\\
-&amp;=\sum_{i=1}^l\sum_{j=1}^ky_j\frac{P(Y=y_j,X=x_i)}{P(X=x_i)}P(X=x_i)=\sum_{i=1}^l\sum_{j=1}^ky_jP(Y=y_j,X=x_i)\\
-&amp;=\sum_{j=1}^ky_j\sum_{i=1}^lP(Y=y_j,X=x_i)=\sum_{j=1}^ky_jP(Y=y_j)=\E(Y),
+\E\left(\E(Y|X)\right)&amp;=\sum_{i=1}^\ell\E(Y|X=x_i)P(X=x_i)\\
+&amp;=\sum_{i=1}^\ell\sum_{j=1}^ky_jP(Y=y_j|X=x_i)P(X=x_i)\\
+&amp;=\sum_{i=1}^\ell\sum_{j=1}^ky_j\frac{P(Y=y_j,X=x_i)}{P(X=x_i)}P(X=x_i)\\
+&amp;=\sum_{i=1}^\ell\sum_{j=1}^ky_jP(Y=y_j,X=x_i)\\
+&amp;=\sum_{j=1}^ky_j\sum_{i=1}^\ell P(Y=y_j,X=x_i)\\
+&amp;=\sum_{j=1}^ky_jP(Y=y_j)\\
+&amp;=\E(Y),
 \end{align}
-\]</span> where the sixth equality follows from <span class="math inline">\(\sum_{i=1}^lP(Y=y_j,X=x_i)=P(Y=y_j)\)</span>. If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are continuous random variables with densities <span class="math inline">\(f_X\)</span> and <span class="math inline">\(f_Y\)</span>, then we have <span class="math display">\[
+\]</span> where the sixth equality follows from <span class="math inline">\(\sum_{i=1}^\ell P(Y=y_j,X=x_i)=P(Y=y_j)\)</span>. If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are continuous random variables with densities <span class="math inline">\(f_X\)</span> and <span class="math inline">\(f_Y\)</span>, then we have <span class="math display">\[
 \begin{align}
-\E\left(\E(Y|X)\right)&amp;=\int\E(Y|X=x)f_X(x)dx=\int\int yf_{Y|X}(y|x)f_X(x)dydx\\
-&amp;=\int\int y\frac{f_{Y,X}(y,x)}{f_X(x)}f_X(x)dydx=\int\int yf_{Y,X}(y,x)dydx\\
-&amp;=\int yf_{Y}(y)dy=\E(Y).
+\E\left(\E(Y|X)\right)&amp;=\int\E(Y|X=x)f_X(x)dx\\
+&amp;=\int\int yf_{Y|X}(y|x)f_X(x)dydx\\
+&amp;=\int\int y\frac{f_{Y,X}(y,x)}{f_X(x)}f_X(x)dydx\\
+&amp;=\int\int yf_{Y,X}(y,x)dydx\\
+&amp;=\int yf_{Y}(y)dy\\
+&amp;=\E(Y).
 \end{align}
 \]</span></p>
 </div>
@@ -1971,10 +1978,10 @@ P(Y=y,X=x) = P(Y=y)P(X=x).
 &amp;=\E(XY)-\mu_X\mu_Y.
 \end{align}
 \]</span></p>
-<p>Suppose again both <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> are discrete and <span class="math inline">\(Y\)</span> takes on <span class="math inline">\(k\)</span> values and <span class="math inline">\(X\)</span> takes on <span class="math inline">\(l\)</span> values. Then, <span class="math display">\[
+<p>Suppose again both <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> are discrete and <span class="math inline">\(Y\)</span> takes on <span class="math inline">\(k\)</span> values and <span class="math inline">\(X\)</span> takes on <span class="math inline">\(\ell\)</span> values. Then, <span class="math display">\[
 \begin{align*}
-\text{cov}(X,Y) &amp;= \sum_{i=1}^k\sum_{j=1}^l (x_j-\mu_X)(y_i-\mu_Y)P(X=x_j,Y=y_i)\\
-&amp;=\sum_{i=1}^k\sum_{j=1}^lx_jy_iP(X=x_j,Y=y_i)-\mu_X\mu_Y.
+\text{cov}(X,Y) &amp;= \sum_{i=1}^k\sum_{j=1}^\ell (x_j-\mu_X)(y_i-\mu_Y)P(X=x_j,Y=y_i)\\
+&amp;=\sum_{i=1}^k\sum_{j=1}^\ell x_jy_iP(X=x_j,Y=y_i)-\mu_X\mu_Y.
 \end{align*}
 \]</span></p>
 <p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are continuous random variables with joint PDF <span class="math inline">\(f_{X,Y}(x,y)\)</span>, then the covariance is given by <span class="math display">\[
@@ -1987,7 +1994,7 @@ P(Y=y,X=x) = P(Y=y)P(X=x).
 <ol type="a">
 <li><span class="math inline">\(\text{cov}(X,X)=\E(X^2)-\mu_X^2=\sigma^2_X\)</span>, which is the variance of <span class="math inline">\(X\)</span>.</li>
 <li><span class="math inline">\(\text{cov}(X,Y)=\text{cov}(Y,X)\)</span>, i.e., covariance is symmetric.</li>
-<li><span class="math inline">\(\text{cov}(aX+bY,V)=a\text{cov}(X,V)+b\text{cov}(Y,V)\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are constants.</li>
+<li><span class="math inline">\(\text{cov}(a\,X+b\,Y,V)=a\,\text{cov}(X,V)+b\,\text{cov}(Y,V)\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are constants.</li>
 <li>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, then <span class="math inline">\(\text{cov}(X,Y)=0\)</span>, because <span class="math inline">\(\text{cov}(X,Y)=\E(XY)-\mu_X\mu_Y=\E(X)\E(Y)-\mu_X\mu_Y=0\)</span>.</li>
 <li>If <span class="math inline">\(\text{cov}(X,Y)&gt;0\)</span>, then <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> move in the same direction. If <span class="math inline">\(\text{cov}(X,Y)&lt;0\)</span>, then <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> moves in opposite directions.</li>
 </ol>
@@ -2011,12 +2018,12 @@ Key Concept 9.4: Mean, variance, and covariance
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, and <span class="math inline">\(V\)</span> be random variables and let <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> be constants. Then, the following results hold:</p>
 <ol type="a">
-<li><span class="math inline">\(E(a + bX + cY) = a+ b\mu_X +c\mu_Y\)</span>,</li>
+<li><span class="math inline">\(\E(a + bX + cY) = a+ b\,\mu_X +c\,\mu_Y\)</span>,</li>
 <li><span class="math inline">\(\text{var}(a + bY) = b^2\sigma_Y^2\)</span>,</li>
-<li><span class="math inline">\(\text{var}(aX + bY) = a^2\sigma_X^2 + b^2\sigma_Y^2 + 2ab\sigma_X\sigma_Y\)</span>,</li>
-<li><span class="math inline">\(E(Y^2) = \sigma_Y^2 + \mu_Y^2\)</span>,</li>
-<li><span class="math inline">\(\text{cov}(a + bX + cY, V) = b\sigma_{XV} + c\sigma_{YV}\)</span>,</li>
-<li><span class="math inline">\(E(XY) = \sigma_{XY} + \mu_X\mu_Y\)</span>,</li>
+<li><span class="math inline">\(\text{var}(aX + bY) = a^2\sigma_X^2 + b^2\sigma_Y^2 + 2ab\,\sigma_X\sigma_Y\)</span>,</li>
+<li><span class="math inline">\(\E(Y^2) = \sigma_Y^2 + \mu_Y^2\)</span>,</li>
+<li><span class="math inline">\(\text{cov}(a + bX + cY, V) = b\,\sigma_{XV} + c\,\sigma_{YV}\)</span>,</li>
+<li><span class="math inline">\(\E(XY) = \sigma_{XY} + \mu_X\mu_Y\)</span>,</li>
 <li><span class="math inline">\(|\text{corr}(X,Y)|\le 1\)</span> and <span class="math inline">\(|\sigma_{XY}|\le\sigma_X\sigma_Y\)</span>.</li>
 </ol>
 </div>
@@ -2193,7 +2200,7 @@ Figure&nbsp;9.13: The PDF and CDF plots of uniform distribution
 <div>
 <div id="exm-example9.26" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9.26</strong></span> Let <span class="math inline">\(Y\sim N(0.35,2.25)\)</span> and consider <span class="math inline">\(P(-0.5&lt;Y\leq 0.75)\)</span>, which corresponds to the shaded area illustrated in <a href="#fig-f9.14" class="quarto-xref">Figure&nbsp;<span>9.14</span></a>. Using the <code>scipy.stats.norm.cdf</code> function, we can compute <span class="math inline">\(P(-0.5&lt;Y\leq 0.75)\)</span> in the following way:</p>
-<div id="309dc524" class="cell" data-execution_count="21">
+<div id="cb6fba1e" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>stats.norm.cdf(<span class="fl">0.75</span>,loc<span class="op">=</span><span class="fl">0.35</span>,scale<span class="op">=</span><span class="fl">1.5</span>)<span class="op">-</span>stats.norm.cdf(<span class="op">-</span><span class="fl">0.5</span>,loc<span class="op">=</span><span class="fl">0.35</span>,scale<span class="op">=</span><span class="fl">1.5</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(p,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
@@ -2241,7 +2248,7 @@ Figure&nbsp;9.14: Calculating probabilities
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Define y values</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.arange(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="fl">0.01</span>)</span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and axis object for PDF</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">3</span>))</span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the PDFs</span></span>
 <span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.norm.pdf(y, <span class="dv">0</span>, <span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$\mu=0, \sigma=1$'</span>)</span>
 <span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.norm.pdf(y, <span class="op">-</span><span class="dv">2</span>, <span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$\mu=-2, \sigma=1$'</span>)</span>
@@ -2254,7 +2261,7 @@ Figure&nbsp;9.14: Calculating probabilities
 <span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and axis object for CDF</span></span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">3</span>))</span>
 <span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the CDFs</span></span>
 <span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.norm.cdf(y, <span class="dv">0</span>, <span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$\mu=0, \sigma=1$'</span>)</span>
 <span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.norm.cdf(y, <span class="op">-</span><span class="dv">2</span>, <span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$\mu=-2, \sigma=1$'</span>)</span>
@@ -2273,7 +2280,7 @@ Figure&nbsp;9.14: Calculating probabilities
 <div id="fig-f9.15-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-f9.15-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter2-ReviewProbability_files/figure-html/fig-f9.15-output-1.png" data-ref-parent="fig-f9.15" width="593" height="427" class="figure-img">
+<img src="Chapter2-ReviewProbability_files/figure-html/fig-f9.15-output-1.png" data-ref-parent="fig-f9.15" width="511" height="280" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-f9.15-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) PDF
@@ -2285,7 +2292,7 @@ Figure&nbsp;9.14: Calculating probabilities
 <div id="fig-f9.15-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-f9.15-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter2-ReviewProbability_files/figure-html/fig-f9.15-output-2.png" data-ref-parent="fig-f9.15" width="585" height="427" class="figure-img">
+<img src="Chapter2-ReviewProbability_files/figure-html/fig-f9.15-output-2.png" data-ref-parent="fig-f9.15" width="511" height="280" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-f9.15-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) CDF
@@ -2313,7 +2320,7 @@ Figure&nbsp;9.15: The plots of PDF and CDF of normal distributions
 <p>The <strong>chi-squared distribution</strong> is used when testing certain types of hypotheses in econometrics. The chi-squared distribution that has <span class="math inline">\(m\)</span> degrees of freedom, denoted by <span class="math inline">\(\chi^2_{m}\)</span>, is the distribution of the sum of <span class="math inline">\(m\)</span> squared independent standard normal random variables. The mean and variance of the chi-squared distribution are given by <span class="math inline">\(m\)</span> and <span class="math inline">\(2m\)</span>, respectively.</p>
 <div id="exm-example9.27" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9.27</strong></span> Let <span class="math inline">\(Z_1\)</span>, <span class="math inline">\(Z_2\)</span> and <span class="math inline">\(Z_3\)</span> be independent standard normal random variables. If we define <span class="math inline">\(Y=Z^2_1+Z^2_2+Z^2_3\)</span>, then <span class="math inline">\(Y\sim \chi^2_3\)</span>. We can use the <code>scipy.stats.chi2()</code> function to compute the PDF and CDF of <span class="math inline">\(Y\)</span>. For example, we can compute <span class="math inline">\(P(Y\leq 5)\)</span> as follows:</p>
-<div id="391ab834" class="cell" data-execution_count="24">
+<div id="db3f36d3" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> stats.chi2.cdf(<span class="dv">5</span>, df<span class="op">=</span><span class="dv">3</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(p, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
@@ -2326,7 +2333,7 @@ Figure&nbsp;9.15: The plots of PDF and CDF of normal distributions
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Define y values</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">20</span>, <span class="fl">0.01</span>)</span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and axis object for PDF</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">3</span>))</span>
 <span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the PDFs</span></span>
 <span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.chi2.pdf(y, df<span class="op">=</span><span class="dv">3</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$m=3$'</span>)</span>
 <span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.chi2.pdf(y, df<span class="op">=</span><span class="dv">4</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$m=4$'</span>)</span>
@@ -2339,7 +2346,7 @@ Figure&nbsp;9.15: The plots of PDF and CDF of normal distributions
 <span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and axis object for CDF</span></span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">3</span>))</span>
 <span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the CDFs</span></span>
 <span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.chi2.cdf(y, df<span class="op">=</span><span class="dv">3</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$m=3$'</span>)</span>
 <span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.chi2.cdf(y, df<span class="op">=</span><span class="dv">4</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$m=4$'</span>)</span>
@@ -2358,7 +2365,7 @@ Figure&nbsp;9.15: The plots of PDF and CDF of normal distributions
 <div id="fig-f9.16-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-f9.16-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter2-ReviewProbability_files/figure-html/fig-f9.16-output-1.png" data-ref-parent="fig-f9.16" width="593" height="427" class="figure-img">
+<img src="Chapter2-ReviewProbability_files/figure-html/fig-f9.16-output-1.png" data-ref-parent="fig-f9.16" width="518" height="281" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-f9.16-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) PDF
@@ -2370,7 +2377,7 @@ Figure&nbsp;9.15: The plots of PDF and CDF of normal distributions
 <div id="fig-f9.16-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-f9.16-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter2-ReviewProbability_files/figure-html/fig-f9.16-output-2.png" data-ref-parent="fig-f9.16" width="585" height="427" class="figure-img">
+<img src="Chapter2-ReviewProbability_files/figure-html/fig-f9.16-output-2.png" data-ref-parent="fig-f9.16" width="511" height="280" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-f9.16-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) CDF
@@ -2396,7 +2403,7 @@ Figure&nbsp;9.16: The plots of PDF and CDF of chi-squared distributions
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Define t values</span></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>t_values <span class="op">=</span> np.arange(<span class="op">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.01</span>)</span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and axis object for PDF</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">3</span>))</span>
 <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the PDFs</span></span>
 <span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>ax.plot(t_values, stats.norm.pdf(t_values, <span class="dv">0</span>, <span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="st">'N(0,1)'</span>)</span>
 <span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>ax.plot(t_values, stats.t.pdf(t_values, df<span class="op">=</span><span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$t_1$'</span>)</span>
@@ -2410,7 +2417,7 @@ Figure&nbsp;9.16: The plots of PDF and CDF of chi-squared distributions
 <span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and axis object for CDF</span></span>
-<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">3</span>))</span>
 <span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the CDFs</span></span>
 <span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>ax.plot(t_values, stats.norm.cdf(t_values, <span class="dv">0</span>, <span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="st">'N(0,1)'</span>)</span>
 <span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>ax.plot(t_values, stats.t.cdf(t_values, df<span class="op">=</span><span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$t_1$'</span>)</span>
@@ -2430,7 +2437,7 @@ Figure&nbsp;9.16: The plots of PDF and CDF of chi-squared distributions
 <div id="fig-f9.17-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-f9.17-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter2-ReviewProbability_files/figure-html/fig-f9.17-output-1.png" data-ref-parent="fig-f9.17" width="593" height="427" class="figure-img">
+<img src="Chapter2-ReviewProbability_files/figure-html/fig-f9.17-output-1.png" data-ref-parent="fig-f9.17" width="511" height="280" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-f9.17-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) PDF
@@ -2442,7 +2449,7 @@ Figure&nbsp;9.16: The plots of PDF and CDF of chi-squared distributions
 <div id="fig-f9.17-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-f9.17-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter2-ReviewProbability_files/figure-html/fig-f9.17-output-2.png" data-ref-parent="fig-f9.17" width="585" height="427" class="figure-img">
+<img src="Chapter2-ReviewProbability_files/figure-html/fig-f9.17-output-2.png" data-ref-parent="fig-f9.17" width="511" height="280" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-f9.17-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) CDF
@@ -2459,7 +2466,7 @@ Figure&nbsp;9.17: The plots of PDF and CDF of Student t distributions
 </div>
 <div id="exm-example9.28" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9.28</strong></span> Let <span class="math inline">\(Y\sim N(0,1)\)</span> and <span class="math inline">\(X\sim t_{5}\)</span>. We want to compute <span class="math inline">\(P(Y\geq2)\)</span> and <span class="math inline">\(P(X\geq2)\)</span> using the <code>scipy.stats</code> module. The following code chunk shows how to compute these probabilities:</p>
-<div id="3e79d9fb" class="cell" data-execution_count="27">
+<div id="3a87c392" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>p_y <span class="op">=</span> stats.norm.sf(<span class="dv">2</span>, loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>)  <span class="co"># P(Y &gt;= 2)</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>p_x <span class="op">=</span> stats.t.sf(<span class="dv">2</span>, df<span class="op">=</span><span class="dv">5</span>)               <span class="co"># P(X &gt;= 2)</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(p_y, <span class="dv">4</span>), np.<span class="bu">round</span>(p_x, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2486,7 +2493,7 @@ Figure&nbsp;9.17: The plots of PDF and CDF of Student t distributions
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Define u values</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">8</span>, <span class="fl">0.01</span>)</span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and axis object for PDF</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">3</span>))</span>
 <span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the PDFs</span></span>
 <span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>ax.plot(u, stats.f.pdf(u, dfn<span class="op">=</span><span class="dv">1</span>, dfd<span class="op">=</span><span class="dv">10</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span> <span class="st">'m = 1, n = 10'</span>)</span>
 <span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>ax.plot(u, stats.f.pdf(u, dfn<span class="op">=</span><span class="dv">5</span>, dfd<span class="op">=</span><span class="dv">50</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span> <span class="st">'m = 5, n = 50'</span>)</span>
@@ -2500,7 +2507,7 @@ Figure&nbsp;9.17: The plots of PDF and CDF of Student t distributions
 <span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and axis object for CDF</span></span>
-<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">3</span>))</span>
 <span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the CDFs</span></span>
 <span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>ax.plot(u, stats.f.cdf(u, dfn<span class="op">=</span><span class="dv">1</span>, dfd<span class="op">=</span><span class="dv">10</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'m = 1, n = 10'</span>)</span>
 <span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>ax.plot(u, stats.f.cdf(u, dfn<span class="op">=</span><span class="dv">5</span>, dfd<span class="op">=</span><span class="dv">50</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'m = 5, n= 50'</span>)</span>
@@ -2520,7 +2527,7 @@ Figure&nbsp;9.17: The plots of PDF and CDF of Student t distributions
 <div id="fig-f9.18-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-f9.18-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter2-ReviewProbability_files/figure-html/fig-f9.18-output-1.png" data-ref-parent="fig-f9.18" width="585" height="432" class="figure-img">
+<img src="Chapter2-ReviewProbability_files/figure-html/fig-f9.18-output-1.png" data-ref-parent="fig-f9.18" width="511" height="284" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-f9.18-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) PDF
@@ -2532,7 +2539,7 @@ Figure&nbsp;9.17: The plots of PDF and CDF of Student t distributions
 <div id="fig-f9.18-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-f9.18-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter2-ReviewProbability_files/figure-html/fig-f9.18-output-2.png" data-ref-parent="fig-f9.18" width="585" height="427" class="figure-img">
+<img src="Chapter2-ReviewProbability_files/figure-html/fig-f9.18-output-2.png" data-ref-parent="fig-f9.18" width="511" height="280" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-f9.18-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) CDF
@@ -2550,7 +2557,7 @@ Figure&nbsp;9.18: The plots of PDF and CDF of F distributions
 <p>In econometrics, an important special case of the <span class="math inline">\(F\)</span> distribution arises when the denominator degrees of freedom is large enough that the <span class="math inline">\(F_{m,n}\)</span> can be approximated by <span class="math inline">\(F_{m,\infty}\)</span>. <span class="math inline">\(F_{m,\infty}\)</span> distribution is the distribution of a chi-squared random variable with <span class="math inline">\(m\)</span> degrees of freedom divided by <span class="math inline">\(m\)</span>, i.e., <span class="math inline">\(F_{m,\infty}=W/m\)</span>, where <span class="math inline">\(W\sim\chi^2_m\)</span>.</p>
 <div id="exm-example9.29" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9.29</strong></span> Let <span class="math inline">\(Y\sim F_{2,10}\)</span>. We can compute the PDF and CDF of <span class="math inline">\(Y\)</span> using the <code>scipy.stats.f()</code> function. For example, we can compute <span class="math inline">\(P(Y\leq 3)\)</span> as follows:</p>
-<div id="31a38cb7" class="cell" data-execution_count="29">
+<div id="89e872bf" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> stats.f.cdf(<span class="dv">3</span>, dfn<span class="op">=</span><span class="dv">2</span>, dfd<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(p, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
