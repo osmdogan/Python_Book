@@ -17,7 +17,7 @@ sns.set(style='darkgrid')
 
 {{< include latex_macro.qmd >}}
 
-## Potential outcomes, causal effects, and idealized experiments
+## Randomized controlled experiments
 A **randomized controlled experiment** is a study designed to measure the effect of a treatment or policy intervention on an outcome variable by randomly assigning experimental units to treatment and control groups. The units in the treatment group receive the treatment or are subject to the intervention and those in the control group are not subject to any changes. We then measure the treatment or intervention effect by comparing the groups in terms of the outcome variable. We usually collect data on two variables of interest: the outcome variable, denoted by $Y$, and the treatment indicator, denoted by $D$, which specifies whether a unit is in the treatment or control group.
 
 ::: {#exm-ex20.1}
@@ -50,6 +50,14 @@ In this experiment, students then took standardized tests (the Stanford Achievem
 * $D_1=1$ if the student is in a small class (i.e., the student is in the treatment group), and $D_1=0$ if the student is in a regular class (i.e., the student is in the control group).
 * $D_2=1$ if the student is in a regular class with a teacher's aide (i.e., the student is in the treatment group) and $D_2=0$ if the student is in a regular class (i.e., the student is in the control group).
 :::
+
+In all these examples, the experiment is deliberately designed and implemented to assess the causal effect of a treatment or intervention on the outcome variable. The assignment mechanism is the key feature that distinguishes randomized controlled experiments from other types of studies. A randomized controlled experiment is one in which the assignment mechanism satisfies the following properties (@Imbens2015, @Titiunik2021):
+
+1. It is designed and implemented by the researchers.
+2. It is known to the researchers.
+3. It ensures randomization such that the probability of participating in the treatment does not depend on the potential outcomes (defined below) of the experimental units.
+
+## Potential outcomes and causal effects
 
 To define the treatment effect, we need to first introduce the potential outcomes framework.
 
@@ -795,7 +803,7 @@ In an RDD study, the treatment effect parameter is the average treatment effect 
 ## Average treatment effect at the threshold
 The average treatment effect at the threshold $w_0$, denoted by $\tau$, is defined as
 $$
-\tau=\E[Y_i(1)-Y_i(0)|W_i=w_0],
+\tau=\E[Y_i(1)-Y_i(0)|W_i=w_0].
 $$
 :::
 
@@ -866,7 +874,7 @@ $$
 \begin{align}
 \tau&=\E\left[Y_i(1)|W_i=w_0\right]-\E\left[Y_i(0)|W_i=w_0\right]\\
 &=\lim_{w\downarrow w_0}\E[Y_i(1)|W_i=w]-\lim_{w\uparrow w_0}\E[Y_i(0)|W_i=w]\\
-&=\lim_{w\downarrow w_0}\E[Y_i|W_i=w]-\lim_{w\uparrow w_0}\E[Y_i|W_i=w]
+&=\lim_{w\downarrow w_0}\E[Y_i|W_i=w]-\lim_{w\uparrow w_0}\E[Y_i|W_i=w],
 \end{align}
 $$
 where the second equality follows from the continuity assumption and the third equality from the fact that $Y_i=Y_i(1)$ when $W_i\geq w_0$ and $Y_i=Y_i(0)$ when $W_i<w_0$. This result indicates that $\tau$ is identified because $\E[Y_i|W_i]$ is generally identified.
@@ -903,7 +911,7 @@ The identification of $\tau$ in the fuzzy RDD requires the following assumptions
 
 ::: {.callout-important icon=false title="Identification Assumptions for the fuzzy RDD"}
 1. Continuity assumption: $\E[Y_i(1)|W_i=w]$ and $\E[Y_i(0)|W_i=w]$ are continuous at the threshold $w_0$.
-2. Discontinuity assumption: $\lim_{w\downarrow w_0}p(w)\neq \lim_{w\uparrow w_0}p(w)$
+2. Discontinuity assumption: $\lim_{w\downarrow w_0}p(w)\neq \lim_{w\uparrow w_0}p(w)$.
 3. No selection on gain assumption: $\E[Y_i(1)-Y_i(0)|D_i,W_i=w]=\E[Y_i(1)-Y_i(0)|W_i=w]$ for all $w\in(w_0-\epsilon,w_0+\epsilon)$ with some $\epsilon>0$. 
 :::
 
