@@ -516,7 +516,7 @@ window.Quarto = {
 </header>
 
 
-<div id="1a8d7b82" class="cell" data-execution_count="1">
+<div id="4db3a3ab" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -571,11 +571,11 @@ Y=\beta_0+\beta_1X+u,
 <section id="data-types" class="level2" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="data-types"><span class="header-section-number">8.4</span> Data types</h2>
 <p>There are two types of data: <strong>experimental data</strong> and <strong>nonexperimental data</strong>. Experimental data are collected through experiments specifically designed to evaluate the effect of a treatment or an intervention. Nonexperimental data, also known as <strong>observational data</strong>, are obtained by observing actual behavior outside of an experimental setting.</p>
-<p>We consider three types of data: (i) <strong>cross-sectional data</strong>, (ii) <strong>time-series data</strong>, and (iii) <strong>panel data</strong> or <strong>longitudinal data</strong>.</p>
+<p>Except for Chapter 20, where we cover econometric models for experimental data, we focus on econometric models for nonexperimental data. We consider three types of data: (i) <strong>cross-sectional data</strong>, (ii) <strong>time-series data</strong>, and (iii) <strong>panel data</strong> or <strong>longitudinal data</strong>.</p>
 <section id="cross-sectional-data" class="level3" data-number="8.4.1">
 <h3 data-number="8.4.1" class="anchored" data-anchor-id="cross-sectional-data"><span class="header-section-number">8.4.1</span> Cross-sectional data</h3>
 <p><strong>Cross-sectional data</strong> consist of observations on entities at a single point in time. For example, consider the California school district data in the <code>caschool.csv</code> file. These data were collected in 1999 on <span class="math inline">\(n=420\)</span> school district and include measurements on several district-level variables. We consider the following variables: District Average Test Score, Student-Teacher Ratio, Expenditure per Pupil, and Percentage of Students Learning English. These variables are derived from district-level average measurements. A section of this data is shown in <a href="#tbl-t8.1" class="quarto-xref">Table&nbsp;<span>8.1</span></a>. For example, for the first school district, the average test score is 690.8, the average student-teacher ratio is 17.89, the average expenditure per pupil is 6384.91 dollars, and the average percentage of students learning English is 0 percent.</p>
-<div id="b4dcf245" class="cell" data-execution_count="2">
+<div id="f52e6bc3" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>CAschool <span class="op">=</span> pd.read_csv(<span class="st">'data/caschool.csv'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Select columns</span></span>
@@ -595,7 +595,7 @@ Y=\beta_0+\beta_1X+u,
 Table&nbsp;8.1: Selected observations on test scores and other variables for California School Districts in 1999
 </figcaption>
 <div aria-describedby="tbl-t8.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 
 
@@ -709,11 +709,12 @@ Table&nbsp;8.1: Selected observations on test scores and other variables for Cal
 </figure>
 </div>
 </div>
+<p>The econometric models we will cover in Chapters 11–16 and 18–19, including the simple linear regression model, multiple linear regression, non-linear regression models, and binary dependent variable models, are based on cross-sectional data.</p>
 </section>
 <section id="time-series-data" class="level3" data-number="8.4.2">
 <h3 data-number="8.4.2" class="anchored" data-anchor-id="time-series-data"><span class="header-section-number">8.4.2</span> Time Series Data</h3>
 <p>Time series data consist of observations on the same entity collected at multiple time periods. We consider the time series data in the <code>tsdata.xlsx</code> file on the US GDP growth rate and the term spread (the difference between lon-term and short-term interest rates). The data set is quarterly and cover the period 1960Q1-2017Q4. In <a href="#tbl-t8.2" class="quarto-xref">Table&nbsp;<span>8.2</span></a>, we show a section of the data, where each row corresponds to a different time period. In the last quarter of 2017, the GDP growth rate was 2.5% and the term spread was 1.16 percentage points.</p>
-<div id="7bf29d56" class="cell" data-execution_count="4">
+<div id="78d3bae4" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>tsdata <span class="op">=</span> pd.read_excel(<span class="st">"data/tsdata.xlsx"</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create Quarter column</span></span>
@@ -732,7 +733,7 @@ Table&nbsp;8.1: Selected observations on test scores and other variables for Cal
 Table&nbsp;8.2: The GDP growth rate and term spread in the United States
 </figcaption>
 <div aria-describedby="tbl-t8.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
 
@@ -887,11 +888,12 @@ Figure&nbsp;8.1: Growth Rate of GDP and the Term Spread in the United States
 </figure>
 </div>
 </div>
+<p>The part titled Regression Analysis of Economic Time Series Data is devoted to econometric models that use time series data. These models include autoregressions (AR), autoregressive distributed lag (ARDL) models, distributed lag models, vector autoregression (VAR) models, vector error correction models (VECM), and volatility models.</p>
 </section>
 <section id="panel-data" class="level3" data-number="8.4.3">
 <h3 data-number="8.4.3" class="anchored" data-anchor-id="panel-data"><span class="header-section-number">8.4.3</span> Panel Data</h3>
 <p><strong>Panel data</strong>, also known as <strong>longitudinal data</strong>, consist of data for multiple entities, with each entity observed at two or more time periods. We consider the panel data on the cigarette consumption in the <code>cig_ch12.xlsx</code> file. The data set consists of annual data for the 48 U.S. states over the period 1985-1995. Thus, in this data set, the number of entities is <span class="math inline">\(n=48\)</span> and the number of time peirods is <span class="math inline">\(T=11\)</span>. In total, we have <span class="math inline">\(48\times 11=528\)</span> observations. In <a href="#tbl-t8.3" class="quarto-xref">Table&nbsp;<span>8.3</span></a>, we show a section of data.</p>
-<div id="cf0bf31d" class="cell" data-execution_count="7">
+<div id="c80754e6" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>pdata <span class="op">=</span> pd.read_excel(<span class="st">"data/cig_ch12.xlsx"</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Select columns</span></span>
@@ -911,7 +913,7 @@ Figure&nbsp;8.1: Growth Rate of GDP and the Term Spread in the United States
 Table&nbsp;8.3: Cigarette sales, prices, and taxes
 </figcaption>
 <div aria-describedby="tbl-t8.3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <div>
 
 
@@ -1025,6 +1027,7 @@ Table&nbsp;8.3: Cigarette sales, prices, and taxes
 </figure>
 </div>
 </div>
+<p>In Chapter 17, we will study econometric models that use panel data. These models are commonly used fixed effects and random effects models.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
