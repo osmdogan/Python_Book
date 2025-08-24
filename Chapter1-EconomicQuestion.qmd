@@ -12,7 +12,7 @@ The word **econometrics** is a neologism formed by combining the Greek words oik
 
 Since @Ragnar1933, there have been alternative definitions of econometrics, depending on how statistics and mathematics are applied to economic data. For example, from a statistical perspective, econometrics can be defined as the science of applying statistical methods to economic theories or as the process of fitting mathematical equations to economic data. From a mathematical perspective, it can be defined as the application of mathematical methods for developing estimation and testing techniques for economic models. @Gerhard1953 provides an early survey of alternative definitions and suggests confining econometrics to studies that utilize economic theory, statistics, and mathematics, as envisioned by @Ragnar1933.
 
-At a broader level, @Stock2020 define econometrics as “the science and art of using economic theory and statistical techniques to analyze economic data.” According @Stock2020, irrespective of the specific definition adopted, econometrics aims to provide quantitative answers to economic questions. Some of the economic questions that we will address in the upcoming chapters include:
+At a broader level, @Stock2020 define econometrics as “the science and art of using economic theory and statistical techniques to analyze economic data.” According @Stock2020, irrespective of the specific definition adopted, econometrics provides a framework through which we can provide quantitative answers to economic questions. Some of the economic questions that we will address in the upcoming chapters include:
 
 * What is the quantitative effect of class size on test scores?
 * What is the quantitative effect of race on home loan approval?
@@ -22,8 +22,8 @@ At a broader level, @Stock2020 define econometrics as “the science and art of 
 * What is the forecast for the U.S. GDP growth rate next year?
 * What is the forecast for volatility in the stock market next month?
 
-We will show that these types of questions can be answered by estimating econometric models that quantify the relationships between economic variables.
- 
+We will show that these types of questions can be answered by estimating econometric models that formulate the relationships between economic variables.
+
 ## Causal effects and experiments
 Econometrics primarily focuses on causal relationships among economic variables. Let $X$ and $Y$ be two variables. According to @Stock2020, we say that $X$ causes $Y$ if $Y$ is a direct result or consequence of $X$. More precisely, we can define the causal effect of $X$ on $Y$ as the effect of $X$ on $Y$ when all other factors that can affect $Y$ are held constant.
 
