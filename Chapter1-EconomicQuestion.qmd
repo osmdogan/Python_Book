@@ -12,7 +12,7 @@ The word **econometrics** is a neologism formed by combining the Greek words oik
 
 Since @Ragnar1933, there have been alternative definitions of econometrics, depending on how statistics and mathematics are applied to economic data. For example, from a statistical perspective, econometrics can be defined as the science of applying statistical methods to economic theories or as the process of fitting mathematical equations to economic data. From a mathematical perspective, it can be defined as the application of mathematical methods for developing estimation and testing techniques for economic models. @Gerhard1953 provides an early survey of alternative definitions and suggests confining econometrics to studies that utilize economic theory, statistics, and mathematics, as envisioned by @Ragnar1933.
 
-At a broader level, @Stock2020 define econometrics as “the science and art of using economic theory and statistical techniques to analyze economic data.” Irrespective of the specific definition used, econometrics aims to provide quantitative answers to economic questions such as the following ones:
+At a broader level, @Stock2020 define econometrics as “the science and art of using economic theory and statistical techniques to analyze economic data.” Irrespective of the specific definition adopted, econometrics aims to provide quantitative answers to economic questions. Some of the economic questions that we will address in the upcoming chapters include:
 
 * What is the quantitative effect of class size on test scores?
 * What is the quantitative effect of race on home loan approval?
@@ -22,20 +22,20 @@ At a broader level, @Stock2020 define econometrics as “the science and art of 
 * What is the forecast for the U.S. GDP growth rate next year?
 * What is the forecast for volatility in the stock market next month?
 
-We can answer these types of questions by estimating econometric models that quantify the relationships between economic variables.
+We will show that these types of questions can be answered by estimating econometric models that quantify the relationships between economic variables.
  
 ## Causal effects and experiments
-Econometrics primarily focuses on *causal relationships* among economic variables. Let $X$ and $Y$ be two variables. According to @Stock2020, we say that $X$ *causes* $Y$ if $Y$ is a direct result  or conseqence of $X$. Thus, we can define the **causal effect** of $X$ on $Y$ as the effect of $X$ on $Y$ when all other factors that can effect $Y$ are held constant. 
+Econometrics primarily focuses on causal relationships among economic variables. Let $X$ and $Y$ be two variables. According to @Stock2020, we say that $X$ causes $Y$ if $Y$ is a direct result or consequence of $X$. More precisely, we can define the causal effect of $X$ on $Y$ as the effect of $X$ on $Y$ when all other factors that can affect $Y$ are held constant.
 
 One way to measure the causal effect is by conducting a **randomized controlled experiment**. In a randomized controlled experiment, we measure the effect of a treatment or a policy intervention on an outcome variable by randomly assigning eperimental units to a treatment group and a control group, and then compare the groups based on the measured outcome variable. A randomized controlled experiment has the following features:
 
 * It is *controlled* because the treatment group receive the treatment whereas the control group does not participate in the treatment.
-* It is *randomized* in the sense that the eperimental units are assigned to the control and treatment groups randomly. In this way, we aim to *eliminate systematic differences* between the control and treatment groups.
+* It is *randomized* in the sense that the experimental units are assigned to the control and treatment groups randomly. In this way, we aim to *eliminate systematic differences* between the control and treatment groups.
 
-According to @Stock2020, "the **causal effect** is defined to be the effect on an outcome of a given action or treatment, as measured in an ideal randomized controlled experiment."
+According to @Stock2020, "the **causal effect** is defined to be the effect on an outcome of a given action or treatment, as measured in an ideal randomized controlled experiment." We will return to this topic in Chapter 20 and use the **potential outcomes framework** to formalize our understanding of causal effects.
 
 ## Estimation, prediction and forecasting
-Consider the following regression model:
+In Chapters 11 and 12, we will study the following regression model:
 $$  
 \begin{align}\label{eq1}
 Y=\beta_0+\beta_1X+u,
@@ -55,7 +55,9 @@ $$
 $$
 where $\hat{Y}$ denotes the predicted value. Thus, **prediction** is the process of using a model to make statement about the value of a dependent variable. 
 
-A **forecast** is a prediction about the value of the dependent variable in the future. It is important to note that prediction and forecasting does not necessitate a causal relationship between $X$ and $Y$.
+A **forecast** is a prediction about the value of the dependent variable in the future. In Chapters 22 and 24, we will study econometric models for forecasting.
+
+It is important to note that prediction and forecasting does not necessitate a causal relationship between $X$ and $Y$. This is an important distinction that will be clarified in later chapters.
 
 ## Data types
 There are two types of data: **experimental data** and **nonexperimental data**. Experimental data are collected through experiments specifically designed to evaluate the effect of a treatment or an intervention. Nonexperimental data, also known as **observational data**, are obtained by observing actual behavior outside of an experimental setting.
