@@ -516,7 +516,7 @@ window.Quarto = {
 </header>
 
 
-<div id="3e714d8f" class="cell" data-execution_count="1">
+<div id="dae92d73" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -524,7 +524,7 @@ window.Quarto = {
 </div>
 <section id="econometrics-and-economic-questions" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="econometrics-and-economic-questions"><span class="header-section-number">8.1</span> Econometrics and economic questions</h2>
-<p>The word <strong>econometrics</strong> is a neologism formed by combining the Greek words oikonomia (administration, or economics) and metron (measure) (<span class="citation" data-cites="Gerhard1953">Tintner (<a href="references.html#ref-Gerhard1953" role="doc-biblioref">1953</a>)</span>). According to <span class="citation" data-cites="Ragnar1933">Frisch (<a href="references.html#ref-Ragnar1933" role="doc-biblioref">1933</a>)</span>, as a field, its definition is embedded in the scope of <a href="https://en.wikipedia.org/wiki/Econometric_Society">The Econometric Society</a>, founded in 1930 for the advancement of economic theory through statistical and mathematical methods. Article 1 of the Society’s original Constitution states: “The Econometric Society is an international society for the advancement of economic theory in its relation to statistics and mathematics… Its main object shall be to promote studies that aim at a unification of the theoretical-quantitative and the empirical-quantitative approach to economic problems and that are penetrated by constructive and rigorous thinking similar to that which has come to dominate in the natural sciences. Any activity which promises ultimately to further such unification of theoretical and factual studies in economics shall be within the sphere of interest of the Society.” In line with this, <span class="citation" data-cites="Ragnar1933">Frisch (<a href="references.html#ref-Ragnar1933" role="doc-biblioref">1933</a>)</span> defines econometrics as the unification of economic theory, statistics, and mathematics for understanding quantitative relations in an economy.</p>
+<p>The word <strong>econometrics</strong> is a <a href="https://en.wikipedia.org/wiki/Neologism">neologism</a> formed by combining the Greek words oikonomia (administration, or economics) and metron (measure) (<span class="citation" data-cites="Gerhard1953">Tintner (<a href="references.html#ref-Gerhard1953" role="doc-biblioref">1953</a>)</span>). According to <span class="citation" data-cites="Ragnar1933">Frisch (<a href="references.html#ref-Ragnar1933" role="doc-biblioref">1933</a>)</span>, as a field, its definition is embedded in the scope of <a href="https://en.wikipedia.org/wiki/Econometric_Society">The Econometric Society</a>, founded in 1930 for the advancement of economic theory through statistical and mathematical methods. Article 1 of the Society’s original Constitution states: “The Econometric Society is an international society for the advancement of economic theory in its relation to statistics and mathematics… Its main object shall be to promote studies that aim at a unification of the theoretical-quantitative and the empirical-quantitative approach to economic problems and that are penetrated by constructive and rigorous thinking similar to that which has come to dominate in the natural sciences. Any activity which promises ultimately to further such unification of theoretical and factual studies in economics shall be within the sphere of interest of the Society.” In line with this, <span class="citation" data-cites="Ragnar1933">Frisch (<a href="references.html#ref-Ragnar1933" role="doc-biblioref">1933</a>)</span> defines econometrics as the unification of economic theory, statistics, and mathematics for understanding quantitative relations in an economy.</p>
 <p>Since <span class="citation" data-cites="Ragnar1933">Frisch (<a href="references.html#ref-Ragnar1933" role="doc-biblioref">1933</a>)</span>, there have been alternative definitions of econometrics, depending on how statistics and mathematics are applied to economic data. For example, from a statistical perspective, econometrics can be defined as the science of testing economic theories or as the process of fitting mathematical equations to economic data. From a mathematical perspective, it can be defined as the application of mathematical methods for developing estimation and testing techniques for economic models. <span class="citation" data-cites="Gerhard1953">Tintner (<a href="references.html#ref-Gerhard1953" role="doc-biblioref">1953</a>)</span> provides an early survey of alternative definitions and suggests confining econometrics to studies that utilize economic theory, statistics, and mathematics, as envisioned by <span class="citation" data-cites="Ragnar1933">Frisch (<a href="references.html#ref-Ragnar1933" role="doc-biblioref">1933</a>)</span>.</p>
 <p>At a broader level, <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span> define econometrics as “the science and art of using economic theory and statistical techniques to analyze economic data.” According <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span>, irrespective of the specific definition adopted, econometrics provides a framework through which we can provide quantitative answers to economic questions. In this respect, some of the economic questions that we will address in the upcoming chapters include:</p>
 <ul>
@@ -575,7 +575,7 @@ Y=\beta_0+\beta_1X+u,
 <section id="cross-sectional-data" class="level3" data-number="8.4.1">
 <h3 data-number="8.4.1" class="anchored" data-anchor-id="cross-sectional-data"><span class="header-section-number">8.4.1</span> Cross-sectional data</h3>
 <p><strong>Cross-sectional data</strong> consist of observations on entities at a single point in time. For example, consider the California school district data in the <code>caschool.csv</code> file. These data were collected in 1999 on <span class="math inline">\(n=420\)</span> school district and include measurements on several district-level variables. We consider the following variables: District Average Test Score, Student-Teacher Ratio, Expenditure per Pupil, and Percentage of Students Learning English. These variables are derived from district-level average measurements. A section of this data is shown in <a href="#tbl-t8.1" class="quarto-xref">Table&nbsp;<span>8.1</span></a>. For example, for the first school district, the average test score is 690.8, the average student-teacher ratio is 17.89, the average expenditure per pupil is 6384.91 dollars, and the average percentage of students learning English is 0 percent.</p>
-<div id="b4038360" class="cell" data-execution_count="2">
+<div id="edf127d4" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>CAschool <span class="op">=</span> pd.read_csv(<span class="st">'data/caschool.csv'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Select columns</span></span>
@@ -595,7 +595,7 @@ Y=\beta_0+\beta_1X+u,
 Table&nbsp;8.1: Selected observations on test scores and other variables for California School Districts in 1999
 </figcaption>
 <div aria-describedby="tbl-t8.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -714,7 +714,7 @@ Table&nbsp;8.1: Selected observations on test scores and other variables for Cal
 <section id="time-series-data" class="level3" data-number="8.4.2">
 <h3 data-number="8.4.2" class="anchored" data-anchor-id="time-series-data"><span class="header-section-number">8.4.2</span> Time Series Data</h3>
 <p>Time series data consist of observations on the same entity collected at multiple time periods. We consider the time series data in the <code>tsdata.xlsx</code> file on the US GDP growth rate and the term spread (the difference between lon-term and short-term interest rates). The data set is quarterly and cover the period 1960Q1-2017Q4. In <a href="#tbl-t8.2" class="quarto-xref">Table&nbsp;<span>8.2</span></a>, we show a section of the data, where each row corresponds to a different time period. In the last quarter of 2017, the GDP growth rate was 2.5% and the term spread was 1.16 percentage points.</p>
-<div id="a10cd65f" class="cell" data-execution_count="4">
+<div id="bae28876" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>tsdata <span class="op">=</span> pd.read_excel(<span class="st">"data/tsdata.xlsx"</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create Quarter column</span></span>
@@ -733,7 +733,7 @@ Table&nbsp;8.1: Selected observations on test scores and other variables for Cal
 Table&nbsp;8.2: The GDP growth rate and term spread in the United States
 </figcaption>
 <div aria-describedby="tbl-t8.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
 
@@ -893,7 +893,7 @@ Figure&nbsp;8.1: Growth Rate of GDP and the Term Spread in the United States
 <section id="panel-data" class="level3" data-number="8.4.3">
 <h3 data-number="8.4.3" class="anchored" data-anchor-id="panel-data"><span class="header-section-number">8.4.3</span> Panel Data</h3>
 <p><strong>Panel data</strong>, also known as <strong>longitudinal data</strong>, consist of data for multiple entities, with each entity observed at two or more time periods. We consider the panel data on the cigarette consumption in the <code>cig_ch12.xlsx</code> file. The data set consists of annual data for the 48 U.S. states over the period 1985-1995. Thus, in this data set, the number of entities is <span class="math inline">\(n=48\)</span> and the number of time peirods is <span class="math inline">\(T=11\)</span>. In total, we have <span class="math inline">\(48\times 11=528\)</span> observations. In <a href="#tbl-t8.3" class="quarto-xref">Table&nbsp;<span>8.3</span></a>, we show a section of data.</p>
-<div id="54621edf" class="cell" data-execution_count="7">
+<div id="50f3229a" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>pdata <span class="op">=</span> pd.read_excel(<span class="st">"data/cig_ch12.xlsx"</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Select columns</span></span>
@@ -913,7 +913,7 @@ Figure&nbsp;8.1: Growth Rate of GDP and the Term Spread in the United States
 Table&nbsp;8.3: Cigarette sales, prices, and taxes
 </figcaption>
 <div aria-describedby="tbl-t8.3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="16">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
 
