@@ -106,7 +106,7 @@ plt.show()
 
 
 ### Estimation Results
-We use the `statsmodels.api` and the `statsmodels.formula.api` modules to estimate regressions. We import these modules under the names `sm` and `smf`, respectively. There are two options for running OLS regressions: (i) the `smf.ols()` function and (ii) the `sm.OLS()` function. To see all available models that can be esitmated by these functions, we can use `dir(smf)` and `dir(sm)`. 
+We use the `statsmodels.api` and the `statsmodels.formula.api` modules to estimate regressions. We import these modules under the names `sm` and `smf`, respectively. There are two options for running OLS regressions: (i) the `smf.ols()` function and (ii) the `sm.OLS()` function. To see all available models that can be estimated by these functions, we can use `dir(smf)` and `dir(sm)`. 
 
 In the case of `smf`, we can use `R`-style formulas to specify estimation equations. In the following, we use the `smf.ols()` function to estimate the model. Note that the estimation equation is specified as `formula='testscr ~ str'`, where `~` symbol separates the dependent and independent variables.
 
@@ -304,11 +304,9 @@ where the last eqality again follows from the law of iterated expectations. Then
 $$
 \corr(X,u_i)\ne 0\implies \E(u_i |X_i)\ne 0.
 $$
-This last result is important because it provides a way to check the zero-conditional mean assumption. If we think that the error term $u_i$ includes a variable that is correlated with the regressor $X_i$, then we can claim that $\E(u_i |X_i)\ne 0$.
+This last result is important because it provides a way to check the plausibility of the zero-conditional mean assumption. If we think that the error term $u_i$ is likely to include a variable that is correlated with the regressor $X_i$, then we can claim that $\E(u_i |X_i)\ne 0$.
 
-In the following code chunk, we consider two data-generating processes to illustrate the zero-conditional mean assumption. We assume that the zero-conditional mean assumption holds in the first process but is violated in the second. In both cases, we assume that $X$ takes integer values between $-4$ and $4$: ` x_values = np.random.randint(low=-4, high=5, size=size)`. In the first process, we generate the error terms idependently from the standard normal distribution, i.e., $u \sim N(0, 1)$. In this case, since $u$ is independent of $X$, we have $\E(u|X)=\E(u)=0$. In contrast, in the second process, we generate the error terms according to $u \sim N(0.5X, 1)$ so that $\E(u|X)=0.5X$. 
-
-In @fig-f11.3, we use boxplots to illustrate the distribution of $u$ conditional on $X$. In @fig-f11.3-1, the conditional mean of $u$ remains close to zero across all values of $X$, indicating that $\mathbb{E}(u|X)$ does not depend on $X$. In contrast, @fig-f11.3-2 shows that the mean of $u$ varies systematically with $X$, suggesting that $\mathbb{E}(u|X)$ depends on $X$.
+In the following code chunk, we consider two data-generating processes to illustrate the zero-conditional mean assumption. We assume that the zero-conditional mean assumption holds in the first process but is violated in the second. In both cases, we assume that $X$ takes integer values between $-4$ and $4$: ` x_values = np.random.randint(low=-4, high=5, size=size)`. In the first process, we generate the error terms independently from the standard normal distribution, i.e., $u \sim N(0, 1)$. In this case, since $u$ is independent of $X$, we have $\E(u|X)=\E(u)=0$. In contrast, in the second process, we generate the error terms according to $u \sim N(0.5X, 1)$ so that $\E(u|X)=0.5X$. 
 
 In @fig-f11.3, we use boxplots to present the distribution of $u$ against $X$. In @fig-f11.3-1, the conditional mean of $u$ remains close to zero across all values of $X$. Thus, in this case, $\E(u|X)=0$ holds. On the other hand, @fig-f11.3-2 shows that the mean of $u$ varies with $X$, indicating that $\E(u|X)$ depends on $X$.
 
@@ -420,7 +418,7 @@ Under Assumptions 1 and 2, we have $\E\left(u_i|X_1,\dots,X_n\right)=\E(u_i|X_i)
 Finally, the unbiasedness of $\hat{\beta}_1$ follows from the law of iterated expectations: 
 $$ 
 \begin{align}
-\E(\hat{\beta}_1) = \E\left(\E\left(\hat{\beta}_1|X_1,\dots,X_n\right)\right) = E(\beta_1)=\beta_1.
+\E(\hat{\beta}_1) = \E\left(\E\left(\hat{\beta}_1|X_1,\dots,X_n\right)\right) = \E(\beta_1)=\beta_1.
 \end{align}
 $$
 
@@ -436,7 +434,7 @@ $$
 where the third equality follows from $\E(\bar{Y}|X_1,\dots,X_n)=\beta_0+\bar{X}\beta_1$. Then, it follows from the law of iterated expectations that 
 $$
 \begin{align}
-\E(\hat{\beta}_0) = \E\left(\E\left(\hat{\beta}_0|X_1,\dots,X_n\right)\right) = E(\beta_0)=\beta_0.
+\E(\hat{\beta}_0) = \E\left(\E\left(\hat{\beta}_0|X_1,\dots,X_n\right)\right) = \E(\beta_0)=\beta_0.
 \end{align}
 $$
 Let $\mu_X$ and $\sigma^2_X$ be the population mean and variance of $X$. In the following theorem, we show the asymptotic distributions of the OLS estimators.
@@ -459,7 +457,7 @@ We prove @thm-thm11.1 in Chapter 25. There are three important observations from
 
 We investigate the properties of the OLS estimators in the simulation setting given in the following code chunk. We assume that the population regression model is given by $Y_i=\beta_0+X_i\beta_1+u_i$, where $\beta_0=1.5$, $\beta_1=3$, $X_i\sim N(0,1)$, and $u_i\sim N(0,1)$. We first assume that the population size is $N=5000$ and then generate the population data. We consider four sample size with $n\in \{50, 100, 200, 500\}$. For each sample size, we generate $1000$ samples from the population and estimate the model with each sample. Thus, we obtain $1000$ estimates of $\beta_0$ and $\beta_1$ for each sample size. We then construct the histograms of these estimates along with the kernel density plots. The simulation results are shown in @fig-f11-5. 
 
-Eeach histogram and kernel density plot in @fig-f11-5 is centered around the true value $\beta_1=3$, indicating that the OLS estimator $\hat{\beta}_1$ is unbiased. The shape of the histograms and kernel density plots are bell-shaped, suggesting that the sampling distribution of the OLS estimator $\hat{\beta}_1$ resembles the normal distribution. We also observe that the variance of the OLS estimator decreases as $n$ increases from $50$ to $500$. All of these observations are consistent with @thm-thm11.1.
+Each histogram and kernel density plot in @fig-f11-5 is centered around the true value $\beta_1=3$, indicating that the OLS estimator $\hat{\beta}_1$ is unbiased. The shape of the histograms and kernel density plots are bell-shaped, suggesting that the sampling distribution of the OLS estimator $\hat{\beta}_1$ resembles the normal distribution. We also observe that the variance of the OLS estimator decreases as $n$ increases from $50$ to $500$. All of these observations are consistent with @thm-thm11.1.
 
 ```{python}
 #| fig-cap: Simulation results
