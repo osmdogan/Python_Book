@@ -7,7 +7,7 @@ book:
   reader-mode: true
   author: ["Osman Doğan", "Süleyman Taşpınar"]
   date: "today"
-  repo-url: https://osmdogan.github.io/Python_Book/
+  repo-url: https://github.com/osmdogan/datasets.git
   repo-actions: [edit, issue]
   site-url: https://osmdogan.github.io/Python_Book/
   cover-image: cover.png
