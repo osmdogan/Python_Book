@@ -119,7 +119,7 @@ We also use a callout block to state econometric assumptions. For example, we us
 :::
 
 # Data for Applications
-For each methodological topic, @Stock2020 provide an application based on real-world data. We reproduce all tables, figures, and estimation results using the same datasets provided on the textbook's [web page](https://www.princeton.edu/~mwatson/Stock-Watson_4E/Stock-Watson-Resources-4e.html). The datasets are also available in the "data" folder of this book's GitHub repository: [Datasets](https://github.com/osmdogan/datasets.git)
+For each methodological topic, @Stock2020 provide an application based on real-world data. We reproduce all tables, figures, and estimation results using the same datasets provided on the textbook's [web page](https://www.princeton.edu/~mwatson/Stock-Watson_4E/Stock-Watson-Resources-4e.html). We provide all datasets used in this book in the GitHub repository: [Datasets](https://github.com/osmdogan/datasets.git).
 
 # Acknowledgements
 We use the theme from the book [R for Data Science (2e)](https://r4ds.hadley.nz/) as the foundation for producing this book. 
