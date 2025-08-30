@@ -134,7 +134,7 @@ $$
 :::
 
 ::: {#exm-example9.6}
-Let $M$ be a random variable that measures the number of times your wireless network connection fails while you are writing a term paper. Let us assume that $M$ takes $0$, $1$, $2$, $4$, $5$, with the corresponding probabilities given by $0.80$, $0.10$, $0.06$, $0.03$, $0.01$.  In the following, we summarize the probability distribution of $M$ in a table.
+Let $M$ be a random variable that measures the number of times your wireless network connection fails while you are writing a term paper. Let us assume that $M$ takes values from $\{0,1,2,3,4,5\}$, with the corresponding probabilities given by $\{0.80,0.10,0.06,0.03, 0.01\}$. In the following, we summarize the probability distribution of $M$ in a table.
 
 ```{python}
 # Probability distribution of M
@@ -1139,7 +1139,7 @@ $$
 The likelihood of no rain outside given that it has been a short commute is
 $$
 \begin{align*}
-P(X=1 |Y=1) = \frac{P(X=1,Y=1)}{P(Y=1)} = 0.63/0.70 = 0.90.
+P(X=1 |Y=1) = \frac{P(X=1,Y=1)}{P(Y=1)} = 0.63/0.78 = 0.81.
 \end{align*}
 $$
 :::
@@ -1371,13 +1371,13 @@ $$
 $$
 
 
-Some properties of covariance are as follows:
+Some properties of covariance are listed below:
 
 a) $\text{cov}(X,X)=\E(X^2)-\mu_X^2=\sigma^2_X$, which is the variance of $X$.
 b) $\text{cov}(X,Y)=\text{cov}(Y,X)$, i.e., covariance is symmetric.
 c) $\text{cov}(a\,X+b\,Y,V)=a\,\text{cov}(X,V)+b\,\text{cov}(Y,V)$, where $a$ and $b$ are constants.
 d) If $X$ and $Y$ are independent, then $\text{cov}(X,Y)=0$, because $\text{cov}(X,Y)=\E(XY)-\mu_X\mu_Y=\E(X)\E(Y)-\mu_X\mu_Y=0$. 
-e) If $\text{cov}(X,Y)>0$, then $X$ and $Y$ move in the same direction. If $\text{cov}(X,Y)<0$, then $X$ and $Y$ moves in opposite directions.
+e) If $\text{cov}(X,Y)>0$, then $X$ and $Y$ move in the same direction. If $\text{cov}(X,Y)<0$, then $X$ and $Y$ move in opposite directions.
 
 
 Although covariance indicates the direction of the relationship between two variables, it does not convey the strength of the relationship. Moreover, covariance is not unit-free, meaning that it depends on the units of $X$ and $Y$. For example, if $X$ is measured in meters and $Y$ in seconds, then the covariance will be expressed in meter-seconds. To address these limitations, we introduce the correlation measure, which is a standardized version of covariance. The correlation between $X$ and $Y$ is defined as
@@ -1645,7 +1645,7 @@ np.round(p, 4)
 ```
 ::: 
 
-In @fig-f9.6, we show the PDF and CDF of  $\chi^2_3$, $\chi^2_4$, and $\chi^2_{10}$. The figure indicates that the chi-squared distribution is right-skewed, and as $m$ increases, the distribution becomes more symmetric.
+In @fig-f9.16, we show the PDF and CDF of  $\chi^2_3$, $\chi^2_4$, and $\chi^2_{10}$. The figure indicates that the chi-squared distribution is right-skewed, and as $m$ increases, the distribution becomes more symmetric.
 
 ```{python}
 #| label: fig-f9.16
@@ -1686,12 +1686,12 @@ plt.show()
 
 ### Student t distribution
 
-The **Student t distribution** with $m$ degrees of freedom, denoted by $t_m$, is defined as the distribution of the ratio of a standard normal random variable to the square root of an independently distributed chi-squared random variables with $m$ degrees of freedom divided by $m$. Specifically, let $Z\sim N(0,1)$ and $W\sim\chi^2_m$. Assuming that $Z$ and $W$ are independent, then we have
+The **Student t distribution** with $m$ degrees of freedom, denoted by $t_m$, is defined as the distribution of the ratio of a standard normal random variable to the square root of an independently distributed chi-squared random variable with $m$ degrees of freedom divided by $m$. Specifically, let $Z\sim N(0,1)$ and $W\sim\chi^2_m$. Assuming that $Z$ and $W$ are independent, then we have
 $$
 \frac{Z}{\sqrt{W/m}}\sim t_m.
 $$ 
 
-In @fig-f9.7, we compare the PDF and CDF of $t_1$ and $t_{10}$ with that of $N(0,1)$. The $t$ distribution has a bell shape similar to that of the normal distribution but exhibits more mass in the tails, resulting in a “fatter” bell shape compared to the normal distribution.  In general, when $m$ is $30$ or more, the $t$ distribution closely approximates the standard normal distribution.Specifically, as $𝑚$ approaches infinity, the $t$ distribution converges to the standard normal distribution.
+In @fig-f9.17, we compare the PDF and CDF of $t_1$ and $t_{10}$ with that of $N(0,1)$. The $t$ distribution has a bell shape similar to that of the normal distribution but exhibits more mass in the tails, resulting in a “fatter” bell shape compared to the normal distribution.  In general, when $m$ is $30$ or more, the $t$ distribution closely approximates the standard normal distribution.Formally, as $𝑚$ approaches infinity, the $t$ distribution converges to the standard normal distribution.
 
 ```{python}
 #| label: fig-f9.17
