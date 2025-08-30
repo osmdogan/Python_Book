@@ -12,9 +12,9 @@ The word **econometrics** is a [neologism](https://en.wikipedia.org/wiki/Neologi
 
 Since @Ragnar1933, there have been alternative definitions of econometrics, depending on how statistics and mathematics are applied to economic data. For example, from a statistical perspective, econometrics can be defined as the science of testing economic theories or as the process of fitting mathematical equations to economic data. From a mathematical perspective, it can be defined as the application of mathematical methods for developing estimation and testing techniques for economic models. @Gerhard1953 provides an early survey of alternative definitions and suggests confining econometrics to studies that utilize economic theory, statistics, and mathematics, as envisioned by @Ragnar1933.
 
-At a broader level, @Stock2020 define econometrics as “the science and art of using economic theory and statistical techniques to analyze economic data.” According @Stock2020, irrespective of the specific definition adopted, econometrics provides a framework through which we can provide quantitative answers to economic questions. In this respect, some of the economic questions that we will address in the upcoming chapters include:
+At a broader level, @Stock2020 define econometrics as “the science and art of using economic theory and statistical techniques to analyze economic data.” According to @Stock2020, irrespective of the specific definition adopted, econometrics provides a framework through which we can provide quantitative answers to economic questions. In this respect, some of the economic questions that we will address in the upcoming chapters include:
 
-* What is the quantitative effect of class size on test scores?
+* What is the quantitative effect of a reduction in class size on test scores?
 * What is the quantitative effect of race on home loan approval?
 * What is the quantitative effect of an increase in cigarette taxes on cigarette consumption?
 * What is the quantitative effect of an increase in the minimum wage on employment?
@@ -27,7 +27,7 @@ We will show that these questions can be answered by estimating econometric mode
 ## Causal effects and experiments
 Econometrics primarily focuses on causal relationships among economic variables. Let $X$ and $Y$ be two variables. According to @Stock2020, we say that $X$ causes $Y$ if $Y$ is a direct result or consequence of $X$. More precisely, we can define the causal effect of $X$ on $Y$ as the effect of $X$ on $Y$ when all other factors that can affect $Y$ are held constant.
 
-One way to measure the causal effect is by conducting a **randomized controlled experiment**. In a randomized controlled experiment, we measure the effect of a treatment or a policy intervention on an outcome variable by randomly assigning eperimental units to a treatment group and a control group, and then compare the groups based on the measured outcome variable. A randomized controlled experiment has the following features:
+One way to measure the causal effect is by conducting a **randomized controlled experiment**. In a randomized controlled experiment, we measure the effect of a treatment or a policy intervention on an outcome variable by randomly assigning experimental units to a treatment group and a control group, and then compare the groups based on the measured outcome variable. A randomized controlled experiment has the following features:
 
 * It is *controlled* because the treatment group receive the treatment whereas the control group does not participate in the treatment.
 * It is *randomized* in the sense that the experimental units are assigned to the control and treatment groups randomly. In this way, we aim to *eliminate systematic differences* between the control and treatment groups.
@@ -44,7 +44,7 @@ $$
 where
 
 * $Y$ is the dependent variable and $X$ is the independent variable,
-* $\beta_0$ is intercept parameter and $\beta_1$ is the slope parameter, and
+* $\beta_0$ is the intercept parameter and $\beta_1$ is the slope parameter, and
 * $u$ is the error term.
 
 **Estimation** is the process of using data on $Y$ and $X$ to learn about the unknown coefficients $\beta_0$ and $\beta_1$.  Let $\hat{\beta}_0$ and $\hat{\beta}_1$ be the estimated coefficients. We can use the estimated regression model to obtain a **predicted value** on the dependent variable:
@@ -53,7 +53,7 @@ $$
 \hat{Y}=\hat{\beta}_0+\hat{\beta}_1X,
 \end{align}
 $$
-where $\hat{Y}$ denotes the predicted value. Thus, **prediction** is the process of using a model to make statement about the value of a dependent variable. 
+where $\hat{Y}$ denotes the predicted value. Thus, **prediction** is the process of using a model to make a statement about the value of a dependent variable.
 
 A **forecast** is a prediction about the value of the dependent variable in the future. In Chapters 22 and 24, we will study econometric models for forecasting.
 
@@ -65,7 +65,7 @@ There are two types of data: **experimental data** and **nonexperimental data**.
 Except for Chapter 20, where we cover econometric models for experimental data, we focus on econometric models for nonexperimental data. We consider three types of data: (i) **cross-sectional data**, (ii) **time-series data**, and (iii) **panel data** or **longitudinal data**.
 
 ### Cross-sectional data
-**Cross-sectional data** consist of observations on entities at a single point in time. For example, consider the California school district data in the `caschool.csv` file. These data were collected in 1999 on $n=420$ school district and include measurements on several district-level variables. We consider the following variables: District Average Test Score, Student-Teacher Ratio, Expenditure per Pupil, and Percentage of Students Learning English. These variables are derived from district-level average measurements. A section of this data is shown in @tbl-t8.1. For example, for the first school district, the average test score is 690.8, the average student-teacher ratio is 17.89, the average expenditure per pupil is 6384.91 dollars, and the average percentage of students learning English is 0 percent.  
+**Cross-sectional data** consist of observations on entities at a single point in time. For example, consider the California school district data in the `caschool.csv` file. These data were collected in 1999 on $n=420$ school districts and include measurements on several district-level variables. We consider the following variables: District Average Test Score, Student-Teacher Ratio, Expenditure per Pupil, and Percentage of Students Learning English. These variables are derived from district-level average measurements. A section of this data is shown in @tbl-t8.1. For example, for the first school district, the average test score is 690.8, the average student-teacher ratio is 17.89, the average expenditure per pupil is 6384.91 dollars, and the average percentage of students learning English is 0 percent.  
 
 ```{python}
 # Import data
@@ -89,7 +89,7 @@ data.round(2)
 The econometric models we will cover in Chapters 11–16 and 18–19, including the simple linear regression model, multiple linear regression, non-linear regression models, and binary dependent variable models, are based on cross-sectional data.
 
 ### Time Series Data
-Time series data consist of observations on the same entity collected at multiple time periods. We consider the time series data in the `tsdata.xlsx` file on the US GDP growth rate and the term spread (the difference between lon-term and short-term interest rates). The data set is quarterly and cover the period 1960Q1-2017Q4. In @tbl-t8.2, we show a section of the data, where each row corresponds to a different time period. In the last quarter of 2017, the GDP growth rate was 2.5\% and the term spread was 1.16 percentage points.
+Time series data consist of observations on the same entity collected at multiple time periods. We consider the time series data in the `tsdata.xlsx` file on the US GDP growth rate and the term spread (the difference between long-term and short-term interest rates). The dataset is quarterly and covers the period 1960Q1-2017Q4. In @tbl-t8.2, we show a section of the data, where each row corresponds to a different time period. In the last quarter of 2017, the GDP growth rate was 2.5\% and the term spread was 1.16 percentage points.
 
 ```{python}
 # Import data
@@ -148,7 +148,7 @@ plt.show()
 The part titled Regression Analysis of Economic Time Series Data is devoted to econometric models that use time series data. These models include autoregressions (AR), autoregressive distributed lag (ARDL) models, distributed lag models, vector autoregression (VAR) models, vector error correction models (VECM), and volatility models.
 
 ### Panel Data
-**Panel data**, also known as **longitudinal data**, consist of data for multiple entities, with each entity observed at two or more time periods. We consider the panel data on the cigarette consumption in the `cig_ch12.xlsx` file. The data set consists of annual data for the 48 U.S. states over the period 1985-1995. Thus, in this data set, the number of entities is $n=48$ and the number of time peirods is $T=11$. In total, we have $48\times 11=528$ observations. In @tbl-t8.3, we show a section of data.
+**Panel data**, also known as **longitudinal data**, consist of data for multiple entities, with each entity observed at two or more time periods. We consider the panel data on the cigarette consumption in the `cig_ch12.xlsx` file. The data set consists of annual data for the 48 U.S. states over the period 1985-1995. Thus, in this data set, the number of entities is $n=48$ and the number of time periods is $T=11$. In total, we have $48\times 11=528$ observations. In @tbl-t8.3, we show a section of the data.
 
 ```{python}
 # Import data
