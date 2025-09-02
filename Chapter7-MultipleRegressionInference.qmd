@@ -358,11 +358,11 @@ print(result2.f_test(hypothesis))
 The heteroskedaticity-robust $F$-statistic is $8.9$ with a $p$-value of $0.003$. Thus, we reject the null $H_0:\beta_1=\beta_2$ at the $5\%$ significance level.
 
 ## The Bonferroni test of a joint hypothesis
-In this section, we briefly describe the Benferroni approach for testing joint null hypotheses. In this approach, we use individual $F$-statistics along with a critical value that ensures the probability of the Type-I error does not exceed the desired significance level.
+In this section, we briefly describe the Benferroni approach for testing joint null hypotheses. In this approach, we use individual $t$-statistics along with a critical value that ensures the probability of the Type-I error does not exceed the desired significance level.
 
 Let $H_0:\beta_1=\beta_{10}$ and $\beta_2=\beta_{20}$, where $\beta_{10}$ and $\beta_{20}$ are the hypothesized values, be the joint null hypothesis. Then, the Bonferroni approach for testing this null hypothesis consists of the following steps:
 
-* Compute the individual $F$-statistics $t_1$ and $t_2$, where $t_1$ is the $F$-statistic for $H_0:\beta_1=\beta_{10}$ and $t_2$ is the $F$-statistic for $H_0:\beta_2=\beta_{20}$.
+* Compute the individual $t$-statistics $t_1$ and $t_2$, where $t_1$ is the $t$-statistic for $H_0:\beta_1=\beta_{10}$ and $t_2$ is the $t$-statistic for $H_0:\beta_2=\beta_{20}$.
 * Choose the critical value $c$ such that the probability of Type-I error is no more than the desired significance level.
 
 Then, we fail to reject the null hypothesis if $|t_1|\leq c$ and $|t_2|\leq c$; otherwise, we reject the null hypothesis. 
