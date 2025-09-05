@@ -963,7 +963,7 @@ In @tbl-t9.2, the row sums give the marginal probability distribution of $Y$, wh
 
 :::{}
 :::{#def-definition9.10}
-## Joint cummulative distribution function
+## Joint cumulative distribution function
 The **joint cumulative distribution function (CDF)** of two random variables $X$ and $Y$ is defined as
 $$
 \begin{align}
