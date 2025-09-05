@@ -66,3 +66,11 @@ pre {
   margin-top: -0.2em;
   color: #000000;
 }
+
+.example, .theorem, .definition, .proposition {
+  border: 1px solid #000000;
+  border-radius: 8px;
+  padding: .5em;
+  background-color: #ffffff;
+  margin: 1em 0;
+}

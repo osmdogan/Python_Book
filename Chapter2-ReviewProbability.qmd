@@ -134,7 +134,7 @@ $$
 :::
 
 ::: {#exm-example9.6}
-Let $M$ be a random variable that measures the number of times your wireless network connection fails while you are writing a term paper. Let us assume that $M$ takes values from $\{0,1,2,3,4,5\}$, with the corresponding probabilities given by $\{0.80,0.10,0.06,0.03, 0.01\}$. In the following, we summarize the probability distribution of $M$ in a table.
+Let $M$ be a random variable that measures the number of times your wireless network connection fails while you are writing a term paper. Let us assume that $M$ takes values from $\{0,1,2,3,4\}$, with the corresponding probabilities given by $\{0.80,0.10,0.06,0.03, 0.01\}$. In the following, we summarize the probability distribution of $M$ in a table.
 
 ```{python}
 # Probability distribution of M
@@ -149,8 +149,7 @@ y.columns = ["", "", "", "", ""]
 # y.columns = [""] * y.shape[1]
 ```
 
-When we print the dataframe `y`, we obtain the probability distribution shown in @tbl-t9.1.
-The first row of @tbl-t9.1 gives the possible outcomes of the random variable $M$, the second row gives the probability distribution of $M$, and the last row gives the cumulative probability distribution of $M$, which is defined below.
+When we print the dataframe `y`, we obtain the probability distribution shown in @tbl-t9.1. The first row of @tbl-t9.1 gives the possible outcomes of the random variable $M$, the second row gives the probability distribution of $M$, and the last row gives the cumulative probability distribution of $M$, which is defined below.
 
 :::{layout-ncol=1}
 ```{python}
@@ -791,7 +790,7 @@ plt.show()
 
 :::{#def-definition9.7}
 ## Quantiles and percentiles
-Let $Y$ be a random variable and let $0 < p < 1$. The $p$th quantile of $Y$, denoted by $q_p$, is the smallest value such that $F(q_p) = P(Y \leq q_p) \geq p$. If $Y$ is continuous, then $F(q_p) = p$. The $p$th quantile is also known as the $100p$th percentile of $Y$.
+Let $Y$ be a random variable and let $0 < p < 1$. The $p$th quantile of $Y$, denoted by $q_p$, is the **smallest value** such that $F(q_p) = P(Y \leq q_p) \geq p$. If $Y$ is continuous, then $F(q_p) = p$. The $p$th quantile is also known as the $100p$th percentile of $Y$.
 :::
 
 Note that $q_{0.5}$ is the median, $q_{0.25}$ is the first quartile, and $q_{0.75}$ is the third quartile of $Y$. 
