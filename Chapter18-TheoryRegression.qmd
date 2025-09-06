@@ -498,6 +498,7 @@ $$
 \end{align*}
 $$
 where the first inequality follows from Hölder's inequality with $p=4/3$ and $q=4$.
+:::
 
 :::{#thm-thm25-10-1}
 ##  Minkowski’s Inequality
@@ -609,7 +610,6 @@ plt.show()
 
 We now state the central limit theorem using the concept of convergence in distribution.
 
-:::
 :::{#thm-thm25-10}
 ## The central limit theorem
 If $\{Y_i\}_{i=1}^n$ are i.i.d with mean $\E(Y_i)=\mu_Y$ and variance $0<\sigma^2_Y<\infty$, then the asymptotic distribution of $(\bar{Y}-\mu_{\bar{Y}})/\sigma_{\bar{Y}}=\sqrt{n}(\bar{Y}-\mu_Y)/\sigma_Y$ is $N(0,1)$. Conventional
@@ -618,7 +618,7 @@ $$
 \frac{(\bar{Y}-\mu_{\bar{Y}})}{\sigma_{\bar{Y}}}=\frac{\sqrt{n}(\bar{Y}-\mu_Y)}{\sigma_Y}\xrightarrow{d}N(0,1).
 $$
 :::
-:::
+
 
 Note that when $n$ is large, $\sqrt{n}(\bar{Y}-\mu_Y)/\sigma_Y\xrightarrow{d}N(0,1)$ implies that
 $$

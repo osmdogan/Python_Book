@@ -181,7 +181,7 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Econometrics with Python</a> 
         <div class="sidebar-tools-main">
-    <a href="https://osmdogan.github.io/Python_Book/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-git"></i></a>
+    <a href="https://github.com/osmdogan/datasets.git" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -490,7 +490,7 @@ window.Quarto = {
   <li><a href="#wls-with-a-known-functional-form-for-heteroskedasticity" id="toc-wls-with-a-known-functional-form-for-heteroskedasticity" class="nav-link" data-scroll-target="#wls-with-a-known-functional-form-for-heteroskedasticity"><span class="header-section-number">25.9.2</span> WLS with a known functional form for heteroskedasticity</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://osmdogan.github.io/Python_Book/edit/main/Chapter18-TheoryRegression.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://osmdogan.github.io/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/osmdogan/datasets.git/edit/main/Chapter18-TheoryRegression.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/datasets.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -514,7 +514,7 @@ window.Quarto = {
 </header>
 
 
-<div id="1a4898e5" class="cell" data-execution_count="1">
+<div id="ce39483a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -697,7 +697,7 @@ P(|V-\mu_V|&lt;\delta)\geq 1-\frac{\sigma^2_V}{\delta^2}.
 P(\mu_V-\delta&lt;V&lt;\mu_V+\delta)\geq 1-\frac{\sigma^2_V}{\delta^2}.
 \]</span></p>
 <p>In the following code chunk, we assume that <span class="math inline">\(V\sim N(0,1)\)</span> and <code>delta = np. arange(1, 10)</code>. We calculate the Chebychev bound and the actual probability that <span class="math inline">\(V\)</span> is within <span class="math inline">\(\delta\)</span> of its mean. <a href="#fig-fig25-1" class="quarto-xref">Figure&nbsp;<span>25.1</span></a> shows that the Chebychev bound is a conservative estimate of the actual probability.</p>
-<div id="a82195f9" class="cell" data-execution_count="2">
+<div id="ff7e80ad" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the Chebychev inequality</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sigma2_V <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>mu_V <span class="op">=</span> <span class="dv">0</span></span>
@@ -772,7 +772,7 @@ P(|m_c-\mu_Y|\geq\delta)\leq\E\left((\bar{Y}+1/n-\mu_Y)^2\right)/\delta^2=\frac{
 </div>
 <p>In the following code chunk, we illustrate the law of large numbers using the estimators <span class="math inline">\(m_a\)</span>, <span class="math inline">\(m_b\)</span>, and <span class="math inline">\(m_c\)</span> defined in <a href="#exm-exm25-1" class="quarto-xref">Example&nbsp;<span>25.1</span></a>. We set <span class="math inline">\(\mu_Y = 0\)</span>, <span class="math inline">\(\sigma_Y^2 = 1\)</span>, and <span class="math inline">\(a = 0.5\)</span>. We consider three sample sizes: <span class="math inline">\(n = 10\)</span>, <span class="math inline">\(n = 100\)</span>, and <span class="math inline">\(n = 1000\)</span>. For each sample size, we generate 1000 samples and compute each estimator. We then create histograms of each estimator for each sample size.</p>
 <p><a href="#fig-fig25-2" class="quarto-xref">Figure&nbsp;<span>25.2</span></a> displays the histograms of <span class="math inline">\(m_a\)</span>, <span class="math inline">\(m_b\)</span>, and <span class="math inline">\(m_c\)</span> for different sample sizes. In the case of <span class="math inline">\(m_a\)</span> and <span class="math inline">\(m_b\)</span>, the histograms do not concentrate around the true mean <span class="math inline">\(\mu_Y = 0\)</span> as the sample size increases. However, since the histograms are centered around the true mean, these estimators are unbiased. On the other hand, the histogram of <span class="math inline">\(m_c\)</span> becomes more concentrated around the true mean as the sample size increases, indicating that <span class="math inline">\(m_c\)</span> is a consistent estimator.</p>
-<div id="0596c50d" class="cell" data-execution_count="4">
+<div id="edeb846f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the law of large numbers</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>mu_Y <span class="op">=</span> <span class="dv">0</span></span>
@@ -957,12 +957,13 @@ Figure&nbsp;25.2: Illustrating the law of large numbers
 <p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-10-0" class="quarto-xref">Theorem&nbsp;<span>25.12</span></a>). </span>See <span class="citation" data-cites="Hansen2022b">Hansen (<a href="references.html#ref-Hansen2022b" role="doc-biblioref">2022b</a>)</span>.</p>
 </div>
 <div id="exm-exm25-3" class="theorem example">
-<p><span class="theorem-title"><strong>Example 25.5 (Hölder’s Inequality)</strong></span> Consider the following simple linear regression model <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+u_i\)</span>. Assume that <span class="math inline">\(X\)</span> and <span class="math inline">\(u\)</span> has finite fourth order moments. Then, <span class="math inline">\(\E(|X_i|^3|u_i|)&lt;\infty\)</span>. This can be seen from <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 25.3 (Hölder’s Inequality)</strong></span> Consider the following simple linear regression model <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+u_i\)</span>. Assume that <span class="math inline">\(X\)</span> and <span class="math inline">\(u\)</span> has finite fourth order moments. Then, <span class="math inline">\(\E(|X_i|^3|u_i|)&lt;\infty\)</span>. This can be seen from <span class="math display">\[
 \begin{align*}
 \E(|X_i|^3|u_i|)&amp;\leq \left(\E\left((|X_i|^3)^{4/3}\right)\right)^{3/4}\left(\E(|u_i|^4)\right)^{1/4}\\
 &amp;=\left(\E\left(|X_i|^4\right)\right)^{3/4}\left(\E(|u_i|^4)\right)^{1/4}&lt;\infty,
 \end{align*}
 \]</span> where the first inequality follows from Hölder’s inequality with <span class="math inline">\(p=4/3\)</span> and <span class="math inline">\(q=4\)</span>.</p>
+</div>
 <div id="thm-thm25-10-1" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 25.13 (Minkowski’s Inequality)</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be random variables. Then, for <span class="math inline">\(1\leq p&lt;\infty\)</span>, we have <span class="math display">\[
 \left(\E(|X+Y|^p)\right)^{1/p} \leq \left(\E(|X|^p)\right)^{1/p} + \left(\E(|Y|^p)\right)^{1/p}.
@@ -972,7 +973,7 @@ Figure&nbsp;25.2: Illustrating the law of large numbers
 <p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-10-1" class="quarto-xref">Theorem&nbsp;<span>25.13</span></a>). </span>See <span class="citation" data-cites="Hansen2022b">Hansen (<a href="references.html#ref-Hansen2022b" role="doc-biblioref">2022b</a>)</span>.</p>
 </div>
 <div id="exm-exm25-3" class="theorem example">
-<p><span class="theorem-title"><strong>Example 25.3 (Minkowski’s Inequality)</strong></span> Let <span class="math inline">\(Y=X\beta+u\)</span>, where <span class="math inline">\(\beta\)</span> is a scalar parameter. Then, we have <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 25.4 (Minkowski’s Inequality)</strong></span> Let <span class="math inline">\(Y=X\beta+u\)</span>, where <span class="math inline">\(\beta\)</span> is a scalar parameter. Then, we have <span class="math display">\[
 \begin{align*}
 \left(\E(|Y|^p)\right)^{1/p} &amp;= \left(\E(|X\beta+u|^p)\right)^{1/p} \leq |\beta|\left(\E(|X|^p)\right)^{1/p} + \left(\E(|u|^p)\right)^{1/p}.
 \end{align*}
@@ -994,7 +995,7 @@ S_n\xrightarrow{d}S\iff \lim_{n\to\infty}F_n(t)=F(t),
 </div>
 <div>
 <div id="exm-exm25-3" class="theorem example">
-<p><span class="theorem-title"><strong>Example 25.4</strong></span> Let <span class="math inline">\(S\)</span> be the poisson random variable with parameter <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\{S_n\}\)</span> be a sequence of binomial random variables with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>, i.e., <span class="math inline">\(S_n\sim\text{Binomial}(n,p)\)</span>. We show that <span class="math inline">\(S_n\)</span> converges in distribution to <span class="math inline">\(S\)</span>, i.e., <span class="math inline">\(S_n\xrightarrow{d}S\)</span>. The cumulative distribution function of <span class="math inline">\(S_n\)</span> is given by <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 25.5</strong></span> Let <span class="math inline">\(S\)</span> be the poisson random variable with parameter <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\{S_n\}\)</span> be a sequence of binomial random variables with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>, i.e., <span class="math inline">\(S_n\sim\text{Binomial}(n,p)\)</span>. We show that <span class="math inline">\(S_n\)</span> converges in distribution to <span class="math inline">\(S\)</span>, i.e., <span class="math inline">\(S_n\xrightarrow{d}S\)</span>. The cumulative distribution function of <span class="math inline">\(S_n\)</span> is given by <span class="math display">\[
 F_n(t)=\sum_{k=0}^{\lfloor t\rfloor}\binom{n}{k}p^k(1-p)^{n-k},
 \]</span> where <span class="math inline">\(\lfloor t\rfloor\)</span> is the largest integer less than or equal to <span class="math inline">\(t\)</span>. The cumulative distribution function of <span class="math inline">\(S\)</span> is given by <span class="math display">\[
 F(t)=\sum_{k=0}^{\lfloor t\rfloor}\frac{\lambda^k}{k!}e^{-\lambda}.
@@ -1013,7 +1014,7 @@ F_n(t)&amp;=\sum_{k=0}^{\lfloor t\rfloor}\binom{n}{k}\left(\frac{\lambda}{n}\rig
 </div>
 </div>
 <p>In the following code chunk, we illustrate the convergence in distribution between the binomial and poisson random variables. We set <span class="math inline">\(\lambda = 5\)</span> and consider three sample sizes: <span class="math inline">\(n = 10\)</span>, <span class="math inline">\(n = 20\)</span>, and <span class="math inline">\(n = 50\)</span>. For each sample size, we then compute the cumulative distribution functions of the binomial and poisson random variables over the range <span class="math inline">\(t = 0, 1, \ldots, 15\)</span>. <a href="#fig-fig25-3" class="quarto-xref">Figure&nbsp;<span>25.3</span></a> shows that the cumulative distribution functions of the binomial random variables converge to the cumulative distribution function of the poisson random variable as the sample size increases.</p>
-<div id="06299aad" class="cell" data-execution_count="6">
+<div id="d99f37be" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the convergence in distribution</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>lambda_p <span class="op">=</span> <span class="dv">5</span></span>
@@ -1050,13 +1051,11 @@ Figure&nbsp;25.3: Illustrating the convergence in distribution
 </div>
 </div>
 <p>We now state the central limit theorem using the concept of convergence in distribution.</p>
-</div>
 <div id="thm-thm25-10" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 25.14 (The central limit theorem)</strong></span> If <span class="math inline">\(\{Y_i\}_{i=1}^n\)</span> are i.i.d with mean <span class="math inline">\(\E(Y_i)=\mu_Y\)</span> and variance <span class="math inline">\(0&lt;\sigma^2_Y&lt;\infty\)</span>, then the asymptotic distribution of <span class="math inline">\((\bar{Y}-\mu_{\bar{Y}})/\sigma_{\bar{Y}}=\sqrt{n}(\bar{Y}-\mu_Y)/\sigma_Y\)</span> is <span class="math inline">\(N(0,1)\)</span>. Conventional shorthand notation is <span class="math display">\[
 \frac{(\bar{Y}-\mu_{\bar{Y}})}{\sigma_{\bar{Y}}}=\frac{\sqrt{n}(\bar{Y}-\mu_Y)}{\sigma_Y}\xrightarrow{d}N(0,1).
 \]</span></p>
 </div>
-<p>:::</p>
 <p>Note that when <span class="math inline">\(n\)</span> is large, <span class="math inline">\(\sqrt{n}(\bar{Y}-\mu_Y)/\sigma_Y\xrightarrow{d}N(0,1)\)</span> implies that <span class="math display">\[
 \bar{Y}\sim N(\mu_Y,\sigma^2_Y/n).
 \]</span></p>
@@ -1066,7 +1065,7 @@ Figure&nbsp;25.3: Illustrating the convergence in distribution
 \]</span> which suggests that <span class="math inline">\(\bar{Y}\sim N(1/2,1/12n)\)</span> when <span class="math inline">\(n\)</span> is large.</p>
 </div>
 <p>In the following code chunk, we illustrate the central limit theorem using the uniform random variables defined in <a href="#exm-exm25-4" class="quarto-xref">Example&nbsp;<span>25.6</span></a>. We set <span class="math inline">\(n = 10, 50, 100, 500, 1000, 5000\)</span> and generate 1000 samples for each sample size. We then compute the sample mean <span class="math inline">\(\bar{Y}\)</span> and plot the histograms of <span class="math inline">\(\sqrt{12n}(\bar{Y}-1/2)\)</span> for each sample size. <a href="#fig-fig25-4" class="quarto-xref">Figure&nbsp;<span>25.4</span></a> shows the histograms of <span class="math inline">\(\sqrt{12n}(\bar{Y}-1/2)\)</span> along with the standard normal density plot. As the sample size increases, the deviations between the histograms and the standard normal density plot decrease, indicating that the sample mean converges to the standard normal distribution as the sample size grows.</p>
-<div id="431f373e" class="cell" data-execution_count="8">
+<div id="27aef3ca" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the central limit theorem</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>n_values <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">5000</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1876,7 +1875,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://osmdogan.github.io/Python_Book/edit/main/Chapter18-TheoryRegression.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://osmdogan.github.io/Python_Book/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/osmdogan/datasets.git/edit/main/Chapter18-TheoryRegression.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/datasets.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
