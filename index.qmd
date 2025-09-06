@@ -121,7 +121,7 @@ We also use a callout block to state econometric assumptions. For example, we us
 # Definitions, Examples, and Theorems
 To separate definitions, examples, and theorems from the main text, we use boxes with a white background, as illustrated in the following example:
 
-:::{#def-definition9.2}
+:::{#def-definition0-index}
 A **random variable** is a real-valued function defined on the sample space of an experiment. 
 :::
 
