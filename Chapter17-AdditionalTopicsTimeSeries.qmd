@@ -497,7 +497,7 @@ If $\hat{v}_t$ is $I(0)$, then we conclude that $Y_{1t}$ and $Y_{2t}$ are cointe
 | 4                           | -4.20 | -4.49 | -5.07 |
 : Critical values for the EG-ADF statistic {#tbl-t24-2}
 
-We estimate the cointegrating parameter $\theta$ in the two-step procedure by the OLS estimator. If the variables are conintegrated, the OLS estimator is consistent but has a non-standard distribution (see Theorem 16.19 in @Hansen2022). There is also an alternative estimator called the **dynamic OLS (DOLS)** estimator, which is more efficient than the OLS estimator. The DOLS estimator is based on the following extended version of @eq-eq24-4:
+We estimate the cointegrating parameter $\theta$ in the two-step procedure by the OLS estimator. If the variables are cointegrated, the OLS estimator is consistent but has a non-standard distribution (see Theorem 16.19 in @Hansen2022). There is also an alternative estimator called the **dynamic OLS (DOLS)** estimator, which is more efficient than the OLS estimator. The DOLS estimator is based on the following extended version of @eq-eq24-4:
 $$
 \begin{align}
 Y_{1t}=\mu_0+\theta Y_{2t}+\sum_{j=-p}^p\delta_j\Delta Y_{2,t-j}+u_t,
@@ -886,7 +886,7 @@ $$
 $${#eq-eq24-16}
 where $v_t$ is i.i.d over $t$ with mean zero and variance one. The error term $u_t$ in @eq-eq24-14 is then given by $u_t=\sigma_tv_t$. 
 
-Consider the GARCH($1,1$) model and  let $\mathcal{F}_{t-1}$ be the information set vailable at time $t-1$. Then, the conditional mean and variance of $Y_t$ are
+Consider the GARCH($1,1$) model and  let $\mathcal{F}_{t-1}$ be the information set available at time $t-1$. Then, the conditional mean and variance of $Y_t$ are
 $$
 \begin{align}
 \E(Y_t|\mathcal{F}_{t-1})&=\E(\beta_0+\beta_1Y_{t-1}+\gamma_1X_{t-1}+\sigma_tv_t|\mathcal{F}_{t-1})\\
@@ -932,7 +932,7 @@ $$
 \end{align}
 $${#eq-eq24-21}
 
-Under some standard assumptions, the MLE is consistent and asymptotically normal. For futher details on the estimation of ARCH and GARCH models, see @Hamilton:1994 and @Francq2019.
+Under some standard assumptions, the MLE is consistent and asymptotically normal. For further details on the estimation of ARCH and GARCH models, see @Hamilton:1994 and @Francq2019.
 
 ### Volatility forecasting
 We assume the following GARCH($1,1$) model for the returns:
