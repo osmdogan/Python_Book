@@ -161,7 +161,7 @@ $$
 \tilde{\sigma}^2_{\hat{\beta}_1}=\hat{\sigma}^2_{\hat{\beta}_1}\hat{f}_T,
 \end{align}
 $${#eq-eq23-13}
-where $\hat{\sigma}^2_{\hat{\beta}_1}$ is the heteroskedasticity-robust estimator of the variance of $\hat{\beta}_1$ given in @sec-inference1 in the absence of no autocorrelation. The second term $\hat{f}_T$ is an estimator of $f_T$ given by
+where $\hat{\sigma}^2_{\hat{\beta}_1}$ is the heteroskedasticity-robust estimator of the variance of $\hat{\beta}_1$ given in @sec-inference1 in the absence of autocorrelation. The second term $\hat{f}_T$ is an estimator of $f_T$ given by
 $$
 \begin{align}
 \hat{f}_T=1+2\sum_{j=1}^{m-1}\left(\frac{m-j}{m}\right)\tilde{\rho}_j,
@@ -436,9 +436,9 @@ ax.legend()
 plt.show()
 ```
 
-The second column of @tbl-t23-2 presents the estimated cumulative dynamic multipliers. The estimated coefficient on dFFD.shift(1) suggests that the cumulative effect of a one-unit increase in the number of freezing degree days over the first two months is a 0.68% increase in real prices. Similarly, the estimated coefficient on `dFFD.shift(2)` indicates that the cumulative effect over the first three months is a 0.75% increase in real prices. The long-run cumulative dynamic multiplier is given by the estimated coefficient on fdd.shift(18), which is 0.37. This implies that a one-unit increase in the number of freezing degree days over 18 months leads to a 0.37% increase in real prices. However, this effect is not statistically different from zero at the 5% significance level.
+The second column of @tbl-t23-2 presents the estimated cumulative dynamic multipliers. The estimated coefficient on dFDD.shift(1) suggests that the cumulative effect of a one-unit increase in the number of freezing degree days over the first two months is a 0.68% increase in real prices. Similarly, the estimated coefficient on `dFDD.shift(2)` indicates that the cumulative effect over the first three months is a 0.75% increase in real prices. The long-run cumulative dynamic multiplier is given by the estimated coefficient on fdd.shift(18), which is 0.37. This implies that a one-unit increase in the number of freezing degree days over 18 months leads to a 0.37% increase in real prices. However, this effect is not statistically different from zero at the 5% significance level.
 
-@fig-f22-3 displays the estimated cumulative dynamic multipliers along with their 95% confidence intervals. The figure shows that the cumulative multipliers increase over the first seven months, as the dynamic multipliers remain positive during this period. It also indicates that the cumulative multipliers for the first 12 months are statistically different from zero at the 5% significance level. However, the cumulative multipliers for the remaining months are not statistically different from zero, i.e., the confidence intervals include the zero line.
+@fig-f23-3 displays the estimated cumulative dynamic multipliers along with their 95% confidence intervals. The figure shows that the cumulative multipliers increase over the first seven months, as the dynamic multipliers remain positive during this period. It also indicates that the cumulative multipliers for the first 12 months are statistically different from zero at the 5% significance level. However, the cumulative multipliers for the remaining months are not statistically different from zero, i.e., the confidence intervals include the zero line.
 
 ```{python}
 #| fig-cap: Cumulative Dynamic Effect of FDD on Orange Juice Price
