@@ -232,7 +232,7 @@ In the following code chunk, we assume that $V\sim N(0,1)$ and `delta = np. aran
 # Illustrating the Chebychev inequality
 sigma2_V = 1
 mu_V = 0
-delta = np. arange(1, 10)
+delta = np.arange(1, 10)
 prob = 1 - sigma2_V / (delta**2)
 
 # Actual probability
