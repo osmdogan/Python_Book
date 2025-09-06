@@ -118,6 +118,14 @@ We also use a callout block to state econometric assumptions. For example, we us
 3. The no large outliers assumption: $\E(X_i^4)<\infty$ and $\E(Y_i^4)<\infty$.
 :::
 
+# Definitions, Examples, and Theorems
+To separate definitions, examples, and theorems from the main text, we use boxes with a white background, as illustrated in the following example:
+
+:::{#def-definition9.2}
+A **random variable** is a real-valued function defined on the sample space of an experiment. 
+:::
+
+
 # Data for Applications
 For each methodological topic, @Stock2020 provide an application based on real-world data. We reproduce all tables, figures, and estimation results using the same datasets provided on the textbook's [web page](https://www.princeton.edu/~mwatson/Stock-Watson_4E/Stock-Watson-Resources-4e.html). We provide all datasets used in this book in the GitHub repository: [Datasets](https://github.com/osmdogan/datasets.git).
 
