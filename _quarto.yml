@@ -5,7 +5,7 @@ project:
 book:
   title: "Introduction to Econometrics with Python"
   reader-mode: true
-  author: ["Osman Doğan", "Süleyman Taşpınar"]
+  author: ["[Osman Doğan](https://sites.google.com/view/osmandogan/home)", "[Süleyman Taşpınar](https://sites.google.com/site/gcsuleymantaspinar/)"]
   date: "today"
   repo-url: https://github.com/osmdogan/datasets.git
   repo-actions: [edit, issue]
