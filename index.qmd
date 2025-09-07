@@ -2,7 +2,7 @@
 
 {{< include latex_macro.qmd >}}
 
-This book serves as a Python companion to the well-known textbook by @Stock2020, which we use in our undergraduate econometrics courses. In our courses, the first semester introduces econometrics through Chapters 1 to 9, followed by Chapters 10 to 17 in the second semester. This book compiles lecture and lab materials we used for teaching econometrics. Lecture slides are also available and can be provided upon request.
+This book serves as a Python companion to the well-known textbook by @Stock2020, which we use in our undergraduate econometrics courses. In our courses, the first semester introduces econometrics through Chapters 1 to 9, followed by Chapters 10 to 17 in the second semester. This book compiles the lecture and lab materials we used for teaching econometrics. Lecture slides are also available and can be provided upon request.
 
 We organize the book into six parts: (i) Python, (ii) Introduction and Review, (iii) Fundamentals of Regression Analysis, (iv) Further Topics in Regression Analysis, (v) Regression Analysis of Economic Time Series Data, and (vi) Theoretical Topics. Except for the part on Python, the other parts are named as in @Stock2020. Each part consists of several chapters, with each chapter covering a specific topic.
 
@@ -43,7 +43,7 @@ We adopt the standard notation used in @Stock2020. In particular, for an econome
 
 The notation used for the error term (or disturbance term) is not uniform in the literature. Some authors use Latin letters because it is a random variable, while others use Greek letters because it is an unknown term. Following @Stock2020, we use lowercase $u$, $v$, or $e$ to denote the error term.
 
-For vectors, we use lowercase boldface letters such as $\bs{y}$, $\bs{x}$, $\bs{w}$, and $\bs{z}$, and for matrices, we use uppercase boldface letters such as $\bs{X}$, $\bs{W}$, and $\bs{Z}$. However, this convention does not carry over exactly to the regression model in matrix form. Following @Stock2020, we use $\bs{Y}$ to denote the $n\times1$ vector of observations on the dependent variable, $\bs{X}$ the $n\times k$ matrix of independent variables, $\bs{\beta}$ the $k\times1$ vector of coefficients, and $\bs{U}$ the $n\times1$ vector of error terms.
+For vectors, we use lowercase boldface letters such as $\bs{y}$, $\bs{x}$, $\bs{w}$, and $\bs{z}$, and for matrices, we use uppercase boldface letters such as $\bs{X}$, $\bs{W}$, and $\bs{Z}$. However, this convention does not apply exactly to the regression model in matrix form. Following @Stock2020, we use $\bs{Y}$ to denote the $n\times1$ vector of observations on the dependent variable, $\bs{X}$ the $n\times k$ matrix of independent variables, $\bs{\beta}$ the $k\times1$ vector of coefficients, and $\bs{U}$ the $n\times1$ vector of error terms.
 
 
 We use hat or tilde notation to denote estimators. For example, $\hat{\beta}_0$ and $\hat{\beta}_1$ are estimators of $\beta_0$ and $\beta_1$, respectively. In scalar form, $\hat{Y}$ denotes the predicted value of the dependent variable, and $\hat{u}$ denotes the residual. In vector form, $\hat{\bs{Y}}$ denotes the $n\times1$ vector of predicted values, and $\hat{\bs{U}}$ denotes the $n\times1$ vector of residuals.
