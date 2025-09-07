@@ -1,0 +1,961 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Introduction to Python {#sec-chapter1}\n",
+        "\n",
+        "## Introduction\n",
+        "[Python](https://en.wikipedia.org/wiki/Python_(programming_language)) is a general purpose high-level programming language conceived in the late 1980s by Dutch programmer Guido van Rossum. In a [blog post](http://python-history.blogspot.com/2009/01/introduction-and-overview.html), Guido discusses how Python has evolved over time. Also, this [90-minute documentary](https://www.youtube.com/watch?v=GfH4QL4VqJ0) on Python highlights its early development, its impact, and its community-driven evolution. \n",
+        "\n",
+        "In this chapter, we explain how to install Python using the open-source Anaconda Distribution, and describe Python shells, Integrated Development Environments (IDEs), and Jupyter Notebooks for using the Python shell. We then show how to import modules and introduce key modules required for econometrics. Finally, we show how to perform variable assignments and introduce built-in data types.\n",
+        "\n",
+        "\n",
+        "$$\n",
+        "\\DeclareMathOperator{\\cov}{cov}\n",
+        "\\DeclareMathOperator{\\corr}{corr} \n",
+        "\\DeclareMathOperator{\\var}{var} \n",
+        "\\DeclareMathOperator{\\SE}{SE} \n",
+        "\\DeclareMathOperator{\\E}{E}\n",
+        "\\DeclareMathOperator{\\A}{\\boldsymbol{A}}\n",
+        "\\DeclareMathOperator{\\x}{\\boldsymbol{x}}\n",
+        "\\DeclareMathOperator{\\sgn}{sgn}  \n",
+        "\\DeclareMathOperator{\\argmin}{argmin} \n",
+        "\\newcommand{\\tr}{\\text{tr}}\n",
+        "\\newcommand{\\bs}{\\boldsymbol}\n",
+        "\\newcommand{\\mb}{\\mathbb}\n",
+        "$$\n"
+      ],
+      "id": "23b7274a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: false\n",
+        "from IPython.core.interactiveshell import InteractiveShell\n",
+        "InteractiveShell.ast_node_interactivity = \"all\""
+      ],
+      "id": "0b549b4c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Installing Python\n",
+        "The official Python home page is: <https://www.python.org/>. We recommend to install the Python scientific stack through **Anaconda**. Anaconda, a free product of [Anaconda Inc.](https://www.anaconda.com/) (formerly Continuum Analytics Inc.), is a virtually complete scientific stack for Python. The open-source Anaconda Distribution is the easiest way to perform Python on Linux, Windows, and MacOS. To install Anaconda, visit Anaconda Distribution web page at <https://www.anaconda.com/download>.\n",
+        "\n",
+        "Anaconda comes with the core **Python interpreter** (Python shell) and most of the **modules** required for econometric analysis. It also provides \n",
+        "**Anaconda Navigator**, which is a desktop graphical user interface (GUI) that allows you to launch applications, and manage conda packages and environments. Anaconda Navigator is shown in  @fig-nav.\n",
+        "  \n",
+        "![Anaconda Navigator (Source: [Navigator](https://docs.anaconda.com/navigator/))](figures/nav-tabs1.png){#fig-nav}\n",
+        "\n",
+        "Python comes with a **Python shell** (or Python Interpreter) that executes Python commands. To start the Python shell, open the **Anaconda Prompt** and type `start python`. An enhanced version of the Python shell is **IPython**, which can be launched by typing `start ipython` in the Anaconda Prompt. Another option is **Jupyter QtConsole**, a shell with features similar to IPython. To launch QtConsole, type `start jupyter qtconsole` in the Anaconda Prompt.   \n",
+        "\n",
+        "## Integrated Development Environments and Notebooks\n",
+        "In practice, Python is typically used through integrated development environments (IDEs) and notebooks rather than the Python Shell. With Anaconda Navigator, you can launch [Spyder](https://www.spyder-ide.org/), [Jupyter Notebook](https://jupyter.org/), and [JupyterLab](https://jupyter.org/). \n",
+        "\n",
+        "Spyder is an IDE specifically designed for Python, featuring an in-built Python console along with advanced editing, analysis, and debugging tools. @fig-spyder shows Spyder's interface.\n",
+        "\n",
+        "![Spyder (Source: [Spyder](https://docs.spyder-ide.org/current/index.html))](figures/spyder.png){#fig-spyder}\n",
+        "\n",
+        "Jupyter Notebook is a browser-based interactive tool that allows for live code, equations, visualizations, and narrative text. JupyterLab is the next-generation user interface that includes notebooks and offers IDE-like features. @fig-jupyter shows the JupyterLab interface.\n",
+        "\n",
+        "![JupyterLab (Source: [Project Jupyter](https://docs.jupyter.org/en/latest/))](figures/jupyterlab.webp){#fig-jupyter}\n",
+        "\n",
+        "## Modules\n",
+        "Anaconda includes most of the modules needed for econometric analysis. One of the installed modules is NumPy. To access the square root function in NumPy, we can use one of the following ways:"
+      ],
+      "id": "4f42ba55"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| eval: false\n",
+        "# First way\n",
+        "import numpy\n",
+        "numpy.sqrt(3) # return the squared root of 3\n",
+        "\n",
+        "# Second way\n",
+        "import numpy as np \n",
+        "np.sqrt(3) # return the squared root of 3\n",
+        "\n",
+        "# Third way\n",
+        "from numpy import* \n",
+        "sqrt(3) # return the squared root of 3\n",
+        "\n",
+        "# Fourth way\n",
+        "from numpy import sqrt\n",
+        "sqrt(3)"
+      ],
+      "id": "200b66d5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "In the above code chunk, the hash mark `#`  is used to add comments to the code chunk. The text following the mark is ignored by the Python shell. In the third way, `from numpy import*` makes all functions in `numpy` available. In the fourth way, `from numpy import sqrt` only makes the `sqrt` function available. We recommend using the second way, `import numpy as np`, and accessing the square root function with  `np.sqrt`. \n",
+        "\n",
+        "In Python, **attributes** of objects are accessed using dot notation. The term following the dot is called an attribute of the object. An attribute can contain auxiliary information related to the object or it can act like functions, called methods (@Sheppard2021). In the example `np.sqrt(3)`, `sqrt` is a method (or function) of the `np` object. \n",
+        "\n",
+        "We list some important modules that are required for econometric analysis below:\n",
+        "\n",
+        "* `numpy`: This core package for numerical computation provides array and matrix data types, as well as functions for linear algebra and random number generation. For more information, see <https://numpy.org/>.\n",
+        "\n",
+        "* `scipy`: SciPy includes tools for statistical functions, linear algebra, and optimization. For more information, see <https://www.scipy.org/>.\n",
+        "\n",
+        "* `matplotlib`: This library offers a versatile plotting environment for creating visualizations. To explore its features, see <https://matplotlib.org/>.\n",
+        "\n",
+        "* `seaborn`: Seaborn enhances the appearance of plots with improved default settings. For more information, see <https://seaborn.pydata.org>.\n",
+        "\n",
+        "* `pandas`: Pandas provides user-friendly data structures (series and dataframes) and data analysis capabilities. For more information, see <https://pandas.pydata.org>.\n",
+        "\n",
+        "* `statsmodels`: This module provides tools for estimating classical econometric models, such as linear regression models (linear regression, generalized linear models, robust linear models, linear mixed effects models, logit, probit, etc.), time series models (AR, ARMA, ARIMA, VAR, etc.), and nonparametric models (such as kernel density estimation and kernel regression). For more information, see <https://www.statsmodels.org/stable/index.html>.\n",
+        "\n",
+        "* `scikit-learn`: This module contains various machine learning methods, including classification, clustering, regression (such as lasso, ridge, elastic-net, support vector machines, decision trees, etc.), model selection, and dimensionality reduction methods. For more information, see <https://scikit-learn.org/stable>.\n",
+        "\n",
+        "## Installing Additional Modules\n",
+        "To check all available modules in Anaconda, use the `conda list` command in the Anaconda Prompt. To see if a specific module is available, use the `conda list <module_name>` command. If the module is not included in Anaconda, it must be installed manually. For example, to install the `wooldridge` module, which is used for econometric analysis, we can type `pip install wooldridge` in the Anaconda Prompt or in the Python shell. The `pip` command is a package manager for Python that allows you to install and manage additional modules not included in the Anaconda distribution.\n",
+        "\n",
+        "\n",
+        "\n",
+        "## Variable Assignment\n",
+        "In Python, the assignment operator is the equality symbol `=`. Consider the following examples:"
+      ],
+      "id": "807d893c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Assigning a value to a variable\n",
+        "x = 3\n",
+        "x"
+      ],
+      "id": "92212862",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Assigning strings to a variable\n",
+        "y = \"abc\"\n",
+        "y"
+      ],
+      "id": "0d86a956",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Multiple assignments\n",
+        "x, y, z = 1, 3.1415, \"abcd\"\n",
+        "x, y, z"
+      ],
+      "id": "ecd6bbea",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "The `dir` command or the magic command `%whos` in IPython can be used to list all variables defined in the current session. This is useful for checking the variables you have created during your session."
+      ],
+      "id": "93ea836d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# List all variables in the Python shell\n",
+        "print(dir())"
+      ],
+      "id": "ecb7fb2d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Built-in Data Types\n",
+        "Some useful built-in data types and structures are\n",
+        "\n",
+        "-   numeric types,\n",
+        "-   booleans,\n",
+        "-   strings,\n",
+        "-   lists,\n",
+        "-   tuples,\n",
+        "-   dictionary,\n",
+        "-   sets, and\n",
+        "-   range.\n",
+        "\n",
+        "### Numeric types\n",
+        "In Python, simple numbers can be either integers, floats, or complex numbers. We can use the `type` function to get the type of the object. Consider the following examples:"
+      ],
+      "id": "64956434"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Integer\n",
+        "x = 3\n",
+        "type(x)"
+      ],
+      "id": "a5ea0bf2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Float\n",
+        "x = 3.2\n",
+        "type(x)"
+      ],
+      "id": "c4592342",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Complex\n",
+        "x = 2 + 3j\n",
+        "type(x)"
+      ],
+      "id": "95d770c8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Some built-in binary operators are listed below:\n",
+        "\n",
+        "-   addition: `x+y`\n",
+        "-   subtraction: `x-y`\n",
+        "-   multiplication: `x*y`\n",
+        "-   division: `x/y`\n",
+        "-   integer division: `x//y`=$\\lfloor\\frac{x}{y}\\rfloor$\n",
+        "-   exponentiation: `x**y`=$x^y$\n",
+        "\n",
+        "Consider the following examples:"
+      ],
+      "id": "2085f342"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x, y = 3, 2\n",
+        "x + y  # returns 5"
+      ],
+      "id": "4d4abfb7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x * y  # returns 6"
+      ],
+      "id": "84be3eb6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x // y # returns 1"
+      ],
+      "id": "9d76a3f8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x**y  # returns 9"
+      ],
+      "id": "a70a4b43",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Boolean\n",
+        "In Python, the Boolean data type is used to represent truth values, with `True` and `False` as the reserved keywords."
+      ],
+      "id": "c9d6a22b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = True\n",
+        "type(x)"
+      ],
+      "id": "93262115",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "bool(1)"
+      ],
+      "id": "06465c9b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "bool(0)"
+      ],
+      "id": "feaa5860",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Note that non-zero and non-empty values generally evaluate to `True` when passed to `bool()`. Conversely, zero or empty values, such as `bool(0)`, `bool(0.0)`, `bool(0.0j)`, `bool(None)`, and `bool([])`, all evaluate to `False`.\n",
+        "\n",
+        "Some built-in binary operators returning `True` and `False` are listed below:\n",
+        "\n",
+        "* `a & b`: True if both `a` and `b` are True\n",
+        "* `a | b`: True if either `a` or `b` is True\n",
+        "* `a == b`: True if `a` equals `b`\n",
+        "* `a != b`: True if `a` is not equal to `b`\n",
+        "* `a < b`, `a <= b`: True if `a` is less than (less than or equal to) `b`\n",
+        "* `a > b`, `a >= b`: True if `a` is greater than (greater than or equal to) `b`\n",
+        "\n",
+        "Some illustrative examples are given below."
+      ],
+      "id": "dd61a496"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "a = True\n",
+        "b = True\n",
+        "a & b  # returns True"
+      ],
+      "id": "68f2cfe2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "a == b  # returns True"
+      ],
+      "id": "8217c5c8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "a, b = 18, 4\n",
+        "a <= b  # returns False"
+      ],
+      "id": "032a2db5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Strings\n",
+        "In Python, strings can be enclosed in either single quotes `'string'` or double quotes `\"string\"`."
+      ],
+      "id": "d2425349"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Assigning a string to a variable\n",
+        "x = \"This is a string\"\n",
+        "type(x)\n",
+        "x"
+      ],
+      "id": "77d69239",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "In Python, slicing employs `[ ]` to specify the indices of the characters in a string. Python uses **0-based indexing**. Suppose that `s` has n characters. Then,\n",
+        "\n",
+        "-   `s[:]`: returns entire string,\n",
+        "-   `s[i]`: returns character at index $i$,\n",
+        "-   `s[i:]`: returns characters with indices $i,\\dots,n-1$,\n",
+        "-   `s[:i]`: returns characters with indices $0,\\dots,i-1$,\n",
+        "-   `s[i:j]`: returns characters with indices $i,\\dots,j-1$,\n",
+        "-   `s[i:j:m]`: returns characters with indices $i,i+m,i+2m,\\dots,i+m\\lfloor\\frac{j-i-1}{m}\\rfloor$,\n",
+        "-   `s[-i]`: returns characters at index  $n-i$.\n",
+        "\n",
+        "The following examples illustrate string slicing. "
+      ],
+      "id": "5078f162"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "s = \"Python strings are sliceable.\"\n",
+        "len(s)  # returns the length of the string"
+      ],
+      "id": "669348a4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "s[0] # returns the first character"
+      ],
+      "id": "b7530dfc",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "L = len(s)\n",
+        "s[L - 1]  # returns the last character"
+      ],
+      "id": "2b98f2ff",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "s[:10] # returns the first 9 characters (including space)"
+      ],
+      "id": "af44c437",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "s[10:] # returns the characters from index 10 to the end"
+      ],
+      "id": "43127af8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Lists\n",
+        "A list is a collection of objects constructed using square brackets `[ ]`, with values separated by commas. Some illustrative examples are given in the following."
+      ],
+      "id": "6d139046"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = [1, 2, 3, 4]\n",
+        "type(x)\n",
+        "x"
+      ],
+      "id": "05fbca91",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# A list of lists\n",
+        "y = [[1, 2, 3, 4], [5, 6, 7]]\n",
+        "y"
+      ],
+      "id": "9ce6523a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# A list can contain different data types\n",
+        "z = [1, 1.0, 1 + 0j, \"one\", None, True, False, \"abc\"]\n",
+        "z"
+      ],
+      "id": "c917419f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "List slicing is similar to string slicing. Let $x$ be a list with $n$ elements denoted by $x_0,x_1,\\dots,x_{n-1}$.\n",
+        "\n",
+        "-   `x[:]`: returns $x$\n",
+        "-   `x[i]`: returns $x_i$\n",
+        "-   `x[i:]`: returns $x_i,\\dots,x_{n-1}$\n",
+        "-   `x[:i]`: returns $x_0,\\dots,x_{i-1}$\n",
+        "-   `x[i:j]`: returns $x_i,\\dots,x_{j-1}$\n",
+        "-   `x[i:j:m]`: returns $x_i,x_{i+m},x_{i+2m},\\dots,x_{i+m\\lfloor\\frac{j-i-1}{m}\\rfloor}$\n",
+        "-   `x[-i]`: return $x_{n-i}$\n",
+        "\n",
+        "Consider the following examples:"
+      ],
+      "id": "7dcc9f12"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = [[1, 2, 3, 4], [5, 6, 7, 8]]\n",
+        "x[0]  # the first element of the list x"
+      ],
+      "id": "99379df8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# the first element of the first element of the list x\n",
+        "x[0][0]"
+      ],
+      "id": "d96b57c5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# the second, third, and fourth elements of the first element of the list\n",
+        "x[0][1:4] \n",
+        "x"
+      ],
+      "id": "b29dc4bf",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "In @tbl-t1.1, we provide some useful functions that can be used to manipulate lists. \n",
+        "\n",
+        ":::{layout-ncol=1}\n",
+        "| Function               | Method            | Description                                                |\n",
+        "|----------------------|------------------|--------------------------------|\n",
+        "| `list.append(x,value)` | `x.append(value)` | Appends value to the end of the list.                       |\n",
+        "| `len(x)`               | \\-                | Returns the number of elements in the list.                |\n",
+        "| `list.extend(x,list)`  | `x.extend(list)`  | Appends the values in list to the existing list.            |\n",
+        "| `list.pop(x,index)`    | `x.pop(index)`    | Removes the value in position index and returns the value. |\n",
+        "| `list.remove(x,value)` | `x.remove(value)` | Removes the first occurrence of value from the list.       |\n",
+        "| `list.count(x,value)`  | `x.count(value)`  | Counts the number of occurrences of value in the list.     |\n",
+        "| `del x[slice]`         | -                | Deletes the elements in slice.                             |\n",
+        ": Some useful list functions and methods {#tbl-t1.1}\n",
+        ":::\n",
+        "\n",
+        "\n",
+        "Some illustrative examples are provided below."
+      ],
+      "id": "404e570d"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Appending a value to the end of the list\n",
+        "x = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n",
+        "x.append(0)\n",
+        "x"
+      ],
+      "id": "fa247abb",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Appending a list to the end of the list\n",
+        "x.extend([11, 12, 13, 0])\n",
+        "x"
+      ],
+      "id": "afe96cb6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Remove the element at index 1 and return it\n",
+        "x.pop(1)\n",
+        "x"
+      ],
+      "id": "d269257d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Remove the first occurrence of 0 from the list\n",
+        "x.remove(0)\n",
+        "x"
+      ],
+      "id": "9c1dbbf9",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Tuples\n",
+        "A tuple is similar to a list with one important difference: tuples are immutable. Immutability means that once a tuple is created, it cannot be modified. Tuples are created using `()` with elements separated by commas. Some illustrative examples are provided below. "
+      ],
+      "id": "68f02d76"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = (1, 2, 3, 4, 5, 6, 7, \"a\", \"abc\", \"ABC\")\n",
+        "type(x)"
+      ],
+      "id": "94c409f2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# The first element of the tuple\n",
+        "x[0]"
+      ],
+      "id": "efc6ca58",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Elements at indices 5 to 9\n",
+        "x[5:10]"
+      ],
+      "id": "f51c730d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Converting a tuple to a list\n",
+        "x = list(x) \n",
+        "type(x)"
+      ],
+      "id": "2cc401f0",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Converting a list back to a tuple\n",
+        "x = tuple(x) \n",
+        "type(x)"
+      ],
+      "id": "a7d7a514",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# A tuple of lists\n",
+        "x = ([1, 2], [3, 4])\n",
+        "type(x)"
+      ],
+      "id": "1a157307",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# The second element of the tuple\n",
+        "x[1] "
+      ],
+      "id": "dd8ceae2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Dictionary (dict)\n",
+        "In Python, dictionaries are data structures that store pairs of keys (words) and values (definitions).  Dictionaries are created using the following syntax: `{'key':value}`. You can access a value using its corresponding key. Some illustrative examples are given below."
+      ],
+      "id": "7a49f36b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Creating a dictionary with three key-value pairs\n",
+        "data = {\"age\": 34, \"children\": [1, 2], 1: \"apple\"}\n",
+        "type(data)"
+      ],
+      "id": "e60aa541",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Accessing the value associated with the key 'children'\n",
+        "data['children']"
+      ],
+      "id": "f77c94c7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Changing the value associated with the key 'age'\n",
+        "data[\"age\"] = \"40\"\n",
+        "data"
+      ],
+      "id": "a133db6b",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Adding a new key-value pair\n",
+        "data[\"name\"] = \"Joe\"\n",
+        "data"
+      ],
+      "id": "da4ad344",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Deleting a key-value pair\n",
+        "del data[\"age\"]\n",
+        "data"
+      ],
+      "id": "df76ea94",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Sets\n",
+        "Sets are collections of unique objects. In Python, you can create a set using the `set()` function. Some illustrative examples are shown below. "
+      ],
+      "id": "bacbd6df"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Creating a set with some fruits\n",
+        "x = set([\"Apple\", \"Orange\", \"Banana\", \"Fig\", \"Apricot\"])\n",
+        "type(x)\n",
+        "x"
+      ],
+      "id": "40c7c8a1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Adding a new element to the set\n",
+        "x.add(\"Cherry\")\n",
+        "x"
+      ],
+      "id": "1b5c0b23",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Intersection of two sets\n",
+        "y = set([\"Coconut\", \"Fig\", \"Apricot\"])\n",
+        "x.intersection(y)"
+      ],
+      "id": "6dd40147",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Union of two sets\n",
+        "x = x.union(y)\n",
+        "x"
+      ],
+      "id": "049e9bb2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Removing an element from the set\n",
+        "x.remove(\"Fig\")\n",
+        "x"
+      ],
+      "id": "99d8c4f5",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Range\n",
+        "The function `range(a, b, i)` generates a sequence of numbers starting from `a` (inclusive) up to, but not including, `b`, with an increment of `i`. Some illustrative examples are given below. "
+      ],
+      "id": "9c6526ab"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Creating a range object from 0 to 9\n",
+        "x = range(10)\n",
+        "type(x)"
+      ],
+      "id": "509a2bba",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Checking if x is a range object\n",
+        "isinstance(x, range)"
+      ],
+      "id": "b45977b8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Printing the range object\n",
+        "print(x)"
+      ],
+      "id": "3608d892",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Listing the elements of the range object\n",
+        "list(x) "
+      ],
+      "id": "a6b31745",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Converting the range object to a list\n",
+        "x = range(3, 10, 3)\n",
+        "list(x)"
+      ],
+      "id": "9e3db25c",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "C:\\Users\\odoga\\anaconda3\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

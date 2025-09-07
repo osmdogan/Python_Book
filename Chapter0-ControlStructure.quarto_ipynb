@@ -1,0 +1,803 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Control Structures {#sec-chapter3}\n",
+        "\n",
+        "## Introduction\n",
+        "In this chapter, we introduce commonly used control structures in Python. In a control structure, indentation (four spaces) is important as it determines the start and end of the structure. We cover the following structures:\n",
+        "\n",
+        "* Conditional statements: `if...elif...else`\n",
+        "* Loops: `for` and `while`\n",
+        "* Comprehensions: `List`, `tuple`, `dictionary`, and `set` comprehension\n",
+        "* Control statements: `break` and `continue`\n",
+        "* Exception handling: `try...except`"
+      ],
+      "id": "5c23db4c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import numpy as np\n",
+        "import matplotlib.pyplot as plt\n",
+        "import seaborn as sns"
+      ],
+      "id": "05fcba03",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: false\n",
+        "from IPython.core.interactiveshell import InteractiveShell\n",
+        "InteractiveShell.ast_node_interactivity = \"all\""
+      ],
+      "id": "56386e06",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "$$\n",
+        "\\DeclareMathOperator{\\cov}{cov}\n",
+        "\\DeclareMathOperator{\\corr}{corr} \n",
+        "\\DeclareMathOperator{\\var}{var} \n",
+        "\\DeclareMathOperator{\\SE}{SE} \n",
+        "\\DeclareMathOperator{\\E}{E}\n",
+        "\\DeclareMathOperator{\\A}{\\boldsymbol{A}}\n",
+        "\\DeclareMathOperator{\\x}{\\boldsymbol{x}}\n",
+        "\\DeclareMathOperator{\\sgn}{sgn}  \n",
+        "\\DeclareMathOperator{\\argmin}{argmin} \n",
+        "\\newcommand{\\tr}{\\text{tr}}\n",
+        "\\newcommand{\\bs}{\\boldsymbol}\n",
+        "\\newcommand{\\mb}{\\mathbb}\n",
+        "$$\n",
+        "\n",
+        "\n",
+        "## Conditional statements\n",
+        "The structure of `if...elif...else` is as follows:"
+      ],
+      "id": "d6329c2c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| eval: false\n",
+        "if logical_1:\n",
+        "    Code to run if logical_1\n",
+        "elif logical_2:\n",
+        "    Code to run if logical_2 and not logical_1\n",
+        "elif logical_3:\n",
+        "    Code to run if logical_3 and not logical_1 or logical_2\n",
+        "    ...\n",
+        "    ...\n",
+        "else:\n",
+        "    Code to run if all previous logicals are false"
+      ],
+      "id": "91b0878e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "This  structure allows us to execute the block of the code based on the conditions specified by the logical statements (`logical_1`, `logical_2`, and so on). If none of the logical statements are true, then the structure executes the code following the `else` statement.  Consider the following interaction with Python:\n"
+      ],
+      "id": "d0a7935b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "y = 5\n",
+        "if y < 5:\n",
+        "    y += 1  # equivalent to y=y+1\n",
+        "else:\n",
+        "    y -= 1  # equivalent to y=y-1\n",
+        "y"
+      ],
+      "id": "2ccd1565",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "In the above example, since `y` is not less than 5, the code in the `else` block is executed, and `y` becomes 4. In the following example, the logical condition `x>= 5` is true, so the code in the `elif` block is executed:"
+      ],
+      "id": "c86c8a64"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = 5\n",
+        "if x < 5:\n",
+        "    x = x + 1  # equivalent to x+=1\n",
+        "elif x >= 5:\n",
+        "    x = x**2 - 1\n",
+        "else:\n",
+        "    x = x * 2\n",
+        "x"
+      ],
+      "id": "57d7d057",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Loops\n",
+        "The syntax for the `for` loop is as follows:"
+      ],
+      "id": "4025f2e2"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| eval: false\n",
+        "for item in iterable:\n",
+        "    Code to run"
+      ],
+      "id": "f3644bd3",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Here, `item` is called the loop index. It takes on each successive value in the `iterable`, and the code in the body is executed once for each value. An `iterable` can be any object that is iterable in Python. Common examples include `range`, `np.arange`, `list`, `tuple`, `array`, and `matrix`.\n",
+        "\n",
+        "In the following example, we use a `for` loop to sum the first 100 integers:"
+      ],
+      "id": "c460fb93"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "count = 0\n",
+        "for i in range(101):\n",
+        "    count += i  # equivalent to count += i\n",
+        "count\n",
+        "np.sum(range(101))  # check the loop with np.sum(range(101))"
+      ],
+      "id": "01303e44",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "In the above example, `count` is initialized to 0, and then we iterate through the integers from 0 to 100 (inclusive) using `range(101)`. In each iteration, we add the current integer `i` to `count`. After the loop, `count` contains the sum of the first 100 integers. The result can also be verified using `np.sum(range(101))`."
+      ],
+      "id": "60476bb4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "count = 0\n",
+        "x = np.linspace(0, 500, 50)\n",
+        "for i in x:\n",
+        "    count += i  # Equivalent to \"count = count + i\"\n",
+        "\n",
+        "print(count)\n",
+        "print(np.sum(x))"
+      ],
+      "id": "5e71d56a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Consider the following AR(2) model: $y_t=\\phi_1y_{t-1}+\\phi_2y_{t-2}+\\epsilon_t$ for $t=1,\\dots,T$, where $\\phi_1 = 0.6$, $\\phi_2 = 0.2$, and $\\epsilon_t\\sim N(0,1)$. In the following example, we use a `for` loop to simulate the sample path of this model. We first set the seed through `np.random.seed(42)` for reproducibility. We then set the parameters of the AR(2) model, initialize `y`, and generate the error term `epsilon`. Finally, we use a `for` loop to simulate the AR(2) process for $t=2,\\dots,T+1$:"
+      ],
+      "id": "7401d999"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Set seed for reproducibility\n",
+        "np.random.seed(42)\n",
+        "# Parameters for AR(2) model\n",
+        "phi_1 = 0.6\n",
+        "phi_2 = 0.2\n",
+        "T = 100\n",
+        "# Initialize the time series\n",
+        "y = np.zeros(T)\n",
+        "epsilon = np.random.normal(0, 1, T)\n",
+        "# Simulate AR(2) process\n",
+        "for t in range(2, T):\n",
+        "    y[t] = phi_1 * y[t - 1] + phi_2 * y[t - 2] + epsilon[t]"
+      ],
+      "id": "180c6f7a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "In @fig-fig3.1, we provide the plot of the simulated $y_t$.\n",
+        "\n",
+        ":::{}"
+      ],
+      "id": "e416cabb"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: false\n",
+        "from IPython.core.interactiveshell import InteractiveShell\n",
+        "InteractiveShell.ast_node_interactivity = \"last\""
+      ],
+      "id": "d1fc23d9",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-cap: The sample path of the AR(2) model using  the for loop\n",
+        "#| label: fig-fig3.1\n",
+        "# Plot of y\n",
+        "sns.set_style(\"darkgrid\")\n",
+        "fig, ax = plt.subplots(figsize=[6, 3])\n",
+        "ax.plot(y, color=\"steelblue\")\n",
+        "ax.set_xlabel(\"Time\")\n",
+        "ax.set_ylabel(r\"$y_t$\")\n",
+        "plt.show()"
+      ],
+      "id": "fig-fig31",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "A `for` loop can be nested inside another `for` loop, as illustrated in the following example:"
+      ],
+      "id": "7ef5ebe0"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "count = 0\n",
+        "for i in range(10):\n",
+        "    for j in range(10):  # nested for loop\n",
+        "        count = count + j\n",
+        "count"
+      ],
+      "id": "36829975",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: false\n",
+        "from IPython.core.interactiveshell import InteractiveShell\n",
+        "InteractiveShell.ast_node_interactivity = \"all\""
+      ],
+      "id": "21b35ba1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "The `while` loop  executes as long as a specified condition is true. The syntax for  the `while` loop as follows:"
+      ],
+      "id": "a7d98d0a"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| eval: false\n",
+        "while logical:\n",
+        "    Code to run\n",
+        "    Update logical"
+      ],
+      "id": "9b14dafa",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "This structure keeps executing the block of code as long as the `logical` condition remains true. Therefore, it is important to update the logical condition within the loop to eventually break out of it; otherwise, the loop will run indefinitely. \n",
+        "\n",
+        "In the following example, we use a `while` loop to sum the first 9 integers. Note that we initialize `count` to 0 and `i` to 1. The loop continues as long as `i` is less than 10, and in each iteration, we add `i` to `count` and increment `i` by 1:"
+      ],
+      "id": "b3fea5ef"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "count = 0\n",
+        "i = 1\n",
+        "while i < 10:\n",
+        "    count = count + i\n",
+        "    i += 1  # equivalent to i=i+1\n",
+        "count"
+      ],
+      "id": "92266b39",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "In the following example, we use a `while` loop to simulate the AR(2) model described above. We set the seed for reproducibility, initialize the parameters, and generate the error term `epsilon`. The loop runs from `t=2` to `T-1`, updating `y[t]` based on the AR(2) equation. Also, we update `t` in each iteration to ensure the loop eventually terminates:"
+      ],
+      "id": "89b15014"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Set seed for reproducibility\n",
+        "np.random.seed(42)\n",
+        "# Parameters for AR(2) model\n",
+        "phi_1 = 0.6\n",
+        "phi_2 = 0.2\n",
+        "T = 100\n",
+        "# Initialize the time series\n",
+        "y = np.zeros(T)\n",
+        "epsilon = np.random.normal(0, 1, T)\n",
+        "# Simulate AR(2) process\n",
+        "t = 2\n",
+        "while t < T:\n",
+        "    y[t] = phi_1 * y[t - 1] + phi_2 * y[t - 2] + epsilon[t]\n",
+        "    t += 1  # Update logical condition"
+      ],
+      "id": "38b6e189",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "The simulated sample path of the AR(2) model is shown in @fig-fig3.2. Note that the sample path is the same as the one generated using the `for` loop in @fig-fig3.1.\n",
+        "\n",
+        ":::{}"
+      ],
+      "id": "693ed42b"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: false\n",
+        "from IPython.core.interactiveshell import InteractiveShell\n",
+        "InteractiveShell.ast_node_interactivity = \"last\""
+      ],
+      "id": "eefe52c3",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| fig-cap: The sample path of the AR(2) model using the while loop\n",
+        "#| label: fig-fig3.2\n",
+        "# Plot of y\n",
+        "sns.set_style(\"darkgrid\")\n",
+        "fig, ax = plt.subplots(figsize=[6, 3])\n",
+        "ax.plot(y, color=\"steelblue\")\n",
+        "ax.set_xlabel(\"Time\")\n",
+        "ax.set_ylabel(r\"$y_t$\")\n",
+        "plt.show()"
+      ],
+      "id": "fig-fig32",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "## Comprehensions\n",
+        "Comprehensions allow us to use a loop within structures such as lists, sets, tuples, and dictionaries. They provide a concise way to perform iterations.\n",
+        "\n",
+        "### List comprehensions\n",
+        "The syntax for the `list` comprehension is as follows:"
+      ],
+      "id": "b6f8e1e6"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| eval: false\n",
+        "output=[expression for item in iterable if (item satisfies this condition)]"
+      ],
+      "id": "b1d72dc0",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Here, `expression` is the value to be included in the list, `item` is the loop index, and `iterable` is any iterable object. The `if` condition is optional and can be used to filter items based on a specific condition.\n",
+        "\n",
+        "In the following example, we use a `for` loop to compute the exponential of each element in an array `x`:"
+      ],
+      "id": "4a8d15ba"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Using a for loop\n",
+        "x = np.arange(3.0)\n",
+        "y = []\n",
+        "for i in range(len(x)):\n",
+        "    y.append(np.exp(x[i]))\n",
+        "y"
+      ],
+      "id": "1dc060d1",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Instead of using a `for` loop, we can achieve the same result using a list comprehension as follows:"
+      ],
+      "id": "47b03eec"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Using a list comprehension\n",
+        "z = [np.exp(x[i]) for i in range(len(x))]\n",
+        "z"
+      ],
+      "id": "3291ce34",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "In the following example, we use a `for` loop to compute the square of every second element in an array `x` and store the results in a list `y`. Instead of using a `for` loop, we can use a list comprehension to achieve the same result as shown in the following code chunk."
+      ],
+      "id": "46db6d93"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Using a for loop\n",
+        "x = np.arange(5.0)\n",
+        "y = []\n",
+        "for i in range(len(x)):\n",
+        "    if np.floor(i / 2) == i / 2:\n",
+        "        y.append(x[i] ** 2)\n",
+        "y"
+      ],
+      "id": "73b286eb",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Using a list comprehension\n",
+        "z = [x[i] ** 2 for i in range(len(x)) if np.floor(i / 2) == i / 2]\n",
+        "z"
+      ],
+      "id": "4a5faf4c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Set  comprehensions\n",
+        "Set comprehensions are like list comprehension but  use `{}` instead of `[]`. Consider the following `for` loop example, which computes the square of each element in an array `x` and stores the results in a set `z`:"
+      ],
+      "id": "d5d376f4"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Using a for loop\n",
+        "x = np.arange(-5.0, 5.0)\n",
+        "z = set()\n",
+        "for i in range(len(x)):\n",
+        "    z.add(x[i] ** 2)\n",
+        "z"
+      ],
+      "id": "21666eb8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "Instead of using a `for` loop, we can use a set comprehension to achieve the same result. A set comprehension is similar to a list comprehension but uses `{}` to create a set:"
+      ],
+      "id": "0c96456e"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Using a set comprehension\n",
+        "z_set = {x[i] ** 2.0 for i in range(len(x))}\n",
+        "z_set"
+      ],
+      "id": "3f5192e2",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "In the following example, we have an `if` conditional nested inside a `for` loop:"
+      ],
+      "id": "345dd5d0"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "input_list = [1, 2, 3, 4, 4, 5, 6, 6, 6, 7, 7]\n",
+        "set_comp = {np.exp(var) for var in input_list if var % 2 == 0}\n",
+        "set_comp"
+      ],
+      "id": "f8a613c8",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Dictionary comprehensions\n",
+        "Dictionary comprehensions also use `{}`. The syntax of a dictionary comprehension is as follows:"
+      ],
+      "id": "1abdee3f"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| eval: false\n",
+        "output = {key:value for (key, value) in iterable if (key, value satisfy this condition)}"
+      ],
+      "id": "6df500c4",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "In the following example, we use a `for` loop to create a dictionary `y` where the keys are odd numbers from 1 to 7, and the values are the cubes of those keys:"
+      ],
+      "id": "1cfed2c5"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = [1, 2, 3, 4, 5, 6, 7]\n",
+        "y = {var: var**3 for var in x if var % 2 != 0}\n",
+        "y"
+      ],
+      "id": "e4bce412",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "In the following example, we use a `for` loop to create a dictionary `x` where the keys are the indices of an array `y`, and the values are the exponential of those indices:"
+      ],
+      "id": "cd468605"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Using a for loop\n",
+        "y = np.arange(-5.0, 5.0)\n",
+        "x = {}\n",
+        "for i in range(len(y)):\n",
+        "    z = {i: np.exp(i)}\n",
+        "    x.update(z)\n",
+        "print(x)\n",
+        "\n",
+        "# Using a dictionary comprehension\n",
+        "z_dict = {i: np.exp(i) for i in range(len(y))}\n",
+        "print(z_dict)"
+      ],
+      "id": "879d4d7f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "### Tuple comprehension\n",
+        "Tuple comprehensions use `tuple()` with the following syntax:"
+      ],
+      "id": "e90871da"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| eval: false\n",
+        "output = tuple(expression for item in iterable if (item satisfies this condition))"
+      ],
+      "id": "42f78534",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "In the following example, we use a `for` loop to compute the cube of each element in an array `x` and store the results in a list `z`. We then use a tuple comprehension to achieve the same result:"
+      ],
+      "id": "a886172c"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Using a for loop\n",
+        "x = np.arange(-5.0, 5.0)\n",
+        "z = []\n",
+        "for i in x:\n",
+        "    z.append(i**3)\n",
+        "z"
+      ],
+      "id": "b6bbf62e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "# Using a tuple comprehension\n",
+        "z_tuple = tuple(i**3 for i in x)\n",
+        "z_tuple"
+      ],
+      "id": "7ca851d0",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Control statements: `break` and `continue`\n",
+        "\n",
+        "These statements can be used inside control structures for terminating or skipping certain iterations. The `break` statement is used when we want to end the loop if a condition is satisfied. If we want to skip specific iterations, we can use the `continue` statement. \n",
+        "\n",
+        "In the following example, we use a `for` loop to print numbers from 0 to 9. However, the loop ends when `i` equals 3 due to the `break` statement; as a result, it only prints the numbers 0, 1, and 2."
+      ],
+      "id": "25bcc647"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "for i in range(10):\n",
+        "    if i == 3:\n",
+        "        break  # Loop ends when i equals 3\n",
+        "    print(i)"
+      ],
+      "id": "ff15e710",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "In the following example, we use a `for` loop to print numbers from 0 to 5. However, the `continue` statement skips the even numbers, so only the odd numbers (1, 3, and 5) are printed:"
+      ],
+      "id": "9e017cd7"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "for i in range(6):\n",
+        "    if i % 2 == 0:\n",
+        "        continue  # Skips even numbers\n",
+        "    print(i)"
+      ],
+      "id": "93ed596a",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Exception handling\n",
+        "The `try...except` structure can be used to handle errors and exceptions. For more information, see the [Errors and Exceptions](https://docs.python.org/3/tutorial/errors.html) section in the documentation. \n",
+        "\n",
+        "In the following example, we attempt to divide a number by zero, which raises a `ZeroDivisionError`. The `except` block catches this error and prints a message:"
+      ],
+      "id": "9ebc76ae"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "x = 10\n",
+        "try:\n",
+        "    result = x / 0\n",
+        "except ZeroDivisionError:\n",
+        "    print(\"You can't divide by zero!\")"
+      ],
+      "id": "5b08dd41",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "C:\\Users\\odoga\\anaconda3\\share\\jupyter\\kernels\\python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
