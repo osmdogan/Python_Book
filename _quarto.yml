@@ -4,7 +4,6 @@ project:
 
 book:
   title: "Introduction to Econometrics with Python"
-  reader-mode: true
   author: ["[Osman Doğan](https://sites.google.com/view/osmandogan/home)", "[Süleyman Taşpınar](https://sites.google.com/site/gcsuleymantaspinar/)"]
   date: "today"
   repo-url: https://github.com/osmdogan/datasets.git
@@ -80,6 +79,15 @@ format:
      - r4ds.scss
     code-link: true
     toc: true
+    toc-location: right
     toc-title: "Table of Contents"
+    toc-depth: 3
+    number-sections: true
+    sidebar:
+      style: "docked"
+      search: true
+      collapse-level: 1
+     
+
 
   
