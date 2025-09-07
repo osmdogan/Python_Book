@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,9 +21,8 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -34,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,16 +86,15 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <link href="./Chapter3-ReviewStatistics.html" rel="next">
 <link href="./Chapter1-EconomicQuestion.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2547481e3dbc57c118b6910fb4e5551a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -126,10 +124,7 @@ div.csl-indent {
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -163,7 +158,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -530,7 +525,7 @@ window.Quarto = {
 </header>
 
 
-<div id="781a99fd" class="cell" data-execution_count="1">
+<div id="a70cb19d" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
@@ -650,7 +645,7 @@ P(X=x_i) = p_i,\quad i=1,2,\dots,k,
 </div>
 <div id="exm-example9.6" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9.6</strong></span> Let <span class="math inline">\(M\)</span> be a random variable that measures the number of times your wireless network connection fails while you are writing a term paper. Let us assume that <span class="math inline">\(M\)</span> takes values from <span class="math inline">\(\{0,1,2,3,4\}\)</span>, with the corresponding probabilities given by <span class="math inline">\(\{0.80,0.10,0.06,0.03, 0.01\}\)</span>. In the following, we summarize the probability distribution of <span class="math inline">\(M\)</span> in a table.</p>
-<div id="02b43176" class="cell" data-execution_count="2">
+<div id="f2f6ef25" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability distribution of M</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>outcomes <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># probabilities</span></span>
@@ -663,6 +658,9 @@ P(X=x_i) = p_i,\quad i=1,2,\dots,k,
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># y.columns = [""] * y.shape[1]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>When we print the dataframe <code>y</code>, we obtain the probability distribution shown in <a href="#tbl-t9.1" class="quarto-xref">Table&nbsp;<span>9.1</span></a>. The first row of <a href="#tbl-t9.1" class="quarto-xref">Table&nbsp;<span>9.1</span></a> gives the possible outcomes of the random variable <span class="math inline">\(M\)</span>, the second row gives the probability distribution of <span class="math inline">\(M\)</span>, and the last row gives the cumulative probability distribution of <span class="math inline">\(M\)</span>, which is defined below.</p>
+<div>
+
+</div>
 <div class="quarto-layout-panel" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="cell quarto-layout-cell" data-execution_count="3" style="flex-basis: 100.0%;justify-content: center;">
@@ -949,10 +947,10 @@ f_Y(y)=\frac{d}{dy}F_Y(y)=
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="fl">3.5</span>))</span>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># First part: -0.5 &lt;= y_pdf &lt;= 1</span></span>
 <span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>mask1 <span class="op">=</span> (y_pdf <span class="op">&gt;=</span> <span class="op">-</span><span class="fl">0.5</span>) <span class="op">&amp;</span> (y_pdf <span class="op">&lt;=</span> <span class="dv">1</span>)</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>ax.plot(y_pdf[mask1], pdf[mask1], color<span class="op">=</span><span class="st">"steelblue"</span>, label<span class="op">=</span><span class="vs">r"</span><span class="dv">$</span><span class="vs">-0</span><span class="dv">.</span><span class="vs">5 </span><span class="er">\</span><span class="vs">leq y </span><span class="er">\</span><span class="vs">leq 1</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>ax.plot(y_pdf[mask1], pdf[mask1], color<span class="op">=</span><span class="st">"steelblue"</span>, label<span class="op">=</span><span class="vs">r"$-0.5 \leq y \leq 1$"</span>)</span>
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Second part: 1 &lt; y_pdf &lt;= 1.5</span></span>
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>mask2 <span class="op">=</span> (y_pdf <span class="op">&gt;</span> <span class="dv">1</span>) <span class="op">&amp;</span> (y_pdf <span class="op">&lt;=</span> <span class="fl">1.5</span>)</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>ax.plot(y_pdf[mask2], pdf[mask2], color<span class="op">=</span><span class="st">"steelblue"</span>, label<span class="op">=</span><span class="vs">r"</span><span class="dv">$</span><span class="vs">1 &lt; y </span><span class="er">\</span><span class="vs">leq 1</span><span class="dv">.</span><span class="vs">5</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>ax.plot(y_pdf[mask2], pdf[mask2], color<span class="op">=</span><span class="st">"steelblue"</span>, label<span class="op">=</span><span class="vs">r"$1 &lt; y \leq 1.5$"</span>)</span>
 <span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>ax.scatter([<span class="dv">1</span>], [<span class="dv">0</span>], facecolors<span class="op">=</span><span class="st">"white"</span>, edgecolors<span class="op">=</span><span class="st">"steelblue"</span>, s<span class="op">=</span><span class="dv">40</span>, zorder<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>ax.scatter([<span class="dv">1</span>], [<span class="dv">2</span>], facecolors<span class="op">=</span><span class="st">"white"</span>, edgecolors<span class="op">=</span><span class="st">"steelblue"</span>, s<span class="op">=</span><span class="dv">40</span>, zorder<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"y"</span>)</span>
@@ -1030,9 +1028,9 @@ F(y)=\int_{-\infty}^yf(x)\text{d}x=
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>pdf <span class="op">=</span> np.where(y_pdf <span class="op">&lt;</span> <span class="dv">0</span>, <span class="dv">0</span>, np.where((y_pdf <span class="op">&gt;</span> <span class="dv">0</span>) <span class="op">&amp;</span> (y_pdf <span class="op">&lt;</span> <span class="dv">1</span>), <span class="dv">3</span> <span class="op">*</span> y_pdf<span class="op">**</span><span class="dv">2</span>, <span class="dv">0</span>))</span>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="fl">3.5</span>))</span>
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>mask1 <span class="op">=</span> (y_pdf <span class="op">&gt;=</span> <span class="op">-</span><span class="fl">0.5</span>) <span class="op">&amp;</span> (y_pdf <span class="op">&lt;=</span> <span class="dv">1</span>)</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>ax.plot(y_pdf[mask1], pdf[mask1], color<span class="op">=</span><span class="st">"steelblue"</span>, label<span class="op">=</span><span class="vs">r"</span><span class="dv">$</span><span class="vs">-0</span><span class="dv">.</span><span class="vs">5 </span><span class="er">\</span><span class="vs">leq y </span><span class="er">\</span><span class="vs">leq 1</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>ax.plot(y_pdf[mask1], pdf[mask1], color<span class="op">=</span><span class="st">"steelblue"</span>, label<span class="op">=</span><span class="vs">r"$-0.5 \leq y \leq 1$"</span>)</span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>mask2 <span class="op">=</span> (y_pdf <span class="op">&gt;</span> <span class="dv">1</span>) <span class="op">&amp;</span> (y_pdf <span class="op">&lt;=</span> <span class="fl">1.5</span>)</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>ax.plot(y_pdf[mask2], pdf[mask2], color<span class="op">=</span><span class="st">"steelblue"</span>, label<span class="op">=</span><span class="vs">r"</span><span class="dv">$</span><span class="vs">1 &lt; y </span><span class="er">\</span><span class="vs">leq 1</span><span class="dv">.</span><span class="vs">5</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>ax.plot(y_pdf[mask2], pdf[mask2], color<span class="op">=</span><span class="st">"steelblue"</span>, label<span class="op">=</span><span class="vs">r"$1 &lt; y \leq 1.5$"</span>)</span>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a solid point at (1, 3)</span></span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>ax.scatter([<span class="dv">1</span>], [<span class="dv">3</span>], color<span class="op">=</span><span class="st">"steelblue"</span>, zorder<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a hollow point at (1, 0)</span></span>
@@ -1092,7 +1090,7 @@ Figure&nbsp;9.6: The CDF and PDF plots of <span class="math inline">\(Y\)</span>
 \end{align*}
 \]</span></p>
 <p>Thus, <span class="math inline">\(f_Y(y)\)</span> is a proper density function. Numerically, we can use the <code>quad</code> method from the <code>scipy.integrate</code> module to compute the above integral, as illustrated below.</p>
-<div id="af2cbaff" class="cell" data-execution_count="10">
+<div id="53fa386e" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fun(z):</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">3</span> <span class="op">/</span> z<span class="op">**</span><span class="dv">4</span></span>
@@ -1175,7 +1173,7 @@ P(a &lt; Y &lt; b) &amp;= P(a\leq Y &lt; b) = P(a &lt; Y \leq b) = P(a \leq Y \l
 \end{align*}
 \]</span></p>
 <p>Using the <code>quad</code> function from the <code>scipy.integrate</code> module, we can compute the expected value of <span class="math inline">\(Y\)</span> numerically as follows:</p>
-<div id="8a977216" class="cell" data-execution_count="11">
+<div id="c89aca9f" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function for the expected value</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fun(y):</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y <span class="op">*</span> <span class="dv">3</span> <span class="op">/</span> y<span class="op">**</span><span class="dv">4</span></span>
@@ -1762,7 +1760,7 @@ Figure&nbsp;9.11: The integration region for computing <span class="math inline"
 </div>
 </div>
 <p>Using the <code>dblquad</code> function from the <code>scipy.integrate</code> module, we can compute the joint CDF <span class="math inline">\(F_{X,Y}(0.5, 0.5)\)</span> numerically as follows:</p>
-<div id="fb388451" class="cell" data-execution_count="18">
+<div id="d7a36844" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the joint PDF function</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> joint_pdf(y, x):</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">30</span> <span class="op">*</span> x <span class="op">*</span> y<span class="op">**</span><span class="dv">2</span></span>
@@ -2126,9 +2124,9 @@ Figure&nbsp;9.12: The plots of binomial distributions
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">0</span>, <span class="fl">7.5</span>)</span>
 <span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">0</span>, <span class="fl">0.5</span>)</span>
 <span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>ax.set_xticks([<span class="dv">0</span>, np.pi<span class="op">/</span><span class="dv">2</span>, np.pi, <span class="dv">3</span><span class="op">*</span>np.pi<span class="op">/</span><span class="dv">2</span>, <span class="dv">2</span><span class="op">*</span>np.pi])</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels([<span class="st">'0'</span>, <span class="vs">r'</span><span class="dv">$</span><span class="er">\</span><span class="vs">pi/2</span><span class="dv">$</span><span class="vs">'</span>, <span class="vs">r'</span><span class="dv">$</span><span class="er">\</span><span class="vs">pi</span><span class="dv">$</span><span class="vs">'</span>, <span class="vs">r'</span><span class="dv">$</span><span class="vs">3</span><span class="er">\</span><span class="vs">pi/2</span><span class="dv">$</span><span class="vs">'</span>, <span class="vs">r'</span><span class="dv">$</span><span class="vs">2</span><span class="er">\</span><span class="vs">pi</span><span class="dv">$</span><span class="vs">'</span>])</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels([<span class="st">'0'</span>, <span class="vs">r'$\pi/2$'</span>, <span class="vs">r'$\pi$'</span>, <span class="vs">r'$3\pi/2$'</span>, <span class="vs">r'$2\pi$'</span>])</span>
 <span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>ax.set_yticks([<span class="dv">0</span>, <span class="dv">1</span><span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>np.pi)])</span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels([<span class="st">'0'</span>, <span class="vs">r'</span><span class="dv">$</span><span class="vs">1/2</span><span class="er">\</span><span class="vs">pi</span><span class="dv">$</span><span class="vs">'</span>])</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels([<span class="st">'0'</span>, <span class="vs">r'$1/2\pi$'</span>])</span>
 <span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="co"># CDF</span></span>
@@ -2143,7 +2141,7 @@ Figure&nbsp;9.12: The plots of binomial distributions
 <span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw horizontal line at y=1 from 2*pi to 7.5</span></span>
 <span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>ax.hlines(<span class="dv">1</span>, <span class="dv">2</span><span class="op">*</span>np.pi, <span class="fl">7.5</span>, colors<span class="op">=</span><span class="st">'steelblue'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>ax.set_xticks([<span class="dv">0</span>, np.pi<span class="op">/</span><span class="dv">2</span>, np.pi, <span class="dv">3</span><span class="op">*</span>np.pi<span class="op">/</span><span class="dv">2</span>, <span class="dv">2</span><span class="op">*</span>np.pi])</span>
-<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels([<span class="st">'0'</span>, <span class="vs">r'</span><span class="dv">$</span><span class="er">\</span><span class="vs">pi/2</span><span class="dv">$</span><span class="vs">'</span>, <span class="vs">r'</span><span class="dv">$</span><span class="er">\</span><span class="vs">pi</span><span class="dv">$</span><span class="vs">'</span>, <span class="vs">r'</span><span class="dv">$</span><span class="vs">3</span><span class="er">\</span><span class="vs">pi/2</span><span class="dv">$</span><span class="vs">'</span>, <span class="vs">r'</span><span class="dv">$</span><span class="vs">2</span><span class="er">\</span><span class="vs">pi</span><span class="dv">$</span><span class="vs">'</span>])</span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels([<span class="st">'0'</span>, <span class="vs">r'$\pi/2$'</span>, <span class="vs">r'$\pi$'</span>, <span class="vs">r'$3\pi/2$'</span>, <span class="vs">r'$2\pi$'</span>])</span>
 <span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="fig-fig9.13" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
@@ -2199,7 +2197,7 @@ Figure&nbsp;9.13: The PDF and CDF plots of uniform distribution
 <div>
 <div id="exm-example9.26" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9.26</strong></span> Let <span class="math inline">\(Y\sim N(0.35,2.25)\)</span> and consider <span class="math inline">\(P(-0.5&lt;Y\leq 0.75)\)</span>, which corresponds to the shaded area illustrated in <a href="#fig-f9.14" class="quarto-xref">Figure&nbsp;<span>9.14</span></a>. Using the <code>scipy.stats.norm.cdf</code> function, we can compute <span class="math inline">\(P(-0.5&lt;Y\leq 0.75)\)</span> in the following way:</p>
-<div id="86d75dac" class="cell" data-execution_count="21">
+<div id="2f869cd1" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>stats.norm.cdf(<span class="fl">0.75</span>,loc<span class="op">=</span><span class="fl">0.35</span>,scale<span class="op">=</span><span class="fl">1.5</span>)<span class="op">-</span>stats.norm.cdf(<span class="op">-</span><span class="fl">0.5</span>,loc<span class="op">=</span><span class="fl">0.35</span>,scale<span class="op">=</span><span class="fl">1.5</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(p,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
@@ -2249,9 +2247,9 @@ Figure&nbsp;9.14: Calculating probabilities
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and axis object for PDF</span></span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">3</span>))</span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the PDFs</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.norm.pdf(y, <span class="dv">0</span>, <span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$\m</span><span class="vs">u=0, </span><span class="dv">\s</span><span class="vs">igma=1</span><span class="dv">$</span><span class="vs">'</span>)</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.norm.pdf(y, <span class="op">-</span><span class="dv">2</span>, <span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$\m</span><span class="vs">u=-2, </span><span class="dv">\s</span><span class="vs">igma=1</span><span class="dv">$</span><span class="vs">'</span>)</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.norm.pdf(y, <span class="dv">0</span>, <span class="dv">3</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$\m</span><span class="vs">u=0, </span><span class="dv">\s</span><span class="vs">igma=3</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.norm.pdf(y, <span class="dv">0</span>, <span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$\mu=0, \sigma=1$'</span>)</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.norm.pdf(y, <span class="op">-</span><span class="dv">2</span>, <span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$\mu=-2, \sigma=1$'</span>)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.norm.pdf(y, <span class="dv">0</span>, <span class="dv">3</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$\mu=0, \sigma=3$'</span>)</span>
 <span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Customize the plot</span></span>
 <span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'y'</span>)</span>
 <span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'PDF'</span>)</span>
@@ -2262,9 +2260,9 @@ Figure&nbsp;9.14: Calculating probabilities
 <span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and axis object for CDF</span></span>
 <span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">3</span>))</span>
 <span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the CDFs</span></span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.norm.cdf(y, <span class="dv">0</span>, <span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$\m</span><span class="vs">u=0, </span><span class="dv">\s</span><span class="vs">igma=1</span><span class="dv">$</span><span class="vs">'</span>)</span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.norm.cdf(y, <span class="op">-</span><span class="dv">2</span>, <span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$\m</span><span class="vs">u=-2, </span><span class="dv">\s</span><span class="vs">igma=1</span><span class="dv">$</span><span class="vs">'</span>)</span>
-<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.norm.cdf(y, <span class="dv">0</span>, <span class="dv">3</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$\m</span><span class="vs">u=0, </span><span class="dv">\s</span><span class="vs">igma=3</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.norm.cdf(y, <span class="dv">0</span>, <span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$\mu=0, \sigma=1$'</span>)</span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.norm.cdf(y, <span class="op">-</span><span class="dv">2</span>, <span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$\mu=-2, \sigma=1$'</span>)</span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.norm.cdf(y, <span class="dv">0</span>, <span class="dv">3</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$\mu=0, \sigma=3$'</span>)</span>
 <span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Customize the plot</span></span>
 <span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'y'</span>)</span>
 <span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'CDF'</span>)</span>
@@ -2319,7 +2317,7 @@ Figure&nbsp;9.15: The plots of PDF and CDF of normal distributions
 <p>The <strong>chi-squared distribution</strong> is used when testing certain types of hypotheses in econometrics. The chi-squared distribution that has <span class="math inline">\(m\)</span> degrees of freedom, denoted by <span class="math inline">\(\chi^2_{m}\)</span>, is the distribution of the sum of <span class="math inline">\(m\)</span> squared independent standard normal random variables. The mean and variance of the chi-squared distribution are given by <span class="math inline">\(m\)</span> and <span class="math inline">\(2m\)</span>, respectively.</p>
 <div id="exm-example9.27" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9.27</strong></span> Let <span class="math inline">\(Z_1\)</span>, <span class="math inline">\(Z_2\)</span> and <span class="math inline">\(Z_3\)</span> be independent standard normal random variables. If we define <span class="math inline">\(Y=Z^2_1+Z^2_2+Z^2_3\)</span>, then <span class="math inline">\(Y\sim \chi^2_3\)</span>. We can use the <code>scipy.stats.chi2()</code> function to compute the PDF and CDF of <span class="math inline">\(Y\)</span>. For example, we can compute <span class="math inline">\(P(Y\leq 5)\)</span> as follows:</p>
-<div id="7a41c22f" class="cell" data-execution_count="24">
+<div id="75f94379" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> stats.chi2.cdf(<span class="dv">5</span>, df<span class="op">=</span><span class="dv">3</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(p, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
@@ -2334,9 +2332,9 @@ Figure&nbsp;9.15: The plots of PDF and CDF of normal distributions
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and axis object for PDF</span></span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">3</span>))</span>
 <span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the PDFs</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.chi2.pdf(y, df<span class="op">=</span><span class="dv">3</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$</span><span class="vs">m=3</span><span class="dv">$</span><span class="vs">'</span>)</span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.chi2.pdf(y, df<span class="op">=</span><span class="dv">4</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$</span><span class="vs">m=4</span><span class="dv">$</span><span class="vs">'</span>)</span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.chi2.pdf(y, df<span class="op">=</span><span class="dv">10</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$</span><span class="vs">m=10</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.chi2.pdf(y, df<span class="op">=</span><span class="dv">3</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$m=3$'</span>)</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.chi2.pdf(y, df<span class="op">=</span><span class="dv">4</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$m=4$'</span>)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.chi2.pdf(y, df<span class="op">=</span><span class="dv">10</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$m=10$'</span>)</span>
 <span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Customize the plot</span></span>
 <span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'y'</span>)</span>
 <span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'PDF'</span>)</span>
@@ -2347,9 +2345,9 @@ Figure&nbsp;9.15: The plots of PDF and CDF of normal distributions
 <span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and axis object for CDF</span></span>
 <span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">3</span>))</span>
 <span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the CDFs</span></span>
-<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.chi2.cdf(y, df<span class="op">=</span><span class="dv">3</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$</span><span class="vs">m=3</span><span class="dv">$</span><span class="vs">'</span>)</span>
-<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.chi2.cdf(y, df<span class="op">=</span><span class="dv">4</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$</span><span class="vs">m=4</span><span class="dv">$</span><span class="vs">'</span>)</span>
-<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.chi2.cdf(y, df<span class="op">=</span><span class="dv">10</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$</span><span class="vs">m=10</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.chi2.cdf(y, df<span class="op">=</span><span class="dv">3</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$m=3$'</span>)</span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.chi2.cdf(y, df<span class="op">=</span><span class="dv">4</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$m=4$'</span>)</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>ax.plot(y, stats.chi2.cdf(y, df<span class="op">=</span><span class="dv">10</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$m=10$'</span>)</span>
 <span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Customize the plot</span></span>
 <span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'y'</span>)</span>
 <span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'CDF'</span>)</span>
@@ -2405,8 +2403,8 @@ Figure&nbsp;9.16: The plots of PDF and CDF of chi-squared distributions
 <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">3</span>))</span>
 <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the PDFs</span></span>
 <span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>ax.plot(t_values, stats.norm.pdf(t_values, <span class="dv">0</span>, <span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="st">'N(0,1)'</span>)</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>ax.plot(t_values, stats.t.pdf(t_values, df<span class="op">=</span><span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$</span><span class="vs">t_1</span><span class="dv">$</span><span class="vs">'</span>)</span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>ax.plot(t_values, stats.t.pdf(t_values, df<span class="op">=</span><span class="dv">10</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$</span><span class="vs">t_</span><span class="op">{10}</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>ax.plot(t_values, stats.t.pdf(t_values, df<span class="op">=</span><span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$t_1$'</span>)</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>ax.plot(t_values, stats.t.pdf(t_values, df<span class="op">=</span><span class="dv">10</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$t_</span><span class="sc">{10}</span><span class="vs">$'</span>)</span>
 <span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Customize the plot</span></span>
 <span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'t'</span>)</span>
 <span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'PDF'</span>)</span>
@@ -2419,8 +2417,8 @@ Figure&nbsp;9.16: The plots of PDF and CDF of chi-squared distributions
 <span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">3</span>))</span>
 <span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the CDFs</span></span>
 <span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>ax.plot(t_values, stats.norm.cdf(t_values, <span class="dv">0</span>, <span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="st">'N(0,1)'</span>)</span>
-<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>ax.plot(t_values, stats.t.cdf(t_values, df<span class="op">=</span><span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$</span><span class="vs">t_1</span><span class="dv">$</span><span class="vs">'</span>)</span>
-<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>ax.plot(t_values, stats.t.cdf(t_values, df<span class="op">=</span><span class="dv">10</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$</span><span class="vs">t_</span><span class="op">{10}</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>ax.plot(t_values, stats.t.cdf(t_values, df<span class="op">=</span><span class="dv">1</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$t_1$'</span>)</span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>ax.plot(t_values, stats.t.cdf(t_values, df<span class="op">=</span><span class="dv">10</span>), linestyle<span class="op">=</span><span class="st">'-'</span>, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, label<span class="op">=</span><span class="vs">r'$t_</span><span class="sc">{10}</span><span class="vs">$'</span>)</span>
 <span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Customize the plot</span></span>
 <span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'t'</span>)</span>
 <span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'CDF'</span>)</span>
@@ -2465,7 +2463,7 @@ Figure&nbsp;9.17: The plots of PDF and CDF of Student t distributions
 </div>
 <div id="exm-example9.28" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9.28</strong></span> Let <span class="math inline">\(Y\sim N(0,1)\)</span> and <span class="math inline">\(X\sim t_{5}\)</span>. We want to compute <span class="math inline">\(P(Y\geq2)\)</span> and <span class="math inline">\(P(X\geq2)\)</span> using the <code>scipy.stats</code> module. The following code chunk shows how to compute these probabilities:</p>
-<div id="e3383e91" class="cell" data-execution_count="27">
+<div id="085aff4e" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>p_y <span class="op">=</span> stats.norm.sf(<span class="dv">2</span>, loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>)  <span class="co"># P(Y &gt;= 2)</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>p_x <span class="op">=</span> stats.t.sf(<span class="dv">2</span>, df<span class="op">=</span><span class="dv">5</span>)               <span class="co"># P(X &gt;= 2)</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(p_y, <span class="dv">4</span>), np.<span class="bu">round</span>(p_x, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2556,7 +2554,7 @@ Figure&nbsp;9.18: The plots of PDF and CDF of F distributions
 <p>In econometrics, an important special case of the <span class="math inline">\(F\)</span> distribution arises when the denominator degrees of freedom is large enough that the <span class="math inline">\(F_{m,n}\)</span> can be approximated by <span class="math inline">\(F_{m,\infty}\)</span>. <span class="math inline">\(F_{m,\infty}\)</span> distribution is the distribution of a chi-squared random variable with <span class="math inline">\(m\)</span> degrees of freedom divided by <span class="math inline">\(m\)</span>, i.e., <span class="math inline">\(F_{m,\infty}=W/m\)</span>, where <span class="math inline">\(W\sim\chi^2_m\)</span>.</p>
 <div id="exm-example9.29" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9.29</strong></span> Let <span class="math inline">\(Y\sim F_{2,10}\)</span>. We can compute the PDF and CDF of <span class="math inline">\(Y\)</span> using the <code>scipy.stats.f()</code> function. For example, we can compute <span class="math inline">\(P(Y\leq 3)\)</span> as follows:</p>
-<div id="56ae90d0" class="cell" data-execution_count="29">
+<div id="a9b48bb5" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> stats.f.cdf(<span class="dv">3</span>, dfn<span class="op">=</span><span class="dv">2</span>, dfd<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(p, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
@@ -2741,242 +2739,239 @@ Wackerly, Dennis, William Mendenhall, and Richard L. Scheaffer. 2008. <em>Mathem
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
       }
-      return false;
-    }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
-    }
-    const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
-        }
-        return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/osmdogan\.github\.io\/Python_Book\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/osmdogan\.github\.io\/Python_Book\/");
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
         }
       }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
     }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
     }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
       } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
         }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
           }
         } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
+          // See if we can fetch this
+          fetch(url.split('#')[0])
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
+            const note = htmlDoc.getElementById(id);
             if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
+              const html = processXRef(id, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -2984,161 +2979,185 @@ Wackerly, Dennis, William Mendenhall, and Richard L. Scheaffer. 2008. <em>Mathem
             instance.show();
           });
         }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
       } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
             }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
         });
       }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
     }
-  });
-  </script>
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./Chapter1-EconomicQuestion.html" class="pagination-link" aria-label="Economic Questions and Data">
