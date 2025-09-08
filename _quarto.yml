@@ -83,10 +83,7 @@ format:
     toc-title: "Table of Contents"
     toc-depth: 3
     number-sections: true
-    sidebar:
-      style: "docked"
-      search: true
-      collapse-level: 1
+   
      
 
 
