@@ -7,4 +7,5 @@
 /.quarto/
 site_libs
 libs
+*_files
 
