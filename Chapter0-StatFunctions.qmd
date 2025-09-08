@@ -250,31 +250,12 @@ optimize.minimize(fun, x0, args=(), method=None, jac=None, hess=None, hessp=None
 
 Some of the arguments that we need to supply to  the `minimize` function are listed below.
 
-    - `fun`: The objective function to be minimized
-
-    - `x0`: A list (or array) of initial values of the unknown parameters
-
-    - `args`: A tuple containing the extra arguments passed to the objective function
-
-    - `method`: Type of the solver. It can take one of the following values:
-
-        - `'Nelder-Mead'`
-        - `'Powell'`
-        - `'CG'`
-        - `'BFGS'`
-        - `'Newton-CG'`
-        - `'L-BFGS-B'`
-        - `'TNC'`
-        - `'COBYLA'`
-        - `'COBYQA'`
-        - `'SLSQP'`
-        - `'trust-constr'`
-        - `'dogleg'`
-        - `'trust-ncg'`
-        - `'trust-krylov'`
-        - `'trust-exact'`
-
-    - If `method` is not given, it is chosen to be one of `BFGS`, `L-BFGS-B`, `SLSQP`, depending on whether or not the problem has constraints or bounds.
+- `fun`: The objective function to be minimized
+- `x0`: A list (or array) of initial values of the unknown parameters
+- `args`: A tuple containing the extra arguments passed to the objective function
+- `method`: Type of the solver. It can take one of the following values:
+`'Nelder-Mead'`, `'Powell'`, `'CG'`, `'BFGS'`, `'Newton-CG'`, `'L-BFGS-B'`, `'TNC'`, `'COBYLA'`, `'COBYQA'`, `'SLSQP'`, `'trust-constr'`, `'dogleg'`, `'trust-ncg'`, `'trust-krylov'`, or `'trust-exact'`.
+- If `method` is not given, it is chosen to be one of `BFGS`, `L-BFGS-B`, `SLSQP`, depending on whether or not the problem has constraints or bounds.
 
 As an example, we consider the [Rosenbrock function](https://en.wikipedia.org/wiki/Rosenbrock_function), which is widely used for testing optimization algorithms. The Rosenbrock function is defined as:
 $$
