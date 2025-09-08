@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -658,7 +658,7 @@ Table&nbsp;1.1: Greek Letters
 <section id="import-conventions" class="level1">
 <h1>Import Conventions</h1>
 <p>In each chapter, we first import all the modules required for the econometric analysis introduced in that chapter. We follow the alias conventions used by the Python community for commonly used modules:</p>
-<div id="b798a1d3" class="cell" data-execution_count="1">
+<div id="22328f06" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -673,11 +673,11 @@ Table&nbsp;1.1: Greek Letters
 <section id="code-examples" class="level1">
 <h1>Code Examples</h1>
 <p>We use the conventional code font for displaying code in the text. Code chunks are presented in highlighted cells, as shown in the following example:</p>
-<div id="ea0341ce" class="cell" data-execution_count="3">
+<div id="2eb712be" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The output of a code cell is shown in the subsequent cell, as shown in the following example:</p>
-<div id="02e3aa1e" class="cell" data-execution_count="4">
+<div id="83b0c3d5" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x.append(<span class="dv">99</span>) <span class="co"># adding 99 to the list x</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -686,7 +686,7 @@ Table&nbsp;1.1: Greek Letters
 </div>
 </div>
 <p>The above cell displays the updated list <code>x</code>. If a code cell returns multiple outputs, these outputs are displayed in separate cells, in the order they are produced. For example, the code below returns <code>type(x) = list</code> and <code>type(y) = tuple</code> in separate cells:</p>
-<div id="f765054f" class="cell" data-execution_count="5">
+<div id="b1429882" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">2</span>, <span class="dv">35</span>, <span class="dv">11</span>, <span class="dv">12</span>] <span class="co"># list</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(x)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> (<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>) <span class="co"># tuple</span></span>
