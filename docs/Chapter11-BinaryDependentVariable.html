@@ -124,10 +124,7 @@ div.csl-indent {
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -517,7 +514,7 @@ window.Quarto = {
 </header>
 
 
-<div id="556a12a3" class="cell" data-execution_count="1">
+<div id="5a10514d" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -551,7 +548,7 @@ window.Quarto = {
 <li><code>black</code>: 1 if the applicant is Black, 0 if White</li>
 </ul>
 <p>The descriptive statistics of these variables are presented in <a href="#tbl-t18-1" class="quarto-xref">Table&nbsp;<span>18.1</span></a>. There are 2380 observations in the dataset. The average mortgage denial rate is 0.12, the average payment-to-income ratio is 0.33, and the proportion of Black applicants is 0.14.</p>
-<div id="52ea70e7" class="cell" data-message="false" data-execution_count="2">
+<div id="5a03f41a" class="cell" data-message="false" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="op">=</span> pd.read_csv(<span class="st">"data/hmda.csv"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Column names</span></span>
@@ -738,7 +735,7 @@ u_i=
 \end{align*}
 \]</span></p>
 <p>We use the following code chunk to estimate these models and then present the estimation results in <a href="#tbl-t18-2" class="quarto-xref">Table&nbsp;<span>18.2</span></a>.</p>
-<div id="40c253f7" class="cell" data-execution_count="5">
+<div id="535b2473" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 1</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"deny ~ pirat"</span>,</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>         data <span class="op">=</span> mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
@@ -896,7 +893,7 @@ P(Y_i=1|X_{1i},X_{2i},\ldots,X_{ki})=\Phi(\beta_0+\beta_1X_{1i}+\beta_2X_{2i}+\l
 P(Y=1|X=0.4)=\Phi(-2+4\times0.4)=\Phi(-0.8)\approx0.212.
 \end{align*}
 \]</span></p>
-<div id="3bc59f08" class="cell" data-execution_count="9">
+<div id="a88b64b5" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Probit model</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>X, beta0, beta1 <span class="op">=</span> <span class="fl">0.4</span>, <span class="op">-</span><span class="dv">2</span>, <span class="dv">3</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> beta0 <span class="op">+</span> beta1 <span class="op">*</span> X</span>
@@ -950,7 +947,7 @@ APE=\frac{1}{n}\sum_{i=1}^n\beta_1\phi(\beta_0+\beta_1X_{1i}+\beta_2X_{2i}+\ldot
 \end{align}
 \]</span></p>
 <p>The probit models can be estimated using the <code>smf.probit()</code> function from the <code>statsmodels</code> package. The following code chunk can be used to estimate these models and present the estimation results in <a href="#tbl-t18-4" class="quarto-xref">Table&nbsp;<span>18.3</span></a>.</p>
-<div id="f51ca49c" class="cell" data-execution_count="10">
+<div id="7f05c374" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 1: Probit regression</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> smf.probit(<span class="st">'deny ~ pirat'</span>, </span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                  data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>, disp<span class="op">=</span><span class="dv">0</span>)</span>
@@ -1101,7 +1098,7 @@ Figure&nbsp;18.4: Predicted probabilities based on Model 1
 &amp;=\Phi\left(-2.194+2.968\times 0.4\right)- \Phi\left(-2.194+2.968\times 0.3\right)\approx0.060.
 \end{align*}
 \]</span></p>
-<div id="3b2bad77" class="cell" data-execution_count="13">
+<div id="8511c85a" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predicted probabilities for pirat = 0.3 and pirat = 0.4</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>new_data <span class="op">=</span> pd.DataFrame({<span class="st">'pirat'</span>: [<span class="fl">0.3</span>, <span class="fl">0.4</span>]})</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> r1.predict(new_data)</span>
@@ -1119,7 +1116,7 @@ Figure&nbsp;18.4: Predicted probabilities based on Model 1
 &amp;\hat{P}({\tt deny}=1|{\tt pirat}=0.3,{\tt black}=1)=\Phi\left(-2.259+2.742\times0.3+0.708\times1\right)\approx0.233.
 \end{align*}
 \]</span></p>
-<div id="cad9c2a9" class="cell" data-execution_count="14">
+<div id="53c24c0b" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predicted probabilities for the white and black applicants with pirat = 0.3</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>new_data <span class="op">=</span> pd.DataFrame({<span class="st">'pirat'</span>: [<span class="fl">0.3</span>, <span class="fl">0.3</span>], <span class="st">'black'</span>: [<span class="dv">0</span>, <span class="dv">1</span>]})</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> r2.predict(new_data)</span>
@@ -1137,7 +1134,7 @@ Difference in predicted denial probabilities: 0.158</code></pre>
 </div>
 <p>These computations indicates that the difference in denial probabilities between these two hypothetical applicants is <span class="math inline">\(15.8\)</span> percentage points.</p>
 <p>The partial effects can be computed using the <code>get_margeff()</code> function in <code>statsmodels</code>. The following code chunk can be used to compute the partial effects at the mean and overall values of the regressors for Models 1 and 2. These results indicate that the partial effects at the mean and overall values of the regressors are the same for the probit model.</p>
-<div id="5658d9ad" class="cell" data-execution_count="15">
+<div id="891001bb" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Partial effect at the average (PEA) for Model 1</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r1.get_margeff(at<span class="op">=</span><span class="st">"mean"</span>).summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1153,7 +1150,7 @@ pirat          0.5678      0.087      6.521      0.000       0.397       0.738
 ==============================================================================</code></pre>
 </div>
 </div>
-<div id="429db63a" class="cell" data-execution_count="16">
+<div id="92db4e41" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Average partial effect (APE) for Model 1</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r1.get_margeff(at<span class="op">=</span><span class="st">"overall"</span>).summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1169,7 +1166,7 @@ pirat          0.5665      0.087      6.538      0.000       0.397       0.736
 ==============================================================================</code></pre>
 </div>
 </div>
-<div id="129753a2" class="cell" data-execution_count="17">
+<div id="81d0ecd0" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Partial effect at the average (PEA) for Model 2</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r2.get_margeff(at<span class="op">=</span><span class="st">"mean"</span>).summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1186,7 +1183,7 @@ black          0.1292      0.015      8.472      0.000       0.099       0.159
 ==============================================================================</code></pre>
 </div>
 </div>
-<div id="f2dd5a86" class="cell" data-execution_count="18">
+<div id="bcd6ad84" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Average partial effect (APE) for Model 2</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r2.get_margeff(at<span class="op">=</span><span class="st">"overall"</span>).summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1225,7 +1222,7 @@ X_{1i}+\beta_2 X_{2i}+\ldots+\beta_k X_{ki}\right)\right)}.
 \end{align}
 \]</span></p>
 <p>The logit model is estimated using the <code>smf.logit()</code> function from the <code>statsmodels</code> package.</p>
-<div id="a93eb491" class="cell" data-execution_count="19">
+<div id="a23cf01b" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 1: Logistic regression with 'pirat' as predictor</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> smf.logit(<span class="st">'deny ~ pirat'</span>, data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>, disp<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1335,7 +1332,7 @@ Standard errors in parentheses.<br>
 &amp;\hat{P}({\tt deny}=1|{\tt pirat}=0.3,{\tt black}=1)=F\left(-4.126+5.370{\tt pirat}+1.273{\tt black}\right)\approx0.230.
 \end{align*}
 \]</span></p>
-<div id="6666864b" class="cell" data-execution_count="21">
+<div id="a9863301" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predicted probabilities for black = 0 and black = 1 with pirat = 0.3</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>new_data <span class="op">=</span> pd.DataFrame({<span class="st">'pirat'</span>: [<span class="fl">0.3</span>, <span class="fl">0.3</span>], <span class="st">'black'</span>: [<span class="dv">0</span>, <span class="dv">1</span>]})</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> r2.predict(new_data)</span>
@@ -1540,7 +1537,7 @@ Table&nbsp;18.5: Measures of fit
 <li><code>high</code>: loan-to-value ratio greater than 0.95</li>
 </ul>
 <p>The following code chunk can be used to create these categories:</p>
-<div id="5c5a0095" class="cell" data-execution_count="24">
+<div id="11eeccc6" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> mydata.copy()</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'lvrat_s'</span>] <span class="op">=</span> pd.cut(df[<span class="st">'lvrat'</span>],[<span class="dv">0</span>,<span class="fl">.799</span>,<span class="fl">.95</span>,<span class="fl">1.95</span>], labels <span class="op">=</span> [<span class="st">'low'</span>,<span class="st">'medium'</span>,<span class="st">'high'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1795,7 +1792,7 @@ Table&nbsp;18.7: Summary statistics
 <section id="estimation-results" class="level3" data-number="18.6.3">
 <h3 data-number="18.6.3" class="anchored" data-anchor-id="estimation-results"><span class="header-section-number">18.6.3</span> Estimation results</h3>
 <p>The following code chunk can be used to estimate these models. The estimation results are presented in <a href="#tbl-t18-7" class="quarto-xref">Table&nbsp;<span>18.7</span></a>.</p>
-<div id="7f3943cd" class="cell" data-execution_count="27">
+<div id="ca71e76e" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="op">=</span> smf.ols(formula <span class="op">=</span> <span class="st">'deny ~ black + pirat + hirat + C(lvrat_s) + chist + mhist + phist + insurance + selfemp'</span>, </span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>                   data <span class="op">=</span> df).fit(cov_type<span class="op">=</span><span class="st">'HC1'</span>)</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -2335,7 +2332,7 @@ Standard errors in parentheses.<br>
 <li><p>The logit results in (2) and the probit results in (3) provide similar evidence of racial parity in the mortgage market, as the estimated coefficients on <code>black</code> are statistically significant at the 5% level in both models. All other coefficients, except for the coefficient for the housing expense-to-income ratio (which is not significantly different from zero), are statistically significant at the 5% level.</p></li>
 <li><p>We cannot directly compare the coefficient estimates from (2)–(6) with those in (1). In order to make a statement about the effect of being non-white, we need to compute the estimated denial probability for two individuals that differ only in race. For the comparison, we consider two individuals that share mean values for all numeric regressors. For the qualitative variables, we assign the property that is most representative for the data at hand. For example, consider self-employment: 88% of all individuals in the sample are not self-employed (<code>selfemp=0</code>). We can use the following code chunk to compute the difference in the predicted denial probability for a white and a black applicant.</p></li>
 </ul>
-<div id="6582e121" class="cell" data-execution_count="29">
+<div id="c97ee6f3" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimated difference in denial probabilities</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>X_new <span class="op">=</span> pd.DataFrame(</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'black'</span>:[<span class="dv">0</span>, <span class="dv">1</span>],</span>
@@ -2412,7 +2409,7 @@ Table&nbsp;18.9: Estimated difference in denial probabilities
 <li><p>In Model 5, the estimated coefficients for the dummies for <code>mhist</code> and <code>chist</code>, as well as the estimated coefficient for the <code>condomin</code> dummy, are not statistically significant at the 5% level.</p></li>
 <li><p>An interesting question related to racial parity can be investigated using Model 6. If the coefficient on <code>black:pirat</code> was different from zero, the effect of the payment-to-income ratio on the denial probability would be different for black and white applicants. Similarly, a non-zero coefficient on <code>black:hirat</code> would indicate that loan officers weight the risk of bankruptcy associated with a high loan-to-value ratio differently for black and white mortgage applicants. We will test for the joint significance of these two variables. Note that under the joint null hypothesis (the restricted model), we have Model 4. We can use the F-statistic to test the null hypothesis that the coefficients on <code>black:pirat</code> and <code>black:hirat</code> are jointly equal to zero. The following code chunk can be used to perform the test.</p></li>
 </ul>
-<div id="3fd090e7" class="cell" data-execution_count="31">
+<div id="c137b937" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># F-test for joint significance of black:pirat and black:hirat</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>hypotheses <span class="op">=</span> [<span class="st">'black:pirat=0'</span>, <span class="st">'black:hirat=0'</span>]</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>f_test <span class="op">=</span> model6.f_test(hypotheses)</span>
