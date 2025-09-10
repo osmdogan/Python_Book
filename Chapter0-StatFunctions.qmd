@@ -291,8 +291,8 @@ plt.show();
 #| fig-cap: "The 3D surface plot of the Rosenbrock function"
 #| label: fig-fig5-rosen3d
 # Initialize figure 
-figRos = plt.figure(figsize=(6, 5))
-axRos = figRos.add_subplot(111, projection='3d')
+fig = plt.figure(figsize=(6, 5))
+ax = fig.add_subplot(111, projection='3d')
 
 # Evaluate function
 X = np.arange(-2, 2, 0.15)
@@ -301,10 +301,10 @@ X, Y = np.meshgrid(X, Y)
 Z = rosen(X,Y)
 
 # Plot the surface
-surf = axRos.plot_surface(X, Y, Z, cmap=cm.gist_heat_r,
+surf = ax.plot_surface(X, Y, Z, cmap=cm.winter_r,
                        linewidth=0, antialiased=False)
-axRos.set_zlim(0, 200)
-figRos.colorbar(surf, shrink=0.5, aspect=10)
+ax.set_zlim(0, 200)
+fig.colorbar(surf, shrink=0.5, aspect=10)
 plt.show()
 ```
 
