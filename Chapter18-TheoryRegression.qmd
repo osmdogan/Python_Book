@@ -79,11 +79,62 @@ There are two important tools in asymptotic distribution theory: the law of larg
 
 :::{#def-def25-1}
 ## Convergence in probability   
-The sequence of random variables $\{S_n\}$  converges in probability to a constant $c$ if for any $\epsilon>0$, we have
+The sequence of random variables $\{S_n\}$  converges in probability to a random variable $S$ if for any $\epsilon>0$, we have
 $$
-\lim_{n\to\infty} \Pr(|S_n - c| > \epsilon) = 0.
+\lim_{n\to\infty} P(|S_n - S| > \epsilon) = 0.
 $$
-We denote this convergence as $S_n \stackrel{p}{\to} c$ or $\text{plim}_{n\to\infty} S_n = c$.
+We denote this convergence as $S_n \stackrel{p}{\to} S$ or $\text{plim}_{n\to\infty} (S_n -S) = 0$.
+:::
+For any $\epsilon>0$, we have the following relations:
+$$
+\begin{align*}
+\{|S_n-S|>\epsilon\}\subseteq\{|S_n-S|\geq\epsilon\}\subseteq\{|S_n-S|>\epsilon/2\}.
+\end{align*}    
+$$
+
+Therefore, we have
+$$
+P(|S_n - S| > \epsilon) \leq P(|S_n - S| \geq \epsilon) \leq P(|S_n - S| > \epsilon/2).
+$$
+
+Thus, $S_n \stackrel{p}{\to} S$ if and only if $P(|S_n - S| \geq \epsilon) \to 0$ for any $\epsilon>0$. That is, we can replace the strict inequality in the definition of convergence in probability with a weak inequality.
+
+Consider the event $A=\{|S_n-S|>\epsilon\}$ given in @def-def25-1. Its complement is $A^c=\{|S_n-S|\leq\epsilon\}$. Since $P(A^c)=1-P(A)$, we can alternatively state the definition of convergence in probability as, for any $\epsilon>0$,
+$$
+S_n \stackrel{p}{\to} S \iff \lim_{n\to\infty}P(|S_n - S| \leq \epsilon) = 1.
+$$
+
+:::{#exm-exm25-1-plim1}
+## Convergence in probability
+Let $X$ be a random variable that has an [exponential distribution](https://en.wikipedia.org/wiki/Exponential_distribution) with parameter $\lambda>0$. Then, its pdf and cdf are given by
+$$
+\begin{align*}
+f(x) = 
+\begin{cases}
+\lambda e^{-\lambda x}, & \quad x \geq 0,\\
+0, & \quad x < 0.
+\end{cases}
+\end{align*}
+$$
+
+$$
+\begin{align*}
+F(x) = 
+\begin{cases}
+0, & \quad x < 0,\\
+1 - e^{-\lambda x}, & \quad x \geq 0.
+\end{cases}
+\end{align*}
+$$
+
+Let $S_n\sim\text{Exponential}(n)$. Then, we have
+$$
+\begin{align*}
+P(|S_n - 0| > \epsilon) &= P(S_n > \epsilon) = 1 - F(\epsilon) = e^{-n\epsilon} \to 0,
+\end{align*}
+$$
+
+as $n\to\infty$. Thus, $S_n \stackrel{p}{\to} 0$, i.e., $\text{plim}_{n\to\infty} S_n = 0$.
 :::
 
 :::{#def-def25-2}
