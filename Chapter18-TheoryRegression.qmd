@@ -137,6 +137,24 @@ $$
 as $n\to\infty$. Thus, $S_n \stackrel{p}{\to} 0$, i.e., $\text{plim}_{n\to\infty} S_n = 0$.
 :::
 
+Consider $S_n$ defined in @exm-exm25-1-plim1. In the following, we plot its pdf for different values of $n$. As $n$ increases, @fig-fig25-plim1 indicates that the pdf of $S_n$ becomes more concentrated around $0$, which is consistent with the result that $S_n \stackrel{p}{\to} 0$.
+```{python}
+#| fig-cap: The pdf of $S_n$ for different $n$
+#| label: fig-fig25-plim1
+# Plotting the pdf of S_n ~ Exponential(n) for different n
+x = np.linspace(0, 3, 100)
+n_values = [1, 5, 8, 20]
+plt.figure(figsize=(5, 4))
+for n in n_values:
+    pdf = n * np.exp(-n * x)
+    plt.plot(x, pdf, label=f'n={n}')
+plt.xlabel('$S_n$')
+plt.ylabel('Density')
+plt.legend()
+plt.show()
+```
+
+
 :::{#def-def25-2}
 ## Consistent estimator
 If $S_n\xrightarrow{p}\mu$, then $S_n$ is said to be a consistent estimator of $\mu$.
