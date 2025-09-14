@@ -1,17 +1,19 @@
 # Graphics {#sec-chapter6}
 
 ## Introduction 
-In this chapter, we introduce two modules for graphics: `matplotlib` and `seaborn`. Matplotlib offers two primary approaches for creating figures: (i) the MATLAB-style (or pyplot) approach, and (ii) the object-oriented programming (OOP) approach. The MATLAB-style tools are contained in the `pyplot` (`plt`) interface. For plot styles and color defaults, we rely on the `seaborn` module.
+In this chapter, we introduce two modules for graphics: [`matplotlib`](https://matplotlib.org/) and [`seaborn`](https://seaborn.pydata.org/). In the `matplotlib` library, we have two primary approaches for creating figures: (i) the MATLAB-style (or pyplot) approach, and (ii) the object-oriented programming (OOP) approach. The MATLAB-style tools are contained in the `pyplot` (`plt`) interface. For plot styles and color defaults, we rely on the `seaborn` module.
 
 ```{python}
 import numpy as np
 import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
 import seaborn as sns
 import scipy.stats as stats
+
 ```
 
 ## Setting plotting styles
-The theme of a figure refers to the overall appearance, including colors, fonts, and line styles. We use the `seaborn` module to set the theme of our figures. The are five preset seaborn themes: `darkgrid`, `whitegrid`, `dark`, `white`, and `ticks`. The `sns.set_style()` function can be used to set these themes. The default theme is `darkgrid`. For more information, see [Controlling figure aesthetics](https://seaborn.pydata.org/tutorial/aesthetics.html) from the documentation.
+The theme of a figure refers to the overall appearance, including colors, fonts, and line styles. We use the `seaborn` module to set the theme of our figures. The are five preset seaborn themes: `darkgrid`, `whitegrid`, `dark`, `white`, and `ticks`. The `sns.set_style` function can be used to set these themes. The default theme is `darkgrid`. For more information, see [controlling figure aesthetics](https://seaborn.pydata.org/tutorial/aesthetics.html) from the documentation.
 
 ```{python}
 # Setting seaborn style
@@ -22,14 +24,14 @@ The theme of a figure refers to the overall appearance, including colors, fonts,
 sns.set_style('darkgrid') 
 ```
 
-The `plt.style.available()` function lists all available styles in Matplotlib. 
+The `plt.style.available` function lists all available styles in Matplotlib. 
 
 ```{python}
 # List available styles
 plt.style.available
 ```
 
-Alternatively, we can set the `darkgrid` style using the `plt.style.use()` function. In the following example (@fig-fig6.1), we first create a figure using `plt.figure(figsize=(5, 5))`, which sets the size of the figure area to 5x5 inches. In Matplotlib, plots are contained within a `Figure`. We then set the plotting style with `plt.style.use('seaborn-v0_8-darkgrid')` and display the plot using `plt.plot()`.
+Alternatively, we can set the `darkgrid` style using the `plt.style.use` function. In the following example (@fig-fig6.1), we first create a figure using `plt.figure(figsize=(5, 4))`, which sets the size of the figure area to 5x4 inches. In Matplotlib, plots are contained within a `Figure`. We then set the plotting style with `plt.style.use('seaborn-v0_8-darkgrid')` and display the plot using `plt.show()`.
 
 ```{python}
 #| fig-cap: The `seaborn-v0_8-darkgrid` style 
@@ -43,7 +45,7 @@ plt.show()
 ## MATLAB Style Approach
 
 ### Line plots
-In the MATLAB-style approach, we use the `plt.plot()` function to create line plots. The `plt.plot()` function can be used to create a wide variety of line plots, including simple line plots, line plots with markers, and line plots with different styles. The `plt.plot()` function can also be used to add multiple lines to a single figure. The following code chunk generates the line plots shown in @fig-fig6.2. 
+In the MATLAB-style approach, we use the `plt.plot` function to create line plots. The `plt.plot` function can be used to create a wide variety of line plots, including simple line plots, line plots with markers, and line plots with different styles. The `plt.plot` function can also be used to add multiple lines to a single figure. The following code chunk generates the line plots shown in @fig-fig6.2.
 
 ```{python}
 # Data
@@ -100,7 +102,7 @@ Some options used to customize the appearance of axes and lines are described in
 * Titles are added with `plt.title()`, and legends are added using `plt.legend()`. The legend requires that the line includes a label.
 * Labels for the x- and y-axes are added using `plt.xlabel()` and `plt.ylabel()`.
 
-In the following example, we specify the arguments of the `plt.plot()` function explicitly.
+In the following example, we specify the arguments of the `plt.plot` function explicitly.
 
 ```{python}
 #| label: fig-fig6.3
@@ -126,7 +128,7 @@ plt.ylabel("y label")
 plt.show()
 ```
 
-The most useful arguments of the `plt.plot()` function are listed below:
+The most useful arguments of the `plt.plot` function are listed below:
 
 * `alpha`: Alpha (transparency) of the plot- default is 1 (no transparency)
 * `color`: Color description for the line. It can be specified in several ways, including:
@@ -181,7 +183,7 @@ plt.ylabel('Exponential function')
 plt.show()
 ```
 
-In @fig-fig6.4, we have a single figure with multiple line plots. Thus, to add multiple lines to a single figure, we need to call the `plt.plot()` function multiple times. 
+Note that in @fig-fig6.4, we have a single figure with multiple line plots. Thus, to add multiple lines to a single figure, we need to call the `plt.plot` function multiple times.
 
 The following code chunk, which generates @fig-fig6.5, provide alternative ways for specifying the `linestyle` options. 
 
@@ -202,7 +204,7 @@ plt.ylabel('Natural logarithm')
 plt.show()
 ```
 
- The `plt.setp()` function can be used to set options for plot elements, as shown in the following example (@fig-fig6.6):
+ The `plt.setp` function can be used to set options for plot elements, as shown in the following example (@fig-fig6.6):
 
 ```{python}
 #| label: fig-fig6.6
@@ -229,13 +231,13 @@ plt.ylabel("y label")
 plt.show()
 ```
 
-The `plt.getp()` function retrieves the list of properties for a Matplotlib object:
+The `plt.getp` function retrieves the list of properties for a Matplotlib object:
 
 ```{python}
 plt.getp(h)
 ```
 
-The `plt.xlim()` and `plt.ylim()` can be used to set axes limits, as illustrated in the following examples. 
+The `plt.xlim` and `plt.ylim` can be used to set axes limits, as illustrated in the following examples.
 
 ```{python}
 #| label: fig-fig6.7
@@ -264,7 +266,7 @@ plt.show()
 ```
 
 ### Scatter plots
-Scatter plots can be generated using the `plt.scatter()` function or the `plt.plot()` function with the option `linestyle=""`. Consider the following example, which generates @fig-fig6.9.
+Scatter plots can be generated using the `plt.scatter` function or the `plt.plot` function with the option `linestyle=""`. Consider the following example, which generates @fig-fig6.9.
 
 ```{python}
 #| label: fig-fig6.9
@@ -283,7 +285,7 @@ plt.title("A scatter plot", fontsize=14)
 plt.show()
 ```
 
-Alternatively, we can use the `plt.plot()` function with the option `linestyle=""` as shown in the following example. 
+Alternatively, we can use the `plt.plot` function with the option `linestyle=""` as shown in the following example. 
 
 ```{python}
 #| label: fig-fig6.10
@@ -298,7 +300,7 @@ plt.show()
 ```
 
 ### Bar plots
-The `plt.bar()` function is used to create bar plots. The following code chunk generates the bar plots shown in @fig-fig6.11 and @fig-fig6.12.
+The `plt.bar` function is used to create bar plots. The following code chunk generates the bar plots shown in @fig-fig6.11 and @fig-fig6.12.
 
 ```{python}
 #| label: fig-fig6.11
@@ -328,7 +330,7 @@ plt.title("Bar Plot")
 plt.show()
 ```
 
-In the following example, we generate a horizontal bar plot using the `plt.barh()` function.
+In the following example, we generate a horizontal bar plot using the `plt.barh` function.
 ```{python}
 #| label: fig-fig6.12-1
 #| fig-cap: "Horizontal Bar plot using `plt.barh()`"
@@ -343,8 +345,53 @@ plt.title("Horizontal Bar Plot")
 plt.show()
 ```
 
+### Stem plots
+In a stem plot, we connect each data point to a baseline using a vertical line. The `plt.stem` function is used to create stem plots. In the following example, we generate a stem plot of the cosine function over the interval $(0, 2\pi)$. The arguments `linefmt`, `markerfmt`, and `basefmt` are used to specify the line format, marker format, and baseline format, respectively. 
+
+```{python}
+#| fig-cap: "Stem plot using `plt.stem()`"
+#| label: fig-fig6.13-stem1
+# Stem plot using plt.stem()
+# Data
+x = np.linspace(0, 2 * np.pi, 30)
+y = np.cos(x)
+
+# Create stem plot
+plt.figure(figsize=(5,4))
+plt.stem(x, y, linefmt='b-', markerfmt='ko', basefmt='k-')
+# Labels and title
+plt.xlabel("x")
+plt.ylabel("cos(x)")
+plt.show()
+
+```
+
+In the following example, we customize the colors of the stem lines, markers, and baseline using the `plt.setp` function.
+
+```{python}
+#| fig-cap: "Stem plot using `plt.stem()`"
+#| label: fig-fig6.13-stem2
+# Stem plot using plt.stem()
+x = np.linspace(0, 2 * np.pi, 30)
+y = np.cos(x)
+
+# Create stem plot
+plt.figure(figsize=(5,4))
+stemp = plt.stem(x, y, linefmt='-', markerfmt='ro', basefmt='k-')
+
+# Customize stemline, marker, and baseline
+plt.setp(stemp.stemlines, color='steelblue')   
+plt.setp(stemp.markerline, color='black', markersize=4)      
+plt.setp(stemp.baseline, color='black', linewidth=0.5)
+
+plt.xlabel("x")
+plt.ylabel("cos(x)")
+plt.show()
+```
+
+
 ### Pie plots
-The `plt.pie()` function is used to create pie plots. The following code chunk generates the pie plot shown in @fig-fig6.13.
+The `plt.pie` function is used to create pie plots. The following code chunk generates the pie plot shown in @fig-fig6.13.
 
 ```{python}
 #| label: fig-fig6.13
@@ -363,7 +410,7 @@ plt.show()
 ```
 
 ### Histograms
-We can use the `plt.hist()` function to generate histograms. In the following example, the `histtype` option assumes the following options: `bar`, `barstacked`, `step`, and `stepfilled`.
+We can use the `plt.hist` function to generate histograms. In the following example, the `histtype` option assumes the following options: `bar`, `barstacked`, `step`, and `stepfilled`.
 
 ```{python}
 #| label: fig-fig6.14
@@ -399,7 +446,7 @@ plt.show()
 ```
 
 ### Kernel Density and Empirical CDF plots
-The `sns.kdeplot()` function from the `seaborn` module can be used to create a kernel density plot. The kernel density estimate is a non-parametric way to estimate the probability density function of a random variable. In the following example, we generate random draws from a t-distribution and a normal distribution, and then plot their kernel density estimates. The `fill=True` option fills the area under the curve, and the `alpha` option sets the transparency of the fill color.
+The `sns.kdeplot` function from the `seaborn` module can be used to create a kernel density plot. The kernel density estimate is a non-parametric way to estimate the probability density function of a random variable. In the following example, we generate random draws from a t-distribution and a normal distribution, and then plot their kernel density estimates. The `fill=True` option fills the area under the curve, and the `alpha` option sets the transparency of the fill color.
 
 ```{python}
 #| label: fig-fig6.16-1
@@ -421,7 +468,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-The empirical cumulative distribution function (CDF) can be plotted using the `sns.ecdfplot()` function from the `seaborn` module. The empirical CDF is a step function that estimates the cumulative distribution function of a random variable based on a sample. In the following example, we generate random draws from a t-distribution and a normal distribution, and then plot their empirical CDFs.
+The empirical cumulative distribution function (CDF) can be plotted using the `sns.ecdfplot` function from the `seaborn` module. The empirical CDF is a step function that estimates the cumulative distribution function of a random variable based on a sample. In the following example, we generate random draws from a t-distribution and a normal distribution, and then plot their empirical CDFs.
 
 ```{python}
 #| label: fig-fig6.16-2
@@ -445,7 +492,7 @@ plt.show()
 ```
 
 ### Multiple plots on the same figure
-To add subplots to a figure, we can use the `plt.subplot()` function. In the example below, we use `plt.subplot(2, 2, p)` to divide the figure area into a 2x2 grid, where `p` indicates the position of the subplot within the grid. 
+To add subplots to a figure, we can use the `plt.subplot` function. In the example below, we use `plt.subplot(2, 2, p)` to divide the figure area into a 2x2 grid, where `p` indicates the position of the subplot within the grid. 
 
 ```{python}
 #| label: fig-fig6.15
@@ -496,10 +543,10 @@ plt.tight_layout()
 plt.show()
 ```
 
-The padding between subplots can be adjusted using the `plt.subplots_adjust()` function. In @fig-fig6.15, we use `plt.subplots_adjust(hspace=0.5, wspace=0.5)` to add horizontal and vertical spacing between subplots.
+The padding between subplots can be adjusted using the `plt.subplots_adjust` function. In @fig-fig6.15, we use `plt.subplots_adjust(hspace=0.5, wspace=0.5)` to add horizontal and vertical spacing between subplots.
 
 ### Saving figures
-The `plt.savefig()` function allows user to save figures in a wide variety of formats. The supported formats can be listed using the `canvas.get_supported_filetypes` method of the figure object, as shown below:
+The `plt.savefig` function allows user to save figures in a wide variety of formats. The supported formats can be listed using the `canvas.get_supported_filetypes` method of the figure object, as shown below:
 
 ```{python}
 # The supported file types
@@ -540,10 +587,11 @@ fig = plt.figure(figsize=(5, 4))
 ax = plt.axes()
 type(ax)
 ```
+
 The `ax` (an instance of the `plt.axes._axes.Axes` class) object represents the box that contains the plot elements making up the visualization.
 
 ### Line plots
-In the OOP approach, we can create line plots using the `ax.plot()` function. The `ax.plot()` function is similar to the `plt.plot()` function, but it is called on the `ax` object instead of the `plt` module. In the following example, we generate a line plot of the sine function using the `ax.plot()` function. The `ax.axhline()` function is used to add a horizontal line at $y=0$.
+In the OOP approach, we can create line plots using the `ax.plot` function. The `ax.plot` function is similar to the `plt.plot` function, but it is called on the `ax` object instead of the `plt` module. In the following example, we generate a line plot of the sine function using the `ax.plot` function. The `ax.axhline` function is used to add a horizontal line at $y=0$.
 
 ```{python}
 #| label: fig-fig6.18
@@ -557,7 +605,7 @@ ax.axhline(0, color='k', linestyle='-', linewidth=1, alpha=0.5)
 plt.show()
 ```
 
-Note that in @fig-fig6.18, the `ax.plot()` function serves the same purpose as the `plt.plot()` function. While most `plt` functions translate directly to `ax` methods (such as `plt.plot()` $\rightarrow$ `ax.plot()`, and `plt.legend()` $\rightarrow$ `ax.legend()`), this is not the case for all commands. Below, we give some commonly used translations.
+Note that in @fig-fig6.18, the `ax.plot` function serves the same purpose as the `plt.plot` function. While most `plt` functions translate directly to `ax` methods (such as `plt.plot()` $\rightarrow$ `ax.plot()`, and `plt.legend()` $\rightarrow$ `ax.legend()`), this is not the case for all commands. Below, we give some commonly used translations.
 
 * `plt.plot()` $\rightarrow$ `ax.plot()`
 * `plt.legend()` $\rightarrow$ `ax.legend()`
@@ -576,7 +624,7 @@ Note that in @fig-fig6.18, the `ax.plot()` function serves the same purpose as t
 * `plt.show()` $\rightarrow$ `plt.show()` (remains unchanged) 
 * `plt.savefig()` $\rightarrow$ `fig.savefig()`
 
-In the following example, we generate a line plot of the sine function using the `ax.plot()` function. The `ax.set_title()`, `ax.set_xlabel()`, and `ax.set_ylabel()` functions are used to set the title and labels of the axes. The `ax.set_xlim()` and `ax.set_ylim()` functions are used to set the limits of the x- and y-axes, respectively. Finally, we add a legend using the `ax.legend()` function.
+In the following example, we generate a line plot of the sine function using the `ax.plot` function. The `ax.set_title`, `ax.set_xlabel`, and `ax.set_ylabel` functions are used to set the title and labels of the axes. The `ax.set_xlim` and `ax.set_ylim` functions are used to set the limits of the x- and y-axes, respectively. Finally, we add a legend using the `ax.legend` function.
 
 ```{python}
 #| label: fig-fig6.19
@@ -618,7 +666,7 @@ fig.tight_layout()
 plt.show()
 ```
 
-In the above examples, we create the `fig` and `ax` objects separately using `fig = plt.figure()` and `ax = plt.axes()`. Alternatively, we can generate both objects with a single command by using the `plt.subplots()` function. Consider the following example:
+In the above examples, we create the `fig` and `ax` objects separately using `fig = plt.figure()` and `ax = plt.axes()`. Alternatively, we can generate both objects with a single command by using the `plt.subplots` function. Consider the following example:
 
 ```{python}
 #| label: fig-fig6.21
@@ -642,7 +690,7 @@ plt.show()
 ```
 
 ### Scatter plots
-Scatter plots can be generated using the `ax.scatter()` function or the `ax.plot()` function with the option `linestyle=""`. The following example generates a scatter plot using the `ax.scatter()` function.
+Scatter plots can be generated using the `ax.scatter` function or the `ax.plot` function with the option `linestyle=""`. The following example generates a scatter plot using the `ax.scatter` function.
 ```{python}
 #| label: fig-fig6.22
 #| fig-cap: "Scatter plot using `ax.scatter()`"
@@ -660,7 +708,7 @@ ax.set_ylabel('y')
 plt.show()
 ```
 
-In the following example, we generate a scatter plot using the `ax.plot()` function with the option `linestyle=""`. 
+In the following example, we generate a scatter plot using the `ax.plot` function with the option `linestyle=""`. 
 
 ```{python}
 #| label: fig-fig6.23
@@ -678,7 +726,7 @@ plt.show()
 ```
 
 ### Bar plots
-Bar plots can be generated using the `ax.bar()` function for vertical bars or the `ax.barh()` function for horizontal bars. 
+Bar plots can be generated using the `ax.bar` function for vertical bars or the `ax.barh` function for horizontal bars. 
 ```{python}
 #| label: fig-fig6.24
 #| fig-cap: "Bar plot using `ax.bar()`"
@@ -694,7 +742,7 @@ ax.set_ylabel('y')
 plt.show()
 ```
 
-In the following example, we generate a horizontal bar plot using the `ax.barh()` function.
+In the following example, we generate a horizontal bar plot using the `ax.barh` function.
 
 ```{python}
 #| label: fig-fig6.24-1
@@ -712,8 +760,39 @@ ax.set_ylabel('Groups')
 plt.show()
 ```
 
+### Stem plots
+To generate stem plots, we translate the `plt.stem` function to `ax.stem`. The following example generates a stem plot of the cosine function over the interval $(0, 2\pi)$. The `ax.setp` function is used to customize the stem lines, markers, and baseline.
+
+```{python}
+#| fig-cap: "Stem plot using `ax.stem()`"
+#| label: fig-fig6.25-stem3
+
+# Stem plot using ax.stem()
+# Data
+x = np.linspace(0, 2 * np.pi, 30)
+y = np.cos(x)
+
+# Create figure and axes
+fig, ax = plt.subplots(figsize=(5, 4))
+
+# Create stem plot
+stemp = ax.stem(x, y, linefmt='-', markerfmt='ro', basefmt='k-')
+
+# Customize stemline, marker, and baseline
+plt.setp(stemp.stemlines, color='steelblue')   
+plt.setp(stemp.markerline, color='black', markersize=4)      
+plt.setp(stemp.baseline, color='black', linewidth=0.5)
+
+# Labels
+ax.set_xlabel("x")
+ax.set_ylabel("cos(x)")
+
+plt.show()
+```
+
+
 ### Pie plot
-Pie plots can be generated using the `ax.pie()` function. The `explode` option can be used to separate the slices of the pie chart, and the `autopct` option can be used to display the percentage of each slice.
+Pie plots can be generated using the `ax.pie` function. The `explode` option can be used to separate the slices of the pie chart, and the `autopct` option can be used to display the percentage of each slice.
 
 ```{python}
 #| label: fig-fig6.25
@@ -732,7 +811,7 @@ plt.show()
 ```
 
 ### Histograms
-The `ax.hist()` function is used to create a histogram. In the following example, the `density` option takes a boolean value that determines whether the histogram is normalized to form a probability density function (PDF). 
+The `ax.hist` function is used to create a histogram. In the following example, the `density` option takes a boolean value that determines whether the histogram is normalized to form a probability density function (PDF). 
 
 ```{python}
 #| label: fig-fig6.26
@@ -788,7 +867,7 @@ plt.show()
 ```
 
 ### Multiple plots on the same figure
-In the following example, we first create a `Figure` of size 8x7 inches using `fig=plt.figure(figsize=(8,7))`. We then create the 2x2 grid of subplots and the `Axes` objects with `fig.add_subplot(2,2,p)`, where `p` indicates the position of the subplot within the grid. 
+In the following example, we first create a `Figure` of size 8x7 inches using `fig=plt.figure(figsize=(7,7))`. We then create the 2x2 grid of subplots and the `Axes` objects with `fig.add_subplot(2,2,p)`, where `p` indicates the position of the subplot within the grid.
 
 ```{python}
 #| label: fig-fig6.27
@@ -894,5 +973,229 @@ fig.tight_layout()
 plt.show()
 ```
 
+## Three-dimensional plots
+For three-dimensional plotting, we rely on the `mpl_toolkits.mplot3d` module, which is included in the Matplotlib module. We import this module using the command `from mpl_toolkits import mplot3d`. We can then create 3D axes using the keyword argument `projection='3d'`in the `plt.axes` function or in the `fig.add_subplot()` function.
+
+```{python}
+#| fig-cap: "Creating a 3D axes"
+#| label: fig-fig6.34
+# Create a new figure
+fig = plt.figure(figsize=(5, 4))
+# Create 3D axes
+ax = plt.axes(projection='3d')
+```
+
+Alternatively, we can import the `Axes3D` class from the `mpl_toolkits.mplot3d` module using the command `from mpl_toolkits.mplot3d import Axes3D`. We can then create 3D axes by passing the keyword argument `projection='3d'` to the `plt.axes` function.
+```{python}
+#| eval: false
+# Create a 3D axes using Axes3D
+from mpl_toolkits.mplot3d import Axes3D
+fig = plt.figure(figsize=(5, 4))
+# Create 3D axes
+ax = plt.axes(projection='3d')
+```
+
+### Scatter plots
+The three-dimensional scatter plots are generated by plotting points $(x,y,z)$ in the 3D space. The `ax.scatter3D` function is used to create a 3D scatter plot. Consider the following random coordinates $(x,y,z)$:
+$$
+x, y \sim N(0,1), \quad z =2x + 1.5y + \sqrt{0.5}\epsilon, \quad \epsilon \sim N(0,1).
+$$
+```{python}
+#| fig-cap: "The 3D scatter plot using `ax.scatter3D()`"
+#| label: fig-fig6.35
+# Data
+np.random.seed(45)
+tmp = np.random.randn(100, 2)
+epsilon = np.random.randn(100)
+z = 2 * tmp[:,0] + 1.5 * tmp[:,1] + np.sqrt(0.5) * epsilon
+x = tmp[:,0]
+y = tmp[:,1]
+# Plot
+fig = plt.figure(figsize=(5, 4))
+ax = fig.add_subplot(111, projection='3d')
+ax.scatter3D(x, y, z, s=40, color='steelblue', alpha=0.8, edgecolor='black')
+# Labels
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+#ax.set_zlabel('z')
+plt.show()
+```
+
+### Line plots
+The three-dimensional line plots are generated by connecting points in a 3D space. The `ax.plot3D` function is used to create a 3D line plot. Consider the coordinates $(x,y,z)$ defined as follows:
+$$
+x = \sqrt{t} \sin(2t), \quad y = \sqrt{t} \cos(2t), \quad z = 2t, \quad t \in [0, 8\pi].
+$$
+
+```{python}
+#| fig-cap: "The 3D line plot using `ax.plot3D()`"
+#| label: fig-fig6.36
+
+# Data
+t = np.arange(0, 8*np.pi, 0.1)
+x = t**0.5 * np.sin(2*t)
+y = t**0.5 * np.cos(2*t)
+z = 2 * t
+
+# Plot
+fig = plt.figure(figsize=(5, 4))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot3D(x, y, z, linewidth=1.5, color='steelblue')
+
+# Labels and grid
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+#ax.set_zlabel('z')
+
+plt.show()
+```
+
+### Wireframes and surface plots
+We can use the wireframe and surface plots to visualize functions of two variables, i.e., $z=f(x,y)$. The `ax.plot_wireframe` function is used to create a wireframe plot, while the `ax.plot_surface` function is used to create a surface plot. Consider the Rosenbrock function:
+$$
+f(x,y) = (a-x)^2 + b(y-x^2)^2.
+$$
+
+We set $a=1$ and $b=100$ and generate the wireframe and surface plots of the Rosenbrock function over the domain $x \in [-2,2]$ and $y \in [-1,3]$. We first generate a grid of $(x,y)$ values using the `np.meshgrid` function, and then compute the corresponding $z$ values using the Rosenbrock function. In the wireframe plot, we use the `rstride` and `cstride` options to set the row and column stride, respectively.
+```{python}
+#| fig-cap: "The 3D wireframe plot using `ax.plot_wireframe()`"
+#| label: fig-fig6.37
+# Data
+x = np.linspace(-2, 2, 100)
+y = np.linspace(-1, 3, 100)
+X, Y = np.meshgrid(x, y)
+Z = (1 - X)**2 + 100 * (Y - X**2)**2
+# Plot
+fig = plt.figure(figsize=(5, 4))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_wireframe(X, Y, Z, rstride=5, cstride=5, color='steelblue', alpha=0.7)
+# Labels
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+#ax.set_zlabel('z')
+plt.show()
+```
+```{python}
+#| fig-cap: "The 3D surface plot using `ax.plot_surface()`"
+#| label: fig-fig6.38
+# Data
+x = np.linspace(-2, 2, 100)
+y = np.linspace(-1, 3, 100)
+X, Y = np.meshgrid(x, y)
+Z = (1 - X)**2 + 100 * (Y - X**2)**2
+# Plot
+fig = plt.figure(figsize=(5, 4))
+ax = fig.add_subplot(111, projection='3d')
+surf = ax.plot_surface(X, Y, Z, cmap='winter_r', edgecolor='none', alpha=0.8)
+fig.colorbar(surf, ax=ax, shrink=0.4, aspect=7)
+# Labels
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+#ax.set_zlabel('z')
+plt.show()
+```
+
+ In the surface plot, we use the `cmap` option to set the colormap. To see the available colormaps, we can use the following code:
+```{python}
+# List all available colormaps
+print(plt.colormaps())
+```
+
+We use the `fig.colorbar` function to add a colorbar to the surface plot. The `shrink` option is used to adjust the size of the colorbar, and the `aspect` option is used to set the aspect ratio of the colorbar.
+
+### Contour plots
+A contour of the function $z=f(x,y)$ is the set of points $(x,y)$ such that $f(x,y)=c$ for some constant level $c$. The contour plot is the plot of the contours of the function at various levels. We can use the `ax.contour` function for contour lines or the `ax.contourf` function for filled contours. Consider the Rosenbrock function defined above. We generate the contour and filled contour plots of the Rosenbrock function over the domain $x \in [-2,2]$ and $y \in [-1,3]$. We first generate a grid of $(x,y)$ values using the `np.meshgrid` function, and then compute the corresponding $z$ values using the Rosenbrock function.
+```{python}
+#| fig-cap: "The contour plot using `ax.contour()`"
+#| label: fig-fig6.39
+# Data
+x = np.linspace(-2, 2, 100)
+y = np.linspace(-1, 3, 100)
+X, Y = np.meshgrid(x, y)
+Z = (1 - X)**2 + 100 * (Y - X**2)**2
+# Plot
+fig = plt.figure(figsize=(5, 4))
+ax = fig.add_subplot(111)
+contour = ax.contour(X, Y, Z, levels=20, cmap='winter_r')
+fig.colorbar(contour, ax=ax)
+# Labels
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+plt.show()
+```
+
+```{python}
+#| fig-cap: "The filled contour plot using `ax.contourf()`"
+#| label: fig-fig6.40
+# Data
+x = np.linspace(-2, 2, 100)
+y = np.linspace(-1, 3, 100)
+X, Y = np.meshgrid(x, y)
+Z = (1 - X)**2 + 100 * (Y - X**2)**2
+# Plot
+fig = plt.figure(figsize=(5, 4))
+ax = fig.add_subplot(111)
+contourf = ax.contourf(X, Y, Z, levels=20, cmap='winter_r')
+fig.colorbar(contourf, ax=ax)
+# Labels
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+plt.show()
+```
+
+In the following example, we consider the following function:
+$$
+f(x,y) = 2^{-\sqrt{x^2+y^2}}\cos(0.5y)\sin(x)
+$$    
+
+We first generate its surface plot and then its contour plot over the domain $x \in [-3,3]$ and $y \in [-3,3]$.
+
+```{python}
+#| fig-cap: "The surface plot using `ax.plot_surface()`"
+#| label: fig-fig6.44
+# Surface plot using ax.plot_surface()
+# Data
+x = np.arange(-3, 3, 0.25)
+y = np.arange(-3, 3, 0.25)
+X, Y = np.meshgrid(x, y)
+Z = (2 ** (-1 * np.sqrt(X**2 + Y**2))) * np.cos(0.5 * Y) * np.sin(X)
+# Plot
+fig = plt.figure(figsize=(6, 5))
+ax = fig.add_subplot(111, projection='3d')
+surf = ax.plot_surface(X, Y, Z, cmap='gist_heat_r', edgecolor='none', alpha=0.8)
+fig.colorbar(surf, ax=ax, shrink=0.4, aspect=7)
+# Labels
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+#ax.set_zlabel('z')
+plt.show()
+```
+
+@fig-fig6.45 shows the contour plot of the same function using the `ax.contour` function. We use the `ax.clabel` function to label the contours.
+
+```{python}
+#| fig-cap: "The contour plot using `ax.contour()`"
+#| label: fig-fig6.45
+# Contour plot using ax.contour()
+# Data
+x = np.arange(-3, 3, 0.25)
+y = np.arange(-3, 3, 0.25)
+X, Y = np.meshgrid(x, y)
+
+# Function
+Z = (2 ** (-1 * np.sqrt(X**2 + Y**2))) * np.cos(0.5 * Y) * np.sin(X)
+
+# 2D Contour plot
+fig, ax = plt.subplots(figsize=(6,5))
+CS = ax.contour(X, Y, Z, 15, cmap='gist_heat_r')           # 15 contour levels
+ax.clabel(CS, inline=True, fontsize=8) # label contours
+
+# Labels
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+
+plt.show()
+```
+
 ## Other Tools for Graphics
-In this chapter, we covered only the most commonly used plotting methods. Matplotlib also provides functions for other types of plots, such as density plots, contour plots, and three-dimensional plots, as well as customization tools for legends, colorbars, ticks, text, and annotations. In addition to Matplotlib, the Seaborn and Pandas modules offer additional plotting methods. For further reading, we refer the reader to @Sheppard2021, @Wes2022, and @Jake2023.  
+In this chapter, we covered only the most commonly used plotting methods. In addition to Matplotlib, the Seaborn and Pandas modules offer additional plotting methods. For further reading, we refer the reader to @Sheppard2021, @Wes2022, and @Jake2023.  
