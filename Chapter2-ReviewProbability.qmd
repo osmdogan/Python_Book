@@ -1856,7 +1856,7 @@ $$
 $$
 :::
 
-If $\bar{Y}$  converges in probability to $\mu_Y$, then we say that $\bar{Y}$ is a  **consistent estimator** of $\mu_Y$. In the next chapter, we will discuss the properties of estimators in more detail. The **law of large numbers** ensures that $\bar{Y}$ is a consistent estimator of $\mu_Y$.
+If $\bar{Y}$ converges in probability to $\mu_Y$, then we say that $\bar{Y}$ is a  **consistent estimator** of $\mu_Y$. In the next chapter, we will discuss the properties of estimators in more detail. The **law of large numbers** ensures that $\bar{Y}$ is a consistent estimator of $\mu_Y$.
 
 :::{}
 ::: {#thm-theorem9.10}
@@ -1866,14 +1866,14 @@ distributed with $E(Y_i) = \mu_Y$ and $\text{var}(Y_i)=\sigma^2_Y<\infty$, then 
 :::
 :::
 
-To illustrate the law of large numbers, assume that $Y_1, \dots, Y_n$ are i.i.d. random variables from a Bernoulli distribution with success probability $p = 0.78$. We consider the sampling distribution of $\bar{Y}$ for various sample sizes $n$. According to the law of large numbers, $\bar{Y}$ should converge in probability to $0.78$ as $n$ becomes larger. @fig-f9.20 shows the sampling distribution of $\bar{Y}$ for $n \in \{2, 5, 25, 100\}$. We observe that the variance of the sampling distribution of $\bar{Y}$ decreases as $n$ increases, causing the distribution to become more tightly concentrated around its mean, $\mu_Y = 0.78$.
+To illustrate the law of large numbers, assume that $Y_1, \dots, Y_n$ are i.i.d. random variables from a Bernoulli distribution with success probability $p = 0.78$. We consider the sampling distribution of $\bar{Y}$ for various sample sizes $n$. According to the law of large numbers, $\bar{Y}$ should converge in probability to $0.78$ as $n$ becomes larger. @fig-f9.20 shows the sampling distribution of $\bar{Y}$ for $n \in \{2, 5, 25, 100\}$. We observe that the variance of the sampling distribution of $\bar{Y}$ decreases as $n$ increases, causing the distribution to become more tightly concentrated around its mean, $\mu_Y = 0.78$, represented by the vertical dashed line in red.
 
 ```{python}
 #| fig-cap: The sampling distribution of the sample average
 #| label: fig-f9.20
 # The sampling distribution of the sample average
 # Set parameters
-reps = 1000 # number of repetitions
+reps = 5000 # number of repetitions
 sample_sizes = [2, 5, 25, 100]
 p = 0.78 # probability of success
 # Set seed for reproducibility
@@ -1893,6 +1893,7 @@ for i, n in enumerate(sample_sizes):
     # Plot histogram
     ax = axs[i]
     ax.hist(sample_means, density=True, color='steelblue')
+    ax.axvline(p, color='red', linestyle='--', linewidth=1.5, label=r'$p=5$')
     ax.set_xlim(0, 1)
     ax.set_xlabel(f'n = {n}')
 # Adjust layout
@@ -1908,8 +1909,7 @@ The **central limit theorem (CLT)** says that, under general conditions, the dis
 :::{}
 ::: {#thm-theorem9.11}
 ## The Central Limit Theorem
-If $Y_1,\dots, Y_n$ are independently and identically
-distributed with $E(Y_i) = \mu_Y$ and $\text{var}(Y_i)=\sigma^2_Y<\infty$, then $\frac{\bar{Y}-\mu_Y}{\sqrt{\text{var}(\bar{Y})}}=\frac{\bar{Y}-\mu_Y}{\sigma_Y/\sqrt{n}}$ is well approximated by $N(0,1)$.
+If $Y_1,\dots, Y_n$ are independently and identically distributed with $E(Y_i) = \mu_Y$ and $\text{var}(Y_i)=\sigma^2_Y<\infty$, then $\frac{\bar{Y}-\mu_Y}{\sqrt{\text{var}(\bar{Y})}}=\frac{\bar{Y}-\mu_Y}{\sigma_Y/\sqrt{n}}$ is well approximated by $N(0,1)$.
 :::
 :::
 
@@ -1920,7 +1920,7 @@ The CLT implies that $\bar{Y}\sim N(\mu_Y,\sigma^2_Y/n)$ when $n$ is large.  To 
 #| label: fig-f9.21
 # The sampling distribution of the standardized sample average
 # Set parameters
-reps = 1000
+reps = 5000
 p = 0.78 # probability of success
 sample_sizes = [50, 100, 500, 1000]
 # Set seed for reproducibility
@@ -1939,7 +1939,7 @@ for i, n in enumerate(sample_sizes):
 
     # Plot histogram and overlay the N(0,1) density
     ax = axs[i]
-    ax.hist(std_sample_means,bins=40, density=True, color='steelblue')
+    ax.hist(std_sample_means, bins=100, density=True, color='steelblue')
     
     # Overlay N(0,1) density
     xmin, xmax = -3, 3
