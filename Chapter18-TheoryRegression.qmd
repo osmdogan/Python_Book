@@ -735,6 +735,68 @@ plt.tight_layout()
 plt.show()
 ```
 
+:::{#exm-exm25-4-1}
+Suppose that, at a large public university, the time required for economics majors to complete their graduation thesis follows the [exponential distribution](https://en.wikipedia.org/wiki/Exponential_distribution) with mean 6 months. Given a random sample of 100 students, the university wants to determine the probability that more than 40 students take longer than 6 months to finish their thesis.
+
+Let $X_i$ denote the time required for the $i$th student to complete the graduation thesis. Then, $X_i\sim \text{Exponential}(\lambda)$, where $\lambda=1/6$. The PDF and CDF of $X_i$ are given by
+$$
+\begin{align*}
+f(x)=
+\begin{cases}
+\lambda e^{-\lambda x},\,x\geq0,\\
+0,\,x<0,
+\end{cases}
+\end{align*}
+$$
+
+$$
+\begin{align*}
+F(x)=
+\begin{cases}
+1-e^{-\lambda x},\,x\geq0,\\
+0,\,x<0.
+\end{cases}
+\end{align*}
+$$
+
+Let $Y_i=1$ if the time for the $i$th student to finish the thesis is more than 6 months and $Y_i=0$ otherwise. Then, we have
+$$
+P(Y_i=1)=P(X_i>6)=e^{-\lambda 6}=e^{-1}\approx0.3679,
+$$
+$$
+P(Y_i=0)=1-P(Y_i=1)=1-e^{-1}\approx0.6321.
+$$
+
+Thus, we have $Y_i\sim \text{Bernoulli}(p)$, where $p=e^{-1}$. Let $S_n=\sum_{i=1}^{100}Y_i$ be the number of students who take longer than 6 months to finish their thesis. Then, since our sample is a random sample, we have $S_n\sim \text{Binomial}(n=100,p=e^{-1})$. 
+
+We want to find $P(S_n>40)$. Since the sample size is large, we can use the central limit theorem to approximate this probability. Note that $\E(Y_i)=p$ and $\text{Var}(Y_i)=p(1-p)$. Thus, $\E(S_n)=np$ and $\text{Var}(S_n)=np(1-p)$. Then, we have
+
+$$
+\begin{align*}
+P(S_n>40)&=P\left(\frac{S_n-np}{\sqrt{np(1-p)}}>\frac{40-np}{\sqrt{np(1-p)}}\right)\\
+&\approx P\left(Z>\frac{40-100e^{-1}}{\sqrt{100e^{-1}(1-e^{-1})}}\right)\\
+&=P(Z> 0.6661)\\
+&=1-P(Z\leq 0.6661)\\
+&=0.2527,
+\end{align*}
+$$
+where $Z\sim N(0,1)$. The last step can be computed using the following code:
+
+```{python}
+np.round(1 - stats.norm.cdf(0.6661), 4)
+```
+The result indicates that there is approximately a 25.27% chance that more than 40 students will take longer than 6 months to complete their thesis.
+
+Since $P(S_n>40)=1-P(S_n\leq 40)$, we can also compute the exact probability as follows:
+
+```{python}
+np.round(1 - stats.binom.cdf(40, 100, np.exp(-1)), 4)
+```
+The exact probability is approximately 0.2197, which is close to the approximation of 0.2527 obtained using the central limit theorem.
+
+:::
+
+
 We now state an important result called Slutsky's theorem, which provides the asymptotic distribution of the sum and product of two random variables.
 
 :::{#thm-thm25-11}
