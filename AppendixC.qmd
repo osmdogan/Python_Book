@@ -37,7 +37,7 @@ I^2&=\frac{1}{2\pi}\int_{0}^{2\pi}\int_{0}^{\infty}e^{-r^2/2}rdrd\theta=\frac{1}
 \end{align*} 
 $$
 
-## Moments and moment-generating functions
+## Moment-generating function
 :::{#def-defC-1}
 ## Moments
 The $k$th moment of a random variable $Y$ is defined as $\mathbb{E}(Y^k)$ and is denoted by $\mu_k'$. The $k$th central moment of $Y$ is defined as $\mathbb{E}((Y - \mu)^k)$ and is denoted by $\mu_k$.
@@ -144,7 +144,7 @@ $$
 $$
 :::
 
-## Characteristic functions
+## Characteristic function
 
 To introduce the characteristic function of a random variable, we first recall some basic results from complex numbers. The imaginary unit is denoted by $i$, where $i^2=-1$. A complex number $z$ is a number of the form $z=a+bi$, where $a$ and $b$ are real numbers. The number $a$ is called the real part of $z$ and $b$ is called the imaginary part of $z$. The modulus (or absolute value) of a complex number $z=a+bi$ is defined as $|z|=\sqrt{a^2+b^2}$. The addition and multiplication of two complex numbers $z_1=a+bi$ and $z_2=c+di$ are defined as
 $$
@@ -235,7 +235,7 @@ By @exm-exmC-3, $\varphi_Z(t)=e^{-t^2/2}$ is the characteristic function of the 
 
 ## Bivariate normal distribution
 
-Next, we introduce the bivariate normal distribution. The bivariate normal PDF of $X$ and $Y$ is given by
+The bivariate normal PDF of $X$ and $Y$ is given by
 $$
 f_{X,Y}(x,y)=\frac{1}{2\pi\sigma_X\sigma_Y\sqrt{1-\rho^2}}e^{-\frac{1}{2(1-\rho^2)}\left(\frac{(x-\mu_X)^2}{\sigma_X^2}+\frac{(y-\mu_Y)^2}{\sigma_Y^2}-\frac{2\rho(x-\mu_X)(y-\mu_Y)}{\sigma_X\sigma_Y}\right)},
 $$

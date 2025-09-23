@@ -452,8 +452,8 @@ window.Quarto = {
    
   <ul>
   <li><a href="#normal-distribution" id="toc-normal-distribution" class="nav-link active" data-scroll-target="#normal-distribution"><span class="header-section-number">C.1</span> Normal distribution</a></li>
-  <li><a href="#moments-and-moment-generating-functions" id="toc-moments-and-moment-generating-functions" class="nav-link" data-scroll-target="#moments-and-moment-generating-functions"><span class="header-section-number">C.2</span> Moments and moment-generating functions</a></li>
-  <li><a href="#characteristic-functions" id="toc-characteristic-functions" class="nav-link" data-scroll-target="#characteristic-functions"><span class="header-section-number">C.3</span> Characteristic functions</a></li>
+  <li><a href="#moment-generating-function" id="toc-moment-generating-function" class="nav-link" data-scroll-target="#moment-generating-function"><span class="header-section-number">C.2</span> Moment-generating function</a></li>
+  <li><a href="#characteristic-function" id="toc-characteristic-function" class="nav-link" data-scroll-target="#characteristic-function"><span class="header-section-number">C.3</span> Characteristic function</a></li>
   <li><a href="#the-proof-of-the-central-limit-theorem" id="toc-the-proof-of-the-central-limit-theorem" class="nav-link" data-scroll-target="#the-proof-of-the-central-limit-theorem"><span class="header-section-number">C.4</span> The proof of the central limit theorem</a></li>
   <li><a href="#bivariate-normal-distribution" id="toc-bivariate-normal-distribution" class="nav-link" data-scroll-target="#bivariate-normal-distribution"><span class="header-section-number">C.5</span> Bivariate normal distribution</a></li>
   <li><a href="#chi-square-distribution" id="toc-chi-square-distribution" class="nav-link" data-scroll-target="#chi-square-distribution"><span class="header-section-number">C.6</span> Chi-square distribution</a></li>
@@ -484,7 +484,7 @@ window.Quarto = {
 </header>
 
 
-<div id="e5ffabc6" class="cell" data-execution_count="1">
+<div id="db0096e3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -525,8 +525,8 @@ I^2&amp;=\frac{1}{2\pi}\int_{0}^{2\pi}\int_{0}^{\infty}e^{-r^2/2}rdrd\theta=\fra
 \end{align*}
 \]</span></p>
 </section>
-<section id="moments-and-moment-generating-functions" class="level2" data-number="C.2">
-<h2 data-number="C.2" class="anchored" data-anchor-id="moments-and-moment-generating-functions"><span class="header-section-number">C.2</span> Moments and moment-generating functions</h2>
+<section id="moment-generating-function" class="level2" data-number="C.2">
+<h2 data-number="C.2" class="anchored" data-anchor-id="moment-generating-function"><span class="header-section-number">C.2</span> Moment-generating function</h2>
 <div id="def-defC-1" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition C.1 (Moments)</strong></span> The <span class="math inline">\(k\)</span>th moment of a random variable <span class="math inline">\(Y\)</span> is defined as <span class="math inline">\(\mathbb{E}(Y^k)\)</span> and is denoted by <span class="math inline">\(\mu_k'\)</span>. The <span class="math inline">\(k\)</span>th central moment of <span class="math inline">\(Y\)</span> is defined as <span class="math inline">\(\mathbb{E}((Y - \mu)^k)\)</span> and is denoted by <span class="math inline">\(\mu_k\)</span>.</p>
 </div>
@@ -604,8 +604,8 @@ M_Y(t)&amp;=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{b}dy=\frac{1}{\
 \]</span></p>
 </div>
 </section>
-<section id="characteristic-functions" class="level2" data-number="C.3">
-<h2 data-number="C.3" class="anchored" data-anchor-id="characteristic-functions"><span class="header-section-number">C.3</span> Characteristic functions</h2>
+<section id="characteristic-function" class="level2" data-number="C.3">
+<h2 data-number="C.3" class="anchored" data-anchor-id="characteristic-function"><span class="header-section-number">C.3</span> Characteristic function</h2>
 <p>To introduce the characteristic function of a random variable, we first recall some basic results from complex numbers. The imaginary unit is denoted by <span class="math inline">\(i\)</span>, where <span class="math inline">\(i^2=-1\)</span>. A complex number <span class="math inline">\(z\)</span> is a number of the form <span class="math inline">\(z=a+bi\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are real numbers. The number <span class="math inline">\(a\)</span> is called the real part of <span class="math inline">\(z\)</span> and <span class="math inline">\(b\)</span> is called the imaginary part of <span class="math inline">\(z\)</span>. The modulus (or absolute value) of a complex number <span class="math inline">\(z=a+bi\)</span> is defined as <span class="math inline">\(|z|=\sqrt{a^2+b^2}\)</span>. The addition and multiplication of two complex numbers <span class="math inline">\(z_1=a+bi\)</span> and <span class="math inline">\(z_2=c+di\)</span> are defined as <span class="math display">\[
 \begin{align*}
 &amp;z_1+z_2=(a+c)+(b+d)i,\\
@@ -666,7 +666,7 @@ M_Y(t)&amp;=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{b}dy=\frac{1}{\
 </section>
 <section id="bivariate-normal-distribution" class="level2" data-number="C.5">
 <h2 data-number="C.5" class="anchored" data-anchor-id="bivariate-normal-distribution"><span class="header-section-number">C.5</span> Bivariate normal distribution</h2>
-<p>Next, we introduce the bivariate normal distribution. The bivariate normal PDF of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is given by <span class="math display">\[
+<p>The bivariate normal PDF of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is given by <span class="math display">\[
 f_{X,Y}(x,y)=\frac{1}{2\pi\sigma_X\sigma_Y\sqrt{1-\rho^2}}e^{-\frac{1}{2(1-\rho^2)}\left(\frac{(x-\mu_X)^2}{\sigma_X^2}+\frac{(y-\mu_Y)^2}{\sigma_Y^2}-\frac{2\rho(x-\mu_X)(y-\mu_Y)}{\sigma_X\sigma_Y}\right)},
 \]</span> where <span class="math inline">\(\rho\)</span> is the correlation coefficient between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. The marginal distributions of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are univariate normal distributions: <span class="math inline">\(X\sim N(\mu_X,\sigma^2_X)\)</span> and <span class="math inline">\(Y\sim N(\mu_Y,\sigma^2_Y)\)</span>.</p>
 <p>In <a href="#fig-bivariate-normal" class="quarto-xref">Figure&nbsp;<span>C.1</span></a>, we plot the bivariate normal distribution with <span class="math inline">\(\mu_X=\mu_Y=0\)</span>, <span class="math inline">\(\sigma_X=\sigma_Y=1\)</span>, and <span class="math inline">\(\rho=0.5\)</span>. The 3D plot shows the joint PDF of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
