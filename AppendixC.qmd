@@ -11,13 +11,13 @@ from mpl_toolkits.mplot3d import Axes3D
 {{< include latex_macro.qmd >}}
 
 ## Normal distribution
-Let $Y\sim N(\mu,\sigma^2)$. Then, its probability density function (pdf) is given by
+Let $Y\sim N(\mu,\sigma^2)$. Then, the probability density function (PDF) of $Y$ is given by
 $$
-f_Y(y) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(y-\mu)^2}{2\sigma^2}}.
+f_Y(y) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(y-\mu)^2}{2\sigma^2}},
 $${#eq-eqC-1}
-where $\mu$ is the mean and $\sigma^2$ is the variance. The pdf of normal distribution is symmetric about the mean $\mu$, i.e., $f(\mu-a)=f(\mu+a)$ for all $a\in\mathbb{R}$. The pdf has inflection points at $y=\mu\pm\sigma$. The pdf and CDF plots of the normal distributon with different means and variances are shown in Chapter 9. 
+where $\mu$ is the mean and $\sigma^2$ is the variance. The PDF of normal distribution is symmetric about the mean $\mu$, i.e., $f(\mu-a)=f(\mu+a)$ for all $a\in\mathbb{R}$. The PDF has inflection points at $y=\mu\pm\sigma$. We provide the PDF and CDF plots of the normal distribution with different means and variances in @sec-probability.
 
-Clearly, $f (y)\geq 0$ for all $y\in\mathbb{R}$. What about $\int_{-\infty}^{\infty}f(y)dy=1$? Define $I=\int_{-\infty}^{\infty}\frac{1}{\sigma\sqrt{2\pi}}e^{-(y-\mu)^2/(2\sigma^2)}dy$. Set $z=(y-\mu)/\sigma\implies dz=dy/\sigma$. With this change of variable, $I$ can be expressed as 
+Clearly, $f (y)\geq 0$ for all $y\in\mathbb{R}$. What about $\int_{-\infty}^{\infty}f(y)dy=1$? Define $I=\int_{-\infty}^{\infty}\frac{1}{\sigma\sqrt{2\pi}}e^{-(y-\mu)^2/(2\sigma^2)}dy$. Set $z=(y-\mu)/\sigma\implies dz=dy/\sigma$. With this change of variable, $I$ can be expressed as
 $$
 I=\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}}e^{-z^2/2}dz.
 $$
@@ -28,7 +28,8 @@ I^2&=\left(\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}}e^{-x^2/2}dx\right)\left(
 &=\frac{1}{2\pi}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}e^{-(x^2+y^2)/2}dxdy.
 \end{align*}
 $$
-Now, we will use the polar coordinate transformation. Set $x=r\cos(\theta)$ and $y=r\sin(\theta)$. Then, $x^2+y^2=r^2\cos^2(\theta)+r^2\sin^2(\theta)=r^2$. The Jacobian of the transformation from $(x,y)$ space to $(r,\theta)$ space is $r$.  Then, we have
+
+To proceed, we will use the polar coordinate transformation. Set $x=r\cos(\theta)$ and $y=r\sin(\theta)$. Then, $x^2+y^2=r^2\cos^2(\theta)+r^2\sin^2(\theta)=r^2$. The Jacobian of the transformation from $(x,y)$ space to $(r,\theta)$ space is $r$.  Then, we have
 $$
 \begin{align*}
 I^2&=\frac{1}{2\pi}\int_{0}^{2\pi}\int_{0}^{\infty}e^{-r^2/2}rdrd\theta=\frac{1}{2\pi}\int^{2\pi}_{0}\left(-e^{-r^2/2}\bigg|^{\infty}_{0}\right)d\theta\\
@@ -36,6 +37,7 @@ I^2&=\frac{1}{2\pi}\int_{0}^{2\pi}\int_{0}^{\infty}e^{-r^2/2}rdrd\theta=\frac{1}
 \end{align*} 
 $$
 
+## Moments and moment-generating functions
 :::{#def-defC-1}
 ## Moments
 The $k$th moment of a random variable $Y$ is defined as $\mathbb{E}(Y^k)$ and is denoted by $\mu_k'$. The $k$th central moment of $Y$ is defined as $\mathbb{E}((Y - \mu)^k)$ and is denoted by $\mu_k$.
@@ -43,50 +45,50 @@ The $k$th moment of a random variable $Y$ is defined as $\mathbb{E}(Y^k)$ and is
 
 :::{#def-defC-2}
 ## Moment-generating function
-The moment-generating function $m(t)$ of a random variable $Y$ is defined as
-$m(t) = \E\left(e^{tY} \right)$. It exists if there is a positive constant $b$ such that $m(t)$ is finite for $|t| \leq b$.
+The [moment-generating function](https://en.wikipedia.org/wiki/Moment-generating_function) $M_Y(t)$ of a random variable $Y$ is defined as
+$M_Y(t) = \E\left(e^{tY} \right)$. It exists if there is a positive constant $b$ such that $M_Y(t)$ is finite for $|t| \leq b$.
 :::
 
 The moment generating function can be used to find the moments of a random variable. The following theorem shows that the $k$th moment of a random variable can be obtained by differentiating its moment-generating function $k$ times and evaluating it at $t=0$.
 
 :::{#thm-thmC-1}
-If $m(t)$ exists, then for any positive integer $k$, we have
+If $M_Y(t)$ exists, then for any positive integer $k$, we have
 $$
 \begin{align*}
-\frac{d^km(t)}{dt^k}\bigg|_{t=0}=m^{(k)}(0)=\mu^{'}_k.
+\frac{d^kM_Y(t)}{dt^k}\bigg|_{t=0}=M_Y^{(k)}(0)=\mu^{'}_k.
 \end{align*}
 $$
 :::
 
 :::{.proof}
 ## Proof of @thm-thmC-1
-Let $f$ be the pdf of $Y$. Then, for any integer $k\geq0$, we have
+Let $f$ be the PDF of $Y$. Then, for any integer $k\geq0$, we have
 $$
 \begin{align*}
-\frac{d^km(t)}{dt^k}&=\frac{d^k}{dt^k}\E\left(e^tY \right)=\frac{d^k}{dt^k}\int e^{ty}f(y)\text{d}y=\int\frac{d^k}{dt^k}e^{ty}f(y)\text{d}y\\
+\frac{d^kM_Y(t)}{dt^k}&=\frac{d^k}{dt^k}\E\left(e^tY \right)=\frac{d^k}{dt^k}\int e^{ty}f(y)\text{d}y=\int\frac{d^k}{dt^k}e^{ty}f(y)\text{d}y\\
 &=\int y^ke^{ty}f(y)\text{d}y=\E\left(Y^ke^{tY}\right).
 \end{align*}
 $$
 Thus,
 $$
-\frac{d^km(t)}{dt^k}\bigg|_{t=0}=m^{(k)}(0)=\E\left(Y^ke^{0\cdot Y}\right)=\E\left(Y^k\right)=\mu^{'}_k.
+\frac{d^kM_Y(t)}{dt^k}\bigg|_{t=0}=M_Y^{(k)}(0)=\E\left(Y^ke^{0\cdot Y}\right)=\E\left(Y^k\right)=\mu^{'}_k.
 $$
 :::
 
 :::{#thm-thmC-2}
 ## Moment-generating function of normal distribution
-Let $Y\sim N(\mu,\sigma^2)$. Then, its moment-generating function is given by
+Let $Y\sim N(\mu,\sigma^2)$. Then, the moment-generating function of $Y$ is given by
 $$
-m(t) = e^{\mu t + \frac{\sigma^2 t^2}{2}}.
+M_Y(t) = e^{\mu t + \frac{\sigma^2 t^2}{2}}.
 $$
 :::
 
 :::{.proof}
 ## Proof of @thm-thmC-2
-We can express $m(t)$ as
+We can express $M_Y(t)$ as
 $$
 \begin{align*}
-m(t)=\E(e^{tY})=\int_{-\infty}^{\infty}e^{ty}\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\left(\frac{y-\mu}{\sigma}\right)^2}dy=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{ty-\frac{1}{2}\left(\frac{y-\mu}{\sigma}\right)^2}dy.
+M_Y(t)=\E(e^{tY})=\int_{-\infty}^{\infty}e^{ty}\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\left(\frac{y-\mu}{\sigma}\right)^2}dy=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{ty-\frac{1}{2}\left(\frac{y-\mu}{\sigma}\right)^2}dy.
 \end{align*}
 $$
 Define $b=ty-\frac{1}{2}\left(\frac{y-\mu}{\sigma}\right)^2$. Then, we can express $b$ as
@@ -102,20 +104,20 @@ b&=ty-\frac{1}{2\sigma^2}\left(y^2-2\mu y+\mu^2\right)\\
 &=-\frac{1}{2\sigma^2}\left(y-c_1\right)^2+c_2
 \end{align*}
 $$
-where $c_1=(\mu+\sigma^2t)$ and $c_2=\mu  t+\sigma^2t^2/2$. Thus, we can express $m(t)$ as
+where $c_1=(\mu+\sigma^2t)$ and $c_2=\mu  t+\sigma^2t^2/2$. Thus, we can express $M_Y(t)$ as
 $$
 \begin{align*}
-m(t)&=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{b}dy=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-\frac{1}{2\sigma^2}\left(y-c_1\right)^2+c_2}dy\\
+M_Y(t)&=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{b}dy=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-\frac{1}{2\sigma^2}\left(y-c_1\right)^2+c_2}dy\\
 &=e^{c_2}\int_{-\infty}^{\infty}\underbrace{\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2\sigma^2}\left(y-c_1\right)^2}}_{ N(c_1,\sigma^2)}dy=e^{c_2}=e^{\mu t+\sigma^2t^2/2}.
 \end{align*}
 $$
 :::
 
 :::{#exm-exmC-1}
-Using @thm-thmC-2, we can find the moments of a normal random variable. For example, the first moment is given by
+Using @thm-thmC-2, we can find the moments of a random variable that has a normal distribution. For example, the first moment is given by
 $$
 \begin{align*}
-\mu^{'}_1&=\frac{d^1m(t)}{dt^1}\bigg|_{t=0}=\frac{d}{dt}\left(e^{\mu t+\sigma^2t^2/2}\right)\bigg|_{t=0}\\
+\mu^{'}_1&=\frac{dM_Y(t)}{dt}\bigg|_{t=0}=\frac{d}{dt}\left(e^{\mu t+\sigma^2t^2/2}\right)\bigg|_{t=0}\\
 &=\frac{d}{dt}\left(e^{\mu t}\right)\bigg|_{t=0}+\frac{d}{dt}\left(e^{\sigma^2t^2/2}\right)\bigg|_{t=0}\\
 &=\mu e^{\mu t}\bigg|_{t=0}+\sigma^2t e^{\sigma^2t^2/2}\bigg|_{t=0}\\
 &=\mu+\sigma^2\cdot0= \mu.
@@ -124,7 +126,7 @@ $$
 The second moment is given by
 $$
 \begin{align*}
-\mu^{'}_2&=\frac{d^2m(t)}{dt^2}\bigg|_{t=0}=\frac{d^2}{dt^2}\left(e^{\mu t+\sigma^2t^2/2}\right)\bigg|_{t=0}\\
+\mu^{'}_2&=\frac{d^2M_Y(t)}{dt^2}\bigg|_{t=0}=\frac{d^2}{dt^2}\left(e^{\mu t+\sigma^2t^2/2}\right)\bigg|_{t=0}\\
 &=\frac{d^2}{dt^2}\left(e^{\mu t}\right)\bigg|_{t=0}+\frac{d^2}{dt^2}\left(e^{\sigma^2t^2/2}\right)\bigg|_{t=0}\\
 &=\mu^2 e^{\mu t}\bigg|_{t=0}+\sigma^2 e^{\sigma^2t^2/2}\bigg|_{t=0}+\sigma^2t^2 e^{\sigma^2t^2/2}\bigg|_{t=0}\\
 &=\mu^2+\sigma^2\cdot1+\sigma^2\cdot0= \mu^2+\sigma^2.
@@ -134,7 +136,7 @@ $$
 
 :::{#exm-exmC-2}
 ## Central moments of normal distribution
-Since the pdf of the normal distribution is symmetric about the mean $\mu$, we have $\mu_k=0$ for all odd $k$. The fourth central moment is $3\sigma^4$. The even central moments are given by
+Since the PDF of the normal distribution is symmetric about the mean $\mu$, we have $\mu_k=0$ for all odd $k$. The fourth central moment is $3\sigma^4$. The even central moments are given by
 $$
 \begin{align*}
 \mu_k=\E(Y-\mu)^k=\frac{k!}{2^{k/2}(k/2)!}\sigma^k.
@@ -142,13 +144,104 @@ $$
 $$
 :::
 
-The bivariate normal pdf of $X$ and $Y$ is given by
+## Characteristic functions
+
+To introduce the characteristic function of a random variable, we first recall some basic results from complex numbers. The imaginary unit is denoted by $i$, where $i^2=-1$. A complex number $z$ is a number of the form $z=a+bi$, where $a$ and $b$ are real numbers. The number $a$ is called the real part of $z$ and $b$ is called the imaginary part of $z$. The modulus (or absolute value) of a complex number $z=a+bi$ is defined as $|z|=\sqrt{a^2+b^2}$. The addition and multiplication of two complex numbers $z_1=a+bi$ and $z_2=c+di$ are defined as
+$$
+\begin{align*}
+&z_1+z_2=(a+c)+(b+d)i,\\
+&z_1z_2=(ac-bd)+(ad+bc)i.
+\end{align*}
+$$
+
+The complex conjugate of a complex number $z=a+bi$ is defined as $\overline{z}=a-bi$. Note that $z\overline{z}=a^2+b^2$. The exponential function can be extended to complex numbers. Euler's formula states that for any real number $x$, we have $e^{ix}=\cos(x)+i\sin(x)$. Note that $|e^{ix}|=1$ for all real numbers $x$.
+
+:::{#def-defC-3}
+## Characteristic function
+The characteristic function of the random variable $Y$, denoted by $\varphi_Y(t)$, is defined as
+$$
+\varphi_Y(t) = \E\left(e^{itY} \right),
+$$
+for $t\in\mathbb{R}$.
+:::
+
+:::{#thm-thmC-3}
+## Properties of characteristic function
+Let $Y$ be a random variable with the characteristic function $\varphi_Y(t)$. Then, the following properties hold:
+
+1. $\varphi_Y(0)=1$.
+2. $|\varphi_Y(t)|\leq 1$ for all real numbers $t$.
+3. $\varphi_Y(t)$ is uniformly continuous.
+4. If $Y_1,Y_2,\ldots,Y_n$ are independent random variables, then the characteristic function of $S_n=Y_1+Y_2+\cdots+Y_n$ is given by $\varphi_{S_n}(t)=\varphi_{Y_1}(t)\varphi_{Y_2}(t)\cdots\varphi_{Y_n}(t)$.
+:::
+
+:::{#thm-thmC-4}
+Let $Y$ be a random variable with $\E(Y)<\infty$. Then, its characteristic function $\varphi_Y(t)$ is continuously differentiable with respect to $t$ and
+$$
+\frac{d\varphi_Y(t)}{dt}=i\E\left(Ye^{itY}\right).
+$$
+:::
+
+We can use @thm-thmC-4 to derive the Taylor series expansion of the characteristic function $\varphi_Y(t)$ around $t=0$. Assume that $\E(|Y|^k)<\infty$, where $k$ is a positive integer. Then, we have
+$$
+\varphi_Y(t)=\sum_{j=0}^{k}\frac{(it)^j}{j!}\mu^{'}_j+o(t^k),
+$${#eq-eqC-2}
+where $\mu^{'}_j=\E(Y^j)$ is the $j$th moment of $Y$, and $o(t^k)$ is a term such that $\lim_{t\to0}o(t^k)/t^k=0$.
+
+:::{#exm-exmC-3}
+## Characteristic function of normal distribution
+Let $Y\sim N(\mu,\sigma^2)$. Then, the characteristic function of $Y$ is given by
+$$
+\varphi_Y(t)=e^{i\mu t-\sigma^2t^2/2}.
+$$
+
+In particular, if $Z\sim N(0,1)$, then $\varphi_Z(t)=e^{-t^2/2}$.
+:::
+
+## The proof of the central limit theorem
+The next result is known as [Levy's continuity theorem](https://en.wikipedia.org/wiki/L%C3%A9vy%27s_continuity_theorem). It connects the convergence in distribution to the pointwise convergence of characteristic functions.
+
+:::{#thm-thmC-5}
+## Levy's continuity theorem
+Let $\{Y_n\}$ be a sequence of random variables with characteristic functions $\{\varphi_{Y_n}(t)\}$ and $Y$ be a random variable with characteristic function $\varphi_Y(t)$. Then, $Y_n$ converges in distribution to $Y$ if and only if $\varphi_{Y_n}(t)$ converges to $\varphi_Y(t)$ for all real numbers $t$.
+:::
+
+We can use @thm-thmC-5 to prove the central limit theorem introduced in @sec-chapter25.
+
+:::{.proof}
+## Proof of @thm-thm25-10-clt
+Define the standardized random variable $Z_i=\frac{Y_i-\mu_Y}{\sigma_Y}$ for $i=1,2,\ldots,n$. Then, $\E(Z_i)=0$ and $\text{var}(Z_i)=1$. Let $\varphi_{Z_i}(t)$ be the characteristic function of $Z_i$. Using @eq-eqC-2, we can determine the Taylor series expansion of $\varphi_{Z_i}(t)$ around $t=0$ as
+$$
+\varphi_{Z_i}(t)=1-\frac{t^2}{2}+o(t^2).
+$$
+
+Define $S_n=\sum_{i=1}^{n}Z_i$. Note that
+$$
+\frac{\bar{Y}-\mu_{\bar{Y}}}{\sigma_{\bar{Y}}}= \frac{1}{\sqrt{n}}\sum_{i=1}^{n}\frac{(Y_i-\mu_Y)}{\sigma_Y}=\frac{1}{\sqrt{n}}\sum_{i=1}^{n}Z_i=\frac{S_n}{\sqrt{n}}.
+$$
+
+Then, the characteristic function of $S_n/\sqrt{n}$ is given by
+$$
+\varphi_{S_n/\sqrt{n}}(t)=\left(\varphi_{Z_i}(t/\sqrt{n})\right)^n=\left(1-\frac{t^2}{2n}+o\left(\frac{t^2}{n}\right)\right)^n
+$$
+Then, as $n\to\infty$, we have
+$$
+\lim_{n\to\infty}\varphi_{S_n/\sqrt{n}}(t)=\lim_{n\to\infty}\left(1-\frac{t^2}{2n}+o\left(\frac{t^2}{n}\right)\right)=e^{-t^2/2}.
+$$
+
+By @exm-exmC-3, $\varphi_Z(t)=e^{-t^2/2}$ is the characteristic function of the standard normal distribution. Therefore, by @thm-thmC-5, $S_n$ converges in distribution to $N(0,1)$ as $n\to\infty$.
+:::
+
+
+## Bivariate normal distribution
+
+Next, we introduce the bivariate normal distribution. The bivariate normal PDF of $X$ and $Y$ is given by
 $$
 f_{X,Y}(x,y)=\frac{1}{2\pi\sigma_X\sigma_Y\sqrt{1-\rho^2}}e^{-\frac{1}{2(1-\rho^2)}\left(\frac{(x-\mu_X)^2}{\sigma_X^2}+\frac{(y-\mu_Y)^2}{\sigma_Y^2}-\frac{2\rho(x-\mu_X)(y-\mu_Y)}{\sigma_X\sigma_Y}\right)},
 $$
 where $\rho$ is the correlation coefficient between $X$ and $Y$. The marginal distributions of $X$ and $Y$ are univariate normal distributions: $X\sim N(\mu_X,\sigma^2_X)$ and $Y\sim N(\mu_Y,\sigma^2_Y)$. 
 
-In @fig-bivariate-normal, we plot the bivariate normal distribution with $\mu_X=\mu_Y=0$, $\sigma_X=\sigma_Y=1$, and $\rho=0.5$. The 3D plot shows the joint pdf of $X$ and $Y$.
+In @fig-bivariate-normal, we plot the bivariate normal distribution with $\mu_X=\mu_Y=0$, $\sigma_X=\sigma_Y=1$, and $\rho=0.5$. The 3D plot shows the joint PDF of $X$ and $Y$.
 ```{python}
 #| fig-cap: "3D plot of bivariate normal distribution"
 #| label: fig-bivariate-normal
@@ -179,7 +272,7 @@ ax.view_init(30, -27)
 plt.show()
 ```
 
-In @fig-normal-scatter, we plot the scatter plots of random draws obtained from bivariate normal distributions that have different correlation coefficients. The correlation coefficient $\rho$ takes values from $\{-0.8, 0, 0.4, 0.8\}$. The scatter plots show the relationship between $X$ and $Y$ for different values of $\rho$. As $\rho$ gets larger in absolute value, the points in the scatter plot become more aligned along the line $y=x$ or $y=-x$. 
+In @fig-normal-scatter, we plot the scatter plots of random draws obtained from the bivariate normal distributions that have different correlation coefficients. The correlation coefficient $\rho$ takes values from $\{-0.8, 0, 0.4, 0.8\}$. The scatter plots show the relationship between $X$ and $Y$ for different values of $\rho$. As $\rho$ gets larger in absolute value, the points in the scatter plot become more aligned along the line $y=x$ or $y=-x$. 
 
 ```{python}
 #| fig-cap: "Scatter plots of random samples from a bivariate normal distribution with different correlation coefficients"
@@ -208,7 +301,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-In @fig-normal-contour, we plot the contour plots of bivariate normal distributions that have different correlation coefficients. The contour plots show the level curves of the bivariate normal distribution for different values of $\rho$. @fig-normal-contour shows that as $\rho$ gets larger in absolute value, the contours stretch along the line $y=x$ or $y=-x$.
+In @fig-normal-contour, we plot the contour plots of the bivariate normal distributions that have different correlation coefficients. The contour plots show the level curves of the bivariate normal distribution for different values of $\rho$. @fig-normal-contour shows that as $\rho$ gets larger in absolute value, the contours stretch along the line $y=x$ or $y=-x$.
 
 ```{python}
 #| fig-cap: "Contour plots of bivariate normal distribution with different correlation coefficients"
@@ -249,6 +342,7 @@ $$
 \sigma^2_{Y|X}&=\sigma^2_Y(1-\rho^2).
 \end{align*}
 $$
+
 The conditional distribution of $X$ given $Y=y$ is also a normal distribution: $X|Y=y\sim N(\mu_{X|Y},\sigma^2_{X|Y})$, where
 $$
 \begin{align*}
@@ -260,22 +354,23 @@ $$
 In Appendix D, we define the multivariate normal distribution that extends the bivariate normal distribution to $n$ dimensions. 
 
 ## Chi-square distribution
-The chi-square distribution with $k$ degrees of freedom is defined as the distribution of the sum of the squares of $k$ independent standard normal random variables. If $X\sim\chi^2_k$, then its pdf is given by 
+The chi-square distribution with $k$ degrees of freedom is defined as the distribution of the sum of the squares of $k$ independent standard normal random variables. If $X\sim\chi^2_k$, then its PDF is given by 
 $$
 f_X(x)=\frac{1}{2^{k/2}\Gamma(k/2)}x^{k/2-1}e^{-x/2},\quad x>0.
 $$
 where $\Gamma(\alpha)=\int_{0}^{\infty}t^{\alpha-1}e^{-t}\text{d}t$ is the gamma function. 
 
-If $X\sim\chi^2_k$, then $\E(X)=k$ and $\text{var}(X)=2k$. Its moment generating function is given by $m(t)=\left(1-2t\right)^{-k/2}$ for $t<1/2$. 
+If $X\sim\chi^2_k$, then $\E(X)=k$ and $\text{var}(X)=2k$. Its moment generating function is given by $M_X(t)=\left(1-2t\right)^{-k/2}$ for $t<1/2$. 
 
-The chi-square distribution is also related to the gamma distribution. The chi-square distribution with $k$ degrees of freedom is equivalent to the gamma distribution with shape parameter $k/2$ and scale parameter $2$. See Chapter 9 for the pdf and CDF plots of the chi-square distribution with $k=3,4,10$ degrees of freedom.
+The chi-square distribution is also related to the gamma distribution. The chi-square distribution with $k$ degrees of freedom is equivalent to the gamma distribution with shape parameter $k/2$ and scale parameter $2$. See @sec-probability for the PDF and CDF plots of the chi-square distribution with $k=3,4,10$ degrees of freedom.
 
 ## Student t distribution
 Let $Z\sim N(0,1)$ and $W\sim\chi^2_{\nu}$. Assume that $Z$ and $W$ are independent. Then, the random variable 
 $$
 T=\frac{Z}{\sqrt{W/\nu}},
 $$
-has Student $t$ distribution with $\nu$ degrees of freedom, and we write $T\sim t_{\nu}$. The pdf of $T$ is given by
+
+has Student $t$ distribution with $\nu$ degrees of freedom, and we write $T\sim t_{\nu}$. The PDF of $T$ is given by
 $$
 \begin{align*}
 f_T(t)=
@@ -285,18 +380,20 @@ f_T(t)=
 \end{cases}
 \end{align*}
 $$
-The moment-generating function of $T$ does not exist. The first moment is given by $\E(T)=0$ and the second moment is given by $\E(T^2)=\frac{\nu}{\nu-2}$ for $\nu>2$. The variance is given by $\text{var}(T)=\frac{\nu}{\nu-2}$ for $\nu>2$. The pdf and CDF plots of the Student $t$ distribution with $\nu=1,10$ degrees of freedom are shown in Chapter 9.
+
+The moment-generating function of $T$ does not exist. The first moment is given by $\E(T)=0$ and the second moment is given by $\E(T^2)=\frac{\nu}{\nu-2}$ for $\nu>2$. The variance is given by $\text{var}(T)=\frac{\nu}{\nu-2}$ for $\nu>2$. The PDF and CDF plots of the Student $t$ distribution with $\nu=1,10$ degrees of freedom are shown in @sec-probability.
 
 ## F distribution
 Let $W_1\sim\chi^2_{\nu_1}$ and $W_2\sim\chi^2_{\nu_2}$. Assume that $W_1$ and $W_2$ are independent. Then, the random variable defined by
 $$
-F=\frac{W_1/\nu_1}{W_2/\nu_2}
+F=\frac{W_1/\nu_1}{W_2/\nu_2},
 $$
-has $F$ distribution with (numerator) $\nu_1$ and (denominator) $\nu_2$ degrees of freedom. We write $F\sim F_{\nu_1,\nu_2}$. If $U\sim F_{\nu_1,\nu_2}$, then its pdf is given by
+has $F$ distribution with (numerator) $\nu_1$ and (denominator) $\nu_2$ degrees of freedom. We write $F\sim F_{\nu_1,\nu_2}$. If $U\sim F_{\nu_1,\nu_2}$, then its PDF is given by
 $$
 \begin{align*}
 f_U(u)=\frac{\Gamma\left(\frac{\nu_1+\nu_2}{2}\right)}{\Gamma\left(\frac{\nu_1}{2}\right)\Gamma\left(\frac{\nu_2}{2}\right)}
 \left(\frac{\nu_1}{\nu_2}\right)^{\nu_1/2}\frac{u^{\frac{\nu_1}{2}}-1}{\left(1+\frac{\nu_1}{\nu_2}u\right)^{(\nu_1+\nu_2)/2}},\quad u>0.
 \end{align*}
 $$
-The moment-generating function of $F$ does not exist. The first moment is given by $\E(F)=\frac{\nu_2}{\nu_2-2}$ for $\nu_2>2$. The variance is given by $\text{var}(F)=\frac{2\nu_2^2(\nu_1+\nu_2-2)}{\nu_1(\nu_2-2)^2(\nu_2-4)}$ for $\nu_2>4$. The pdf and CDF plots of the $F$ distribution with different degrees of freedom are shown in Chapter 9.
+
+The moment-generating function of $F$ does not exist. The first moment is given by $\E(F)=\frac{\nu_2}{\nu_2-2}$ for $\nu_2>2$. The variance is given by $\text{var}(F)=\frac{2\nu_2^2(\nu_1+\nu_2-2)}{\nu_1(\nu_2-2)^2(\nu_2-4)}$ for $\nu_2>4$. The PDF and CDF plots of the $F$ distribution with different degrees of freedom are shown in @sec-probability.

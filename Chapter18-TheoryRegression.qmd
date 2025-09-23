@@ -679,10 +679,10 @@ plt.show()
 
 We now state the central limit theorem using the concept of convergence in distribution.
 
-:::{#thm-thm25-10}
+:::{#thm-thm25-10-clt}
 ## The central limit theorem
-If $\{Y_i\}_{i=1}^n$ are i.i.d with mean $\E(Y_i)=\mu_Y$ and variance $0<\sigma^2_Y<\infty$, then the asymptotic distribution of $(\bar{Y}-\mu_{\bar{Y}})/\sigma_{\bar{Y}}=\sqrt{n}(\bar{Y}-\mu_Y)/\sigma_Y$ is $N(0,1)$. Conventional
-shorthand notation is
+If $\{Y_i\}_{i=1}^n$ are i.i.d with mean $\E(Y_i)=\mu_Y$ and variance $0<\sigma^2_Y<\infty$, then the asymptotic distribution of $(\bar{Y}-\mu_{\bar{Y}})/\sigma_{\bar{Y}}=\sqrt{n}(\bar{Y}-\mu_Y)/\sigma_Y$ is $N(0,1)$. We write this as
+
 $$
 \frac{(\bar{Y}-\mu_{\bar{Y}})}{\sigma_{\bar{Y}}}=\frac{\sqrt{n}(\bar{Y}-\mu_Y)}{\sigma_Y}\xrightarrow{d}N(0,1).
 $$
