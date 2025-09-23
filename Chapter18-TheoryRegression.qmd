@@ -688,6 +688,11 @@ $$
 $$
 :::
 
+:::{.proof}
+## Proof of @thm-thm25-10-clt
+See @sec-appendixC.
+:::
+
 
 Note that when $n$ is large, $\sqrt{n}(\bar{Y}-\mu_Y)/\sigma_Y\xrightarrow{d}N(0,1)$ implies that
 $$
