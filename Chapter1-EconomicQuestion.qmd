@@ -32,10 +32,10 @@ One way to measure the causal effect is by conducting a **randomized controlled 
 * It is *controlled* because the treatment group receive the treatment whereas the control group does not participate in the treatment.
 * It is *randomized* in the sense that the experimental units are assigned to the control and treatment groups randomly. In this way, we aim to *eliminate systematic differences* between the control and treatment groups.
 
-According to @Stock2020, "the **causal effect** is defined to be the effect on an outcome of a given action or treatment, as measured in an ideal randomized controlled experiment." We will return to this topic in Chapter 20 and use the **potential outcomes framework** to formalize our understanding of causal effects.
+According to @Stock2020, "the **causal effect** is defined to be the effect on an outcome of a given action or treatment, as measured in an ideal randomized controlled experiment." We will return to this topic in @sec-chapter20 and use the **potential outcomes framework** to formalize our understanding of causal effects.
 
 ## Estimation, prediction and forecasting
-In Chapters 11 and 12, we will study the following regression model:
+In @sec-lrmone and @sec-inference1, we will study the following regression model:
 $$  
 \begin{align}\label{eq1}
 Y=\beta_0+\beta_1X+u,
@@ -55,14 +55,14 @@ $$
 $$
 where $\hat{Y}$ denotes the predicted value. Thus, **prediction** is the process of using a model to make a statement about the value of a dependent variable.
 
-A **forecast** is a prediction about the value of the dependent variable in the future. In Chapters 22 and 24, we will study econometric models for forecasting.
+A **forecast** is a prediction about the value of the dependent variable in the future. In @sec-chapter22 and @sec-chapter24, we will study econometric models for forecasting.
 
 It is important to note that prediction and forecasting does not necessitate a causal relationship between $X$ and $Y$. This is an important distinction that will be clarified in later chapters.
 
 ## Data types
 There are two types of data: **experimental data** and **nonexperimental data**. Experimental data are collected through experiments specifically designed to evaluate the effect of a treatment or an intervention. Nonexperimental data, also known as **observational data**, are obtained by observing actual behavior outside of an experimental setting. 
 
-Except for Chapter 20, where we cover econometric models for experimental data, we focus on econometric models for nonexperimental data. We consider three types of data: (i) **cross-sectional data**, (ii) **time-series data**, and (iii) **panel data** or **longitudinal data**.
+Except for @sec-chapter20, where we cover econometric models for experimental data, we focus on econometric models for nonexperimental data. We consider three types of data: (i) **cross-sectional data**, (ii) **time-series data**, and (iii) **panel data** or **longitudinal data**.
 
 ### Cross-sectional data
 **Cross-sectional data** consist of observations on entities at a single point in time. For example, consider the California school district data in the `caschool.csv` file. These data were collected in 1999 on $n=420$ school districts and include measurements on several district-level variables. We consider the following variables: District Average Test Score, Student-Teacher Ratio, Expenditure per Pupil, and Percentage of Students Learning English. These variables are derived from district-level average measurements. A section of this data is shown in @tbl-t8.1. For example, for the first school district, the average test score is 690.8, the average student-teacher ratio is 17.89, the average expenditure per pupil is 6384.91 dollars, and the average percentage of students learning English is 0 percent.  
@@ -86,7 +86,7 @@ data.columns = ["Observation Number", "District Average Test Score",
 data.round(2)
 ```
 
-The econometric models we will cover in Chapters 11–16 and 18–19, including the simple linear regression model, multiple linear regression, non-linear regression models, and binary dependent variable models, are based on cross-sectional data.
+The econometric models we will cover in @sec-lrmone-@sec-assess and @sec-chapter18-@sec-chapter19, including the simple linear regression model, multiple linear regression, non-linear regression models, and binary dependent variable models, are based on cross-sectional data.
 
 ### Time Series Data
 Time series data consist of observations on the same entity collected at multiple time periods. We consider the time series data in the `tsdata.xlsx` file on the US GDP growth rate and the term spread (the difference between long-term and short-term interest rates). The dataset is quarterly and covers the period 1960Q1-2017Q4. In @tbl-t8.2, we show a section of the data, where each row corresponds to a different time period. In the last quarter of 2017, the GDP growth rate was 2.5\% and the term spread was 1.16 percentage points.
@@ -169,7 +169,7 @@ pdata.columns = ["State", "Year", "Cigarette Sales (packs per capita)",
 pdata.round(2)
 ```
 
-In Chapter 17, we will study econometric models that use panel data. These models are commonly used fixed effects and random effects models.
+In @sec-chapter17, we will study econometric models that use panel data. These models are commonly used fixed effects and random effects models.
 
 ::: {.callout-note icon=false}
 ## Key Concept 8.1: Cross-sectional data, time series, and panel data 

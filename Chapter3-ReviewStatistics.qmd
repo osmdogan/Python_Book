@@ -280,7 +280,7 @@ t &= \frac{\bar{Y} - \mu_Y}{s_{\bar{Y}}},
 \end{align}
 $$ {#eq-eq10.1}
 
-where $s_{\bar{Y}} = \sqrt{s_Y^2/n}= s_Y/\sqrt{n}$ is the standard error of $\bar{Y}$. By the CLT introduced in Chapter 9, under $H_0$, the sampling distribution of $t$ statistic can be approximated by the standard normal distribution when $n$ is large, i.e.,
+where $s_{\bar{Y}} = \sqrt{s_Y^2/n}= s_Y/\sqrt{n}$ is the standard error of $\bar{Y}$. By the central limit theorem introduced in @sec-probability, under $H_0$, the sampling distribution of $t$ statistic can be approximated by the standard normal distribution when $n$ is large, i.e.,
 $$
 \begin{align}
 t &= \frac{\bar{Y} - \mu_Y}{s_{\bar{Y}}}\xrightarrow{d} N(0,1).

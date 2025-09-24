@@ -57,7 +57,7 @@ There are three algebraic results that directly follow from the definition of th
 * The OLS residuals and the explanatory variable are uncorrelated: $\sum_{i=1}^n X_i\hat{u}_i = 0$.
 * The regression line passes through the sample mean: $\bar{Y} = \hat{\beta}_0 + \hat{\beta}_1 \bar{X}$.
 
-These algebraic properties are proved in @sec-OlsProperties. In @sec-chapter26, we extent these results to a multiple linear regression model.
+These algebraic properties are proved in @sec-OlsDerivation. In @sec-chapter26, we extent these results to a multiple linear regression model.
 
 ## Estimating the relationship between test scores and the student–teacher ratio
 We consider the following regression model between test score (TestScore) and the student-teacher ratio (STR):
@@ -380,7 +380,7 @@ plot_boxplot(df2, title="Zero-Conditional Mean Assumption Does Not Hold")
 
 The second assumption requires a random sample on $X$ and $Y$. This assumption generally holds because data are usually collected on a randomly selected sample from the population of interest. 
 
-The final assumption requires that $X$ and $Y$ cannot take large values. We need this assumption because the OLS estimator is sensitive to large values in the data set. This assumption is stated in terms of the fourth moments of $X$ and $Y$, and is also used to establish the asymptotic normality of the OLS estimators, as shown in Chapter 25.
+The final assumption requires that $X$ and $Y$ cannot take large values. We need this assumption because the OLS estimator is sensitive to large values in the data set. This assumption is stated in terms of the fourth moments of $X$ and $Y$, and is also used to establish the asymptotic normality of the OLS estimators, as shown in @sec-chapter26.
 
 ## The sampling distribution of the OLS estimators
 We first show that the OLS estimators given in @eq-eq11-2 are unbiased estimators. From $Y_i=\beta_0+\beta_1X_i+u_i$ and $\bar{Y}=\beta_0+\beta_1\bar{X}+\bar{u}$, we obtain
