@@ -1,4 +1,4 @@
-# Appendix for Chapter 26 {#sec-appendixD}
+# Appendix for Chapter 29 {#sec-appendixD}
 
 ```{python}
 import numpy as np

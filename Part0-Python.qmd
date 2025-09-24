@@ -1,6 +1,6 @@
 # Python {#sec-python0}
 
-In this part, we provide a brief introduction to Python for econometric analysis. This part consists of seven chapters: 
+In this part, we provide a brief introduction to Python for econometric analysis. This part consists of ten chapters: 
 
 * [Chapter @sec-chapter1]
 * [Chapter @sec-chapter2]
@@ -9,21 +9,29 @@ In this part, we provide a brief introduction to Python for econometric analysis
 * [Chapter @sec-chapter5]
 * [Chapter @sec-chapter6]
 * [Chapter @sec-chapter7]
+* [Chapter @sec-NumericalAnalysis]
+* [Chapter @sec-symbcomp]
+* [Chapter @sec-chapter-OOP]
 
-In Chapter 1, we discuss how to install Python using Anaconda and introduce its basic syntax. We discuss commonly used [IDEs](https://en.wikipedia.org/wiki/Integrated_development_environment) such as Spyder and Jupyter Notebook. We then briefly describe important modules- NumPy, SciPy, Pandas, Matplotlib, Seaborn, and Statsmodels- that are useful for econometrics. Finally, we cover built-in data types (e.g., integers, floats, strings, booleans) and essential data structures like lists, tuples, and dictionaries.
+In [Chapter @sec-chapter1], we discuss how to install Python using Anaconda and introduce its basic syntax. We discuss commonly used [IDEs](https://en.wikipedia.org/wiki/Integrated_development_environment) such as Spyder and Jupyter Notebook. We then briefly describe important modules- NumPy, SciPy, Pandas, Matplotlib, Seaborn, and Statsmodels- that are useful for econometrics. Finally, we cover built-in data types (e.g., integers, floats, strings, booleans) and essential data structures like lists, tuples, and dictionaries.
 
-In Chapter 2, we introduce the NumPy module. We start with arrays and matrices and discuss how they can be initialized. We cover basic operations on arrays and matrices, as well as fundamental linear algebra operations for matrices. Finally, we explore functions for rounding, sorting, and handling NaN values.
- 
-In Chapter 3, we cover control structures in Python, including conditionals, loops, and comprehensions for efficient iteration tasks. We also discuss statements for terminating or skipping certain iterations, as well as basic error and exception handling.
- 
-In Chapter 4, we introduce how to write efficient custom functions. We cover the syntax for parameters, return values and help documentation. Finally, we discuss  the anonymous lambda function that can be defined in a single line of code.
+In [Chapter @sec-chapter2], we introduce the NumPy module. We start with arrays and matrices and discuss how they can be initialized. We cover basic operations on arrays and matrices, as well as fundamental linear algebra operations for matrices. Finally, we explore functions for rounding, sorting, and handling NaN values.
 
-In Chapter 5, we introduce statistical functions from NumPy and SciPy for generating random draws from well-known distributions. We show how to evaluate density and cumulative distribution functions, and compute quantiles and other key statistics.
+In [Chapter @sec-chapter3], we cover control structures in Python, including conditionals, loops, and comprehensions for efficient iteration tasks. We also discuss statements for terminating or skipping certain iterations, as well as basic error and exception handling.
 
-In Chapter 6, we introduce Matplotlib and Seaborn for data visualization. We show how to generate line plots, scatter plots, histograms, bar charts, and density plots. We explore customization options such as adding titles, labels, and legends. Finally, we discuss methods for saving and exporting graphics in different formats.
+In [Chapter @sec-chapter4], we introduce how to write efficient custom functions. We cover the syntax for parameters, return values and help documentation. Finally, we discuss  the anonymous lambda function that can be defined in a single line of code.
 
-Finally, in Chapter 7, we introduce the Pandas library for data management. We show how to import data from CSV files, Stata dta files, Excel spreadsheets, and from some other formats. We introduce Series and DataFrames and show how these objects can be initialized. We cover methods for  filtering, sorting, grouping, and merging data. Finally, we show how to handle missing values.
- 
+In [Chapter @sec-chapter5], we introduce statistical functions from NumPy and SciPy for generating random draws from well-known distributions. We show how to evaluate density and cumulative distribution functions, and compute quantiles and other key statistics.
+
+In [Chapter @sec-chapter6], we introduce Matplotlib and Seaborn for data visualization. We show how to generate line plots, scatter plots, histograms, bar charts, and density plots. We explore customization options such as adding titles, labels, and legends. Finally, we discuss methods for saving and exporting graphics in different formats.
+
+In [Chapter @sec-chapter7], we introduce the Pandas library for data management. We show how to import data from CSV files, Stata dta files, Excel spreadsheets, and from some other formats. We introduce Series and DataFrames and show how these objects can be initialized. We cover methods for  filtering, sorting, grouping, and merging data. Finally, we show how to handle missing values.
+
+In [Chapter @sec-NumericalAnalysis], we cover some useful numerical methods for statistics and econometrics. We discuss optimization methods, numerical integration methods, and methods for solving ordinary differential equations.
+
+In [Chapter @sec-symbcomp], we introduce the SymPy library for symbolic computation. We explain how to define symbols, expressions, and functions. We present basic operations for manipulating expressions. We then briefly discuss symbolic methods for calculus and linear algebra.
+
+Finally, in [Chapter @sec-chapter-OOP], we introduce the basics of object-oriented programming (OOP) in Python. We explain how to define classes with attributes and methods, create objects, and use inheritance to build new classes from existing ones. We conclude by showing how to import classes from modules.
 
 The material in this part mainly builds on @Sheppard2021, @Wes2022, and @Jake2023. For further details,  readers can refer to the respective chapters in these references.
 

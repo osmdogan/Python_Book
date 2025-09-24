@@ -28,6 +28,9 @@ book:
         - Chapter0-StatFunctions.qmd
         - Chapter0-Graphics.qmd
         - Chapter0-Pandas.qmd
+        - Chapter0-NumericalAnalysis.qmd
+        - Chapter0-SymbolicMath.qmd
+        - Chapter0-OOP.qmd
 
     - part: Part1-IntroductionReview.qmd
       chapters:

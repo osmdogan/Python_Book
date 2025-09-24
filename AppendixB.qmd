@@ -1,4 +1,4 @@
-# Appendix for Chapter 21 {#sec-bigdataDerivations}
+# Appendix for Chapter 24 {#sec-bigdataDerivations}
 
 {{< include latex_macro.qmd >}}
 

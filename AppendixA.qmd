@@ -1,4 +1,4 @@
-# Appendix for Chapter 11 {#sec-OlsProperties}
+# Appendix for Chapter 14 {#sec-OlsProperties}
 
 {{< include latex_macro.qmd >}}
 
