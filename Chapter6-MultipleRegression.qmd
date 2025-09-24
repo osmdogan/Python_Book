@@ -20,14 +20,14 @@ In a regression model of $Y$ on $X$, **omitted variable bias** occurs if the reg
 - $Z$ is a determinant of $Y$ (i.e., $Z$ is part of $u$), and
 - $Z$ is correlated with the regressor $X$ (i.e., corr$(Z,X)\ne0$).
 
-Under omitted variable bias, the zero conditional mean assumption $\E(u|X)=0$ fails because $u$ contains a variable that is correlated with $X$. To see the effect of omitted variable bias on the OLS estimator of $\beta_1$, recall the following result from Chapter 11:
+Under omitted variable bias, the zero conditional mean assumption $\E(u|X)=0$ fails because $u$ contains a variable that is correlated with $X$. To see the effect of omitted variable bias on the OLS estimator of $\beta_1$, recall the following result from @sec-lrmone:
 $$
 \begin{align}
 \hat{\beta}_1-\beta_1=\frac{\sum_{i=1}^n(X_i-\bar{X})u_i}{\sum_{i=1}^n(X_i-\bar{X})^2}.
 \end{align}
 $$
 
-Under the second and the third least squares assumptions given in Chapter 11, the law of large numbers ensure that $\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\xrightarrow{p}\sigma^2_X$ and $\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})u_i\xrightarrow{p}\E\left[(X_i-\mu_X)u_i\right]=\text{cov}(X_i,u_i)=\sigma_{Xu}$. Thus, we have
+Under the second and the third least squares assumptions given in @sec-lrmone, the law of large numbers ensure that $\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\xrightarrow{p}\sigma^2_X$ and $\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})u_i\xrightarrow{p}\E\left[(X_i-\mu_X)u_i\right]=\text{cov}(X_i,u_i)=\sigma_{Xu}$. Thus, we have
 $$
 \begin{align}
 \hat{\beta}_1-\beta_1=\frac{\sum_{i=1}^n(X_i-\bar{X})u_i}{\sum_{i=1}^n(X_i-\bar{X})^2}\xrightarrow{p}\frac{\sigma_{Xu}}{\sigma^2_X}=\frac{\sigma_u}{\sigma_X}\times\frac{\sigma_{Xu}}{\sigma_X\sigma_u}=\frac{\sigma_u}{\sigma_X}\times\rho_{Xu},
@@ -85,7 +85,8 @@ $$
 \sum_{i=1}^n\left(Y_i-\left(b_0+b_1X_{1i}+b_2X_{2i}+\dots+b_kX_{ki}\right)\right)^2.
 \end{align*}
 $$
-The OLS estimator can be obtained using the matrix calculus. In Chapter 26, we use matrix algebra to derive an explicit formula for the OLS estimator. 
+
+The OLS estimator can be obtained using the matrix calculus. In @sec-chapter26, we use matrix algebra to derive an explicit formula for the OLS estimator. 
 
 The predicted values and residuals are defined similarly to the case of a linear regression model with only one regressor:
 
@@ -106,7 +107,7 @@ The OLS estimators $\hat{\beta}_0, \dots, \hat{\beta}_k$ can alternatively be co
 The Frisch–Waugh theorem shows that by removing the variation associated with $X_1, \dots, X_{j-1}, X_{j+1}, \dots, X_k$ from both $X_j$ and $Y$ through the regressions in Steps 1 and 2, the final regression in Step 3 captures the effect of $X_j$ on $Y$ after accounting for the influence of the other regressors.
 
 ## Application to test scores and the student–teacher ratio
-We use the district-level test score data described in Chapter 11 to estimate the following models:
+We use the district-level test score data described in @sec-lrmone to estimate the following models:
 $$
 \begin{align}
 &\text{TestScore}_i = \beta_0 + \beta_1 \text{STR}_i + u_i,\\
@@ -274,13 +275,13 @@ In this section, we provide the least squares assumptions for the multiple linea
 4. The multicollinearity assumption: There is no perfect multicollinearity.
 :::
 
-The first assumption extends the zero-conditional mean assumption from the linear regression model with one regressor to the model with multiple regressors. We can use the correlation approach described in Chapter 11 to check whether this assumption is violated. According to this approach, in an empirical application, if we suspect that the error term includes an omitted variable that is correlated with the included regressors, then $\E\left(u_i | X_{1i}, X_{2i}, \dots, X_{ki}\right) \neq 0$. In Section 13.8, we relax this assumption through a conditional mean independence assumption for the variable of interest.
+The first assumption extends the zero-conditional mean assumption from the linear regression model with one regressor to the model with multiple regressors. We can use the correlation approach described in @sec-lrmone to check whether this assumption is violated. According to this approach, in an empirical application, if we suspect that the error term includes an omitted variable that is correlated with the included regressors, then $\E\left(u_i | X_{1i}, X_{2i}, \dots, X_{ki}\right) \neq 0$. In Section 13.8, we relax this assumption through a conditional mean independence assumption for the variable of interest.
 
 The second assumption requires that our sample data be collected through simple random sampling. The third assumption stipulates that there are no large outliers, which is ensured by requiring that both the dependent variable and the regressors have finite fourth moments. 
 
-The fourth assumption is new and rules out perfect multicollinearity. In a multiple linear regression model, **perfect multicollinearity** arises if there is a perfect linear relationship among the regressors. For example, the linear relationship such as $X_1=0.5X_5+X_6$ suggests perfect multicollinearity among the regressors $X_1$, $X_5$, and $X_6$. In Chapter 26, we show that the OLS estimator is not defined when perfect multicollinearity is present.
+The fourth assumption is new and rules out perfect multicollinearity. In a multiple linear regression model, **perfect multicollinearity** arises if there is a perfect linear relationship among the regressors. For example, the linear relationship such as $X_1=0.5X_5+X_6$ suggests perfect multicollinearity among the regressors $X_1$, $X_5$, and $X_6$. In @sec-chapter26, we show that the OLS estimator is not defined when perfect multicollinearity is present.
 
-@thm-thm13-1 summarizes the properties of the OLS estimators under these four assumptions. In this theorem, we do not provide explicit formulas for the asymptotic variance of the OLS estimators. In Chapter 26, we use linear algebra to derive these formulas.
+@thm-thm13-1 summarizes the properties of the OLS estimators under these four assumptions. In this theorem, we do not provide explicit formulas for the asymptotic variance of the OLS estimators. In @sec-chapter26, we use linear algebra to derive these formulas.
 
 ::: {#thm-thm13-1}
 ## Properties of OLS Estimators

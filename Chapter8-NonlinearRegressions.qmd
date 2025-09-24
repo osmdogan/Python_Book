@@ -15,7 +15,7 @@ sns.set_style('darkgrid')
 {{< include latex_macro.qmd >}}
 
 ## Introduction
-We start our regression analysis in Chapter 11 by assuming a linear population function $\E(Y|X_1)=\beta_0+\beta_1X_1$. However, in many cases, the relationship between $Y$ and $X_1$ is nonlinear. In this case, the effect of a change in $X_1$ on $Y$ is not constant. In @fig-f15-1, we illustrate population regression functions that have different slopes. In the linear case, as shown in the first plot of @fig-f15-1, the slope of the population regression function is constant. However, in the second plot, the slope of the population regression function depends on the value of another variable $X_2$. In the third plot, the slope of the population regression function depends on the value of $X_1$. In this chapter, we consider how to model nonlinear regression functions.
+We start our regression analysis in @sec-lrmone by assuming a linear population function $\E(Y|X_1)=\beta_0+\beta_1X_1$. However, in many cases, the relationship between $Y$ and $X_1$ is nonlinear. In this case, the effect of a change in $X_1$ on $Y$ is not constant. In @fig-f15-1, we illustrate population regression functions that have different slopes. In the linear case, as shown in the first plot of @fig-f15-1, the slope of the population regression function is constant. However, in the second plot, the slope of the population regression function depends on the value of another variable $X_2$. In the third plot, the slope of the population regression function depends on the value of $X_1$. In this chapter, we consider how to model nonlinear regression functions.
 
 ```{python}
 #| label: fig-f15-1
@@ -64,7 +64,7 @@ Y_i=f(X_{1i},X_{2i},\dots,X_{ki})+u_i,\quad i=1,2,\dots,n,
 \end{align}
 $$
 
-where $f(X_{1i},X_{2i},\dots,X_{ki})$ is the population nonlinear regression function and $u_i$ is the error term. We will consider this model under the four least squares assumptions given in Chapter 13. Then, under the zero-conditional mean assumption, we have $\E(Y|X_{1},X_{2},\dots,X_{k})=f(X_{1},X_{2},\dots,X_{k})$. Because of the nonlinear relationship between the conditional mean $\E(Y|X_{1},X_{2},\dots,X_{k})$ and the regressors, the effect of a change in one regressor on the conditional mean requires a more complex analysis than in the linear case. 
+where $f(X_{1i},X_{2i},\dots,X_{ki})$ is the population nonlinear regression function and $u_i$ is the error term. We will consider this model under the four least squares assumptions given in @sec-multiple. Then, under the zero-conditional mean assumption, we have $\E(Y|X_{1},X_{2},\dots,X_{k})=f(X_{1},X_{2},\dots,X_{k})$. Because of the nonlinear relationship between the conditional mean $\E(Y|X_{1},X_{2},\dots,X_{k})$ and the regressors, the effect of a change in one regressor on the conditional mean requires a more complex analysis than in the linear case. 
 
 Let us assume that $X_1$ changes by $\Delta X_1$ and let $\E(Y^*|X_{1}, X_{2},\dots,X_{k})=f(X_{1}+\Delta X_1,X_{2},\dots,X_{k})$ be the expected value of $Y$ when $X_1$ changes by $\Delta X_1$. Then, the expected change in $Y$ associated with the change in $X_1$ by $\Delta X_1$, holding $X_2,\dots, X_k$ constant, is
 $$
@@ -112,7 +112,7 @@ Y_i=\beta_0+\beta_1X_{i}+\beta_2X_{i}^2+\cdots+\beta_mX_{i}^m+u_i,\quad i=1,2,\d
 \end{align}
 $$
 
-The linear model is a special case of the polynomial model with $m=1$. This model reduces to the linear model if we fail to reject the joint null hypothesis $H_0:\beta_2=\beta_3=\cdots=\beta_m=0$ against the alternative hypothesis $H_1:$ At least one of the coefficients is not zero. When $m=2$, the polynomial model is called a quadratic model, and when $m=3$, the polynomial model is called a cubic model. As with the linear model, the quadratic and cubic models can be tested against the polynomial regression model of degree $m$ by adjusting the null and alternative hypotheses accordingly. These joint null hypotheses can be tested using the F-statistic introduced in Chapter 14. 
+The linear model is a special case of the polynomial model with $m=1$. This model reduces to the linear model if we fail to reject the joint null hypothesis $H_0:\beta_2=\beta_3=\cdots=\beta_m=0$ against the alternative hypothesis $H_1:$ At least one of the coefficients is not zero. When $m=2$, the polynomial model is called a quadratic model, and when $m=3$, the polynomial model is called a cubic model. As with the linear model, the quadratic and cubic models can be tested against the polynomial regression model of degree $m$ by adjusting the null and alternative hypotheses accordingly. These joint null hypotheses can be tested using the F-statistic introduced in @sec-inference2. 
 
 Note that since the polynomial model is linear in the parameters, we can use the OLS estimator to estimate the model. The degree of the model can be selected using a sequential hypothesis testing approach based on the individual $t$-statistic. This approach consists of the following steps:
 

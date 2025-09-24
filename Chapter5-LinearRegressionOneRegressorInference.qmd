@@ -35,7 +35,7 @@ $$ {#eq-eq12-1}
 
 where $\SE(\hat{\beta}_1)$ is the square root of the variance of $\hat{\beta}_1$. Note that the test statistic $t$ is formulated under the assumption that $H_0$ holds. 
 
-To compute the $t$-statistic in @eq-eq12-1, we need to determine $\SE(\hat{\beta}_1)$.  In Chapter 11, we show that 
+To compute the $t$-statistic in @eq-eq12-1, we need to determine $\SE(\hat{\beta}_1)$.  In @sec-lrmone, we show that 
 $$
 \begin{align*}
 &\hat{\beta}_1 \stackrel{A}{\sim} N\left(\beta_1, \sigma^2_{\hat{\beta}_1}\right),\,\text{where}\quad\sigma^2_{\hat{\beta}_1} = \frac{1}{n}\frac{\var\left((X_i - \mu_X)u_i\right)}{\left(\sigma^2_X\right)^2},\\
@@ -380,9 +380,9 @@ plt.show()
 
 ## Heteroskedasticity versus Homoskedasticity
 
-In the least squares assumptions introduced in Chapter 11, we only assume the zero-conditional mean assumption about the error terms. Other than this assumption, we do not impose any structure on the error term $u_i$. In this section, we introduce two concepts about the conditional variance of the error term $u_i$ given $X_i$: homoskedasticity and heteroskedasticity. We say that the error term $u_i$ is **homoskedastic** if the variance of $u_i$ given $X_i$ is constant for all $i = 1,2,\dots,n$. In particular, this means that the variance does not depend on $X_i$. On the other hand, if the variance does depend on $X_i$, we say that the error term $u_i$ is **heteroskedastic**.
+In the least squares assumptions introduced in @sec-lrmone, we only assume the zero-conditional mean assumption about the error terms. Other than this assumption, we do not impose any structure on the error term $u_i$. In this section, we introduce two concepts about the conditional variance of the error term $u_i$ given $X_i$: homoskedasticity and heteroskedasticity. We say that the error term $u_i$ is **homoskedastic** if the variance of $u_i$ given $X_i$ is constant for all $i = 1,2,\dots,n$. In particular, this means that the variance does not depend on $X_i$. On the other hand, if the variance does depend on $X_i$, we say that the error term $u_i$ is **heteroskedastic**.
 
-Homoskedasticity and heteroskedasticity do not affect the unbiasedness and consistency of the OLS estimators of $\beta_0$ and $\beta_1$. However, they do affect the variance formulas of the OLS estimators given in @thm-thm11.1 of Chapter 11. Under homoskedasticity, let $\var(u_i|X_i)=\sigma^2_u$, where $\sigma^2_u$ is an unknown scalar parameter. Then, the variance formulas of $\hat{\beta}_1$ and $\hat{\beta}_0$ simplify to
+Homoskedasticity and heteroskedasticity do not affect the unbiasedness and consistency of the OLS estimators of $\beta_0$ and $\beta_1$. However, they do affect the variance formulas of the OLS estimators given in @thm-thm11.1 of @sec-lrmone. Under homoskedasticity, let $\var(u_i|X_i)=\sigma^2_u$, where $\sigma^2_u$ is an unknown scalar parameter. Then, the variance formulas of $\hat{\beta}_1$ and $\hat{\beta}_0$ simplify to
 $$
 \begin{align*}
 &\sigma^2_{\widehat{\beta}_1} = \frac{1}{n}\frac{\var\left((X_i - \mu_X)u_i\right)}{\left(\var(X_i)\right)^2} = \frac{\sigma^2_u}{n\var(X_i)},\\
@@ -454,6 +454,6 @@ Under these extended assumptions, the following theorem justifies the use of the
 Under Gauss–Markov Assumption, the OLS estimator of $\beta_1$ is the best (most efficient) linear conditionally unbiased estimator (BLUE).
 :::
 
-The proof of this theorem is given in @Stock2020. The Gauss-Markov theorem states that the OLS estimator $\hat{\beta}_1$ has the smallest conditional variance among all conditionally unbiased estimators that are linear functions of $Y_1,\dots,Y_n$. There are two limitations to this theorem. First, it requires the strong assumption that error terms are homoskedastic, which mostly does not hold in empirical applications. Second, there exist conditionally biased and non-linear estimators that are more efficient than the OLS estimator. We discuss such estimators in Chapter 21. 
+The proof of this theorem is given in @Stock2020. The Gauss-Markov theorem states that the OLS estimator $\hat{\beta}_1$ has the smallest conditional variance among all conditionally unbiased estimators that are linear functions of $Y_1,\dots,Y_n$. There are two limitations to this theorem. First, it requires the strong assumption that error terms are homoskedastic, which mostly does not hold in empirical applications. Second, there exist conditionally biased and non-linear estimators that are more efficient than the OLS estimator. We discuss such estimators in @sec-chapter21. 
 
-In the next chapter, we introduce the multiple linear regression model. In Chapter 26, we extend the Gauss-Markov theorem to the multiple linear regression model. 
+In the next chapter, we introduce the multiple linear regression model. In @sec-chapter26, we extend the Gauss-Markov theorem to the multiple linear regression model.

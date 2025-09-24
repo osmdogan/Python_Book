@@ -124,7 +124,10 @@ div.csl-indent {
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
+
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -513,7 +516,7 @@ window.Quarto = {
 </header>
 
 
-<div id="11c5e488" class="cell" data-execution_count="1">
+<div id="ad0b1b16" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -540,7 +543,7 @@ window.Quarto = {
 \]</span></p>
 <section id="introduction" class="level2" data-number="15.1">
 <h2 data-number="15.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">15.1</span> Introduction</h2>
-<p>We start our regression analysis in Chapter 11 by assuming a linear population function <span class="math inline">\(\E(Y|X_1)=\beta_0+\beta_1X_1\)</span>. However, in many cases, the relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X_1\)</span> is nonlinear. In this case, the effect of a change in <span class="math inline">\(X_1\)</span> on <span class="math inline">\(Y\)</span> is not constant. In <a href="#fig-f15-1" class="quarto-xref">Figure&nbsp;<span>15.1</span></a>, we illustrate population regression functions that have different slopes. In the linear case, as shown in the first plot of <a href="#fig-f15-1" class="quarto-xref">Figure&nbsp;<span>15.1</span></a>, the slope of the population regression function is constant. However, in the second plot, the slope of the population regression function depends on the value of another variable <span class="math inline">\(X_2\)</span>. In the third plot, the slope of the population regression function depends on the value of <span class="math inline">\(X_1\)</span>. In this chapter, we consider how to model nonlinear regression functions.</p>
+<p>We start our regression analysis in <a href="Chapter4-LinearRegressionOneRegressor.html" class="quarto-xref"><span>Chapter 11</span></a> by assuming a linear population function <span class="math inline">\(\E(Y|X_1)=\beta_0+\beta_1X_1\)</span>. However, in many cases, the relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X_1\)</span> is nonlinear. In this case, the effect of a change in <span class="math inline">\(X_1\)</span> on <span class="math inline">\(Y\)</span> is not constant. In <a href="#fig-f15-1" class="quarto-xref">Figure&nbsp;<span>15.1</span></a>, we illustrate population regression functions that have different slopes. In the linear case, as shown in the first plot of <a href="#fig-f15-1" class="quarto-xref">Figure&nbsp;<span>15.1</span></a>, the slope of the population regression function is constant. However, in the second plot, the slope of the population regression function depends on the value of another variable <span class="math inline">\(X_2\)</span>. In the third plot, the slope of the population regression function depends on the value of <span class="math inline">\(X_1\)</span>. In this chapter, we consider how to model nonlinear regression functions.</p>
 <div id="cell-fig-f15-1" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">50</span>)</span>
@@ -597,7 +600,7 @@ Figure&nbsp;15.1: Population regression functions with different slopes
 Y_i=f(X_{1i},X_{2i},\dots,X_{ki})+u_i,\quad i=1,2,\dots,n,
 \end{align}
 \]</span></p>
-<p>where <span class="math inline">\(f(X_{1i},X_{2i},\dots,X_{ki})\)</span> is the population nonlinear regression function and <span class="math inline">\(u_i\)</span> is the error term. We will consider this model under the four least squares assumptions given in Chapter 13. Then, under the zero-conditional mean assumption, we have <span class="math inline">\(\E(Y|X_{1},X_{2},\dots,X_{k})=f(X_{1},X_{2},\dots,X_{k})\)</span>. Because of the nonlinear relationship between the conditional mean <span class="math inline">\(\E(Y|X_{1},X_{2},\dots,X_{k})\)</span> and the regressors, the effect of a change in one regressor on the conditional mean requires a more complex analysis than in the linear case.</p>
+<p>where <span class="math inline">\(f(X_{1i},X_{2i},\dots,X_{ki})\)</span> is the population nonlinear regression function and <span class="math inline">\(u_i\)</span> is the error term. We will consider this model under the four least squares assumptions given in <a href="Chapter6-MultipleRegression.html" class="quarto-xref"><span>Chapter 13</span></a>. Then, under the zero-conditional mean assumption, we have <span class="math inline">\(\E(Y|X_{1},X_{2},\dots,X_{k})=f(X_{1},X_{2},\dots,X_{k})\)</span>. Because of the nonlinear relationship between the conditional mean <span class="math inline">\(\E(Y|X_{1},X_{2},\dots,X_{k})\)</span> and the regressors, the effect of a change in one regressor on the conditional mean requires a more complex analysis than in the linear case.</p>
 <p>Let us assume that <span class="math inline">\(X_1\)</span> changes by <span class="math inline">\(\Delta X_1\)</span> and let <span class="math inline">\(\E(Y^*|X_{1}, X_{2},\dots,X_{k})=f(X_{1}+\Delta X_1,X_{2},\dots,X_{k})\)</span> be the expected value of <span class="math inline">\(Y\)</span> when <span class="math inline">\(X_1\)</span> changes by <span class="math inline">\(\Delta X_1\)</span>. Then, the expected change in <span class="math inline">\(Y\)</span> associated with the change in <span class="math inline">\(X_1\)</span> by <span class="math inline">\(\Delta X_1\)</span>, holding <span class="math inline">\(X_2,\dots, X_k\)</span> constant, is <span class="math display">\[
 \begin{align}
 \Delta Y&amp;=\E(Y^*|X_{1}+\Delta X_1, X_{2},\dots,X_{k})-\E(Y|X_{1},X_{2},\dots,X_{k}),\\
@@ -643,7 +646,7 @@ Key Concept 15.1: The expected change in <span class="math inline">\(Y\)</span> 
 Y_i=\beta_0+\beta_1X_{i}+\beta_2X_{i}^2+\cdots+\beta_mX_{i}^m+u_i,\quad i=1,2,\dots,n.
 \end{align}
 \]</span></p>
-<p>The linear model is a special case of the polynomial model with <span class="math inline">\(m=1\)</span>. This model reduces to the linear model if we fail to reject the joint null hypothesis <span class="math inline">\(H_0:\beta_2=\beta_3=\cdots=\beta_m=0\)</span> against the alternative hypothesis <span class="math inline">\(H_1:\)</span> At least one of the coefficients is not zero. When <span class="math inline">\(m=2\)</span>, the polynomial model is called a quadratic model, and when <span class="math inline">\(m=3\)</span>, the polynomial model is called a cubic model. As with the linear model, the quadratic and cubic models can be tested against the polynomial regression model of degree <span class="math inline">\(m\)</span> by adjusting the null and alternative hypotheses accordingly. These joint null hypotheses can be tested using the F-statistic introduced in Chapter 14.</p>
+<p>The linear model is a special case of the polynomial model with <span class="math inline">\(m=1\)</span>. This model reduces to the linear model if we fail to reject the joint null hypothesis <span class="math inline">\(H_0:\beta_2=\beta_3=\cdots=\beta_m=0\)</span> against the alternative hypothesis <span class="math inline">\(H_1:\)</span> At least one of the coefficients is not zero. When <span class="math inline">\(m=2\)</span>, the polynomial model is called a quadratic model, and when <span class="math inline">\(m=3\)</span>, the polynomial model is called a cubic model. As with the linear model, the quadratic and cubic models can be tested against the polynomial regression model of degree <span class="math inline">\(m\)</span> by adjusting the null and alternative hypotheses accordingly. These joint null hypotheses can be tested using the F-statistic introduced in <a href="Chapter7-MultipleRegressionInference.html" class="quarto-xref"><span>Chapter 14</span></a>.</p>
 <p>Note that since the polynomial model is linear in the parameters, we can use the OLS estimator to estimate the model. The degree of the model can be selected using a sequential hypothesis testing approach based on the individual <span class="math inline">\(t\)</span>-statistic. This approach consists of the following steps:</p>
 <ul>
 <li>Use economic theory and expert judgement to choose the maximum degree of the polynomial model, <span class="math inline">\(m\)</span>. In many cases involving economic data, <span class="math inline">\(m = 2\)</span> or <span class="math inline">\(m = 3\)</span> is sufficient.</li>
@@ -652,7 +655,7 @@ Y_i=\beta_0+\beta_1X_{i}+\beta_2X_{i}^2+\cdots+\beta_mX_{i}^m+u_i,\quad i=1,2,\d
 </ul>
 <p>The final model obtained through this sequential testing approach is the polynomial model of the highest degree for which the <span class="math inline">\(t\)</span>-statistic is statistically significant.</p>
 <p>As an example, we consider the test scores data available in the <code>caschool.xlsx</code> file. The following code chunk imports the data and displays the column names.</p>
-<div id="5826fcd7" class="cell" data-message="false" data-execution_count="3">
+<div id="0e1b2505" class="cell" data-message="false" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="op">=</span> pd.read_excel(<span class="st">"data/caschool.xlsx"</span>, sheet_name<span class="op">=</span><span class="st">"caschool"</span>, header<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Column names</span></span>
@@ -740,7 +743,7 @@ Figure&nbsp;15.2: Scatter plots
 \end{align}
 \]</span></p>
 <p>We estimate these models using the OLS estimator. In the following code chunk, we use the <code>I()</code> function to create the quadratic and cubic terms directly within the regression formula. Otherwise, we would need to create these variables manually and add them to the data frame <code>mydata</code>. The estimation results are presented in <a href="#tbl-t15-1" class="quarto-xref">Table&nbsp;<span>15.1</span></a>.</p>
-<div id="640fa86d" class="cell" data-execution_count="5">
+<div id="93061b14" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Linear model</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>model1 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'testscr ~ avginc'</span>,data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -890,7 +893,7 @@ Figure&nbsp;15.3: Scatter plot and polynomial regression functions
 <div class="quarto-layout-panel" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="cell quarto-layout-cell" data-message="false" data-execution_count="8" style="flex-basis: 100.0%;justify-content: center;">
-<div id="tbl-t15-2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="8" data-message="false">
+<div id="tbl-t15-2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-message="false" data-execution_count="8">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-t15-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;15.2: Cubic polynomial regression model
@@ -960,7 +963,7 @@ Table&nbsp;15.2: Cubic polynomial regression model
 \end{align*}
 \]</span></p>
 <p>The F-statistic for this null hypothesis can be computed by using the <code>model3.f_test()</code> function. The following code chunk computes the F-statistic and the associated <span class="math inline">\(p\)</span>-value.</p>
-<div id="47354086" class="cell" data-execution_count="9">
+<div id="ad4bc5fb" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>hypothesis<span class="op">=</span><span class="st">"I(avginc ** 2)=0, I(avginc ** 3)=0"</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model3.f_test(hypothesis))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1108,7 +1111,7 @@ Key Concept 15.2: The three logarithmic regression models
 <li>The log-linear model: <span class="math inline">\(\ln(\text{TestScore})=\beta_0+\beta_1\text{Income}+u\)</span>,</li>
 <li>The log-log model: <span class="math inline">\(\ln(\text{TestScore})=\beta_0+\beta_1\ln(\text{Income})+u\)</span>.</li>
 </ol>
-<div id="8bd4f995" class="cell" data-execution_count="11">
+<div id="0fbd0eb9" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Linear model</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'testscr ~ avginc'</span>,data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1375,7 +1378,7 @@ Y_i=\beta_0+\beta_1D_{1i}+\beta_2D_{2i}+\beta_3\left(D_{1i}\times D_{2i}\right)+
 \end{align*}
 \]</span></p>
 <p>Here, <span class="math inline">\(\text{HiSTR}_i\)</span> is a binary variable equal to 1 if the student-teacher ratio is 20 or more, and 0 otherwise; <span class="math inline">\(\text{HiEL}_i\)</span> is another binary variable equal to 1 if the percentage of English learners is 10% or more, and 0 otherwise. We use the following code chunk to estimate the model and present the results in <a href="#tbl-t15-4" class="quarto-xref">Table&nbsp;<span>15.4</span></a>.</p>
-<div id="d79d65b9" class="cell" data-execution_count="15">
+<div id="df870b39" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate dummy variables</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>mydata[<span class="st">"histr"</span>] <span class="op">=</span> mydata[<span class="st">"str"</span>] <span class="op">&gt;=</span> <span class="dv">20</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>mydata[<span class="st">"hiel"</span>] <span class="op">=</span> mydata[<span class="st">"el_pct"</span>] <span class="op">&gt;=</span> <span class="dv">10</span></span>
@@ -1553,7 +1556,7 @@ Figure&nbsp;15.7: Regression functions using binary and continuous variables
 \text{TestScore}_i = \beta_0+\beta_1\text{STR}_i+\beta_2\text{HiEL}_i+\beta_3\left(\text{STR}_i\times\text{HiEL}_i\right)+u_i,
 \end{align}
 \]</span> where <span class="math inline">\(\text{HiEL}_i\)</span> is a binary variable that equals <span class="math inline">\(1\)</span> if the percentage of English learners is 10% or more and 0 otherwise. The estimation results are presented in <a href="#tbl-t15-5" class="quarto-xref">Table&nbsp;<span>15.5</span></a>.</p>
-<div id="a09e27d5" class="cell" data-execution_count="18">
+<div id="10d8549d" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"testscr ~ str + hiel + str*hiel"</span>,</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>         data <span class="op">=</span> mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1679,7 +1682,7 @@ H_0: \beta_2=0,\,\beta_3=0\quad\text{versus}\quad H_1:\text{At least one is nonz
 \end{align*}
 \]</span></p>
 <p>We use the heteroskedasticity-robust <span class="math inline">\(F\)</span>-statistic to test this hypothesis. The <span class="math inline">\(F\)</span>-statistic is around 89.9 with a <span class="math inline">\(p\)</span>-value less than 0.05. Thus, we reject the null hypothesis.</p>
-<div id="3086373f" class="cell" data-execution_count="21">
+<div id="20a32988" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>hypothesis <span class="op">=</span> <span class="st">"hiel[T.True]=0, str:hiel[T.True]=0"</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>r2.f_test(hypothesis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
@@ -1712,7 +1715,7 @@ Y+\Delta Y=\beta_0+\beta_1(X_1+\Delta X_1)+\beta_2X_2+\beta_3\left((X_1+\Delta X
 \end{align}
 \]</span></p>
 <p>We use the following code chunk to estimate the model and present the results in <a href="#tbl-t15-6" class="quarto-xref">Table&nbsp;<span>15.6</span></a>.</p>
-<div id="d5f4ae9d" class="cell" data-execution_count="22">
+<div id="48c919cf" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>r3 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"testscr ~ str + el_pct + str*el_pct"</span>,</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>         data <span class="op">=</span> mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1833,7 +1836,7 @@ Standard errors in parentheses.<br>
 \end{align*}
 \]</span></p>
 <p>The following code chunks can be used to produce the estimation results given in <a href="#tbl-t15-7" class="quarto-xref">Table&nbsp;<span>15.7</span></a>.</p>
-<div id="cd1d05db" class="cell" data-execution_count="24">
+<div id="c891037b" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 1</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"testscr ~ str + el_pct + meal_pct"</span>,</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>         data <span class="op">=</span> mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
@@ -2136,7 +2139,7 @@ Standard errors in parentheses.<br>
 </div>
 <p>Starting with the results for Model 1, we see that the estimated coefficient on <code>STR</code> is statistically significant. The results for Model 2 show that adding <code>ln(avginc)</code> reduces the estimated coefficient on <code>STR</code> to <code>-0.734</code>, though this estimate remains statistically significant. In Models 3 and 4, we aim to assess the effect of allowing for an interaction term, <code>STR × HiEL</code>, both without and with economic control variables. In both models, we observe that the coefficient on the interaction term and the coefficient on <code>HiEL</code> are not statistically significant. Thus, even with economic controls, we cannot reject the null hypothesis that the effect of the student-teacher ratio on test scores is the same for districts with high and low shares of English learners.</p>
 <p>Model 5 includes a cubic term for the student-teacher ratio and omits the interaction <code>STR × HiEL</code>. The results indicate that there is a nonlinear effect of <code>STR</code> on test scores. We can verify this non-linear relationship by testing the joint null hypothesis: <span class="math inline">\(H_0:\beta_2=0,\beta_3=0\)</span>. The F-statistic is around 5 with a <span class="math inline">\(p\)</span>-value less than 0.05. Thus, we reject the null hypothesis at the <span class="math inline">\(5\%\)</span> significance level.</p>
-<div id="511e0f32" class="cell" data-execution_count="26">
+<div id="7dead159" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>hypothesis <span class="op">=</span> <span class="st">"I(str ** 2)=0, I(str ** 3)=0"</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r5.f_test(hypothesis))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2144,7 +2147,7 @@ Standard errors in parentheses.<br>
 </div>
 </div>
 <p>Model 6 further examines whether the effect of <code>STR</code> depends not just on its value but also on the fraction of English learners. All individual t-statistics indicate that the estimated coefficients on <code>HiEL</code> and its interaction terms are statistically significant. We can further check this by using a robust <span class="math inline">\(F\)</span>-test for the joint null hypothesis: <span class="math inline">\(H_0:\beta_5=0,\beta_6=0,\beta_7=0\)</span>. The F-statistic is around 2.19 with a <span class="math inline">\(p\)</span>-value less than 0.10. Thus, we only reject the null hypothesis at the <span class="math inline">\(10\%\)</span> significance level.</p>
-<div id="9e155ce2" class="cell" data-execution_count="27">
+<div id="6f1fd1f7" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>hypothesis<span class="op">=</span><span class="st">"hiel[T.True]:str=0, hiel[T.True]:I(str ** 2)=0, hiel[T.True]:I(str ** 3)=0"</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r6.f_test(hypothesis))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2153,7 +2156,7 @@ Standard errors in parentheses.<br>
 </div>
 <p>Model 7 is a modification of Model 5, in which the continuous variable <code>PctEL</code> is used instead of the binary variable <code>HiEL</code> to control for the effect of the percentage of English learners. The coefficients on the other regressors do not change substantially when this modification is made, indicating that the results in Model 5 are not sensitive to whether we use <code>PctEL</code> or <code>HiEL</code>.</p>
 <p>The nonlinear specifications in <a href="#tbl-t15-7" class="quarto-xref">Table&nbsp;<span>15.7</span></a> are most easily interpreted graphically. In <a href="#fig-f15-9" class="quarto-xref">Figure&nbsp;<span>15.9</span></a>, we present plots of the estimated regression functions for Models 2, 5, and 7, along with a scatterplot of <code>testscr</code> and <code>str</code>. For each curve, we compute predicted values by setting each independent variable, other than <code>str</code>, to its sample average. These estimated regression functions show the predicted test scores as a function of <code>str</code>, with other independent variables fixed at their sample averages. The figure illustrates that the estimated regression functions are all quite similar to one another.</p>
-<div id="14e741c2" class="cell" data-execution_count="28">
+<div id="e35ff5f3" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the estimated regression functions for Models 2, 5, and 7</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating new data for predictions</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>mydata[<span class="st">"hiel"</span>]<span class="op">=</span>mydata[<span class="st">"hiel"</span>].astype(<span class="bu">int</span>) <span class="co"># Convert hiel to 0s and 1s</span></span>
@@ -2209,7 +2212,7 @@ Figure&nbsp;15.9: Estimated regression functions for Models 2, 5 and 7
 </div>
 </div>
 <p>In <a href="#fig-f15-10" class="quarto-xref">Figure&nbsp;<span>15.10</span></a>, we present the estimated regression functions for Model 6 when <code>HiEL = 0</code> and <code>HiEL = 1</code>. Although the two regression functions appear different, the slopes are nearly identical when <code>str</code> take values between 17 and 23. Since this range encompasses nearly all observations, we can reasonably conclude that nonlinear interactions between the fraction of English learners and the student-teacher ratio can be disregarded.</p>
-<div id="89bb905a" class="cell" data-execution_count="30">
+<div id="9b62323c" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the estimated regression functions for Model 6</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating new data for predictions</span></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>new_data <span class="op">=</span> pd.DataFrame({</span>
