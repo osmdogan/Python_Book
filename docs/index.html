@@ -562,7 +562,7 @@ window.Quarto = {
 <p>In Further Topics in Regression Analysis, we explore extensions of the multiple linear regression model across five chapters. We begin with commonly used panel data models, then examine regression models with binary dependent variables. Next, we discuss the instrumental variable method when the error term is correlated with the regressor of interest, explore experimental and quasi-experimental methods, and finally cover widely used machine learning techniques for prediction when many regressors are present.</p>
 <p>The part titled Regression Analysis of Economic Time Series Data covers time series methods and consists of three chapters. In the first chapter, we introduce basic time series concepts, including unit root testing, autoregressions, and autoregressive distributed lag models for forecasting. In the second chapter, we demonstrate how to use time series analysis to estimate dynamic causal effects. Finally, in the third chapter, we cover some additional time series models, including vector autoregressions, cointegration, vector error correction models, and volatility models.</p>
 <p>The final part, Theoretical Topics, contains two chapters on econometric theory. In the first chapter, we present formal results along with their proofs for the regression model with one regressor. In the second chapter, using linear algebra notation, we provide theoretical results for the multiple linear regression model, instrumental variables regression, generalized method of moments estimation for the linear models.</p>
-<p>Finally, we provide some technical details related to Chapters 11, 21, 25, and 26 in the appendices.</p>
+<p>Finally, we provide some technical details related to Chapters 14, 24, 28, and 29 in the appendices.</p>
 </section>
 <section id="notation" class="level1">
 <h1>Notation</h1>
@@ -676,7 +676,7 @@ Table&nbsp;1.1: Greek Letters
 <section id="import-conventions" class="level1">
 <h1>Import Conventions</h1>
 <p>In each chapter, we first import all the modules required for the econometric analysis introduced in that chapter. We follow the alias conventions used by the Python community for commonly used modules:</p>
-<div id="eac9bd9f" class="cell" data-execution_count="1">
+<div id="8b022018" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -691,11 +691,11 @@ Table&nbsp;1.1: Greek Letters
 <section id="code-examples" class="level1">
 <h1>Code Examples</h1>
 <p>We use the conventional code font for displaying code in the text. Code chunks are presented in highlighted cells, as shown in the following example:</p>
-<div id="ac776d48" class="cell" data-execution_count="3">
+<div id="2809fe91" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The output of a code cell is shown in the subsequent cell, as shown in the following example:</p>
-<div id="4c2cddcf" class="cell" data-execution_count="4">
+<div id="09a8e9dd" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x.append(<span class="dv">99</span>) <span class="co"># adding 99 to the list x</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -704,7 +704,7 @@ Table&nbsp;1.1: Greek Letters
 </div>
 </div>
 <p>The above cell displays the updated list <code>x</code>. If a code cell returns multiple outputs, these outputs are displayed in separate cells, in the order they are produced. For example, the code below returns <code>type(x) = list</code> and <code>type(y) = tuple</code> in separate cells:</p>
-<div id="93bd0a19" class="cell" data-execution_count="5">
+<div id="f06c381c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">2</span>, <span class="dv">35</span>, <span class="dv">11</span>, <span class="dv">12</span>] <span class="co"># list</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(x)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> (<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>) <span class="co"># tuple</span></span>
