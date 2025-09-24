@@ -79,7 +79,7 @@ The distributed lag model in @eq-eq23-1 can be considered under two types of exo
 * The past, present, and future exogeneity (strict exogeneity) assumption: $\E(u_t|\ldots,X_{t+2},X_{t+1},X_t,X_{t-1},X_{t-2},\ldots)=0$.
 :::
 
-The second assumption requires that $(Y_t, X_t)$ have a joint stationary distribution and to be weakly dependent. This assumption is the same as the one required for the OLS estimation of the AR and ADL models considered in Chapter 22.
+The second assumption requires that $(Y_t, X_t)$ have a joint stationary distribution and to be weakly dependent. This assumption is the same as the one required for the OLS estimation of the AR and ADL models considered in @sec-chapter22.
 
 The third assumption requires that the dependent variable and the regressor have more than eight nonzero finite moments. This assumption is stronger than the one required for the OLS estimation of the AR and ADL models, where we require only nonzero finite fourth moments. This relatively strong assumption in the distributed lag model is required for formulating a heteroskedasticity- and autocorrelation-consistent (HAC) standard error estimator. We discuss the HAC standard error estimator in the next section.
 

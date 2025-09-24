@@ -50,7 +50,7 @@ It is important to keep in mind that adding a variable to the model involves a t
 
 * Finally, we should provide full disclosure of the model selection process. This step is crucial for maintaining the transparency and credibility of the research.
 
-**Solutions to omitted variable bias when adequate control variables are not available**: If the conditional mean independence assumption for the variable of interest is not satisfied-that is, when adequate control variables are unavailable-alternative estimation methods can be used to address omitted variable bias. These methods include panel data models, instrumental variable techniques, randomized controlled experiments, and quasi-experimental approaches. We introduce panel data methods in Chapter 17, instrumental variable methods in Chapter 19, and experimental and quasi-experimental methods in Chapter 20.
+**Solutions to omitted variable bias when adequate control variables are not available**: If the conditional mean independence assumption for the variable of interest is not satisfied-that is, when adequate control variables are unavailable-alternative estimation methods can be used to address omitted variable bias. These methods include panel data models, instrumental variable techniques, randomized controlled experiments, and quasi-experimental approaches. We introduce panel data methods in @sec-chapter17, instrumental variable methods in @sec-chapter19, and experimental and quasi-experimental methods in @sec-chapter20.
 
 ### Functional form misspecification
 This type of misspecification arises when the estimated regression model does not match the population regression function. Assume that the true relationship (i.e., the population regression function) between the dependent variable and the variable of interest is nonlinear. If we specify a linear relationship between the variable of interest and the dependent variable, then we are committing a functional form misspecification. Such misspecification can lead to biased and inconsistent estimators.
@@ -101,12 +101,12 @@ results_table
 ```
 :::
 
-**Solution to Functional Form Misspecification**: When the dependent variable is continuous, functional form misspecification can be addressed using polynomial and logarithmic transformations, as discussed in Chapter 15. When the dependent variable is binary, we can instead use nonlinear models such as the probit and logit models discussed in Chapter 18.
+**Solution to Functional Form Misspecification**: When the dependent variable is continuous, functional form misspecification can be addressed using polynomial and logarithmic transformations, as discussed in @sec-nonlinear. When the dependent variable is binary, we can instead use nonlinear models such as the probit and logit models discussed in @sec-chapter18.
 
 ### Measurement error and errors in variables bias
 Measurement error occurs when the observed value of a variable differs from its true value. It can arise from various sources, including data entry errors, rounding, recollection errors in surveys, ambiguous survey questions, or intentionally false responses in surveys. Measurement error can result in biased and inconsistent estimators. 
 
-To illustrate the effect of measurent error on the OLS estimator, we consider the following model with one regressor: $Y_i=\beta_0+\beta_1X_i+u_i$, where $\E(u_i|X_i)=0$. We assume that $X_i$ is the unobserved true value and $\tilde{X}_i$ is its mismeasured version, i.e., the observed regressor. Then,
+To illustrate the effect of measurement error on the OLS estimator, we consider the following model with one regressor: $Y_i=\beta_0+\beta_1X_i+u_i$, where $\E(u_i|X_i)=0$. We assume that $X_i$ is the unobserved true value and $\tilde{X}_i$ is its mismeasured version, i.e., the observed regressor. Then,
 $$
 \begin{align}
 Y_i &= \beta_0+\beta_1X_i+u_i=\beta_0+\beta_1\tilde{X}_i+(\beta_1(X_i-\tilde{X}_i)+u_i)\\
@@ -225,7 +225,7 @@ So far we only consider measurement error in the independent variable. However, 
 
 - When feasible, we can obtain accurate data to avoid errors-in-variables bias. For example, we can use administrative data or data from surveys with well-designed questions to minimize measurement error in the regressors.
 
-- We can resort to the instrumental variables (IV) regression method to address errors-in-variables bias. The IV estimator is discussed in Chapter 19.
+- We can resort to the instrumental variables (IV) regression method to address errors-in-variables bias. The IV estimator is discussed in @sec-chapter19.
 
 - When information on the nature of measurement error is available, we can build a model of the measurement error process to correct the OLS estimator. For example, under the classical measurement error model, a bias-corrected estimator can be used to address errors-in-variables bias.
 
@@ -240,7 +240,7 @@ Under the third case, where data is missing due to a selection process that depe
 
 **Solutions to missing data and sample selection bias**: The following solutions can be used to address missing data and sample selection bias:
 
-* We can resort to a design-based approach for collecting data to minimize the effect of missing data and sample selection bias. For example, through a randomized controlled experiment, we can ensure that the sample is representative of the population of interest. We discuss randomized controlled experiments in Chapter 20.
+* We can resort to a design-based approach for collecting data to minimize the effect of missing data and sample selection bias. For example, through a randomized controlled experiment, we can ensure that the sample is representative of the population of interest. We discuss randomized controlled experiments in @sec-chapter20.
 
 * We can use sample selection models in which we specify both the selection and outcome processes. For further details on these types of models, among others, see @Greene2017 and @Hansen2022.
 
@@ -256,18 +256,18 @@ where $u_i$ and $v_i$ are the error terms. In the first equation, a large $u_i$ 
 
 **Solutions to simultaneous causality bias**: The following solutions can be used to address simultaneous causality bias:
 
-- When feasible, we can conduct a randomized controlled experiment. The random assignment mechanism in such experiments ensures that $X_i$ is uncorrelated with $u_i$. We discuss randomized controlled experiments in Chapter 20.
+- When feasible, we can conduct a randomized controlled experiment. The random assignment mechanism in such experiments ensures that $X_i$ is uncorrelated with $u_i$. We discuss randomized controlled experiments in @sec-chapter20.
 
 - We can use a simultaneous equation model to estimate a complete system that captures both directions of causality. For further details on these types of models, see @Greene2017 and @Hansen2022.
 
-- We can use the instrumental variable (IV) regression to estimate the causal effect of interest (i.e., the effect of $X$ on $Y$). We cover this topic in Chapter 19.
+- We can use the instrumental variable (IV) regression to estimate the causal effect of interest (i.e., the effect of $X$ on $Y$). We cover this topic in @sec-chapter19.
 
 ### Inconsistency of OLS standard errors
 The inconsistent standard errors invalidates hypothesis tests and confidence intervals. 
 
 - The standard errors derived under the homoscedasticity assumption are inconsistent in the presence of heteroscedasticity. The solution to this problem is to use heteroscedasticity-robust standard errors.
 
-- The error terms in a regression model are often correlated across observations. This correlation can arise in models specified for time-series, spatial, and panel data. The standard errors derived under the assumption of independent and identically distributed (i.i.d.) errors are inconsistent in the presence of correlated errors. The solution to this problem is to use standard errors that are robust to both heteroskedasticity and correlation. In Chapters 17 and 23, we discuss the estimation of models with correlated errors.
+- The error terms in a regression model are often correlated across observations. This correlation can arise in models specified for time-series, spatial, and panel data. The standard errors derived under the assumption of independent and identically distributed (i.i.d.) errors are inconsistent in the presence of correlated errors. The solution to this problem is to use standard errors that are robust to both heteroskedasticity and correlation. In @sec-chapter17 and @sec-chapter23, we discuss the estimation of models with correlated errors.
 
 ::: {.callout-note icon=false}
 ## Key Concept 16.1: Threats to the internal validity of a multiple regression study
@@ -303,7 +303,7 @@ For prediction exercises, external validity is more important than internal vali
 
 - **Choice of predictors**: Predictors should be selected to maximize the accuracy of out-of-sample predictions.
 
-- **Estimation method**: The estimation method must be suitable for handling high-dimensional data when there are many predictors. In such cases, specialized estimators can provide more accurate out-of-sample predictions than the OLS estimator. We discuss these specialized estimators in Chapter 21.
+- **Estimation method**: The estimation method must be suitable for handling high-dimensional data when there are many predictors. In such cases, specialized estimators can provide more accurate out-of-sample predictions than the OLS estimator. We discuss these specialized estimators in @sec-chapter21.
 
 ## Example: Test Scores and Class Size
 
@@ -534,5 +534,5 @@ print(r5.f_test(hypothesis))
 **Inconsistency of OLS standard errors**: We use heteroskedasticity-robust standard errors in all models to address this issue.
 
 ### External validity assessment
-Our results, presented in @tbl-t16.4, suggest conclusions similar to those obtained in Chapter 15 based on the California dataset. Based on this observation, @Stock2020 conclude that the multiple linear regression models are externally valid and therefore the results can be generalized to other elementary school districts in the United States.
+Our results, presented in @tbl-t16.4, suggest conclusions similar to those obtained in @sec-nonlinear based on the California dataset. Based on this observation, @Stock2020 conclude that the multiple linear regression models are externally valid and therefore the results can be generalized to other elementary school districts in the United States.
 

@@ -511,7 +511,7 @@ window.Quarto = {
 </header>
 
 
-<div id="d9e68a8e" class="cell" data-execution_count="1">
+<div id="8237cb6b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -643,7 +643,7 @@ The extended least squares assumptions
 </ol>
 </div>
 </div>
-<p>The first three assumptions are the same as those used in the simple and multiple linear regression models covered in Chapters 11 and 13. Note that Assumption 3 also suggests that <span class="math inline">\(\E[Y^4_i]=\E[(\bs{X}^{'}_i\bs{\beta}+u_i)^4]&lt;\infty\)</span>. Assumption 4 corresponds to the no-perfect-multicollinearity assumption in the multiple linear regression model. This assumption requires that the columns of <span class="math inline">\(\bs{X}\)</span> are linearly independent; that is, we can not express any column of <span class="math inline">\(\bs{X}\)</span> as a linear combination of the other columns. Thus, the full column rank condition rules out perfect multicollinearity. The homoskedasticity assumption requires that the variance of the error term is constant across observations and is necessary for studying the efficiency of the OLS estimator. The normality assumption is required to derive the exact sampling distribution of the OLS estimator and test statistics. As we discuss in Chapter 25, we do not need neither the homoskedasticity nor the normality assumption to show that the OLS estimator is consistent and have asymptotic normal distribution.</p>
+<p>The first three assumptions are the same as those used in the simple and multiple linear regression models covered in <a href="Chapter4-LinearRegressionOneRegressor.html" class="quarto-xref"><span>Chapter 11</span></a> and <a href="Chapter6-MultipleRegression.html" class="quarto-xref"><span>Chapter 13</span></a>. Note that Assumption 3 also suggests that <span class="math inline">\(\E[Y^4_i]=\E[(\bs{X}^{'}_i\bs{\beta}+u_i)^4]&lt;\infty\)</span>. Assumption 4 corresponds to the no-perfect-multicollinearity assumption in the multiple linear regression model. This assumption requires that the columns of <span class="math inline">\(\bs{X}\)</span> are linearly independent; that is, we can not express any column of <span class="math inline">\(\bs{X}\)</span> as a linear combination of the other columns. Thus, the full column rank condition rules out perfect multicollinearity. The homoskedasticity assumption requires that the variance of the error term is constant across observations and is necessary for studying the efficiency of the OLS estimator. The normality assumption is required to derive the exact sampling distribution of the OLS estimator and test statistics. As we discuss in <a href="Chapter18-TheoryRegression.html" class="quarto-xref"><span>Chapter 25</span></a>, we do not need neither the homoskedasticity nor the normality assumption to show that the OLS estimator is consistent and have asymptotic normal distribution.</p>
 <p>What are the conditional mean and variance of <span class="math inline">\(\bs{U}\)</span>? Under Assumptions 1 and 2, we can express <span class="math inline">\(\E(\bs{U}|\bs{X})\)</span> as <span class="math display">\[
 \begin{align*}
 \E(\bs{U}|\bs{X})=\E\left(\begin{pmatrix}
@@ -931,7 +931,7 @@ t\xrightarrow{d}N(0,1).
 \end{align}
 \]</span></p>
 </div>
-<p>In Chapter 14, we show that a joint null hypothesis that imposes <span class="math inline">\(q\)</span> linear restrictions on the regression coefficients can be expressed as <span id="eq-eq26-14"><span class="math display">\[
+<p>In <a href="Chapter7-MultipleRegressionInference.html" class="quarto-xref"><span>Chapter 14</span></a>, we show that a joint null hypothesis that imposes <span class="math inline">\(q\)</span> linear restrictions on the regression coefficients can be expressed as <span id="eq-eq26-14"><span class="math display">\[
 \begin{align}
 H_0:\bs{R}\bs{\beta}=\bs{r},
 \end{align}

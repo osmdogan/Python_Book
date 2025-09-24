@@ -23,7 +23,7 @@ The linear regression model with one regressor is
 $$
 Y_i = \beta_0 + \beta_1 X_i + u_i, \quad i = 1, \ldots, n,
 $${#eq-eq25-1}
-where $Y_i$ is the dependent variable, $X_i$ is the regressor, and $u_i$ is the error term. In Chapter 11, we derive the OLS estimators of $\beta_0$ and $\beta_1$ as
+where $Y_i$ is the dependent variable, $X_i$ is the regressor, and $u_i$ is the error term. In @sec-lrmone, we derive the OLS estimators of $\beta_0$ and $\beta_1$ as
 $$
 \begin{align*}
 \hat{\beta}_1 &= \frac{\sum_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y})}{\sum_{i=1}^n (X_i - \bar{X})^2},\\
@@ -1111,7 +1111,7 @@ We show that $\sqrt{\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_
 :::
 
 ## The Gauss-Markov theorem
-The Gauss-Markov theorem in @thm-thm25-2 states that the OLS estimators are the best linear unbiased estimators (BLUE) under the first four assumptions. We prove this claim in Chapter 26 using matrix algebra. In this section, we show how the variances of the OLS estimators simplify. 
+The Gauss-Markov theorem in @thm-thm25-2 states that the OLS estimators are the best linear unbiased estimators (BLUE) under the first four assumptions. We prove this claim in @sec-chapter26 using matrix algebra. In this section, we show how the variances of the OLS estimators simplify. 
 
 Under the fourth assumption, the numerator of $\sigma^2_{\widehat{\beta}_1}$ can be written as
 $$
@@ -1190,7 +1190,7 @@ t&=\frac{\hat{\beta}_1-c}{\sqrt{\widehat{\text{var}}(\hat{\beta}_1|X_1,\ldots,X_
 &=\frac{\hat{\beta}_1-c}{\sqrt{\frac{\sigma^2_{u}}{\sum_{i=1}^n(X_i - \bar{X})^2}}}\div\sqrt{W/(n-2)},
 \end{align}
 $$
-where $W=\sum_{i=1}^n\hat{u}^2_i/\sigma^2_u$. Under $H_0$, we have $\frac{\hat{\beta}_1-c}{\sqrt{\frac{\sigma^2_{u}}{\sum_{i=1}^n(X_i - \bar{X})^2}}}\sim N(0,1)$. In Chapter 26, we show that $W$ has a chi-squared distribution with $n-2$ degrees of freedom and that it is independent of the standardized OLS estimator in the numerator. It then follows from the definition of the Student’s $t$ distribution that the homoskedasticity-only $t$-statistic has a Student’s $t$ distribution with $n-2$ degrees of freedom.
+where $W=\sum_{i=1}^n\hat{u}^2_i/\sigma^2_u$. Under $H_0$, we have $\frac{\hat{\beta}_1-c}{\sqrt{\frac{\sigma^2_{u}}{\sum_{i=1}^n(X_i - \bar{X})^2}}}\sim N(0,1)$. In @sec-chapter26, we show that $W$ has a chi-squared distribution with $n-2$ degrees of freedom and that it is independent of the standardized OLS estimator in the numerator. It then follows from the definition of the Student’s $t$ distribution that the homoskedasticity-only $t$-statistic has a Student’s $t$ distribution with $n-2$ degrees of freedom.
 :::
 
 ## Weighted least squares

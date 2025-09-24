@@ -124,7 +124,10 @@ div.csl-indent {
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
+
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -519,7 +522,7 @@ window.Quarto = {
 </header>
 
 
-<div id="17143b86" class="cell" data-execution_count="1">
+<div id="12f6090d" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -574,13 +577,13 @@ window.Quarto = {
 <li><p>Next, we estimate our base specification and examine whether including questionable variables changes the coefficient of the variable of interest. If the coefficient of a questionable variable is statistically significant and/or the coefficient of the variable of interest changes substantially, the questionable variable should be retained in the model.</p></li>
 <li><p>Finally, we should provide full disclosure of the model selection process. This step is crucial for maintaining the transparency and credibility of the research.</p></li>
 </ul>
-<p><strong>Solutions to omitted variable bias when adequate control variables are not available</strong>: If the conditional mean independence assumption for the variable of interest is not satisfied-that is, when adequate control variables are unavailable-alternative estimation methods can be used to address omitted variable bias. These methods include panel data models, instrumental variable techniques, randomized controlled experiments, and quasi-experimental approaches. We introduce panel data methods in Chapter 17, instrumental variable methods in Chapter 19, and experimental and quasi-experimental methods in Chapter 20.</p>
+<p><strong>Solutions to omitted variable bias when adequate control variables are not available</strong>: If the conditional mean independence assumption for the variable of interest is not satisfied-that is, when adequate control variables are unavailable-alternative estimation methods can be used to address omitted variable bias. These methods include panel data models, instrumental variable techniques, randomized controlled experiments, and quasi-experimental approaches. We introduce panel data methods in <a href="Chapter10-RegressionPanelData.html" class="quarto-xref"><span>Chapter 17</span></a>, instrumental variable methods in <a href="Chapter12-IVRegression.html" class="quarto-xref"><span>Chapter 19</span></a>, and experimental and quasi-experimental methods in <a href="Chapter13-Experiments.html" class="quarto-xref"><span>Chapter 20</span></a>.</p>
 </section>
 <section id="functional-form-misspecification" class="level3" data-number="16.2.2">
 <h3 data-number="16.2.2" class="anchored" data-anchor-id="functional-form-misspecification"><span class="header-section-number">16.2.2</span> Functional form misspecification</h3>
 <p>This type of misspecification arises when the estimated regression model does not match the population regression function. Assume that the true relationship (i.e., the population regression function) between the dependent variable and the variable of interest is nonlinear. If we specify a linear relationship between the variable of interest and the dependent variable, then we are committing a functional form misspecification. Such misspecification can lead to biased and inconsistent estimators.</p>
 <p>In the following example, we illustrate the effect of functional form misspecification on the OLS estimator. We simulate data from the following quadratic model: <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+\beta_2X^2_i+u_i\)</span>, where <span class="math inline">\(X_i\sim\text{Uniform}(0,10)\)</span>, <span class="math inline">\((\beta_0,\beta_1,\beta_2)^{'}=(3,2,1.5)^{'}\)</span>, and <span class="math inline">\(u_i\sim N(0,4)\)</span>. We then estimate two models: the misspecified linear model <span class="math inline">\(Y_i=\beta_0+\beta_1X_{i}+u_i\)</span> and the correctly specified quadratic model <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+\beta_2X^2_i+u_i\)</span>.</p>
-<div id="1b4eebf8" class="cell" data-execution_count="2">
+<div id="53b381cf" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">123</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">300</span></span>
@@ -693,12 +696,12 @@ Standard errors in parentheses.<br>
 </div>
 </div>
 </div>
-<p><strong>Solution to Functional Form Misspecification</strong>: When the dependent variable is continuous, functional form misspecification can be addressed using polynomial and logarithmic transformations, as discussed in Chapter 15. When the dependent variable is binary, we can instead use nonlinear models such as the probit and logit models discussed in Chapter 18.</p>
+<p><strong>Solution to Functional Form Misspecification</strong>: When the dependent variable is continuous, functional form misspecification can be addressed using polynomial and logarithmic transformations, as discussed in <a href="Chapter8-NonlinearRegressions.html" class="quarto-xref"><span>Chapter 15</span></a>. When the dependent variable is binary, we can instead use nonlinear models such as the probit and logit models discussed in <a href="Chapter11-BinaryDependentVariable.html" class="quarto-xref"><span>Chapter 18</span></a>.</p>
 </section>
 <section id="measurement-error-and-errors-in-variables-bias" class="level3" data-number="16.2.3">
 <h3 data-number="16.2.3" class="anchored" data-anchor-id="measurement-error-and-errors-in-variables-bias"><span class="header-section-number">16.2.3</span> Measurement error and errors in variables bias</h3>
 <p>Measurement error occurs when the observed value of a variable differs from its true value. It can arise from various sources, including data entry errors, rounding, recollection errors in surveys, ambiguous survey questions, or intentionally false responses in surveys. Measurement error can result in biased and inconsistent estimators.</p>
-<p>To illustrate the effect of measurent error on the OLS estimator, we consider the following model with one regressor: <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+u_i\)</span>, where <span class="math inline">\(\E(u_i|X_i)=0\)</span>. We assume that <span class="math inline">\(X_i\)</span> is the unobserved true value and <span class="math inline">\(\tilde{X}_i\)</span> is its mismeasured version, i.e., the observed regressor. Then, <span class="math display">\[
+<p>To illustrate the effect of measurement error on the OLS estimator, we consider the following model with one regressor: <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+u_i\)</span>, where <span class="math inline">\(\E(u_i|X_i)=0\)</span>. We assume that <span class="math inline">\(X_i\)</span> is the unobserved true value and <span class="math inline">\(\tilde{X}_i\)</span> is its mismeasured version, i.e., the observed regressor. Then, <span class="math display">\[
 \begin{align}
 Y_i &amp;= \beta_0+\beta_1X_i+u_i=\beta_0+\beta_1\tilde{X}_i+(\beta_1(X_i-\tilde{X}_i)+u_i)\\
 &amp;=\beta_0+\beta_1\tilde{X}_i+\tilde{u}_i,
@@ -737,7 +740,7 @@ Y_i = \beta_0+\beta_1\tilde{X}_i+\tilde{u}_i.
 \tag{16.3}\]</span></span></p>
 <p>Since <span class="math inline">\(\left(\frac{\sigma^2_X}{\sigma^2_X+\sigma^2_v}\right)&lt;1\)</span>, the OLS estimator <span class="math inline">\(\hat{\beta}_1\)</span> is biased towards zero even when the sample size is large. In extreme case, where <span class="math inline">\(\sigma^2_v\rightarrow\infty\)</span>, the OLS estimator <span class="math inline">\(\hat{\beta}_1\)</span> converges to zero. Also note when <span class="math inline">\(\sigma^2_v=0\)</span>, the OLS estimator <span class="math inline">\(\hat{\beta}_1\)</span> is unbiased and consistent.</p>
 <p>In the following code chunk, we use the simulated data to illustrate the classical measurement error model. We assume that <span class="math inline">\(\tilde{X}_i=X_i+v_i\)</span>, where <span class="math inline">\(X_i\sim\text{Uniform}(0,10)\)</span> and <span class="math inline">\(v_i\sim N(0,4)\)</span>. We generate <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+u_i\)</span>, where <span class="math inline">\(\beta_0=3\)</span>, <span class="math inline">\(\beta_1=2\)</span>, and <span class="math inline">\(u_i\sim N(0,4)\)</span>. Then, we estimate the error model <span class="math inline">\(Y_i=\beta_0+\beta_1\tilde{X}_i+\tilde{u}_i\)</span> and the true model <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+u_i\)</span>.</p>
-<div id="a63ab27c" class="cell" data-execution_count="5">
+<div id="ed1b5038" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate data</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">123</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">300</span></span>
@@ -864,7 +867,7 @@ Figure&nbsp;16.2: The effect of measurement error on the OLS estimator
 <p><strong>Solutions to errors-in-variables bias</strong>: The following approaches can be used to address errors-in-variables bias:</p>
 <ul>
 <li><p>When feasible, we can obtain accurate data to avoid errors-in-variables bias. For example, we can use administrative data or data from surveys with well-designed questions to minimize measurement error in the regressors.</p></li>
-<li><p>We can resort to the instrumental variables (IV) regression method to address errors-in-variables bias. The IV estimator is discussed in Chapter 19.</p></li>
+<li><p>We can resort to the instrumental variables (IV) regression method to address errors-in-variables bias. The IV estimator is discussed in <a href="Chapter12-IVRegression.html" class="quarto-xref"><span>Chapter 19</span></a>.</p></li>
 <li><p>When information on the nature of measurement error is available, we can build a model of the measurement error process to correct the OLS estimator. For example, under the classical measurement error model, a bias-corrected estimator can be used to address errors-in-variables bias.</p></li>
 </ul>
 </section>
@@ -876,7 +879,7 @@ Figure&nbsp;16.2: The effect of measurement error on the OLS estimator
 <p>Under the third case, where data is missing due to a selection process that depends on the dependent variable, the OLS estimator is biased and inconsistent. In the literature, this is called the sample selection bias. The sample selection bias occurs when the sample used for estimation is not a random sample from the population of interest. For example, if data is missing for school districts with low test scores, our sample will no longer be a random sample from the population consisting of all school districts.</p>
 <p><strong>Solutions to missing data and sample selection bias</strong>: The following solutions can be used to address missing data and sample selection bias:</p>
 <ul>
-<li><p>We can resort to a design-based approach for collecting data to minimize the effect of missing data and sample selection bias. For example, through a randomized controlled experiment, we can ensure that the sample is representative of the population of interest. We discuss randomized controlled experiments in Chapter 20.</p></li>
+<li><p>We can resort to a design-based approach for collecting data to minimize the effect of missing data and sample selection bias. For example, through a randomized controlled experiment, we can ensure that the sample is representative of the population of interest. We discuss randomized controlled experiments in <a href="Chapter13-Experiments.html" class="quarto-xref"><span>Chapter 20</span></a>.</p></li>
 <li><p>We can use sample selection models in which we specify both the selection and outcome processes. For further details on these types of models, among others, see <span class="citation" data-cites="Greene2017">Greene (<a href="references.html#ref-Greene2017" role="doc-biblioref">2017</a>)</span> and <span class="citation" data-cites="Hansen2022">Hansen (<a href="references.html#ref-Hansen2022" role="doc-biblioref">2022</a>)</span>.</p></li>
 </ul>
 </section>
@@ -891,9 +894,9 @@ Figure&nbsp;16.2: The effect of measurement error on the OLS estimator
 <p>where <span class="math inline">\(u_i\)</span> and <span class="math inline">\(v_i\)</span> are the error terms. In the first equation, a large <span class="math inline">\(u_i\)</span> leads to a large <span class="math inline">\(Y_i\)</span>, which implies a large <span class="math inline">\(X_i\)</span> (if <span class="math inline">\(\delta_1 &gt; 0\)</span>) through the second equation. Thus, <span class="math inline">\(\cov(X_i, u_i) \neq 0\)</span> in the first model, i.e., the zero-conditional mean assumption does not hold. As a result, the OLS estimator of <span class="math inline">\(\beta_1\)</span> is biased and inconsistent.</p>
 <p><strong>Solutions to simultaneous causality bias</strong>: The following solutions can be used to address simultaneous causality bias:</p>
 <ul>
-<li><p>When feasible, we can conduct a randomized controlled experiment. The random assignment mechanism in such experiments ensures that <span class="math inline">\(X_i\)</span> is uncorrelated with <span class="math inline">\(u_i\)</span>. We discuss randomized controlled experiments in Chapter 20.</p></li>
+<li><p>When feasible, we can conduct a randomized controlled experiment. The random assignment mechanism in such experiments ensures that <span class="math inline">\(X_i\)</span> is uncorrelated with <span class="math inline">\(u_i\)</span>. We discuss randomized controlled experiments in <a href="Chapter13-Experiments.html" class="quarto-xref"><span>Chapter 20</span></a>.</p></li>
 <li><p>We can use a simultaneous equation model to estimate a complete system that captures both directions of causality. For further details on these types of models, see <span class="citation" data-cites="Greene2017">Greene (<a href="references.html#ref-Greene2017" role="doc-biblioref">2017</a>)</span> and <span class="citation" data-cites="Hansen2022">Hansen (<a href="references.html#ref-Hansen2022" role="doc-biblioref">2022</a>)</span>.</p></li>
-<li><p>We can use the instrumental variable (IV) regression to estimate the causal effect of interest (i.e., the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>). We cover this topic in Chapter 19.</p></li>
+<li><p>We can use the instrumental variable (IV) regression to estimate the causal effect of interest (i.e., the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>). We cover this topic in <a href="Chapter12-IVRegression.html" class="quarto-xref"><span>Chapter 19</span></a>.</p></li>
 </ul>
 </section>
 <section id="inconsistency-of-ols-standard-errors" class="level3" data-number="16.2.6">
@@ -901,7 +904,7 @@ Figure&nbsp;16.2: The effect of measurement error on the OLS estimator
 <p>The inconsistent standard errors invalidates hypothesis tests and confidence intervals.</p>
 <ul>
 <li><p>The standard errors derived under the homoscedasticity assumption are inconsistent in the presence of heteroscedasticity. The solution to this problem is to use heteroscedasticity-robust standard errors.</p></li>
-<li><p>The error terms in a regression model are often correlated across observations. This correlation can arise in models specified for time-series, spatial, and panel data. The standard errors derived under the assumption of independent and identically distributed (i.i.d.) errors are inconsistent in the presence of correlated errors. The solution to this problem is to use standard errors that are robust to both heteroskedasticity and correlation. In Chapters 17 and 23, we discuss the estimation of models with correlated errors.</p></li>
+<li><p>The error terms in a regression model are often correlated across observations. This correlation can arise in models specified for time-series, spatial, and panel data. The standard errors derived under the assumption of independent and identically distributed (i.i.d.) errors are inconsistent in the presence of correlated errors. The solution to this problem is to use standard errors that are robust to both heteroskedasticity and correlation. In <a href="Chapter10-RegressionPanelData.html" class="quarto-xref"><span>Chapter 17</span></a> and <a href="Chapter16-DynamicCausalEffects.html" class="quarto-xref"><span>Chapter 23</span></a>, we discuss the estimation of models with correlated errors.</p></li>
 </ul>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -943,7 +946,7 @@ Key Concept 16.1: Threats to the internal validity of a multiple regression stud
 <ul>
 <li><p><strong>Estimation and prediction samples</strong>: The estimation sample (the training sample) and the prediction sample (the testing sample) must be drawn from the same population. This requirement ensures that the model estimated using the estimation sample applies to the prediction sample. If the two samples come from different populations, the model may fail to hold in the prediction sample.</p></li>
 <li><p><strong>Choice of predictors</strong>: Predictors should be selected to maximize the accuracy of out-of-sample predictions.</p></li>
-<li><p><strong>Estimation method</strong>: The estimation method must be suitable for handling high-dimensional data when there are many predictors. In such cases, specialized estimators can provide more accurate out-of-sample predictions than the OLS estimator. We discuss these specialized estimators in Chapter 21.</p></li>
+<li><p><strong>Estimation method</strong>: The estimation method must be suitable for handling high-dimensional data when there are many predictors. In such cases, specialized estimators can provide more accurate out-of-sample predictions than the OLS estimator. We discuss these specialized estimators in <a href="Chapter14-BigData.html" class="quarto-xref"><span>Chapter 21</span></a>.</p></li>
 </ul>
 </section>
 <section id="example-test-scores-and-class-size" class="level2" data-number="16.5">
@@ -962,7 +965,7 @@ Key Concept 16.1: Threats to the internal validity of a multiple regression stud
 <li><code>pctel</code>: Percentage of students still learning English</li>
 </ul>
 <p>The following code chunk imports the data and displays the column names.</p>
-<div id="60a8d90a" class="cell" data-message="false" data-execution_count="8">
+<div id="8e55995a" class="cell" data-message="false" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mcas <span class="op">=</span> pd.read_excel(<span class="st">"data/mcas.xlsx"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Column names</span></span>
@@ -976,7 +979,7 @@ Key Concept 16.1: Threats to the internal validity of a multiple regression stud
 </div>
 <p>Previously, we used data from California school districts to study the relationship between test scores and class size. It will be useful to compare the Massachusetts dataset with the California dataset. In <a href="#tbl-t16.3" class="quarto-xref">Table&nbsp;<span>16.3</span></a>, we present descriptive statistics for selected variables from the Massachusetts and California datasets. For Massachusetts, the average test score is 709.83, the average student–teacher ratio is 17.34, the average percentage of English learners is <span class="math inline">\(1.12\%\)</span>, the average percentage of students receiving subsidized lunch is <span class="math inline">\(15.32\%\)</span>, and the average per-capita income is $18,750. For California, the corresponding averages are 654.16 for test scores, 19.64 for student–teacher ratio, <span class="math inline">\(15.77\%\)</span> for English learners, <span class="math inline">\(45.71\%\)</span> for subsidized lunch recipients, and $15,320 for per-capita income.</p>
 <p>While Massachusetts has a higher average test score, we cannot make a direct comparison because different tests are administered in both states. Massachusetts also has lower averages for the student–teacher ratio, the percentage of subsidized lunch recipients, and the percentage of English learners. Its average per-capita income is larger than that of California.</p>
-<div id="8a35f048" class="cell" data-message="false" data-execution_count="9">
+<div id="c5beed54" class="cell" data-message="false" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary statistics for Massachusetts and California</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>mcas_vars <span class="op">=</span> [<span class="st">"totsc4"</span>, <span class="st">"tchratio"</span>, <span class="st">"pctel"</span>, <span class="st">"lnch_pct"</span>, <span class="st">"percap"</span>]</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>mcas_stats <span class="op">=</span> mcas[mcas_vars].describe().<span class="bu">round</span>(<span class="dv">2</span>).T</span>
@@ -1228,7 +1231,7 @@ Figure&nbsp;16.3: The relationship between test scores and district income for t
 \end{cases}
 \end{align}
 \]</span></p>
-<div id="52e3d86e" class="cell" data-execution_count="12">
+<div id="eff90d03" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="op">=</span> mcas.copy()</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create hiel</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>mydata[<span class="st">"hiel"</span>] <span class="op">=</span> mydata[<span class="st">"pctel"</span>] <span class="op">&gt;</span> np.median(mydata[<span class="st">"pctel"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1237,7 +1240,7 @@ Figure&nbsp;16.3: The relationship between test scores and district income for t
 <section id="estimation-results" class="level3" data-number="16.5.3">
 <h3 data-number="16.5.3" class="anchored" data-anchor-id="estimation-results"><span class="header-section-number">16.5.3</span> Estimation results</h3>
 <p>We use the following code chunk can to estimate all models. Note that we use heteroskedasticity-robust standard errors in all models.</p>
-<div id="6e65cab7" class="cell" data-execution_count="13">
+<div id="94258928" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 1</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"totsc4~tchratio"</span>,</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>            data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
@@ -1542,7 +1545,7 @@ Standard errors in parentheses.<br>
 <li><p>The results in the second and third columns indicate that the class size effect is statistically significant at the 5% level after controlling for student and district characteristics. Comparing <span class="math inline">\(\bar{R}^2\)</span> values in Models 2 and 3, the cubic specification provides a better fit than the logarithmic specification.</p></li>
 <li><p>In Model 3, we can use the <span class="math inline">\(F\)</span>-statistic to test <span class="math inline">\(H_0:\beta_5=\beta_6=0\)</span> versus <span class="math inline">\(H_1\)</span>: At least one coefficient is non zero. The <span class="math inline">\(F\)</span>-statistic given below is <span class="math inline">\(7.74\)</span> with a p-value of <span class="math inline">\(0.0006\)</span>. Thus, we reject the null hyptohesis.</p></li>
 </ul>
-<div id="64967449" class="cell" data-execution_count="15">
+<div id="e3fe9395" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Testing H_0: beta_5=beta_6=0 in Model 3</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>hypothesis <span class="op">=</span> <span class="st">"I(percap ** 2)=0, I(percap ** 3)=0"</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r3.f_test(hypothesis))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1553,7 +1556,7 @@ Standard errors in parentheses.<br>
 <ul>
 <li>The results for Model 4 show that there is no statistically significant evidence of a nonlinear relationship between test scores and the student–teacher ratio. The <span class="math inline">\(F\)</span>-statistic for <span class="math inline">\(H_0:\beta_2=\beta_3=0\)</span> can be obtained using the code chunk given below. The <span class="math inline">\(F\)</span>-statistic is <span class="math inline">\(0.45\)</span> with a <span class="math inline">\(p\)</span>-value of <span class="math inline">\(0.640\)</span>. Thus, we fail to reject the null hypothesis.</li>
 </ul>
-<div id="c0a9bb91" class="cell" data-execution_count="16">
+<div id="1178a001" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Testing H_0: beta_2=beta_3=0 in Model 4</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>hypothesis <span class="op">=</span> <span class="st">"I(tchratio ** 2)=0, I(tchratio ** 3)=0"</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r4.f_test(hypothesis))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1564,7 +1567,7 @@ Standard errors in parentheses.<br>
 <ul>
 <li>The results for Model 5 show that the estimated coefficents for both <code>HiEL</code> and <code>HiELxtchratio</code> are statistically insignifcant at the 5% significance level. The <span class="math inline">\(F\)</span>-statistic for <span class="math inline">\(H_0:\beta_5=\beta_6=0\)</span> can be obtained using the following code chunk. The <span class="math inline">\(F\)</span>-statistic is <span class="math inline">\(1.58\)</span> with a <span class="math inline">\(p\)</span>-value of <span class="math inline">\(0.207\)</span>. Thus, we fail to reject the null hypothesis and conclude that the percentage of English learners does not have a statistically significant effect on test scores after controlling for the student–teacher ratio and other variables.</li>
 </ul>
-<div id="87dafdec" class="cell" data-execution_count="17">
+<div id="5cffd1c2" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Testing H_0: beta_5=beta_6=0 in Model 5</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>hypothesis <span class="op">=</span> <span class="st">"hiel[T.True]=0, hiel[T.True]:tchratio=0"</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r5.f_test(hypothesis))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1588,7 +1591,7 @@ Standard errors in parentheses.<br>
 </section>
 <section id="external-validity-assessment" class="level3" data-number="16.5.5">
 <h3 data-number="16.5.5" class="anchored" data-anchor-id="external-validity-assessment"><span class="header-section-number">16.5.5</span> External validity assessment</h3>
-<p>Our results, presented in <a href="#tbl-t16.4" class="quarto-xref">Table&nbsp;<span>16.4</span></a>, suggest conclusions similar to those obtained in Chapter 15 based on the California dataset. Based on this observation, <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span> conclude that the multiple linear regression models are externally valid and therefore the results can be generalized to other elementary school districts in the United States.</p>
+<p>Our results, presented in <a href="#tbl-t16.4" class="quarto-xref">Table&nbsp;<span>16.4</span></a>, suggest conclusions similar to those obtained in <a href="Chapter8-NonlinearRegressions.html" class="quarto-xref"><span>Chapter 15</span></a> based on the California dataset. Based on this observation, <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span> conclude that the multiple linear regression models are externally valid and therefore the results can be generalized to other elementary school districts in the United States.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">

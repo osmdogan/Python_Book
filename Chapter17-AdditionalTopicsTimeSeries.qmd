@@ -121,7 +121,7 @@ The structure of the VAR model reveals how a variable or a group of variables ca
 If $Y_t$ improves the prediction of $X_t$, then $Y_t$ is said to Granger-cause $X_t$; otherwise, it is said to fail to Granger-cause $X_t$.
 :::
 
-We note that this notion of Granger causality does not correspond to the concept of causality defined in Chapter 20. Instead, it only reflects the predictive ability of variables. In our two-variable VAR model, we can test for whether $Y_t$ Granger causes $X_t$ by formulating the following null and alternative hypotheses:
+We note that this notion of Granger causality does not correspond to the concept of causality defined in @sec-chapter20. Instead, it only reflects the predictive ability of variables. In our two-variable VAR model, we can test for whether $Y_t$ Granger causes $X_t$ by formulating the following null and alternative hypotheses:
 $$
 \begin{align*}
 &H_0:\beta_{21}=\beta_{22}=\ldots=\beta_{2p}=0,\\
@@ -358,7 +358,7 @@ In practice, the iterated method is preferred over the direct method for two rea
 
 ## Orders of integration
 
-We introduced the random walk model for the stochastic trend in Chapter 22. The version with a drift is specified as
+We introduced the random walk model for the stochastic trend in @sec-chapter22. The version with a drift is specified as
 $$
 \begin{align}
 Y_t = \beta_0+Y_{t-1}+u_t,

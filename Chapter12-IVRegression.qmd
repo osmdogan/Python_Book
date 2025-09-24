@@ -515,7 +515,7 @@ The IV regression assumptions are the extension of those for the multiple linear
 4. The two instrumental variable conditions stated in Section 19.3.2 hold.
 :::
 
-Under these four assumptions, the TSLS estimator is consistent and has an asymptotic normal distribution. In Chapter 26, we will use the IV regression assumptions to derive the asymptotic distribution of the TSLS estimator in the general IV model.
+Under these four assumptions, the TSLS estimator is consistent and has an asymptotic normal distribution. In @sec-chapter26, we will use the IV regression assumptions to derive the asymptotic distribution of the TSLS estimator in the general IV model.
 
 In Assumption 1, we assume that $W_1,\ldots,W_r$ are exogenous variables that are uncorrelated with the error term. We can adjust this assumption if these variables are control variables that are included into the model to ensure that the instrumental variables become uncorrelated with the error term. In that case, the first assumption is replaced by the following conditional mean independence assumption:
 $$
@@ -704,7 +704,7 @@ H_0:\delta_1=0,\ldots,\delta_m=0\quad\text{versus}\quad H_1: \text{At least one 
 $$
 5. The $J$-statistic is computed as $J=m\times F$, where $m$ is the number of instruments.
 
-Under the null hypothesis that all instruments are exogeneous, $J$ has a chi-squared distribution with $m-k$ degrees of freedom, i.e., $J\sim \chi^2_{m-k}$. In Chapter 26, we will discuss how to compute the $J$-statistic when the error terms are heteroskedastic.
+Under the null hypothesis that all instruments are exogeneous, $J$ has a chi-squared distribution with $m-k$ degrees of freedom, i.e., $J\sim \chi^2_{m-k}$. In @sec-chapter26, we will discuss how to compute the $J$-statistic when the error terms are heteroskedastic.
 
 ::: {.callout-note icon=false}
 ## Key Concept 19.2: Checking instrument validity

@@ -126,7 +126,7 @@ We consider the model under Assumptions 1-6 given in the following callout block
 6. **Normal distribution assumption**: $u_i|\bs{X}_i\sim N(0,\sigma^2_u)$.
 :::
 
-The first three assumptions are the same as those used in the simple and multiple linear regression models covered in Chapters 11 and 13. Note that Assumption 3 also suggests that $\E[Y^4_i]=\E[(\bs{X}^{'}_i\bs{\beta}+u_i)^4]<\infty$. Assumption 4 corresponds to the no-perfect-multicollinearity assumption in the multiple linear regression model. This assumption requires that the columns of $\bs{X}$ are linearly independent; that is, we can not express any column of $\bs{X}$ as a linear combination of the other columns. Thus, the full column rank condition rules out perfect multicollinearity. The homoskedasticity assumption requires that the variance of the error term is constant across observations and is necessary for studying the efficiency of the OLS estimator. The normality assumption is required to derive the exact sampling distribution of the OLS estimator and test statistics. As we discuss in Chapter 25, we do not need neither the homoskedasticity nor the normality assumption to show that the OLS estimator is consistent and have asymptotic normal distribution.
+The first three assumptions are the same as those used in the simple and multiple linear regression models covered in @sec-lrmone and @sec-multiple. Note that Assumption 3 also suggests that $\E[Y^4_i]=\E[(\bs{X}^{'}_i\bs{\beta}+u_i)^4]<\infty$. Assumption 4 corresponds to the no-perfect-multicollinearity assumption in the multiple linear regression model. This assumption requires that the columns of $\bs{X}$ are linearly independent; that is, we can not express any column of $\bs{X}$ as a linear combination of the other columns. Thus, the full column rank condition rules out perfect multicollinearity. The homoskedasticity assumption requires that the variance of the error term is constant across observations and is necessary for studying the efficiency of the OLS estimator. The normality assumption is required to derive the exact sampling distribution of the OLS estimator and test statistics. As we discuss in @sec-chapter25, we do not need neither the homoskedasticity nor the normality assumption to show that the OLS estimator is consistent and have asymptotic normal distribution.
 
 What are the conditional mean and variance of $\bs{U}$? Under Assumptions 1 and 2, we can express $\E(\bs{U}|\bs{X})$ as
 $$
@@ -517,7 +517,7 @@ t\xrightarrow{d}N(0,1).
 $$
 :::
 
-In Chapter 14, we show that a joint null hypothesis that imposes $q$ linear restrictions on the regression coefficients can be expressed as
+In @sec-inference2, we show that a joint null hypothesis that imposes $q$ linear restrictions on the regression coefficients can be expressed as
 $$
 \begin{align}
 H_0:\bs{R}\bs{\beta}=\bs{r},
