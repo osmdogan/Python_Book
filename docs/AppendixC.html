@@ -473,10 +473,16 @@ window.Quarto = {
   <li><a href="#moment-generating-function" id="toc-moment-generating-function" class="nav-link" data-scroll-target="#moment-generating-function"><span class="header-section-number">C.2</span> Moment-generating function</a></li>
   <li><a href="#characteristic-function" id="toc-characteristic-function" class="nav-link" data-scroll-target="#characteristic-function"><span class="header-section-number">C.3</span> Characteristic function</a></li>
   <li><a href="#the-proof-of-the-central-limit-theorem" id="toc-the-proof-of-the-central-limit-theorem" class="nav-link" data-scroll-target="#the-proof-of-the-central-limit-theorem"><span class="header-section-number">C.4</span> The proof of the central limit theorem</a></li>
-  <li><a href="#bivariate-normal-distribution" id="toc-bivariate-normal-distribution" class="nav-link" data-scroll-target="#bivariate-normal-distribution"><span class="header-section-number">C.5</span> Bivariate normal distribution</a></li>
-  <li><a href="#chi-square-distribution" id="toc-chi-square-distribution" class="nav-link" data-scroll-target="#chi-square-distribution"><span class="header-section-number">C.6</span> Chi-square distribution</a></li>
-  <li><a href="#student-t-distribution" id="toc-student-t-distribution" class="nav-link" data-scroll-target="#student-t-distribution"><span class="header-section-number">C.7</span> Student t distribution</a></li>
-  <li><a href="#f-distribution" id="toc-f-distribution" class="nav-link" data-scroll-target="#f-distribution"><span class="header-section-number">C.8</span> F distribution</a></li>
+  <li><a href="#the-proof-of-slutskys-theorem" id="toc-the-proof-of-slutskys-theorem" class="nav-link" data-scroll-target="#the-proof-of-slutskys-theorem"><span class="header-section-number">C.5</span> The proof of Slutsky’s theorem</a>
+  <ul class="collapse">
+  <li><a href="#proof-of-part-1" id="toc-proof-of-part-1" class="nav-link" data-scroll-target="#proof-of-part-1"><span class="header-section-number">C.5.1</span> Proof of part 1</a></li>
+  <li><a href="#proof-of-part-2" id="toc-proof-of-part-2" class="nav-link" data-scroll-target="#proof-of-part-2"><span class="header-section-number">C.5.2</span> Proof of part 2</a></li>
+  <li><a href="#proof-of-part-3" id="toc-proof-of-part-3" class="nav-link" data-scroll-target="#proof-of-part-3"><span class="header-section-number">C.5.3</span> Proof of part 3</a></li>
+  </ul></li>
+  <li><a href="#bivariate-normal-distribution" id="toc-bivariate-normal-distribution" class="nav-link" data-scroll-target="#bivariate-normal-distribution"><span class="header-section-number">C.6</span> Bivariate normal distribution</a></li>
+  <li><a href="#chi-square-distribution" id="toc-chi-square-distribution" class="nav-link" data-scroll-target="#chi-square-distribution"><span class="header-section-number">C.7</span> Chi-square distribution</a></li>
+  <li><a href="#student-t-distribution" id="toc-student-t-distribution" class="nav-link" data-scroll-target="#student-t-distribution"><span class="header-section-number">C.8</span> Student t distribution</a></li>
+  <li><a href="#f-distribution" id="toc-f-distribution" class="nav-link" data-scroll-target="#f-distribution"><span class="header-section-number">C.9</span> F distribution</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/osmdogan/datasets.git/edit/main/AppendixC.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/osmdogan/datasets.git/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -502,7 +508,7 @@ window.Quarto = {
 </header>
 
 
-<div id="7037191a" class="cell" data-execution_count="1">
+<div id="0346f1dc" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -723,8 +729,118 @@ M_Y(t)&amp;=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{b}dy=\frac{1}{\
 <p>By <a href="#exm-exmC-3" class="quarto-xref">Example&nbsp;<span>C.3</span></a>, <span class="math inline">\(\varphi_Z(t)=e^{-t^2/2}\)</span> is the characteristic function of the standard normal distribution. Therefore, by <a href="#thm-thmC-5" class="quarto-xref">Theorem&nbsp;<span>C.5</span></a>, <span class="math inline">\(S_n\)</span> converges in distribution to <span class="math inline">\(N(0,1)\)</span> as <span class="math inline">\(n\to\infty\)</span>.</p>
 </div>
 </section>
-<section id="bivariate-normal-distribution" class="level2" data-number="C.5">
-<h2 data-number="C.5" class="anchored" data-anchor-id="bivariate-normal-distribution"><span class="header-section-number">C.5</span> Bivariate normal distribution</h2>
+<section id="the-proof-of-slutskys-theorem" class="level2" data-number="C.5">
+<h2 data-number="C.5" class="anchored" data-anchor-id="the-proof-of-slutskys-theorem"><span class="header-section-number">C.5</span> The proof of Slutsky’s theorem</h2>
+<p>In this section, we provide the proof of Slutsky’s theorem introduced in <a href="Chapter18-TheoryRegression.html" class="quarto-xref"><span>Chapter 28</span></a>. Let <span class="math inline">\(\{X_n\}\)</span> and <span class="math inline">\(\{Y_n\}\)</span> be two sequences of random variables. Assume that <span class="math inline">\(X_n\)</span> converges in distribution to <span class="math inline">\(X\)</span> and <span class="math inline">\(Y_n\)</span> converges in probability to a constant <span class="math inline">\(a\)</span>. Then, Slutsky’s theorem states that <span class="math inline">\(X_n+Y_n\)</span> converges in distribution to <span class="math inline">\(X+a\)</span>, <span class="math inline">\(X_nY_n\)</span> converges in distribution to <span class="math inline">\(aX\)</span>, and <span class="math inline">\(X_n/Y_n\)</span> converges in distribution to <span class="math inline">\(X/a\)</span> if <span class="math inline">\(a\neq0\)</span>. There are alternative proofs of Slutsky’s theorem. Below, we use a version based on the convergence of distribution functions.</p>
+<section id="proof-of-part-1" class="level3" data-number="C.5.1">
+<h3 data-number="C.5.1" class="anchored" data-anchor-id="proof-of-part-1"><span class="header-section-number">C.5.1</span> Proof of part 1</h3>
+<p>Let <span class="math inline">\(F_{X_n+Y_n}\)</span> be the CDF of <span class="math inline">\(X_n+Y_n\)</span>, <span class="math inline">\(F_{X_n}\)</span> the CDF of <span class="math inline">\(X_n\)</span>, and <span class="math inline">\(F_X\)</span> the CDF of <span class="math inline">\(X\)</span>. Let <span class="math inline">\(t\)</span> be the continuity point of <span class="math inline">\(F_{X+a}\)</span>. Then, <span class="math display">\[
+F_{X+a}(t)=P(X+a\leq t)=P(X\leq t-a)=F_X(t-a).
+\]</span> Thus, <span class="math inline">\(t-a\)</span> is a continuity point of <span class="math inline">\(F_X\)</span>. For any <span class="math inline">\(\varepsilon&gt;0\)</span>, we have <span id="eq-eqC-3"><span class="math display">\[
+\begin{align*}
+F_{X_n+Y_n}(t)&amp;=P(X_n+Y_n\leq t)=P(X_n+Y_n\leq t,|Y_n-a|&lt;\varepsilon)\\
+&amp;+P(X_n+Y_n\leq t,|Y_n-a|\geq\varepsilon)\\
+&amp;\leq P(X_n+Y_n\leq t,|Y_n-a|&lt;\varepsilon)+P(|Y_n-a|\geq\varepsilon),
+\end{align*}
+\tag{C.3}\]</span></span> where the inequality follows from the fact that <span class="math inline">\(P(X_n+Y_n\leq t,|Y_n-a|&lt;\varepsilon)\leq P(X_n+Y_n\leq t)\)</span>. Thus, we have <span id="eq-eqC-4"><span class="math display">\[
+\begin{align*}
+F_{X_n+Y_n}(t)-P(|Y_n-a|\geq\varepsilon)\leq P(X_n+Y_n\leq t,|Y_n-a|&lt;\varepsilon).
+\end{align*}
+\tag{C.4}\]</span></span> Note that if <span class="math inline">\(|Y_n-a|&lt;\varepsilon\)</span>, then <span class="math inline">\(a-\varepsilon&lt;Y_n&lt;a+\varepsilon\)</span>. Thus, on the event <span class="math inline">\(\{|Y_n-a|&lt;\varepsilon\}\)</span>, we have <span id="eq-eqC-5"><span class="math display">\[
+\begin{align*}
+&amp;\{X_n\leq t-(a+\varepsilon),|Y_n-a|&lt;\varepsilon\}\\
+&amp;\subseteq\{X_n+Y_n\leq t,|Y_n-a|&lt;\varepsilon\}\\
+&amp;\subseteq \{X_n\leq t-(a-\varepsilon), |Y_n-a|&lt;\varepsilon\}.
+\end{align*}
+\tag{C.5}\]</span></span></p>
+<p>From the left-hand side of <a href="#eq-eqC-5" class="quarto-xref">Equation&nbsp;<span>C.5</span></a>, we obtain <span id="eq-eqC-6"><span class="math display">\[
+\begin{align*}
+&amp;F_{X_n}(t-(a+\varepsilon))=P(X_n\leq t-(a+\varepsilon))\\
+&amp;=P(X_n\leq t-(a+\varepsilon),|Y_n-a|&lt;\varepsilon)+P(X_n\leq t-(a+\varepsilon),|Y_n-a|\geq\varepsilon)\\
+&amp;\leq P(X_n\leq t-(a+\varepsilon),|Y_n-a|&lt;\varepsilon)+P(|Y_n-a|\geq\varepsilon)\\
+&amp;\leq P(X_n+Y_n\leq t)+P(|Y_n-a|\geq\varepsilon)\\
+&amp;=F_{X_n+Y_n}(t)+P(|Y_n-a|\geq\varepsilon),
+\end{align*}
+\tag{C.6}\]</span></span> where the last inequality follows from <a href="#eq-eqC-3" class="quarto-xref">Equation&nbsp;<span>C.3</span></a>. Similarly, from the right-hand side of the inequality in <a href="#eq-eqC-5" class="quarto-xref">Equation&nbsp;<span>C.5</span></a>, we have <span id="eq-eqC-7"><span class="math display">\[
+\begin{align*}
+&amp;F_{X_n}(t-(a-\varepsilon)=P(X_n\leq t-(a-\varepsilon))\\
+&amp;=P(X_n\leq t-(a-\varepsilon),|Y_n-a|&lt;\varepsilon)+P(X_n\leq t-(a-\varepsilon),|Y_n-a|\geq\varepsilon)\\
+&amp;\geq P(X_n\leq t-(a-\varepsilon),|Y_n-a|&lt;\varepsilon)\\
+&amp;\geq P(X_n+Y_n\leq t,|Y_n-a|&lt;\varepsilon)\\
+&amp;=F_{X_n+Y_n}(t)-P(|Y_n-a|\geq\varepsilon)\\
+\end{align*}
+\tag{C.7}\]</span></span> where the last equality follows from <a href="#eq-eqC-4" class="quarto-xref">Equation&nbsp;<span>C.4</span></a>. Then, combining <a href="#eq-eqC-6" class="quarto-xref">Equation&nbsp;<span>C.6</span></a> and <a href="#eq-eqC-7" class="quarto-xref">Equation&nbsp;<span>C.7</span></a> yields</p>
+<p><span class="math display">\[
+F_{X_n}(t-(a-\varepsilon))\leq F_{X_n+Y_n}(t)\leq F_{X_n}(t-(a+\varepsilon))+P(|Y_n-a|\geq\varepsilon).
+\]</span></p>
+<p>Since <span class="math inline">\(X_n\xrightarrow{d}X\)</span>, we have <span class="math inline">\(F_{X_n}\to F_X\)</span> at the continuity points of <span class="math inline">\(F_X\)</span>, and since <span class="math inline">\(Y_n\xrightarrow{p}a\)</span>, we have <span class="math inline">\(P(|Y_n-a|\geq\varepsilon)\to0\)</span>. Thus, taking the limit on both sides of the above inequality yields <span class="math display">\[
+F_X(t-(a-\varepsilon))\leq \liminf_{n\to\infty}F_{X_n+Y_n}(t)\leq \limsup_{n\to\infty}F_{X_n+Y_n}(t)\leq F_X(t-(a+\varepsilon)).
+\]</span></p>
+<p>Finally, letting <span class="math inline">\(\varepsilon\to0\)</span> and using the continuity of <span class="math inline">\(F_X\)</span> at <span class="math inline">\(t-a\)</span>, we obtain <span class="math display">\[
+\lim_{n\to\infty}F_{X_n+Y_n}(t)=F_X(t-a).
+\]</span></p>
+</section>
+<section id="proof-of-part-2" class="level3" data-number="C.5.2">
+<h3 data-number="C.5.2" class="anchored" data-anchor-id="proof-of-part-2"><span class="header-section-number">C.5.2</span> Proof of part 2</h3>
+<p>First, we assume that <span class="math inline">\(a\ne0\)</span>. Let <span class="math inline">\(t\)</span> be the continuity point of <span class="math inline">\(F_{aX}\)</span>. Choose <span class="math inline">\(\varepsilon\in(0, |a|/2)\)</span>. Then, as in the proof of part 1, we split <span class="math inline">\(F_{X_nY_n}(t)\)</span> into two parts: <span class="math display">\[
+\begin{align*}
+F_{X_nY_n}(t)&amp;=P(X_nY_n\leq t)=P(X_nY_n\leq t,|Y_n-a|&lt;\varepsilon)\\
+&amp;+P(X_nY_n\leq t,|Y_n-a|\geq\varepsilon)\\
+&amp;\leq P(X_nY_n\leq t,|Y_n-a|&lt;\varepsilon)+P(|Y_n-a|\geq\varepsilon).
+\end{align*}
+\]</span></p>
+<p>On the event <span class="math inline">\(\{|Y_n-a|&lt;\varepsilon\}\)</span>, the sign of <span class="math inline">\(Y_n\)</span> is the same as that of <span class="math inline">\(a\)</span> and <span class="math inline">\(a-\varepsilon&lt;Y_n&lt;a+\varepsilon\)</span>. Then, on the event <span class="math inline">\(\{|Y_n-a|&lt;\varepsilon\}\)</span>, we have <span id="eq-eqC-8"><span class="math display">\[
+\begin{align*}
+&amp;\{X_n\leq t/(a+\varepsilon), |Y_n-a|&lt;\varepsilon\}\\
+&amp;\subseteq\{X_nY_n\leq t,|Y_n-a|&lt;\varepsilon\}\\
+&amp;\subseteq \{X_n\leq t/(a-\varepsilon), |Y_n-a|&lt;\varepsilon\}.
+\end{align*}
+\tag{C.8}\]</span></span></p>
+<p>Similar to the proof of part 1, we can use <a href="#eq-eqC-8" class="quarto-xref">Equation&nbsp;<span>C.8</span></a> to show that <span class="math display">\[
+F_{X_n}(t/(a-\varepsilon))\leq F_{X_nY_n}(t)\leq F_{X_n}(t/(a+\varepsilon))+P(|Y_n-a|\geq\varepsilon).
+\]</span></p>
+<p>Let <span class="math inline">\(n\to\infty\)</span>. Since <span class="math inline">\(X_n\xrightarrow{d}X\)</span> and <span class="math inline">\(Y_n\xrightarrow{p}a\)</span>, we have <span class="math display">\[
+F_X(t/(a-\varepsilon))\leq \liminf_{n\to\infty}F_{X_nY_n}(t)\leq \limsup_{n\to\infty}F_{X_nY_n}(t)\leq F_X(t/(a+\varepsilon)).
+\]</span> Finally, letting <span class="math inline">\(\varepsilon\to0\)</span> and using the continuity of <span class="math inline">\(F_X\)</span> at <span class="math inline">\(t/a\)</span>, we obtain <span class="math display">\[
+\lim_{n\to\infty}F_{X_nY_n}(t)=F_X(t/a)=P(X\leq t/a)=P(aX\leq t)=F_{aX}(t).
+\]</span></p>
+<p>If <span class="math inline">\(a=0\)</span>, it is enough to show that <span class="math inline">\(X_nY_n\xrightarrow{p}0\)</span>. Since <span class="math inline">\(X_n\xrightarrow{d}X\)</span>, the sequence <span class="math inline">\(\{X_n\}\)</span> is tight. Thus, for any <span class="math inline">\(\varepsilon_1&gt;0\)</span>, there exists a constant <span class="math inline">\(M&gt;0\)</span> such that <span class="math inline">\(P(|X_n|&gt;M)&lt;\varepsilon_1\)</span> for all <span class="math inline">\(n\)</span>. For any <span class="math inline">\(\varepsilon_2&gt;0\)</span>, we have <span class="math display">\[
+\begin{align*}
+P(|X_nY_n|&gt;\varepsilon_2)&amp;=P(|X_nY_n|&gt;\varepsilon_2,|X_n|\leq M)+P(|X_nY_n|&gt;\varepsilon_2,|X_n|&gt;M)\\
+&amp;\leq P(|Y_n|&gt;\varepsilon_2/M)+P(|X_n|&gt;M).
+\end{align*}
+\]</span></p>
+<p>By choosing <span class="math inline">\(M\)</span> big enough, we can make <span class="math inline">\(P(|X_n|&gt;M)\)</span> smaller than any given positive number, i.e., <span class="math inline">\(P(|X_n|&gt;M)&lt;\varepsilon_1\)</span>. Since <span class="math inline">\(Y_n\xrightarrow{p}0\)</span>, we have <span class="math inline">\(P(|Y_n|&gt;\varepsilon_2/M)\to0\)</span> as <span class="math inline">\(n\to\infty\)</span>. Thus, <span class="math inline">\(\limsup_{n\to\infty}P(|X_nY_n|&gt;\varepsilon_2)\leq\varepsilon_1\)</span>. Since <span class="math inline">\(\varepsilon_1\)</span> can be arbitrarily small, we have <span class="math inline">\(P(|X_nY_n|&gt;\varepsilon_2)\to0\)</span> as <span class="math inline">\(n\to\infty\)</span>. Therefore, <span class="math inline">\(X_nY_n\xrightarrow{p}0\)</span>.</p>
+</section>
+<section id="proof-of-part-3" class="level3" data-number="C.5.3">
+<h3 data-number="C.5.3" class="anchored" data-anchor-id="proof-of-part-3"><span class="header-section-number">C.5.3</span> Proof of part 3</h3>
+<p>Let <span class="math inline">\(t\)</span> be the continuity point of <span class="math inline">\(F_{X/a}\)</span>. Choose <span class="math inline">\(\varepsilon\in(0, |a|/2)\)</span>. Then, as in the proof of part 1, we split <span class="math inline">\(F_{X_n/Y_n}(t)\)</span> into two parts: <span class="math display">\[
+\begin{align*}
+F_{X_n/Y_n}(t)&amp;=P(X_n/Y_n\leq t)=P(X_n/Y_n\leq t,|Y_n-a|&lt;\varepsilon)\\
+&amp;+P(X_n/Y_n\leq t,|Y_n-a|\geq\varepsilon)\\
+&amp;\leq P(X_n/Y_n\leq t,|Y_n-a|&lt;\varepsilon)+P(|Y_n-a|\geq\varepsilon).
+\end{align*}
+\]</span></p>
+<p>On the event <span class="math inline">\(\{|Y_n-a|&lt;\varepsilon\}\)</span>, the sign of <span class="math inline">\(Y_n\)</span> is the same as that of <span class="math inline">\(a\)</span> and <span class="math inline">\(a-\varepsilon&lt;Y_n&lt;a+\varepsilon\)</span>. Then, on the event <span class="math inline">\(\{|Y_n-a|&lt;\varepsilon\}\)</span>, we have</p>
+<p><span id="eq-eqC-9"><span class="math display">\[
+\begin{align*}
+&amp;\{X_n\leq t(a-\varepsilon),|Y_n-a|&lt;\varepsilon\}\\
+&amp;\subseteq\{X_n/Y_n\leq t,|Y_n-a|&lt;\varepsilon\}\\
+&amp;\subseteq \{X_n\leq t/(a+\varepsilon),|Y_n-a|&lt;\varepsilon\}.
+\end{align*}
+\tag{C.9}\]</span></span></p>
+<p>Note that the inequalities are reversed if <span class="math inline">\(a&lt;0\)</span>. Thus, as in the case of part 1, we can use <a href="#eq-eqC-9" class="quarto-xref">Equation&nbsp;<span>C.9</span></a> to show that <span class="math display">\[
+F_{X_n}(t/(a+\varepsilon))\leq F_{X_n/Y_n}(t)\leq F_{X_n}(t/(a-\varepsilon))+P(|Y_n-a|\geq\varepsilon).
+\]</span></p>
+<p>Let <span class="math inline">\(n\to\infty\)</span>. Since <span class="math inline">\(X_n\xrightarrow{d}X\)</span> and <span class="math inline">\(Y_n\xrightarrow{p}a\)</span>, we have <span class="math display">\[
+F_X(t/(a-\varepsilon))\leq \liminf_{n\to\infty}F_{X_n/Y_n}(t)\leq \limsup_{n\to\infty}F_{X_n/Y_n}(t)\leq F_X(t/(a+\varepsilon)).
+\]</span> Finally, letting <span class="math inline">\(\varepsilon\to0\)</span> and using the continuity of <span class="math inline">\(F_X\)</span> at <span class="math inline">\(t/a\)</span>, we obtain <span class="math display">\[
+\lim_{n\to\infty}F_{X_n/Y_n}(t)=F_X(t/a)=P(X\leq t/a)=P(X/a\leq t)=F_{X/a}(t).
+\]</span></p>
+</section>
+</section>
+<section id="bivariate-normal-distribution" class="level2" data-number="C.6">
+<h2 data-number="C.6" class="anchored" data-anchor-id="bivariate-normal-distribution"><span class="header-section-number">C.6</span> Bivariate normal distribution</h2>
 <p>The bivariate normal PDF of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is given by <span class="math display">\[
 f_{X,Y}(x,y)=\frac{1}{2\pi\sigma_X\sigma_Y\sqrt{1-\rho^2}}e^{-\frac{1}{2(1-\rho^2)}\left(\frac{(x-\mu_X)^2}{\sigma_X^2}+\frac{(y-\mu_Y)^2}{\sigma_Y^2}-\frac{2\rho(x-\mu_X)(y-\mu_Y)}{\sigma_X\sigma_Y}\right)},
 \]</span> where <span class="math inline">\(\rho\)</span> is the correlation coefficient between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. The marginal distributions of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are univariate normal distributions: <span class="math inline">\(X\sim N(\mu_X,\sigma^2_X)\)</span> and <span class="math inline">\(Y\sim N(\mu_Y,\sigma^2_Y)\)</span>.</p>
@@ -861,16 +977,16 @@ Figure&nbsp;C.3: Contour plots of bivariate normal distribution with different c
 \]</span></p>
 <p>In Appendix D, we define the multivariate normal distribution that extends the bivariate normal distribution to <span class="math inline">\(n\)</span> dimensions.</p>
 </section>
-<section id="chi-square-distribution" class="level2" data-number="C.6">
-<h2 data-number="C.6" class="anchored" data-anchor-id="chi-square-distribution"><span class="header-section-number">C.6</span> Chi-square distribution</h2>
+<section id="chi-square-distribution" class="level2" data-number="C.7">
+<h2 data-number="C.7" class="anchored" data-anchor-id="chi-square-distribution"><span class="header-section-number">C.7</span> Chi-square distribution</h2>
 <p>The chi-square distribution with <span class="math inline">\(k\)</span> degrees of freedom is defined as the distribution of the sum of the squares of <span class="math inline">\(k\)</span> independent standard normal random variables. If <span class="math inline">\(X\sim\chi^2_k\)</span>, then its PDF is given by <span class="math display">\[
 f_X(x)=\frac{1}{2^{k/2}\Gamma(k/2)}x^{k/2-1}e^{-x/2},\quad x&gt;0.
 \]</span> where <span class="math inline">\(\Gamma(\alpha)=\int_{0}^{\infty}t^{\alpha-1}e^{-t}\text{d}t\)</span> is the gamma function.</p>
 <p>If <span class="math inline">\(X\sim\chi^2_k\)</span>, then <span class="math inline">\(\E(X)=k\)</span> and <span class="math inline">\(\text{var}(X)=2k\)</span>. Its moment generating function is given by <span class="math inline">\(M_X(t)=\left(1-2t\right)^{-k/2}\)</span> for <span class="math inline">\(t&lt;1/2\)</span>.</p>
 <p>The chi-square distribution is also related to the gamma distribution. The chi-square distribution with <span class="math inline">\(k\)</span> degrees of freedom is equivalent to the gamma distribution with shape parameter <span class="math inline">\(k/2\)</span> and scale parameter <span class="math inline">\(2\)</span>. See <a href="Chapter2-ReviewProbability.html" class="quarto-xref"><span>Chapter 12</span></a> for the PDF and CDF plots of the chi-square distribution with <span class="math inline">\(k=3,4,10\)</span> degrees of freedom.</p>
 </section>
-<section id="student-t-distribution" class="level2" data-number="C.7">
-<h2 data-number="C.7" class="anchored" data-anchor-id="student-t-distribution"><span class="header-section-number">C.7</span> Student t distribution</h2>
+<section id="student-t-distribution" class="level2" data-number="C.8">
+<h2 data-number="C.8" class="anchored" data-anchor-id="student-t-distribution"><span class="header-section-number">C.8</span> Student t distribution</h2>
 <p>Let <span class="math inline">\(Z\sim N(0,1)\)</span> and <span class="math inline">\(W\sim\chi^2_{\nu}\)</span>. Assume that <span class="math inline">\(Z\)</span> and <span class="math inline">\(W\)</span> are independent. Then, the random variable <span class="math display">\[
 T=\frac{Z}{\sqrt{W/\nu}},
 \]</span></p>
@@ -885,8 +1001,8 @@ f_T(t)=
 \]</span></p>
 <p>The moment-generating function of <span class="math inline">\(T\)</span> does not exist. The first moment is given by <span class="math inline">\(\E(T)=0\)</span> and the second moment is given by <span class="math inline">\(\E(T^2)=\frac{\nu}{\nu-2}\)</span> for <span class="math inline">\(\nu&gt;2\)</span>. The variance is given by <span class="math inline">\(\text{var}(T)=\frac{\nu}{\nu-2}\)</span> for <span class="math inline">\(\nu&gt;2\)</span>. The PDF and CDF plots of the Student <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(\nu=1,10\)</span> degrees of freedom are shown in <a href="Chapter2-ReviewProbability.html" class="quarto-xref"><span>Chapter 12</span></a>.</p>
 </section>
-<section id="f-distribution" class="level2" data-number="C.8">
-<h2 data-number="C.8" class="anchored" data-anchor-id="f-distribution"><span class="header-section-number">C.8</span> F distribution</h2>
+<section id="f-distribution" class="level2" data-number="C.9">
+<h2 data-number="C.9" class="anchored" data-anchor-id="f-distribution"><span class="header-section-number">C.9</span> F distribution</h2>
 <p>Let <span class="math inline">\(W_1\sim\chi^2_{\nu_1}\)</span> and <span class="math inline">\(W_2\sim\chi^2_{\nu_2}\)</span>. Assume that <span class="math inline">\(W_1\)</span> and <span class="math inline">\(W_2\)</span> are independent. Then, the random variable defined by <span class="math display">\[
 F=\frac{W_1/\nu_1}{W_2/\nu_2},
 \]</span> has <span class="math inline">\(F\)</span> distribution with (numerator) <span class="math inline">\(\nu_1\)</span> and (denominator) <span class="math inline">\(\nu_2\)</span> degrees of freedom. We write <span class="math inline">\(F\sim F_{\nu_1,\nu_2}\)</span>. If <span class="math inline">\(U\sim F_{\nu_1,\nu_2}\)</span>, then its PDF is given by <span class="math display">\[
