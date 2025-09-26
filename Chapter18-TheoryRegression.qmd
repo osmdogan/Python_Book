@@ -806,21 +806,26 @@ We now state an important result called Slutsky's theorem, which provides the as
 
 :::{#thm-thm25-11}
 ## Slutsky's theorem
-Suppose that $a_n\xrightarrow{p}a$, where $a$ is a constant, and $S_n\xrightarrow{d}S$. Then,
+Let $\{X_n\}$ and $\{Y_n\}$ be two sequences of random variables sucht that $X_n\xrightarrow{d}X$ and $Y_n\xrightarrow{p}a$, where $a$ is a constant and $X$ is a random variable. Then,
 
-1. $a_n+S_n\xrightarrow{d}a+S$,
-2. $a_nS_n\xrightarrow{d}aS$, and 
-3. if $a\ne0$, then $S_n/a_n\xrightarrow{d}S/a$.
+1. $X_n+Y_n\xrightarrow{d}a+X$,
+2. $X_nY_n\xrightarrow{d}aX$, and 
+3. if $a\ne0$, then $X_n/Y_n\xrightarrow{d}X/a$.
 :::
 
-The following theorem provides the continuous mapping theorem, which is useful for finding the asymptotic distribution of functions of random variables.
+:::{.proof}
+## Proof of @thm-thm25-11
+See @sec-appendixC.
+:::
+
+The following theorem provides the continuous mapping theorem, which is useful for finding the probability limit and the asymptotic distribution of functions of random variables.
 
 :::{#thm-thm25-12}
 ## Continuous mapping theorem
-Let $g$ be a continuous function. Then,
+Let $\{X_n\}$ denote a sequence of random variables, and let $g:\mathbb{R}\to\mathbb{R}$ be a continuous function. Then,
 
-1. $S_n\xrightarrow{p}a\implies g(S_n)\xrightarrow{p}g(a)$, and
-2. $S_n\xrightarrow{d}S\implies g(S_n)\xrightarrow{d}g(S)$.
+1. $X_n\xrightarrow{p}X\implies g(X_n)\xrightarrow{p}g(X)$, and
+2. $X_n\xrightarrow{d}X\implies g(X_n)\xrightarrow{d}g(X)$.
 :::
 
 :::{#exm-exm25-5}
