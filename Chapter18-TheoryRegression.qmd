@@ -606,21 +606,21 @@ Next, we define convergence in distribution and the asymptotic distribution of a
 
 :::{#def-def25-3}
 ## Convergence in distribution
-Let $S$ be a random variable with the cumulative distribution function $F$, and let $\{S_n\}_{n=1}^{\infty}$ be a sequence of random variables with corresponding cumulative distribution functions $\{F_n\}_{n=1}^{\infty}$. Then, we say that the sequence of random variables $S_n$ converges in distribution to $S$ if the distribution functions ${ F_n }$ converge to $F$. We denote this convergence as $S_n \xrightarrow{d} S$. Also, we write
+Let $X$ be a random variable with CDF $F$, and let $\{X_n\}$ be a sequence of random variables with CDFs $\{F_n\}$. We say that the sequence $\{X_n\}$ converges in distribution to $X$ if and only if the sequence $\{F_n\}$ converges to $F$ at all continuity points of $F$. We write this as
 $$
-S_n\xrightarrow{d}S\iff \lim_{n\to\infty}F_n(t)=F(t),
+X_n\xrightarrow{d}X\iff \lim_{n\to\infty}F_n(t)=F(t),
 $$
-where the limit holds at all points $t$ at which the limiting distribution $F$ is continuous.
+where $t$ is a continuity point of $F$.
 :::
 
 :::{#def-def25-4}
 ## Asymptotic distribution
-The distribution $F$ in @def-def25-3 is called the asymptotic distribution of $S_n$.
+The distribution $F$ in @def-def25-3 is called the asymptotic distribution of $X_n$.
 :::
 
 :::{}
 :::{#exm-exm25-3}
-Let $S$ be the poisson random variable with parameter $\lambda$ and $\{S_n\}$ be a sequence of binomial random variables with parameters $n$ and $p$, i.e., $S_n\sim\text{Binomial}(n,p)$. We show that $S_n$ converges in distribution to $S$, i.e., $S_n\xrightarrow{d}S$. The cumulative distribution function of $S_n$ is given by
+Let $X$ be the poisson random variable with parameter $\lambda$ and $\{X_n\}$ be a sequence of binomial random variables with parameters $n$ and $p$, i.e., $X_n\sim\text{Binomial}(n,p)$. We show that $X_n$ converges in distribution to $X$, i.e., $X_n\xrightarrow{d}X$. The cumulative distribution function of $X_n$ is given by
 $$
 F_n(t)=\sum_{k=0}^{\lfloor t\rfloor}\binom{n}{k}p^k(1-p)^{n-k},
 $$
@@ -677,7 +677,7 @@ plt.legend()
 plt.show()
 ```
 
-We now state the central limit theorem using the concept of convergence in distribution.
+The following theorem presents the central limit theorem, which provides the asymptotic distribution of the sample mean of i.i.d. random variables.
 
 :::{#thm-thm25-10-clt}
 ## The central limit theorem
@@ -802,7 +802,7 @@ The exact probability is approximately 0.2197, which is close to the approximati
 :::
 
 
-We now state an important result called Slutsky's theorem, which provides the asymptotic distribution of the sum and product of two random variables.
+We now state an important result called Slutsky's theorem. This theorem provides the limiting distributions of sums, products, and quotients of random variables.
 
 :::{#thm-thm25-11}
 ## Slutsky's theorem
