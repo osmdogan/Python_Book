@@ -508,7 +508,7 @@ window.Quarto = {
 </header>
 
 
-<div id="0346f1dc" class="cell" data-execution_count="1">
+<div id="747250d3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -742,7 +742,7 @@ F_{X_n+Y_n}(t)&amp;=P(X_n+Y_n\leq t)=P(X_n+Y_n\leq t,|Y_n-a|&lt;\varepsilon)\\
 &amp;+P(X_n+Y_n\leq t,|Y_n-a|\geq\varepsilon)\\
 &amp;\leq P(X_n+Y_n\leq t,|Y_n-a|&lt;\varepsilon)+P(|Y_n-a|\geq\varepsilon),
 \end{align*}
-\tag{C.3}\]</span></span> where the inequality follows from the fact that <span class="math inline">\(P(X_n+Y_n\leq t,|Y_n-a|&lt;\varepsilon)\leq P(X_n+Y_n\leq t)\)</span>. Thus, we have <span id="eq-eqC-4"><span class="math display">\[
+\tag{C.3}\]</span></span> where the inequality follows from the fact that <span class="math inline">\(\{X_n+Y_n\leq t,|Y_n-a|\geq\varepsilon\}\subseteq \{|Y_n-a|\geq\varepsilon\}\)</span>. Thus, we have <span id="eq-eqC-4"><span class="math display">\[
 \begin{align*}
 F_{X_n+Y_n}(t)-P(|Y_n-a|\geq\varepsilon)\leq P(X_n+Y_n\leq t,|Y_n-a|&lt;\varepsilon).
 \end{align*}
@@ -771,7 +771,7 @@ F_{X_n+Y_n}(t)-P(|Y_n-a|\geq\varepsilon)\leq P(X_n+Y_n\leq t,|Y_n-a|&lt;\varepsi
 \end{align*}
 \tag{C.7}\]</span></span> where the last equality follows from <a href="#eq-eqC-4" class="quarto-xref">Equation&nbsp;<span>C.4</span></a>. Then, combining <a href="#eq-eqC-6" class="quarto-xref">Equation&nbsp;<span>C.6</span></a> and <a href="#eq-eqC-7" class="quarto-xref">Equation&nbsp;<span>C.7</span></a> yields</p>
 <p><span class="math display">\[
-F_{X_n}(t-(a-\varepsilon))\leq F_{X_n+Y_n}(t)\leq F_{X_n}(t-(a+\varepsilon))+P(|Y_n-a|\geq\varepsilon).
+F_{X_n}(t-(a-\varepsilon))-P(|Y_n-a|\geq\varepsilon)\leq F_{X_n+Y_n}(t)\leq F_{X_n}(t-(a+\varepsilon))+P(|Y_n-a|\geq\varepsilon).
 \]</span></p>
 <p>Since <span class="math inline">\(X_n\xrightarrow{d}X\)</span>, we have <span class="math inline">\(F_{X_n}\to F_X\)</span> at the continuity points of <span class="math inline">\(F_X\)</span>, and since <span class="math inline">\(Y_n\xrightarrow{p}a\)</span>, we have <span class="math inline">\(P(|Y_n-a|\geq\varepsilon)\to0\)</span>. Thus, taking the limit on both sides of the above inequality yields <span class="math display">\[
 F_X(t-(a-\varepsilon))\leq \liminf_{n\to\infty}F_{X_n+Y_n}(t)\leq \limsup_{n\to\infty}F_{X_n+Y_n}(t)\leq F_X(t-(a+\varepsilon)).
@@ -797,7 +797,7 @@ F_{X_nY_n}(t)&amp;=P(X_nY_n\leq t)=P(X_nY_n\leq t,|Y_n-a|&lt;\varepsilon)\\
 \end{align*}
 \tag{C.8}\]</span></span></p>
 <p>Similar to the proof of part 1, we can use <a href="#eq-eqC-8" class="quarto-xref">Equation&nbsp;<span>C.8</span></a> to show that <span class="math display">\[
-F_{X_n}(t/(a-\varepsilon))\leq F_{X_nY_n}(t)\leq F_{X_n}(t/(a+\varepsilon))+P(|Y_n-a|\geq\varepsilon).
+F_{X_n}(t/(a-\varepsilon))-P(|Y_n-a|\geq\varepsilon)\leq F_{X_nY_n}(t)\leq F_{X_n}(t/(a+\varepsilon))+P(|Y_n-a|\geq\varepsilon).
 \]</span></p>
 <p>Let <span class="math inline">\(n\to\infty\)</span>. Since <span class="math inline">\(X_n\xrightarrow{d}X\)</span> and <span class="math inline">\(Y_n\xrightarrow{p}a\)</span>, we have <span class="math display">\[
 F_X(t/(a-\varepsilon))\leq \liminf_{n\to\infty}F_{X_nY_n}(t)\leq \limsup_{n\to\infty}F_{X_nY_n}(t)\leq F_X(t/(a+\varepsilon)).
@@ -830,7 +830,7 @@ F_{X_n/Y_n}(t)&amp;=P(X_n/Y_n\leq t)=P(X_n/Y_n\leq t,|Y_n-a|&lt;\varepsilon)\\
 \end{align*}
 \tag{C.9}\]</span></span></p>
 <p>Note that the inequalities are reversed if <span class="math inline">\(a&lt;0\)</span>. Thus, as in the case of part 1, we can use <a href="#eq-eqC-9" class="quarto-xref">Equation&nbsp;<span>C.9</span></a> to show that <span class="math display">\[
-F_{X_n}(t/(a+\varepsilon))\leq F_{X_n/Y_n}(t)\leq F_{X_n}(t/(a-\varepsilon))+P(|Y_n-a|\geq\varepsilon).
+F_{X_n}(t/(a+\varepsilon))-P(|Y_n-a|\geq\varepsilon)\leq F_{X_n/Y_n}(t)\leq F_{X_n}(t/(a-\varepsilon))+P(|Y_n-a|\geq\varepsilon).
 \]</span></p>
 <p>Let <span class="math inline">\(n\to\infty\)</span>. Since <span class="math inline">\(X_n\xrightarrow{d}X\)</span> and <span class="math inline">\(Y_n\xrightarrow{p}a\)</span>, we have <span class="math display">\[
 F_X(t/(a-\varepsilon))\leq \liminf_{n\to\infty}F_{X_n/Y_n}(t)\leq \limsup_{n\to\infty}F_{X_n/Y_n}(t)\leq F_X(t/(a+\varepsilon)).

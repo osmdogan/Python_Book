@@ -309,7 +309,7 @@ F_{X_n+Y_n}(t)&=P(X_n+Y_n\leq t)=P(X_n+Y_n\leq t,|Y_n-a|<\varepsilon)\\
 &\leq P(X_n+Y_n\leq t,|Y_n-a|<\varepsilon)+P(|Y_n-a|\geq\varepsilon),
 \end{align*}
 $${#eq-eqC-3}
-where the inequality follows from the fact that $P(X_n+Y_n\leq t,|Y_n-a|<\varepsilon)\leq P(X_n+Y_n\leq t)$. Thus, we have
+where the inequality follows from the fact that $\{X_n+Y_n\leq t,|Y_n-a|\geq\varepsilon\}\subseteq \{|Y_n-a|\geq\varepsilon\}$. Thus, we have
 $$
 \begin{align*}
 F_{X_n+Y_n}(t)-P(|Y_n-a|\geq\varepsilon)\leq P(X_n+Y_n\leq t,|Y_n-a|<\varepsilon).
@@ -347,7 +347,7 @@ $${#eq-eqC-7}
 where the last equality follows from @eq-eqC-4. Then, combining @eq-eqC-6 and @eq-eqC-7 yields
 
 $$
-F_{X_n}(t-(a-\varepsilon))\leq F_{X_n+Y_n}(t)\leq F_{X_n}(t-(a+\varepsilon))+P(|Y_n-a|\geq\varepsilon).
+F_{X_n}(t-(a-\varepsilon))-P(|Y_n-a|\geq\varepsilon)\leq F_{X_n+Y_n}(t)\leq F_{X_n}(t-(a+\varepsilon))+P(|Y_n-a|\geq\varepsilon).
 $$
 
 Since $X_n\xrightarrow{d}X$, we have $F_{X_n}\to F_X$ at the continuity points of $F_X$, and since $Y_n\xrightarrow{p}a$, we have $P(|Y_n-a|\geq\varepsilon)\to0$. Thus, taking the limit on both sides of the above inequality yields
@@ -381,7 +381,7 @@ $${#eq-eqC-8}
 
 Similar to the proof of part 1, we can use @eq-eqC-8 to show that
 $$
-F_{X_n}(t/(a-\varepsilon))\leq F_{X_nY_n}(t)\leq F_{X_n}(t/(a+\varepsilon))+P(|Y_n-a|\geq\varepsilon).
+F_{X_n}(t/(a-\varepsilon))-P(|Y_n-a|\geq\varepsilon)\leq F_{X_nY_n}(t)\leq F_{X_n}(t/(a+\varepsilon))+P(|Y_n-a|\geq\varepsilon).
 $$
 
 Let $n\to\infty$. Since $X_n\xrightarrow{d}X$ and $Y_n\xrightarrow{p}a$, we have
@@ -425,7 +425,7 @@ $$ {#eq-eqC-9}
 
 Note that the inequalities are reversed if $a<0$. Thus, as in the case of part 1, we can use @eq-eqC-9 to show that
 $$
-F_{X_n}(t/(a+\varepsilon))\leq F_{X_n/Y_n}(t)\leq F_{X_n}(t/(a-\varepsilon))+P(|Y_n-a|\geq\varepsilon).
+F_{X_n}(t/(a+\varepsilon))-P(|Y_n-a|\geq\varepsilon)\leq F_{X_n/Y_n}(t)\leq F_{X_n}(t/(a-\varepsilon))+P(|Y_n-a|\geq\varepsilon).
 $$
 
 Let $n\to\infty$. Since $X_n\xrightarrow{d}X$ and $Y_n\xrightarrow{p}a$, we have
