@@ -289,7 +289,7 @@ $$
 \lim_{n\to\infty}\varphi_{S_n/\sqrt{n}}(t)=\lim_{n\to\infty}\left(1-\frac{t^2}{2n}+o\left(\frac{t^2}{n}\right)\right)=e^{-t^2/2}.
 $$
 
-By @exm-exmC-3, $\varphi_Z(t)=e^{-t^2/2}$ is the characteristic function of the standard normal distribution. Therefore, by @thm-thmC-5, $S_n$ converges in distribution to $N(0,1)$ as $n\to\infty$.
+By @exm-exmC-3, $\varphi_Z(t)=e^{-t^2/2}$ is the characteristic function of the standard normal distribution. Therefore, by @thm-thmC-5, $S_n/\sqrt{n}$ converges in distribution to $N(0,1)$ as $n\to\infty$.
 :::
 
 
