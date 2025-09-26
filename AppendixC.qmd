@@ -259,14 +259,14 @@ In particular, if $Z\sim N(0,1)$, then $\varphi_Z(t)=e^{-t^2/2}$.
 :::
 
 ## The proof of the central limit theorem
-The next result is known as [Levy's continuity theorem](https://en.wikipedia.org/wiki/L%C3%A9vy%27s_continuity_theorem). It connects the convergence in distribution to the pointwise convergence of characteristic functions.
+The [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) introduced in @sec-chapter25 is known as the Lindeberg-Levy central limit theorem. Its proof is based on the convergence of characteristic functions. Therefore, we first state the following result, known as [Levy's continuity theorem](https://en.wikipedia.org/wiki/L%C3%A9vy%27s_continuity_theorem), which connects the convergence in distribution to the pointwise convergence of characteristic functions.
 
 :::{#thm-thmC-5}
 ## Levy's continuity theorem
 Let $\{Y_n\}$ be a sequence of random variables with characteristic functions $\{\varphi_{Y_n}(t)\}$ and $Y$ be a random variable with characteristic function $\varphi_Y(t)$. Then, $Y_n$ converges in distribution to $Y$ if and only if $\varphi_{Y_n}(t)$ converges to $\varphi_Y(t)$ for all real numbers $t$.
 :::
 
-We can use @thm-thmC-5 to prove the central limit theorem introduced in @sec-chapter25.
+Below, we use @thm-thmC-5 to prove the central limit theorem introduced in @sec-chapter25.
 
 :::{.proof}
 ## Proof of @thm-thm25-10-clt
