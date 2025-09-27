@@ -334,7 +334,7 @@ $$
 &=F_{X_n+Y_n}(t)+P(|Y_n-a|\geq\varepsilon),
 \end{align*}
 $${#eq-eqC-6}
-where the last inequality follows from @eq-eqC-3. Similarly, from the right-hand side of the inequality in @eq-eqC-5, we have
+where the last inequality follows from @eq-eqC-5. Similarly, from the right-hand side of the inequality in @eq-eqC-5, we have
 $$
 \begin{align*}
 &F_{X_n}(t-(a-\varepsilon)=P(X_n\leq t-(a-\varepsilon))\\
