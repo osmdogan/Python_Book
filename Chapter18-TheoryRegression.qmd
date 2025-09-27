@@ -885,6 +885,7 @@ Also, $\frac{n}{n-1}\to1$, so the first term for $s_{XY}$ converges in probabili
 results on the two terms for $s_{XY}$, we obtain $s_{XY}\xrightarrow{p}\sigma_{XY}$.
 :::
 
+
 ## Asymptotic distribution of the OLS estimator
 In this section, we show how to derive the asymptotic distribution of $\widehat{\beta}_1$ and $\widehat{\beta}_0$ as shown in @thm-thm25-1. From $Y_i=\beta_0+\beta_1X_i+u_i$ and $\bar{Y}=\beta_0+\beta_1\bar{X}+\bar{u}$, we obtain
 $$
