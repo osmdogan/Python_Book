@@ -157,8 +157,26 @@ plt.show()
 
 :::{#def-def25-2}
 ## Consistent estimator
-If $S_n\xrightarrow{p}\mu$, then $S_n$ is said to be a consistent estimator of $\mu$.
+If $S_n\xrightarrow{p}\mu$, where $\mu$ is a constant, then $S_n$ is said to be a consistent estimator of $\mu$.
 :::
+
+In @def-def25-2, the limiting variable is a constant. We call a constant variable a degenerate random variable. Thus, a consistent estimator converges in probability to a degenerate random variable.
+
+:::{#def-def25-2-1}
+## Degenerate random variable
+A degenerate random variable is a random variable that takes a single value with probability 1.
+:::
+
+If $X$ is a degenerate random variable, then there exists a constant $c$ such that $P(X=c)=1$. Therefore, $\E(X)=c$ and $\text{Var}(X)=0$. The CDF of $X$ is given by
+$$
+\begin{align*}
+F(x) =
+\begin{cases}
+0, & \quad x < c,\\
+1, & \quad x \geq c.
+\end{cases}
+\end{align*}
+$$
 
 Below, we state some useful inequalities that are often used in the asymptotic distribution theory.
 
@@ -828,6 +846,11 @@ Let $\{X_n\}$ denote a sequence of random variables, and let $g:\mathbb{R}\to\ma
 2. $X_n\xrightarrow{d}X\implies g(X_n)\xrightarrow{d}g(X)$.
 :::
 
+:::{.proof}
+## Proof of @thm-thm25-12
+See Theorem 2.3 in @Vaart1998.
+:::
+
 :::{#exm-exm25-5}
 Let $g(x)=\sqrt{x}$. If $s^2_Y\xrightarrow{p}\sigma^2_Y$, where $s^2_Y$ is the sample variance, then
 $$
@@ -884,6 +907,64 @@ $$
 Also, $\frac{n}{n-1}\to1$, so the first term for $s_{XY}$ converges in probability to $\sigma_{XY}$. Combining
 results on the two terms for $s_{XY}$, we obtain $s_{XY}\xrightarrow{p}\sigma_{XY}$.
 :::
+
+The following result shows that convergence in probability implies convergence in distribution.
+
+:::{#thm-thm25-12-1}
+## Convergence in probability implies convergence in distribution
+If $X_n\xrightarrow{p}X$, then $X_n\xrightarrow{d}X$.
+:::
+
+:::{.proof}
+## Proof of @thm-thm25-12-1
+See Theorem 2.7 in @Vaart1998.
+:::
+
+The reverse of this result is not true in general. However, if $X$ is a degenerate random variable, then the reverse is true as shown in the following theorem.
+
+:::{#thm-thm25-12-2}
+## Convergence in distribution to a constant
+If $X_n\xrightarrow{d}c$, where $c$ is a constant, then $X_n\xrightarrow{p}c$.
+:::
+
+:::{.proof}
+## Proof of @thm-thm25-12-2
+Fix $\epsilon>0$. Then, we can split the event $\{|X_n-c|>\epsilon\}$ into two disjoint events: $\{X_n>c+\epsilon\}$ and $\{X_n<c-\epsilon\}$. Thus, we have
+$$
+\begin{align*}
+P(|X_n-c|>\epsilon)&=P(X_n<c-\epsilon)+P(X_n>c+\epsilon)\\
+&\leq P(X_n\leq c-\epsilon)+1- P(X_n\leq c+\epsilon)\\
+&=F_{X_n}(c-\epsilon)+1-F_{X_n}(c+\epsilon),
+\end{align*}
+$$
+where $F_{X_n}$ is the CDF of $X_n$. The degenrate random variable $c$ has the following CDF:
+$$
+F(t)=
+\begin{cases}
+0, & t<c,\\
+1, & t\geq c,
+\end{cases}
+$$
+where $c$ is the only discontinuity point of $F$. Since $X_n\xrightarrow{d}c$, we have $\lim_{n\to\infty}F_{X_n}(t)=F(t)$ for all continuity points of $F$. Thus, we have
+$$
+\begin{align*}
+\lim_{n\to\infty}F_{X_n}(t)=F(t)
+=
+\begin{cases}
+0, & t<c,\\
+1, & t> c.
+\end{cases}
+\end{align*}
+$$
+
+Therefore, we have $\lim_{n\to\infty}F_{X_n}(c-\epsilon)=0$ and $\lim_{n\to\infty}F_{X_n}(c+\epsilon)=1$. This implies that
+$$
+\lim_{n\to\infty}P(|X_n-c|>\epsilon)=0,
+$$
+which shows that $X_n\xrightarrow{p}c$.
+:::
+
+
 
 
 ## Asymptotic distribution of the OLS estimator

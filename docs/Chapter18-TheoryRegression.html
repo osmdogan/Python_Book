@@ -527,7 +527,7 @@ window.Quarto = {
 </header>
 
 
-<div id="27b50572" class="cell" data-execution_count="1">
+<div id="66e98b28" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -679,8 +679,21 @@ Figure&nbsp;28.1: The pdf of <span class="math inline">\(S_n\)</span> for differ
 </div>
 </div>
 <div id="def-def25-2" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 28.2 (Consistent estimator)</strong></span> If <span class="math inline">\(S_n\xrightarrow{p}\mu\)</span>, then <span class="math inline">\(S_n\)</span> is said to be a consistent estimator of <span class="math inline">\(\mu\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 28.2 (Consistent estimator)</strong></span> If <span class="math inline">\(S_n\xrightarrow{p}\mu\)</span>, where <span class="math inline">\(\mu\)</span> is a constant, then <span class="math inline">\(S_n\)</span> is said to be a consistent estimator of <span class="math inline">\(\mu\)</span>.</p>
 </div>
+<p>In <a href="#def-def25-2" class="quarto-xref">Definition&nbsp;<span>28.2</span></a>, the limiting variable is a constant. We call a constant variable a degenerate random variable. Thus, a consistent estimator converges in probability to a degenerate random variable.</p>
+<div id="def-def25-2-1" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 28.3 (Degenerate random variable)</strong></span> A degenerate random variable is a random variable that takes a single value with probability 1.</p>
+</div>
+<p>If <span class="math inline">\(X\)</span> is a degenerate random variable, then there exists a constant <span class="math inline">\(c\)</span> such that <span class="math inline">\(P(X=c)=1\)</span>. Therefore, <span class="math inline">\(\E(X)=c\)</span> and <span class="math inline">\(\text{Var}(X)=0\)</span>. The CDF of <span class="math inline">\(X\)</span> is given by <span class="math display">\[
+\begin{align*}
+F(x) =
+\begin{cases}
+0, &amp; \quad x &lt; c,\\
+1, &amp; \quad x \geq c.
+\end{cases}
+\end{align*}
+\]</span></p>
 <p>Below, we state some useful inequalities that are often used in the asymptotic distribution theory.</p>
 <div id="thm-thm25-4" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 28.4 (Jensen’s inequality)</strong></span> Let <span class="math inline">\(g\)</span> be a convex function, then for any random variable <span class="math inline">\(X\)</span>, we have <span class="math display">\[
@@ -774,7 +787,7 @@ P(|V-\mu_V|&lt;\delta)\geq 1-\frac{\sigma^2_V}{\delta^2}.
 P(\mu_V-\delta&lt;V&lt;\mu_V+\delta)\geq 1-\frac{\sigma^2_V}{\delta^2}.
 \]</span></p>
 <p>In the following code chunk, we assume that <span class="math inline">\(V\sim N(0,1)\)</span> and <code>delta = np. arange(1, 10)</code>. We calculate the Chebychev bound and the actual probability that <span class="math inline">\(V\)</span> is within <span class="math inline">\(\delta\)</span> of its mean. <a href="#fig-fig25-1" class="quarto-xref">Figure&nbsp;<span>28.2</span></a> shows that the Chebychev bound is a conservative estimate of the actual probability.</p>
-<div id="e97bac2b" class="cell" data-execution_count="3">
+<div id="fe15df20" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the Chebychev inequality</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sigma2_V <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>mu_V <span class="op">=</span> <span class="dv">0</span></span>
@@ -849,7 +862,7 @@ P(|m_c-\mu_Y|\geq\delta)\leq\E\left((\bar{Y}+1/n-\mu_Y)^2\right)/\delta^2=\frac{
 </div>
 <p>In the following code chunk, we illustrate the law of large numbers using the estimators <span class="math inline">\(m_a\)</span>, <span class="math inline">\(m_b\)</span>, and <span class="math inline">\(m_c\)</span> defined in <a href="#exm-exm25-1" class="quarto-xref">Example&nbsp;<span>28.2</span></a>. We set <span class="math inline">\(\mu_Y = 0\)</span>, <span class="math inline">\(\sigma_Y^2 = 1\)</span>, and <span class="math inline">\(a = 0.5\)</span>. We consider three sample sizes: <span class="math inline">\(n = 10\)</span>, <span class="math inline">\(n = 100\)</span>, and <span class="math inline">\(n = 1000\)</span>. For each sample size, we generate 1000 samples and compute each estimator. We then create histograms of each estimator for each sample size.</p>
 <p><a href="#fig-fig25-2" class="quarto-xref">Figure&nbsp;<span>28.3</span></a> displays the histograms of <span class="math inline">\(m_a\)</span>, <span class="math inline">\(m_b\)</span>, and <span class="math inline">\(m_c\)</span> for different sample sizes. In the case of <span class="math inline">\(m_a\)</span> and <span class="math inline">\(m_b\)</span>, the histograms do not concentrate around the true mean <span class="math inline">\(\mu_Y = 0\)</span> as the sample size increases. However, since the histograms are centered around the true mean, these estimators are unbiased. On the other hand, the histogram of <span class="math inline">\(m_c\)</span> becomes more concentrated around the true mean as the sample size increases, indicating that <span class="math inline">\(m_c\)</span> is a consistent estimator.</p>
-<div id="ee8c59d3" class="cell" data-execution_count="5">
+<div id="76b82845" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the law of large numbers</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>mu_Y <span class="op">=</span> <span class="dv">0</span></span>
@@ -1063,12 +1076,12 @@ Figure&nbsp;28.3: Illustrating the law of large numbers
 </div>
 <p>Next, we define convergence in distribution and the asymptotic distribution of a sequence of random variables.</p>
 <div id="def-def25-3" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 28.3 (Convergence in distribution)</strong></span> Let <span class="math inline">\(X\)</span> be a random variable with CDF <span class="math inline">\(F\)</span>, and let <span class="math inline">\(\{X_n\}\)</span> be a sequence of random variables with CDFs <span class="math inline">\(\{F_n\}\)</span>. We say that the sequence <span class="math inline">\(\{X_n\}\)</span> converges in distribution to <span class="math inline">\(X\)</span> if and only if the sequence <span class="math inline">\(\{F_n\}\)</span> converges to <span class="math inline">\(F\)</span> at all continuity points of <span class="math inline">\(F\)</span>. We write this as <span class="math display">\[
+<p><span class="theorem-title"><strong>Definition 28.4 (Convergence in distribution)</strong></span> Let <span class="math inline">\(X\)</span> be a random variable with CDF <span class="math inline">\(F\)</span>, and let <span class="math inline">\(\{X_n\}\)</span> be a sequence of random variables with CDFs <span class="math inline">\(\{F_n\}\)</span>. We say that the sequence <span class="math inline">\(\{X_n\}\)</span> converges in distribution to <span class="math inline">\(X\)</span> if and only if the sequence <span class="math inline">\(\{F_n\}\)</span> converges to <span class="math inline">\(F\)</span> at all continuity points of <span class="math inline">\(F\)</span>. We write this as <span class="math display">\[
 X_n\xrightarrow{d}X\iff \lim_{n\to\infty}F_n(t)=F(t),
 \]</span> where <span class="math inline">\(t\)</span> is a continuity point of <span class="math inline">\(F\)</span>.</p>
 </div>
 <div id="def-def25-4" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 28.4 (Asymptotic distribution)</strong></span> The distribution <span class="math inline">\(F\)</span> in <a href="#def-def25-3" class="quarto-xref">Definition&nbsp;<span>28.3</span></a> is called the asymptotic distribution of <span class="math inline">\(X_n\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 28.5 (Asymptotic distribution)</strong></span> The distribution <span class="math inline">\(F\)</span> in <a href="#def-def25-3" class="quarto-xref">Definition&nbsp;<span>28.4</span></a> is called the asymptotic distribution of <span class="math inline">\(X_n\)</span>.</p>
 </div>
 <div>
 <div id="exm-exm25-3" class="theorem example">
@@ -1091,7 +1104,7 @@ F_n(t)&amp;=\sum_{k=0}^{\lfloor t\rfloor}\binom{n}{k}\left(\frac{\lambda}{n}\rig
 </div>
 </div>
 <p>In the following code chunk, we illustrate the convergence in distribution between the binomial and poisson random variables. We set <span class="math inline">\(\lambda = 5\)</span> and consider three sample sizes: <span class="math inline">\(n = 10\)</span>, <span class="math inline">\(n = 20\)</span>, and <span class="math inline">\(n = 50\)</span>. For each sample size, we then compute the cumulative distribution functions of the binomial and poisson random variables over the range <span class="math inline">\(t = 0, 1, \ldots, 15\)</span>. <a href="#fig-fig25-3" class="quarto-xref">Figure&nbsp;<span>28.4</span></a> shows that the cumulative distribution functions of the binomial random variables converge to the cumulative distribution function of the poisson random variable as the sample size increases.</p>
-<div id="34120bbd" class="cell" data-execution_count="7">
+<div id="66e697bb" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the convergence in distribution</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>lambda_p <span class="op">=</span> <span class="dv">5</span></span>
@@ -1146,7 +1159,7 @@ Figure&nbsp;28.4: Illustrating the convergence in distribution
 \]</span> which suggests that <span class="math inline">\(\bar{Y}\sim N(1/2,1/12n)\)</span> when <span class="math inline">\(n\)</span> is large.</p>
 </div>
 <p>In the following code chunk, we illustrate the central limit theorem using the uniform random variables defined in <a href="#exm-exm25-4" class="quarto-xref">Example&nbsp;<span>28.7</span></a>. We set <span class="math inline">\(n = 10, 50, 100, 500, 1000, 5000\)</span> and generate 1000 samples for each sample size. We then compute the sample mean <span class="math inline">\(\bar{Y}\)</span> and plot the histograms of <span class="math inline">\(\sqrt{12n}(\bar{Y}-1/2)\)</span> for each sample size. <a href="#fig-fig25-4" class="quarto-xref">Figure&nbsp;<span>28.5</span></a> shows the histograms of <span class="math inline">\(\sqrt{12n}(\bar{Y}-1/2)\)</span> along with the standard normal density plot. As the sample size increases, the deviations between the histograms and the standard normal density plot decrease, indicating that the sample mean converges to the standard normal distribution as the sample size grows.</p>
-<div id="5d05c748" class="cell" data-execution_count="9">
+<div id="4ba62258" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the central limit theorem</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>n_values <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">5000</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1221,7 +1234,7 @@ P(S_n&gt;40)&amp;=P\left(\frac{S_n-np}{\sqrt{np(1-p)}}&gt;\frac{40-np}{\sqrt{np(
 &amp;=0.2527,
 \end{align*}
 \]</span> where <span class="math inline">\(Z\sim N(0,1)\)</span>. The last step can be computed using the following code:</p>
-<div id="bfd1b71f" class="cell" data-execution_count="11">
+<div id="44329d68" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(<span class="dv">1</span> <span class="op">-</span> stats.norm.cdf(<span class="fl">0.6661</span>), <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>0.2527</code></pre>
@@ -1229,7 +1242,7 @@ P(S_n&gt;40)&amp;=P\left(\frac{S_n-np}{\sqrt{np(1-p)}}&gt;\frac{40-np}{\sqrt{np(
 </div>
 <p>The result indicates that there is approximately a 25.27% chance that more than 40 students will take longer than 6 months to complete their thesis.</p>
 <p>Since <span class="math inline">\(P(S_n&gt;40)=1-P(S_n\leq 40)\)</span>, we can also compute the exact probability as follows:</p>
-<div id="0eb80be7" class="cell" data-execution_count="12">
+<div id="901b1887" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(<span class="dv">1</span> <span class="op">-</span> stats.binom.cdf(<span class="dv">40</span>, <span class="dv">100</span>, np.exp(<span class="op">-</span><span class="dv">1</span>)), <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>0.2197</code></pre>
@@ -1256,6 +1269,9 @@ P(S_n&gt;40)&amp;=P\left(\frac{S_n-np}{\sqrt{np(1-p)}}&gt;\frac{40-np}{\sqrt{np(
 <li><span class="math inline">\(X_n\xrightarrow{p}X\implies g(X_n)\xrightarrow{p}g(X)\)</span>, and</li>
 <li><span class="math inline">\(X_n\xrightarrow{d}X\implies g(X_n)\xrightarrow{d}g(X)\)</span>.</li>
 </ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-12" class="quarto-xref">Theorem&nbsp;<span>28.16</span></a>). </span>See Theorem 2.3 in <span class="citation" data-cites="Vaart1998">Vaart (<a href="references.html#ref-Vaart1998" role="doc-biblioref">1998</a>)</span>.</p>
 </div>
 <div id="exm-exm25-5" class="theorem example">
 <p><span class="theorem-title"><strong>Example 28.9</strong></span> Let <span class="math inline">\(g(x)=\sqrt{x}\)</span>. If <span class="math inline">\(s^2_Y\xrightarrow{p}\sigma^2_Y\)</span>, where <span class="math inline">\(s^2_Y\)</span> is the sample variance, then <span class="math display">\[
@@ -1295,6 +1311,44 @@ t=\frac{\bar{Y}-\mu_0}{s_Y/\sqrt{n}}=\frac{\sqrt{n}(\bar{Y}-\mu_0)}{\sigma_Y}\di
 \frac{1}{n}\sum_{i=1}^n(X_i-\mu_X)(Y_i-\mu_Y)\xrightarrow{p}\E\left((X_i-\mu_X)(Y_i-\mu_Y)\right)=\sigma_{XY}.
 \end{align*}
 \]</span> Also, <span class="math inline">\(\frac{n}{n-1}\to1\)</span>, so the first term for <span class="math inline">\(s_{XY}\)</span> converges in probability to <span class="math inline">\(\sigma_{XY}\)</span>. Combining results on the two terms for <span class="math inline">\(s_{XY}\)</span>, we obtain <span class="math inline">\(s_{XY}\xrightarrow{p}\sigma_{XY}\)</span>.</p>
+</div>
+<p>The following result shows that convergence in probability implies convergence in distribution.</p>
+<div id="thm-thm25-12-1" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 28.17 (Convergence in probability implies convergence in distribution)</strong></span> If <span class="math inline">\(X_n\xrightarrow{p}X\)</span>, then <span class="math inline">\(X_n\xrightarrow{d}X\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-12-1" class="quarto-xref">Theorem&nbsp;<span>28.17</span></a>). </span>See Theorem 2.7 in <span class="citation" data-cites="Vaart1998">Vaart (<a href="references.html#ref-Vaart1998" role="doc-biblioref">1998</a>)</span>.</p>
+</div>
+<p>The reverse of this result is not true in general. However, if <span class="math inline">\(X\)</span> is a degenerate random variable, then the reverse is true as shown in the following theorem.</p>
+<div id="thm-thm25-12-2" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 28.18 (Convergence in distribution to a constant)</strong></span> If <span class="math inline">\(X_n\xrightarrow{d}c\)</span>, where <span class="math inline">\(c\)</span> is a constant, then <span class="math inline">\(X_n\xrightarrow{p}c\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-12-2" class="quarto-xref">Theorem&nbsp;<span>28.18</span></a>). </span>Fix <span class="math inline">\(\epsilon&gt;0\)</span>. Then, we can split the event <span class="math inline">\(\{|X_n-c|&gt;\epsilon\}\)</span> into two disjoint events: <span class="math inline">\(\{X_n&gt;c+\epsilon\}\)</span> and <span class="math inline">\(\{X_n&lt;c-\epsilon\}\)</span>. Thus, we have <span class="math display">\[
+\begin{align*}
+P(|X_n-c|&gt;\epsilon)&amp;=P(X_n&lt;c-\epsilon)+P(X_n&gt;c+\epsilon)\\
+&amp;\leq P(X_n\leq c-\epsilon)+1- P(X_n\leq c+\epsilon)\\
+&amp;=F_{X_n}(c-\epsilon)+1-F_{X_n}(c+\epsilon),
+\end{align*}
+\]</span> where <span class="math inline">\(F_{X_n}\)</span> is the CDF of <span class="math inline">\(X_n\)</span>. The degenrate random variable <span class="math inline">\(c\)</span> has the following CDF: <span class="math display">\[
+F(t)=
+\begin{cases}
+0, &amp; t&lt;c,\\
+1, &amp; t\geq c,
+\end{cases}
+\]</span> where <span class="math inline">\(c\)</span> is the only discontinuity point of <span class="math inline">\(F\)</span>. Since <span class="math inline">\(X_n\xrightarrow{d}c\)</span>, we have <span class="math inline">\(\lim_{n\to\infty}F_{X_n}(t)=F(t)\)</span> for all continuity points of <span class="math inline">\(F\)</span>. Thus, we have <span class="math display">\[
+\begin{align*}
+\lim_{n\to\infty}F_{X_n}(t)=F(t)
+=
+\begin{cases}
+0, &amp; t&lt;c,\\
+1, &amp; t&gt; c.
+\end{cases}
+\end{align*}
+\]</span></p>
+<p>Therefore, we have <span class="math inline">\(\lim_{n\to\infty}F_{X_n}(c-\epsilon)=0\)</span> and <span class="math inline">\(\lim_{n\to\infty}F_{X_n}(c+\epsilon)=1\)</span>. This implies that <span class="math display">\[
+\lim_{n\to\infty}P(|X_n-c|&gt;\epsilon)=0,
+\]</span> which shows that <span class="math inline">\(X_n\xrightarrow{p}c\)</span>.</p>
 </div>
 </section>
 <section id="asymptotic-distribution-of-the-ols-estimator" class="level2" data-number="28.4">
@@ -1403,12 +1457,12 @@ Y_i-\bar{Y}=\beta_1(X_i-\bar{X})+(u_i-\bar{u}).
 \end{align}
 \]</span></p>
 <div id="thm-thm25-var" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 28.17 (Consistent estimators of the asymptotic variances)</strong></span> Under Assumptions 1-3, the estimators <span class="math inline">\(\hat{\sigma}^2_{\hat{\beta}_1}\)</span> and <span class="math inline">\(\hat{\sigma}^2_{\hat{\beta}_0}\)</span> are consistent for the asymptotic variances <span class="math inline">\(\sigma^2_{\hat{\beta}_1}\)</span> and <span class="math inline">\(\sigma^2_{\hat{\beta}_0}\)</span>, respectively. That is, <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 28.19 (Consistent estimators of the asymptotic variances)</strong></span> Under Assumptions 1-3, the estimators <span class="math inline">\(\hat{\sigma}^2_{\hat{\beta}_1}\)</span> and <span class="math inline">\(\hat{\sigma}^2_{\hat{\beta}_0}\)</span> are consistent for the asymptotic variances <span class="math inline">\(\sigma^2_{\hat{\beta}_1}\)</span> and <span class="math inline">\(\sigma^2_{\hat{\beta}_0}\)</span>, respectively. That is, <span class="math display">\[
 \hat{\sigma}^2_{\hat{\beta}_1}\xrightarrow{p}\sigma^2_{\hat{\beta}_1}\quad\text{and}\quad \hat{\sigma}^2_{\hat{\beta}_0}\xrightarrow{p}\sigma^2_{\hat{\beta}_0}.
 \]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-var" class="quarto-xref">Theorem&nbsp;<span>28.17</span></a>). </span>We show that <span class="math inline">\(\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}\xrightarrow{p}1\)</span>. We can express <span class="math inline">\(\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}\)</span> as</p>
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-var" class="quarto-xref">Theorem&nbsp;<span>28.19</span></a>). </span>We show that <span class="math inline">\(\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}\xrightarrow{p}1\)</span>. We can express <span class="math inline">\(\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}\)</span> as</p>
 <p><span id="eq-eq25-4"><span class="math display">\[
 \begin{align}
 \frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}=\left(\frac{n}{n-2}\right)\left(\frac{\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\hat{u}^2_i}{\text{var}(v_i)}\right)\div\left(\frac{\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2}{\sigma^2_X}\right)^2,
@@ -1452,17 +1506,17 @@ t=\frac{\hat{\beta}_1-c}{\hat{\sigma}_{\hat{\beta}_1}}.
 \]</span></p>
 <p>In the next theorem, we provide the asymptotic distribution of the <span class="math inline">\(t\)</span>-statistic.</p>
 <div id="thm-thm25-t" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 28.18 (Asymptotic distribution of the t-statistic)</strong></span> Assume that Assumptions 1-3 hold. Then, under <span class="math inline">\(H_0\)</span>, we have <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 28.20 (Asymptotic distribution of the t-statistic)</strong></span> Assume that Assumptions 1-3 hold. Then, under <span class="math inline">\(H_0\)</span>, we have <span class="math display">\[
 t\xrightarrow{d}N(0,1).
 \]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-t" class="quarto-xref">Theorem&nbsp;<span>28.18</span></a>). </span>Note that we can express <span class="math inline">\(t\)</span>-statistic as <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-t" class="quarto-xref">Theorem&nbsp;<span>28.20</span></a>). </span>Note that we can express <span class="math inline">\(t\)</span>-statistic as <span class="math display">\[
 \begin{align}
 t=\frac{\hat{\beta}_1-c}{\hat{\sigma}_{\hat{\beta}_1}}=\frac{\sqrt{n}(\hat{\beta}_1-c)}{\sqrt{n\sigma^2_{\hat{\beta}_1}}}\div\sqrt{\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}}.
 \end{align}
 \]</span></p>
-<p>We show that <span class="math inline">\(\sqrt{\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}}\xrightarrow{p}1\)</span> in <a href="#thm-thm25-var" class="quarto-xref">Theorem&nbsp;<span>28.17</span></a>. Also, if <span class="math inline">\(H_0\)</span> holds, then it follows from <a href="#thm-thm25-1" class="quarto-xref">Theorem&nbsp;<span>28.1</span></a> that <span class="math inline">\(\frac{\sqrt{n}(\hat{\beta}_1-c)}{\sqrt{n\sigma^2_{\hat{\beta}_1}}}\xrightarrow{d}N(0,1)\)</span>. Then, it follows from Slutsky’s theorem that <span class="math inline">\(t\xrightarrow{d}N(0,1)\)</span>.</p>
+<p>We show that <span class="math inline">\(\sqrt{\frac{\hat{\sigma}^2_{\hat{\beta}_1}}{\sigma^2_{\hat{\beta}_1}}}\xrightarrow{p}1\)</span> in <a href="#thm-thm25-var" class="quarto-xref">Theorem&nbsp;<span>28.19</span></a>. Also, if <span class="math inline">\(H_0\)</span> holds, then it follows from <a href="#thm-thm25-1" class="quarto-xref">Theorem&nbsp;<span>28.1</span></a> that <span class="math inline">\(\frac{\sqrt{n}(\hat{\beta}_1-c)}{\sqrt{n\sigma^2_{\hat{\beta}_1}}}\xrightarrow{d}N(0,1)\)</span>. Then, it follows from Slutsky’s theorem that <span class="math inline">\(t\xrightarrow{d}N(0,1)\)</span>.</p>
 </div>
 </section>
 <section id="the-gauss-markov-theorem-1" class="level2" data-number="28.6">
@@ -1518,10 +1572,10 @@ t&amp;=\frac{\hat{\beta}_1-c}{\sqrt{\widehat{\text{var}}(\hat{\beta}_1|X_1,\ldot
 \end{align}
 \]</span></p>
 <div id="thm-thm25-t2" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 28.19</strong></span> Assume that all five assumptions hold. Then, under <span class="math inline">\(H_0\)</span>, the homoskedasticity-only <span class="math inline">\(t\)</span>-statistic has the Student t distribution with <span class="math inline">\(n-2\)</span> degrees of freedom.</p>
+<p><span class="theorem-title"><strong>Theorem 28.21</strong></span> Assume that all five assumptions hold. Then, under <span class="math inline">\(H_0\)</span>, the homoskedasticity-only <span class="math inline">\(t\)</span>-statistic has the Student t distribution with <span class="math inline">\(n-2\)</span> degrees of freedom.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-t2" class="quarto-xref">Theorem&nbsp;<span>28.19</span></a>). </span>We can express the <span class="math inline">\(t\)</span>-statistic as <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-t2" class="quarto-xref">Theorem&nbsp;<span>28.21</span></a>). </span>We can express the <span class="math inline">\(t\)</span>-statistic as <span class="math display">\[
 \begin{align}
 t&amp;=\frac{\hat{\beta}_1-c}{\sqrt{\widehat{\text{var}}(\hat{\beta}_1|X_1,\ldots,X_n)}}=\frac{\hat{\beta}_1-c}{\sqrt{\frac{\sigma^2_{u}}{\sum_{i=1}^n(X_i - \bar{X})^2}}}\div\sqrt{\frac{s^2_{\hat{u}}}{\sigma^2_u}}\\
 &amp;=\frac{\hat{\beta}_1-c}{\sqrt{\frac{\sigma^2_{u}}{\sum_{i=1}^n(X_i - \bar{X})^2}}}\div\sqrt{W/(n-2)},
@@ -1565,6 +1619,9 @@ Hansen, Bruce. 2022a. <em>Econometrics</em>. Princeton University Press.
 </div>
 <div id="ref-Stock2020" class="csl-entry" role="listitem">
 Stock, James H., and Mark W. Watson. 2020. <em>Introduction to Econometrics</em>. Fourth edition. Pearson.
+</div>
+<div id="ref-Vaart1998" class="csl-entry" role="listitem">
+Vaart, A. W. van der. 1998. <em>Asymptotic Statistics</em>. Cambridge Series in Statistical and Probabilistic Mathematics. Cambridge University Press.
 </div>
 </div>
 </section>

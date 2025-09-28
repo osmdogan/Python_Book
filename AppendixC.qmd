@@ -266,6 +266,11 @@ The [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem)
 Let $\{Y_n\}$ be a sequence of random variables with characteristic functions $\{\varphi_{Y_n}(t)\}$ and $Y$ be a random variable with characteristic function $\varphi_Y(t)$. Then, $Y_n$ converges in distribution to $Y$ if and only if $\varphi_{Y_n}(t)$ converges to $\varphi_Y(t)$ for all real numbers $t$.
 :::
 
+:::{.proof}
+## Proof of @thm-thmC-5
+See Theorem 2.13 in @Vaart1998.
+:::
+
 Below, we use @thm-thmC-5 to prove the central limit theorem introduced in @sec-chapter25.
 
 :::{.proof}
