@@ -1332,3 +1332,55 @@ f(v_2|v_1)=\frac{1}{\sqrt{2\pi(1-\rho^2)\sigma^2_2}}\exp\left(-\frac{(v_2-\mu_2-
 $$
 :::
 :::
+
+## Multivariate central limit theorem
+In @sec-chapter26, we introduce the multivariate central limit theorem, which is the multivariate version of the central limit theorem given in @sec-chapter25. To prove the multivariate central limit theorem, we need the following lemma.
+
+:::{#lem-multivariate-clt}
+## Cramer-Wold device
+Let $\{\bs{X}_n\}$ be a sequence of $m\times1$ random vectors. Then, $\{\bs{X}_n\}$ converges in distribution to a random vector $\bs{X}$ if and only if $\{\bs{u}^{'}\bs{X}_n\}$ converges in distribution to $\bs{u}^{'}\bs{X}$ for every non-random $m\times1$ vector $\bs{u}$.
+:::
+
+:::{.proof}
+## Proof of @lem-multivariate-clt
+We use Levy's continuity theorem introduced in @sec-appendixC to prove this lemma. Assume that $\bs{X}_n\xrightarrow{d}\bs{X}$. Let $\bs{u}\in\mathbb{R}^m$ and $\alpha\in\mathbb{R}$. Then, by Levy's continuity theorem, we have
+$$
+\begin{align*}
+\lim_{n\to\infty} \varphi_{\bs{X}_n}(\alpha \bs{u})=\varphi_{\bs{X}}(\alpha \bs{u}).
+\end{align*}
+$$
+
+We can rewrite this convergence result as
+$$
+\begin{align*}
+\lim_{n\to\infty} \varphi_{\bs{u}^{'}\bs{X}_n}(\alpha)=\varphi_{\bs{u}^{'}\bs{X}}(\alpha).
+\end{align*}
+$$
+
+Since $\alpha$ is arbitrary, by Levy's continuity theorem again, we have $\bs{u}^{'}\bs{X}_n\xrightarrow{d}\bs{u}^{'}\bs{X}$.
+
+Next, we assume that $\bs{u}^{'}\bs{X}_n\xrightarrow{d}\bs{u}^{'}\bs{X}$ for $\bs{u}\in\mathbb{R}^m$. Then, by Levy's continuity theorem, we have
+$$
+\begin{align*}
+\lim_{n\to\infty} \varphi_{\bs{u}^{'}\bs{X}_n}(\alpha)=\varphi_{\bs{u}^{'}\bs{X}}(\alpha).
+\end{align*}
+$$
+
+Setting $\alpha=1$ and rewriting the above convergence result, we obtain
+$$
+\begin{align*}
+\lim_{n\to\infty} \varphi_{\bs{X}_n}(\bs{u})=\varphi_{\bs{X}}(\bs{u}).
+\end{align*}
+$$
+
+Thus, by Levy's continuity theorem again, we have $\bs{X}_n\xrightarrow{d}\bs{X}$.
+:::
+
+We now provide the proof of the multivariate central limit theorem. Let $\bs{T}=\sqrt{n}(\bar{\bs{W}}-\bs{\mu}_{\bs{W}})$ and $\bs{Z}\sim N(\bs{0},\bs{\Sigma}_{\bs{W}})$. Then, the multivariate central limit theorem states that $\bs{T}\xrightarrow{d}\bs{Z}$ as $n\to\infty$. By @lem-multivariate-clt, it suffices to show that $\bs{u}^{'}\bs{T}\xrightarrow{d}\bs{u}^{'}\bs{Z}$ for every non-random $m\times1$ vector $\bs{u}$. Note that
+$$
+\begin{align*}
+\bs{u}^{'}\bs{T}=\sqrt{n}\bs{u}^{'}(\bar{\bs{W}}-\bs{\mu}_{\bs{W}})=\sqrt{n}(\bar{Y}-\mu_Y),
+\end{align*}
+$$
+
+where $\bar{Y}=\frac{1}{n}\sum_{i=1}^n Y_i$ with $Y_i=\bs{u}^{'}\bs{W}_i$ and $\mu_Y=\E(Y_i)=\bs{u}^{'}\bs{\mu}_{\bs{W}}$. Since $Y_i$'s are i.i.d. random variables with mean $\mu_Y$ and variance $\sigma^2_Y=\text{var}(Y_i)=\bs{u}^{'}\bs{\Sigma}_{\bs{W}}\bs{u}$, by the (univariate) central limit theorem given in @sec-chapter25, we have $\sqrt{n}(\bar{Y}-\mu_Y)\xrightarrow{d} N(0,\sigma^2_Y)$ as $n\to\infty$. Note that $\bs{u}^{'}\bs{Z}\sim N(0,\sigma^2_Y)$. Thus, we have $\bs{u}^{'}\bs{T}\xrightarrow{d}\bs{u}^{'}\bs{Z}$ for every non-random $m\times1$ vector $\bs{u}$. This completes the proof of the multivariate central limit theorem.
