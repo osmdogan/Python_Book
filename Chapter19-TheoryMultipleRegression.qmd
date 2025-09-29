@@ -416,12 +416,17 @@ $$
 
 To derive the asymptotic distribution of $\hat{\bs{\beta}}$, we need a multivariate central limit theorem that applies to vector-valued random variables.
 
-:::{#def-def26-1}
+:::{#thm-thm26-0}
 ## Multivariate central limit theorem
 Let $\{\bs{W}_i\}_{i=1}^n$ be a sequence of i.i.d. $m$-dimensional random variables with mean $\bs{\mu}_{\bs{W}}$ and covariance matrix $\bs{\Sigma}_{\bs{W}}$, where $\bs{\Sigma}_{\bs{W}}$ is positive definite and finite. Define $\overline{\bs{W}}=\frac{1}{n}\sum_{i=1}^n\bs{W}_i$. Then, 
 $$
 \sqrt{n}(\overline{\bs{W}}-\bs{\mu}_{\bs{W}})\xrightarrow{d}N(\bs{0}_m,\bs{\Sigma}_{\bs{W}}).
 $$
+:::
+
+:::{.proof}
+## The proof of @thm-thm26-0
+See @sec-appendixD.
 :::
 
 Using the multivariate central limit theorem, we can derive the asymptotic distribution of the OLS estimator. The following theorem states that the OLS estimator is asymptotically normally distributed.
