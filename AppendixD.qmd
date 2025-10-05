@@ -1430,7 +1430,7 @@ Note that $\E\left(\|\bs{X}_i\bs{X}^{'}_i\|^2\right)=\E\left(\|\bs{X}_i\|^4\righ
 $$
 \E\left(\|u_i\bs{X}_i\|^2\right)\leq \left(\E(u^4_i)\right)^{1/2}\left(\E(\|\bs{X}_i\|^4)\right)^{1/2}<\infty,
 $$
-by Assumption 3. Thus, by the law of large numbers again, we have $\frac{1}{n}\sum_{i=1}^{n}\|u_i\bs{X}_i\|^2\xrightarrow{p}\E(\|u_i\bs{X}^{'}_i\|^2)$.
+by Assumption 3. Thus, by the law of large numbers again, we have $\frac{1}{n}\sum_{i=1}^{n}\|u_i\bs{X}_i\|^2\xrightarrow{p}\E(\|u_i\bs{X}_i\|^2)$.
 
 
 By @thm-thm26-1-0, we have $\|\hat{\bs{\beta}}-\bs{\beta}\|\xrightarrow{p}0$. Then, we obtain
