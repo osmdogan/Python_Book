@@ -452,14 +452,14 @@ $${#eq-eq26-10}
 Thus, we need to show that 
 
 1. $\frac{1}{n}\bs{X}^{'}\bs{X}\xrightarrow{p}\bs{Q}_{\bs{X}}$, and 
-2. $\frac{1}{\sqrt{n}}\bs{X}^{'}\bs{U}$ obeys the multivariate central limit theorem in @def-def26-1, i.e.,  $\frac{1}{\sqrt{n}}\bs{X}^{'}\bs{U}\xrightarrow{d}N\left(\bs{0}_{k+1},\,\bs{\Sigma}_{\bs{V}}\right)$.
+2. $\frac{1}{\sqrt{n}}\bs{X}^{'}\bs{U}$ obeys the multivariate central limit theorem in @thm-thm26-0, i.e.,  $\frac{1}{\sqrt{n}}\bs{X}^{'}\bs{U}\xrightarrow{d}N\left(\bs{0}_{k+1},\,\bs{\Sigma}_{\bs{V}}\right)$.
 
 The first result follows from the law of large numbers as shown in the proof of @thm-thm26-1-0. Thus, we need to only show the second result. Note that $\frac{1}{\sqrt{n}}\bs{X}^{'}\bs{U}=\frac{1}{\sqrt{n}}\sum_{i=1}^n\bs{V}_i$, where $\bs{V}_i=\bs{X}_iu_i$. By Assumption 1, we have
 $$
 \E(\bs{V}_i)=\E\left(\bs{X}_iu_i\right)=\E\left(\E\left(\bs{X}_iu_i|\bs{X}_i\right)\right)=\E\left(\bs{X}_i\E\left(u_i|\bs{X}_i\right)\right)=\bs{0}.
 $$
 
-To apply the multivariate central limit theorem in @def-def26-1, we need to show that $\{\bs{V}_i\}$ are i.i.d across $i$ and $\bs{\Sigma}_{\bs{V}}$ is finite. Assumption 2 ensures that $\{\bs{V}_i\}$ are i.i.d across $i$. To show that $\bs{\Sigma}_{\bs{V}}$ is finite, we consider the $(h,l)$th element of $\bs{\Sigma}_{\bs{V}}=\E\left(\bs{V}_i\bs{V}^{'}_i\right)=\E\left(\bs{X}_i\bs{X}^{'}_iu^2_i\right)$, which is given by
+To apply the multivariate central limit theorem in @thm-thm26-0, we need to show that $\{\bs{V}_i\}$ are i.i.d across $i$ and $\bs{\Sigma}_{\bs{V}}$ is finite. Assumption 2 ensures that $\{\bs{V}_i\}$ are i.i.d across $i$. To show that $\bs{\Sigma}_{\bs{V}}$ is finite, we consider the $(h,l)$th element of $\bs{\Sigma}_{\bs{V}}=\E\left(\bs{V}_i\bs{V}^{'}_i\right)=\E\left(\bs{X}_i\bs{X}^{'}_iu^2_i\right)$, which is given by
 $$
 \bs{\Sigma}_{\bs{V},hl}=\E\left(X_{hi}u_iX_{li}u_i\right)=\E\left(X_{hi}X_{li}u^2_i\right),
 $$
@@ -473,7 +473,7 @@ $$
 $$
 where the first inequality follows from the expectation inequality, the second and the third from the Cauchy-Schwarz inequality, and the last from Assumption 3. Thus, we conclude that $\bs{\Sigma}_{\bs{V}}$ is finite.
 
-Then, by the multivariate central limit theorem in @def-def26-1, we have
+Then, by the multivariate central limit theorem in @thm-thm26-0, we have
 $$
 \frac{1}{\sqrt{n}}\bs{X}^{'}\bs{U}=\frac{1}{\sqrt{n}}\sum_{i=1}^n\bs{V}_i\xrightarrow{d}N\left(\bs{0}_{k+1},\,\bs{\Sigma}_{\bs{V}}\right).
 $$
@@ -486,7 +486,17 @@ $$
 \hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}=\left(\frac{\bs{X}^{'}\bs{X}}{n}\right)^{-1}\hat{\bs{\Sigma}}_{\bs{V}}\left(\frac{\bs{X}^{'}\bs{X}}{n}\right)^{-1},
 \end{align}
 $$
-where $\hat{\bs{\Sigma}}_{\bs{V}}=\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_i\hat{u}^2_i$. @White1980 showed tat $\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$ is a consistent estimator of $\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$. The estimator $\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$ is called the **heteroskedasticity-robust covariance matrix estimator**. In particular, it is called the HC0 covariance matrix estimator, indicating that it is a baseline estimator. By scaling this estimator with $n/(n-k-1)$, we obtain another version, called the HC1 estimator. The HC1 estimator is the most commonly used one in practice.^[See @MacKinnon1985 and @Hansen2022 for further discussion of heteroskedasticity-robust covariance matrix estimators.]
+where $\hat{\bs{\Sigma}}_{\bs{V}}=\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_i\hat{u}^2_i$. @White1980 showed that $\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$ is a consistent estimator of $\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$. The estimator $\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$ is called the **heteroskedasticity-robust covariance matrix estimator**. In particular, it is called the HC0 covariance matrix estimator, indicating that it is a baseline estimator. By scaling this estimator with $n/(n-k-1)$, we obtain another version, called the HC1 estimator. The HC1 estimator is the most commonly used one in practice.^[See @MacKinnon1985 and @Hansen2022 for further discussion of heteroskedasticity-robust covariance matrix estimators.]
+
+:::{#thm-thm29-3-1}
+## Consistency of the heteroskedasticity-robust covariance matrix estimator
+Under the assumptions of @thm-thm26-1, $\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\xrightarrow{p}\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$ as $n\to\infty$.
+:::
+
+:::{.proof}
+## The proof of @thm-thm29-3-1
+See @sec-appendixD.
+:::
 
 Note that the asymptotic variance of $\hat{\bs{\beta}}$ is $\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}=n^{-1}\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$. The heteroskedasticity-robust standard error for the $j$th regression coefficient is the square root of the $j$th diagonal element of $\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}$:
 $$

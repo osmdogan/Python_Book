@@ -529,7 +529,7 @@ window.Quarto = {
 </header>
 
 
-<div id="dbc0d2b8" class="cell" data-execution_count="1">
+<div id="1d2fd058" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -906,12 +906,12 @@ R^2=\frac{ESS}{TSS}=\frac{\hat{\bs{\beta}}^{'}\bs{X}^{'}\mb{M}_0\bs{X}\hat{\bs{\
 <p>Thus, we need to show that</p>
 <ol type="1">
 <li><span class="math inline">\(\frac{1}{n}\bs{X}^{'}\bs{X}\xrightarrow{p}\bs{Q}_{\bs{X}}\)</span>, and</li>
-<li><span class="math inline">\(\frac{1}{\sqrt{n}}\bs{X}^{'}\bs{U}\)</span> obeys the multivariate central limit theorem in <span class="quarto-unresolved-ref">?def-def26-1</span>, i.e., <span class="math inline">\(\frac{1}{\sqrt{n}}\bs{X}^{'}\bs{U}\xrightarrow{d}N\left(\bs{0}_{k+1},\,\bs{\Sigma}_{\bs{V}}\right)\)</span>.</li>
+<li><span class="math inline">\(\frac{1}{\sqrt{n}}\bs{X}^{'}\bs{U}\)</span> obeys the multivariate central limit theorem in <a href="#thm-thm26-0" class="quarto-xref">Theorem&nbsp;<span>29.2</span></a>, i.e., <span class="math inline">\(\frac{1}{\sqrt{n}}\bs{X}^{'}\bs{U}\xrightarrow{d}N\left(\bs{0}_{k+1},\,\bs{\Sigma}_{\bs{V}}\right)\)</span>.</li>
 </ol>
 <p>The first result follows from the law of large numbers as shown in the proof of <a href="#thm-thm26-1-0" class="quarto-xref">Theorem&nbsp;<span>29.1</span></a>. Thus, we need to only show the second result. Note that <span class="math inline">\(\frac{1}{\sqrt{n}}\bs{X}^{'}\bs{U}=\frac{1}{\sqrt{n}}\sum_{i=1}^n\bs{V}_i\)</span>, where <span class="math inline">\(\bs{V}_i=\bs{X}_iu_i\)</span>. By Assumption 1, we have <span class="math display">\[
 \E(\bs{V}_i)=\E\left(\bs{X}_iu_i\right)=\E\left(\E\left(\bs{X}_iu_i|\bs{X}_i\right)\right)=\E\left(\bs{X}_i\E\left(u_i|\bs{X}_i\right)\right)=\bs{0}.
 \]</span></p>
-<p>To apply the multivariate central limit theorem in <span class="quarto-unresolved-ref">?def-def26-1</span>, we need to show that <span class="math inline">\(\{\bs{V}_i\}\)</span> are i.i.d across <span class="math inline">\(i\)</span> and <span class="math inline">\(\bs{\Sigma}_{\bs{V}}\)</span> is finite. Assumption 2 ensures that <span class="math inline">\(\{\bs{V}_i\}\)</span> are i.i.d across <span class="math inline">\(i\)</span>. To show that <span class="math inline">\(\bs{\Sigma}_{\bs{V}}\)</span> is finite, we consider the <span class="math inline">\((h,l)\)</span>th element of <span class="math inline">\(\bs{\Sigma}_{\bs{V}}=\E\left(\bs{V}_i\bs{V}^{'}_i\right)=\E\left(\bs{X}_i\bs{X}^{'}_iu^2_i\right)\)</span>, which is given by <span class="math display">\[
+<p>To apply the multivariate central limit theorem in <a href="#thm-thm26-0" class="quarto-xref">Theorem&nbsp;<span>29.2</span></a>, we need to show that <span class="math inline">\(\{\bs{V}_i\}\)</span> are i.i.d across <span class="math inline">\(i\)</span> and <span class="math inline">\(\bs{\Sigma}_{\bs{V}}\)</span> is finite. Assumption 2 ensures that <span class="math inline">\(\{\bs{V}_i\}\)</span> are i.i.d across <span class="math inline">\(i\)</span>. To show that <span class="math inline">\(\bs{\Sigma}_{\bs{V}}\)</span> is finite, we consider the <span class="math inline">\((h,l)\)</span>th element of <span class="math inline">\(\bs{\Sigma}_{\bs{V}}=\E\left(\bs{V}_i\bs{V}^{'}_i\right)=\E\left(\bs{X}_i\bs{X}^{'}_iu^2_i\right)\)</span>, which is given by <span class="math display">\[
 \bs{\Sigma}_{\bs{V},hl}=\E\left(X_{hi}u_iX_{li}u_i\right)=\E\left(X_{hi}X_{li}u^2_i\right),
 \]</span> where <span class="math inline">\(h,l\in\{1,\ldots,k+1\}\)</span>. Then, applying the expectation inequality and the Cauchy-Cauchy–Schwarz inequality, we obtain <span class="math display">\[
 \begin{align*}
@@ -920,7 +920,7 @@ R^2=\frac{ESS}{TSS}=\frac{\hat{\bs{\beta}}^{'}\bs{X}^{'}\mb{M}_0\bs{X}\hat{\bs{\
 &amp;\leq \left(\E(X^4_{hi})\right)^{1/4}\left(\E(X^4_{li})\right)^{1/4}\sqrt{\E(u^4_i)}&lt;\infty,
 \end{align*}
 \]</span> where the first inequality follows from the expectation inequality, the second and the third from the Cauchy-Schwarz inequality, and the last from Assumption 3. Thus, we conclude that <span class="math inline">\(\bs{\Sigma}_{\bs{V}}\)</span> is finite.</p>
-<p>Then, by the multivariate central limit theorem in <span class="quarto-unresolved-ref">?def-def26-1</span>, we have <span class="math display">\[
+<p>Then, by the multivariate central limit theorem in <a href="#thm-thm26-0" class="quarto-xref">Theorem&nbsp;<span>29.2</span></a>, we have <span class="math display">\[
 \frac{1}{\sqrt{n}}\bs{X}^{'}\bs{U}=\frac{1}{\sqrt{n}}\sum_{i=1}^n\bs{V}_i\xrightarrow{d}N\left(\bs{0}_{k+1},\,\bs{\Sigma}_{\bs{V}}\right).
 \]</span> Finally, the desired result follows from Slutsky’s theorem.</p>
 </div>
@@ -928,7 +928,13 @@ R^2=\frac{ESS}{TSS}=\frac{\hat{\bs{\beta}}^{'}\bs{X}^{'}\mb{M}_0\bs{X}\hat{\bs{\
 \begin{align}
 \hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}=\left(\frac{\bs{X}^{'}\bs{X}}{n}\right)^{-1}\hat{\bs{\Sigma}}_{\bs{V}}\left(\frac{\bs{X}^{'}\bs{X}}{n}\right)^{-1},
 \end{align}
-\]</span> where <span class="math inline">\(\hat{\bs{\Sigma}}_{\bs{V}}=\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_i\hat{u}^2_i\)</span>. <span class="citation" data-cites="White1980">White (<a href="references.html#ref-White1980" role="doc-biblioref">1980</a>)</span> showed tat <span class="math inline">\(\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span> is a consistent estimator of <span class="math inline">\(\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span>. The estimator <span class="math inline">\(\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span> is called the <strong>heteroskedasticity-robust covariance matrix estimator</strong>. In particular, it is called the HC0 covariance matrix estimator, indicating that it is a baseline estimator. By scaling this estimator with <span class="math inline">\(n/(n-k-1)\)</span>, we obtain another version, called the HC1 estimator. The HC1 estimator is the most commonly used one in practice.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+\]</span> where <span class="math inline">\(\hat{\bs{\Sigma}}_{\bs{V}}=\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_i\hat{u}^2_i\)</span>. <span class="citation" data-cites="White1980">White (<a href="references.html#ref-White1980" role="doc-biblioref">1980</a>)</span> showed that <span class="math inline">\(\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span> is a consistent estimator of <span class="math inline">\(\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span>. The estimator <span class="math inline">\(\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span> is called the <strong>heteroskedasticity-robust covariance matrix estimator</strong>. In particular, it is called the HC0 covariance matrix estimator, indicating that it is a baseline estimator. By scaling this estimator with <span class="math inline">\(n/(n-k-1)\)</span>, we obtain another version, called the HC1 estimator. The HC1 estimator is the most commonly used one in practice.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div id="thm-thm29-3-1" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 29.4 (Consistency of the heteroskedasticity-robust covariance matrix estimator)</strong></span> Under the assumptions of <a href="#thm-thm26-1" class="quarto-xref">Theorem&nbsp;<span>29.3</span></a>, <span class="math inline">\(\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\xrightarrow{p}\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span> as <span class="math inline">\(n\to\infty\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm29-3-1" class="quarto-xref">Theorem&nbsp;<span>29.4</span></a>). </span>See <a href="AppendixD.html" class="quarto-xref"><span>Appendix D</span></a>.</p>
+</div>
 <p>Note that the asymptotic variance of <span class="math inline">\(\hat{\bs{\beta}}\)</span> is <span class="math inline">\(\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}=n^{-1}\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\)</span>. The heteroskedasticity-robust standard error for the <span class="math inline">\(j\)</span>th regression coefficient is the square root of the <span class="math inline">\(j\)</span>th diagonal element of <span class="math inline">\(\hat{\bs{\Sigma}}_{\hat{\bs{\beta}}}\)</span>: <span class="math display">\[
 \begin{align}
 SE(\hat{\beta}_j)=\sqrt{\hat{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}},
@@ -939,10 +945,10 @@ t=\frac{\hat{\beta}_j-c}{SE(\hat{\beta}_j)}.
 \end{align}
 \]</span></p>
 <div id="thm-thm26-t" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 29.4 (Asymptotic distribution of the heteroskedasticity-robust t-statistic)</strong></span> Assume that Assumptions 1-4 hold. Under the null hypothesis, <span class="math inline">\(t\)</span> has the asymptotic standard normal distribution, i.e., <span class="math inline">\(t\xrightarrow{d}N(0,1)\)</span>.</p>
+<p><span class="theorem-title"><strong>Theorem 29.5 (Asymptotic distribution of the heteroskedasticity-robust t-statistic)</strong></span> Assume that Assumptions 1-4 hold. Under the null hypothesis, <span class="math inline">\(t\)</span> has the asymptotic standard normal distribution, i.e., <span class="math inline">\(t\xrightarrow{d}N(0,1)\)</span>.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-t" class="quarto-xref">Theorem&nbsp;<span>29.4</span></a>). </span>The heteroskedasticity-robust t-statistic can be written as <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-t" class="quarto-xref">Theorem&nbsp;<span>29.5</span></a>). </span>The heteroskedasticity-robust t-statistic can be written as <span class="math display">\[
 \begin{align}
 t=\frac{\hat{\beta}_j-c}{SE(\hat{\beta}_j)}=\frac{\hat{\beta}_j-c}{\sqrt{\hat{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}}}=\frac{\hat{\beta}_j-c}{\sqrt{\bs{\Sigma}_{\hat{\bs{\beta}},jj}}}\div \sqrt{\frac{\hat{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}}{\bs{\Sigma}_{\hat{\bs{\beta}},jj}}}.
 \end{align}
@@ -994,14 +1000,14 @@ F=\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)^{'}\left(\bs{R}\hat{\bs{\Sigma}}_{\
 \end{align}
 \]</span></p>
 <div id="thm-thm26-2" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 29.5 (Asymptotic distribution of the heteroskedasticity-robust F-statistic)</strong></span> Assume that Assumptions 1-4 hold. Then, under the null hypothesis, we have <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 29.6 (Asymptotic distribution of the heteroskedasticity-robust F-statistic)</strong></span> Assume that Assumptions 1-4 hold. Then, under the null hypothesis, we have <span class="math display">\[
 \begin{align}
 F\xrightarrow{d}F_{q,\infty}.
 \end{align}
 \]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-2" class="quarto-xref">Theorem&nbsp;<span>29.5</span></a>). </span>The proof requires some properties of random variables that have multivariate normal distribution. See Appendix D for these properties. Under <span class="math inline">\(H_0\)</span>, we have <span class="math inline">\(\sqrt{n}\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)=\sqrt{n}\bs{R}\left(\hat{\bs{\beta}}-\bs{\beta}\right)\xrightarrow{d}N\left(\bs{0},\bs{R}\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\bs{R}^{'}\right)\)</span>. Then, it follows that <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-2" class="quarto-xref">Theorem&nbsp;<span>29.6</span></a>). </span>The proof requires some properties of random variables that have multivariate normal distribution. See Appendix D for these properties. Under <span class="math inline">\(H_0\)</span>, we have <span class="math inline">\(\sqrt{n}\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)=\sqrt{n}\bs{R}\left(\hat{\bs{\beta}}-\bs{\beta}\right)\xrightarrow{d}N\left(\bs{0},\bs{R}\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\bs{R}^{'}\right)\)</span>. Then, it follows that <span class="math display">\[
 \begin{align*}
 &amp;\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)^{'}\left(\bs{R}\bs{\Sigma}_{\hat{\bs{\beta}}}\bs{R}^{'}\right)^{-1}\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)=\sqrt{n}\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)^{'}\left(n\bs{R}\bs{\Sigma}_{\hat{\bs{\beta}}}\bs{R}^{'}\right)^{-1}\sqrt{n}\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)\\
 &amp;=
@@ -1101,10 +1107,10 @@ SE(\hat{\beta}_j)=\sqrt{\tilde{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}},
 \tilde{t}=\frac{\hat{\beta}_j-\beta_{j,0}}{\sqrt{\tilde{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}}}.
 \]</span></p>
 <div id="thm-thm26-3" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 29.6 (Exact sampling distribution of the homoskedasticity-only t-statistic)</strong></span> Under all six of the extended least squares assumptions, the exact sampling distribution of <span class="math inline">\(\tilde{t}\)</span> is the Student t distribution with <span class="math inline">\(n- k - 1\)</span> degrees of freedom.</p>
+<p><span class="theorem-title"><strong>Theorem 29.7 (Exact sampling distribution of the homoskedasticity-only t-statistic)</strong></span> Under all six of the extended least squares assumptions, the exact sampling distribution of <span class="math inline">\(\tilde{t}\)</span> is the Student t distribution with <span class="math inline">\(n- k - 1\)</span> degrees of freedom.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-3" class="quarto-xref">Theorem&nbsp;<span>29.6</span></a>). </span>Note that we can write <span class="math inline">\(\tilde{t}\)</span> as <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-3" class="quarto-xref">Theorem&nbsp;<span>29.7</span></a>). </span>Note that we can write <span class="math inline">\(\tilde{t}\)</span> as <span class="math display">\[
 \tilde{t}=\frac{(\hat{\beta}_j-\beta_{j,0})/\sqrt{\bs{\Sigma}_{\hat{\bs{\beta}},jj}}}{\sqrt{W/(n-k-1)}},
 \]</span> where <span class="math inline">\(W=\frac{(n-k-1)s^2_{\hat{u}}}{\sigma^2_u}\)</span>. Under the null, the numerator is distributed as <span class="math inline">\(N(0,1)\)</span>. The variable <span class="math inline">\(W\)</span> in the denominator is distributed as <span class="math inline">\(W\sim \chi_{n-k-1}\)</span> by <a href="#eq-eq26-18" class="quarto-xref">Equation&nbsp;<span>29.12</span></a>. If we can also show that <span class="math inline">\(W\)</span> is independent of the numerator, then we can conclude that <span class="math inline">\(\tilde{t}\)</span> has the Student t distribution with <span class="math inline">\(n-k-1\)</span> degrees of freedom. The independence result follows from <a href="#eq-eq26-11-2" class="quarto-xref">Equation&nbsp;<span>29.11</span></a>.</p>
 </div>
@@ -1114,14 +1120,14 @@ SE(\hat{\beta}_j)=\sqrt{\tilde{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}},
 \end{align}
 \]</span></p>
 <div id="thm-thm26-4" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 29.7 (Exact sampling distribution of the homoskedasticity-only F-statistic)</strong></span> Assume that all six assumptions hold. Then, under the null hypothesis, we have <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 29.8 (Exact sampling distribution of the homoskedasticity-only F-statistic)</strong></span> Assume that all six assumptions hold. Then, under the null hypothesis, we have <span class="math display">\[
 \begin{align}
 \tilde{F}\sim F_{q,n-k-1}.
 \end{align}
 \]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-4" class="quarto-xref">Theorem&nbsp;<span>29.7</span></a>). </span>Note that we can express <span class="math inline">\(\tilde{F}\)</span> as <span class="math inline">\(\tilde{F}=(W_1/q)/(W_2/(n-k-1))\)</span>, where</p>
+<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-4" class="quarto-xref">Theorem&nbsp;<span>29.8</span></a>). </span>Note that we can express <span class="math inline">\(\tilde{F}\)</span> as <span class="math inline">\(\tilde{F}=(W_1/q)/(W_2/(n-k-1))\)</span>, where</p>
 <ul>
 <li><span class="math inline">\(W_1=\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)^{'}\left(\sigma^2_u\bs{R}(\bs{X}^{'}\bs{X})^{-1}\bs{R}^{'}\right)^{-1}\left(\bs{R}\hat{\bs{\beta}}-\bs{r}\right)\)</span>, and</li>
 <li><span class="math inline">\(W_2=\frac{(n-k-1)s^2_{\hat{u}}}{\sigma^2_u}\)</span>.</li>
@@ -1139,10 +1145,10 @@ SE(\hat{\beta}_j)=\sqrt{\tilde{\bs{\Sigma}}_{\hat{\bs{\beta}},jj}},
 </ol>
 <p>An estimator <span class="math inline">\(\tilde{\bs{\beta}}\)</span> is a linear function of <span class="math inline">\(\bs{Y}\)</span> if it can be expressed as <span class="math inline">\(\tilde{\bs{\beta}}=\bs{A}^{'}\bs{Y}\)</span>, where <span class="math inline">\(\bs{A}\)</span> may depend on <span class="math inline">\(\bs{X}\)</span> and nonrandom constants but not on <span class="math inline">\(\bs{Y}\)</span>. For example, the OLS estimator <span class="math inline">\(\hat{\bs{\beta}}=(\bs{X}^{'}\bs{X})^{-1}\bs{X}^{'}\bs{Y}\)</span> is linear because it can be written as <span class="math inline">\(\hat{\bs{\beta}}=\bs{A}^{'}\bs{Y}\)</span>, where <span class="math inline">\(\bs{A}=\bs{X}(\bs{X}^{'}\bs{X})^{-1}\)</span>.</p>
 <div id="thm-thm26-6-1" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 29.8 (Gauss-Markov Theorem)</strong></span> Suppose the three Gauss-Markov conditions hold. Then, the OLS estimator is efficient among all linear and conditionally unbiased estimators; that is, the OLS estimator is the best linear unbiased estimator (BLUE).</p>
+<p><span class="theorem-title"><strong>Theorem 29.9 (Gauss-Markov Theorem)</strong></span> Suppose the three Gauss-Markov conditions hold. Then, the OLS estimator is efficient among all linear and conditionally unbiased estimators; that is, the OLS estimator is the best linear unbiased estimator (BLUE).</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-6-1" class="quarto-xref">Theorem&nbsp;<span>29.8</span></a>). </span>Note that under the Gauss-Markov conditions, the conditional variance of the OLS estimator is given by <span class="math inline">\(\sigma^2_u(\bs{X}^{'}\bs{X})^{-1}\)</span>. Let <span class="math inline">\(\tilde{\beta}=\bs{A}^{'}\bs{Y}\)</span> be a conditionally unbiased linear estimator of <span class="math inline">\(\bs{\beta}\)</span>. Then, under the first assumption, we have <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-6-1" class="quarto-xref">Theorem&nbsp;<span>29.9</span></a>). </span>Note that under the Gauss-Markov conditions, the conditional variance of the OLS estimator is given by <span class="math inline">\(\sigma^2_u(\bs{X}^{'}\bs{X})^{-1}\)</span>. Let <span class="math inline">\(\tilde{\beta}=\bs{A}^{'}\bs{Y}\)</span> be a conditionally unbiased linear estimator of <span class="math inline">\(\bs{\beta}\)</span>. Then, under the first assumption, we have <span class="math display">\[
 \E(\tilde{\bs{\beta}}|\bs{X})=\bs{A}^{'}\E(\bs{Y}|\bs{X})=\bs{A}^{'}\bs{X}\bs{\beta},
 \]</span> indicating that <span class="math inline">\(\bs{A}^{'}\bs{X}=\bs{I}_k\)</span>. The conditional variance of <span class="math inline">\(\tilde{\bs{\beta}}\)</span> is given by <span class="math display">\[
 \text{var}(\tilde{\bs{\beta}}|\bs{X})=\text{var}(\bs{A}^{'}\bs{Y}|\bs{X})=\bs{A}^{'}\text{var}(\bs{Y}|\bs{X})\bs{A}=\sigma^2_u\bs{A}^{'}\bs{A},
@@ -1238,10 +1244,10 @@ The least squares assumptions for the model with control variables
 </div>
 <p>These assumptions are identical to those stated in Section 13.8, except that we use matrix algebra notation to express them.</p>
 <div id="thm-thm26-control" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 29.9 (The OLS estimator for the model with control variables)</strong></span> Assume that the least squares assumptions for the model with control variables hold. Then, the OLS estimator <span class="math inline">\(\hat{\bs{\beta}}\)</span> is consistent and has an asymptotic normal distribution.</p>
+<p><span class="theorem-title"><strong>Theorem 29.10 (The OLS estimator for the model with control variables)</strong></span> Assume that the least squares assumptions for the model with control variables hold. Then, the OLS estimator <span class="math inline">\(\hat{\bs{\beta}}\)</span> is consistent and has an asymptotic normal distribution.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-control" class="quarto-xref">Theorem&nbsp;<span>29.9</span></a>). </span>The proof closely follows that of <a href="#thm-thm26-1" class="quarto-xref">Theorem&nbsp;<span>29.3</span></a> and is thus omitted.</p>
+<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-control" class="quarto-xref">Theorem&nbsp;<span>29.10</span></a>). </span>The proof closely follows that of <a href="#thm-thm26-1" class="quarto-xref">Theorem&nbsp;<span>29.3</span></a> and is thus omitted.</p>
 </div>
 </section>
 <section id="generalized-least-squares-estimation" class="level2" data-number="29.9">
@@ -1380,10 +1386,10 @@ The generalized least squares assumptions
 \end{align*}
 \]</span></p>
 <div id="thm-thm26-5" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 29.10 (The efficiency of the TSLS estimator under homoskedasticity)</strong></span> If the errors are homoskedastic, then the TSLS estimator is efficient among all IV estimators that are based on the linear moment conditions.</p>
+<p><span class="theorem-title"><strong>Theorem 29.11 (The efficiency of the TSLS estimator under homoskedasticity)</strong></span> If the errors are homoskedastic, then the TSLS estimator is efficient among all IV estimators that are based on the linear moment conditions.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-5" class="quarto-xref">Theorem&nbsp;<span>29.10</span></a>). </span>Recall that the covariance matrix of the TSLS estimator is given by <span class="math inline">\(\bs{\Sigma}^{TSLS}=\sigma^2_u\left(\bs{Q}_{\bs{X}\bs{Z}}\bs{Q}^{-1}_{\bs{Z}\bs{Z}}\bs{Q}_{\bs{Z}\bs{X}}\right)^{-1}\)</span>. Then, we can express <span class="math inline">\(\bs{\Sigma}^{IV}_{\bs{A}}-\bs{\Sigma}^{TSLS}\)</span> as <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-5" class="quarto-xref">Theorem&nbsp;<span>29.11</span></a>). </span>Recall that the covariance matrix of the TSLS estimator is given by <span class="math inline">\(\bs{\Sigma}^{TSLS}=\sigma^2_u\left(\bs{Q}_{\bs{X}\bs{Z}}\bs{Q}^{-1}_{\bs{Z}\bs{Z}}\bs{Q}_{\bs{Z}\bs{X}}\right)^{-1}\)</span>. Then, we can express <span class="math inline">\(\bs{\Sigma}^{IV}_{\bs{A}}-\bs{\Sigma}^{TSLS}\)</span> as <span class="math display">\[
 \begin{align*}
 \bs{\Sigma}^{IV}_{\bs{A}}-\bs{\Sigma}^{TSLS}&amp;=\sigma^2_u\left(\bs{Q}_{\bs{X}\bs{Z}}\bs{A}\bs{Q}_{\bs{Z}\bs{X}}\right)^{-1}\bs{Q}_{\bs{X}\bs{Z}}\bs{A}\bs{Q}_{\bs{Z}\bs{Z}}\bs{A}\bs{Q}_{\bs{Z}\bs{X}}\left(\bs{Q}_{\bs{X}\bs{Z}}\bs{A}\bs{Q}_{\bs{Z}\bs{X}}\right)^{-1}\\
 &amp;-\sigma^2_u\left(\bs{Q}_{\bs{X}\bs{Z}}\bs{Q}^{-1}_{\bs{Z}\bs{Z}}\bs{Q}_{\bs{Z}\bs{X}}\right)^{-1}\\
@@ -1410,14 +1416,14 @@ J&amp;=(m+r)\times F\\
 \end{align}
 \tag{29.20}\]</span></span></p>
 <div id="thm-thm26-6" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 29.11 (The <span class="math inline">\(J\)</span> statistic under homoskedasticity)</strong></span> If the errors are homoskedastic, then under the null hypothesis that <span class="math inline">\(\E(\bs{Z}_iu_i)=0\)</span>, we have <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 29.12 (The <span class="math inline">\(J\)</span> statistic under homoskedasticity)</strong></span> If the errors are homoskedastic, then under the null hypothesis that <span class="math inline">\(\E(\bs{Z}_iu_i)=0\)</span>, we have <span class="math display">\[
 \begin{align}
 J\xrightarrow{d}\chi^2_{m-k}.
 \end{align}
 \]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-6" class="quarto-xref">Theorem&nbsp;<span>29.11</span></a>). </span>Note that <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-6" class="quarto-xref">Theorem&nbsp;<span>29.12</span></a>). </span>Note that <span class="math display">\[
 \begin{align*}
 \hat{\bs{U}} &amp;= \bs{Y} - \bs{X}\hat{\bs{\beta}}^{TSLS} = \bs{Y} - \bs{X}(\bs{X}^{'}\bs{P}_{\bs{Z}}\bs{X})^{-1}\bs{X}^{'}\bs{P}_{\bs{Z}}\bs{Y}\\
 &amp;=\bs{X}\bs{\beta}+\bs{U} - \bs{X}(\bs{X}^{'}\bs{P}_{\bs{Z}}\bs{X})^{-1}\bs{X}^{'}\bs{P}_{\bs{Z}}(\bs{X}\bs{\beta}+\bs{U})\\
@@ -1451,7 +1457,7 @@ J=\frac{\hat{\bs{U}}^{'}\bs{P}_{\bs{Z}}\hat{\bs{U}}}{\hat{\bs{U}}^{'}\bs{M}_{\bs
 </section>
 <section id="generalized-method-of-moments" class="level3" data-number="29.10.3">
 <h3 data-number="29.10.3" class="anchored" data-anchor-id="generalized-method-of-moments"><span class="header-section-number">29.10.3</span> Generalized method of moments</h3>
-<p>When the error terms are heteroskedastic, the TSLS estimator is not the most efficient estimator within the class of IV estimators. Also, the distributional result given in <a href="#thm-thm26-6" class="quarto-xref">Theorem&nbsp;<span>29.11</span></a> for the J-statistic does not hold. In this case, we can use the generalized method of moments (GMM) estimator. We use the GMM estimator to formulate a J-statistic that is valid under heteroskedasticity.</p>
+<p>When the error terms are heteroskedastic, the TSLS estimator is not the most efficient estimator within the class of IV estimators. Also, the distributional result given in <a href="#thm-thm26-6" class="quarto-xref">Theorem&nbsp;<span>29.12</span></a> for the J-statistic does not hold. In this case, we can use the generalized method of moments (GMM) estimator. We use the GMM estimator to formulate a J-statistic that is valid under heteroskedasticity.</p>
 <p>When the moment conditions are linear, the cass of the GMM estimator consists of all the estimators that can be obtained by minimizing the quadratic form in <a href="#eq-eq26-28" class="quarto-xref">Equation&nbsp;<span>29.18</span></a>. Our goal is to find the GMM estimator that is efficient among all the estimators in the class of GMM estimators. To do this, we need to find the optimal weighting matrix <span class="math inline">\(\bs{A}\)</span>. In the heteroskedastic case, the optimal wieghting matrix is given by <span class="math inline">\(\bs{A}=\bs{H}^{-1}\)</span>, where <span class="math inline">\(\bs{H}=\E(\bs{Z}_i\bs{Z}^{'}_iu^2_i)\)</span>. The GMM estimator is obtained by minimizing the quadratic form <span id="eq-eq26-31"><span class="math display">\[
 \begin{align}
 \bs{Q}(\bs{b})=\left(\bs{Y}-\bs{X}\bs{b}\right)^{'}\bs{Z}\bs{H}^{-1}\bs{Z}^{'}\left(\bs{Y}-\bs{X}\bs{b}\right).
@@ -1466,10 +1472,10 @@ J=\frac{\hat{\bs{U}}^{'}\bs{P}_{\bs{Z}}\hat{\bs{U}}}{\hat{\bs{U}}^{'}\bs{M}_{\bs
 \end{align*}
 \]</span> where <span class="math inline">\(\bs{\Sigma}^{GMM}=(\bs{Q}_{\bs{X}\bs{Z}}\bs{H}^{-1}\bs{Q}_{\bs{Z}\bs{X}})^{-1}\)</span>.</p>
 <div id="thm-thm26-7" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 29.12 (The GMM estimator)</strong></span> The GMM estimator in <a href="#eq-eq26-32" class="quarto-xref">Equation&nbsp;<span>29.22</span></a> is the most efficient estimator among all the estimators in the class of GMM estimators.</p>
+<p><span class="theorem-title"><strong>Theorem 29.13 (The GMM estimator)</strong></span> The GMM estimator in <a href="#eq-eq26-32" class="quarto-xref">Equation&nbsp;<span>29.22</span></a> is the most efficient estimator among all the estimators in the class of GMM estimators.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-7" class="quarto-xref">Theorem&nbsp;<span>29.12</span></a>). </span>The proof requires showing that <span class="math inline">\(\bs{c}(\bs{\Sigma}^{GMM}-\bs{\Sigma}^{IV}_{\bs{A}})\bs{c}\leq0\)</span> for all <span class="math inline">\(\bs{c}\in\mathbb{R}^{k+r+1}\)</span>. We can follow the same steps as in the proof of <a href="#thm-thm26-5" class="quarto-xref">Theorem&nbsp;<span>29.10</span></a>. The only difference is that we need to replace <span class="math inline">\(\sigma^2_u\bs{Q}_{\bs{Z}\bs{Z}}\)</span> with <span class="math inline">\(\bs{H}^{-1}\)</span>. We omit the details here.</p>
+<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-7" class="quarto-xref">Theorem&nbsp;<span>29.13</span></a>). </span>The proof requires showing that <span class="math inline">\(\bs{c}(\bs{\Sigma}^{GMM}-\bs{\Sigma}^{IV}_{\bs{A}})\bs{c}\leq0\)</span> for all <span class="math inline">\(\bs{c}\in\mathbb{R}^{k+r+1}\)</span>. We can follow the same steps as in the proof of <a href="#thm-thm26-5" class="quarto-xref">Theorem&nbsp;<span>29.11</span></a>. The only difference is that we need to replace <span class="math inline">\(\sigma^2_u\bs{Q}_{\bs{Z}\bs{Z}}\)</span> with <span class="math inline">\(\bs{H}^{-1}\)</span>. We omit the details here.</p>
 </div>
 <p>The GMM estimator <span class="math inline">\(\tilde{\bs{\beta}}^{GMM}\)</span> is not feasible because it depends on the unknown covariance matrix <span class="math inline">\(\bs{H}\)</span>. The feasible GMM estimator is obtained by replacing <span class="math inline">\(\bs{H}\)</span> with its estimator <span class="math inline">\(\hat{\bs{H}}\)</span>. We can proceed in two steps to obtain the feasible GMM estimator.</p>
 <ol type="1">
@@ -1495,10 +1501,10 @@ J^{GMM}=(\bs{Z}^{'}\hat{\bs{U}})^{'}\hat{\bs{H}}^{-1}(\bs{Z}^{'}\hat{\bs{U}})/n,
 \end{align}
 \tag{29.25}\]</span></span> where <span class="math inline">\(\hat{\bs{U}}=\bs{Y}-\bs{X}\hat{\bs{\beta}}^{GMM}\)</span>.</p>
 <div id="thm-thm26-8" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 29.13 (The <span class="math inline">\(J^{GMM}\)</span> statistic)</strong></span> The <span class="math inline">\(J^{GMM}\)</span> statistic is asymptotically distributed as <span class="math inline">\(\chi^2_{m-k}\)</span> under the null hypothesis that <span class="math inline">\(\E(\bs{Z}_iu_i)=0\)</span>.</p>
+<p><span class="theorem-title"><strong>Theorem 29.14 (The <span class="math inline">\(J^{GMM}\)</span> statistic)</strong></span> The <span class="math inline">\(J^{GMM}\)</span> statistic is asymptotically distributed as <span class="math inline">\(\chi^2_{m-k}\)</span> under the null hypothesis that <span class="math inline">\(\E(\bs{Z}_iu_i)=0\)</span>.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-8" class="quarto-xref">Theorem&nbsp;<span>29.13</span></a>). </span>The proof is similar to the proof of <a href="#thm-thm26-6" class="quarto-xref">Theorem&nbsp;<span>29.11</span></a>. The details are omitted.</p>
+<p><span class="proof-title"><em>Proof</em> (The proof of <a href="#thm-thm26-8" class="quarto-xref">Theorem&nbsp;<span>29.14</span></a>). </span>The proof is similar to the proof of <a href="#thm-thm26-6" class="quarto-xref">Theorem&nbsp;<span>29.12</span></a>. The details are omitted.</p>
 </div>
 
 

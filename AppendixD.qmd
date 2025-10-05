@@ -1384,3 +1384,68 @@ $$
 $$
 
 where $\bar{Y}=\frac{1}{n}\sum_{i=1}^n Y_i$ with $Y_i=\bs{u}^{'}\bs{W}_i$ and $\mu_Y=\E(Y_i)=\bs{u}^{'}\bs{\mu}_{\bs{W}}$. Since $Y_i$'s are i.i.d. random variables with mean $\mu_Y$ and variance $\sigma^2_Y=\text{var}(Y_i)=\bs{u}^{'}\bs{\Sigma}_{\bs{W}}\bs{u}$, by the (univariate) central limit theorem given in @sec-chapter25, we have $\sqrt{n}(\bar{Y}-\mu_Y)\xrightarrow{d} N(0,\sigma^2_Y)$ as $n\to\infty$. Note that $\bs{u}^{'}\bs{Z}\sim N(0,\sigma^2_Y)$. Thus, we have $\bs{u}^{'}\bs{T}\xrightarrow{d}\bs{u}^{'}\bs{Z}$ for every non-random $m\times1$ vector $\bs{u}$. This completes the proof of the multivariate central limit theorem.
+
+## Heteroskedasticity-robust covariance matrix estimator
+In @thm-thm26-1, we show that
+$$
+\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})\xrightarrow{d}N\left(\bs{0}_{k+1},\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}\right),
+$$
+where $\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}=\bs{Q}^{-1}_{\bs{X}}\bs{\Sigma}_{\bs{V}}\bs{Q}^{-1}_{\bs{X}}$. We can estimate $\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$ by
+$$
+\begin{align}
+\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}=\left(\frac{\bs{X}^{'}\bs{X}}{n}\right)^{-1}\hat{\bs{\Sigma}}_{\bs{V}}\left(\frac{\bs{X}^{'}\bs{X}}{n}\right)^{-1},
+\end{align}
+$$
+where $\hat{\bs{\Sigma}}_{\bs{V}}=\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_i\hat{u}^2_i$. 
+
+In this section, we show that $\hat{\bs{\Sigma}}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$ is a consistent estimator of $\bs{\Sigma}_{\sqrt{n}(\hat{\bs{\beta}}-\bs{\beta})}$. Since $\frac{1}{n}\bs{X}^{'}\bs{X}\xrightarrow{p}\bs{Q}_{\bs{X}}$ by @thm-thm26-1, it suffices to show that $\hat{\bs{\Sigma}}_{\bs{V}}\xrightarrow{p}\bs{\Sigma}_{\bs{V}}$. Note that $\hat{u}_i=Y_i-\hat{Y}_i=u_i-(\hat{\bs{\beta}}-\bs{\beta})^{'}\bs{X}_i$. Then, we can express $\hat{\bs{\Sigma}}_{\bs{V}}$ as
+$$
+\begin{align*}
+\hat{\bs{\Sigma}}_{\bs{V}}&=\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_i\hat{u}^2_i\\
+&=\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_i\left(u_i-(\hat{\bs{\beta}}-\bs{\beta})^{'}\bs{X}_i\right)^2\\
+&=\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_iu^2_i-\frac{2}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_iu_i\bs{X}^{'}_i(\hat{\bs{\beta}}-\bs{\beta})\\
+&+\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_i(\hat{\bs{\beta}}-\bs{\beta})^{'}\bs{X}_i\bs{X}^{'}_i(\hat{\bs{\beta}}-\bs{\beta})\\
+&=\bs{A}_1-\bs{A}_2+\bs{A}_3,
+\end{align*}    
+$$
+where $\bs{A}_1=\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_iu^2_i$, $\bs{A}_2=\frac{2}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_iu_i\bs{X}^{'}_i(\hat{\bs{\beta}}-\bs{\beta})$, and $\bs{A}_3=\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_i(\hat{\bs{\beta}}-\bs{\beta})^{'}\bs{X}_i\bs{X}^{'}_i(\hat{\bs{\beta}}-\bs{\beta})$. 
+
+Applying the law of large numbers to $\bs{A}_1$, we obtain 
+$$
+\bs{A}_1=\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_iu^2_i\xrightarrow{p}\E(\bs{X}_i\bs{X}^{'}_iu^2_i)=\bs{\Sigma}_{\bs{V}}. 
+$$
+
+Next, we show that $\bs{A}_2\xrightarrow{p}\bs{0}$ and $\bs{A}_3\xrightarrow{p}\bs{0}$. Note that
+$$
+\begin{align*}
+\|\bs{A}_2\|&=\left\|\frac{2}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_iu_i\bs{X}^{'}_i(\hat{\bs{\beta}}-\bs{\beta})\right\|\\
+&\leq \frac{2}{n}\sum_{i=1}^{n}\left\|\bs{X}_i\bs{X}^{'}_iu_i\bs{X}^{'}_i(\hat{\bs{\beta}}-\bs{\beta})\right\|\\
+&\leq 2\|\hat{\bs{\beta}}-\bs{\beta}\|\frac{1}{n}\sum_{i=1}^{n}\|\bs{X}_i\bs{X}^{'}_iu_i\bs{X}_i\|\\
+&\leq 2\|\hat{\bs{\beta}}-\bs{\beta}\|\left(\frac{1}{n}\sum_{i=1}^{n}\|\bs{X}_i\bs{X}^{'}_i\|^2\right)^{1/2}\left(\frac{1}{n}\sum_{i=1}^{n}\|u_i\bs{X}_i\|^2\right)^{1/2},
+\end{align*}
+$$
+where the first inequality follows from the triangle inequality, the second inequality from the sub-multiplicative property of matrix norms, and the third inequality from the Cauchy-Schwarz inequality.
+
+Note that $\E\left(\|\bs{X}_i\bs{X}^{'}_i\|^2\right)=\E\left(\|\bs{X}_i\|^4\right)<\infty$ by Assumption 3. Thus, by the law of large numbers, we have $\frac{1}{n}\sum_{i=1}^{n}\|\bs{X}_i\bs{X}^{'}_i\|^2\xrightarrow{p}\E(\|\bs{X}_i\bs{X}^{'}_i\|^2)$. Also, by the Cauchy-Schwarz inequality, we have 
+$$
+\E\left(\|u_i\bs{X}_i\|^2\right)\leq \left(\E(u^4_i)\right)^{1/2}\left(\E(\|\bs{X}_i\|^4)\right)^{1/2}<\infty,
+$$
+by Assumption 3. Thus, by the law of large numbers again, we have $\frac{1}{n}\sum_{i=1}^{n}\|u_i\bs{X}_i\|^2\xrightarrow{p}\E(\|u_i\bs{X}^{'}_i\|^2)$.
+
+
+By @thm-thm26-1-0, we have $\|\hat{\bs{\beta}}-\bs{\beta}\|\xrightarrow{p}0$. Then, we obtain
+$$
+\|\bs{A}_2\|\xrightarrow{p} 2\times 0 \times\E(\|\bs{X}_i\bs{X}^{'}_i\|^2)\times \E(\|u_i\bs{X}^{'}_i\|^2)=0,
+$$
+which implies that $\bs{A}_2\xrightarrow{p}\bs{0}$.
+
+Similarly,
+$$
+\begin{align*}
+\|\bs{A}_3\|&=\left\|\frac{1}{n}\sum_{i=1}^{n}\bs{X}_i\bs{X}^{'}_i(\hat{\bs{\beta}}-\bs{\beta})^{'}\bs{X}_i\bs{X}^{'}_i(\hat{\bs{\beta}}-\bs{\beta})\right\|\\
+&\leq \frac{1}{n}\sum_{i=1}^{n}\left\|\bs{X}_i\bs{X}^{'}_i(\hat{\bs{\beta}}-\bs{\beta})^{'}\bs{X}_i\bs{X}^{'}_i(\hat{\bs{\beta}}-\bs{\beta})\right\|\\
+&\leq \|\hat{\bs{\beta}}-\bs{\beta}\|^2\frac{1}{n}\sum_{i=1}^{n}\|\bs{X}_i\bs{X}^{'}_i\|^2.
+\end{align*}
+$$
+
+Then, by the same arguments used for $\bs{A}_2$, we have $\bs{A}_3\xrightarrow{p}\bs{0}$. This completes the proof.
