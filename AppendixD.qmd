@@ -1435,7 +1435,10 @@ by Assumption 3. Thus, by the law of large numbers again, we have $\frac{1}{n}\s
 
 By @thm-thm26-1-0, we have $\|\hat{\bs{\beta}}-\bs{\beta}\|\xrightarrow{p}0$. Then, we obtain
 $$
-\|\bs{A}_2\|\xrightarrow{p} 2\times 0 \times\E(\|\bs{X}_i\bs{X}^{'}_i\|^2)\times \E(\|u_i\bs{X}^{'}_i\|^2)=0,
+\begin{align*}
+\|\bs{A}_2\|&\leq 2\|\hat{\bs{\beta}}-\bs{\beta}\|\left(\frac{1}{n}\sum_{i=1}^{n}\|\bs{X}_i\bs{X}^{'}_i\|^2\right)^{1/2}\left(\frac{1}{n}\sum_{i=1}^{n}\|u_i\bs{X}_i\|^2\right)^{1/2}\\
+&\xrightarrow{p} 2\times 0 \times\left(\E(\|\bs{X}_i\bs{X}^{'}_i\|^2)\right)^{1/2}\times\left(\E(\|u_i\bs{X}_i\|^2)\right)^{1/2}=0,
+\end{align*}
 $$
 which implies that $\bs{A}_2\xrightarrow{p}\bs{0}$.
 
