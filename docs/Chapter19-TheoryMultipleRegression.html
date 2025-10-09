@@ -529,7 +529,7 @@ window.Quarto = {
 </header>
 
 
-<div id="1d2fd058" class="cell" data-execution_count="1">
+<div id="5c4c907d" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -834,7 +834,23 @@ Y_n-\bar{Y}
 R^2=\frac{ESS}{TSS}=\frac{\hat{\bs{\beta}}^{'}\bs{X}^{'}\mb{M}_0\bs{X}\hat{\bs{\beta}}}{\bs{Y}^{'}\mb{M}_0\bs{Y}}=1-\frac{\hat{\bs{U}}^{'}\hat{\bs{U}}}{\bs{Y}^{'}\mb{M}_0\bs{Y}}=1-
 \frac{RSS}{TSS}.
 \end{align*}
-\]</span> Recall that <span class="math inline">\(R^2\)</span> always lies between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. One serious drawback of <span class="math inline">\(R^2\)</span> is that it never decreases as we include more explanatory variables in <span class="math inline">\(\bs{X}\)</span>, even when they do not contribute to explain <span class="math inline">\(\bs{Y}\)</span>. Hence, we modify <span class="math inline">\(R^2\)</span> so that it penalizes for adding superfluous regressors into the model. The modified measure, known as the adjusted <span class="math inline">\(R^2\)</span>, is given by <span class="math display">\[
+\]</span></p>
+<p>We can also express <span class="math inline">\(R^2\)</span> as the square of the sample correlation coefficient between <span class="math inline">\(\bs{Y}\)</span> and <span class="math inline">\(\hat{\bs{Y}}\)</span>. That is, <span class="math display">\[
+\begin{align*}
+R^2=r^2_{\bs{Y}\hat{\bs{Y}}}=\frac{s^2_{\bs{Y}\hat{\bs{Y}}}}{s^2_{\bs{Y}}s^2_{\hat{\bs{Y}}}},
+\end{align*}
+\]</span> where <span class="math inline">\(s_{\bs{Y}\hat{\bs{Y}}}\)</span> is the sample covariance between <span class="math inline">\(\bs{Y}\)</span> and <span class="math inline">\(\hat{\bs{Y}}\)</span>, and <span class="math inline">\(s^2_{\bs{Y}}\)</span> and <span class="math inline">\(s^2_{\hat{\bs{Y}}}\)</span> are the sample variances of <span class="math inline">\(\bs{Y}\)</span> and <span class="math inline">\(\hat{\bs{Y}}\)</span>, respectively. To see this, first note that we can express <span class="math inline">\(r^2_{\bs{Y}\hat{\bs{Y}}}\)</span> as <span class="math display">\[
+\begin{align*}
+r^2_{\bs{Y}\hat{\bs{Y}}}&amp;=\frac{\left(\sum_{i=1}^n(\hat{Y}_i-\bar{\hat{Y}})(Y_i-\bar{Y})\right)^2}{\sum_{i=1}^n(Y_i-\bar{Y})^2\sum_{i=1}^n(\hat{Y}_i-\bar{\hat{Y}})^2}\\
+&amp;=\frac{(\hat{\bs{Y}}^{'}\mb{M}_0\bs{Y})^2}{(\bs{Y}^{'}\mb{M}_0\bs{Y})(\hat{\bs{Y}}^{'}\mb{M}_0\hat{\bs{Y}})}.
+\end{align*}
+\]</span></p>
+<p>Note that <span class="math inline">\(ESS=\hat{\bs{Y}}^{'}\mb{M}_0\hat{\bs{Y}}=\hat{\bs{Y}}^{'}\mb{M}_0(\bs{Y}-\hat{\bs{U}})=\hat{\bs{Y}}^{'}\mb{M}_0\bs{Y}-\hat{\bs{Y}}^{'}\mb{M}_0\hat{\bs{U}}=\hat{\bs{Y}}^{'}\mb{M}_0\bs{Y}\)</span> because <span class="math inline">\(\mb{M}_0\hat{\bs{U}}=\hat{\bs{U}}\)</span> and <span class="math inline">\(\hat{\bs{Y}}^{'}\hat{\bs{U}}=0\)</span>. Thus, we have <span class="math display">\[
+\begin{align*}
+r^2_{\bs{Y}\hat{\bs{Y}}}=\frac{(\hat{\bs{Y}}^{'}\mb{M}_0\bs{Y})^2}{(\bs{Y}^{'}\mb{M}_0\bs{Y})(\hat{\bs{Y}}^{'}\mb{M}_0\hat{\bs{Y}})}=\frac{(ESS)^2}{TSS\cdot ESS}=\frac{ESS}{TSS}=R^2.
+\end{align*}
+\]</span></p>
+<p>Recall that <span class="math inline">\(R^2\)</span> always lies between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. One serious drawback of <span class="math inline">\(R^2\)</span> is that it never decreases as we include more explanatory variables in <span class="math inline">\(\bs{X}\)</span>, even when they do not contribute to explain <span class="math inline">\(\bs{Y}\)</span>. Hence, we modify <span class="math inline">\(R^2\)</span> so that it penalizes for adding superfluous regressors into the model. The modified measure, known as the adjusted <span class="math inline">\(R^2\)</span>, is given by <span class="math display">\[
 \begin{align*}
 \bar{R}^2=1-\frac{\hat{\bs{U}}^{'}\hat{\bs{U}}/(n-k-1)}{\bs{Y}^{'}\mb{M}_0\bs{Y}/(n-1)}.
 \end{align*}

@@ -346,6 +346,28 @@ R^2=\frac{ESS}{TSS}=\frac{\hat{\bs{\beta}}^{'}\bs{X}^{'}\mb{M}_0\bs{X}\hat{\bs{\
 \frac{RSS}{TSS}.
 \end{align*}
 $$
+
+We can also express $R^2$ as the square of the sample correlation coefficient between $\bs{Y}$ and $\hat{\bs{Y}}$. That is,
+$$
+\begin{align*}
+R^2=r^2_{\bs{Y}\hat{\bs{Y}}}=\frac{s^2_{\bs{Y}\hat{\bs{Y}}}}{s^2_{\bs{Y}}s^2_{\hat{\bs{Y}}}},
+\end{align*}
+$$
+where $s_{\bs{Y}\hat{\bs{Y}}}$ is the sample covariance between $\bs{Y}$ and $\hat{\bs{Y}}$, and $s^2_{\bs{Y}}$ and $s^2_{\hat{\bs{Y}}}$ are the sample variances of $\bs{Y}$ and $\hat{\bs{Y}}$, respectively. To see this, first note that we can express $r^2_{\bs{Y}\hat{\bs{Y}}}$ as
+$$
+\begin{align*}
+r^2_{\bs{Y}\hat{\bs{Y}}}&=\frac{\left(\sum_{i=1}^n(\hat{Y}_i-\bar{\hat{Y}})(Y_i-\bar{Y})\right)^2}{\sum_{i=1}^n(Y_i-\bar{Y})^2\sum_{i=1}^n(\hat{Y}_i-\bar{\hat{Y}})^2}\\
+&=\frac{(\hat{\bs{Y}}^{'}\mb{M}_0\bs{Y})^2}{(\bs{Y}^{'}\mb{M}_0\bs{Y})(\hat{\bs{Y}}^{'}\mb{M}_0\hat{\bs{Y}})}.
+\end{align*}
+$$
+
+Note that $ESS=\hat{\bs{Y}}^{'}\mb{M}_0\hat{\bs{Y}}=\hat{\bs{Y}}^{'}\mb{M}_0(\bs{Y}-\hat{\bs{U}})=\hat{\bs{Y}}^{'}\mb{M}_0\bs{Y}-\hat{\bs{Y}}^{'}\mb{M}_0\hat{\bs{U}}=\hat{\bs{Y}}^{'}\mb{M}_0\bs{Y}$ because $\mb{M}_0\hat{\bs{U}}=\hat{\bs{U}}$ and $\hat{\bs{Y}}^{'}\hat{\bs{U}}=0$. Thus, we have
+$$
+\begin{align*}
+r^2_{\bs{Y}\hat{\bs{Y}}}=\frac{(\hat{\bs{Y}}^{'}\mb{M}_0\bs{Y})^2}{(\bs{Y}^{'}\mb{M}_0\bs{Y})(\hat{\bs{Y}}^{'}\mb{M}_0\hat{\bs{Y}})}=\frac{(ESS)^2}{TSS\cdot ESS}=\frac{ESS}{TSS}=R^2.
+\end{align*}
+$$
+
 Recall that $R^2$ always lies between $0$ and $1$.  One serious drawback of $R^2$ is that it never decreases as we include more explanatory variables in $\bs{X}$, even when they do not contribute to explain $\bs{Y}$. Hence, we modify $R^2$ so that it penalizes for adding superfluous regressors into the model. The modified measure, known as the adjusted $R^2$, is given by
 $$
 \begin{align*}
