@@ -572,7 +572,12 @@ where $\Gamma(\alpha)=\int_{0}^{\infty}t^{\alpha-1}e^{-t}\text{d}t$ is the gamma
 
 If $X\sim\chi^2_k$, then $\E(X)=k$ and $\text{var}(X)=2k$. Its moment generating function is given by $M_X(t)=\left(1-2t\right)^{-k/2}$ for $t<1/2$. 
 
-The chi-square distribution is also related to the gamma distribution. The chi-square distribution with $k$ degrees of freedom is equivalent to the gamma distribution with shape parameter $k/2$ and scale parameter $2$. See @sec-probability for the PDF and CDF plots of the chi-square distribution with $k=3,4,10$ degrees of freedom.
+In @sec-probability, we provide the PDF and CDF plots of the chi-square distribution with $k=3,4,10$ degrees of freedom. The PDF of the chi-square distribution is right-skewed, and as $k$ increases, the PDF becomes less skewed and more symmetric. Indeed, if $X_k\sim\chi^2_k$, then by the central limit theorem introduced in @sec-chapter25, as $k\to\infty$, we have
+$$
+\frac{X_k-k}{\sqrt{2k}}\xrightarrow{d}N(0,1).
+$$
+
+The chi-square distribution is also related to the gamma distribution. The chi-square distribution with $k$ degrees of freedom is equivalent to the gamma distribution with shape parameter $k/2$ and scale parameter $2$. For further details, see the Wikipedia page on the [chi-square distribution](https://en.wikipedia.org/wiki/Chi-squared_distribution).
 
 ## Student t distribution
 Let $Z\sim N(0,1)$ and $W\sim\chi^2_{\nu}$. Assume that $Z$ and $W$ are independent. Then, the random variable 
@@ -591,7 +596,16 @@ f_T(t)=
 \end{align*}
 $$
 
-The moment-generating function of $T$ does not exist. The first moment is given by $\E(T)=0$ and the second moment is given by $\E(T^2)=\frac{\nu}{\nu-2}$ for $\nu>2$. The variance is given by $\text{var}(T)=\frac{\nu}{\nu-2}$ for $\nu>2$. The PDF and CDF plots of the Student $t$ distribution with $\nu=1,10$ degrees of freedom are shown in @sec-probability.
+The moment-generating function of $T$ does not exist. The first moment is given by $\E(T)=0$ and the second moment is given by $\E(T^2)=\frac{\nu}{\nu-2}$ for $\nu>2$. The variance is given by $\text{var}(T)=\frac{\nu}{\nu-2}$ for $\nu>2$. 
+
+In @sec-probability, we provide the PDF and CDF plots of the Student $t$ distribution with $\nu=1,10$ degrees of freedom. The PDF of the Student $t$ distribution is similar to that of the standard normal distribution, but it has heavier tails. As $\nu$ increases, the PDF of the Student $t$ distribution approaches that of the standard normal distribution. To see this, we write $T$ as
+$$
+T=\frac{Z}{\sqrt{W/\nu}}=\frac{Z}{\sqrt{\frac{1}{\nu}\sum_{i=1}^{\nu}X_i^2}},
+$$
+where $X_1,X_2,\ldots,X_{\nu}$ are independent random variables that have standard normal distributions. By the law of large numbers, $\frac{1}{\nu}\sum_{i=1}^{\nu}X_i^2\xrightarrow{p}\E(X^2_i)=1$ as $\nu\to\infty$. Thus, by Slutsky's theorem introduced in @sec-chapter25, as $\nu\to\infty$, we have 
+$$
+T\stackrel{d}{\to}Z\sim N(0,1).
+$$
 
 ## F distribution
 Let $W_1\sim\chi^2_{\nu_1}$ and $W_2\sim\chi^2_{\nu_2}$. Assume that $W_1$ and $W_2$ are independent. Then, the random variable defined by
@@ -606,4 +620,14 @@ f_U(u)=\frac{\Gamma\left(\frac{\nu_1+\nu_2}{2}\right)}{\Gamma\left(\frac{\nu_1}{
 \end{align*}
 $$
 
-The moment-generating function of $F$ does not exist. The first moment is given by $\E(F)=\frac{\nu_2}{\nu_2-2}$ for $\nu_2>2$. The variance is given by $\text{var}(F)=\frac{2\nu_2^2(\nu_1+\nu_2-2)}{\nu_1(\nu_2-2)^2(\nu_2-4)}$ for $\nu_2>4$. The PDF and CDF plots of the $F$ distribution with different degrees of freedom are shown in @sec-probability.
+The moment-generating function of $F$ does not exist. The first moment is given by $\E(F)=\frac{\nu_2}{\nu_2-2}$ for $\nu_2>2$. The variance is given by $\text{var}(F)=\frac{2\nu_2^2(\nu_1+\nu_2-2)}{\nu_1(\nu_2-2)^2(\nu_2-4)}$ for $\nu_2>4$. 
+
+We provide the PDF and CDF plots of the $F$ distribution with different degrees of freedom in @sec-probability. The PDF of the $F$ distribution is right-skewed, and as $\nu_2$ increases, the PDF approaches that of the chi-square distribution. Indeed, we discuss that $F_{\nu_1,\nu_2}$ converges to $F_{\nu_1,\infty}=\chi^2_{\nu_1}/\nu_1$ as $\nu_2\to\infty$. To see this, we write $F$ as
+$$
+F=\frac{W_1/\nu_1}{W_2/\nu_2}=\frac{W_1/\nu_1}{\frac{1}{\nu_2}\sum_{i=1}^{\nu_2}X_i^2},
+$$
+where $X_1,X_2,\ldots,X_{\nu_2}$ are independent random variables that have standard normal distributions. By the law of large numbers, $\frac{W_2}{\nu_2}=\frac{1}{\nu_2}\sum_{i=1}^{\nu_2}X_i^2\xrightarrow{p}\E(X_i^2)=1$ as $\nu_2\to\infty$. Then, by Slutsky's theorem introduced in @sec-chapter25, as $\nu_2\to\infty$, we have
+$$
+F\stackrel{d}{\to}W_1/\nu_1\sim \chi^2_{\nu_1}/\nu_1.
+$$
+

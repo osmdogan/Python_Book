@@ -528,7 +528,7 @@ window.Quarto = {
 </header>
 
 
-<div id="3f7bdeec" class="cell" data-execution_count="1">
+<div id="e5def5b6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -1006,7 +1006,10 @@ Figure&nbsp;C.3: Contour plots of bivariate normal distribution with different c
 f_X(x)=\frac{1}{2^{k/2}\Gamma(k/2)}x^{k/2-1}e^{-x/2},\quad x&gt;0.
 \]</span> where <span class="math inline">\(\Gamma(\alpha)=\int_{0}^{\infty}t^{\alpha-1}e^{-t}\text{d}t\)</span> is the gamma function.</p>
 <p>If <span class="math inline">\(X\sim\chi^2_k\)</span>, then <span class="math inline">\(\E(X)=k\)</span> and <span class="math inline">\(\text{var}(X)=2k\)</span>. Its moment generating function is given by <span class="math inline">\(M_X(t)=\left(1-2t\right)^{-k/2}\)</span> for <span class="math inline">\(t&lt;1/2\)</span>.</p>
-<p>The chi-square distribution is also related to the gamma distribution. The chi-square distribution with <span class="math inline">\(k\)</span> degrees of freedom is equivalent to the gamma distribution with shape parameter <span class="math inline">\(k/2\)</span> and scale parameter <span class="math inline">\(2\)</span>. See <a href="Chapter2-ReviewProbability.html" class="quarto-xref"><span>Chapter 12</span></a> for the PDF and CDF plots of the chi-square distribution with <span class="math inline">\(k=3,4,10\)</span> degrees of freedom.</p>
+<p>In <a href="Chapter2-ReviewProbability.html" class="quarto-xref"><span>Chapter 12</span></a>, we provide the PDF and CDF plots of the chi-square distribution with <span class="math inline">\(k=3,4,10\)</span> degrees of freedom. The PDF of the chi-square distribution is right-skewed, and as <span class="math inline">\(k\)</span> increases, the PDF becomes less skewed and more symmetric. Indeed, if <span class="math inline">\(X_k\sim\chi^2_k\)</span>, then by the central limit theorem introduced in <a href="Chapter18-TheoryRegression.html" class="quarto-xref"><span>Chapter 28</span></a>, as <span class="math inline">\(k\to\infty\)</span>, we have <span class="math display">\[
+\frac{X_k-k}{\sqrt{2k}}\xrightarrow{d}N(0,1).
+\]</span></p>
+<p>The chi-square distribution is also related to the gamma distribution. The chi-square distribution with <span class="math inline">\(k\)</span> degrees of freedom is equivalent to the gamma distribution with shape parameter <span class="math inline">\(k/2\)</span> and scale parameter <span class="math inline">\(2\)</span>. For further details, see the Wikipedia page on the <a href="https://en.wikipedia.org/wiki/Chi-squared_distribution">chi-square distribution</a>.</p>
 </section>
 <section id="student-t-distribution" class="level2" data-number="C.8">
 <h2 data-number="C.8" class="anchored" data-anchor-id="student-t-distribution"><span class="header-section-number">C.8</span> Student t distribution</h2>
@@ -1022,7 +1025,12 @@ f_T(t)=
 \end{cases}
 \end{align*}
 \]</span></p>
-<p>The moment-generating function of <span class="math inline">\(T\)</span> does not exist. The first moment is given by <span class="math inline">\(\E(T)=0\)</span> and the second moment is given by <span class="math inline">\(\E(T^2)=\frac{\nu}{\nu-2}\)</span> for <span class="math inline">\(\nu&gt;2\)</span>. The variance is given by <span class="math inline">\(\text{var}(T)=\frac{\nu}{\nu-2}\)</span> for <span class="math inline">\(\nu&gt;2\)</span>. The PDF and CDF plots of the Student <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(\nu=1,10\)</span> degrees of freedom are shown in <a href="Chapter2-ReviewProbability.html" class="quarto-xref"><span>Chapter 12</span></a>.</p>
+<p>The moment-generating function of <span class="math inline">\(T\)</span> does not exist. The first moment is given by <span class="math inline">\(\E(T)=0\)</span> and the second moment is given by <span class="math inline">\(\E(T^2)=\frac{\nu}{\nu-2}\)</span> for <span class="math inline">\(\nu&gt;2\)</span>. The variance is given by <span class="math inline">\(\text{var}(T)=\frac{\nu}{\nu-2}\)</span> for <span class="math inline">\(\nu&gt;2\)</span>.</p>
+<p>In <a href="Chapter2-ReviewProbability.html" class="quarto-xref"><span>Chapter 12</span></a>, we provide the PDF and CDF plots of the Student <span class="math inline">\(t\)</span> distribution with <span class="math inline">\(\nu=1,10\)</span> degrees of freedom. The PDF of the Student <span class="math inline">\(t\)</span> distribution is similar to that of the standard normal distribution, but it has heavier tails. As <span class="math inline">\(\nu\)</span> increases, the PDF of the Student <span class="math inline">\(t\)</span> distribution approaches that of the standard normal distribution. To see this, we write <span class="math inline">\(T\)</span> as <span class="math display">\[
+T=\frac{Z}{\sqrt{W/\nu}}=\frac{Z}{\sqrt{\frac{1}{\nu}\sum_{i=1}^{\nu}X_i^2}},
+\]</span> where <span class="math inline">\(X_1,X_2,\ldots,X_{\nu}\)</span> are independent random variables that have standard normal distributions. By the law of large numbers, <span class="math inline">\(\frac{1}{\nu}\sum_{i=1}^{\nu}X_i^2\xrightarrow{p}\E(X^2_i)=1\)</span> as <span class="math inline">\(\nu\to\infty\)</span>. Thus, by Slutsky’s theorem introduced in <a href="Chapter18-TheoryRegression.html" class="quarto-xref"><span>Chapter 28</span></a>, as <span class="math inline">\(\nu\to\infty\)</span>, we have <span class="math display">\[
+T\stackrel{d}{\to}Z\sim N(0,1).
+\]</span></p>
 </section>
 <section id="f-distribution" class="level2" data-number="C.9">
 <h2 data-number="C.9" class="anchored" data-anchor-id="f-distribution"><span class="header-section-number">C.9</span> F distribution</h2>
@@ -1034,7 +1042,12 @@ f_U(u)=\frac{\Gamma\left(\frac{\nu_1+\nu_2}{2}\right)}{\Gamma\left(\frac{\nu_1}{
 \left(\frac{\nu_1}{\nu_2}\right)^{\nu_1/2}\frac{u^{\frac{\nu_1}{2}}-1}{\left(1+\frac{\nu_1}{\nu_2}u\right)^{(\nu_1+\nu_2)/2}},\quad u&gt;0.
 \end{align*}
 \]</span></p>
-<p>The moment-generating function of <span class="math inline">\(F\)</span> does not exist. The first moment is given by <span class="math inline">\(\E(F)=\frac{\nu_2}{\nu_2-2}\)</span> for <span class="math inline">\(\nu_2&gt;2\)</span>. The variance is given by <span class="math inline">\(\text{var}(F)=\frac{2\nu_2^2(\nu_1+\nu_2-2)}{\nu_1(\nu_2-2)^2(\nu_2-4)}\)</span> for <span class="math inline">\(\nu_2&gt;4\)</span>. The PDF and CDF plots of the <span class="math inline">\(F\)</span> distribution with different degrees of freedom are shown in <a href="Chapter2-ReviewProbability.html" class="quarto-xref"><span>Chapter 12</span></a>.</p>
+<p>The moment-generating function of <span class="math inline">\(F\)</span> does not exist. The first moment is given by <span class="math inline">\(\E(F)=\frac{\nu_2}{\nu_2-2}\)</span> for <span class="math inline">\(\nu_2&gt;2\)</span>. The variance is given by <span class="math inline">\(\text{var}(F)=\frac{2\nu_2^2(\nu_1+\nu_2-2)}{\nu_1(\nu_2-2)^2(\nu_2-4)}\)</span> for <span class="math inline">\(\nu_2&gt;4\)</span>.</p>
+<p>We provide the PDF and CDF plots of the <span class="math inline">\(F\)</span> distribution with different degrees of freedom in <a href="Chapter2-ReviewProbability.html" class="quarto-xref"><span>Chapter 12</span></a>. The PDF of the <span class="math inline">\(F\)</span> distribution is right-skewed, and as <span class="math inline">\(\nu_2\)</span> increases, the PDF approaches that of the chi-square distribution. Indeed, we discuss that <span class="math inline">\(F_{\nu_1,\nu_2}\)</span> converges to <span class="math inline">\(F_{\nu_1,\infty}=\chi^2_{\nu_1}/\nu_1\)</span> as <span class="math inline">\(\nu_2\to\infty\)</span>. To see this, we write <span class="math inline">\(F\)</span> as <span class="math display">\[
+F=\frac{W_1/\nu_1}{W_2/\nu_2}=\frac{W_1/\nu_1}{\frac{1}{\nu_2}\sum_{i=1}^{\nu_2}X_i^2},
+\]</span> where <span class="math inline">\(X_1,X_2,\ldots,X_{\nu_2}\)</span> are independent random variables that have standard normal distributions. By the law of large numbers, <span class="math inline">\(\frac{W_2}{\nu_2}=\frac{1}{\nu_2}\sum_{i=1}^{\nu_2}X_i^2\xrightarrow{p}\E(X_i^2)=1\)</span> as <span class="math inline">\(\nu_2\to\infty\)</span>. Then, by Slutsky’s theorem introduced in <a href="Chapter18-TheoryRegression.html" class="quarto-xref"><span>Chapter 28</span></a>, as <span class="math inline">\(\nu_2\to\infty\)</span>, we have <span class="math display">\[
+F\stackrel{d}{\to}W_1/\nu_1\sim \chi^2_{\nu_1}/\nu_1.
+\]</span></p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
