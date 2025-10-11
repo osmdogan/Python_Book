@@ -128,6 +128,26 @@ div.csl-indent {
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
+<script>
+window.MathJax = {
+  tex: {
+    macros: {
+      cov: "\\operatorname{cov}",
+      corr: "\\operatorname{corr}",
+      var: "\\operatorname{var}",
+      SE: "\\operatorname{SE}",
+      E: "\\operatorname{E}",
+      A: "\\boldsymbol{A}",
+      x: "\\boldsymbol{x}",
+      sgn: "\\operatorname{sgn}",
+      argmin: "\\operatorname{argmin}",
+      tr: "\\text{tr}",
+      bs: ["\\boldsymbol{#1}", 1],
+      mb: ["\\mathbb{#1}", 1]
+    }
+  }
+};
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -541,7 +561,7 @@ window.Quarto = {
 </header>
 
 
-<div id="efe4935e" class="cell" data-execution_count="1">
+<div id="be8a1acc" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
@@ -551,20 +571,6 @@ window.Quarto = {
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> quad</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> dblquad</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><span class="math display">\[
-\DeclareMathOperator{\cov}{cov}
-\DeclareMathOperator{\corr}{corr}
-\DeclareMathOperator{\var}{var}
-\DeclareMathOperator{\SE}{SE}
-\DeclareMathOperator{\E}{E}
-\DeclareMathOperator{\A}{\boldsymbol{A}}
-\DeclareMathOperator{\x}{\boldsymbol{x}}
-\DeclareMathOperator{\sgn}{sgn}  
-\DeclareMathOperator{\argmin}{argmin}
-\newcommand{\tr}{\text{tr}}
-\newcommand{\bs}{\boldsymbol}
-\newcommand{\mb}{\mathbb}
-\]</span></p>
 <section id="probability-and-random-variables" class="level2" data-number="12.1">
 <h2 data-number="12.1" class="anchored" data-anchor-id="probability-and-random-variables"><span class="header-section-number">12.1</span> Probability and random variables</h2>
 <p>We use the term <strong>experiment</strong> to refer to a process that yields outcomes. For example, tossing a coin or rolling a die constitutes an experiment. We assume that the outcomes of experiments are mutually exclusive. The <strong>sample space</strong> associated with an experiment consists of all possible outcomes. An <strong>event</strong> is a subset of the sample space.</p>
@@ -661,7 +667,7 @@ P(X=x_i) = p_i,\quad i=1,2,\dots,k,
 </div>
 <div id="exm-example9.6" class="theorem example">
 <p><span class="theorem-title"><strong>Example 12.6</strong></span> Let <span class="math inline">\(M\)</span> be a random variable that measures the number of times your wireless network connection fails while you are writing a term paper. Let us assume that <span class="math inline">\(M\)</span> takes values from <span class="math inline">\(\{0,1,2,3,4\}\)</span>, with the corresponding probabilities given by <span class="math inline">\(\{0.80,0.10,0.06,0.03, 0.01\}\)</span>. In the following, we summarize the probability distribution of <span class="math inline">\(M\)</span> in a table.</p>
-<div id="5072c5b5" class="cell" data-execution_count="2">
+<div id="22882249" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability distribution of M</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>outcomes <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># probabilities</span></span>
@@ -1106,7 +1112,7 @@ Figure&nbsp;12.6: The CDF and PDF plots of <span class="math inline">\(Y\)</span
 \end{align*}
 \]</span></p>
 <p>Thus, <span class="math inline">\(f_Y(y)\)</span> is a proper density function. Numerically, we can use the <code>quad</code> method from the <code>scipy.integrate</code> module to compute the above integral, as illustrated below.</p>
-<div id="ea0d4d8b" class="cell" data-execution_count="10">
+<div id="df2f6557" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fun(z):</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">3</span> <span class="op">/</span> z<span class="op">**</span><span class="dv">4</span></span>
@@ -1189,7 +1195,7 @@ P(a &lt; Y &lt; b) &amp;= P(a\leq Y &lt; b) = P(a &lt; Y \leq b) = P(a \leq Y \l
 \end{align*}
 \]</span></p>
 <p>Using the <code>quad</code> function from the <code>scipy.integrate</code> module, we can compute the expected value of <span class="math inline">\(Y\)</span> numerically as follows:</p>
-<div id="04030299" class="cell" data-execution_count="11">
+<div id="7ae1f370" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function for the expected value</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fun(y):</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y <span class="op">*</span> <span class="dv">3</span> <span class="op">/</span> y<span class="op">**</span><span class="dv">4</span></span>
@@ -1776,7 +1782,7 @@ Figure&nbsp;12.11: The integration region for computing <span class="math inline
 </div>
 </div>
 <p>Using the <code>dblquad</code> function from the <code>scipy.integrate</code> module, we can compute the joint CDF <span class="math inline">\(F_{X,Y}(0.5, 0.5)\)</span> numerically as follows:</p>
-<div id="335a0741" class="cell" data-execution_count="18">
+<div id="62f2b98a" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the joint PDF function</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> joint_pdf(y, x):</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">30</span> <span class="op">*</span> x <span class="op">*</span> y<span class="op">**</span><span class="dv">2</span></span>
@@ -2213,7 +2219,7 @@ Figure&nbsp;12.13: The PDF and CDF plots of uniform distribution
 <div>
 <div id="exm-example9.26" class="theorem example">
 <p><span class="theorem-title"><strong>Example 12.26</strong></span> Let <span class="math inline">\(Y\sim N(0.35,2.25)\)</span> and consider <span class="math inline">\(P(-0.5&lt;Y\leq 0.75)\)</span>, which corresponds to the shaded area illustrated in <a href="#fig-f9.14" class="quarto-xref">Figure&nbsp;<span>12.14</span></a>. Using the <code>scipy.stats.norm.cdf</code> function, we can compute <span class="math inline">\(P(-0.5&lt;Y\leq 0.75)\)</span> in the following way:</p>
-<div id="de5d5807" class="cell" data-execution_count="21">
+<div id="6f605d03" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>stats.norm.cdf(<span class="fl">0.75</span>,loc<span class="op">=</span><span class="fl">0.35</span>,scale<span class="op">=</span><span class="fl">1.5</span>)<span class="op">-</span>stats.norm.cdf(<span class="op">-</span><span class="fl">0.5</span>,loc<span class="op">=</span><span class="fl">0.35</span>,scale<span class="op">=</span><span class="fl">1.5</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(p,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
@@ -2333,7 +2339,7 @@ Figure&nbsp;12.15: The plots of PDF and CDF of normal distributions
 <p>The <strong>chi-squared distribution</strong> is used when testing certain types of hypotheses in econometrics. The chi-squared distribution that has <span class="math inline">\(m\)</span> degrees of freedom, denoted by <span class="math inline">\(\chi^2_{m}\)</span>, is the distribution of the sum of <span class="math inline">\(m\)</span> squared independent standard normal random variables. The mean and variance of the chi-squared distribution are given by <span class="math inline">\(m\)</span> and <span class="math inline">\(2m\)</span>, respectively.</p>
 <div id="exm-example9.27" class="theorem example">
 <p><span class="theorem-title"><strong>Example 12.27</strong></span> Let <span class="math inline">\(Z_1\)</span>, <span class="math inline">\(Z_2\)</span> and <span class="math inline">\(Z_3\)</span> be independent standard normal random variables. If we define <span class="math inline">\(Y=Z^2_1+Z^2_2+Z^2_3\)</span>, then <span class="math inline">\(Y\sim \chi^2_3\)</span>. We can use the <code>scipy.stats.chi2()</code> function to compute the PDF and CDF of <span class="math inline">\(Y\)</span>. For example, we can compute <span class="math inline">\(P(Y\leq 5)\)</span> as follows:</p>
-<div id="0900898d" class="cell" data-execution_count="24">
+<div id="74c6fc41" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> stats.chi2.cdf(<span class="dv">5</span>, df<span class="op">=</span><span class="dv">3</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(p, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
@@ -2479,7 +2485,7 @@ Figure&nbsp;12.17: The plots of PDF and CDF of Student t distributions
 </div>
 <div id="exm-example9.28" class="theorem example">
 <p><span class="theorem-title"><strong>Example 12.28</strong></span> Let <span class="math inline">\(Y\sim N(0,1)\)</span> and <span class="math inline">\(X\sim t_{5}\)</span>. We want to compute <span class="math inline">\(P(Y\geq2)\)</span> and <span class="math inline">\(P(X\geq2)\)</span> using the <code>scipy.stats</code> module. The following code chunk shows how to compute these probabilities:</p>
-<div id="f160c927" class="cell" data-execution_count="27">
+<div id="82861be2" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>p_y <span class="op">=</span> stats.norm.sf(<span class="dv">2</span>, loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>)  <span class="co"># P(Y &gt;= 2)</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>p_x <span class="op">=</span> stats.t.sf(<span class="dv">2</span>, df<span class="op">=</span><span class="dv">5</span>)               <span class="co"># P(X &gt;= 2)</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(p_y, <span class="dv">4</span>), np.<span class="bu">round</span>(p_x, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2570,7 +2576,7 @@ Figure&nbsp;12.18: The plots of PDF and CDF of F distributions
 <p>In econometrics, an important special case of the <span class="math inline">\(F\)</span> distribution arises when the denominator degrees of freedom is large enough that the <span class="math inline">\(F_{m,n}\)</span> can be approximated by <span class="math inline">\(F_{m,\infty}\)</span>. <span class="math inline">\(F_{m,\infty}\)</span> distribution is the distribution of a chi-squared random variable with <span class="math inline">\(m\)</span> degrees of freedom divided by <span class="math inline">\(m\)</span>, i.e., <span class="math inline">\(F_{m,\infty}=W/m\)</span>, where <span class="math inline">\(W\sim\chi^2_m\)</span>.</p>
 <div id="exm-example9.29" class="theorem example">
 <p><span class="theorem-title"><strong>Example 12.29</strong></span> Let <span class="math inline">\(Y\sim F_{2,10}\)</span>. We can compute the PDF and CDF of <span class="math inline">\(Y\)</span> using the <code>scipy.stats.f()</code> function. For example, we can compute <span class="math inline">\(P(Y\leq 3)\)</span> as follows:</p>
-<div id="9e1e29b9" class="cell" data-execution_count="29">
+<div id="45e7b4ca" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> stats.f.cdf(<span class="dv">3</span>, dfn<span class="op">=</span><span class="dv">2</span>, dfd<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(p, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">

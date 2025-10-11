@@ -10,8 +10,6 @@ sns.set(style='darkgrid') # Set the style of plots
 from scipy.integrate import quad
 ```
 
-{{< include latex_macro.qmd >}}
-
 ## Estimators and their properties
 Let $Y_1, Y_2, \dots, Y_n$ be an i.i.d. random sample from a population distribution with mean $\mu_Y$ and variance $\sigma_Y^2$. We aim to use this sample to learn about unknown characteristics of the population distribution, such as its mean, variance, and other parameters. To achieve this, we construct **estimators**.
 

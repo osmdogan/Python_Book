@@ -11,8 +11,6 @@ from statsmodels.iolib.summary2 import summary_col
 import scipy.stats as stats
 ```
 
-{{< include latex_macro.qmd >}}
-
 ## Testing hypotheses about one of the regression parameters
 A hypothesis is a claim about the true value of a parameter. We are interested in formulating hypotheses about the slope parameter $\beta_1$ in the simple linear regression model. The **null hypothesis** states our claim about $\beta_1$ and is denoted by $H_0$. For example, the null hypothesis: $H_0: \beta_{1} = c$ states that $\beta_1$ is equal to the hypothesized value $c$. The **alternative hypothesis** states the scenario in which the null hypothesis does not hold. There are three types of alternative hypotheses:
 

@@ -8,8 +8,6 @@ from scipy.stats import multivariate_normal
 from mpl_toolkits.mplot3d import Axes3D
 ```
 
-{{< include latex_macro.qmd >}}
-
 ## Normal distribution
 Let $Y\sim N(\mu,\sigma^2)$. Then, the probability density function (PDF) of $Y$ is given by
 $$

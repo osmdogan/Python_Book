@@ -12,8 +12,6 @@ import scipy.stats as stats
 sns.set_style('darkgrid')
 ```
 
-{{< include latex_macro.qmd >}}
-
 ## Introduction
 We start our regression analysis in @sec-lrmone by assuming a linear population function $\E(Y|X_1)=\beta_0+\beta_1X_1$. However, in many cases, the relationship between $Y$ and $X_1$ is nonlinear. In this case, the effect of a change in $X_1$ on $Y$ is not constant. In @fig-f15-1, we illustrate population regression functions that have different slopes. In the linear case, as shown in the first plot of @fig-f15-1, the slope of the population regression function is constant. However, in the second plot, the slope of the population regression function depends on the value of another variable $X_2$. In the third plot, the slope of the population regression function depends on the value of $X_1$. In this chapter, we consider how to model nonlinear regression functions.
 

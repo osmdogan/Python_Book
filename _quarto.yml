@@ -86,6 +86,8 @@ format:
     toc-title: "Table of Contents"
     toc-depth: 3
     number-sections: true
+    include-in-header:
+      - file: "macros.jax"
    
      
 

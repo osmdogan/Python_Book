@@ -108,6 +108,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
+<script>
+window.MathJax = {
+  tex: {
+    macros: {
+      cov: "\\operatorname{cov}",
+      corr: "\\operatorname{corr}",
+      var: "\\operatorname{var}",
+      SE: "\\operatorname{SE}",
+      E: "\\operatorname{E}",
+      A: "\\boldsymbol{A}",
+      x: "\\boldsymbol{x}",
+      sgn: "\\operatorname{sgn}",
+      argmin: "\\operatorname{argmin}",
+      tr: "\\text{tr}",
+      bs: ["\\boldsymbol{#1}", 1],
+      mb: ["\\mathbb{#1}", 1]
+    }
+  }
+};
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>

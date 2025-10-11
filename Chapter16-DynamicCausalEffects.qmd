@@ -13,8 +13,6 @@ from stargazer.stargazer import Stargazer
 plt.style.use('seaborn-v0_8-darkgrid')
 ```
 
-{{< include latex_macro.qmd >}}
-
 ## Dynamic causal effects
 The dynamic causal effect of a regressor on a dependent variable is the causal effect of a change in the regressor on the dependent variable over time. For example, we may be interested in the effect of a change in the interest rate on the output of the economy in this quarter, next quarter, and four quarters ahead. Similarly, we may be interested in the effect of a change in the temperature on the demand for heating oil in the current month, next month, and two months ahead. In these examples, the dynamic effects take place over different time horizons, suggesting that our econometric model should include the current value and lags of the regressor. In this chapter, we use distributed lag models to estimate the dynamic causal effects of regressors on the dependent variable.
 

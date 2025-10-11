@@ -11,8 +11,6 @@ from statsmodels.iolib.summary2 import summary_col
 import scipy.stats as stats
 ```
 
-{{< include latex_macro.qmd >}}
-
 ## Hypothesis tests and confidence intervals for a single coefficient
 Consider the following multiple regression model:
 $$

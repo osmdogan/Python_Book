@@ -16,8 +16,6 @@ from stargazer.stargazer import Stargazer
 import networkx as nx
 ```
 
-{{< include latex_macro.qmd >}}
-
 ## Introduction
 
 In this chapter, we will discuss **instrumental variables (IV) regression**. IV regression is a method that provides a way to obtain a consistent estimate of the coefficient of the variable of interest when it is correlated with the error term. In this method, we use **instrumental variables** or simply **instruments** for isolating the part of the variable of interest that is correlated with the error term. The method addresses omitted variable bias, simultaneous causality bias, and errors-in-variables bias.

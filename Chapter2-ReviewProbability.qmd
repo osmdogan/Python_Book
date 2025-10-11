@@ -11,8 +11,6 @@ from scipy.integrate import quad
 from scipy.integrate import dblquad
 ```
 
-{{< include latex_macro.qmd >}}
-
 ## Probability and random variables 
 We use the term **experiment** to refer to a process that yields outcomes. For example, tossing a coin or rolling a die constitutes an experiment. We assume that the outcomes of experiments are mutually exclusive. The **sample space** associated with an experiment consists of all possible outcomes. An **event** is a subset of the sample space. 
 

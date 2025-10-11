@@ -12,8 +12,6 @@ import scipy.stats as stats
 from mpl_toolkits.mplot3d import Axes3D
 ```
 
-{{< include latex_macro.qmd >}}
-
 ## Omitted variable bias
 In a regression model of $Y$ on $X$, **omitted variable bias** occurs if the regressor $X$ is correlated with an omitted variable that determines $Y$. Let $Z$ be a variable omitted from the regression model. Then, $Z$ causes omitted variable bias if $Z$ satisfies the following two conditions:
 

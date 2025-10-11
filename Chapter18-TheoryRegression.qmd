@@ -8,8 +8,6 @@ import scipy.stats as stats
 plt.style.use('seaborn-v0_8-darkgrid')
 ```
 
-{{< include latex_macro.qmd >}}
-
 ## Introduction
 This chapter provides the theoretical foundation for the simple linear regression model with a single regressor. We present extended assumptions for the model and study both the asymptotic and exact sampling distributions of the OLS estimator and the $t$ statistic. 
 

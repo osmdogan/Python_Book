@@ -12,8 +12,6 @@ import scipy.stats as stats
 sns.set_style('darkgrid')
 ```
 
-{{< include latex_macro.qmd >}}
-
 ## Internal and external validity
 We use a framework based on **internal validity** and **external validity** to study whether a statistical model is useful for causal inference. To introduce these concepts, we first define what we mean by the **population studied**, the **population of interest**, and the **setting** of the study. The population studied consists of the entities from which the sample is drawn. The population of interest is the population to which the study results are intended to be generalized. The setting of the study refers to the environment in which the study is conducted. Thus, the setting encompasses institutional, legal, physical, and social conditions that may affect the study's results.
 

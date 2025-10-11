@@ -15,8 +15,6 @@ simplefilter(action="ignore")
 sns.set(style='darkgrid')
 ```
 
-{{< include latex_macro.qmd >}}
-
 ## Randomized controlled experiments
 A **randomized controlled experiment** is a study designed to measure the effect of a treatment or policy intervention on an outcome variable by randomly assigning experimental units to treatment and control groups. The units in the treatment group receive the treatment or are subject to the intervention and those in the control group are not subject to any changes. We then measure the treatment or intervention effect by comparing the groups in terms of the outcome variable. We usually collect data on two variables of interest: the outcome variable, denoted by $Y$, and the treatment indicator, denoted by $D$, which specifies whether a unit is in the treatment or control group.
 

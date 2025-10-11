@@ -12,8 +12,6 @@ from IPython.core.interactiveshell import InteractiveShell
 InteractiveShell.ast_node_interactivity = "all"
 ```
 
-{{< include latex_macro.qmd >}}
-
 ## Defining functions
 The following syntax can be used to declare a function in Python:
 

@@ -20,8 +20,6 @@ from warnings import simplefilter
 simplefilter(action="ignore")
 ```
 
-{{< include latex_macro.qmd >}}
-
 ## Introduction
 In this chapter, we cover the basic concepts of univariate time series methods. We first show how the time series data can be handled in Python using the `pandas` and `pandas_datareader` libraries. We then cover basic terminology and concepts, such as lags, leads, differences, growth rates, and annualized growth rates. We define autocorrelation, strict and weak stationarity. We introduce two univariate time series models: the autoregressive (AR) model, and the autoregressive distributed lag (ARDL) model. We specify assumptions under which we can use the OLS estimator for the estimation of these models. We explain how nonstationarity can arise from deterministic and stochastic trends, as well as from structural breaks. We close this chapter with introducing autoregressive moving average (ARMA) models.
 

@@ -16,8 +16,6 @@ from IPython.core.interactiveshell import InteractiveShell
 InteractiveShell.ast_node_interactivity = "all"
 ```
 
-{{< include latex_macro.qmd >}}
-
 ## Introduction
 In this appendix, we introduce some topics from linear algebra, vector calculus, and random vectors that are essential for econometric analysis. Our treatment of these topics is not exhaustive, and we refer the reader to @Abadir2005 and @Strang2023 for a more detailed treatment.
 

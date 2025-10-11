@@ -19,8 +19,6 @@ from arch import arch_model
 plt.style.use('seaborn-v0_8-darkgrid')
 ```
 
-{{< include latex_macro.qmd >}}
-
 ## Introduction
 In this chapter, we consider some selected topics in time series analysis. We cover vector autoregression (VAR), multi-period forecasting, cointegration and error correction models, volatility clustering, and autoregressive conditional heteroskedasticity models.
 

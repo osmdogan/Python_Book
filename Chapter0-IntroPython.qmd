@@ -5,8 +5,6 @@
 
 In this chapter, we explain how to install Python using the open-source Anaconda Distribution, and describe Python shells, Integrated Development Environments (IDEs), and Jupyter Notebooks for using the Python shell. We then show how to import modules and introduce key modules required for econometrics. Finally, we show how to perform variable assignments and introduce built-in data types.
 
-{{< include latex_macro.qmd >}}
-
 ```{python}
 #| echo: false
 from IPython.core.interactiveshell import InteractiveShell

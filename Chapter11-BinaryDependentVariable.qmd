@@ -10,8 +10,6 @@ from statsmodels.iolib.summary2 import summary_col
 import scipy.stats as stats
 ```
 
-{{< include latex_macro.qmd >}}
-
 ## Binary dependent variables 
 In many empirical studies, the dependent variable is binary, taking on two values, say 0 and 1. For example, in the context of mortgage applications, the dependent variable could be a binary indicator variable denoting whether the mortgage application was denied (1) or approved (0). For practical reasons, the binary dependent variable is typically coded as 1 for the event of interest occurring and 0 for the event that does not occur.
 

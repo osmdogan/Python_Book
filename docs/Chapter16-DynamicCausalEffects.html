@@ -128,6 +128,26 @@ div.csl-indent {
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
+<script>
+window.MathJax = {
+  tex: {
+    macros: {
+      cov: "\\operatorname{cov}",
+      corr: "\\operatorname{corr}",
+      var: "\\operatorname{var}",
+      SE: "\\operatorname{SE}",
+      E: "\\operatorname{E}",
+      A: "\\boldsymbol{A}",
+      x: "\\boldsymbol{x}",
+      sgn: "\\operatorname{sgn}",
+      argmin: "\\operatorname{argmin}",
+      tr: "\\text{tr}",
+      bs: ["\\boldsymbol{#1}", 1],
+      mb: ["\\mathbb{#1}", 1]
+    }
+  }
+};
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -456,25 +476,25 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./AppendixA.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix for Chapter 11</span></span></a>
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix for Chapter 14</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./AppendixB.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix for Chapter 21</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix for Chapter 24</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./AppendixC.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Appendix for Chapter 25</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Appendix for Chapter 28</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./AppendixD.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Appendix for Chapter 26</span></span></a>
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Appendix for Chapter 29</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -539,7 +559,7 @@ window.Quarto = {
 </header>
 
 
-<div id="a7660d0d" class="cell" data-execution_count="1">
+<div id="ed6cc682" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
@@ -551,20 +571,6 @@ window.Quarto = {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.style.use('ggplot')</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><span class="math display">\[
-\DeclareMathOperator{\cov}{cov}
-\DeclareMathOperator{\corr}{corr}
-\DeclareMathOperator{\var}{var}
-\DeclareMathOperator{\SE}{SE}
-\DeclareMathOperator{\E}{E}
-\DeclareMathOperator{\A}{\boldsymbol{A}}
-\DeclareMathOperator{\x}{\boldsymbol{x}}
-\DeclareMathOperator{\sgn}{sgn}  
-\DeclareMathOperator{\argmin}{argmin}
-\newcommand{\tr}{\text{tr}}
-\newcommand{\bs}{\boldsymbol}
-\newcommand{\mb}{\mathbb}
-\]</span></p>
 <section id="dynamic-causal-effects" class="level2" data-number="26.1">
 <h2 data-number="26.1" class="anchored" data-anchor-id="dynamic-causal-effects"><span class="header-section-number">26.1</span> Dynamic causal effects</h2>
 <p>The dynamic causal effect of a regressor on a dependent variable is the causal effect of a change in the regressor on the dependent variable over time. For example, we may be interested in the effect of a change in the interest rate on the output of the economy in this quarter, next quarter, and four quarters ahead. Similarly, we may be interested in the effect of a change in the temperature on the demand for heating oil in the current month, next month, and two months ahead. In these examples, the dynamic effects take place over different time horizons, suggesting that our econometric model should include the current value and lags of the regressor. In this chapter, we use distributed lag models to estimate the dynamic causal effects of regressors on the dependent variable.</p>
@@ -764,7 +770,7 @@ Y_t=\alpha_0+\phi_1Y_{t-1}+\delta_0X_t+\delta_1X_{t-1}+\delta_2X_{t-2}+\tilde{u}
 </ul>
 <p>The number of freezing degree days (<code>fdd</code>) is computed from the sum of the number of degrees below 31 degrees Fahrenheit for each day in the month. For example, assume that there were three days in a month with temperatures of 30, 29, and 28 degrees Fahrenheit. Then, the number of freezing degree days for that month is <span class="math inline">\((31-30)+(31-29)+(31-28)=6\)</span>.</p>
 <p>The dataset is available in the <code>frozenjuice.csv</code> file. We use the following code to load the data set and define real prices and percentage changes in real prices.</p>
-<div id="40570e59" class="cell" data-execution_count="2">
+<div id="cbdbab7d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data set</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'data/FrozenJuice.csv'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df.index <span class="op">=</span> pd.date_range(start<span class="op">=</span><span class="st">'1950-01-01'</span>, periods<span class="op">=</span><span class="bu">len</span>(df), freq<span class="op">=</span><span class="st">'ME'</span>)</span>
@@ -947,7 +953,7 @@ Figure&nbsp;26.1: Orange juice prices and cold weather
 <li><span class="math inline">\(\delta_{19}=\beta_1+\beta_2+\ldots+\beta_{19}\)</span>: long-run cumulative dynamic multiplier</li>
 </ul>
 <p>We use the HAC standard errors to obtain valid inference on the dynamic multipliers and cumulative dynamic multipliers. The truncation parameter for the HAC standard errors is <span class="math inline">\(m=0.75T^{1/3}=0.75\times612^{1/3}=6.37\)</span>. Therefore, we consider <span class="math inline">\(m=7\)</span> and <span class="math inline">\(m=14\)</span> for the HAC standard errors, where the latter is used to check the robustness of the results. The following code chunk shows how to estimate the models and obtain the HAC standard errors. The HAC standard errors estimates are obtained using the <code>cov_type='HAC'</code> and <code>cov_kwds={'maxlags': 7}</code> options, where the latter option specifies the truncation parameter.</p>
-<div id="f2ed7e34" class="cell" data-execution_count="5">
+<div id="3d0cc454" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare the data for the models</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'dFDD'</span>] <span class="op">=</span> df[<span class="st">'fdd'</span>].diff()</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -975,7 +981,7 @@ Figure&nbsp;26.1: Orange juice prices and cold weather
 <section id="estimation-results" class="level3" data-number="26.5.3">
 <h3 data-number="26.5.3" class="anchored" data-anchor-id="estimation-results"><span class="header-section-number">26.5.3</span> Estimation results</h3>
 <p>We use the <code>Stargazer</code> package to present the estimation results. The following code chunk shows how to present the results in a table. <a href="#tbl-t23-2" class="quarto-xref">Table&nbsp;<span>26.2</span></a> includes the estimates of the dynamic multipliers and cumulative dynamic multipliers.</p>
-<div id="e04cf5d2" class="cell" data-execution_count="6">
+<div id="c533fba4" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare the table</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="op">=</span> [<span class="ss">f'fdd.shift(</span><span class="sc">{</span>lag<span class="sc">}</span><span class="ss">)'</span> <span class="cf">for</span> lag <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">19</span>)] </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>v2 <span class="op">=</span> [<span class="ss">f'dFDD.shift(</span><span class="sc">{</span>lag<span class="sc">}</span><span class="ss">)'</span> <span class="cf">for</span> lag <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">18</span>)]</span>
@@ -1171,18 +1177,18 @@ Figure&nbsp;26.3: Cumulative Dynamic Effect of FDD on Orange Juice Price
 \end{align*}
 \]</span></p>
 <p>We use the <span class="math inline">\(F\)</span>-statistic to test the joint null hypothesis. The <span class="math inline">\(p\)</span>-value for the test is 0.47, indicating that the monthly dummy variables do not have a statistically significant effect on the percentage change in real prices.</p>
-<div id="81bff637" class="cell" data-execution_count="10">
+<div id="366ae89b" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># F-test for the joint null hypothesis</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>restrictions <span class="op">=</span> [<span class="st">'month_2[T.True]=0'</span>, <span class="st">'month_3[T.True]=0'</span>, <span class="st">'month_4[T.True]=0'</span>, <span class="st">'month_5[T.True]=0'</span>, <span class="st">'month_6[T.True]=0'</span>, <span class="st">'month_7[T.True]=0'</span>, </span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">'month_8[T.True]=0'</span>, <span class="st">'month_9[T.True]=0'</span>, <span class="st">'month_10[T.True]=0'</span>, <span class="st">'month_11[T.True]=0'</span>, <span class="st">'month_12[T.True]=0'</span>]</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>f_test <span class="op">=</span> model3.f_test(restrictions)</span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>f_test.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
-<pre><code>'&lt;F test: F=0.9682947074578862, p=0.47426063745075986, df_denom=563, df_num=11&gt;'</code></pre>
+<pre><code>'&lt;F test: F=0.9682947074579008, p=0.4742606374507512, df_denom=563, df_num=11&gt;'</code></pre>
 </div>
 </div>
 <p>Finally, we examine whether the dynamic multipliers have remained stable over time. One way to assess this is by estimating these multipliers for different subperiods of the sample. For example, we consider the periods 1950–1966, 1967–1983, and 1984–2000. If the multipliers are consistent across all three periods, their estimates should be similar, and the estimated cumulative multipliers should also align. To investigate this, we re-estimate Model 2 for each subperiod and compare the estimated cumulative dynamic multipliers in <a href="#fig-f23-4" class="quarto-xref">Figure&nbsp;<span>26.4</span></a>. The figure shows that the estimated cumulative dynamic multipliers are relatively larger in the first subperiod compared to the other two subperiods. This suggests that the effect of freezing degree days on real prices has decreased over time.</p>
-<div id="a3975d86" class="cell" data-execution_count="11">
+<div id="5c6e32d9" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define subperiods</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> df.loc[<span class="st">'1950-01-01'</span>:<span class="st">'1966-12-01'</span>]</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> df.loc[<span class="st">'1967-01-01'</span>:<span class="st">'1983-12-01'</span>]</span>

@@ -122,6 +122,26 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script>
+window.MathJax = {
+  tex: {
+    macros: {
+      cov: "\\operatorname{cov}",
+      corr: "\\operatorname{corr}",
+      var: "\\operatorname{var}",
+      SE: "\\operatorname{SE}",
+      E: "\\operatorname{E}",
+      A: "\\boldsymbol{A}",
+      x: "\\boldsymbol{x}",
+      sgn: "\\operatorname{sgn}",
+      argmin: "\\operatorname{argmin}",
+      tr: "\\text{tr}",
+      bs: ["\\boldsymbol{#1}", 1],
+      mb: ["\\mathbb{#1}", 1]
+    }
+  }
+};
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -527,27 +547,13 @@ window.Quarto = {
 </header>
 
 
-<div id="66e98b28" class="cell" data-execution_count="1">
+<div id="c406b300" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><span class="math display">\[
-\DeclareMathOperator{\cov}{cov}
-\DeclareMathOperator{\corr}{corr}
-\DeclareMathOperator{\var}{var}
-\DeclareMathOperator{\SE}{SE}
-\DeclareMathOperator{\E}{E}
-\DeclareMathOperator{\A}{\boldsymbol{A}}
-\DeclareMathOperator{\x}{\boldsymbol{x}}
-\DeclareMathOperator{\sgn}{sgn}  
-\DeclareMathOperator{\argmin}{argmin}
-\newcommand{\tr}{\text{tr}}
-\newcommand{\bs}{\boldsymbol}
-\newcommand{\mb}{\mathbb}
-\]</span></p>
 <section id="introduction" class="level2" data-number="28.1">
 <h2 data-number="28.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">28.1</span> Introduction</h2>
 <p>This chapter provides the theoretical foundation for the simple linear regression model with a single regressor. We present extended assumptions for the model and study both the asymptotic and exact sampling distributions of the OLS estimator and the <span class="math inline">\(t\)</span> statistic.</p>
@@ -787,7 +793,7 @@ P(|V-\mu_V|&lt;\delta)\geq 1-\frac{\sigma^2_V}{\delta^2}.
 P(\mu_V-\delta&lt;V&lt;\mu_V+\delta)\geq 1-\frac{\sigma^2_V}{\delta^2}.
 \]</span></p>
 <p>In the following code chunk, we assume that <span class="math inline">\(V\sim N(0,1)\)</span> and <code>delta = np. arange(1, 10)</code>. We calculate the Chebychev bound and the actual probability that <span class="math inline">\(V\)</span> is within <span class="math inline">\(\delta\)</span> of its mean. <a href="#fig-fig25-1" class="quarto-xref">Figure&nbsp;<span>28.2</span></a> shows that the Chebychev bound is a conservative estimate of the actual probability.</p>
-<div id="fe15df20" class="cell" data-execution_count="3">
+<div id="cb2ca5ac" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the Chebychev inequality</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sigma2_V <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>mu_V <span class="op">=</span> <span class="dv">0</span></span>
@@ -862,7 +868,7 @@ P(|m_c-\mu_Y|\geq\delta)\leq\E\left((\bar{Y}+1/n-\mu_Y)^2\right)/\delta^2=\frac{
 </div>
 <p>In the following code chunk, we illustrate the law of large numbers using the estimators <span class="math inline">\(m_a\)</span>, <span class="math inline">\(m_b\)</span>, and <span class="math inline">\(m_c\)</span> defined in <a href="#exm-exm25-1" class="quarto-xref">Example&nbsp;<span>28.2</span></a>. We set <span class="math inline">\(\mu_Y = 0\)</span>, <span class="math inline">\(\sigma_Y^2 = 1\)</span>, and <span class="math inline">\(a = 0.5\)</span>. We consider three sample sizes: <span class="math inline">\(n = 10\)</span>, <span class="math inline">\(n = 100\)</span>, and <span class="math inline">\(n = 1000\)</span>. For each sample size, we generate 1000 samples and compute each estimator. We then create histograms of each estimator for each sample size.</p>
 <p><a href="#fig-fig25-2" class="quarto-xref">Figure&nbsp;<span>28.3</span></a> displays the histograms of <span class="math inline">\(m_a\)</span>, <span class="math inline">\(m_b\)</span>, and <span class="math inline">\(m_c\)</span> for different sample sizes. In the case of <span class="math inline">\(m_a\)</span> and <span class="math inline">\(m_b\)</span>, the histograms do not concentrate around the true mean <span class="math inline">\(\mu_Y = 0\)</span> as the sample size increases. However, since the histograms are centered around the true mean, these estimators are unbiased. On the other hand, the histogram of <span class="math inline">\(m_c\)</span> becomes more concentrated around the true mean as the sample size increases, indicating that <span class="math inline">\(m_c\)</span> is a consistent estimator.</p>
-<div id="76b82845" class="cell" data-execution_count="5">
+<div id="a114c2d2" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the law of large numbers</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>mu_Y <span class="op">=</span> <span class="dv">0</span></span>
@@ -1104,7 +1110,7 @@ F_n(t)&amp;=\sum_{k=0}^{\lfloor t\rfloor}\binom{n}{k}\left(\frac{\lambda}{n}\rig
 </div>
 </div>
 <p>In the following code chunk, we illustrate the convergence in distribution between the binomial and poisson random variables. We set <span class="math inline">\(\lambda = 5\)</span> and consider three sample sizes: <span class="math inline">\(n = 10\)</span>, <span class="math inline">\(n = 20\)</span>, and <span class="math inline">\(n = 50\)</span>. For each sample size, we then compute the cumulative distribution functions of the binomial and poisson random variables over the range <span class="math inline">\(t = 0, 1, \ldots, 15\)</span>. <a href="#fig-fig25-3" class="quarto-xref">Figure&nbsp;<span>28.4</span></a> shows that the cumulative distribution functions of the binomial random variables converge to the cumulative distribution function of the poisson random variable as the sample size increases.</p>
-<div id="66e697bb" class="cell" data-execution_count="7">
+<div id="101ced4d" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the convergence in distribution</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>lambda_p <span class="op">=</span> <span class="dv">5</span></span>
@@ -1159,7 +1165,7 @@ Figure&nbsp;28.4: Illustrating the convergence in distribution
 \]</span> which suggests that <span class="math inline">\(\bar{Y}\sim N(1/2,1/12n)\)</span> when <span class="math inline">\(n\)</span> is large.</p>
 </div>
 <p>In the following code chunk, we illustrate the central limit theorem using the uniform random variables defined in <a href="#exm-exm25-4" class="quarto-xref">Example&nbsp;<span>28.7</span></a>. We set <span class="math inline">\(n = 10, 50, 100, 500, 1000, 5000\)</span> and generate 1000 samples for each sample size. We then compute the sample mean <span class="math inline">\(\bar{Y}\)</span> and plot the histograms of <span class="math inline">\(\sqrt{12n}(\bar{Y}-1/2)\)</span> for each sample size. <a href="#fig-fig25-4" class="quarto-xref">Figure&nbsp;<span>28.5</span></a> shows the histograms of <span class="math inline">\(\sqrt{12n}(\bar{Y}-1/2)\)</span> along with the standard normal density plot. As the sample size increases, the deviations between the histograms and the standard normal density plot decrease, indicating that the sample mean converges to the standard normal distribution as the sample size grows.</p>
-<div id="4ba62258" class="cell" data-execution_count="9">
+<div id="64651fdc" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the central limit theorem</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>n_values <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">5000</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1234,7 +1240,7 @@ P(S_n&gt;40)&amp;=P\left(\frac{S_n-np}{\sqrt{np(1-p)}}&gt;\frac{40-np}{\sqrt{np(
 &amp;=0.2527,
 \end{align*}
 \]</span> where <span class="math inline">\(Z\sim N(0,1)\)</span>. The last step can be computed using the following code:</p>
-<div id="44329d68" class="cell" data-execution_count="11">
+<div id="82864029" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(<span class="dv">1</span> <span class="op">-</span> stats.norm.cdf(<span class="fl">0.6661</span>), <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>0.2527</code></pre>
@@ -1242,7 +1248,7 @@ P(S_n&gt;40)&amp;=P\left(\frac{S_n-np}{\sqrt{np(1-p)}}&gt;\frac{40-np}{\sqrt{np(
 </div>
 <p>The result indicates that there is approximately a 25.27% chance that more than 40 students will take longer than 6 months to complete their thesis.</p>
 <p>Since <span class="math inline">\(P(S_n&gt;40)=1-P(S_n\leq 40)\)</span>, we can also compute the exact probability as follows:</p>
-<div id="901b1887" class="cell" data-execution_count="12">
+<div id="95abdc44" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(<span class="dv">1</span> <span class="op">-</span> stats.binom.cdf(<span class="dv">40</span>, <span class="dv">100</span>, np.exp(<span class="op">-</span><span class="dv">1</span>)), <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>0.2197</code></pre>

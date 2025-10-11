@@ -1,9 +1,6 @@
 # Prediction with Many Regressors and Big Data {#sec-chapter21}
 
-{{< include latex_macro.qmd >}}
-
 ## Introduction
-
 A prediction exercise involves calculation of the values of an outcome variable using a prediction rule and data on the regressors (predictors). For the prediction rule, machine learning provides several competing methods.
 
 :::{#def-def21-1}

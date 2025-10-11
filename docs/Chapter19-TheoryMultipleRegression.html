@@ -122,6 +122,26 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script>
+window.MathJax = {
+  tex: {
+    macros: {
+      cov: "\\operatorname{cov}",
+      corr: "\\operatorname{corr}",
+      var: "\\operatorname{var}",
+      SE: "\\operatorname{SE}",
+      E: "\\operatorname{E}",
+      A: "\\boldsymbol{A}",
+      x: "\\boldsymbol{x}",
+      sgn: "\\operatorname{sgn}",
+      argmin: "\\operatorname{argmin}",
+      tr: "\\text{tr}",
+      bs: ["\\boldsymbol{#1}", 1],
+      mb: ["\\mathbb{#1}", 1]
+    }
+  }
+};
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -529,27 +549,13 @@ window.Quarto = {
 </header>
 
 
-<div id="5c4c907d" class="cell" data-execution_count="1">
+<div id="7d23d8c0" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> multivariate_normal</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mpl_toolkits.mplot3d <span class="im">import</span> Axes3D</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><span class="math display">\[
-\DeclareMathOperator{\cov}{cov}
-\DeclareMathOperator{\corr}{corr}
-\DeclareMathOperator{\var}{var}
-\DeclareMathOperator{\SE}{SE}
-\DeclareMathOperator{\E}{E}
-\DeclareMathOperator{\A}{\boldsymbol{A}}
-\DeclareMathOperator{\x}{\boldsymbol{x}}
-\DeclareMathOperator{\sgn}{sgn}  
-\DeclareMathOperator{\argmin}{argmin}
-\newcommand{\tr}{\text{tr}}
-\newcommand{\bs}{\boldsymbol}
-\newcommand{\mb}{\mathbb}
-\]</span></p>
 <section id="introduction" class="level2" data-number="29.1">
 <h2 data-number="29.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">29.1</span> Introduction</h2>
 <p>In this chapter, we use matrix algebra to introduce multiple linear regression models and the OLS estimator. We then examine its algebraic properties in matrix form and derive both its asymptotic and exact sampling distributions. We also discuss the asymptotic and exact sampling distributions of the <span class="math inline">\(t\)</span> and <span class="math inline">\(F\)</span> statistics. Next, we extend our analysis to the generalized least squares (GLS) and feasible generalized least squares (FGLS) estimators. Finally, we present the instrumental variables (IV) and generalized method of moments (GMM) estimators, along with their asymptotic distributions.</p>

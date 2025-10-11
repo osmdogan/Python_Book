@@ -1,7 +1,5 @@
 # Appendix for Chapter 14 {#sec-OlsProperties}
 
-{{< include latex_macro.qmd >}}
-
 ## Derivation of the OLS estimators {#sec-OlsDerivation}
 Consider a linear regression model with an intercept and only one explanatory variable:
 $$

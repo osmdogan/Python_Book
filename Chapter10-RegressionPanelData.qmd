@@ -13,8 +13,6 @@ import seaborn as sns
 from stargazer.stargazer import Stargazer
 ```
 
-{{< include latex_macro.qmd >}}
-
 ## Panel data
 We assume that we have a dataset that contains observations on a set of entities over multiple time periods. The entities can be individuals, firms, industries, or countries, and the time periods can be days, months, quarters, or years. 
 
