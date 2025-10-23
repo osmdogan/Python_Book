@@ -1,7 +1,5 @@
 # Preface {.unnumbered}
 
-{{< include latex_macro.qmd >}}
-
 This book serves as a Python companion to the well-known textbook by @Stock2020, which we use in our undergraduate econometrics courses. In our courses, the first semester introduces econometrics through Chapters 1 to 9, followed by Chapters 10 to 17 in the second semester. This book compiles the lecture and lab materials we used for teaching econometrics. Lecture slides are also available and can be provided upon request.
 
 We organize the book into six parts: (i) Python, (ii) Introduction and Review, (iii) Fundamentals of Regression Analysis, (iv) Further Topics in Regression Analysis, (v) Regression Analysis of Economic Time Series Data, and (vi) Theoretical Topics. Except for the part on Python, the other parts are named as in @Stock2020. Each part consists of several chapters, with each chapter covering a specific topic.

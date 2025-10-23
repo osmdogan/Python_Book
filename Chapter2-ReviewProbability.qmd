@@ -1529,7 +1529,7 @@ plt.show()
 ```
 
 ### Normal distribution 
-If the continuous random variable $Y$ follows a normal distribution with mean $\mu$ and variance $\sigma^2$, we denote this as $Y \sim N(\mu_Y, \sigma_Y^2)$. The PDF and CDF of $Y$ are defined as
+If the continuous random variable $Y$ follows the normal distribution with mean $\mu_Y$ and variance $\sigma^2_Y$, we denote this as $Y \sim N(\mu_Y, \sigma_Y^2)$. The PDF and CDF of $Y$ are defined as
 $$
 \begin{align*}
 &f_Y(y)=\frac{1}{\sqrt{2\pi}\sigma_Y}e^{-\frac{1}{2\sigma^2_Y}(y-\mu_Y)^2},\\
@@ -1545,7 +1545,7 @@ $$
 \end{align*}
 $$
 
-The CDF does not have a closed form, so numerical methods are used to compute $\Phi_Z(z)=P(Z\leq z)$. The SciPy module provides statistical functions for probability computations as shown in @exm-example9.26. 
+The CDF does not have a closed form, therefore we need to use numerical methods to compute $\Phi_Z(z)=P(Z\leq z)$. The SciPy module provides statistical functions for probability computations as shown in @exm-example9.26. 
 
 :::{}
 :::{#exm-example9.26}
@@ -1583,7 +1583,7 @@ ax.scatter([-0.5, 0.75], [0, 0], color='black', s=20)
 plt.show()
 ```
 
-The normal distribution is symmetric around its mean $\mu$ and has a bell-shaped curve. The mean, median, and mode of the normal distribution are all equal to $\mu$. The variance $\sigma^2$ determines the spread of the distribution, with larger values indicating a wider spread. Consider $N(0,1)$, $N(-2,1)$, and $N(0,9)$. We use the following code chunk to plot the PDF and CDF of these normal distributions. @fig-f9.15 shows the PDF and CDF of these distributions. 
+The PDF of $Y$ is symmetric around its mean $\mu_Y$ and has a bell-shaped curve. The mean, median, and mode of the normal distribution are all equal to $\mu_Y$. The variance $\sigma^2_Y$ determines the spread of the distribution, with larger values indicating a wider spread. Consider $N(0,1)$, $N(-2,1)$, and $N(0,9)$. We use the following code chunk to plot the PDF and CDF of these normal distributions. @fig-f9.15 shows the PDF and CDF of these distributions. 
 
 ```{python}
 #| label: fig-f9.15
@@ -1621,6 +1621,52 @@ ax.legend(loc='upper left', frameon=False)
 # Show the plot
 plt.show()
 ```
+
+:::{#exm-example9.26-0}
+Let $Y\sim N(0,1)$. Then, the $2.5$th  percentile of $Y$ (the $0.025$th quantile of $Y$) is the value $y$ such that $P(Y\leq y)=0.025$. We can use the `scipy.stats.norm.ppf` function to compute this value as follows:
+```{python}
+y = stats.norm.ppf(0.025, loc=0, scale=1)
+np.round(y,3)
+```
+
+In the same way, we can compute the $97.5$th percentile of $Y$:
+```{python}
+y = stats.norm.ppf(0.975, loc=0, scale=1)
+np.round(y,3)
+```
+Below, we illustrate these percentiles on the PDF of $Y$.
+```{python}
+#| fig-cap: "The PDF of $Y$ with 2.5th and 97.5th percentiles"
+#| label: fig-f9.15-1
+# The PDF of N(0,1) with 2.5th and 97.5th percentiles
+# Define y values and compute the PDF
+y = np.arange(-4, 4, 0.01)
+pdf = stats.norm.pdf(y, loc=0,scale=1)
+# Create a figure and axis object
+fig, ax = plt.subplots(figsize=(5, 3.5))
+# Plot the PDF
+ax.plot(y, pdf, linestyle='-', color='steelblue', linewidth=2, label='PDF')
+ax.set_xlabel('y')
+ax.set_ylabel('PDF')
+ax.set_xlim(-4, 4)
+# Define x values for the shaded areas
+x1 = np.arange(-4, -1.96, 0.001)
+x2 = np.arange(1.96, 4, 0.001)
+# Shade the areas under the PDF
+ax.fill_between(x1, stats.norm.pdf(x1, loc=0, scale=1), color='steelblue', alpha=0.5)
+ax.fill_between(x2, stats.norm.pdf(x2, loc=0, scale=1), color='steelblue', alpha=0.5)
+# Add vertical lines for the percentiles
+ax.axvline(x=-1.96, linestyle='--', color='black', linewidth=1.5)
+ax.axvline(x=1.96, linestyle='--', color='black', linewidth=1.5)
+# Add text annotations
+ax.text(-3, 0.1, '2.5th percentile', fontsize=10, color='black')
+ax.text(2.5, 0.1, '97.5th percentile', fontsize=10, color='black')
+ax.legend(loc='upper left', frameon=False)
+# Show the plot
+plt.show()
+```
+
+:::
 
 Below, we collect some important properties of random variables that have normal distributions.
 
