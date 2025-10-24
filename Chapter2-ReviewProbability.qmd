@@ -100,11 +100,11 @@ $$
 Note that $A$ is an infinite union of mutually exclusive events. Therefore, by the countable additivity property, we have
 $$
 \begin{align*}
-P(A)&=P(\text{T})+P(\text{HHT})+P(\text{HHHHT})+P(\text{HHHHHHT})+\cdots.
+P(A)&=P(\{\text{T}\})+P(\{\text{HHT}\})+P(\{\text{HHHHT}\})+P(\{\text{HHHHHHT}\})+\cdots.
 \end{align*}
 $$
 
-Since the coin is fair, we have $P(\text{H})=P(\text{T})=1/2$. Thus, we obtain
+Since the coin is fair, we have $P(\{\text{H}\})=P(\{\text{T}\})=1/2$. Thus, we obtain
 $$
 \begin{align*}
 P(A)&=\frac{1}{2}+\left(\frac{1}{2}\right)^3+\left(\frac{1}{2}\right)^5+\left(\frac{1}{2}\right)^7+\cdots \\
