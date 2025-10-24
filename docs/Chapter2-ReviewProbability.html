@@ -561,7 +561,7 @@ window.Quarto = {
 </header>
 
 
-<div id="4f1af291" class="cell" data-execution_count="1">
+<div id="ec82cf3f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
@@ -632,12 +632,35 @@ P\left(\bigcup_{i=1}^\infty E_i\right) = \sum_{i=1}^\infty P(E_i).
 \end{align*}
 \]</span> Assuming that each outcome in the sample space is equally likely, we have <span class="math inline">\(P(A)=3/8\)</span>, <span class="math inline">\(P(B)=4/8=1/2\)</span>, <span class="math inline">\(P(A\cup B)=6/8=3/4\)</span>, <span class="math inline">\(P(A^c)=1-P(A)=5/8\)</span>, <span class="math inline">\(P(B^c)=1-P(B)=1/2\)</span>, and <span class="math inline">\(P(A\cap B)=1/8\)</span>.</p>
 </div>
+<div id="exm-example9.3a" class="theorem example">
+<p><span class="theorem-title"><strong>Example 12.4</strong></span> Consider an experiment of tossing a fair coin until the first tail appears. We want to compute the probability that the total number of tosses is odd. Let <span class="math inline">\(A\)</span> be the event that the total number of tosses is odd. The possible outcomes for event <span class="math inline">\(A\)</span> are: getting a tail on the first toss, getting heads on the first toss and tail on the third toss, getting heads on the first and third tosses and tail on the fifth toss, and so on. Thus, we can express event <span class="math inline">\(A\)</span> as follows: <span class="math display">\[
+\begin{align*}
+A&amp;=\{\text{T}\}\cup\{\text{HHT}\}\cup\{\text{HHHHT}\}\cup\{\text{HHHHHHT}\}\cup\cdots.
+\end{align*}
+\]</span></p>
+<p>Note that <span class="math inline">\(A\)</span> is an infinite union of mutually exclusive events. Therefore, by the countable additivity property, we have <span class="math display">\[
+\begin{align*}
+P(A)&amp;=P(\text{T})+P(\text{HHT})+P(\text{HHHHT})+P(\text{HHHHHHT})+\cdots.
+\end{align*}
+\]</span></p>
+<p>Since the coin is fair, we have <span class="math inline">\(P(\text{H})=P(\text{T})=1/2\)</span>. Thus, we obtain <span class="math display">\[
+\begin{align*}
+P(A)&amp;=\frac{1}{2}+\left(\frac{1}{2}\right)^3+\left(\frac{1}{2}\right)^5+\left(\frac{1}{2}\right)^7+\cdots \\
+&amp;=\sum_{k=0}^\infty \left(\frac{1}{2}\right)^{2k+1}=\frac{1}{2}\sum_{k=0}^\infty \left(\frac{1}{4}\right)^k.
+\end{align*}
+\]</span></p>
+<p>The series <span class="math inline">\(\sum_{k=0}^\infty (1/4)^k\)</span> is a geometric series with first term <span class="math inline">\(1\)</span> and common ratio <span class="math inline">\(1/4\)</span>. The sum of this series is given by <span class="math inline">\(1/(1-1/4)=4/3\)</span>. Therefore, we have <span class="math display">\[
+\begin{align*}
+P(A)&amp;=\frac{1}{2}\times \frac{4}{3}=\frac{2}{3}.
+\end{align*}
+\]</span> Thus, the probability that the total number of tosses is odd is <span class="math inline">\(2/3\)</span>.</p>
+</div>
 <div id="def-definition9.2" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 12.2</strong></span> A <strong>random variable</strong> is a real-valued function defined on the sample space of an experiment.</p>
 </div>
 <p><a href="#def-definition9.2" class="quarto-xref">Definition&nbsp;<span>12.2</span></a> suggests that a random variable is a numerical summary of the sample space of an experiment. The set of values that a random variable can take is called the <strong>support</strong> of the random variable. A <strong>discrete random variable</strong> has a support that is countable, while a <strong>continuous random variable</strong> has a support that is an uncountable set.</p>
 <div id="exm-example9.4" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.4</strong></span> Consider <a href="#exm-example9.1" class="quarto-xref">Example&nbsp;<span>12.1</span></a>. Let <span class="math inline">\(X\)</span> be the random variable that counts the number of heads in the three tosses. Then, <span class="math inline">\(X\)</span> is a discrete random variable that takes values from the set <span class="math inline">\(\{0, 1, 2, 3\}\)</span>. The events <span class="math inline">\(\{X=x\}\)</span>, where <span class="math inline">\(x\in\{0, 1, 2, 3\}\)</span>, are defined as follows: <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 12.5</strong></span> Consider <a href="#exm-example9.1" class="quarto-xref">Example&nbsp;<span>12.1</span></a>. Let <span class="math inline">\(X\)</span> be the random variable that counts the number of heads in the three tosses. Then, <span class="math inline">\(X\)</span> is a discrete random variable that takes values from the set <span class="math inline">\(\{0, 1, 2, 3\}\)</span>. The events <span class="math inline">\(\{X=x\}\)</span>, where <span class="math inline">\(x\in\{0, 1, 2, 3\}\)</span>, are defined as follows: <span class="math display">\[
 \begin{align*}
 &amp;\{X=0\}=\{\text{TTT}\},\\
 &amp;\{X=1\}=\{\text{HTT, THT, TTH}\},\\
@@ -656,7 +679,7 @@ P(X=x_i) = p_i,\quad i=1,2,\dots,k,
 \]</span> where <span class="math inline">\(p_i\geq 0\)</span> for all <span class="math inline">\(i\)</span> and <span class="math inline">\(\sum_{i=1}^k p_i = 1\)</span>.</p>
 </div>
 <div id="exm-example9.5" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.5</strong></span> Consider an experiment of tossing a coin three times. Let <span class="math inline">\(X\)</span> be the number of heads in the three tosses. Then, <span class="math inline">\(X\)</span> is a discrete random variable that takes values from the set <span class="math inline">\(\{0, 1, 2, 3\}\)</span>. The probability distribution of <span class="math inline">\(X\)</span> is given by <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 12.6</strong></span> Consider an experiment of tossing a coin three times. Let <span class="math inline">\(X\)</span> be the number of heads in the three tosses. Then, <span class="math inline">\(X\)</span> is a discrete random variable that takes values from the set <span class="math inline">\(\{0, 1, 2, 3\}\)</span>. The probability distribution of <span class="math inline">\(X\)</span> is given by <span class="math display">\[
 \begin{align*}
 &amp;P(X=0)=P(\text{TTT})=1/8,\\
 &amp;P(X=1)=P(\text{HTT, THT, TTH})=3/8,\\
@@ -666,8 +689,8 @@ P(X=x_i) = p_i,\quad i=1,2,\dots,k,
 \]</span></p>
 </div>
 <div id="exm-example9.6" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.6</strong></span> Let <span class="math inline">\(M\)</span> be a random variable that measures the number of times your wireless network connection fails while you are writing a term paper. Let us assume that <span class="math inline">\(M\)</span> takes values from <span class="math inline">\(\{0,1,2,3,4\}\)</span>, with the corresponding probabilities given by <span class="math inline">\(\{0.80,0.10,0.06,0.03, 0.01\}\)</span>. In the following, we summarize the probability distribution of <span class="math inline">\(M\)</span> in a table.</p>
-<div id="17ea0891" class="cell" data-execution_count="2">
+<p><span class="theorem-title"><strong>Example 12.7</strong></span> Let <span class="math inline">\(M\)</span> be a random variable that measures the number of times your wireless network connection fails while you are writing a term paper. Let us assume that <span class="math inline">\(M\)</span> takes values from <span class="math inline">\(\{0,1,2,3,4\}\)</span>, with the corresponding probabilities given by <span class="math inline">\(\{0.80,0.10,0.06,0.03, 0.01\}\)</span>. In the following, we summarize the probability distribution of <span class="math inline">\(M\)</span> in a table.</p>
+<div id="ac280a87" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability distribution of M</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>outcomes <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># probabilities</span></span>
@@ -692,7 +715,7 @@ P(X=x_i) = p_i,\quad i=1,2,\dots,k,
 Table&nbsp;12.1: The probability distribution of M
 </figcaption>
 <div aria-describedby="tbl-t9.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="73">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -744,7 +767,7 @@ Table&nbsp;12.1: The probability distribution of M
 </div>
 </div>
 </div>
-<p>We can use either a bar plot or a stem plot to illustrate the probability distribution of discrete random variables. Consider the discrete random variable defined in <a href="#exm-example9.6" class="quarto-xref">Example&nbsp;<span>12.6</span></a>. In <a href="#fig-f9.1" class="quarto-xref">Figure&nbsp;<span>12.1</span></a>, we use the stem plot for the probability distribution, while in <a href="#fig-f9.2" class="quarto-xref">Figure&nbsp;<span>12.2</span></a>, we use the bar plot.</p>
+<p>We can use either a bar plot or a stem plot to illustrate the probability distribution of discrete random variables. Consider the discrete random variable defined in <a href="#exm-example9.6" class="quarto-xref">Example&nbsp;<span>12.7</span></a>. In <a href="#fig-f9.1" class="quarto-xref">Figure&nbsp;<span>12.1</span></a>, we use the stem plot for the probability distribution, while in <a href="#fig-f9.2" class="quarto-xref">Figure&nbsp;<span>12.2</span></a>, we use the bar plot.</p>
 <div id="cell-fig-f9.1" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability distribution of M</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"darkgrid"</span>)</span>
@@ -802,7 +825,7 @@ Figure&nbsp;12.2: Probability distribution of the number of wireless network con
 <p><span class="theorem-title"><strong>Definition 12.4</strong></span> A <strong>Bernoulli random variable</strong> is a discrete random variable that takes only two values.</p>
 </div>
 <div id="exm-example9.7" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.7</strong></span> Let <span class="math inline">\(G\)</span> be the sex of the next new person you meet, where <span class="math inline">\(G = 0\)</span> indicates that the person is male and <span class="math inline">\(G = 1\)</span> indicates that the person is female. Then, the <span class="math inline">\(G\)</span> is a Bernoulli random variable with the following probability distribution: <span id="eq-eq9.1"><span class="math display">\[
+<p><span class="theorem-title"><strong>Example 12.8</strong></span> Let <span class="math inline">\(G\)</span> be the sex of the next new person you meet, where <span class="math inline">\(G = 0\)</span> indicates that the person is male and <span class="math inline">\(G = 1\)</span> indicates that the person is female. Then, the <span class="math inline">\(G\)</span> is a Bernoulli random variable with the following probability distribution: <span id="eq-eq9.1"><span class="math display">\[
 \begin{align}
 G=
 \begin{cases}
@@ -819,7 +842,7 @@ F_Y(y)=P(Y\leq y)=\sum_{y^{*}\leq y} P(Y=y^{*}),
 \]</span> where the sum is over all possible values <span class="math inline">\(y^{*}\)</span> of <span class="math inline">\(Y\)</span> that are less than or equal to <span class="math inline">\(y\)</span>.</p>
 </div>
 <div id="exm-example9.8" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.8</strong></span> The last row of <a href="#tbl-t9.1" class="quarto-xref">Table&nbsp;<span>12.1</span></a> in <a href="#exm-example9.6" class="quarto-xref">Example&nbsp;<span>12.6</span></a> gives the cumulative probability distribution of the random variable <span class="math inline">\(M\)</span>. For example, the probability of at most one connection failure is <span class="math inline">\(P(M\leq1)=0.90\)</span>. The CDF of <span class="math inline">\(M\)</span> is given by <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 12.9</strong></span> The last row of <a href="#tbl-t9.1" class="quarto-xref">Table&nbsp;<span>12.1</span></a> in <a href="#exm-example9.6" class="quarto-xref">Example&nbsp;<span>12.7</span></a> gives the cumulative probability distribution of the random variable <span class="math inline">\(M\)</span>. For example, the probability of at most one connection failure is <span class="math inline">\(P(M\leq1)=0.90\)</span>. The CDF of <span class="math inline">\(M\)</span> is given by <span class="math display">\[
 F_M(m)=P(M\leq m)=\begin{cases}
 0,\quad&amp;\text{if } m&lt;0,\\
 0.80,\quad&amp;\text{if } 0\leq m&lt;1,\\
@@ -869,7 +892,7 @@ Figure&nbsp;12.3: Cumulative probability distribution of <span class="math inlin
 </ul>
 </div>
 <div id="exm-example9.9" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.9</strong></span> Consider the following CDF: <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 12.10</strong></span> Consider the following CDF: <span class="math display">\[
 F(y)=\begin{cases}
 0,           \quad&amp;\text{if } y&lt;0,\\
 1-e^{-y^2/2},\quad&amp;\text{if } 0\leq y&lt;\infty.\\
@@ -924,7 +947,7 @@ F_Y(y)=\int_{-\infty}^y f_Y(t)\text{d}t.
 \]</span></p>
 </div>
 <div id="exm-example9.10" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.10</strong></span> Let <span class="math inline">\(Y\)</span> be a continuous random variable with the following CDF: <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 12.11</strong></span> Let <span class="math inline">\(Y\)</span> be a continuous random variable with the following CDF: <span class="math display">\[
 \begin{align*}
 F_Y(y)=
 \begin{cases}
@@ -1017,7 +1040,7 @@ Figure&nbsp;12.5: The plots of CDF and PDF of Y
 </div>
 </div>
 <div id="exm-example9.11" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.11</strong></span> Let <span class="math inline">\(Y\)</span> be a continuous random variable with the following PDF: <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 12.12</strong></span> Let <span class="math inline">\(Y\)</span> be a continuous random variable with the following PDF: <span class="math display">\[
 \begin{align*}
 f_Y(y)=\begin{cases}
 3y^{2},\quad&amp;\text{for}\quad 0\leq y\leq 1,\\
@@ -1106,13 +1129,13 @@ Figure&nbsp;12.6: The CDF and PDF plots of <span class="math inline">\(Y\)</span
 </div>
 <p>In <a href="#thm-theorem9.4" class="quarto-xref">Theorem&nbsp;<span>12.4</span></a>, the first property states that the PDF is nonnegative, while the second property states that the area under the PDF is equal to <span class="math inline">\(1\)</span>.</p>
 <div id="exm-example9.12" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.12</strong></span> Consider <span class="math inline">\(Y\)</span> with the PDF <span class="math inline">\(f_Y(y) = 3/y^4\)</span> for <span class="math inline">\(y&gt;1\)</span>. We show that this is a proper density by checking the properties in <a href="#thm-theorem9.4" class="quarto-xref">Theorem&nbsp;<span>12.4</span></a>. First, we note that <span class="math inline">\(f_Y(y)\geq 0\)</span> for all <span class="math inline">\(y&gt;1\)</span>. Second, we compute the integral of <span class="math inline">\(f_Y(y)\)</span> over its domain: <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 12.13</strong></span> Consider <span class="math inline">\(Y\)</span> with the PDF <span class="math inline">\(f_Y(y) = 3/y^4\)</span> for <span class="math inline">\(y&gt;1\)</span>. We show that this is a proper density by checking the properties in <a href="#thm-theorem9.4" class="quarto-xref">Theorem&nbsp;<span>12.4</span></a>. First, we note that <span class="math inline">\(f_Y(y)\geq 0\)</span> for all <span class="math inline">\(y&gt;1\)</span>. Second, we compute the integral of <span class="math inline">\(f_Y(y)\)</span> over its domain: <span class="math display">\[
 \begin{align*}
 &amp;\int_{1}^\infty \frac{3}{z^4}\, \text{d}z =  \left.-\frac{3}{3}z^{-3}\right|_{z=1}^\infty =  \left.-z^{-3}\right|_{z=1}^\infty=-\left(\lim_{t\rightarrow\infty}\frac{1}{t^3}-1\right)=1.
 \end{align*}
 \]</span></p>
 <p>Thus, <span class="math inline">\(f_Y(y)\)</span> is a proper density function. Numerically, we can use the <code>quad</code> method from the <code>scipy.integrate</code> module to compute the above integral, as illustrated below.</p>
-<div id="8bc84613" class="cell" data-execution_count="10">
+<div id="b01bb149" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fun(z):</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">3</span> <span class="op">/</span> z<span class="op">**</span><span class="dv">4</span></span>
@@ -1163,7 +1186,7 @@ P(a &lt; Y &lt; b) &amp;= P(a\leq Y &lt; b) = P(a &lt; Y \leq b) = P(a \leq Y \l
 \end{align}
 \]</span></p>
 <div id="exm-example9.13" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.13</strong></span> Consider the random variable <span class="math inline">\(M\)</span> with probability distribution given in <a href="#tbl-t9.1" class="quarto-xref">Table&nbsp;<span>12.1</span></a>. Then, the mean of <span class="math inline">\(M\)</span> is <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 12.14</strong></span> Consider the random variable <span class="math inline">\(M\)</span> with probability distribution given in <a href="#tbl-t9.1" class="quarto-xref">Table&nbsp;<span>12.1</span></a>. Then, the mean of <span class="math inline">\(M\)</span> is <span class="math display">\[
 \begin{align}
 \E(M)&amp;=\sum_{j=1}^4 m_j \times P(M=m_j)\\
 &amp;= 0 \times 0.80 + 1 \times 0.10 + 2 \times 0.06 + 3 \times 0.03 + 4 \times 0.01\\
@@ -1172,7 +1195,7 @@ P(a &lt; Y &lt; b) &amp;= P(a\leq Y &lt; b) = P(a &lt; Y \leq b) = P(a \leq Y \l
 \]</span></p>
 </div>
 <div id="exm-example9.14" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.14</strong></span> The expected value of the Bernoulli random variable <span class="math inline">\(G\)</span> defined in <a href="#eq-eq9.1" class="quarto-xref">Equation&nbsp;<span>12.1</span></a> is <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 12.15</strong></span> The expected value of the Bernoulli random variable <span class="math inline">\(G\)</span> defined in <a href="#eq-eq9.1" class="quarto-xref">Equation&nbsp;<span>12.1</span></a> is <span class="math display">\[
 \E(G)=1\times p+ 0\times (1-p)=p.
 \]</span></p>
 </div>
@@ -1188,14 +1211,14 @@ P(a &lt; Y &lt; b) &amp;= P(a\leq Y &lt; b) = P(a &lt; Y \leq b) = P(a \leq Y \l
 \end{align*}
 \]</span></p>
 <div id="exm-example9.15" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.15</strong></span> Consider the random variable <span class="math inline">\(Y\)</span> in <a href="#exm-example9.12" class="quarto-xref">Example&nbsp;<span>12.12</span></a>. Then, the expected value of <span class="math inline">\(Y\)</span> is <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 12.16</strong></span> Consider the random variable <span class="math inline">\(Y\)</span> in <a href="#exm-example9.12" class="quarto-xref">Example&nbsp;<span>12.13</span></a>. Then, the expected value of <span class="math inline">\(Y\)</span> is <span class="math display">\[
 \begin{align*}
 \E(Y) &amp;= \int_{1}^\infty y f_Y(y)\text{d}y = \int_{1}^\infty y \cdot \frac{3}{y^4}\text{d}y\\
 &amp;= 3\int_{1}^\infty y^{-3}\text{d}y = \left.-\frac{3}{2}y^{-2}\right|_{1}^\infty  = \frac{3}{2}.
 \end{align*}
 \]</span></p>
 <p>Using the <code>quad</code> function from the <code>scipy.integrate</code> module, we can compute the expected value of <span class="math inline">\(Y\)</span> numerically as follows:</p>
-<div id="405d918c" class="cell" data-execution_count="11">
+<div id="40af3553" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function for the expected value</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fun(y):</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y <span class="op">*</span> <span class="dv">3</span> <span class="op">/</span> y<span class="op">**</span><span class="dv">4</span></span>
@@ -1249,7 +1272,7 @@ Key Concept 9.1: Expected value and central moments
 <p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-theorem9.6" class="quarto-xref">Theorem&nbsp;<span>12.6</span></a>). </span>See <span class="citation" data-cites="Den:2008">Wackerly, Mendenhall, and Scheaffer (<a href="references.html#ref-Den:2008" role="doc-biblioref">2008</a>)</span>.</p>
 </div>
 <div id="exm-example9.16" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.16</strong></span> Let <span class="math inline">\(G\)</span> be the Bernoulli random variable defined in <a href="#exm-example9.7" class="quarto-xref">Example&nbsp;<span>12.7</span></a>. Then, using <a href="#thm-theorem9.6" class="quarto-xref">Theorem&nbsp;<span>12.6</span></a>, we can compute the expected value of <span class="math inline">\(G^3\)</span> as follows: <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 12.17</strong></span> Let <span class="math inline">\(G\)</span> be the Bernoulli random variable defined in <a href="#exm-example9.7" class="quarto-xref">Example&nbsp;<span>12.8</span></a>. Then, using <a href="#thm-theorem9.6" class="quarto-xref">Theorem&nbsp;<span>12.6</span></a>, we can compute the expected value of <span class="math inline">\(G^3\)</span> as follows: <span class="math display">\[
 \begin{align*}
 \E(G^3)=1^3\times p+0^3\times(1-p)=p.
 \end{align*}
@@ -1275,7 +1298,7 @@ Key Concept 9.2: Variance and standard deviation
 </div>
 </div>
 <div id="exm-example9.17" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.17</strong></span> Let <span class="math inline">\(M\)</span> be the number of times your wireless network connection fails while you are writing a term paper. Using <a href="#tbl-t9.1" class="quarto-xref">Table&nbsp;<span>12.1</span></a>, we compute <span class="math inline">\(\sigma^2_Y\)</span> as <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 12.18</strong></span> Let <span class="math inline">\(M\)</span> be the number of times your wireless network connection fails while you are writing a term paper. Using <a href="#tbl-t9.1" class="quarto-xref">Table&nbsp;<span>12.1</span></a>, we compute <span class="math inline">\(\sigma^2_Y\)</span> as <span class="math display">\[
 \begin{align*}
 \sigma_M^2 &amp;= \sum_{j=1}^5 (m_j-\mu_M)^2 \times P(M=m_j) \\
 &amp;= (0-0.35)^2\times0.80 + (1-0.35)^2\times0.10 \\
@@ -1408,7 +1431,7 @@ Figure&nbsp;12.7: Shape of distributions
 </figure>
 </div>
 <div id="exm-example9.18" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.18</strong></span> Let <span class="math inline">\(G\)</span> be the Bernoulli random variable defined in <a href="#eq-eq9.1" class="quarto-xref">Equation&nbsp;<span>12.1</span></a> with <span class="math inline">\(p=0.7\)</span>. Note that <span class="math inline">\(\E(G)=p\)</span> and <span class="math inline">\(\sigma^2_G=p(1-p)\)</span>. Then, the skewness of <span class="math inline">\(G\)</span> is given by <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 12.19</strong></span> Let <span class="math inline">\(G\)</span> be the Bernoulli random variable defined in <a href="#eq-eq9.1" class="quarto-xref">Equation&nbsp;<span>12.1</span></a> with <span class="math inline">\(p=0.7\)</span>. Note that <span class="math inline">\(\E(G)=p\)</span> and <span class="math inline">\(\sigma^2_G=p(1-p)\)</span>. Then, the skewness of <span class="math inline">\(G\)</span> is given by <span class="math display">\[
 \begin{align*}
 \text{Skewness} &amp;= \frac{\E\left[(G - \mu_G)^3\right]}{\sigma_G^3} = \frac{p(1-p)(1-2p)}{(p(1-p))^{3/2}}\\
 &amp;= \frac{0.7(1-0.7)(1-2\times0.7)}{(0.7(1-0.7))^{3/2}} = −0.872.
@@ -1458,7 +1481,7 @@ Figure&nbsp;12.8: The Bernoulli distribution with p=0.7
 </div>
 <p>Note that <span class="math inline">\(q_{0.5}\)</span> is the median, <span class="math inline">\(q_{0.25}\)</span> is the first quartile, and <span class="math inline">\(q_{0.75}\)</span> is the third quartile of <span class="math inline">\(Y\)</span>.</p>
 <div id="exm-example9.19" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.19</strong></span> Let <span class="math inline">\(Y\)</span> be a continuous random variable with the following CDF: <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 12.20</strong></span> Let <span class="math inline">\(Y\)</span> be a continuous random variable with the following CDF: <span class="math display">\[
 \begin{align*}
 F_Y(y)=
 \begin{cases}
@@ -1567,7 +1590,7 @@ Figure&nbsp;12.9: The CDF and PDF plots of <span class="math inline">\(Y\)</span
 </div>
 <p>We usually use tables to represent the joint probability distribution of two discrete random variables, as illustrated in the following example.</p>
 <div id="exm-example9.20" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.20</strong></span> Let <span class="math inline">\(Y\)</span> be a binary random variable that equals <span class="math inline">\(1\)</span> if the commute to school is short (less than 20 minutes) and that equals <span class="math inline">\(0\)</span> otherwise, and let <span class="math inline">\(X\)</span> be a binary random variable that equals <span class="math inline">\(0\)</span> if it is raining and <span class="math inline">\(1\)</span> if not. We assume that the joint probability distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is given in <a href="#tbl-t9.2" class="quarto-xref">Table&nbsp;<span>12.2</span></a>.</p>
+<p><span class="theorem-title"><strong>Example 12.21</strong></span> Let <span class="math inline">\(Y\)</span> be a binary random variable that equals <span class="math inline">\(1\)</span> if the commute to school is short (less than 20 minutes) and that equals <span class="math inline">\(0\)</span> otherwise, and let <span class="math inline">\(X\)</span> be a binary random variable that equals <span class="math inline">\(0\)</span> if it is raining and <span class="math inline">\(1\)</span> if not. We assume that the joint probability distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is given in <a href="#tbl-t9.2" class="quarto-xref">Table&nbsp;<span>12.2</span></a>.</p>
 <div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Joint probability distribution of weather conditions and commuting times</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> [<span class="fl">0.15</span>, <span class="fl">0.07</span>, <span class="fl">0.22</span>]</span>
@@ -1583,7 +1606,7 @@ Figure&nbsp;12.9: The CDF and PDF plots of <span class="math inline">\(Y\)</span
 Table&nbsp;12.2: Joint distribution of weather conditions and commuting Times
 </figcaption>
 <div aria-describedby="tbl-t9.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="85">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 
 
@@ -1671,7 +1694,7 @@ P(Y=y)=\sum_{i=1}^\ell P(Y=y, X=x_i).
 \]</span></p>
 </div>
 <div id="exm-example9.21" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.21</strong></span> Consider the joint probability distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> given in <a href="#tbl-t9.2" class="quarto-xref">Table&nbsp;<span>12.2</span></a>. Then, the probability of a long commute, i.e., <span class="math inline">\(P(Y=0)\)</span>, is <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 12.22</strong></span> Consider the joint probability distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> given in <a href="#tbl-t9.2" class="quarto-xref">Table&nbsp;<span>12.2</span></a>. Then, the probability of a long commute, i.e., <span class="math inline">\(P(Y=0)\)</span>, is <span class="math display">\[
 \begin{align*}
 P(Y=0)&amp;=\sum_{i=1}^\ell P(Y=0, X=x_i)\\
 &amp;=P(Y=0,X=0)+P(Y=0,X=1)\\
@@ -1695,7 +1718,7 @@ F_{X,Y}(x,y) &amp;= P(X\leq x, Y\leq y)\\
 \end{align*}
 \]</span> where the first summation is over all values of <span class="math inline">\(X\)</span> that are less than or equal to <span class="math inline">\(x\)</span>, and the second summation is over all values of <span class="math inline">\(Y\)</span> that are less than or equal to <span class="math inline">\(y\)</span>.</p>
 <div id="exm-example9.22" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.22</strong></span> Consider the joint probability distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> given in <a href="#tbl-t9.2" class="quarto-xref">Table&nbsp;<span>12.2</span></a>. Then, the joint CDF of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> at <span class="math inline">\((0,1)\)</span> is <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 12.23</strong></span> Consider the joint probability distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> given in <a href="#tbl-t9.2" class="quarto-xref">Table&nbsp;<span>12.2</span></a>. Then, the joint CDF of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> at <span class="math inline">\((0,1)\)</span> is <span class="math display">\[
 \begin{align*}
 F_{X,Y}(0,1) &amp;= P(X\leq 0, Y\leq 1)\\
 &amp;= P(X=0,Y=0)+P(X=0,Y=1)\\
@@ -1722,7 +1745,7 @@ F_{X,Y}(x,y) &amp;= P(X\leq x, Y\leq y)\\
 \end{align*}
 \]</span></p>
 <div id="exm-example9.23" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.23</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two continuous random variables with joint PDF given by <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 12.24</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two continuous random variables with joint PDF given by <span class="math display">\[
 \begin{align*}
 f(x,y)=
 \begin{cases}
@@ -1782,7 +1805,7 @@ Figure&nbsp;12.11: The integration region for computing <span class="math inline
 </div>
 </div>
 <p>Using the <code>dblquad</code> function from the <code>scipy.integrate</code> module, we can compute the joint CDF <span class="math inline">\(F_{X,Y}(0.5, 0.5)\)</span> numerically as follows:</p>
-<div id="7b1772ec" class="cell" data-execution_count="18">
+<div id="6e58989b" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the joint PDF function</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> joint_pdf(y, x):</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">30</span> <span class="op">*</span> x <span class="op">*</span> y<span class="op">**</span><span class="dv">2</span></span>
@@ -1823,7 +1846,7 @@ P(Y=y |X=x) = \frac{P(Y=y,X=x)}{P(X=x)}.
 </div>
 <p><a href="#def-definition9.13" class="quarto-xref">Definition&nbsp;<span>12.13</span></a> indicates that <span class="math inline">\(P(Y=y |X=x)\)</span> is the likelihood of the event that <span class="math inline">\(Y\)</span> takes the value <span class="math inline">\(y\)</span> given that <span class="math inline">\(X=x\)</span> has happened.</p>
 <div id="exm-example9.24" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.24</strong></span> Consider the joint probability distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> given in <a href="#tbl-t9.2" class="quarto-xref">Table&nbsp;<span>12.2</span></a>. Then, the likelihood of a short commute given that it is raining outside is <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 12.25</strong></span> Consider the joint probability distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> given in <a href="#tbl-t9.2" class="quarto-xref">Table&nbsp;<span>12.2</span></a>. Then, the likelihood of a short commute given that it is raining outside is <span class="math display">\[
 \begin{align*}
 P(Y=1 |X=0) = \frac{P(Y=1,X=0)}{P(X=0)} = 0.15/0.30 = 0.50.
 \end{align*}
@@ -1860,7 +1883,7 @@ f_{Y|X}(y|x) = \frac{f_{X,Y}(x,y)}{f_X(x)}.
 \end{align}
 \]</span></p>
 <div id="exm-example9.9" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.25</strong></span> Consider the joint probability distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> given in <a href="#tbl-t9.2" class="quarto-xref">Table&nbsp;<span>12.2</span></a>. Then, the expected value of commute given that it is not a rainy day is <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 12.26</strong></span> Consider the joint probability distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> given in <a href="#tbl-t9.2" class="quarto-xref">Table&nbsp;<span>12.2</span></a>. Then, the expected value of commute given that it is not a rainy day is <span class="math display">\[
 \begin{align*}
 \E(Y|X=1)&amp;=1\times P(Y=1|X=1)+0\times P(Y=0|X=1)=0.63/0.70=0.9.
 \end{align*}
@@ -2215,14 +2238,14 @@ Figure&nbsp;12.13: The PDF and CDF plots of uniform distribution
 &amp;\Phi_Y(y)=P(Y\leq y)=\int_{-\infty}^y\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}y^2}\text{d}y.
 \end{align*}
 \]</span></p>
-<p>The CDF does not have a closed form, therefore we need to use numerical methods to compute <span class="math inline">\(\Phi_Z(z)=P(Z\leq z)\)</span>. The SciPy module provides statistical functions for probability computations as shown in <a href="#exm-example9.26" class="quarto-xref">Example&nbsp;<span>12.26</span></a>.</p>
+<p>The CDF does not have a closed form, therefore we need to use numerical methods to compute <span class="math inline">\(\Phi_Z(z)=P(Z\leq z)\)</span>. The SciPy module provides statistical functions for probability computations as shown in <a href="#exm-example9.26" class="quarto-xref">Example&nbsp;<span>12.27</span></a>.</p>
 <div>
 <div id="exm-example9.26" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.26</strong></span> Let <span class="math inline">\(Y\sim N(0.35,2.25)\)</span> and consider <span class="math inline">\(P(-0.5&lt;Y\leq 0.75)\)</span>, which corresponds to the shaded area illustrated in <a href="#fig-f9.14" class="quarto-xref">Figure&nbsp;<span>12.14</span></a>. Using the <code>scipy.stats.norm.cdf</code> function, we can compute <span class="math inline">\(P(-0.5&lt;Y\leq 0.75)\)</span> in the following way:</p>
-<div id="818bc4de" class="cell" data-execution_count="21">
+<p><span class="theorem-title"><strong>Example 12.27</strong></span> Let <span class="math inline">\(Y\sim N(0.35,2.25)\)</span> and consider <span class="math inline">\(P(-0.5&lt;Y\leq 0.75)\)</span>, which corresponds to the shaded area illustrated in <a href="#fig-f9.14" class="quarto-xref">Figure&nbsp;<span>12.14</span></a>. Using the <code>scipy.stats.norm.cdf</code> function, we can compute <span class="math inline">\(P(-0.5&lt;Y\leq 0.75)\)</span> in the following way:</p>
+<div id="ee6f8f38" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>p<span class="op">=</span>stats.norm.cdf(<span class="fl">0.75</span>,loc<span class="op">=</span><span class="fl">0.35</span>,scale<span class="op">=</span><span class="fl">1.5</span>)<span class="op">-</span>stats.norm.cdf(<span class="op">-</span><span class="fl">0.5</span>,loc<span class="op">=</span><span class="fl">0.35</span>,scale<span class="op">=</span><span class="fl">1.5</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(p,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="91">
+<div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>0.3197</code></pre>
 </div>
 </div>
@@ -2327,19 +2350,19 @@ Figure&nbsp;12.15: The plots of PDF and CDF of normal distributions
 </figure>
 </div>
 <div id="exm-example9.26-0" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.27</strong></span> Let <span class="math inline">\(Y\sim N(0,1)\)</span>. Then, the <span class="math inline">\(2.5\)</span>th percentile of <span class="math inline">\(Y\)</span> (the <span class="math inline">\(0.025\)</span>th quantile of <span class="math inline">\(Y\)</span>) is the value <span class="math inline">\(y\)</span> such that <span class="math inline">\(P(Y\leq y)=0.025\)</span>. We can use the <code>scipy.stats.norm.ppf</code> function to compute this value as follows:</p>
-<div id="b1201fa8" class="cell" data-execution_count="24">
+<p><span class="theorem-title"><strong>Example 12.28</strong></span> Let <span class="math inline">\(Y\sim N(0,1)\)</span>. Then, the <span class="math inline">\(2.5\)</span>th percentile of <span class="math inline">\(Y\)</span> (the <span class="math inline">\(0.025\)</span>th quantile of <span class="math inline">\(Y\)</span>) is the value <span class="math inline">\(y\)</span> such that <span class="math inline">\(P(Y\leq y)=0.025\)</span>. We can use the <code>scipy.stats.norm.ppf</code> function to compute this value as follows:</p>
+<div id="b63e159c" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> stats.norm.ppf(<span class="fl">0.025</span>, loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(y,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="94">
+<div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>-1.96</code></pre>
 </div>
 </div>
 <p>In the same way, we can compute the <span class="math inline">\(97.5\)</span>th percentile of <span class="math inline">\(Y\)</span>:</p>
-<div id="f94c6cb0" class="cell" data-execution_count="25">
+<div id="66e34819" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> stats.norm.ppf(<span class="fl">0.975</span>, loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(y,<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="95">
+<div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>1.96</code></pre>
 </div>
 </div>
@@ -2397,11 +2420,11 @@ Figure&nbsp;12.16: The PDF of <span class="math inline">\(Y\)</span> with 2.5th 
 <h3 data-number="12.6.4" class="anchored" data-anchor-id="chi-squared-distribution"><span class="header-section-number">12.6.4</span> Chi-squared distribution</h3>
 <p>The <strong>chi-squared distribution</strong> is used when testing certain types of hypotheses in econometrics. The chi-squared distribution that has <span class="math inline">\(m\)</span> degrees of freedom, denoted by <span class="math inline">\(\chi^2_{m}\)</span>, is the distribution of the sum of <span class="math inline">\(m\)</span> squared independent standard normal random variables. The mean and variance of the chi-squared distribution are given by <span class="math inline">\(m\)</span> and <span class="math inline">\(2m\)</span>, respectively.</p>
 <div id="exm-example9.27" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.28</strong></span> Let <span class="math inline">\(Z_1\)</span>, <span class="math inline">\(Z_2\)</span> and <span class="math inline">\(Z_3\)</span> be independent standard normal random variables. If we define <span class="math inline">\(Y=Z^2_1+Z^2_2+Z^2_3\)</span>, then <span class="math inline">\(Y\sim \chi^2_3\)</span>. We can use the <code>scipy.stats.chi2()</code> function to compute the PDF and CDF of <span class="math inline">\(Y\)</span>. For example, we can compute <span class="math inline">\(P(Y\leq 5)\)</span> as follows:</p>
-<div id="fb0b5cf4" class="cell" data-execution_count="27">
+<p><span class="theorem-title"><strong>Example 12.29</strong></span> Let <span class="math inline">\(Z_1\)</span>, <span class="math inline">\(Z_2\)</span> and <span class="math inline">\(Z_3\)</span> be independent standard normal random variables. If we define <span class="math inline">\(Y=Z^2_1+Z^2_2+Z^2_3\)</span>, then <span class="math inline">\(Y\sim \chi^2_3\)</span>. We can use the <code>scipy.stats.chi2()</code> function to compute the PDF and CDF of <span class="math inline">\(Y\)</span>. For example, we can compute <span class="math inline">\(P(Y\leq 5)\)</span> as follows:</p>
+<div id="eeef86f6" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> stats.chi2.cdf(<span class="dv">5</span>, df<span class="op">=</span><span class="dv">3</span>)</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(p, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="97">
+<div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>0.8282</code></pre>
 </div>
 </div>
@@ -2543,12 +2566,12 @@ Figure&nbsp;12.18: The plots of PDF and CDF of Student t distributions
 </figure>
 </div>
 <div id="exm-example9.28" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.29</strong></span> Let <span class="math inline">\(Y\sim N(0,1)\)</span> and <span class="math inline">\(X\sim t_{5}\)</span>. We want to compute <span class="math inline">\(P(Y\geq2)\)</span> and <span class="math inline">\(P(X\geq2)\)</span> using the <code>scipy.stats</code> module. The following code chunk shows how to compute these probabilities:</p>
-<div id="f3af0d0c" class="cell" data-execution_count="30">
+<p><span class="theorem-title"><strong>Example 12.30</strong></span> Let <span class="math inline">\(Y\sim N(0,1)\)</span> and <span class="math inline">\(X\sim t_{5}\)</span>. We want to compute <span class="math inline">\(P(Y\geq2)\)</span> and <span class="math inline">\(P(X\geq2)\)</span> using the <code>scipy.stats</code> module. The following code chunk shows how to compute these probabilities:</p>
+<div id="a7b980ef" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>p_y <span class="op">=</span> stats.norm.sf(<span class="dv">2</span>, loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>)  <span class="co"># P(Y &gt;= 2)</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>p_x <span class="op">=</span> stats.t.sf(<span class="dv">2</span>, df<span class="op">=</span><span class="dv">5</span>)               <span class="co"># P(X &gt;= 2)</span></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(p_y, <span class="dv">4</span>), np.<span class="bu">round</span>(p_x, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="100">
+<div class="cell-output cell-output-display" data-execution_count="30">
 <pre><code>(0.0228, 0.051)</code></pre>
 </div>
 </div>
@@ -2634,11 +2657,11 @@ Figure&nbsp;12.19: The plots of PDF and CDF of F distributions
 </div>
 <p>In econometrics, an important special case of the <span class="math inline">\(F\)</span> distribution arises when the denominator degrees of freedom is large enough that the <span class="math inline">\(F_{m,n}\)</span> can be approximated by <span class="math inline">\(F_{m,\infty}\)</span>. <span class="math inline">\(F_{m,\infty}\)</span> distribution is the distribution of a chi-squared random variable with <span class="math inline">\(m\)</span> degrees of freedom divided by <span class="math inline">\(m\)</span>, i.e., <span class="math inline">\(F_{m,\infty}=W/m\)</span>, where <span class="math inline">\(W\sim\chi^2_m\)</span>.</p>
 <div id="exm-example9.29" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.30</strong></span> Let <span class="math inline">\(Y\sim F_{2,10}\)</span>. We can compute the PDF and CDF of <span class="math inline">\(Y\)</span> using the <code>scipy.stats.f()</code> function. For example, we can compute <span class="math inline">\(P(Y\leq 3)\)</span> as follows:</p>
-<div id="08c8d49a" class="cell" data-execution_count="32">
+<p><span class="theorem-title"><strong>Example 12.31</strong></span> Let <span class="math inline">\(Y\sim F_{2,10}\)</span>. We can compute the PDF and CDF of <span class="math inline">\(Y\)</span> using the <code>scipy.stats.f()</code> function. For example, we can compute <span class="math inline">\(P(Y\leq 3)\)</span> as follows:</p>
+<div id="f577411d" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> stats.f.cdf(<span class="dv">3</span>, dfn<span class="op">=</span><span class="dv">2</span>, dfd<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(p, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="102">
+<div class="cell-output cell-output-display" data-execution_count="32">
 <pre><code>0.9046</code></pre>
 </div>
 </div>

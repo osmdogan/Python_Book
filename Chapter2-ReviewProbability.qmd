@@ -89,6 +89,39 @@ $$
 Assuming that each outcome in the sample space is equally likely, we have $P(A)=3/8$, $P(B)=4/8=1/2$, $P(A\cup B)=6/8=3/4$, $P(A^c)=1-P(A)=5/8$, $P(B^c)=1-P(B)=1/2$, and $P(A\cap B)=1/8$.
 :::
 
+:::{#exm-example9.3a}
+Consider an experiment of tossing a fair coin until the first tail appears. We want to compute the probability that the total number of tosses is odd. Let $A$ be the event that the total number of tosses is odd. The possible outcomes for event $A$ are: getting a tail on the first toss, getting heads on the first toss and tail on the third toss, getting heads on the first and third tosses and tail on the fifth toss, and so on. Thus, we can express event $A$ as follows:
+$$
+\begin{align*}
+A&=\{\text{T}\}\cup\{\text{HHT}\}\cup\{\text{HHHHT}\}\cup\{\text{HHHHHHT}\}\cup\cdots.
+\end{align*}
+$$
+
+Note that $A$ is an infinite union of mutually exclusive events. Therefore, by the countable additivity property, we have
+$$
+\begin{align*}
+P(A)&=P(\text{T})+P(\text{HHT})+P(\text{HHHHT})+P(\text{HHHHHHT})+\cdots.
+\end{align*}
+$$
+
+Since the coin is fair, we have $P(\text{H})=P(\text{T})=1/2$. Thus, we obtain
+$$
+\begin{align*}
+P(A)&=\frac{1}{2}+\left(\frac{1}{2}\right)^3+\left(\frac{1}{2}\right)^5+\left(\frac{1}{2}\right)^7+\cdots \\
+&=\sum_{k=0}^\infty \left(\frac{1}{2}\right)^{2k+1}=\frac{1}{2}\sum_{k=0}^\infty \left(\frac{1}{4}\right)^k.
+\end{align*}
+$$
+
+The series $\sum_{k=0}^\infty (1/4)^k$ is a geometric series with first term $1$ and common ratio $1/4$. The sum of this series is given by $1/(1-1/4)=4/3$. Therefore, we have
+$$
+\begin{align*}
+P(A)&=\frac{1}{2}\times \frac{4}{3}=\frac{2}{3}.
+\end{align*}
+$$
+Thus, the probability that the total number of tosses is odd is $2/3$.
+:::
+
+
 :::{#def-definition9.2}
 A **random variable** is a real-valued function defined on the sample space of an experiment. 
 :::
