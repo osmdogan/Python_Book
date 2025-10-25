@@ -126,8 +126,7 @@ Thus, the probability that the total number of tosses is odd is $2/3$.
 A **random variable** is a real-valued function defined on the sample space of an experiment. 
 :::
 
-@def-definition9.2 suggests that a random variable is a numerical summary of the sample space of an experiment. A **discrete random variable** takes on a finite or countably infinite number of possible values, while a **continuous random variable** takes on 
-continuum of possible values.
+@def-definition9.2 suggests that a random variable is a numerical summary of the sample space of an experiment. A **discrete random variable** takes values from a finite or countably infinite set of possible values. On the other hand, a **continuous random variable** takes values from an interval or a collection of intervals on the real line.
 
 :::{#exm-example9.4}
 Consider @exm-example9.1. Let $X$ be the random variable that counts the number of heads in the three tosses. Then, $X$ is a discrete random variable that takes values from the set $\{0, 1, 2, 3\}$. The events $\{X=x\}$, where $x\in\{0, 1, 2, 3\}$, are defined as follows:
