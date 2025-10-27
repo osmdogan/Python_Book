@@ -715,7 +715,7 @@ Let $X=1.5+0.5Z$, where $Z\sim N(0,1)$. Then, we have
 
 $$
 \begin{align*}
-&\E(X) = 1.5 + 0.5E(Z) = 1.5,\\
+&\E(X) = 1.5 + 0.5\E(Z) = 1.5,\\
 &\var(X) = (0.5)^2\var(Z) = 0.25,\\
 &\text{cov}(X,Z) = \E\left[(X - \E(X))(Z - \E(Z))\right] = \E\left[0.5Z^2\right] = 0.5,\\
 &\text{corr}(X,Z) = \frac{\text{cov}(X,Z)}{\sqrt{\var(X)}\sqrt{\var(Z)}} = \frac{0.5}{\sqrt{0.25}\sqrt{1}} = 1.
