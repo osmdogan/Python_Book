@@ -710,11 +710,41 @@ r_{XY} &= \frac{s_{XY}}{s_Xs_Y},
 $$
 where $s_X$ and $s_Y$ are the sample standard deviations of $X$ and $Y$, respectively. 
 
-Both sample covariance and sample correlation coefficient are consistent estimators, i.e., $s_{XY}\xrightarrow{p}\sigma_{XY}$ and $r_{XY}\xrightarrow{p}\text{corr}(X,Y)$.
+:::{#exm-example10-8}
+Let $X=1.5+0.5Z$, where $Z\sim N(0,1)$. Then, we have
 
-The sample correlation coefficient shows the strength of the linear relationship between $X$ and $Y$. As in the case of population correlation coefficient, $r_{XY}$ is unit free and satisfies $|r_{XY}|<1$.  In a scatter plot, if points are tightly clustered around a stright line, then we would expect $r_{XY}$ to be around $\pm1$, depending on the slope of the line. 
+$$
+\begin{align*}
+&\E(X) = 1.5 + 0.5E(Z) = 1.5,\\
+&\var(X) = (0.5)^2\var(Z) = 0.25,\\
+&\text{cov}(X,Z) = \E\left[(X - \E(X))(Z - \E(Z))\right] = \E\left[0.5Z^2\right] = 0.5,\\
+&\text{corr}(X,Z) = \frac{\text{cov}(X,Z)}{\sqrt{\var(X)}\sqrt{\var(Z)}} = \frac{0.5}{\sqrt{0.25}\sqrt{1}} = 1.
+\end{align*}
+$$
 
-In @fig-fig10-6, we show four correlation coefficients for four hypothetical data sets. Note that the last plot illustrates a non-linear relationship between $X$ and $Y$, even though the correlation coefficient between $X$ and $Y$ is zero.
+In the following, we generate a random sample of size $n=500$ from the distribution of $Z$ and then compute the sample covariance and the sample correlation coefficient between $X$ and $Z$.
+
+```{python}
+# Set random seed
+np.random.seed(42)
+n = 500
+Z = np.random.normal(loc=0, scale=1, size=n)
+X = 1.5 + 0.5 * Z
+
+# Compute sample covariance between X and Z
+s_XZ = np.cov(X, Z, ddof=1)[0, 1]
+print("Sample covariance between X and Z:", np.round(s_XZ, 4))
+
+# Compute sample correlation coefficient between X and Z
+r_XZ = np.corrcoef(X, Z)[0, 1]
+print("Sample correlation coefficient between X and Z:", np.round(r_XZ, 4))
+```
+
+:::
+
+Using the law of large numbers, we can show that the sample covariance and the sample correlation coefficient are consistent estimators; that is, $s_{XY}\xrightarrow{p}\sigma_{XY}$ and $r_{XY}\xrightarrow{p}\text{corr}(X,Y)$. The sample correlation coefficient measures the strength of the linear relationship between $X$ and $Y$. As in the case of the population correlation coefficient, $r_{XY}$ is unit-free and satisfies $|r_{XY}|<1$. In a scatter plot, if the points are tightly clustered around a straight line, we would expect $r_{XY}$ to be close to $\pm1$, depending on the slope of the line.
+
+In @fig-fig10-6, we show four correlation coefficients for four hypothetical data sets. The last plot illustrates a non-linear relationship between $X$ and $Y$, even though the correlation coefficient between $X$ and $Y$ is zero.
 
 ```{python}
 #| fig-cap: The scatterplots for four hypothetical data sets

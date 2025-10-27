@@ -547,7 +547,7 @@ window.Quarto = {
 </header>
 
 
-<div id="8b647361" class="cell" data-execution_count="1">
+<div id="e4211885" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
@@ -966,7 +966,7 @@ Figure&nbsp;13.4: Rejection Regions
 </div>
 <div id="exm-example10-6" class="theorem example">
 <p><span class="theorem-title"><strong>Example 13.6</strong></span> Assume that <span class="math inline">\(\alpha = 5%\)</span> and the alternative hypothesis is specified as <span class="math inline">\(H_1: \mu_Y \neq 20\)</span>. Then, the critical value on the left tail is the <span class="math inline">\(2.5\)</span>th percentile of <span class="math inline">\(N(0,1)\)</span>, which is <span class="math inline">\(-z_{\alpha/2} = -1.96\)</span>, and the critical value on the right tail is the <span class="math inline">\(97.5\)</span>th percentile of <span class="math inline">\(N(0,1)\)</span>, which is <span class="math inline">\(z_{\alpha/2} = 1.96\)</span>. Using Python, we can compute the critical values as follows:</p>
-<div id="dfdfcc5f" class="cell" data-execution_count="6">
+<div id="ee922aa9" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>left_critical <span class="op">=</span> stats.norm.ppf(<span class="fl">0.025</span>,loc<span class="op">=</span><span class="dv">0</span>,scale<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>right_critical <span class="op">=</span> stats.norm.ppf(<span class="fl">0.975</span>,loc<span class="op">=</span><span class="dv">0</span>,scale<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Left critical value:"</span>, np.<span class="bu">round</span>(left_critical,<span class="dv">2</span>))</span>
@@ -1008,7 +1008,7 @@ P_{H_0}\left(|t| &gt; |t_{\text{calc}}|\right)=2\times\Phi(-|t_{\text{calc}}|), 
 \text{$p$-value}=P_{H_0}\left(|t| &gt; 2\right)=P_{H_0}\left(t &gt; 2\right)+P_{H_0}\left(t &lt;- 2\right)=2\times\Phi(-2).
 \end{align*}
 \]</span> We can compute the <span class="math inline">\(p\)</span>-value using Python as follows:</p>
-<div id="17fd11f6" class="cell" data-execution_count="7">
+<div id="e57b9d10" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>p_value <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>stats.norm.cdf(<span class="op">-</span><span class="dv">2</span>,loc<span class="op">=</span><span class="dv">0</span>,scale<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"p-value:"</span>, np.<span class="bu">round</span>(p_value,<span class="dv">4</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1069,7 +1069,7 @@ P\left(\left\{\mu_Y: \left|\frac{\bar{Y} - \mu_Y}{s_Y/\sqrt{n}}\right| \le 1.96\
 \]</span></p>
 <p>The confidence interval can be used to test the null hypothesis <span class="math inline">\(H_0:\mu_Y = \mu_0\)</span> against the alternative hypothesis <span class="math inline">\(H_1:\mu_Y \ne \mu_0\)</span>. Based on the 95% confidence interval, we reject the null hypothesis at the <span class="math inline">\(5\%\)</span> significance level if the hypothesized value <span class="math inline">\(\mu_0\)</span> is not contained within the interval; otherwise, we fail to reject the null hypothesis.</p>
 <p>Note that we construct the the <span class="math inline">\(95\%\)</span> confidence interval <span class="math inline">\(\{\mu_Y: \bar{Y} \pm 1.96 \times \text{SE}(\bar{Y})\}\)</span> by using the critical values from the standard normal distribution. That is, our confidence interval is based on the central limit theorem result in <a href="#eq-eq10.2" class="quarto-xref">Equation&nbsp;<span>13.2</span></a>, which requires a large sample size. In the following simulation exercise, we compute <code>nsim=5000</code> confidence intervals for different sample sizes and then determine the percentage of intervals that includes <span class="math inline">\(\mu_Y\)</span>. As the sample size increases, we expect this percentage to approach <span class="math inline">\(95\%\)</span>.</p>
-<div id="47b25166" class="cell" data-execution_count="8">
+<div id="07371ceb" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> confidence_int(rvgen, n, nsim<span class="op">=</span><span class="dv">5000</span>, alpha<span class="op">=</span><span class="fl">0.05</span>, mu<span class="op">=</span><span class="va">None</span>, seed<span class="op">=</span><span class="va">None</span>, <span class="op">**</span>kwargs):</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Inputs:</span></span>
@@ -1113,7 +1113,7 @@ P\left(\left\{\mu_Y: \left|\frac{\bar{Y} - \mu_Y}{s_Y/\sqrt{n}}\right| \le 1.96\
 <span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We assume that the random samples <span class="math inline">\(Y_1, \dots, Y_n\)</span> are generated from three different distributions: (i) <span class="math inline">\(N(0,1)\)</span>, (ii) <span class="math inline">\(\chi^2_3\)</span>, and (iii) the uniform distribution over the interval <span class="math inline">\((0,1)\)</span>. The simulation results are given in <a href="#tbl-t10.1" class="quarto-xref">Table&nbsp;<span>13.1</span></a>. The results indicate that the percentages get closer to <span class="math inline">\(95\%\)</span> as the sample size increases from <span class="math inline">\(n =30\)</span> to <span class="math inline">\(n=500\)</span>.</p>
-<div id="9e4d9df2" class="cell" data-execution_count="9">
+<div id="f9702ddc" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Population distribution: standard normal distribution</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> confidence_int(np.random.normal, n<span class="op">=</span>[<span class="dv">30</span>, <span class="dv">100</span>, <span class="dv">500</span>], mu<span class="op">=</span><span class="dv">0</span>, loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>, seed<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1135,7 +1135,7 @@ P\left(\left\{\mu_Y: \left|\frac{\bar{Y} - \mu_Y}{s_Y/\sqrt{n}}\right| \le 1.96\
 Table&nbsp;13.1: Simulation Results
 </figcaption>
 <div aria-describedby="tbl-t10.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="122">
 <div>
 
 
@@ -1230,14 +1230,14 @@ t &amp;= \frac{(\bar{Y}_m - \bar{Y}_w) - d_0}{\sqrt{\frac{s_{Y_m}^2}{n_m} + \fra
 <li><code>age</code>: Age</li>
 </ul>
 <p>We use the following code chunk to import the data and display the first five rows for college graduates.</p>
-<div id="04d1c207" class="cell" data-execution_count="11">
+<div id="1815645d" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the data</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>cps <span class="op">=</span> pd.read_excel(<span class="st">"data/CPS96_15.xlsx"</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the data for college graduates (bachelor's degree holders)</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>cps <span class="op">=</span> cps[cps.bachelor<span class="op">==</span><span class="dv">1</span>]</span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># The first five rows of the dataset</span></span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>cps.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="123">
 <div>
 
 
@@ -1300,7 +1300,7 @@ t &amp;= \frac{(\bar{Y}_m - \bar{Y}_w) - d_0}{\sqrt{\frac{s_{Y_m}^2}{n_m} + \fra
 </div>
 </div>
 <p>In the following code chunk, we compute the average wage gap <span class="math inline">\(\bar{Y}_m - \bar{Y}_w\)</span> and then the <span class="math inline">\(95\%\)</span> two-sided confidence interval <span class="math inline">\((\bar{Y}_m - \bar{Y}_w) \pm 1.96 \times \SE(\bar{Y}_m - \bar{Y}_w)\)</span> for each year. The results are shown in <a href="#tbl-t10.1" class="quarto-xref">Table&nbsp;<span>13.1</span></a>. The average hourly earnings for male college graduates were $16.5 and $28 in 1996 and 2015, respectively. In comparison, female graduates earned an average of $13.9 in 1996 and $23 in 2015. Therefore, the average earnings gap was $2.05 in 1996 and widened to $4.19 in 2015. The estimated confidence intervals for the average earnings gaps are (2.05, 3.085) and (4.192, 5.841) in 1996 and 2015, respectively.</p>
-<div id="db00994d" class="cell" data-execution_count="12">
+<div id="b993dad1" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group data by gender and year and compute mean, standard deviation, and number of observations for each group</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>avgs <span class="op">=</span> cps.groupby([<span class="st">'female'</span>, <span class="st">'year'</span>]).agg(</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    Y_bar<span class="op">=</span>(<span class="st">'ahe'</span>, <span class="st">'mean'</span>),</span>
@@ -1353,7 +1353,7 @@ t &amp;= \frac{(\bar{Y}_m - \bar{Y}_w) - d_0}{\sqrt{\frac{s_{Y_m}^2}{n_m} + \fra
 Table&nbsp;13.2: The hourly earnings of working college graduates
 </figcaption>
 <div aria-describedby="tbl-t10.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="125">
 <div>
 
 
@@ -1448,57 +1448,87 @@ s_{XY} &amp;= \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X})(Y_i - \bar{Y}).
 r_{XY} &amp;= \frac{s_{XY}}{s_Xs_Y},
 \end{align*}
 \]</span> where <span class="math inline">\(s_X\)</span> and <span class="math inline">\(s_Y\)</span> are the sample standard deviations of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, respectively.</p>
-<p>Both sample covariance and sample correlation coefficient are consistent estimators, i.e., <span class="math inline">\(s_{XY}\xrightarrow{p}\sigma_{XY}\)</span> and <span class="math inline">\(r_{XY}\xrightarrow{p}\text{corr}(X,Y)\)</span>.</p>
-<p>The sample correlation coefficient shows the strength of the linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. As in the case of population correlation coefficient, <span class="math inline">\(r_{XY}\)</span> is unit free and satisfies <span class="math inline">\(|r_{XY}|&lt;1\)</span>. In a scatter plot, if points are tightly clustered around a stright line, then we would expect <span class="math inline">\(r_{XY}\)</span> to be around <span class="math inline">\(\pm1\)</span>, depending on the slope of the line.</p>
-<p>In <a href="#fig-fig10-6" class="quarto-xref">Figure&nbsp;<span>13.6</span></a>, we show four correlation coefficients for four hypothetical data sets. Note that the last plot illustrates a non-linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, even though the correlation coefficient between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is zero.</p>
-<div id="cell-fig-fig10-6" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The scatterplots for four hypothetical data sets</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Set random seed</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Positive correlation: 0.8</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">0</span>]</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>cov_positive <span class="op">=</span> [[<span class="dv">2</span>, <span class="dv">2</span>], [<span class="dv">2</span>, <span class="dv">3</span>]]</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> np.random.multivariate_normal(mean, cov_positive, <span class="dv">100</span>)</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Negative correlation: -0.8</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>cov_negative <span class="op">=</span> [[<span class="dv">2</span>, <span class="op">-</span><span class="dv">2</span>], [<span class="op">-</span><span class="dv">2</span>, <span class="dv">3</span>]]</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> np.random.multivariate_normal(mean, cov_negative, <span class="dv">100</span>)</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># No correlation</span></span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>cov_no_corr <span class="op">=</span> [[<span class="dv">1</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">1</span>]]</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>data3 <span class="op">=</span> np.random.multivariate_normal(mean, cov_no_corr, <span class="dv">100</span>)</span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="co"># No correlation (quadratic relationship)</span></span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.arange(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">0.01</span>)</span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> <span class="op">-</span>X<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> np.random.normal(size<span class="op">=</span><span class="bu">len</span>(X))</span>
-<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>data4 <span class="op">=</span> np.column_stack((X, Y))</span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a 2x2 grid for plots</span></span>
-<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>)</span>
-<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot datasets</span></span>
-<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>, <span class="dv">0</span>].scatter(data1[:, <span class="dv">0</span>], data1[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'steelblue'</span>, s<span class="op">=</span><span class="dv">15</span>)</span>
-<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>, <span class="dv">0</span>].set_xlabel(<span class="st">'X'</span>)</span>
-<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>, <span class="dv">0</span>].set_ylabel(<span class="st">'Y'</span>)</span>
-<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="st">'Correlation = 0.8'</span>)</span>
-<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>, <span class="dv">1</span>].scatter(data2[:, <span class="dv">0</span>], data2[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'steelblue'</span>, s<span class="op">=</span><span class="dv">15</span>)</span>
-<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>, <span class="dv">1</span>].set_xlabel(<span class="st">'X'</span>)</span>
-<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>, <span class="dv">1</span>].set_ylabel(<span class="st">'Y'</span>)</span>
-<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>, <span class="dv">1</span>].set_title(<span class="st">'Correlation = -0.8'</span>)</span>
-<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>, <span class="dv">0</span>].scatter(data3[:, <span class="dv">0</span>], data3[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'steelblue'</span>, s<span class="op">=</span><span class="dv">15</span>)</span>
-<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>, <span class="dv">0</span>].set_xlabel(<span class="st">'X'</span>)</span>
-<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>, <span class="dv">0</span>].set_ylabel(<span class="st">'Y'</span>)</span>
-<span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>, <span class="dv">0</span>].set_title(<span class="st">'Correlation = 0'</span>)</span>
-<span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-41"><a href="#cb17-41" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>, <span class="dv">1</span>].scatter(data4[:, <span class="dv">0</span>], data4[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'steelblue'</span>, s<span class="op">=</span><span class="dv">15</span>)</span>
-<span id="cb17-42"><a href="#cb17-42" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>, <span class="dv">1</span>].set_xlabel(<span class="st">'X'</span>)</span>
-<span id="cb17-43"><a href="#cb17-43" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>, <span class="dv">1</span>].set_ylabel(<span class="st">'Y'</span>)</span>
-<span id="cb17-44"><a href="#cb17-44" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>, <span class="dv">1</span>].set_title(<span class="st">'Correlation = 0'</span>)</span>
-<span id="cb17-45"><a href="#cb17-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-46"><a href="#cb17-46" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb17-47"><a href="#cb17-47" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="exm-example10-8" class="theorem example">
+<p><span class="theorem-title"><strong>Example 13.8</strong></span> Let <span class="math inline">\(X=1.5+0.5Z\)</span>, where <span class="math inline">\(Z\sim N(0,1)\)</span>. Then, we have</p>
+<p><span class="math display">\[
+\begin{align*}
+&amp;\E(X) = 1.5 + 0.5E(Z) = 1.5,\\
+&amp;\var(X) = (0.5)^2\var(Z) = 0.25,\\
+&amp;\text{cov}(X,Z) = \E\left[(X - \E(X))(Z - \E(Z))\right] = \E\left[0.5Z^2\right] = 0.5,\\
+&amp;\text{corr}(X,Z) = \frac{\text{cov}(X,Z)}{\sqrt{\var(X)}\sqrt{\var(Z)}} = \frac{0.5}{\sqrt{0.25}\sqrt{1}} = 1.
+\end{align*}
+\]</span></p>
+<p>In the following, we generate a random sample of size <span class="math inline">\(n=500\)</span> from the distribution of <span class="math inline">\(Z\)</span> and then compute the sample covariance and the sample correlation coefficient between <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span>.</p>
+<div id="4ca70c26" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set random seed</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">500</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> np.random.normal(loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>, size<span class="op">=</span>n)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> <span class="fl">1.5</span> <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> Z</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute sample covariance between X and Z</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>s_XZ <span class="op">=</span> np.cov(X, Z, ddof<span class="op">=</span><span class="dv">1</span>)[<span class="dv">0</span>, <span class="dv">1</span>]</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Sample covariance between X and Z:"</span>, np.<span class="bu">round</span>(s_XZ, <span class="dv">4</span>))</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute sample correlation coefficient between X and Z</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>r_XZ <span class="op">=</span> np.corrcoef(X, Z)[<span class="dv">0</span>, <span class="dv">1</span>]</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Sample correlation coefficient between X and Z:"</span>, np.<span class="bu">round</span>(r_XZ, <span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Sample covariance between X and Z: 0.4814
+Sample correlation coefficient between X and Z: 1.0</code></pre>
+</div>
+</div>
+</div>
+<p>Using the law of large numbers, we can show that the sample covariance and the sample correlation coefficient are consistent estimators; that is, <span class="math inline">\(s_{XY}\xrightarrow{p}\sigma_{XY}\)</span> and <span class="math inline">\(r_{XY}\xrightarrow{p}\text{corr}(X,Y)\)</span>. The sample correlation coefficient measures the strength of the linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. As in the case of the population correlation coefficient, <span class="math inline">\(r_{XY}\)</span> is unit-free and satisfies <span class="math inline">\(|r_{XY}|&lt;1\)</span>. In a scatter plot, if the points are tightly clustered around a straight line, we would expect <span class="math inline">\(r_{XY}\)</span> to be close to <span class="math inline">\(\pm1\)</span>, depending on the slope of the line.</p>
+<p>In <a href="#fig-fig10-6" class="quarto-xref">Figure&nbsp;<span>13.6</span></a>, we show four correlation coefficients for four hypothetical data sets. The last plot illustrates a non-linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, even though the correlation coefficient between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is zero.</p>
+<div id="cell-fig-fig10-6" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The scatterplots for four hypothetical data sets</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Set random seed</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Positive correlation: 0.8</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">0</span>]</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>cov_positive <span class="op">=</span> [[<span class="dv">2</span>, <span class="dv">2</span>], [<span class="dv">2</span>, <span class="dv">3</span>]]</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>data1 <span class="op">=</span> np.random.multivariate_normal(mean, cov_positive, <span class="dv">100</span>)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Negative correlation: -0.8</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>cov_negative <span class="op">=</span> [[<span class="dv">2</span>, <span class="op">-</span><span class="dv">2</span>], [<span class="op">-</span><span class="dv">2</span>, <span class="dv">3</span>]]</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>data2 <span class="op">=</span> np.random.multivariate_normal(mean, cov_negative, <span class="dv">100</span>)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co"># No correlation</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>cov_no_corr <span class="op">=</span> [[<span class="dv">1</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">1</span>]]</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>data3 <span class="op">=</span> np.random.multivariate_normal(mean, cov_no_corr, <span class="dv">100</span>)</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="co"># No correlation (quadratic relationship)</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.arange(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">0.01</span>)</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> <span class="op">-</span>X<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> np.random.normal(size<span class="op">=</span><span class="bu">len</span>(X))</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>data4 <span class="op">=</span> np.column_stack((X, Y))</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a 2x2 grid for plots</span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot datasets</span></span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>, <span class="dv">0</span>].scatter(data1[:, <span class="dv">0</span>], data1[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'steelblue'</span>, s<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>, <span class="dv">0</span>].set_xlabel(<span class="st">'X'</span>)</span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>, <span class="dv">0</span>].set_ylabel(<span class="st">'Y'</span>)</span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="st">'Correlation = 0.8'</span>)</span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>, <span class="dv">1</span>].scatter(data2[:, <span class="dv">0</span>], data2[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'steelblue'</span>, s<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>, <span class="dv">1</span>].set_xlabel(<span class="st">'X'</span>)</span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>, <span class="dv">1</span>].set_ylabel(<span class="st">'Y'</span>)</span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>, <span class="dv">1</span>].set_title(<span class="st">'Correlation = -0.8'</span>)</span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>, <span class="dv">0</span>].scatter(data3[:, <span class="dv">0</span>], data3[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'steelblue'</span>, s<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>, <span class="dv">0</span>].set_xlabel(<span class="st">'X'</span>)</span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>, <span class="dv">0</span>].set_ylabel(<span class="st">'Y'</span>)</span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>, <span class="dv">0</span>].set_title(<span class="st">'Correlation = 0'</span>)</span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>, <span class="dv">1</span>].scatter(data4[:, <span class="dv">0</span>], data4[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'steelblue'</span>, s<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>, <span class="dv">1</span>].set_xlabel(<span class="st">'X'</span>)</span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>, <span class="dv">1</span>].set_ylabel(<span class="st">'Y'</span>)</span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>, <span class="dv">1</span>].set_title(<span class="st">'Correlation = 0'</span>)</span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="fig-fig10-6" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
