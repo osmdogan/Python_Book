@@ -530,7 +530,7 @@ window.Quarto = {
 </header>
 
 
-<div id="f5268c67" class="cell" data-execution_count="1">
+<div id="5a61d8da" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -686,7 +686,7 @@ Table&nbsp;14.1: California school districts dataset
 </div>
 </div>
 <p>The reading and math scores are the average test scores on the Stanford 9 Achievement Test (SAT-9) in 1999. The SAT-9 is a standardized achievement test administered to almost all students from grades 2 through 11 in California public schools. The <code>testscr</code> variable is the average of the reading and math scores.</p>
-<div id="b3124e4e" class="cell" data-execution_count="2">
+<div id="1889e8ae" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>CAschool<span class="op">=</span>pd.read_csv(<span class="st">'data/caschool.csv'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>CAschool.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -785,7 +785,7 @@ Figure&nbsp;14.1: The scatter plot of test score and student-teacher ratio
 <h3 data-number="14.3.2" class="anchored" data-anchor-id="estimation-results"><span class="header-section-number">14.3.2</span> Estimation Results</h3>
 <p>We use the <code>statsmodels.api</code> and the <code>statsmodels.formula.api</code> modules to estimate regressions. We import these modules under the names <code>sm</code> and <code>smf</code>, respectively. There are two options for running OLS regressions: (i) the <code>smf.ols()</code> function and (ii) the <code>sm.OLS()</code> function. To see all available models that can be estimated by these functions, we can use <code>dir(smf)</code> and <code>dir(sm)</code>.</p>
 <p>In the case of <code>smf</code>, we can use <code>R</code>-style formulas to specify estimation equations. In the following, we use the <code>smf.ols()</code> function to estimate the model. Note that the estimation equation is specified as <code>formula='testscr ~ str'</code>, where <code>~</code> symbol separates the dependent and independent variables.</p>
-<div id="544ab092" class="cell" data-execution_count="5">
+<div id="5036740c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the model</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>model1 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'testscr ~ str'</span>, data<span class="op">=</span>CAschool)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the fit function to obtain parameter estimates</span></span>
@@ -799,7 +799,7 @@ Dep. Variable:                testscr   R-squared:                       0.051
 Model:                            OLS   Adj. R-squared:                  0.049
 Method:                 Least Squares   F-statistic:                     22.58
 Date:                Sat, 22 Nov 2025   Prob (F-statistic):           2.78e-06
-Time:                        11:32:30   Log-Likelihood:                -1822.2
+Time:                        12:14:07   Log-Likelihood:                -1822.2
 No. Observations:                 420   AIC:                             3648.
 Df Residuals:                     418   BIC:                             3657.
 Df Model:                           1                                         
@@ -883,14 +883,14 @@ Table&nbsp;14.3: Some important attributes
 </div>
 </div>
 <p>Below, we illustrate some of these attributes.</p>
-<div id="63f3e676" class="cell" data-execution_count="6">
+<div id="fa4b6e6b" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of observations</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>result1.nobs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>420.0</code></pre>
 </div>
 </div>
-<div id="a00e73e7" class="cell" data-execution_count="7">
+<div id="3b2be967" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimated parameters</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>result1.params</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
@@ -899,7 +899,7 @@ str           -2.279808
 dtype: float64</code></pre>
 </div>
 </div>
-<div id="76d488b9" class="cell" data-execution_count="8">
+<div id="7437b142" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The first five residuals</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>result1.resid[<span class="dv">0</span>:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
@@ -911,7 +911,7 @@ dtype: float64</code></pre>
 dtype: float64</code></pre>
 </div>
 </div>
-<div id="f2268e07" class="cell" data-execution_count="9">
+<div id="f0342557" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The first five predictions</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>result1.predict()[<span class="dv">0</span>:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
@@ -919,7 +919,7 @@ dtype: float64</code></pre>
        656.3659006 ])</code></pre>
 </div>
 </div>
-<div id="567d51a7" class="cell" data-execution_count="10">
+<div id="9bb640c8" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The first five predictions</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>result1.fittedvalues[<span class="dv">0</span>:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
@@ -932,7 +932,7 @@ dtype: float64</code></pre>
 </div>
 </div>
 <p>Next, we describe how to use the <code>sm.OLS()</code> function for regression analysis. In this case, we need to supply the dependent and independent variable(s) as arrays through the <code>endog</code> and <code>exog</code> arguments, respectively.</p>
-<div id="d0389f46" class="cell" data-execution_count="11">
+<div id="4c8135f1" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Arrange the data</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>CAschool[<span class="st">"const"</span>] <span class="op">=</span> <span class="dv">1</span> <span class="co"># add a constant column</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the dependent and independent variables</span></span>
@@ -940,7 +940,7 @@ dtype: float64</code></pre>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> CAschool[[<span class="st">"const"</span>, <span class="st">"str"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Note that we need to explicitly specify the intercept term: <code>CAschool["const"] = 1</code>, which adds a column of ones to the dataframe <code>CAschool</code>.</p>
-<div id="1651babf" class="cell" data-execution_count="12">
+<div id="9a461b26" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the model</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>model2 <span class="op">=</span> sm.OLS(endog<span class="op">=</span>y, exog<span class="op">=</span>X)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the model</span></span>
@@ -954,7 +954,7 @@ Dep. Variable:                testscr   R-squared:                       0.051
 Model:                            OLS   Adj. R-squared:                  0.049
 Method:                 Least Squares   F-statistic:                     22.58
 Date:                Sat, 22 Nov 2025   Prob (F-statistic):           2.78e-06
-Time:                        11:32:30   Log-Likelihood:                -1822.2
+Time:                        12:14:07   Log-Likelihood:                -1822.2
 No. Observations:                 420   AIC:                             3648.
 Df Residuals:                     418   BIC:                             3657.
 Df Model:                           1                                         
@@ -1031,7 +1031,7 @@ SER &amp;= s_{\hat{u}} = \sqrt{\frac{1}{n-2}\sum_{i=1}^n\left(\hat{u}_i - \bar{\
 \]</span> where the fourth equality is due to <span class="math inline">\(\sum_{i=1}^n \hat{u}_i = 0\)</span>, which means <span class="math inline">\(\bar{\hat{u}} = 0\)</span>. The SER has the same units as <span class="math inline">\(𝑌\)</span> and measures the spread of the observations around the regression line.</p>
 <p>The <span class="math inline">\(R^2\)</span> ranges between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>, and a high value of <span class="math inline">\(R^2\)</span> indicates that the model explains a large fraction of the variation in <span class="math inline">\(Y\)</span>. The SER is always non-negative, and a smaller value indicates that the model fits the data better.</p>
 <p>In the following code chunk, we compute both measures of fit for the test score regression in <a href="#eq-eq11-3" class="quarto-xref">Equation&nbsp;<span>14.3</span></a>. The estimates are given in <a href="#tbl-t11-3" class="quarto-xref">Table&nbsp;<span>14.4</span></a>. The <span class="math inline">\(R^2=0.05\)</span> means that the <code>STR</code> regressor explains <span class="math inline">\(5\%\)</span> of the variance of the dependent variable <code>TestScore</code>. The SER estimate is <span class="math inline">\(18.6\)</span>, providing an estimate of the standard deviation of the error terms in units of test score points.</p>
-<div id="8529af3a" class="cell" data-execution_count="14">
+<div id="f03746de" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Measures of fit</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> CAschool.testscr</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> result1.nobs</span>
