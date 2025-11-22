@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,8 +21,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -77,7 +78,7 @@ div.csl-indent {
 }</style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -86,15 +87,17 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <link href="./Part5-TheoreticalTopics.html" rel="next">
 <link href="./Chapter16-DynamicCausalEffects.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-2af744e5c56274bd8ec59c3ff984e753.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -122,12 +125,9 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 <script>
 window.MathJax = {
   tex: {
@@ -163,7 +163,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -181,7 +181,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -203,7 +203,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Econometrics with Python</a> 
         <div class="sidebar-tools-main">
@@ -568,8 +570,8 @@ window.Quarto = {
 </header>
 
 
-<div id="3081556c" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div id="0d63dc39" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas_datareader <span class="im">as</span> pdr</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.tsa.stattools <span class="im">as</span> stt</span>
@@ -584,7 +586,7 @@ window.Quarto = {
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> arch <span class="im">import</span> arch_model</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.style.use('ggplot')</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="introduction" class="level2" data-number="27.1">
 <h2 data-number="27.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">27.1</span> Introduction</h2>
@@ -719,11 +721,11 @@ u_{2t}
 <li><code>YGROWTH</code>: Annual real GDP growth rate</li>
 <li><code>RECESSION</code>: Recession indicator (1 if recession, 0 otherwise)</li>
 </ul>
-<div id="618e82e1" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the GrowthRate data</span></span>
+<div id="2f1664c2" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the GrowthRate data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dfGrowth <span class="op">=</span> pd.read_excel(<span class="st">'data/GrowthRate.xlsx'</span>, header <span class="op">=</span> <span class="dv">0</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>dfGrowth.index <span class="op">=</span> pd.date_range(start <span class="op">=</span> <span class="st">'1960'</span>, periods <span class="op">=</span> <span class="bu">len</span>(dfGrowth), freq <span class="op">=</span> <span class="st">'QS'</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>dfGrowth.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>dfGrowth.columns</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>Index(['Period', 'Y', 'YGROWTH', 'RECESSION'], dtype='object')</code></pre>
 </div>
@@ -735,20 +737,20 @@ u_{2t}
 <li><code>RSPREAD</code>: Term-spread (<code>GS10-TB3MS</code>)</li>
 <li><code>RECESSION</code>: Dummy variable specifying the recession periods.</li>
 </ul>
-<div id="d5468c7e" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the TermSpread data</span></span>
+<div id="2951a563" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the TermSpread data</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dfTermSpread <span class="op">=</span> pd.read_csv(<span class="st">'data/TermSpread.csv'</span>, header <span class="op">=</span> <span class="dv">0</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>dfTermSpread.index <span class="op">=</span> pd.date_range(start <span class="op">=</span> <span class="st">'1960-01-01'</span>, periods <span class="op">=</span> <span class="bu">len</span>(dfTermSpread), freq <span class="op">=</span> <span class="st">'QS'</span>) </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>dfTermSpread.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>dfTermSpread.columns</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>Index(['Period', 'GS10', 'TB3MS', 'RSPREAD', 'RECESSION'], dtype='object')</code></pre>
 </div>
 </div>
 <p>In the following code chunk, we merge the two datasets into a single dataset and plot the GDP growth rate and the term spread. The shaded areas in <a href="#fig-fig24-1" class="quarto-xref">Figure&nbsp;<span>27.1</span></a> indicate the recession periods.</p>
-<div id="dffdc8d7" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge the data</span></span>
+<div id="253d3809" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge the data</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="op">=</span> pd.merge(dfGrowth, dfTermSpread, left_index<span class="op">=</span><span class="va">True</span>, right_index<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>mydata.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>mydata.columns</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>Index(['Period_x', 'Y', 'YGROWTH', 'RECESSION_x', 'Period_y', 'GS10', 'TB3MS',
        'RSPREAD', 'RECESSION_y'],
@@ -756,7 +758,7 @@ u_{2t}
 </div>
 </div>
 <div id="cell-fig-fig24-1" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plots of the GDP growth rate and the term spread</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plots of the GDP growth rate and the term spread</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and a set of subplots</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -775,7 +777,7 @@ u_{2t}
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">'Percentage rate'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="fig-fig24-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -790,12 +792,12 @@ Figure&nbsp;27.1: GDP growth rate and term spread in the US
 </div>
 </div>
 <p>Although our model is a VAR(<span class="math inline">\(2\)</span>) model, we can check whether the information criteria return the same number of lags. In the following code chunk, we first use the <code>VAR()</code> function to create the VAR model. The <code>select_order</code> method is then used to determine the number of lags selected by the information criteria. The results indicate that all information criteria suggest 2 lags.</p>
-<div id="6aa5f983" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the VAR model</span></span>
+<div id="cd34a790" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the VAR model</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>varData <span class="op">=</span> mydata.loc[<span class="st">"1981-01-01"</span>:<span class="st">"2017-07-01"</span>, [<span class="st">'YGROWTH'</span>, <span class="st">'RSPREAD'</span>]]</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> VAR(varData)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>lag_selection <span class="op">=</span> model.select_order(maxlags<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(lag_selection.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(lag_selection.summary())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> VAR Order Selection (* highlights the minimums) 
 =================================================
@@ -810,17 +812,17 @@ Figure&nbsp;27.1: GDP growth rate and term spread in the US
 </div>
 </div>
 <p>We then use the <code>fit</code> method to estimate the VAR model with 2 lags. The <code>summary</code> method provides an overview of the estimation results. In the <code>YGROWTH</code> equation, all estimated coefficients are statistically significant at the 5% level, indicating that the GDP growth rate can be forecasted using its own lagged values and the lagged values of the term spread. In the <code>RSPREAD</code> equation, except for the first lag of <code>YGROWTH</code>, all other estimated coefficients are statistically significant at the 5% level.</p>
-<div id="d95f276c" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fitting VAR model with lag = 2</span></span>
+<div id="f986a5e8" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fitting VAR model with lag = 2</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>var_model <span class="op">=</span> model.fit(<span class="dv">2</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(var_model.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(var_model.summary())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Summary of Regression Results   
 ==================================
 Model:                         VAR
 Method:                        OLS
-Date:           Sat, 11, Oct, 2025
-Time:                     11:33:37
+Date:           Fri, 21, Nov, 2025
+Time:                     16:09:46
 --------------------------------------------------------------------
 No. of Equations:         2.00000    BIC:                   0.411289
 Nobs:                     145.000    HQIC:                  0.289414
@@ -859,37 +861,37 @@ RSPREAD    0.047020  1.000000
 </div>
 </div>
 <p>Although all information criteria suggest two lags, we can still use autocorrelation tests to check whether there is any remaining correlation in the error terms. In the following code chunk, we use the Ljung-Box test to check for serial correlation in the residuals. The results show that there is no serial correlation in the residuals.</p>
-<div id="2aaa98f5" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking for serial correlation in the residuals: YGROWTH</span></span>
+<div id="0296f2db" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking for serial correlation in the residuals: YGROWTH</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ljungbox_results <span class="op">=</span> acorr_ljungbox(var_model.resid[<span class="st">'YGROWTH'</span>], lags<span class="op">=</span>[<span class="dv">4</span>], return_df<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ljungbox_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ljungbox_results)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    lb_stat  lb_pvalue
 4  0.743437   0.945866</code></pre>
 </div>
 </div>
-<div id="ad513ecf" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking for serial correlation in the residuals: RSPREAD</span></span>
+<div id="a9338ff0" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking for serial correlation in the residuals: RSPREAD</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ljungbox_results <span class="op">=</span> acorr_ljungbox(var_model.resid[<span class="st">'RSPREAD'</span>], lags<span class="op">=</span>[<span class="dv">4</span>], return_df<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ljungbox_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ljungbox_results)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    lb_stat  lb_pvalue
 4  3.492352   0.479042</code></pre>
 </div>
 </div>
 <p>In the following code chunk, we use the <code>test_whiteness</code> method, which provides a portmanteau test for testing the overall significance of the residual autocorrelations up to the fourth lag. The results show that there is no serial correlation in the residuals.</p>
-<div id="e71a9436" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Overall significance of the residual autocorrelations up to the fourth lag</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>var_model.test_whiteness(nlags<span class="op">=</span><span class="dv">4</span>).summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c9a39bda" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Overall significance of the residual autocorrelations up to the fourth lag</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>var_model.test_whiteness(nlags<span class="op">=</span><span class="dv">4</span>).summary()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
-<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="simpletable caption-top table table-sm table-striped small">
 <caption>Portmanteau-test for residual autocorrelation. H_0: residual autocorrelation up to lag 4 is zero. Conclusion: fail to reject H_0 at 5% significance level.</caption>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Test statistic</td>
-<td data-quarto-table-cell-role="th">Critical value</td>
-<td data-quarto-table-cell-role="th">p-value</td>
-<td data-quarto-table-cell-role="th">df</td>
+<th data-quarto-table-cell-role="th">Test statistic</th>
+<th data-quarto-table-cell-role="th">Critical value</th>
+<th data-quarto-table-cell-role="th">p-value</th>
+<th data-quarto-table-cell-role="th">df</th>
 </tr>
 <tr class="even">
 <td>7.795</td>
@@ -909,9 +911,9 @@ RSPREAD    0.047020  1.000000
 \end{align}
 \]</span></p>
 <p>This test is conducted using the <code>test_causality</code> method in the following code chunk. The results show that the null hypothesis is rejected, indicating that <code>TSpread</code> Granger-causes <code>GDPGR</code>.</p>
-<div id="b2dfc182" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>gtest <span class="op">=</span> var_model.test_causality(<span class="st">'YGROWTH'</span>, [<span class="st">'RSPREAD'</span>], kind<span class="op">=</span><span class="st">'f'</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gtest.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="70eab16a" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>gtest <span class="op">=</span> var_model.test_causality(<span class="st">'YGROWTH'</span>, [<span class="st">'RSPREAD'</span>], kind<span class="op">=</span><span class="st">'f'</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gtest.summary())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Granger causality F-test. H_0: RSPREAD does not Granger-cause YGROWTH. Conclusion: reject H_0 at 5% significance level.
 ==============================================
@@ -922,14 +924,14 @@ Test statistic Critical value p-value    df
 </div>
 </div>
 <p>We can use the <code>forecast</code> method to forecast the GDP growth rate and the term spread for the next 10 periods. The forecasted values are plotted in <a href="#fig-fig24-forecast1" class="quarto-xref">Figure&nbsp;<span>27.2</span></a>.</p>
-<div id="66dd6abc" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Forecasting</span></span>
+<div id="9623794b" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Forecasting</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>forecast <span class="op">=</span> var_model.forecast(varData.values[<span class="op">-</span><span class="dv">2</span>:], steps<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>forecast <span class="op">=</span> pd.DataFrame(forecast, columns<span class="op">=</span>[<span class="st">'GDPGR'</span>, <span class="st">'TSpread'</span>], index<span class="op">=</span>pd.date_range(start<span class="op">=</span><span class="st">'2017-10-01'</span>, periods<span class="op">=</span><span class="dv">10</span>, freq<span class="op">=</span><span class="st">'QS'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>forecast <span class="op">=</span> pd.DataFrame(forecast, columns<span class="op">=</span>[<span class="st">'GDPGR'</span>, <span class="st">'TSpread'</span>], index<span class="op">=</span>pd.date_range(start<span class="op">=</span><span class="st">'2017-10-01'</span>, periods<span class="op">=</span><span class="dv">10</span>, freq<span class="op">=</span><span class="st">'QS'</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Forecast of the GDP growth rate and the term spread</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>forecast</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Forecast of the GDP growth rate and the term spread</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>forecast</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="tbl-tbl24-1" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="13">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tbl24-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -940,7 +942,7 @@ Table&nbsp;27.1: Forecast of the GDP growth rate and the term spread
 <div>
 
 
-<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -950,52 +952,52 @@ Table&nbsp;27.1: Forecast of the GDP growth rate and the term spread
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2017-10-01</td>
+<th data-quarto-table-cell-role="th">2017-10-01</th>
 <td>2.865346</td>
 <td>1.293331</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">2018-01-01</td>
+<th data-quarto-table-cell-role="th">2018-01-01</th>
 <td>2.568107</td>
 <td>1.408409</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2018-04-01</td>
+<th data-quarto-table-cell-role="th">2018-04-01</th>
 <td>2.423284</td>
 <td>1.520251</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">2018-07-01</td>
+<th data-quarto-table-cell-role="th">2018-07-01</th>
 <td>2.345198</td>
 <td>1.627686</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2018-10-01</td>
+<th data-quarto-table-cell-role="th">2018-10-01</th>
 <td>2.323640</td>
 <td>1.723549</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">2019-01-01</td>
+<th data-quarto-table-cell-role="th">2019-01-01</th>
 <td>2.339484</td>
 <td>1.805258</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2019-04-01</td>
+<th data-quarto-table-cell-role="th">2019-04-01</th>
 <td>2.378755</td>
 <td>1.871935</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">2019-07-01</td>
+<th data-quarto-table-cell-role="th">2019-07-01</th>
 <td>2.430543</td>
 <td>1.924092</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2019-10-01</td>
+<th data-quarto-table-cell-role="th">2019-10-01</th>
 <td>2.486852</td>
 <td>1.963084</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">2020-01-01</td>
+<th data-quarto-table-cell-role="th">2020-01-01</th>
 <td>2.542138</td>
 <td>1.990726</td>
 </tr>
@@ -1009,10 +1011,10 @@ Table&nbsp;27.1: Forecast of the GDP growth rate and the term spread
 </div>
 </div>
 <div id="cell-fig-fig24-forecast1" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Forecast of the GDP growth rate and the term spread</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Forecast of the GDP growth rate and the term spread</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> var_model.plot_forecast(<span class="dv">10</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#fig.set_size_inches(8, 4)</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="fig-fig24-forecast1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1029,11 +1031,11 @@ Figure&nbsp;27.2: Forecast of the GDP growth rate and the term spread
 <p>Finally, we consider the effect of a shock in the term spread on the GDP growth rate. Suppose that we are willing to assume that <code>GDPGR</code> has a contemporaneous effect on <code>TSpread</code> but <code>TSpread</code> affects the <code>GDPGR</code> sequence with a one-period lag. To impose such an assumption, we need to order the variable such that <code>GDPGR</code> is the first column in <code>varData</code> (which is the case). That is, the order of variables in the system is important, and the variable that has the contemporaneous effect should be the first variable in the system.</p>
 <p>The effect of a shock in <code>TSpread</code> on <code>GDPGR</code> can be analysed through the impulse-response analysis. To that end, we can use the <code>irf</code> method. The response function of <code>GDPGR</code> is plotted in <a href="#fig-fig24-irf1" class="quarto-xref">Figure&nbsp;<span>27.3</span></a>. The plot shows that a shock in the term spread has a negative effect on the GDP growth rate in the first period.</p>
 <div id="cell-fig-fig24-irf1" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Impulse response analysis</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Impulse response analysis</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>irf <span class="op">=</span> var_model.irf(<span class="dv">10</span>)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> irf.plot(orth<span class="op">=</span><span class="va">True</span>, impulse<span class="op">=</span><span class="st">'RSPREAD'</span>, figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="va">None</span>)</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="fig-fig24-irf1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1300,14 +1302,14 @@ Y_{1t}=\mu_0+\theta_1Y_{1t}+\theta_2Y_{2t}+\sum_{j=-p}^p\delta_j\Delta Y_{1,t-j}
 <section id="an-empirical-application-1" class="level3" data-number="27.5.6">
 <h3 data-number="27.5.6" class="anchored" data-anchor-id="an-empirical-application-1"><span class="header-section-number">27.5.6</span> An empirical application</h3>
 <p>As an example, we examine the relationship between short- and long-term interest rates: (i) the interest rate on 3-month Treasury bills and (ii) the interest rate on 10-year Treasury bonds. <a href="#fig-f24-2" class="quarto-xref">Figure&nbsp;<span>27.4</span></a> displays the time series plots. Both interest rates were low during the 1960s, rose throughout the 1970s to peak in the early 1980s, and declined thereafter. However, the difference between long-term and short-term interest rates, known as the term spread (also shown in <a href="#fig-f24-2" class="quarto-xref">Figure&nbsp;<span>27.4</span></a>), does not appear to exhibit a trend. These patterns suggest that long-term and short-term interest rates are cointegrated, as both series share a common stochastic trend and exhibit similar long-run behavior.</p>
-<div id="a29313ef" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data from FRED-QD.dta</span></span>
+<div id="22cd2810" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data from FRED-QD.dta</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_stata(<span class="st">'data/FRED-QD.dta'</span>)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Set time index</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>df.index <span class="op">=</span> pd.date_range(start <span class="op">=</span> <span class="st">'1959-01-01'</span>, periods <span class="op">=</span> <span class="bu">len</span>(df), freq <span class="op">=</span> <span class="st">'QS'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>df.index <span class="op">=</span> pd.date_range(start <span class="op">=</span> <span class="st">'1959-01-01'</span>, periods <span class="op">=</span> <span class="bu">len</span>(df), freq <span class="op">=</span> <span class="st">'QS'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-fig-f24-2" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plots of the interest rates and the term spread</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plots of the interest rates and the term spread</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and a set of subplots</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1323,7 +1325,7 @@ Y_{1t}=\mu_0+\theta_1Y_{1t}+\theta_2Y_{2t}+\sum_{j=-p}^p\delta_j\Delta Y_{1,t-j}
 <span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
 <span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="fig-f24-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1342,17 +1344,17 @@ Figure&nbsp;27.4: Interest rates and the term spread
 \text{tb3ms}_t = \mu + \theta \text{gs10}_t + v_t.
 \end{align}
 \tag{27.14}\]</span></span></p>
-<div id="8eee423a" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate the cointegrating parameter</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> smf.ols(<span class="st">'tb3ms ~ gs10'</span>, data<span class="op">=</span>df).fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d2837429" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate the cointegrating parameter</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> smf.ols(<span class="st">'tb3ms ~ gs10'</span>, data<span class="op">=</span>df).fit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The estimation results are presented in Table <a href="#tbl-t24-3" class="quarto-xref">Table&nbsp;<span>27.3</span></a>. The estimated model is <span class="math display">\[
 \begin{align}
 \widehat{\text{tb3ms}}_{t}=-1.71+1.03\times\text{gs10}_t.
 \end{align}
 \]</span> Thus, the estimated cointegrating parameter is <span class="math inline">\(\hat{\theta}=1.03\)</span>.</p>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimation results from Step 1</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>summary_col(results, stars<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimation results from Step 1</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>summary_col(results, stars<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="quarto-layout-panel" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="cell quarto-layout-cell" data-execution_count="19" style="flex-basis: 100.0%;justify-content: center;">
@@ -1363,34 +1365,34 @@ Table&nbsp;27.3: Cointegrating parameter
 </figcaption>
 <div aria-describedby="tbl-t24-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="19">
-<table class="simpletable do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="simpletable do-not-create-environment cell caption-top table table-sm table-striped small">
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"></td>
-<td style="text-align: left;" data-quarto-table-cell-role="th">tb3ms</td>
+<th style="text-align: left;" data-quarto-table-cell-role="th">tb3ms</th>
 </tr>
 <tr class="even">
-<td style="text-align: left;" data-quarto-table-cell-role="th">Intercept</td>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Intercept</th>
 <td style="text-align: left;">-1.7123***</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;" data-quarto-table-cell-role="th"></td>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
 <td style="text-align: left;">(0.1835)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;" data-quarto-table-cell-role="th">gs10</td>
+<th style="text-align: left;" data-quarto-table-cell-role="th">gs10</th>
 <td style="text-align: left;">1.0284***</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;" data-quarto-table-cell-role="th"></td>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
 <td style="text-align: left;">(0.0272)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;" data-quarto-table-cell-role="th">R-squared</td>
+<th style="text-align: left;" data-quarto-table-cell-role="th">R-squared</th>
 <td style="text-align: left;">0.8597</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;" data-quarto-table-cell-role="th">R-squared Adj.</td>
+<th style="text-align: left;" data-quarto-table-cell-role="th">R-squared Adj.</th>
 <td style="text-align: left;">0.8591</td>
 </tr>
 </tbody>
@@ -1406,12 +1408,12 @@ Standard errors in parentheses.<br>
 </div>
 </div>
 <p>In the second step, we use the EG-ADF test to test whether <span class="math inline">\(\hat{v}_t\)</span> is stationary. The ADF test statistic given below is <span class="math inline">\(-4.72\)</span>, which is less than the <span class="math inline">\(5\%\)</span> critical value <span class="math inline">\(-3.41\)</span> given in <a href="#tbl-t24-2" class="quarto-xref">Table&nbsp;<span>27.2</span></a>. Thus, we can reject the null hypothesis of unit root. As a result, this two-step approach suggests that <code>gs10</code> and <code>tb3ms</code> are cointegrated.</p>
-<div id="02ec2287" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ADF test for the error term</span></span>
+<div id="9768ac28" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ADF test for the error term</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>adf_results <span class="op">=</span> stt.adfuller(results.resid, regression<span class="op">=</span><span class="st">'c'</span>, autolag<span class="op">=</span><span class="st">'AIC'</span>)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(adf_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(adf_results)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>(-4.747162282699648, 6.856248976115035e-05, 9, 226, {'1%': -3.4596204846395824, '5%': -2.8744153028455948, '10%': -2.5736320761218576}, 344.8368743784925)</code></pre>
+<pre><code>(np.float64(-4.747162282699646), np.float64(6.856248976115107e-05), 9, 226, {'1%': np.float64(-3.4596204846395824), '5%': np.float64(-2.8744153028455948), '10%': np.float64(-2.5736320761218576)}, np.float64(344.83687437849255))</code></pre>
 </div>
 </div>
 <p>Since both <code>gs10</code> and <code>tb3ms</code> are cointegrated, we can estimate the VECM model for these two variables. Since these series are non-trended series, we consider the following VECM specification: <span class="math display">\[
@@ -1428,12 +1430,12 @@ Standard errors in parentheses.<br>
 \end{align}
 \]</span></p>
 <p>In the following code chunk, we use the <code>VECM()</code> function to estimate the VECM model for <code>tb3ms</code> and <code>gs10</code>. The option <code>k_ar_diff=3</code> specifies that the lag order for the differenced variables is 3. The option <code>coint_rank=1</code> indicates that there is one cointegrating relationship between the variables. The option <code>deterministic='ci'</code> ensures that the VECM includes an intercept term in the vector error correction term.</p>
-<div id="cb383827" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="op">=</span> df.copy()</span>
+<div id="9ca7e39e" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="op">=</span> df.copy()</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>vecmData <span class="op">=</span> mydata[[<span class="st">'tb3ms'</span>, <span class="st">'gs10'</span>]]</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>vecm_model <span class="op">=</span> VECM(vecmData, k_ar_diff<span class="op">=</span><span class="dv">3</span>, coint_rank<span class="op">=</span><span class="dv">1</span>, deterministic<span class="op">=</span><span class="st">'ci'</span>)</span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>vecm_model_fit <span class="op">=</span> vecm_model.fit()</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(vecm_model_fit.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(vecm_model_fit.summary())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Det. terms outside the coint. relation &amp; lagged endog. parameters for equation tb3ms
 ==============================================================================
@@ -1479,37 +1481,37 @@ const          1.5764      0.448      3.518      0.000       0.698       2.455
 <p>The estimated coefficients for the lag terms appear in the first and second blocks of the estimation output. For <span class="math inline">\(\Delta\text{tb3ms}\)</span>, only its own lag terms are statistically significant at the 5% level. For <span class="math inline">\(\Delta\text{gs10}\)</span>, only the first lag of its own term is statistically significant at the <span class="math inline">\(5\%\)</span> level.</p>
 <p>The estimated coefficients for the error correction terms are provided in the third and fourth blocks of the estimation output. These coefficients are <span class="math inline">\(\hat{\alpha}_1=-0.095\)</span> and <span class="math inline">\(\hat{\alpha}_2=0.069\)</span>, both statistically significant at the 5% level. The estimate <span class="math inline">\(\hat{\alpha}_1=-0.095\)</span> suggests that the error correction term <span class="math inline">\((\text{tb3ms}_{t-1}-\theta\text{gs10}_{t-1}-\mu)\)</span> negatively affects <span class="math inline">\(\Delta\text{tb3ms}_t\)</span>, while <span class="math inline">\(\hat{\alpha}_2=0.069\)</span> indicates a positive effect on <span class="math inline">\(\Delta\text{gs10}_t\)</span>. These estimates imply that if the short-run interest rate exceeds the long-run interest rate by more than 1.6, the short-run interest rate will decrease while the long-run interest rate will increase, and vice versa.</p>
 <p>In the following code chunk, we use the <code>coint_johansen()</code> function to implement the Johansen cointegration test. The option <code>det_order=0</code> indicates that the error correction term includes a constant term, and the option <code>k_ar_diff=3</code> specifies that the lag order for the differenced variables is 3. The function returns the trace and maximum eigenvalue statistics and their critical values.</p>
-<div id="12bd0f24" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Johansen cointegration test</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>johansen_results <span class="op">=</span> coint_johansen(vecmData, det_order<span class="op">=</span><span class="dv">0</span>, k_ar_diff<span class="op">=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c42c1543" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Johansen cointegration test</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>johansen_results <span class="op">=</span> coint_johansen(vecmData, det_order<span class="op">=</span><span class="dv">0</span>, k_ar_diff<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The trace statistic is returned in the <code>trace_stat</code> attribute, and the critical values at the <span class="math inline">\(10\%\)</span>, <span class="math inline">\(5\%\)</span>, and <span class="math inline">\(1\%\)</span> significance levels are returned in the <code>trace_stat_crit_vals</code> attribute. The trace statistics for <span class="math inline">\(H_0:\text{rank}(\bs{\Pi})=0\)</span> and <span class="math inline">\(H_0:\text{rank}(\bs{\Pi})=1\)</span> are <span class="math inline">\(31.56\)</span> and <span class="math inline">\(2.77\)</span>, respectively. The corresponding critical values at the <span class="math inline">\(5\%\)</span> significance level are <span class="math inline">\(15.49\)</span> and <span class="math inline">\(3.84\)</span>. Thus, we can reject <span class="math inline">\(H_0:\text{rank}(\bs{\Pi})=0\)</span> but fail to reject <span class="math inline">\(H_0:\text{rank}(\bs{\Pi})=1\)</span>. As a result, we conclude that there is one cointegrating relationship according to the trace statistic.</p>
-<div id="14bf945e" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print trace statistic</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(johansen_results.trace_stat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b7465d23" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print trace statistic</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(johansen_results.trace_stat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[31.58004689  2.77321245]</code></pre>
 </div>
 </div>
-<div id="854a9ef2" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print critical values for trace statistic at 10%, 5%, and 1% significance levels</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(johansen_results.trace_stat_crit_vals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fd1c1294" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print critical values for trace statistic at 10%, 5%, and 1% significance levels</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(johansen_results.trace_stat_crit_vals)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[13.4294 15.4943 19.9349]
  [ 2.7055  3.8415  6.6349]]</code></pre>
 </div>
 </div>
 <p>The maximum eigenvalue statistic is returned in the <code>max_eig_stat</code> attribute, and the critical values at the <span class="math inline">\(10\%\)</span>, <span class="math inline">\(5\%\)</span>, and <span class="math inline">\(1\%\)</span> significance levels are returned in the <code>max_eig_stat_crit_vals</code> attribute. The maximum eigenvalue statistics for <span class="math inline">\(H_0:\text{rank}(\bs{\Pi})=0\)</span> and <span class="math inline">\(H_0:\text{rank}(\bs{\Pi})=1\)</span> are <span class="math inline">\(28.8\)</span> and <span class="math inline">\(2.77\)</span>, respectively. The corresponding critical values at the <span class="math inline">\(5\%\)</span> significance level are <span class="math inline">\(14.26\)</span> and <span class="math inline">\(3.84\)</span>. Again, we can reject <span class="math inline">\(H_0:\text{rank}(\bs{\Pi})=0\)</span> but fail to reject <span class="math inline">\(H_0:\text{rank}(\bs{\Pi})=1\)</span>. As a result, we conclude that there is also one cointegrating relationship according to the maximum eigenvalue statistic.</p>
-<div id="53102855" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print maximum eigenvalue statistic</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(johansen_results.max_eig_stat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7ee1ed98" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print maximum eigenvalue statistic</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(johansen_results.max_eig_stat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[28.80683443  2.77321245]</code></pre>
 </div>
 </div>
-<div id="8c8a85da" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print critical values for maximum eigenvalue statistic at 10%, 5%, and 1% significance levels</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(johansen_results.max_eig_stat_crit_vals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2b15de0b" class="cell" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print critical values for maximum eigenvalue statistic at 10%, 5%, and 1% significance levels</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(johansen_results.max_eig_stat_crit_vals)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[12.2971 14.2639 18.52  ]
  [ 2.7055  3.8415  6.6349]]</code></pre>
@@ -1524,8 +1526,8 @@ const          1.5764      0.448      3.518      0.000       0.698       2.455
 <p><span class="theorem-title"><strong>Definition 27.4 (Volatility clustering)</strong></span> A series exhibits <strong>volatility clustering</strong> if periods of high volatility are followed by high volatility, and periods of low volatility are followed by low volatility.</p>
 </div>
 <p>As an example, we consider the daily Wilshire 5000 index, a broad stock market index that includes all actively traded U.S. stocks. <a href="#fig-f24-3" class="quarto-xref">Figure&nbsp;<span>27.5</span></a> displays the time series plots of the index value, returns, squared returns, and absolute returns. The returns are calculated as the percentage change in the index value; squared returns are the square of the returns, and absolute returns are the absolute value of the returns. Although the index value shows an upward trend, there are periods where the value decreases. The returns exhibit volatility clustering, with periods of high volatility followed by high volatility and periods of low volatility followed by low volatility. This pattern is also observed in the squared and absolute returns.</p>
-<div id="266f927f" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load WILL500IND.csv data</span></span>
+<div id="f7249278" class="cell" data-execution_count="27">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load WILL500IND.csv data</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'data/WILL500IND.csv'</span>)</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the date as the index</span></span>
@@ -1539,10 +1541,10 @@ const          1.5764      0.448      3.518      0.000       0.698       2.455
 <span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'squared_return'</span>] <span class="op">=</span> df[<span class="st">'return'</span>] <span class="op">**</span> <span class="dv">2</span></span>
 <span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate absolute returns</span></span>
-<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'abs_return'</span>] <span class="op">=</span> df[<span class="st">'return'</span>].<span class="bu">abs</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'abs_return'</span>] <span class="op">=</span> df[<span class="st">'return'</span>].<span class="bu">abs</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-fig-f24-3" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plots of the Wilshire 5000 index value, returns, squared returns, and absolute returns</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plots of the Wilshire 5000 index value, returns, squared returns, and absolute returns</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and a set of subplots</span></span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">4</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">10</span>))</span>
 <span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1571,12 +1573,12 @@ const          1.5764      0.448      3.518      0.000       0.698       2.455
 <span id="cb42-27"><a href="#cb42-27" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">3</span>].set_ylabel(<span class="st">'Absolute Return'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb42-28"><a href="#cb42-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb42-29"><a href="#cb42-29" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb42-30"><a href="#cb42-30" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb42-30"><a href="#cb42-30" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="fig-f24-3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f24-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter17-AdditionalTopicsTimeSeries_files/figure-html/fig-f24-3-output-1.png" width="566" height="951" class="figure-img">
+<img src="Chapter17-AdditionalTopicsTimeSeries_files/figure-html/fig-f24-3-output-1.png" width="567" height="951" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f24-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;27.5: Wilshire 5000 index value, returns, squared returns, and absolute returns
@@ -1587,7 +1589,7 @@ Figure&nbsp;27.5: Wilshire 5000 index value, returns, squared returns, and absol
 </div>
 <p>The volatility clustering observed in the returns leads to autocorrelation in the squared returns. The correlograms of the returns and squared returns are shown in <a href="#fig-f24-4" class="quarto-xref">Figure&nbsp;<span>27.6</span></a>. While the autocorrelation of the returns is relatively small at all lags, the autocorrelation of the squared returns is significant at all lags and decays slowly.</p>
 <div id="cell-fig-f24-4" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlogram of returns and squared returns</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlogram of returns and squared returns</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">3</span>))</span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlogram of returns</span></span>
@@ -1599,12 +1601,12 @@ Figure&nbsp;27.5: Wilshire 5000 index value, returns, squared returns, and absol
 <span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">'Correlogram of Squared Returns'</span>)</span>
 <span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="fig-f24-4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f24-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter17-AdditionalTopicsTimeSeries_files/figure-html/fig-f24-4-output-1.png" width="758" height="278" class="figure-img">
+<img src="Chapter17-AdditionalTopicsTimeSeries_files/figure-html/fig-f24-4-output-1.png" width="759" height="278" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f24-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;27.6: Correlograms of returns and squared returns
@@ -1622,17 +1624,17 @@ Figure&nbsp;27.6: Correlograms of returns and squared returns
 \end{align}
 \]</span></p>
 <p>For the Wilshire 5000 index returns, we set <span class="math inline">\(h=20\)</span> and compute the 20-day realized volatility. In the following code chunk, we calculate the realized volatility using the <code>return</code> column in the <code>df</code> DataFrame. The realized volatility is calculated as the square root of the mean of the squared returns over the past 20 days.</p>
-<div id="0dc90321" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate realized volatility</span></span>
+<div id="24ae2a25" class="cell" data-execution_count="30">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate realized volatility</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="bu">len</span>(df)</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'RV'</span>] <span class="op">=</span> <span class="fl">0.0</span></span>
 <span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(h, T):</span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>    df.at[df.index[t], <span class="st">'RV'</span>] <span class="op">=</span> np.sqrt(np.mean(df.iloc[t<span class="op">-</span>h<span class="op">+</span><span class="dv">1</span>:t][<span class="st">"return"</span>]<span class="op">**</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>    df.at[df.index[t], <span class="st">'RV'</span>] <span class="op">=</span> np.sqrt(np.mean(df.iloc[t<span class="op">-</span>h<span class="op">+</span><span class="dv">1</span>:t][<span class="st">"return"</span>]<span class="op">**</span><span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The time-series plot of the 20-day realized volatility estimates is shown in <a href="#fig-f24-5" class="quarto-xref">Figure&nbsp;<span>27.7</span></a>. In <a href="#fig-f24-6" class="quarto-xref">Figure&nbsp;<span>27.8</span></a>, we plot the returns along with the realized volatility bands (<span class="math inline">\(\pm\text{RV}\)</span>). The figure shows that when returns are large, realized volatility is also high, and vice versa, suggesting that realized volatility effectively captures the volatility clustering observed in the returns. The width of the band can be used to identify periods of high volatility. For example, the realized volatility bands are wide during the 2008 financial crisis, indicating high volatility in the returns.</p>
 <div id="cell-fig-f24-5" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Time-series plot of the 20-day realized volatility</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Time-series plot of the 20-day realized volatility</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and a set of subplots</span></span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
 <span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1645,7 +1647,7 @@ Figure&nbsp;27.6: Correlograms of returns and squared returns
 <span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="dv">1</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
 <span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>plt.show()      </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>plt.show()      </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="fig-f24-5" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1660,7 +1662,7 @@ Figure&nbsp;27.7: Realized volatility
 </div>
 </div>
 <div id="cell-fig-f24-6" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return and realized volatility bands</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return and realized volatility bands</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and a set of subplots</span></span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
 <span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1677,12 +1679,12 @@ Figure&nbsp;27.7: Realized volatility
 <span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a>ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="dv">1</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
 <span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="fig-f24-6" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f24-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter17-AdditionalTopicsTimeSeries_files/figure-html/fig-f24-6-output-1.png" width="566" height="374" class="figure-img">
+<img src="Chapter17-AdditionalTopicsTimeSeries_files/figure-html/fig-f24-6-output-1.png" width="567" height="374" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f24-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;27.8: Return and realized volatility bands
@@ -1801,12 +1803,12 @@ e_h=Y_{T+h}-Y_{T+h|T}=\beta_0+u_{T+h}-\beta_0=u_{T+h}.
 \end{align}
 \]</span></p>
 <p>In Python, we can use the <code>arch</code> package to estimate a GARCH model. The following code chunk uses the <code>arch_model()</code> function from the <code>arch</code> package to estimate the model. The option <code>vol='Garch'</code> specifies that the model is a GARCH model. The options <code>p=1</code> and <code>q=1</code> indicate that the lag order for the squared residuals and the conditional variance is 1, respectively. The option <code>dist='Normal'</code> specifies that the error term <span class="math inline">\(v_t\)</span> follows the standard normal distribution. The fit method is used to estimate the model.</p>
-<div id="233dbbdf" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate GARCH(1,1) model</span></span>
+<div id="cebb944d" class="cell" data-execution_count="33">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate GARCH(1,1) model</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span> df.dropna()</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>garch_model <span class="op">=</span> arch_model(df[<span class="st">'return'</span>], vol<span class="op">=</span><span class="st">'Garch'</span>, p<span class="op">=</span><span class="dv">1</span>, q<span class="op">=</span><span class="dv">1</span>, dist<span class="op">=</span><span class="st">'Normal'</span>)</span>
 <span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> garch_model.fit(disp<span class="op">=</span><span class="st">'off'</span>)</span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results.summary())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                     Constant Mean - GARCH Model Results                      
 ==============================================================================
@@ -1816,8 +1818,8 @@ Vol Model:                      GARCH   Log-Likelihood:               -9141.76
 Distribution:                  Normal   AIC:                           18291.5
 Method:            Maximum Likelihood   BIC:                           18319.0
                                         No. Observations:                 7055
-Date:                Sat, Oct 11 2025   Df Residuals:                     7054
-Time:                        11:33:42   Df Model:                            1
+Date:                Fri, Nov 21 2025   Df Residuals:                     7054
+Time:                        16:09:48   Df Model:                            1
                                  Mean Model                                 
 ============================================================================
                  coef    std err          t      P&gt;|t|      95.0% Conf. Int.
@@ -1843,7 +1845,7 @@ Covariance estimator: robust</code></pre>
 \]</span></p>
 <p><a href="#fig-f24-7" class="quarto-xref">Figure&nbsp;<span>27.9</span></a> shows the time-series plot of the GARCH volatility estimates. In <a href="#fig-f24-8" class="quarto-xref">Figure&nbsp;<span>27.10</span></a>, we plot returns along with the estimated volatility bands (<span class="math inline">\(\pm\hat{\sigma}_t\)</span>). The figure shows that when returns are large, the estimated volatility is also high, and vice versa, suggesting that the GARCH model effectively captures the volatility clustering observed in the returns.</p>
 <div id="cell-fig-f24-7" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot GARCH volatility estimates</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot GARCH volatility estimates</span></span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the returns</span></span>
 <span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>volatility <span class="op">=</span> results.conditional_volatility </span>
@@ -1855,7 +1857,7 @@ Covariance estimator: robust</code></pre>
 <span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Percent'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
 <span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="fig-f24-7" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1870,7 +1872,7 @@ Figure&nbsp;27.9: GARCH volatility estimates
 </div>
 </div>
 <div id="cell-fig-f24-8" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return and GARCH volatility bands</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return and GARCH volatility bands</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a figure and a set of subplots</span></span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
 <span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1888,12 +1890,12 @@ Figure&nbsp;27.9: GARCH volatility estimates
 <span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
 <span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb50-18"><a href="#cb50-18" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb50-19"><a href="#cb50-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb50-19"><a href="#cb50-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div id="fig-f24-8" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f24-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter17-AdditionalTopicsTimeSeries_files/figure-html/fig-f24-8-output-1.png" width="566" height="374" class="figure-img">
+<img src="Chapter17-AdditionalTopicsTimeSeries_files/figure-html/fig-f24-8-output-1.png" width="567" height="374" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f24-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;27.10: Return and GARCH volatility bands
@@ -1903,13 +1905,13 @@ Figure&nbsp;27.10: Return and GARCH volatility bands
 </div>
 </div>
 <p>Next, we forecast the volatility for the next five periods using the <code>forecast</code> method. The option <code>horizon=5</code> specifies that we want to forecast the next five periods. The option <code>method='analytic'</code> indicates that we want to use the analytic method to forecast the volatility.</p>
-<div id="b4711997" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Forecast volatility</span></span>
+<div id="0d334a59" class="cell" data-execution_count="36">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Forecast volatility</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>forecasts <span class="op">=</span> results.forecast(horizon<span class="op">=</span><span class="dv">5</span>, method<span class="op">=</span><span class="st">'analytic'</span>)</span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Forecast</span></span>
 <span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(forecasts.mean)</span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(forecasts.variance)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(forecasts.variance)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                 h.1       h.2       h.3       h.4       h.5
 date                                                        
@@ -1926,21 +1928,21 @@ date
 &amp;H_1: v_t \text{ is not normally distributed}.
 \end{align}
 \]</span> The test statistic has a chi-squared distribution with two degrees of freedom. The following code chunk uses the <code>jarque_bera()</code> function from the <code>scipy.stats</code> package to perform the Jarque-Bera test on the standardized residuals. Since the p-value is less than 0.05, we reject the null hypothesis of normality.</p>
-<div id="fab58852" class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Jarque-Bera test</span></span>
+<div id="0b812a6f" class="cell" data-execution_count="37">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Jarque-Bera test</span></span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>jb_results <span class="op">=</span> stats.jarque_bera(results.std_resid)</span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jb_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(jb_results)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>SignificanceResult(statistic=1212.5337278465386, pvalue=5.03090871660107e-264)</code></pre>
+<pre><code>SignificanceResult(statistic=np.float64(1212.5337197841839), pvalue=np.float64(5.030928997127699e-264))</code></pre>
 </div>
 </div>
 <p>Since the assumption that <span class="math inline">\(v_t \sim N(0,1)\)</span> is rejected, we can use the <code>arch_model</code> function to estimate a GARCH model with a different distribution for the error term. In addition to the standard normal distribution, the arch package provides the following alternatives: the Student t-distribution (<code>t</code>), the skewed Student t-distribution (<code>skewt</code>), and the generalized error distribution (<code>ged</code>).</p>
 <p>In this example, we assume that the standardized error terms follow a standardized Student t-distribution with <span class="math inline">\(\nu\)</span> degrees of freedom, which is a common choice for financial data that exhibit heavy tails. In the following code chunk, the option <code>dist='t'</code> specifies this distribution. The degrees of freedom parameter <span class="math inline">\(\nu\)</span> is estimated along with the other parameters.</p>
-<div id="a2fd8fab" class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate GARCH(1,1) model with Student's t-distribution</span></span>
+<div id="7748d2dc" class="cell" data-execution_count="38">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate GARCH(1,1) model with Student's t-distribution</span></span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>garch_model_t <span class="op">=</span> arch_model(df[<span class="st">'return'</span>], vol<span class="op">=</span><span class="st">'Garch'</span>, p<span class="op">=</span><span class="dv">1</span>, q<span class="op">=</span><span class="dv">1</span>, dist<span class="op">=</span><span class="st">'t'</span>)</span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>results_t <span class="op">=</span> garch_model_t.fit(disp<span class="op">=</span><span class="st">'off'</span>)</span>
-<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results_t.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results_t.summary())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                        Constant Mean - GARCH Model Results                         
 ====================================================================================
@@ -1950,13 +1952,13 @@ Vol Model:                            GARCH   Log-Likelihood:               -898
 Distribution:      Standardized Student's t   AIC:                           17988.1
 Method:                  Maximum Likelihood   BIC:                           18022.4
                                               No. Observations:                 7055
-Date:                      Sat, Oct 11 2025   Df Residuals:                     7054
-Time:                              11:33:42   Df Model:                            1
+Date:                      Fri, Nov 21 2025   Df Residuals:                     7054
+Time:                              16:09:48   Df Model:                            1
                                  Mean Model                                 
 ============================================================================
                  coef    std err          t      P&gt;|t|      95.0% Conf. Int.
 ----------------------------------------------------------------------------
-mu             0.0797  8.281e-03      9.620  6.587e-22 [6.343e-02,9.589e-02]
+mu             0.0797  8.281e-03      9.620  6.588e-22 [6.343e-02,9.589e-02]
                               Volatility Model                              
 ============================================================================
                  coef    std err          t      P&gt;|t|      95.0% Conf. Int.
@@ -1968,7 +1970,7 @@ beta[1]        0.9178  1.079e-02     85.075      0.000     [  0.897,  0.939]
 ========================================================================
                  coef    std err          t      P&gt;|t|  95.0% Conf. Int.
 ------------------------------------------------------------------------
-nu             6.4693      0.521     12.411  2.282e-35 [  5.448,  7.491]
+nu             6.4694      0.521     12.411  2.286e-35 [  5.448,  7.491]
 ========================================================================
 
 Covariance estimator: robust</code></pre>
@@ -2017,239 +2019,243 @@ Stock, James H., and Mark W. Watson. 2020. <em>Introduction to Econometrics</em>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/osmdogan\.github\.io\/Python_Book\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/osmdogan\.github\.io\/Python_Book\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-        return container.innerHTML
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -2257,185 +2263,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./Chapter16-DynamicCausalEffects.html" class="pagination-link" aria-label="Estimation of Dynamic Causal Effects">
