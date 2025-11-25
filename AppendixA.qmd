@@ -68,7 +68,7 @@ In the next figure, we create choropleth maps to show how variables of interest 
 #| fig-cap: "Choropleth Maps of School District Characteristics"
 #| label: fig-ChoroplethMaps
 # Choropleth Maps of School District Characteristics
-fig, axs = plt.subplots(2, 2, figsize=(10, 14))
+fig, axs = plt.subplots(2, 2, figsize=(10, 12))
 # Test Scores
 merged_gdf.plot(column="testscr", ax=axs[0, 0], cmap="viridis", 
               legend=True,
@@ -123,7 +123,7 @@ Finally, we create choropleth maps for the percentage of students eligible for f
 #| label: fig-AssistancePrograms
 # Choropleth Maps of Assistance Programs
 # Meal Percentage
-fig, axs = plt.subplots(1, 2, figsize=(10, 8))
+fig, axs = plt.subplots(1, 2, figsize=(10, 6))
 merged_gdf.plot(column="meal_pct", ax=axs[0], cmap="viridis", 
               legend=True,
               legend_kwds={
