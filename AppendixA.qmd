@@ -68,7 +68,7 @@ In the next figure, we create choropleth maps to show how variables of interest 
 #| fig-cap: "Choropleth Maps of School District Characteristics"
 #| label: fig-ChoroplethMaps
 # Choropleth Maps of School District Characteristics
-fig, axs = plt.subplots(2, 2, figsize=(10, 12))
+fig, axs = plt.subplots(2, 2, figsize=(10, 14))
 # Test Scores
 merged_gdf.plot(column="testscr", ax=axs[0, 0], cmap="viridis", 
               legend=True,
@@ -78,7 +78,7 @@ merged_gdf.plot(column="testscr", ax=axs[0, 0], cmap="viridis",
                 "pad": 0.02,
                 "orientation": "horizontal"
               })
-axs[0, 0].set_title("Test Scores")
+axs[0, 0].set_title("Test Scores", fontsize=10)
 axs[0, 0].axis('off')
 # Student-Teacher Ratio
 merged_gdf.plot(column="str", ax=axs[0, 1], cmap="viridis", 
@@ -89,7 +89,7 @@ merged_gdf.plot(column="str", ax=axs[0, 1], cmap="viridis",
                 "pad": 0.02,
                 "orientation": "horizontal"
               })
-axs[0, 1].set_title("Student-Teacher Ratio")
+axs[0, 1].set_title("Student-Teacher Ratio", fontsize=10)
 axs[0, 1].axis('off')
 # Average Income
 merged_gdf.plot(column="avginc", ax=axs[1, 0], cmap="viridis", 
@@ -100,7 +100,7 @@ merged_gdf.plot(column="avginc", ax=axs[1, 0], cmap="viridis",
                 "pad": 0.02,
                 "orientation": "horizontal"
               })
-axs[1, 0].set_title("Average Income")
+axs[1, 0].set_title("Average Income", fontsize=10)
 axs[1, 0].axis('off')
 # English Learner Percentage
 merged_gdf.plot(column="el_pct", ax=axs[1, 1], cmap="viridis", 
@@ -111,12 +111,12 @@ merged_gdf.plot(column="el_pct", ax=axs[1, 1], cmap="viridis",
                 "pad": 0.02,
                 "orientation": "horizontal"
               })
-axs[1, 1].set_title("English Learner Percentage")
+axs[1, 1].set_title("English Learner Percentage", fontsize=10)
 axs[1, 1].axis('off')
 plt.show()
 ```
 
-Finally, we create choropleth maps for two assistance programs: the percentage of students eligible for free or reduced-price lunch (`meal_pct`) and the percentage of students receiving CalWORKs assistance (`calw_pct`).
+Finally, we create choropleth maps for the percentage of students eligible for free or reduced-price lunch (`meal_pct`) and the percentage of students receiving CalWORKs assistance (`calw_pct`).
 
 ```{python}
 #| fig-cap: "Choropleth Maps of Assistance Programs"
@@ -132,7 +132,7 @@ merged_gdf.plot(column="meal_pct", ax=axs[0], cmap="viridis",
                 "pad": 0.02,
                 "orientation": "horizontal"
               })
-axs[0].set_title("Free or Reduced-Price Lunch Percentage")
+axs[0].set_title("Reduced-Price Lunch Percentage", fontsize=10)
 axs[0].axis('off')
 # CalWORKs Assistance Percentage
 merged_gdf.plot(column="calw_pct", ax=axs[1], cmap="viridis", 
@@ -143,7 +143,7 @@ merged_gdf.plot(column="calw_pct", ax=axs[1], cmap="viridis",
                 "pad": 0.02,
                 "orientation": "horizontal"
               })
-axs[1].set_title("CalWORKs Assistance Percentage")
+axs[1].set_title("CalWORKs Assistance Percentage", fontsize=10)
 axs[1].axis('off')
 plt.show()
 ```
