@@ -67,7 +67,7 @@ $$ {#eq-eq11-3}
 for $i=1,2,\dots,n$. 
 
 ### Data
-The dataset is the California school districts dataset provided in the `caschools.xlsx` (`caschools.csv`) file. This dataset contains information on kindergarten through eighth-grade students across 420 California school districts (K-6 and K-8 districts) in 1999. It is a district-level dataset that includes variables on average student performance and demographic characteristics. @tbl-chapter11-t0 provides a description of the variables in this dataset.
+The dataset is the California school districts dataset provided in the `caschools.xlsx` (`caschools.csv`) file. This dataset contains information on kindergarten through eighth-grade students across 420 California school districts (K-6 and K-8 districts) in 1999. It is a district-level dataset that includes variables on average student performance and demographic characteristics. @tbl-chapter11-t0 provides a description of the variables in this dataset.^[In @sec-CaschoolsData, we provide choropleth maps to show how variables of interest are distributed across California school districts.]
 
 ::: {layout-ncol=1}
 ::: {style="font-size: 85%"}
