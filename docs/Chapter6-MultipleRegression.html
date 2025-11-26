@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,9 +21,8 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -34,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -58,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -67,17 +66,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <link href="./Chapter7-MultipleRegressionInference.html" rel="next">
 <link href="./Chapter5-LinearRegressionOneRegressorInference.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2af744e5c56274bd8ec59c3ff984e753.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -105,9 +102,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
 <script>
 window.MathJax = {
   tex: {
@@ -143,7 +143,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+      if (mathElements[i].tagName == "SPAN") {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -161,7 +161,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -183,9 +183,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Econometrics with Python</a> 
         <div class="sidebar-tools-main">
@@ -530,8 +528,8 @@ window.Quarto = {
 </header>
 
 
-<div id="0cda3a7b" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div id="fb87d15b" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -539,7 +537,7 @@ window.Quarto = {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.iolib.summary2 <span class="im">import</span> summary_col</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mpl_toolkits.mplot3d <span class="im">import</span> Axes3D</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mpl_toolkits.mplot3d <span class="im">import</span> Axes3D</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="omitted-variable-bias" class="level2" data-number="16.1">
 <h2 data-number="16.1" class="anchored" data-anchor-id="omitted-variable-bias"><span class="header-section-number">16.1</span> Omitted variable bias</h2>
@@ -568,7 +566,7 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Key Concept 13.1: Omitted Variable Bias
+Key Concept 13.1: Omitted Variable Bias
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -636,13 +634,13 @@ Y_i = \beta_0+\beta_1X_{1i}+\beta_2X_{2i}+\dots+\beta_kX_{ki}+u_i,\quad i=1,2,\d
 &amp;\text{TestScore}_i=\beta_0+\beta_1\times\text{STR}_i+\beta_2\times\text{PctEL}_i+u_i,
 \end{align}
 \]</span> for <span class="math inline">\(i=1,\dots,420\)</span>, where <span class="math inline">\(\text{PctEL}_i\)</span> is the percentage of English learners in the <span class="math inline">\(i\)</span>th district. We use the following code chunks to import data from the <code>caschool.xlsx</code> file.</p>
-<div id="19abea81" class="cell" data-message="false" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="op">=</span> pd.read_excel(<span class="st">"data/caschool.xlsx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="fecc8234" class="cell" data-message="false" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="op">=</span> pd.read_excel(<span class="st">"data/caschool.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ea63b0d0" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Column names</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mydata.columns</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="68ae264c" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Column names</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mydata.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>Index(['Observation Number', 'dist_cod', 'county', 'district', 'gr_span',
        'enrl_tot', 'teachers', 'calw_pct', 'meal_pct', 'computer', 'testscr',
@@ -652,8 +650,8 @@ Y_i = \beta_0+\beta_1X_{1i}+\beta_2X_{2i}+\dots+\beta_kX_{ki}+u_i,\quad i=1,2,\d
 </div>
 </div>
 <p>The <code>describe</code> method can be used to get descriptive statistics provided in <a href="#tbl-t13-1" class="quarto-xref">Table&nbsp;<span>16.1</span></a> on <code>str</code>, <code>el_pct</code>, and <code>testscr</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary statistics</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mydata[[<span class="st">"str"</span>, <span class="st">"el_pct"</span>, <span class="st">"testscr"</span>]].<span class="bu">round</span>(<span class="dv">3</span>).describe().T</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary statistics</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mydata[[<span class="st">"str"</span>, <span class="st">"el_pct"</span>, <span class="st">"testscr"</span>]].<span class="bu">round</span>(<span class="dv">3</span>).describe().T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-layout-panel" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="cell quarto-layout-cell" data-execution_count="4" style="flex-basis: 100.0%;justify-content: center;">
@@ -667,7 +665,7 @@ Table&nbsp;16.1: Summary statistics
 <div>
 
 
-<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-border="1">
+<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
@@ -683,7 +681,7 @@ Table&nbsp;16.1: Summary statistics
 </thead>
 <tbody>
 <tr class="odd">
-<th style="text-align: left;" data-quarto-table-cell-role="th">str</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">str</td>
 <td style="text-align: left;">420.0</td>
 <td style="text-align: left;">19.640417</td>
 <td style="text-align: left;">1.891805</td>
@@ -694,7 +692,7 @@ Table&nbsp;16.1: Summary statistics
 <td style="text-align: left;">25.80</td>
 </tr>
 <tr class="even">
-<th style="text-align: left;" data-quarto-table-cell-role="th">el_pct</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">el_pct</td>
 <td style="text-align: left;">420.0</td>
 <td style="text-align: left;">15.768152</td>
 <td style="text-align: left;">18.285912</td>
@@ -705,7 +703,7 @@ Table&nbsp;16.1: Summary statistics
 <td style="text-align: left;">85.54</td>
 </tr>
 <tr class="odd">
-<th style="text-align: left;" data-quarto-table-cell-role="th">testscr</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">testscr</td>
 <td style="text-align: left;">420.0</td>
 <td style="text-align: left;">654.156548</td>
 <td style="text-align: left;">19.053348</td>
@@ -727,8 +725,8 @@ Table&nbsp;16.1: Summary statistics
 </div>
 </div>
 <p>In <a href="#tbl-t13-2" class="quarto-xref">Table&nbsp;<span>16.2</span></a>, we provide sample correlation coefficients between variables. We see that <code>PctEL</code> is negatively correlated with <code>testscr</code> and positively correlated with <code>str</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation coefficients</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>mydata[[<span class="st">"str"</span>,<span class="st">"el_pct"</span>, <span class="st">"testscr"</span>]].corr()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation coefficients</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>mydata[[<span class="st">"str"</span>,<span class="st">"el_pct"</span>, <span class="st">"testscr"</span>]].corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-layout-panel" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="cell quarto-layout-cell" data-execution_count="5" style="flex-basis: 100.0%;justify-content: center;">
@@ -742,7 +740,7 @@ Table&nbsp;16.2: The sample correlation coefficients
 <div>
 
 
-<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-border="1">
+<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
@@ -753,19 +751,19 @@ Table&nbsp;16.2: The sample correlation coefficients
 </thead>
 <tbody>
 <tr class="odd">
-<th style="text-align: left;" data-quarto-table-cell-role="th">str</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">str</td>
 <td style="text-align: left;">1.000000</td>
 <td style="text-align: left;">0.187642</td>
 <td style="text-align: left;">-0.226363</td>
 </tr>
 <tr class="even">
-<th style="text-align: left;" data-quarto-table-cell-role="th">el_pct</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">el_pct</td>
 <td style="text-align: left;">0.187642</td>
 <td style="text-align: left;">1.000000</td>
 <td style="text-align: left;">-0.644124</td>
 </tr>
 <tr class="odd">
-<th style="text-align: left;" data-quarto-table-cell-role="th">testscr</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">testscr</td>
 <td style="text-align: left;">-0.226363</td>
 <td style="text-align: left;">-0.644124</td>
 <td style="text-align: left;">1.000000</td>
@@ -782,21 +780,21 @@ Table&nbsp;16.2: The sample correlation coefficients
 </div>
 </div>
 <p>In the following code chunk, we use the <code>smf.ols()</code> function to estimate both models.</p>
-<div id="c1d7b13a" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimation</span></span>
+<div id="6ab55207" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimation</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>model1 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'testscr~str'</span>, data<span class="op">=</span>mydata)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>result1 <span class="op">=</span> model1.fit()</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>model2 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'testscr~str+el_pct'</span>, data<span class="op">=</span>mydata)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>result2 <span class="op">=</span> model2.fit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>result2 <span class="op">=</span> model2.fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Using the <code>summary_col()</code> function from the <code>statsmodels.iolib.summary2</code>, we can present the estimation results contained in <code>result1</code> and <code>result2</code> as shown in <a href="#tbl-t13-3" class="quarto-xref">Table&nbsp;<span>16.3</span></a>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print results in table form</span></span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print results in table form</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>models <span class="op">=</span> [<span class="st">'Model 1'</span>, <span class="st">'Model 2'</span>]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>results_table <span class="op">=</span> summary_col(results<span class="op">=</span>[result1, result2],</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                            float_format<span class="op">=</span><span class="st">'</span><span class="sc">%0.3f</span><span class="st">'</span>, </span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                            stars<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                            model_names<span class="op">=</span>models)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>results_table</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>results_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-layout-panel" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="cell quarto-layout-cell" data-execution_count="7" style="flex-basis: 100.0%;justify-content: center;">
@@ -807,50 +805,50 @@ Table&nbsp;16.3: Estimation Results
 </figcaption>
 <div aria-describedby="tbl-t13-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="7">
-<table class="simpletable do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="simpletable do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"></td>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Model 1</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Model 2</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">Model 1</td>
+<td style="text-align: left;" data-quarto-table-cell-role="th">Model 2</td>
 </tr>
 <tr class="even">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Intercept</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">Intercept</td>
 <td style="text-align: left;">698.933***</td>
 <td style="text-align: left;">686.032***</td>
 </tr>
 <tr class="odd">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<td style="text-align: left;" data-quarto-table-cell-role="th"></td>
 <td style="text-align: left;">(9.467)</td>
 <td style="text-align: left;">(7.411)</td>
 </tr>
 <tr class="even">
-<th style="text-align: left;" data-quarto-table-cell-role="th">str</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">str</td>
 <td style="text-align: left;">-2.280***</td>
 <td style="text-align: left;">-1.101***</td>
 </tr>
 <tr class="odd">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<td style="text-align: left;" data-quarto-table-cell-role="th"></td>
 <td style="text-align: left;">(0.480)</td>
 <td style="text-align: left;">(0.380)</td>
 </tr>
 <tr class="even">
-<th style="text-align: left;" data-quarto-table-cell-role="th">el_pct</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">el_pct</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">-0.650***</td>
 </tr>
 <tr class="odd">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<td style="text-align: left;" data-quarto-table-cell-role="th"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">(0.039)</td>
 </tr>
 <tr class="even">
-<th style="text-align: left;" data-quarto-table-cell-role="th">R-squared</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">R-squared</td>
 <td style="text-align: left;">0.051</td>
 <td style="text-align: left;">0.426</td>
 </tr>
 <tr class="odd">
-<th style="text-align: left;" data-quarto-table-cell-role="th">R-squared Adj.</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">R-squared Adj.</td>
 <td style="text-align: left;">0.049</td>
 <td style="text-align: left;">0.424</td>
 </tr>
@@ -901,21 +899,21 @@ R^2 = \frac{ESS}{TSS} = 1-\frac{SSR}{TSS},
 \]</span></p>
 <p>Note that <span class="math inline">\(\bar{R}^2&lt; R^2\)</span>, but if <span class="math inline">\(n\)</span> is large, the two will be very close because <span class="math inline">\((n-1)/(n-k-1)\)</span> approaches one as <span class="math inline">\(n\)</span> increases. Also, adding a new regressor to the model affects <span class="math inline">\(\bar{R}^2\)</span> in two opposing directions. On the one hand, the new regressor decreases the <span class="math inline">\(SSR\)</span>, which tends to increase <span class="math inline">\(\bar{R}^2\)</span>. On the other hand, the factor <span class="math inline">\((n-1)(n-k-1)\)</span> increases, which tends to reduce <span class="math inline">\(\bar{R}^2\)</span>. Therefore, the net effect on <span class="math inline">\(\bar{R}^2\)</span> depends on which of these two effects is relatively larger.</p>
 <p>The results in <a href="#tbl-t13-3" class="quarto-xref">Table&nbsp;<span>16.3</span></a> show that including <code>PctEL</code> in the regression increases the <span class="math inline">\(R^2\)</span> from 0.051 to 0.426. Thus, including <code>PctEL</code> substantially improves the fit of the regression. Because <span class="math inline">\(n\)</span> is large and we have only two regressors, the difference between <span class="math inline">\(R^2\)</span> and <span class="math inline">\(\bar{R}^2\)</span> is very small: <span class="math inline">\(R^2 = 0.426\)</span> vs.&nbsp;<span class="math inline">\(\bar{R}^2 = 0.424\)</span>. Note that <a href="#tbl-t13-3" class="quarto-xref">Table&nbsp;<span>16.3</span></a> does not include the SER measures. In the following code chunk, we compute the SER measures for both models.</p>
-<div id="6cf1602b" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Computing SER for both models</span></span>
+<div id="2509fc97" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Computing SER for both models</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>SER1 <span class="op">=</span> np.sqrt(np.<span class="bu">sum</span>(result1.resid<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> result1.df_resid)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>SER2 <span class="op">=</span> np.sqrt(np.<span class="bu">sum</span>(result2.resid<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> result2.df_resid)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the SER values</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The SER for Model 1 is:"</span>, np.<span class="bu">round</span>(SER1, <span class="dv">1</span>))</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The SER for Model 2 is:"</span>, np.<span class="bu">round</span>(SER2, <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The SER for Model 2 is:"</span>, np.<span class="bu">round</span>(SER2, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The SER for Model 1 is: 18.6
 The SER for Model 2 is: 14.5</code></pre>
 </div>
 </div>
 <p>The SER value <span class="math inline">\(18.6\)</span> falls to <span class="math inline">\(14.5\)</span> when <code>PctEL</code> is included as a second regressor into the model. Finally, in the following code chunk, we compute these measures of fit manually for the second model. The results are given in <a href="#tbl-t13-t4" class="quarto-xref">Table&nbsp;<span>16.4</span></a>.</p>
-<div id="9dd5cb6e" class="cell" data-execution_count="9">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Computing SER, RMSE, R^2, and adjusted R^2 for the second model</span></span>
+<div id="52ea6ea3" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Computing SER, RMSE, R^2, and adjusted R^2 for the second model</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> result2.nobs</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> result2.k_constant</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>y_mean <span class="op">=</span> np.mean(mydata[<span class="st">"testscr"</span>]) <span class="co"># mean of avg. test-scores</span></span>
@@ -933,11 +931,11 @@ The SER for Model 2 is: 14.5</code></pre>
 <span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Print measures</span></span>
 <span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>fit_measures <span class="op">=</span> pd.DataFrame([SER, RMSE, Rsq, adj_Rsq], </span>
 <span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>[<span class="st">"SER"</span>, <span class="st">"RMSE"</span>, <span class="st">"R^2"</span>, <span class="st">"Adj.R^2"</span>], </span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>[<span class="st">""</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>[<span class="st">""</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="10">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the measures of fit</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fit_measures</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the measures of fit</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fit_measures</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="tbl-t13-t4" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="10">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-t13-t4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -948,7 +946,7 @@ Table&nbsp;16.4: Measures of fit for the MLRM
 <div>
 
 
-<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-border="1">
+<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -957,19 +955,19 @@ Table&nbsp;16.4: Measures of fit for the MLRM
 </thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">SER</th>
+<td data-quarto-table-cell-role="th">SER</td>
 <td>14.447173</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">RMSE</th>
+<td data-quarto-table-cell-role="th">RMSE</td>
 <td>14.412734</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">R^2</th>
+<td data-quarto-table-cell-role="th">R^2</td>
 <td>0.426431</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">Adj.R^2</th>
+<td data-quarto-table-cell-role="th">Adj.R^2</td>
 <td>0.425059</td>
 </tr>
 </tbody>
@@ -991,7 +989,7 @@ Table&nbsp;16.4: Measures of fit for the MLRM
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>The least squares assumptions for multiple regression
+The least squares assumptions for multiple regression
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1021,8 +1019,8 @@ Y_i = \beta_0+\beta_1X_{1i}+\beta_2X_{2i}+u_i,
 \right).
 \]</span></p>
 <p>We set the sample size <span class="math inline">\(n\)</span> to 100 and generate 10000 samples. Using each sample, we estimate the model and store the estimated coefficients in the <code>coefs</code> array. We then generate histograms and density plots for each estimated coefficient. We provide the simulation results in <a href="#fig-fig13-1" class="quarto-xref">Figure&nbsp;<span>16.1</span></a>. The histograms and density plots for <span class="math inline">\(\hat{\beta}_0\)</span>, <span class="math inline">\(\hat{\beta}_1\)</span>, and <span class="math inline">\(\hat{\beta}_2\)</span> are bell-shaped and centered around the respective true parameter values. The surface plot in <a href="#fig-fig13-1" class="quarto-xref">Figure&nbsp;<span>16.1</span></a> resembles that of a bivariate normal distribution, suggesting that <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_2\)</span> have a joint bivariate normal distribution.</p>
-<div id="7e1b3329" class="cell" data-execution_count="11">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set sample size and number of simulations</span></span>
+<div id="b66315aa" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set sample size and number of simulations</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>n_simulations <span class="op">=</span> <span class="dv">10000</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1048,10 +1046,10 @@ Y_i = \beta_0+\beta_1X_{1i}+\beta_2X_{2i}+u_i,
 <span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Fit linear regression using statsmodels</span></span>
 <span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    X_with_const <span class="op">=</span> sm.add_constant(X) <span class="co"># Add constant term for intercept</span></span>
 <span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> sm.OLS(Y, X_with_const).fit()</span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>    coefs[i, :] <span class="op">=</span> model.params <span class="co"># Store the coefficients</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>    coefs[i, :] <span class="op">=</span> model.params <span class="co"># Store the coefficients</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-fig-fig13-1" class="cell" data-execution_count="12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulation results</span></span>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulation results</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Set seaborn style</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(style<span class="op">=</span><span class="st">'darkgrid'</span>)</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1062,7 +1060,7 @@ Y_i = \beta_0+\beta_1X_{1i}+\beta_2X_{2i}+u_i,
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">221</span>)</span>
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>sns.histplot(coefs[:, <span class="dv">0</span>], bins<span class="op">=</span><span class="dv">50</span>, kde<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, stat<span class="op">=</span><span class="st">'density'</span>, ax<span class="op">=</span>ax1, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
 <span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>ax1.axvline(np.mean(coefs[:, <span class="dv">0</span>]), color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'dashed'</span>, linewidth<span class="op">=</span><span class="dv">1</span>, label<span class="op">=</span><span class="st">'Mean'</span>)</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="vs">r'</span><span class="dv">$</span><span class="er">\</span><span class="vs">hat{</span><span class="dv">\b</span><span class="vs">eta}_0</span><span class="dv">$</span><span class="vs">'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="vs">r'$\hat{\beta}_0$'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
 <span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">'Density'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
 <span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>ax1.legend(frameon<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>ax1.set_xlim(<span class="op">-</span><span class="fl">0.5</span>,<span class="fl">1.5</span>)</span>
@@ -1071,7 +1069,7 @@ Y_i = \beta_0+\beta_1X_{1i}+\beta_2X_{2i}+u_i,
 <span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> fig.add_subplot(<span class="dv">222</span>)</span>
 <span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>sns.histplot(coefs[:, <span class="dv">1</span>], bins<span class="op">=</span><span class="dv">50</span>, kde<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, stat<span class="op">=</span><span class="st">'density'</span>, ax<span class="op">=</span>ax2, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
 <span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>ax2.axvline(np.mean(coefs[:, <span class="dv">1</span>]), color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'dashed'</span>, linewidth<span class="op">=</span><span class="dv">1</span>, label<span class="op">=</span><span class="st">'Mean'</span>)</span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="vs">r'</span><span class="dv">$</span><span class="er">\</span><span class="vs">hat{</span><span class="dv">\b</span><span class="vs">eta}_1</span><span class="dv">$</span><span class="vs">'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="vs">r'$\hat{\beta}_1$'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
 <span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">'Density'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
 <span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>ax2.legend(frameon<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>ax2.set_xlim(<span class="fl">1.2</span>,<span class="fl">1.8</span>)</span>
@@ -1080,7 +1078,7 @@ Y_i = \beta_0+\beta_1X_{1i}+\beta_2X_{2i}+u_i,
 <span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>ax3 <span class="op">=</span> fig.add_subplot(<span class="dv">223</span>)</span>
 <span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>sns.histplot(coefs[:, <span class="dv">2</span>], bins<span class="op">=</span><span class="dv">50</span>, kde<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, stat<span class="op">=</span><span class="st">'density'</span>, ax<span class="op">=</span>ax3, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
 <span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>ax3.axvline(np.mean(coefs[:, <span class="dv">2</span>]), color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'dashed'</span>, linewidth<span class="op">=</span><span class="dv">1</span>, label<span class="op">=</span><span class="st">'Mean'</span>)</span>
-<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>ax3.set_xlabel(<span class="vs">r'</span><span class="dv">$</span><span class="er">\</span><span class="vs">hat{</span><span class="dv">\b</span><span class="vs">eta}_2</span><span class="dv">$</span><span class="vs">'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>ax3.set_xlabel(<span class="vs">r'$\hat{\beta}_2$'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
 <span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>ax3.set_ylabel(<span class="st">'Density'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
 <span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>ax3.set_xlim(<span class="fl">0.6</span>,<span class="fl">1.4</span>)</span>
 <span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>ax3.legend(frameon<span class="op">=</span><span class="va">False</span>)</span>
@@ -1098,8 +1096,8 @@ Y_i = \beta_0+\beta_1X_{1i}+\beta_2X_{2i}+u_i,
 <span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>ax4 <span class="op">=</span> fig.add_subplot(<span class="dv">224</span>, projection<span class="op">=</span><span class="st">'3d'</span>)</span>
 <span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>surf <span class="op">=</span> ax4.plot_surface(X_grid, Y_grid, Z_grid, cmap<span class="op">=</span><span class="st">'coolwarm'</span>, edgecolor<span class="op">=</span><span class="st">'none'</span>, rstride<span class="op">=</span><span class="dv">1</span>, cstride<span class="op">=</span><span class="dv">1</span>, alpha<span class="op">=</span><span class="fl">0.85</span>)</span>
 <span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a>ax4.contour(X_grid, Y_grid, Z_grid, zdir<span class="op">=</span><span class="st">'z'</span>, offset<span class="op">=</span>np.<span class="bu">min</span>(Z_grid), cmap<span class="op">=</span><span class="st">'coolwarm'</span>, linestyles<span class="op">=</span><span class="st">"solid"</span>)</span>
-<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a>ax4.set_xlabel(<span class="vs">r'</span><span class="dv">$</span><span class="er">\</span><span class="vs">hat{</span><span class="dv">\b</span><span class="vs">eta}_1</span><span class="dv">$</span><span class="vs">'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a>ax4.set_ylabel(<span class="vs">r'</span><span class="dv">$</span><span class="er">\</span><span class="vs">hat{</span><span class="dv">\b</span><span class="vs">eta}_2</span><span class="dv">$</span><span class="vs">'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a>ax4.set_xlabel(<span class="vs">r'$\hat{\beta}_1$'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a>ax4.set_ylabel(<span class="vs">r'$\hat{\beta}_2$'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
 <span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a><span class="co">#ax4.set_zlabel('Estimated Density', fontsize=12)</span></span>
 <span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Add color bar for surface</span></span>
@@ -1115,7 +1113,7 @@ Y_i = \beta_0+\beta_1X_{1i}+\beta_2X_{2i}+u_i,
 <span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-63"><a href="#cb14-63" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjust layout for better spacing</span></span>
 <span id="cb14-64"><a href="#cb14-64" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb14-65"><a href="#cb14-65" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-65"><a href="#cb14-65" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="fig-fig13-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1155,19 +1153,19 @@ Figure&nbsp;16.1: Histogram and density plots of the simulation results
 \]</span></p>
 <p>To resolve this, we will treat the last dummy variable as the <strong>base category</strong> and exclude it from the regression model.</p>
 <p>We use the following code chunks to import the data. <a href="#tbl-t13-5" class="quarto-xref">Table&nbsp;<span>16.5</span></a> provides summary statistics.</p>
-<div id="8736eb01" class="cell" data-execution_count="13">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
+<div id="da7077ec" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="op">=</span> pd.read_excel(<span class="st">"data/ch8_cps.xlsx"</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Display column names</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>mydata.columns</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>mydata.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>Index(['ahe', 'yrseduc', 'female', 'age', 'northeast', 'midwest', 'south',
        'west'],
       dtype='object')</code></pre>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary statistics</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>mydata.<span class="bu">round</span>(<span class="dv">3</span>).describe().T</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary statistics</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>mydata.<span class="bu">round</span>(<span class="dv">3</span>).describe().T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-layout-panel" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="cell quarto-layout-cell" data-execution_count="14" style="flex-basis: 100.0%;justify-content: center;">
@@ -1181,7 +1179,7 @@ Table&nbsp;16.5: Summary statistics
 <div>
 
 
-<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-border="1">
+<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
@@ -1197,7 +1195,7 @@ Table&nbsp;16.5: Summary statistics
 </thead>
 <tbody>
 <tr class="odd">
-<th style="text-align: left;" data-quarto-table-cell-role="th">ahe</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">ahe</td>
 <td style="text-align: left;">59668.0</td>
 <td style="text-align: left;">25.213725</td>
 <td style="text-align: left;">17.288965</td>
@@ -1208,7 +1206,7 @@ Table&nbsp;16.5: Summary statistics
 <td style="text-align: left;">228.365</td>
 </tr>
 <tr class="even">
-<th style="text-align: left;" data-quarto-table-cell-role="th">yrseduc</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">yrseduc</td>
 <td style="text-align: left;">59668.0</td>
 <td style="text-align: left;">14.094389</td>
 <td style="text-align: left;">2.598457</td>
@@ -1219,7 +1217,7 @@ Table&nbsp;16.5: Summary statistics
 <td style="text-align: left;">20.000</td>
 </tr>
 <tr class="odd">
-<th style="text-align: left;" data-quarto-table-cell-role="th">female</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">female</td>
 <td style="text-align: left;">59668.0</td>
 <td style="text-align: left;">0.438510</td>
 <td style="text-align: left;">0.496209</td>
@@ -1230,7 +1228,7 @@ Table&nbsp;16.5: Summary statistics
 <td style="text-align: left;">1.000</td>
 </tr>
 <tr class="even">
-<th style="text-align: left;" data-quarto-table-cell-role="th">age</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">age</td>
 <td style="text-align: left;">59668.0</td>
 <td style="text-align: left;">42.884846</td>
 <td style="text-align: left;">12.583984</td>
@@ -1241,7 +1239,7 @@ Table&nbsp;16.5: Summary statistics
 <td style="text-align: left;">85.000</td>
 </tr>
 <tr class="odd">
-<th style="text-align: left;" data-quarto-table-cell-role="th">northeast</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">northeast</td>
 <td style="text-align: left;">59668.0</td>
 <td style="text-align: left;">0.157371</td>
 <td style="text-align: left;">0.364153</td>
@@ -1252,7 +1250,7 @@ Table&nbsp;16.5: Summary statistics
 <td style="text-align: left;">1.000</td>
 </tr>
 <tr class="even">
-<th style="text-align: left;" data-quarto-table-cell-role="th">midwest</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">midwest</td>
 <td style="text-align: left;">59668.0</td>
 <td style="text-align: left;">0.195063</td>
 <td style="text-align: left;">0.396252</td>
@@ -1263,7 +1261,7 @@ Table&nbsp;16.5: Summary statistics
 <td style="text-align: left;">1.000</td>
 </tr>
 <tr class="odd">
-<th style="text-align: left;" data-quarto-table-cell-role="th">south</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">south</td>
 <td style="text-align: left;">59668.0</td>
 <td style="text-align: left;">0.369863</td>
 <td style="text-align: left;">0.482772</td>
@@ -1274,7 +1272,7 @@ Table&nbsp;16.5: Summary statistics
 <td style="text-align: left;">1.000</td>
 </tr>
 <tr class="even">
-<th style="text-align: left;" data-quarto-table-cell-role="th">west</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">west</td>
 <td style="text-align: left;">59668.0</td>
 <td style="text-align: left;">0.277703</td>
 <td style="text-align: left;">0.447870</td>
@@ -1296,21 +1294,21 @@ Table&nbsp;16.5: Summary statistics
 </div>
 </div>
 <p>In the following, we use the <code>smf.ols</code> function from the <code>statsmodels.formula.api</code> module to estimate the regression model.</p>
-<div id="2e1cbd9f" class="cell" data-execution_count="15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimation</span></span>
+<div id="4dbd9729" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimation</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>model3 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'ahe ~ yrseduc + female + northeast + midwest + south'</span>,</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                 data<span class="op">=</span>mydata)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>result3 <span class="op">=</span> model3.fit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>result3 <span class="op">=</span> model3.fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The estimation results contained in the <code>result3</code> object are shown in <a href="#tbl-t13-6" class="quarto-xref">Table&nbsp;<span>16.6</span></a>. The coefficient on each dummy variable shows the average difference in the dependent variable relative to the base category. For example, the estimated coefficient on <code>northeast</code> is 1.105, meaning that, holding the other variables constant, a person living in the Northeast region earns, on average, 1.105 more dollars hourly than a person living in the West (the base category).</p>
 <p>The estimated coefficient on <code>female</code> is -6.367. This estimate indicates that holding other variables constant, women earn on average 6.367 fewer dollars hourly than men. The estimated coefficient on <code>Yrseduc</code> is 2.981, which means that for each additional year of education, average hourly earnings increase by 2.981 dollars, holding other variables constant.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print results in table form</span></span>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print results in table form</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>models <span class="op">=</span> [<span class="st">'Model 3'</span>]</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>results_table <span class="op">=</span> summary_col(results<span class="op">=</span>[result3],</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                            float_format<span class="op">=</span><span class="st">'</span><span class="sc">%0.3f</span><span class="st">'</span>, </span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>                            stars<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>                            model_names<span class="op">=</span>models)</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>results_table</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>results_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-layout-panel" data-layout-ncol="1">
 <div class="quarto-layout-row">
 <div class="cell quarto-layout-cell" data-execution_count="16" style="flex-basis: 100.0%;justify-content: center;">
@@ -1321,66 +1319,66 @@ Table&nbsp;16.6: The dummy variable trap
 </figcaption>
 <div aria-describedby="tbl-t13-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-display" data-execution_count="16">
-<table class="simpletable do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="simpletable do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"></td>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Model 3</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">Model 3</td>
 </tr>
 <tr class="even">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Intercept</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">Intercept</td>
 <td style="text-align: left;">-13.501***</td>
 </tr>
 <tr class="odd">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<td style="text-align: left;" data-quarto-table-cell-role="th"></td>
 <td style="text-align: left;">(0.356)</td>
 </tr>
 <tr class="even">
-<th style="text-align: left;" data-quarto-table-cell-role="th">yrseduc</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">yrseduc</td>
 <td style="text-align: left;">2.981***</td>
 </tr>
 <tr class="odd">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<td style="text-align: left;" data-quarto-table-cell-role="th"></td>
 <td style="text-align: left;">(0.024)</td>
 </tr>
 <tr class="even">
-<th style="text-align: left;" data-quarto-table-cell-role="th">female</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">female</td>
 <td style="text-align: left;">-6.367***</td>
 </tr>
 <tr class="odd">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<td style="text-align: left;" data-quarto-table-cell-role="th"></td>
 <td style="text-align: left;">(0.126)</td>
 </tr>
 <tr class="even">
-<th style="text-align: left;" data-quarto-table-cell-role="th">northeast</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">northeast</td>
 <td style="text-align: left;">1.105***</td>
 </tr>
 <tr class="odd">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<td style="text-align: left;" data-quarto-table-cell-role="th"></td>
 <td style="text-align: left;">(0.197)</td>
 </tr>
 <tr class="even">
-<th style="text-align: left;" data-quarto-table-cell-role="th">midwest</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">midwest</td>
 <td style="text-align: left;">-1.382***</td>
 </tr>
 <tr class="odd">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<td style="text-align: left;" data-quarto-table-cell-role="th"></td>
 <td style="text-align: left;">(0.184)</td>
 </tr>
 <tr class="even">
-<th style="text-align: left;" data-quarto-table-cell-role="th">south</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">south</td>
 <td style="text-align: left;">-1.108***</td>
 </tr>
 <tr class="odd">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<td style="text-align: left;" data-quarto-table-cell-role="th"></td>
 <td style="text-align: left;">(0.156)</td>
 </tr>
 <tr class="even">
-<th style="text-align: left;" data-quarto-table-cell-role="th">R-squared</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">R-squared</td>
 <td style="text-align: left;">0.226</td>
 </tr>
 <tr class="odd">
-<th style="text-align: left;" data-quarto-table-cell-role="th">R-squared Adj.</th>
+<td style="text-align: left;" data-quarto-table-cell-role="th">R-squared Adj.</td>
 <td style="text-align: left;">0.226</td>
 </tr>
 </tbody>
@@ -1407,7 +1405,7 @@ Y_i = \beta_0+\beta_1X_{1i}+\dots+\beta_k X_{ki}+\beta_{k+1}W_{1i}+\dots+\beta_{
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>The least squares assumptions for causal inference in the multiple regression model with control variables
+The least squares assumptions for causal inference in the multiple regression model with control variables
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1449,243 +1447,239 @@ Y_i=\delta_0+\beta_1X_{1i}+\dots+\beta_k X_{ki}+\delta_{k+1}W_{1i}+\dots+\delta_
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
     }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
     }
-    const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/osmdogan\.github\.io\/Python_Book\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/osmdogan\.github\.io\/Python_Book\/");
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
         }
       }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
     }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
     }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
       } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
         }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
           }
         } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
+          // See if we can fetch this
+          fetch(url.split('#')[0])
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
+            const note = htmlDoc.getElementById(id);
             if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
+              const html = processXRef(id, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1693,161 +1687,185 @@ Y_i=\delta_0+\beta_1X_{1i}+\dots+\beta_k X_{ki}+\delta_{k+1}W_{1i}+\dots+\delta_
             instance.show();
           });
         }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
       } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
             }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
         });
       }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
     }
-  });
-  </script>
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./Chapter5-LinearRegressionOneRegressorInference.html" class="pagination-link" aria-label="Regression with a Single Regressor: Hypothesis Tests and Confidence Intervals">
