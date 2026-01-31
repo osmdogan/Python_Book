@@ -624,7 +624,7 @@ cps = cps[cps.bachelor==1]
 cps.head()
 ```
 
-In the following code chunk, we compute the average wage gap $\bar{Y}_m - \bar{Y}_w$ and then the $95\%$ two-sided confidence interval $(\bar{Y}_m - \bar{Y}_w) \pm 1.96 \times \SE(\bar{Y}_m - \bar{Y}_w)$ for each year. The results are shown in @tbl-t10.1. The average hourly earnings for male college graduates were \$16.5 and \$28 in 1996 and 2015, respectively. In comparison, female graduates earned an average of \$13.9 in 1996 and \$23 in 2015. Therefore, the average earnings gap was \$2.05 in 1996 and widened to \$4.19 in 2015. The estimated confidence intervals for the average earnings gaps are (2.05, 3.085) and (4.192, 5.841) in 1996 and 2015, respectively.
+In the following code chunk, we compute the average wage gap $\bar{Y}_m - \bar{Y}_w$ and then the $95\%$ two-sided confidence interval $(\bar{Y}_m - \bar{Y}_w) \pm 1.96 \times \SE(\bar{Y}_m - \bar{Y}_w)$ for each year. The results are shown in @tbl-t10.2. The average hourly earnings for male college graduates were \$16.5 and \$28 in 1996 and 2015, respectively. In comparison, female graduates earned an average of \$13.9 in 1996 and \$23 in 2015. Therefore, the average earnings gap was \$2.05 in 1996 and widened to \$4.19 in 2015. The estimated confidence intervals for the average earnings gaps are (2.05, 3.085) and (4.192, 5.841) in 1996 and 2015, respectively.
 
 ```{python}
 # Group data by gender and year and compute mean, standard deviation, and number of observations for each group
@@ -640,17 +640,16 @@ female = avgs[avgs['female'] == 1]
 
 # Rename columns of both splits
 male.columns = ['Sex', 'Year', 'Y_bar_m', 's_m', 'n_m']
-female.columns = ['Sex', 'Year', 'Y_bar_f', 's_f', 'n_f']
+female.columns = ['Sex', 'Year', 'Y_bar_w', 's_w', 'n_w']
 
 # Merge the male and female data on 'Year'
 merged = pd.merge(male, female, on='Year')
 
 # Estimate gender gaps
-gap = merged['Y_bar_m'] - merged['Y_bar_f']
+gap = merged['Y_bar_m'] - merged['Y_bar_w']
 
 # Compute standard errors for the gaps
-gap_se = np.sqrt(merged['s_m']**2 / merged['n_m'] + merged['s_f']**2 / merged['n_f'])
-
+gap_se = np.sqrt(merged['s_m']**2 / merged['n_m'] + merged['s_w']**2 / merged['n_w'])
 # Compute confidence intervals 
 gap_ci_l = gap - 1.96 * gap_se
 gap_ci_u = gap + 1.96 * gap_se
@@ -661,9 +660,9 @@ result = pd.DataFrame({
     'Y_bar_m': merged['Y_bar_m'],
     's_m': merged['s_m'],
     'n_m': merged['n_m'],
-    'Y_bar_f': merged['Y_bar_f'],
-    's_f': merged['s_f'],
-    'n_f': merged['n_f'], 
+    'Y_bar_w': merged['Y_bar_w'],
+    's_w': merged['s_w'],
+    'n_w': merged['n_w'], 
     'Gap': gap,
     'SE(GAP)': gap_se,
     'CI_Lower': gap_ci_l,
@@ -673,10 +672,20 @@ result = pd.DataFrame({
 
 ```{python}
 #| tbl-cap: The hourly earnings of working college graduates
-#| label: tbl-t10.2
+#| eval: false
 # Print the results with 3 decimal places
 result.round(3)
 ```
+
+::: {layout-ncol=1}
+::: {style="font-size: 80%"}
+| Year | $\bar{Y}_m$| $s_m$   | $n_m$  | $\bar{Y}_w$| $s_w$   | $n_w$  | $\bar{Y}_m - \bar{Y}_w$   | $\text{SE}(\bar{Y}_m - \bar{Y}_w)$ | $CI_L$ | $CI_U$ |
+|------|-------|-----|----|-------|-----|----|-----|-------|--------|--------|
+| 1996 | 16.459  | 7.575 | 1387 | 13.892  | 5.912 | 1232 | 2.567 | 0.264   | 2.050    | 3.085    |
+| 2015 | 28.055  | 14.366| 1917 | 23.039  | 11.218| 1816 | 5.016 | 0.421   | 4.192    | 5.841    |
+: The hourly earnings of working college graduates {#tbl-t10.2 .stripped .hover}
+:::
+:::
 
 ## Scatterplots, the sample covariance, and the sample correlation
 
