@@ -18,7 +18,7 @@ We assume that we have a dataset that contains observations on a set of entities
 
 :::{#def-def17-1}
 ## Panel data
-**Panel data** (longitudinal data) contain observations on a set of entities over multiple time periods. 
+Panel data (longitudinal data) contain observations on a set of entities over multiple time periods. 
 :::
 
 If we observe all entities in every time period, we call the panel a **balanced panel**, i.e., we have observations on all entities over the entire sample period. On the other hand, if we have missing observations on some entities at certain time periods, we call the panel an **unbalanced panel** or an **incomplete panel**.
@@ -40,18 +40,24 @@ $$
 $$
 
 ### Example: Traffic deaths and alcohol taxes
-We analyze the traffic fatality dataset (**fatality.csv**) provided by @Stock2020. This dataset covers annual observations for the lower 48 states (excluding Alaska and Hawaii) over the period 1982 to 1988. Consequently, the panel consists of $n = 48$ entities and $T = 7$ time periods, yielding a total of $n \times T = 336$ observations. The main variables are described in the following list.  
+We analyze the traffic fatality dataset (**fatality.csv**) provided by @Stock2020. This dataset covers annual observations for the lower 48 states (excluding Alaska and Hawaii) over the period 1982 to 1988. Consequently, the panel consists of $n = 48$ entities and $T = 7$ time periods, yielding a total of $n \times T = 336$ observations. In @tbl-chapter20-t1, we describe some of the variables in the dataset.  
 
-- `state`: state id (FIPS) code 
-- `year`: year
-- `mrall`: per capita vehicle fatality (number of traffic deaths)
-- `beertax`: the real tax on a case of beer
-- `mlda`: minimum legal drinking age 
-- `jaild`: a dummy variable that equals to 1 if state requires mandatory jail sentence for an initial drunk driving conviction, 0 otherwise 
-- `comserd`: a dummy variable that equals 1 if state requires mandatory community service for an initial drunk driving conviction, 0 otherwise 
-- `vmiles`: total vehicle miles traveled annually 
-- `unrate`: unemployment rate
-- `perinc`: per capita personal income 
+
+::: {style="font-size: 85%"}
+| Variable | Description |
+|:----------|:--------------------|
+| `state`  | State ID (FIPS) code |
+| `year`   | Year |
+| `mrall`  | Per capita vehicle fatality (number of traffic deaths) |
+| `beertax` | Real tax on a case of beer |
+| `mlda`   | Minimum legal drinking age |
+| `jaild`  | Dummy variable equal to 1 if the state requires a mandatory jail sentence for an initial drunk driving conviction, 0 otherwise |
+| `comserd` | Dummy variable equal to 1 if the state requires mandatory community service for an initial drunk driving conviction, 0 otherwise |
+| `vmiles` | Total vehicle miles traveled annually |
+| `unrate` | Unemployment rate |
+| `perinc` | Per capita personal income |
+: The fatality dataset {#tbl-chapter20-t1 .stripped .hover}
+:::
 
 We will first change the measurement of the per capita vehicle fatality to vehicle fatality per 10,000 people.
 
@@ -66,7 +72,7 @@ fatality['mrall'] = 1e4*fatality['mrall']
 fatality.columns
 ```
 
-The summary statistics for some of the variables are presented in @tbl-t17-1. The average fatality rate (`mrall`) is roughly 2 per 10,000 people. The average real beer tax (`beertax`) is about $0.50 per case (in 1988 dollars). The sample means of `jaild` and `comserd` are 0.28 and 0.39, respectively, indicating that 28 percent of the states require mandatory jail sentence for an initial drunk driving conviction, while 39 percent mandate community service. The average annual vehicle miles (`vmiles`) traveled is about 7890 miles. Lastly, the average unemployment rate across states is 7.35 percent.
+The summary statistics for some of the variables are presented in @tbl-t17-1. The average fatality rate (`mrall`) is roughly 2 per 10,000 people. The average real beer tax (`beertax`) is about $0.50 per case (in 1988 dollars). The sample means of `jaild` and `comserd` are 0.28 and 0.39, respectively, indicating that 28 percent of the states require mandatory jail sentence for an initial drunk driving conviction, while 39 percent mandate community service. The average annual vehicle miles (`vmiles`) traveled is about 7890 miles. Lastly, the average unemployment rate in the sample is around 7.35 percent.
 
 :::{layout-ncol=1}
 ```{python}
@@ -77,7 +83,7 @@ fatality[["mrall","beertax","jaild","comserd","vmiles","unrate"]].describe().rou
 ```
 :::
 
-Consider first the linear relationship between vehicle fatalities and the real tax on a case of beer, in 1982, and, in 1988. In the following code, we estimate the following simple linear regression model for 1982 and 1988 separately:
+We first consider a linear simple regression model between vehicle fatalities and the real tax on a case of beer in 1982 and 1988.
 $$
 \text{FatalityRate}_{it} = \beta_0 + \beta_1 \text{BeerTax}_{it} + u_{it},
 $$
@@ -94,7 +100,7 @@ df_1988 = fatality[fatality['year'] == 1988]
 res_1988 = smf.ols(formula='mrall ~ beertax', data=df_1988).fit().params
 ```
 
-The estimated coefficients for the relationship between the real beer tax and vehicle fatalities in 1982 and 1988 are presented in @fig-fig1982-1988, along with the scatter plots. The estimated coefficient on the real beer tax is 0.15 in 1982 and 0.44 in 1988. These results suggest a positive relationship between alcohol taxes and vehicle fatalities, which is contrary to what we would expect. Alcohol taxes are typically expected to lower the rate of traffic fatalities. This discrepancy may be due to omitted variable bias, as neither model includes factors such as vehicle quality, road quality, drinking and driving culture, car density, or the number of rainy or snowy days. Because of these omitted variables, the results are biased. 
+The estimated coefficients for the relationship between the real beer tax and vehicle fatalities in 1982 and 1988 are presented in @fig-fig1982-1988, along with the corresponding scatter plot. The estimated coefficient on the real beer tax is 0.15 in 1982 and 0.44 in 1988. These results suggest a positive relationship between alcohol taxes and vehicle fatalities, which is contrary to what we would expect. Alcohol taxes are typically expected to lower the rate of traffic fatalities. This discrepancy may be due to omitted variable bias, as neither model includes factors such as vehicle quality, road quality, drinking and driving culture, car density, or the number of rainy or snowy days. Because of these omitted variables, the results are biased. 
 
 ```{python}
 #| warning: false
@@ -136,7 +142,7 @@ This example shows that we cannot rely on the simple linear regression model due
 
 ### Entity fixed effects
 
-Panel data can allow eliminating omitted variable bias when the omitted variables are constant over time within a given entity. Consider the following pane data model: 
+Panel data can allow eliminating omitted variable bias when the omitted variables are constant over time for a given entity. Consider the following pane data model: 
 $$
 \text{FatalityRate}_{it} = \beta_0 + \beta_1 \text{BeerTax}_{it} + \beta_2Z_i + u_{it},
 $${#eq-eq17-1}
@@ -157,7 +163,7 @@ $$
 \end{align*}
 $$
 
-Thus, any change in the fatality rate from 1982 to 1988 cannot be caused by $Z_i$, because $Z_i$ (by assumption) does not change between 1982 and 1988. The difference regression eliminates the effect of $Z_i$ and can be estimated using the OLS estimator. Note that this difference regression does not include an intercept because it was eliminated during the subtraction step. However, we can still include an intercept in the estimation. In the following code, we estimate the difference regression model for the fatality rate and the real beer tax for the years 1982 and 1988.
+Thus, any change in the fatality rate from 1982 to 1988 cannot be caused by $Z_i$, because $Z_i$ (by assumption) does not change between 1982 and 1988. The difference regression eliminates the effect of $Z_i$ and can be estimated using the OLS estimator. Note that this difference regression does not include an intercept because it was eliminated during the subtraction step. However, we can still include an intercept in the estimation. 
 
 ```{python}
 # Difference regression
@@ -178,7 +184,7 @@ print(res_Diff.summary())
 
 The estimated effect of a change in the real beer tax is negative, as predicted by economic theory. Recall that the average real beer tax was roughly \$0.50 and the average vehicle fatalities was 2 per 10,000 people. If a state with an average real beer tax decides to double its beer tax, then the predicted decline in vehicle fatalities is $0.50\times 1.041\approx 0.52$ death per 10,000. This is roughly a reduction of one-fourth in traffic deaths, and it is a large effect. It is also statistically significant at the 5\% significance level. 
 
-Of course using only data from two periods when we have data for more than 2 periods is not reasonable. We now consider the case $T > 2$. Because $Z_i$ varies from one state to the next but is constant over time, the model can be interpreted as having $n$ intercepts, one for each state. Let $\alpha_i = \beta_0 + \beta_2 Z_i$ in @eq-eq17-1, then the model can be written as
+Of course using only data from two periods when we have data for more than 2 periods is not reasonable. We now consider the case, where $T > 2$. Because $Z_i$ varies from one state to the next but is constant over time, the model can be interpreted as having $n$ intercepts, one for each state. Let $\alpha_i = \beta_0 + \beta_2 Z_i$ in @eq-eq17-1, then the model can be written as
 $$
 Y_{it}=\beta_1X_{it}+\alpha_i+u_{it},\quad i=1,2,\dots,n,\quad t=1,2,\dots,T.
 $$ {#eq-eq17-2}
@@ -210,7 +216,7 @@ $$
 
 Note that because there is a common intercept in @eq-eq17-3, the dummy for the first entity $D1$ is not included in the specification to avoid the dummy variable trap. Also, comparing @eq-eq17-2 and @eq-eq17-3, we have $\alpha_1 = \beta_0$ and $\alpha_i = \beta_0 + \gamma_i$ for $i=2,\dots,n$. 
 
-If the set of regressors includes $X_1$, $X_2$, \dots, $X_k$, then the fixed effects regression model can be extended to include multiple regressors. The model with multiple regressors can be expressed in the following forms:
+If the set of regressors includes $X_1, X_2, \ldots, X_k$, then the fixed effects regression model can be extended to include multiple regressors. The model with multiple regressors can be expressed in the following forms:
 
 * Fixed effects form with multiple regressors:
 $$
@@ -279,8 +285,7 @@ $$
 \end{align}
 $$
 
-We can use the following code chunk to estimate the first model by the LSDV method.
-Note that the entity dummy variables are created using the `C()` function in the formula: `C(state)` function creates dummy variables for each state. The `cov_type='cluster'` and `cov_kwds={'groups': fatality['state']}` options are used to compute the clustered standard errors. We discuss the clustered standard errors in more detail in Section 17.2.4. 
+We can implement the LSDV method by using the `smf.ols` function from the `statsmodels` package. In the following, we use `C(state)` to includes state dummy variables in the model. The `cov_type='cluster'` and `cov_kwds={'groups': fatality['state']}` options are used to compute the clustered standard errors. We discuss the clustered standard errors in more detail in Section 17.2.4. 
 
 ```{python}
 #| warning: false
@@ -291,14 +296,14 @@ LSDVres = LSDVreg.fit(cov_type='cluster', cov_kwds={'groups': fatality['state']}
 print(LSDVres.summary())
 ```
 
-According to the estimation results, the estimated model is
+According to the estimation results, the estimated model can be expressed as
 $$
 \widehat{\text{FatalityRate}}_{it} = 3.48 - 0.66 \text{BeerTax}_{it} -0.57 D2_i -0.66D3_i + \ldots -0.23 D47_i.
 $$
 
 The estimated coefficient on ${\tt BeerTax}_{it}$ is negative and statistically significant at the 5% significance level. This estimate indicates that if the real beer tax increases by $1 dollar, then on average the traffic fatalities decline by 0.66 per 10,000 people. 
 
-The fixed effects form can be estimated using the `PanelOLS()` function from the `linearmodels` package. We first set the index of the dataset to the entity and time variables using the `set_index()` function. The entity fixed effects are included in the model by specifying the `EntityEffects` option in the formula. We use the `cov_type='clustered'` and `cluster_entity = True` options to compute the clustered standard errors. The following code chunk estimates the fixed effects model using the within transformation.
+The fixed effects form can be estimated using the `PanelOLS` function from the `linearmodels` package. We first set the index of the dataset to the entity and time variables using the `set_index` function: `fatality.set_index(['state','year'])`. The entity fixed effects are included in the model by specifying the `EntityEffects` option in the formula. We use the `cov_type='clustered'` and `cluster_entity = True` options to compute the clustered standard errors. The following code chunk estimates the fixed effects model using the within transformation.
 
 ```{python}
 df = fatality.set_index(['state','year'])
@@ -312,9 +317,7 @@ $$
 \widehat{\text{FatalityRate}}_{it} = 3.48 -0.66 \text{BeerTax}_{it} + \hat{\gamma}_i.
 $$
 
-The coefficient on `BeerTax` is negative and statistically significant at the 5% significance level. The estimated coefficient is identical to the one obtained using the LSDV method. However, the standard errors are different. The standard errors are relatively larger in the LSDV method because the entity dummy variables are included in the regression, which increases the number of parameters to be estimated. In contrast, the entity fixed effects are not estimated in the within transformation method.
-
-Overall, including state fixed effects in the regression helps avoid omitted variable bias caused by unobserved factors, such as cultural attitudes toward drinking and driving, that vary across states but remain constant over time within a state. Therefore, we obtain a negative relationship between the real beer tax and traffic fatalities, as expected.
+The coefficient on `BeerTax` is negative and statistically significant at the 5% significance level. The estimated coefficient is identical to the one obtained using the LSDV method. Overall, including state fixed effects in the regression helps avoid omitted variable bias caused by unobserved factors, such as cultural attitudes toward drinking and driving, that vary across states but remain constant over time.
 
 ### Time fixed effects
 
@@ -390,7 +393,8 @@ $$
 
 where $B2,B3,\dots,BT$ are the period dummies. For example, $B2_t$ is a dummy variable that equals 1 if $t=2$ and 0 otherwise. The other dummy variables $B3_t,\dots,BT_t$ are defined similarly.
 :::
-The estimation can be based on two approaches: the least squares dummy variables (LSDV) method and the within (or time-demeaned) transformation. The LSDV method is based on estimating @eq-eq17-6 by the OLS estimator. The within transformation involves estimating the following transformation of @eq-eq17-5:
+
+As in the case of the entity fixed effects model, the estimation can be based on two approaches: the LSDV method and the within (or time-demeaned) transformation. The LSDV method is based on estimating @eq-eq17-6 by the OLS estimator. The within transformation involves estimating the following transformation of @eq-eq17-5:
 $$
 \widetilde{Y}_{it}=\beta_1\widetilde{X}_{it}+\widetilde{u}_{it},
 $$
@@ -406,7 +410,7 @@ $$
 \end{align}
 $$
 
-We can use the following code chunk to estimate the first model by the LSDV method. The period dummy variables are created using the `C()` function in the formula: `C(year)` function creates dummy variables for each year. The `cov_type='cluster'` and `cov_kwds={'groups': fatality['state']}` options are used to compute the clustered standard errors. According to the estimation results, the estimated model is
+The year dummy variables version of the model can be estimated using the `smf.ols` function from the `statsmodels` package. We use the `C` function to add the time period dummy variables: `C(year)`. We again use the `cov_type='cluster'` and `cov_kwds={'groups': fatality['state']}` options to compute the clustered standard errors. From the estimation results, we can express the estimated model as
 $$
 \widehat{\text{FatalityRate}}_{it} = 1.89 + 0.37 \text{BeerTax}_{it} -0.08 B2_t -0.07B3_t + \ldots -0.001 B7_t.
 $$
@@ -419,7 +423,7 @@ LSDVres = LSDVreg.fit(cov_type='cluster', cov_kwds={'groups': fatality['state']}
 print(LSDVres.summary())
 ```
 
-The time fixed effects form can be estimated using the `PanelOLS` function from the `linearmodels` package. We first set the index of the dataset to the entity and time variables using the `set_index` function. The time fixed effects are included in the model by specifying the `TimeEffects` option in the formula. Again, we use the `cov_type='clustered'` and `cluster_entity = True` options to compute the clustered standard errors. The following code chunk can be used to estimate the time fixed effects model.
+To estimate the time fixed effects form, we can again resort to the `PanelOLS` function from the `linearmodels` package. The time fixed effects are included in the model by specifying the `TimeEffects` option in the formula. Again, we use the `cov_type='clustered'` and `cluster_entity = True` options to compute the clustered standard errors. 
 
 ```{python}
 Withinreg = PanelOLS.from_formula('mrall ~ 1 + beertax + TimeEffects', data = df)
@@ -427,7 +431,7 @@ Withinres = Withinreg.fit(cov_type = 'clustered', cluster_entity = True)
 print(Withinres)
 ```
 
-The estimated model is
+Using the estimation results, we can express the estimated model as
 $$
 \widehat{\text{FatalityRate}}_{it} = 1.89 + 0.37 \text{BeerTax}_{it} + \hat{\delta}_t.
 $$
@@ -486,7 +490,7 @@ $$
 \end{align}
 $$
 
-We can use the following code chunk to estimate the first model by the LSDV method. In the formula, the entity and period dummy variables are added by the `C(state)+C(year)` term. According to the estimation results, the estimated model is
+To estimate the dummy variable specification of the model, we can use the `smf.ols` function from the `statsmodels` package. In the formula, both entity and period dummy variables are added by the `C(state)+C(year)` term. Using the estimation results, we can express the estimated model as
 $$
 \begin{align}
 \widehat{\text{FatalityRate}}_{it} &= 3.51 - 0.64 \text{BeerTax}_{it} -0.54 D2_i -0.64D3_i + \ldots -0.20 D47_i\\
@@ -503,7 +507,7 @@ LSDVres = LSDVreg.fit(cov_type='cluster', cov_kwds={'groups': fatality['state']}
 print(LSDVres.summary())
 ```
 
-The entity and time fixed effects form can be estimated using the `PanelOLS` function from the `linearmodels` package. The entity and time fixed effects are included in the model by specifying the `EntityEffects` and `TimeEffects` options in the formula. The following code chunk estimates the entity and time fixed effects model using the within transformation.
+The entity and time fixed effects form can be estimated using the `PanelOLS` function from the `linearmodels` package. The entity and time fixed effects are included in the model by specifying the `EntityEffects` and `TimeEffects` options in the formula.
 
 ```{python}
 Withinreg = PanelOLS.from_formula('mrall ~ 1 + beertax + EntityEffects + TimeEffects', data = df)
@@ -522,10 +526,10 @@ The coefficient on `BeerTax` is -0.64 is close to the estimated coefficient for 
 In the previous sections, we show that fixed effects regressions can be estimated by the OLS estimator. In this section, we state the assumptions that ensure the OLS estimator is unbiased, consistent, and asymptotically normally distributed. To present these assumptions, we consider a panel data regression model with entity fixed effects and one explanatory variable.
 
 ::: {.callout-important icon=false title="The fixed effects regression assumptions"}
-1. The zero-conditional mean assumption: $\E\left(u_{it}|X_{i1},X_{i2},\ldots,X_{iT},\alpha_i \right)=0$. 
-2. The random sampling assumption: $(X_{i1},\,X_{i2},\ldots,X_{iT}, u_{i1},u_{i2},\dots,u_{iT})$, $i=1,2,\ldots,n$, are $i.i.d.$ draws from their joint distribution.
-3. The no large outliers assumption: $(X_{it},u_{it})$ have finite fourth moments.
-4. The no perfect multicollinearity assumption: There is no perfect multicollinearity (if there are multiple $X$'s).
+1. Zero-conditional mean assumption: $\E\left(u_{it}|X_{i1},X_{i2},\ldots,X_{iT},\alpha_i \right)=0$. 
+2. Random sampling assumption: $(X_{i1},\,X_{i2},\ldots,X_{iT}, u_{i1},u_{i2},\dots,u_{iT})$, $i=1,2,\ldots,n$, are $i.i.d.$ draws from their joint distribution.
+3. No large outliers assumption: $(X_{it},u_{it})$ have finite fourth moments.
+4. No perfect multicollinearity assumption: There is no perfect multicollinearity (if there are multiple $X$'s).
 :::
 
 In the case of the model with multiple regressors $X_1,X_2,\ldots,X_k$, we need to replace $X_{it}$ with $X_{1it},X_{2it},\ldots,X_{kit}$ in these assumptions. Assumption 1 requires that for any entity the conditional mean of $u$ can not depend on past, present and future values of $X$. This assumption is violated if current $u$ for an entity is correlated with past, present, or future values of $X$. This assumption is also known as the **strict exogeneity assumption** or simply the **exogeneity assumption**.
@@ -592,7 +596,7 @@ $$
 Y_{it}=\beta_0 + \beta_1X_{1it} + \beta_2X_{2it} + \dots + \beta_k X_{kit} + \alpha_i + \lambda_t + u_{it},
 $$ {#eq-eq17-9}
 
-where $\alpha_i$ and $\lambda_t$ are the entity and time random effects, respectively. The random effects are assumed to be uncorrelated with the regressors. For example, we may assume that $\alpha_i \sim N(0, \sigma^2_{\alpha})$ for $i = 1, 2, \dots, n$ and $\lambda_t \sim N(0, \sigma^2_{\lambda})$ for $t = 1, 2, \dots, T$, where $\alpha_i$ and $\lambda_t$ are independent of each other and of the regressors. Here, $\sigma^2_{\alpha}$ and $\sigma^2_{\lambda}$ represent the unknown variances of the random effects. The random effects model can be estimated using the maximum likelihood estimator or the generalized least squares estimator. For the details of the estimation, see @Hansen2022.
+where $\alpha_i$ and $\lambda_t$ are the entity and time random effects, respectively. The random effects are assumed to be uncorrelated with the regressors. For example, we may assume that $\alpha_i \sim (0, \sigma^2_{\alpha})$ for $i = 1, 2, \dots, n$ and $\lambda_t \sim (0, \sigma^2_{\lambda})$ for $t = 1, 2, \dots, T$, where $\alpha_i$ and $\lambda_t$ are independent of each other and of the regressors. Here, $\sigma^2_{\alpha}$ and $\sigma^2_{\lambda}$ represent the unknown variances of the random effects. The random effects model can be estimated using the maximum likelihood estimator or the generalized least squares estimator. For the details of the estimation, see @Hansen2022.
 
 For our traffic fatality dataset, we consider the following random effects model:
 $$
@@ -680,7 +684,7 @@ df['drink20'] = (df['mlda'] == 20).astype(int)
 df['punish'] = ((df['jaild'] == 1)|(df['comserd'] == 1)).astype(int)
 ```
 
-We use the `PooledOLS()` and `PanelOLS()` functions from the `linearmodels` package to estimate all models. The models are specified using the `from_formula` method, and clustered standard errors are computed by setting `cov_type='clustered'` and `cluster_entity=True`.
+We use the `PooledOLS` and `PanelOLS` functions from the `linearmodels` package to estimate all models. The models are specified using the `from_formula` method, and clustered standard errors are computed by setting `cov_type='clustered'` and `cluster_entity=True`. Finally, we use the `Stargazer` function from the `stargazer` package to present the estimation results in a table format.
 
 ```{python}
 #| warning: false
@@ -714,10 +718,14 @@ reg6 = PanelOLS.from_formula('mrall ~ 1 + beertax + mlda + punish + vmiles + unr
 reg6 = reg6.fit(cov_type = 'clustered', cluster_entity = True) 
 
 # Model 7: Fixed effects with multiple regressors based on the data from 1982 and 1988 only
+
+# Subset for year 1982 or 1988
+df_subset = df.loc[pd.IndexSlice[:, [1982, 1988]], :]
+
 reg7 = PanelOLS.from_formula('mrall ~ 1 + beertax + drink18 + drink19 +\
                              drink20 + punish + vmiles + unrate + lperinc +\
                              EntityEffects + TimeEffects',
-                                 df.loc[(slice(None), slice(1982, 1988, 6)), :])
+                             df_subset)
 reg7 = reg7.fit(cov_type = 'clustered', cluster_entity = True)
 
 ```
@@ -746,9 +754,13 @@ $$
 \end{align*}
 $$
 
+The `PanelOLS` class does not rovide the F-statistic for testing the joint linear null hypotheses. However, we can use the `wald_test` method to perform the Wald test for this hypothesis. The `formula` argument specifies the linear restrictions to be tested, which in this case is that the coefficients on `drink18`, `drink19`, and `drink20` are all equal to zero.
+
 ```{python}
+# Wald test
 reg4.wald_test(formula='drink18 = drink19 = drink20 = 0') 
 ```
+
 The reported p-value is 0.73. Thus, we fail to reject the null hypothesis at any conventional level. We can also test if the employment rate and per capita income are jointly significant in Model 4 by testing the following hypothesis:
 $$
 \begin{align*}
@@ -758,8 +770,10 @@ $$
 $$
 
 ```{python}
-reg4.wald_test(formula='unrate = lperinc= 0') 
+# Wald test
+reg4.wald_test(formula='unrate = lperinc= 0')
 ```
+
 We reject the null hypothesis at the 5% level. Thus, the economic indicators are jointly significant in explaining traffic fatalities.
 
 - Model 5 excludes the economic indicators, resulting in an estimated coefficient on the real beer tax of -0.640, which is statistically significant only at the 10% level. Results in column (5) demonstrate that economic indicators should remain in the model as the coefficient on beer tax is sensitive to their inclusion. 
