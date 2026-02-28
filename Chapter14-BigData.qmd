@@ -80,20 +80,20 @@ $$
 \end{align*}
 $$
 
-The best predictor can be found by minimizing $\text{MSPE}$ with respect to $m(X)\equiv m$, i.e., 
+We want to show that $\text{MSPE}$ is minimized when $m(X) = \E(Y|X)$. Let us first express $\text{MSPE}$ as
+
 $$
 \begin{align*}
-\min_{m} \E{\left(Y - m\right)^2}&= \min_{m} \E\left(\E\left(Y - m\right)^2|X\right)\\
-&= \E\left(\min_{m}\E\left(Y - m\right)^2|X\right).
-\end{align*}
+\text{MSPE} &= \E[\left(Y - \E(Y|X) + \E(Y|X) - m(X)\right)^2]\\
+&= \E[\left(Y - \E(Y|X)\right)^2] + \E[\left(\E(Y|X) - m(X)\right)^2] \\
+&+ 2\E[\left(Y - \E(Y|X)\right)\left(\E(Y|X) - m(X)\right)].
+\end{align*}    
 $$
-
-Then, from the first-order condition for the minimization problem (assuming interchange of integration and differentiation is allowed), we obtain
+The last term is zero by the law of iterated expectations. Therefore, we have
 $$
-\E(Y|X) - m = 0. 
+\text{MSPE} = \E[\left(Y - \E(Y|X)\right)^2] + \E[\left(\E(Y|X) - m(X)\right)^2],
 $$
-
-Therefore, the best predictor (the oracle predictor) is the conditional mean of $Y$ given $X$, i.e., $\E(Y|X)$.
+which is minimized when $m(X) = \E(Y|X)$. Therefore, the best predictor (the oracle predictor) is the conditional mean of $Y$ given $X$, i.e., $\E(Y|X)$.
 
 Often, the prediction we will be made for observations in the out-of-sample (or validation sample). Suppose there are $k$ predictors and let us denote the observations in the out-of-sample by $(X_{1i}^{oos},...,X_{ki}^{oos},Y_i^{oos})$. We assume the following assumption for the out-of-sample observations.
 
@@ -1504,12 +1504,14 @@ del data
 ```
 
 ### Estimation results
-In this section, we compare the estimation results in terms of the in-sample and out-of-sample MSPE estimates. The estimation results are presented in @tbl-t21.1. Below, we list some main points from @tbl-t21.1 as follows:
+In this section, we compare the estimation results in terms of the in-sample and out-of-sample MSPE estimates. The estimation results are presented in @tbl-t21.1. All of these estimates are the split-sample estimates, and the in-sample estimates are computed from the training data, while the out-of-sample estimates are computed from the test data.
 
-* The out-of-sample RMSPE of the OLS estimator increases roughly by 21% when k increases from 4 to 817.
-* In the large case with k=817, the out-of-sample RMSPE of the OLS estimator is about 35% larger relative to those reported by Ridge, Lasso, and PC regression.
-* In the large and very large cases, the Ridge, Lasso, and PC regression have similar RMSPE estimates.
-* When $k$ increases from 817 to 2065, we do not see an improvement in the out-of-sample RMSPE of the Ridge, Lasso, and PC regression. 
+* In general, the in-sample RMSPE values are smaller than the out-of-sample RMSPE values for all models (except in the small-sample case), which is consistent with the fact that the models are estimated using the training data and may not perform as well on the test data.
+* The out-of-sample RMSPE for OLS increases roughly by 21% when $k$ increases from 4 to 817.
+* The out-of-sample RMSPE for OLS is about 35% larger relative to those reported by Ridge, Lasso, and PC regression when $k = 817$.
+* The out-of-sample root MSPE for Ridge, Lasso, and PC regression is similar when $k = 817$ or $k = 2065$.
+* Ridge, Lasso, and PC regression report roughly the same out-of-sample RMSPE when $k$ increases from 817 to 2065.
+* Overall, ridge regression yields the smallest out-of-sample RMSPE in the large-sample case, indicating that it has a slight edge over the other methods.
 
 ```{python}
 predictor_set = [
