@@ -35,9 +35,10 @@ In this chapter, we will see that when the prediction problem is high-dimensiona
 
 Some examples of dimension reduction methods include Lasso, elastic net, ridge regression, and principal components regression. In high-dimensional prediction exercises, there can be many variables that do not significantly contribute to the predictive performance of the model. A model that includes many irrelevant variables is often referred to as a **sparse model**. 
 
-In this chapter, we cover machine learning methods, including ridge, Lasso, elastic net, and principal components analysis, that can handle high-dimensional data. In this chapter, we will use the `sklearn` module to implement the machine learning methods.
+In this chapter, we study the ridge, Lasso, elastic net, and principal components regressions for handling high-dimensional data. There are many other machine learning methods that can be used for prediction exercises, such as random forests, support vector machines, and neural networks. We will not cover these methods in this chapter and refer the reader to @james2023introduction and @Victor2024.
 
 ```{python}
+# Loading necessary libraries
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -68,8 +69,6 @@ simplefilter(action="ignore")
 from IPython.core.interactiveshell import InteractiveShell
 InteractiveShell.ast_node_interactivity = "last_expr"
 ```
-
-There are several other machine learning methods that we will not cover in this chapter. These include, among others, regression trees, random forests, boosted trees, and neural networks. For more information, we recommend Chapter 29 of @Hansen2022 and Chapters 3 and 9 of @Victor2024.
 
 ## Prediction Problem
 
@@ -248,74 +247,10 @@ $$
 $$
 where $\lambda_R$ is the Lagrangian multiplier. 
 
-The difference between @eq-eq21-1 and @eq-eq21-2 is that in the first problem we need to specify the shrinkage parameter, while in the second problem we need to specify the constraint parameter. The representation of the ridge minimization problem in @eq-eq21-2 is useful to produce a graphical representation for further insight. Following @Hansen2022, we use the following code chunk to illustrate the ridge minimization problem when there are two regressors so that the constraint set is $\{(b_1,b_2): b^2_1+b^2_2<\kappa\}$.  In @fig-f21-1, the constraint set $\{(b_1,b_2): b^2_1+b^2_2<\kappa\}$ is represented by the ball around the origin, and the contour sets of $SSR(b)$  are depicted as ellipses. In this illustration, the OLS estimates correspond to the point at the center of the ellipses, whereas the ridge estimates are represented by the point on the circle where the outer-contour is tangent. This demonstrates that the ridge estimator effectively shrinks the OLS estimates toward zero. 
+The difference between @eq-eq21-1 and @eq-eq21-2 is that in the first problem we need to specify the shrinkage parameter, while in the second problem we need to specify the constraint parameter. The representation of the ridge minimization problem in @eq-eq21-2 is useful to produce a graphical representation for further insight. Following @Hansen2022, we illustrate the ridge minimization problem when there are two regressors so that the constraint set is $\{(b_1,b_2): b^2_1+b^2_2<\kappa\}$. In @fig-f21-1, the constraint set $\{(b_1,b_2): b^2_1+b^2_2<\kappa\}$ is represented by the ball around the origin, and the contour sets of $SSR(b)$  are depicted as ellipses. In this illustration, the OLS estimates correspond to the point at the center of the ellipses, whereas the ridge estimates are represented by the point on the circle where the outer-contour is tangent. This illustration shows that the ridge estimator effectively shrinks the OLS estimate $b_1$ toward zero. 
 
-```{python}
-#| warning: false
-#| message: false
-#| fig-cap: The ridge regression constrained minimization problem
-#| label: fig-f21-1
-# The ridge regression constrained minimization problem
-# Parameters for plotting
-x = np.arange(-1, 1.001, 0.001)
-y = np.sqrt(1 - x**2)  # Circle boundary for Lasso constraint
-beta_ols = np.array([3/2, 3/4])  # OLS estimates
-phi = -np.pi / 8  # Rotation angle for ellipses
-a = 1.44  # Semi-major axis length for ellipses
-b = a / 4  # Semi-minor axis length for ellipses
+![The ridge regression constrained minimization problem](figures/ridge_estimator.png){#fig-f21-1 width=500px}
 
-# Create the figure
-plt.figure(figsize=(6, 5))
-plt.fill_between(x, y, -y, color='gray', alpha=0.5, label="Lasso Constraint Region")  # Lasso constraint area
-plt.axis('off')  # Turn off axis labels and ticks for clean visualization
-
-# Axes arrows
-plt.arrow(-2, 0, 5.75, 0, head_width=0.1, head_length=0.2, fc='grey', ec='grey')  # X-axis
-plt.arrow(0, -1.25, 0, 3.75, head_width=0.1, head_length=0.2, fc='grey', ec='grey')  # Y-axis
-
-# Labels for axes
-plt.text(3.7, -0.25, r'$b_1$', fontsize=12)  # X-axis label
-plt.text(0.1, 2.3, r'$b_2$', fontsize=12)  # Y-axis label
-
-# Scatter plot for OLS estimate and annotation
-plt.scatter(beta_ols[0], beta_ols[1], color='black', s=10, label="OLS Estimate")
-plt.text(1.62, 0.6, "OLS", fontsize=10)
-
-# Function to generate ellipse points
-def ellipse(a, b, center, phi, n=1024):
-    t = np.linspace(0, 2 * np.pi, n)
-    x = center[0] + a * np.cos(t) * np.cos(phi) - b * np.sin(t) * np.sin(phi)
-    y = center[1] + a * np.cos(t) * np.sin(phi) + b * np.sin(t) * np.cos(phi)
-    return x, y
-
-# Plot ellipses around OLS estimate at different scales
-for scale in [1, 0.5, 0.75]:
-    a_scaled = a * scale
-    b_scaled = b * scale
-    x_ellipse, y_ellipse = ellipse(a_scaled, b_scaled, beta_ols, phi)
-    plt.plot(x_ellipse, y_ellipse, color='steelblue')
-
-# Ridge estimates and annotations
-ridge_estimate = np.array([0.5, 0.85])  
-plt.scatter(ridge_estimate[0], ridge_estimate[1], color='black', s=10)
-plt.text(0.2, 0.1, "Ridge Estimates", fontsize=10)
-plt.arrow(0.45, 0.3, 0.055, 0.37, head_width=0.05, head_length=0.1)
-
-# Annotation for constraint region
-plt.text(1.15, -1, r'$b_1^2 + b_2^2 \leq \kappa$', fontsize=10)  
-plt.arrow(1, -1, -0.25, 0.25, head_width=0.05, head_length=0.1) 
-
-# OLS estimates and annotation
-plt.text(1.3, 1.7, "OLS Estimates", fontsize=10)
-plt.arrow(1.85, 1.55, -0.25, -0.7, head_width=0.05, head_length=0.1)
-
-# Scatter the origin to mark (0,0) point
-plt.scatter(0, 0, color='black', s=10)
-
-# Show the plot
-plt.show()
-
-```
 
 We can use calculus to get a closed-form expression for the ridge estimator. See @sec-RidgeOLSconnect for the derivation details. When the regressors are uncorrelated, we can derive the ridge estimator as
 $$
@@ -352,69 +287,10 @@ $$
 $$
 where $\lambda_L$ is the Lagrangian multiplier. 
 
-This representation of the Lasso minimization problem is useful to produce a graphical representation for further insight. Following @Hansen2022, we illustrate the constrained minimization problem through the following code chunk, which generates @fig-fig21-2. In this figure, the constraint set $\{(b_1,b_2):|b_1|+|b_2|<\kappa\}$ is represented by the diamond-shaped area centered on the origin, while the contour sets of $SSR(b)$  are depicted as ellipses. In this illustration, the OLS estimates correspond to the point at the center of the ellipses, whereas the Lasso estimates are represented by the point at the intersection of the constraint set and the outer-contour. This demonstrates that the Lasso estimator effectively set the estimate of $b_1$ to zero.
+This representation of the Lasso minimization problem is useful to produce a graphical representation for further insight. We illustrate the constrained minimization problem through @fig-fig21-2. In this figure, the constraint set $\{(b_1,b_2):|b_1|+|b_2|<\kappa\}$ is represented by the diamond-shaped area centered on the origin, while the contour sets of $SSR(b)$  are depicted as ellipses. In this illustration, the OLS estimates correspond to the point at the center of the ellipses, whereas the Lasso estimates are represented by the point at the intersection of the constraint set and the outer-contour. This demonstrates that the Lasso estimator effectively set the estimate of $b_1$ to zero.
 
 
-```{python}
-#| warning: false
-#| message: false
-#| fig-cap: The Lasso constrained minimization problem
-#| label: fig-fig21-2
-# The Lasso constrained minimization problem
-# Function to generate an ellipse
-def ellipse(a, b, beta, phi, num_points=1000):
-    t = np.linspace(0, 2 * np.pi, num_points)
-    x = a * np.cos(t)
-    y = b * np.sin(t)
-    # Rotation matrix for angle phi
-    R = np.array([[np.cos(phi), -np.sin(phi)], [np.sin(phi), np.cos(phi)]])
-    xy = np.dot(R, np.array([x, y]))
-    return xy[0] + beta[0], xy[1] + beta[1]
-
-# Constants
-kappa = 0.8
-x = np.arange(-kappa, kappa, 0.001)
-ay = kappa - np.abs(x)
-beta = np.array([3/2, 3/4])  # OLS estimates
-phi = -np.pi / 8  # Rotation angle for ellipses
-a = 1.44  # Semi-major axis of the ellipse
-b = a / 4  # Semi-minor axis
-
-# Plotting
-plt.figure(figsize=(6, 5))
-plt.xlim(-1, 5)
-plt.ylim(-1.8, 2.75)
-plt.fill_between(x, ay, -ay, color='lightgrey')  # Lasso constraint region
-
-# Axes arrows
-plt.arrow(-2, 0, 5.5, 0, head_width=0.1, head_length=0.1, fc='grey', ec='grey')  # x-axis
-plt.arrow(0, -1.05, 0, 3.55, head_width=0.1, head_length=0.1, fc='grey', ec='grey')  # y-axis
-
-# Labels
-plt.text(3.5, -0.2, r'$b_1$', fontsize=12)  # x-axis label
-plt.text(0.2, 2.3, r'$b_2$', fontsize=12)  # y-axis label
-plt.scatter(beta[0], beta[1], color='black', s=6)  # OLS point
-plt.text(1.6, 0.7, "OLS", fontsize=10)  # OLS label
-
-# Plot multiple ellipses
-for scale in [1, 0.6, 1.75]:  # Different scales for the ellipses
-    a_scaled = a * scale
-    b_scaled = b * scale
-    x_ellipse, y_ellipse = ellipse(a_scaled, b_scaled, beta, phi)
-    plt.plot(x_ellipse, y_ellipse, color='steelblue')
-
-# Additional annotations
-plt.text(1.05, -1, r'$|b_1| + |b_2| \leq \kappa$', fontsize=10)  # Lasso constraint label
-plt.arrow(0.9, -1, -0.4, 0.6, head_width=0.1, head_length=0.1)  # Arrow pointing to Lasso constraint
-plt.scatter(0, kappa, color='black', s=7)  # Lasso estimate point
-plt.text(-2, 0.9, "Lasso Estimates", fontsize=10)  # Lasso estimates label
-plt.arrow(-0.5, 0.9, 0.4, -0.1, head_width=0.1, head_length=0.1)  # Arrow pointing to Lasso estimates
-plt.text(1.35, 1.8, "OLS Estimates", fontsize=10)  # OLS estimates label
-plt.arrow(1.8, 1.7, -0.2, -0.8, head_width=0.1, head_length=0.1)  # Arrow pointing to OLS estimates
-
-plt.axis('off')  # Turn off the axis
-plt.show()
-```
+![The Lasso constrained minimization problem](figures/lasso_estimator.png){#fig-fig21-2 width=500px}
 
 The ridge and Lasso estimators exhibit different behaviors when the OLS estimates are large. For large coefficient values, the ridge penalty surpasses the Lasso penalty. Consequently, when the OLS estimate is large, the Lasso estimator shrinks it less than the ridge estimator. Conversely, when the OLS estimate is small, the Lasso estimator can shrink it more than the ridge estimator, and in some cases, even to 0. 
 
@@ -641,11 +517,11 @@ In the following code chunk, we first generate the in-sample and out-of-sample p
 data.loc[:, 'testscore_ols'] = mean_testscore + model_std.predict(pred_sx)
 data['e_ols'] = data['testscore'] - data['testscore_ols']
 data['e_ols2'] = data['e_ols'] ** 2
+small_rmse_in_ols = np.sqrt(data.loc[data['insample'], 'e_ols2'].mean())
 small_rmse_oos_ols = np.sqrt(data.loc[data['outofsample'], 'e_ols2'].mean())
-print(f"The out-of-sample RMSPE of the OLS estimator = {small_rmse_oos_ols:.1f}")
 ```
 
-In the following code chunk, we compute the $m$-fold cross-validation estimate of the MSPE. We use the `KFold` function from the `sklearn.model_selection` module to split the dataset into $m=10$ consecutive folds (subsets) without shuffling, by default. We then use the `kf.split` method to generate indices for the training and test sets, which are denoted as `train_index` and `val_index`, respectively. We use the `mean_squared_error` function to compute the mean squared errors from each fold and then collect these measures in the `rmse_cv` list. 
+To compute the $m$-fold cross-validation estimate of the MSPE, we use the `KFold` function from the `sklearn.model_selection` module to split the dataset into $m=10$ consecutive folds (subsets) without shuffling, by default. We then use the `kf.split` method to generate indices for the training and test sets, which are denoted as `train_index` and `val_index`, respectively. We use the `mean_squared_error` function to compute the mean squared errors from each fold and then collect these measures in the `rmse_cv` list. 
 
 ```{python}
 # Compute RMSPE by the 10-fold cross-validation
@@ -664,29 +540,28 @@ for train_index, val_index in kf.split(X_train):
     rmse_cv.append(np.sqrt(mean_squared_error(y_val_fold, y_pred_fold)))
 
 small_rmse_cv_in_ols = np.mean(rmse_cv)
-print(f"The 10-fold CV estimate of RMSPE = {small_rmse_cv_in_ols:.1f}")
 ```
 
-In the following code chunk, we explore an alternative approach to compute the 10-fold cross-validation estimate of the RMSPE. We use the `cross_val_score()` function from the `sklearn.model_selection` module to calculate the mean squared error for each fold. To achieve this, we first define the mean squared error as the scoring metric using the `make_scorer()` function and then pass this custom scorer to the `cross_val_score()` function.
+In @tbl-SmallCase, we summarize the results for the OLS estimator in the small case. As expected, the in-sample RMSPE is smaller than the out-of-sample RMSPE. The 10-fold cross-validation RMSPE is close to the out-of-sample RMSPE.
 
 ```{python}
-# Define the scoring method as negative mean squared error (MSE) since cross_val_score maximizes scores
-scoring = make_scorer(mean_squared_error, greater_is_better=False)
+#| tbl-cap: "The RMSPE of the OLS estimator for the small case"
+#| label: tbl-SmallCase
+# Collect results in a DataFrame
+results_small = pd.DataFrame({
+    "Case": ["Small"],
+    "Model": ["OLS"],
+    "In-sample RMSPE": [np.float64(small_rmse_in_ols)],
+    "Out-of-sample RMSPE": [np.float64(small_rmse_oos_ols)],
+    "RMSPE-CV": [np.float64(small_rmse_cv_in_ols)]
+})
 
-# Perform 10-fold cross-validation
-cv_scores = cross_val_score(LinearRegression(), X_train, y_train, cv=10, scoring=scoring)
-
-# Convert negative MSE scores back to positive values
-mse_cv_scores = -cv_scores
-
-# Compute root MSE (RMSE) scores for each fold
-rmse_cv_scores = mse_cv_scores ** 0.5
-
-# Print the 10-fold cross-validation estimate of the RMSPE
-print(f"The 10-fold CV estimate of RMSPE = {rmse_cv_scores.mean():.1f}")
+# Display results
+results_small.index = [""] # Remove index name
+results_small.round(1)
 ```
 
-Finally, instead of using the `cross_val_score()` function, we can use `cross_val_predict()` to compute the cross-validated predictions and then calculate the mean squared error using the `mean_squared_error` function, as shown in the following code chunk.
+Finally, in the following, we explore an alternative approach to compute the 10-fold cross-validation estimate of the RMSPE. We use the `cross_val_predict` function from the `sklearn.model_selection` module to compute the cross-validated predictions for each fold. We then calculate the mean squared error between the actual and predicted values using the `mean_squared_error` function, and finally compute the root mean squared error (RMSPE) from the mean squared error.
 
 ```{python}
 # Perform 10-fold cross-validation and get predictions for each fold
