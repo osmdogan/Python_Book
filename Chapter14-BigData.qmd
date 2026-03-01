@@ -344,15 +344,15 @@ plt.figure(figsize=(5, 5))
 plt.scatter(X1, X2, color='steelblue', s=15)
 
 # Plot the line X2 = -X1
-x_vals = np.linspace(min(X1)+1, max(X1)-1, 100)
-plt.plot(x_vals, -x_vals, color='black', linestyle='-',linewidth=1.5)
-pdf_vals = stats.norm.pdf(x_vals, scale=0.6, loc=0)  
-plt.plot(x_vals, -x_vals + pdf_vals, color='black', linewidth=2)
+x_vals = np.linspace(min(X1)+1.5, max(X1)-1.5, 100)
+plt.plot(x_vals, -x_vals, color='black', linestyle='-',linewidth=1.5, alpha=0.5)
+pdf_vals = stats.norm.pdf(x_vals, scale=0.5, loc=0)  
+plt.plot(x_vals, -x_vals + pdf_vals, color='black', linewidth=2, alpha=0.5)
 
 # # Plot the line X2 = X1
 x_vals = np.linspace(min(X1)+0.8, max(X1)-0.8, 100)
 plt.plot(x_vals, x_vals, color='steelblue', linestyle='-', linewidth=1.5)
-pdf_vals = stats.norm.pdf(x_vals, scale=0.6, loc=0)  
+pdf_vals = stats.norm.pdf(x_vals, scale=0.5, loc=0)  
 plt.plot(x_vals, x_vals + pdf_vals, color='steelblue', linewidth=2)
 # Plot a bell-shaped distribution along X_2 = -X_1
 
