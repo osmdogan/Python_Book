@@ -94,7 +94,7 @@
   </url>
   <url>
     <loc>https://osmdogan.github.io/Python_Book/Chapter14-BigData.html</loc>
-    <lastmod>2026-03-01T10:30:37.235Z</lastmod>
+    <lastmod>2026-03-01T10:37:59.509Z</lastmod>
   </url>
   <url>
     <loc>https://osmdogan.github.io/Python_Book/Chapter15-TimeSeriesRegression.html</loc>
@@ -123,5 +123,9 @@
   <url>
     <loc>https://osmdogan.github.io/Python_Book/AppendixD.html</loc>
     <lastmod>2025-11-26T05:57:01.557Z</lastmod>
+  </url>
+  <url>
+    <loc>https://osmdogan.github.io/Python_Book/references.html</loc>
+    <lastmod>2026-03-01T10:39:13.757Z</lastmod>
   </url>
 </urlset>
