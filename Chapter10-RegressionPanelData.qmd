@@ -42,10 +42,9 @@ $$
 ### Example: Traffic deaths and alcohol taxes
 We analyze the traffic fatality dataset (**fatality.csv**) provided by @Stock2020. This dataset covers annual observations for the lower 48 states (excluding Alaska and Hawaii) over the period 1982 to 1988. Consequently, the panel consists of $n = 48$ entities and $T = 7$ time periods, yielding a total of $n \times T = 336$ observations. In @tbl-chapter20-t1, we describe some of the variables in the dataset.  
 
-
 ::: {style="font-size: 85%"}
 | Variable | Description |
-|:----------|:--------------------|
+|:-----|:--------------------|
 | `state`  | State ID (FIPS) code |
 | `year`   | Year |
 | `mrall`  | Per capita vehicle fatality (number of traffic deaths) |
