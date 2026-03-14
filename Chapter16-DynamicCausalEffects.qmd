@@ -16,7 +16,7 @@ plt.style.use('seaborn-v0_8-darkgrid')
 ## Dynamic causal effects
 The dynamic causal effect of a regressor on a dependent variable is the causal effect of a change in the regressor on the dependent variable over time. For example, we may be interested in the effect of a change in the interest rate on the output of the economy in this quarter, next quarter, and four quarters ahead. Similarly, we may be interested in the effect of a change in the temperature on the demand for heating oil in the current month, next month, and two months ahead. In these examples, the dynamic effects take place over different time horizons, suggesting that our econometric model should include the current value and lags of the regressor. In this chapter, we use distributed lag models to estimate the dynamic causal effects of regressors on the dependent variable.
 
-::: {#def-dlm}
+::: {#def-chapter26-1}
 
 ## Distributed lag model
 The distributed lag model is a regression model that relates $Y_t$ to the current value and lags of the regressor $X_t$:
@@ -24,22 +24,22 @@ $$
 \begin{align}
 Y_t=\beta_0+\beta_1X_t+\beta_2X_{t-1}+\ldots+\beta_{r+1}X_{t-r}+u_t,
 \end{align}
-$${#eq-eq23-1}
+$${#eq-chapter26-1}
 where $u_t$ is the error term and the coefficients $\beta_1,\ldots,\beta_{r+1}$ are called the dynamic multipliers. 
 :::
 
-In @eq-eq23-1, the dynamic multipliers measure the dynamic causal effects:
+In @eq-chapter26-1, the dynamic multipliers measure the dynamic causal effects:
 
 * $\beta_1$: the impact effect of a one-unit change in $X_t$ on $Y_t$.
 * $\beta_2$: the impact effect of a one-unit change in $X_{t-1}$ on $Y_t$, or equivalently, the impact of one-unit change in $X_t$ on $Y_{t+1}$.
 * In general, $\beta_{j+1}$ is the impact effect of a one-unit change in $X_{t-j}$ on $Y_t$, or equivalently, the impact of a one-unit change in $X_t$ on $Y_{t+j}$.
 
-::: {#def-dlm2}
+::: {#def-chapter26-2}
 ## Dynamic causal effect
-The **dynamic causal effect** of a one-unit change in $X$ on $Y$ is the sequence of coefficients $\beta_1,\ldots,\beta_{r+1}$ in @eq-eq23-1. 
+The **dynamic causal effect** of a one-unit change in $X$ on $Y$ is the sequence of coefficients $\beta_1,\ldots,\beta_{r+1}$ in @eq-chapter26-1. 
 :::
 
-::: {#def-dlm2}
+::: {#def-chapter26-3}
 ## Cumulative dynamic multipliers
 The **$h$-period cumulative dynamic multiplier** is the sum $\beta_1+\beta_2+\ldots+\beta_{h+1}$. The sum of all the individual dynamic multipliers, $\beta_1+\beta_2+\ldots+\beta_{r+1}$, is the cumulative long-run effect
 of a change in $X$ on $Y$ and is called the **long-run cumulative dynamic multiplier**.
@@ -52,9 +52,9 @@ Y_t&=\beta_0+\beta_{11}X_{1t}+\beta_{12}X_{1,t-1}+\ldots+\beta_{1,r_1+1}X_{k,t-r
 &+\beta_{21}X_{2t}+\beta_{22}X_{2,t-1}+\ldots+\beta_{2,r_2+1}X_{2,t-r_2}\\
 &+\ldots+\beta_{k1}X_{kt}+\beta_{k2}X_{k,t-1}+\ldots+\beta_{k,r_k+1}X_{k,t-r_k}+u_t.
 \end{align}
-$${#eq-eq23-2}
+$${#eq-chapter26-2}
 
-In @eq-eq23-2, the dynamic multipliers $\beta_{11},\ldots,\beta_{1,r_1+1}$ measure the dynamic causal effects of $X_1$ on $Y$, the dynamic multipliers $\beta_{21},\ldots,\beta_{2,r_2+1}$ measure the dynamic causal effects of $X_2$ on $Y$, and so on. Using these dynamic multipliers, we can also determine the $h$-period cumulative dynamic multipliers and the long-run cumulative dynamic multipliers for each regressor.
+In @eq-chapter26-2, the dynamic multipliers $\beta_{11},\ldots,\beta_{1,r_1+1}$ measure the dynamic causal effects of $X_1$ on $Y$, the dynamic multipliers $\beta_{21},\ldots,\beta_{2,r_2+1}$ measure the dynamic causal effects of $X_2$ on $Y$, and so on. Using these dynamic multipliers, we can also determine the $h$-period cumulative dynamic multipliers and the long-run cumulative dynamic multipliers for each regressor.
 
 ## Estimation of dynamic causal effects with exogenous regressors
 We can use the OLS estimator to estimate distributed lag models. The assumptions required for the OLS estimation are stated in the following callout block.
@@ -71,7 +71,7 @@ The exogeneity assumption requires that $u_t$ has a conditional mean of zero giv
 
 ::: {.callout-note icon=false}
 ## Key Concept 23.1: Exogeneity and strict exogeneity
-The distributed lag model in @eq-eq23-1 can be considered under two types of exogeneity assumptions: 
+The distributed lag model in @eq-chapter26-1 can be considered under two types of exogeneity assumptions: 
 
 * The past and present exogeneity assumption: $\E(u_t|X_t, X_{t-1}, X_{t-2}, \ldots) = 0$.
 * The past, present, and future exogeneity (strict exogeneity) assumption: $\E(u_t|\ldots,X_{t+2},X_{t+1},X_t,X_{t-1},X_{t-2},\ldots)=0$.
@@ -88,7 +88,7 @@ The fourth assumption, no perfect multicollinearity, is the same as the one requ
 Under these four assumptions, the OLS estimator is consistent and has an asymptotic normal distribution when $T$ is large. Therefore, inference on the regression coefficients using the OLS estimator proceeds as usual.
 :::
 
-We can reformulate the distributed lag model in @eq-eq23-1 such that it is suitable to directly estimate the cumulative dynamic multipliers.  We start with a distributed lag model that has only one lag of the regressor $X_t$. By adding and subtracting $\beta_1X_{t-1}$, we can rewrite the model as
+We can reformulate the distributed lag model in @eq-chapter26-1 such that it is suitable to directly estimate the cumulative dynamic multipliers.  We start with a distributed lag model that has only one lag of the regressor $X_t$. By adding and subtracting $\beta_1X_{t-1}$, we can rewrite the model as
 $$
 \begin{align*}
 Y_t&=\beta_0+\beta_1X_t+\beta_2X_{t-1}+u_t=\beta_0+\beta_1X_t-\beta_1X_{t-1}+\beta_1X_{t-1}+\beta_2X_{t-1}+u_t\\
@@ -98,13 +98,13 @@ Y_t&=\beta_0+\beta_1X_t+\beta_2X_{t-1}+u_t=\beta_0+\beta_1X_t-\beta_1X_{t-1}+\be
 $$
 where $\delta_0=\beta_0$, $\delta_1=\beta_1$, and $\delta_2=\beta_1+\beta_2$, which is the first cumulative multiplier. 
 
-We generalize this reformulation to the distributed lag model with $r$ lags of the regressor $X_t$. Thus, we can rewrite @eq-eq23-1 as
+We generalize this reformulation to the distributed lag model with $r$ lags of the regressor $X_t$. Thus, we can rewrite @eq-chapter26-1 as
 $$
 \begin{align}
 Y_t&=\delta_0+\delta_1\Delta X_t+\delta_2\Delta X_{t-1}+\ldots+\delta_{r} \Delta X_{t-r+1}+\delta_{r+1}X_{t-r}+u_t,
 \end{align}
-$${#eq-eq23-3}
-where $\delta_1,\ldots,\delta_{r+1}$ are the cumulative dynamic multipliers. The relationship between the coefficients in @eq-eq23-1 and @eq-eq23-3 is given by
+$${#eq-chapter26-3}
+where $\delta_1,\ldots,\delta_{r+1}$ are the cumulative dynamic multipliers. The relationship between the coefficients in @eq-chapter26-1 and @eq-chapter26-3 is given by
 $$
 \begin{align}
 &\delta_0=\beta_0,\\
@@ -114,7 +114,7 @@ $$
 &\delta_{r+1}=\beta_1+\beta_2+\ldots+\beta_{r+1}.
 \end{align}
 $$
-Thus, the $h$-period cumulative dynamic multiplier is $\delta_h$. We can use the OLS estimator to estimate @eq-eq23-3 and formulate hypothesis tests and confidence intervals for the cumulative dynamic multipliers.
+Thus, the $h$-period cumulative dynamic multiplier is $\delta_h$. We can use the OLS estimator to estimate @eq-chapter26-3 and formulate hypothesis tests and confidence intervals for the cumulative dynamic multipliers.
 
 ## Heteroskedasticity- and autocorrelation-consistent (HAC) standard errors
 
@@ -134,31 +134,43 @@ $$
 where the approximation follows from $\bar{X}\xrightarrow{p}\mu_{X}$ and $\frac{1}{T}\sum_{t=1}^T(X_t-\bar{X})^2\xrightarrow{p}\sigma^2_X$.  Since $v_t$ is autocorrelated, we have
 $$
 \begin{align}
-\var(\bar{v})&=(\var(v_1)+\cov(v_1,v_2)+\ldots+\cov(v_1,v_T)\\
-&+\cov(v_2,v_1),\var(v_2),\ldots,\cov(v_2,v_T)\\
-&+\ldots\\
-&+\cov(v_T,v_1),\cov(v_T,v_2),\ldots,\var(v_T))/T^2.
+\var(\bar{v})&=\var\left(\frac{1}{T}\sum_{t=1}^Tv_t\right)=\frac{1}{T^2}\sum_{t=1}^T\sum_{s=1}^T\cov(v_t,v_s)\\
 \end{align}
 $$
-We can express $\var(\bar{v})$ as
+
+Under Assumption 2, the covariance $\cov(v_t,v_s)$ depends only on the lag $|t-s|$. Let $\gamma_{|t-s|}=\cov(v_t,v_s)$. Thus, we can express $\var(\bar{v})$ as
 $$
 \begin{align}
-\var(\bar{v})&=(T\var(v_t)+2(T-1)\cov(v_t,v_{t-1})+2(T-2)\cov(v_{t},v_{t-2})+\ldots+2\cov(v_t,v_{t-T+1}))/T^2\\
+\var(\bar{v})&=\frac{1}{T^2}\sum_{t=1}^T\sum_{s=1}^T\gamma_{|t-s|}.
+\end{align}
+$$
+
+When $t=s$, we have $\gamma_{|t-s|}=\gamma_0=\var(v_t)$. There are $T$ such terms in the double sum. When $k=|t-s|$, we need to consider the terms with (i) $t-s=k$ and (ii) $s-t=k$:
+
+(i) In the first case, there are pairs with $t=s+k$ for $s=1,\ldots,T-k$. Thus, there are $T-k$ such pairs.
+(ii) In the second case, there are pairs with $s=t+k$ for $t=1,\ldots,T-k$. Thus, there are also $T-k$ such pairs.
+
+Therefore, there are $2(T-k)$ pairs with $|t-s|=k$ for $k=1,\ldots,T-1$. Thus, we can express $\sum_{t=1}^T\sum_{s=1}^T\gamma_{|t-s|}$ as
+$$
+\begin{align}
+\sum_{t=1}^T\sum_{s=1}^T\gamma_{|t-s|}&=T\gamma_0+2\sum_{k=1}^{T-1}(T-k)\gamma_k.
+\end{align}
+$$
+
+Substituting this expression into $\var(\bar{v})$, we obtain
+$$
+\begin{align}
+\var(\bar{v})&=\frac{1}{T^2}\sum_{t=1}^T\sum_{s=1}^T\gamma_{|t-s|}=\frac{1}{T^2}\left(T\gamma_0+2\sum_{k=1}^{T-1}(T-k)\gamma_k\right)\\
+&=\frac{\gamma_0}{T}\left(1+2\sum_{k=1}^{T-1}\left(1-\frac{k}{T}\right)\frac{\gamma_k}{\gamma_0}\right)\\
 &=\frac{\sigma^2_v}{T}f_T,
 \end{align}
 $$
-where $\sigma^2_v$ is the variance of $v_t$ and $f_T=1+2\sum_{j=1}^{T-1}(\frac{T-j}{T})\rho_j$ with $\rho_j=\corr(v_t,v_{t-j})$. Thus, we can write the variance of the OLS estimator as
-$$
-\begin{align}
-\sigma^2_{\hat{\beta}_1}=\var(\hat{\beta}_1)=\left(\frac{\sigma^2_v}{T(\sigma^2_X)^2}\right)f_T.
-\end{align}
-$$
-Using this last expression, we can formulate the HAC estimator of the variance of the OLS estimator as
+where $\sigma^2_v=\gamma_0$ is the variance of $v_t$ and $f_T=1+2\sum_{k=1}^{T-1}(\frac{T-k}{T})\rho_k$ with $\rho_k=\corr(v_t,v_{t-k})=\gamma_k/\gamma_0$. Using this last expression, we can formulate the HAC estimator of the variance of the OLS estimator as
 $$
 \begin{align}
 \tilde{\sigma}^2_{\hat{\beta}_1}=\hat{\sigma}^2_{\hat{\beta}_1}\hat{f}_T,
 \end{align}
-$${#eq-eq23-13}
+$${#eq-chapter25-4}
 where $\hat{\sigma}^2_{\hat{\beta}_1}$ is the heteroskedasticity-robust estimator of the variance of $\hat{\beta}_1$ given in @sec-inference1 in the absence of autocorrelation. The second term $\hat{f}_T$ is an estimator of $f_T$ given by
 $$
 \begin{align}
@@ -182,57 +194,60 @@ $$
 \begin{align}
 Y_t=\beta_0+\beta_1X_t+\beta_2X_{t-1}+u_t.
 \end{align}
-$${#eq-eq23-4}
+$${#eq-chapter26-5}
+
 In the ADL approach, we assume an autoregressive model for the serial correlation in the error term:
 $$
 \begin{align}
 u_t=\phi_1 u_{t-1}+\tilde{u}_t,
 \end{align}
-$${#eq-eq23-5}
-where $\phi_1$ is the autoregressive parameter and $\tilde{u}_t$ is an uncorrelated error term. Multiplying both sides of @eq-eq23-4 by $\phi_1$ and lagging one period, we obtain $\phi_1Y_{t-1}=\phi_1\beta_0+\phi_1\beta_1X_{t-1}+\phi_1\beta_2X_{t-2}+\phi_1u_{t-1}$. Then, subtracting this equation from @eq-eq23-4, we obtain
+$${#eq-chapter26-6}
+where $\phi_1$ is the autoregressive parameter and $\tilde{u}_t$ is an uncorrelated error term. Multiplying both sides of @eq-chapter26-5 by $\phi_1$ and lagging one period, we obtain $\phi_1Y_{t-1}=\phi_1\beta_0+\phi_1\beta_1X_{t-1}+\phi_1\beta_2X_{t-2}+\phi_1u_{t-1}$. Then, subtracting this equation from @eq-chapter26-5, we obtain
 $$
 \begin{align}
 &Y_t-\phi_1Y_{t-1}=\beta_0(1-\phi_1)+\beta_1X_t+ (\beta_2-\phi_1\beta_1)X_{t-1}-\phi_1\beta_2X_{t-2}+u_t-\phi_1u_{t-1}.
 \end{align}
-$${#eq-eq23-6}
+$${#eq-chapter26-7}
 
-Using @eq-eq23-6, we can express $Y_t$ as
+Using @eq-chapter26-7, we can express $Y_t$ as
 $$
 \begin{align}
 Y_t=\alpha_0+\phi_1Y_{t-1}+\delta_0X_t+\delta_1X_{t-1}+\delta_2X_{t-2}+\tilde{u}_t,
 \end{align}
-$${#eq-eq23-7}
-where $\alpha_0=\beta_0(1-\phi_1)$, $\delta_0=\beta_1$, $\delta_1=\beta_2-\phi_1\beta_1$, $\delta_2=-\phi_1\beta_2$. Thus, the distributed lag model in @eq-eq23-4 with @eq-eq23-5 is equivalent to the ADL model in @eq-eq23-7. We call @eq-eq23-7 the ADL representation of the distributed lag model.
+$${#eq-chapter26-8}
+where $\alpha_0=\beta_0(1-\phi_1)$, $\delta_0=\beta_1$, $\delta_1=\beta_2-\phi_1\beta_1$, $\delta_2=-\phi_1\beta_2$. Thus, the distributed lag model in @eq-chapter26-5 with @eq-chapter26-6 is equivalent to the ADL model in @eq-chapter26-8. We call @eq-chapter26-8 the ADL representation of the distributed lag model.
 
-Also, we can use @eq-eq23-6 to get another representation of @eq-eq23-4. Let $\tilde{Y}_t=Y_t-\phi_1Y_{t-1}$ and $\tilde{X}_t=X_t-\phi_1X_{t-1}$. Then, we can write @eq-eq23-6 as
+Also, we can use @eq-chapter26-7 to get another representation of @eq-chapter26-5. Let $\tilde{Y}_t=Y_t-\phi_1Y_{t-1}$ and $\tilde{X}_t=X_t-\phi_1X_{t-1}$. Then, we can write @eq-chapter26-7 as
 $$
 \begin{align}
 \tilde{Y}_t=\alpha_0+\beta_1\tilde{X}_t+\beta_2\tilde{X}_{t-1}+\tilde{u}_t.
 \end{align}
-$${#eq-eq23-8}
-We call this equation the quasi-difference representation of @eq-eq23-4.
+$${#eq-chapter26-9}
 
-Since these representations are equivalent, the conditions required for the OLS estimation are also the same for both representations. Consider the quasi-difference representation in @eq-eq23-8. The OLS estimation requires that $\E(\tilde{u}_t|\tilde{X}_t,\tilde{X}_{t-1},\ldots)=0$. Since $\tilde{X}_t=X_t-\phi_1X_{t-1}$, this condition is equivalent to $\E(\tilde{u}_t|X_t,X_{t-1},\ldots)=0$. Also, using $\tilde{u}_t=u_t-\phi_1u_{t-1}$, we can express $\E(\tilde{u}_t|X_t,X_{t-1},\ldots)$ as
+We call this equation the quasi-difference representation of @eq-chapter26-5.
+
+Since these representations are equivalent, the conditions required for the OLS estimation are also the same for both representations. Consider the quasi-difference representation in @eq-chapter26-9. The OLS estimation requires that $\E(\tilde{u}_t|\tilde{X}_t,\tilde{X}_{t-1},\ldots)=0$. Since $\tilde{X}_t=X_t-\phi_1X_{t-1}$, this condition is equivalent to $\E(\tilde{u}_t|X_t,X_{t-1},\ldots)=0$. Also, using $\tilde{u}_t=u_t-\phi_1u_{t-1}$, we can express $\E(\tilde{u}_t|X_t,X_{t-1},\ldots)$ as
 $$
 \E(\tilde{u}_t|X_t,X_{t-1},\ldots)=\E(u_t|X_t,X_{t-1},\ldots)-\phi_1\E(u_{t-1}|X_t,X_{t-1},\ldots).
 $$
+
 Thus, in order to achieve the exogeneity assumption for any value of $\phi_1$, we need to assume that $\E(u_t|X_t,X_{t-1},\ldots)=0$ and $\E(u_{t-1}|X_t,X_{t-1},\ldots)=0$. The last condition can be rewritten as 
 $$
 \E(u_t|X_{t+1},X_{t},X_{t-1},\ldots)=0,
 $$
 which holds if we assume that $X_t$ is strictly exogenous. 
 
-As a result, to consistently estimate @eq-eq23-4 with @eq-eq23-5, the ADL representation in @eq-eq23-7, or the quasi-difference representation in @eq-eq23-8, we need to assume that the regressor is strictly exogenous.
+As a result, to consistently estimate @eq-chapter26-5 with @eq-chapter26-6, for the ADL representation in @eq-chapter26-8, or the quasi-difference representation in @eq-chapter26-9, we need to assume that the regressor is strictly exogenous.
 
-In the ADL approach, to estimate the dynamic multipliers, we use the OLS estimator to estimate @eq-eq23-7. Since the error term in @eq-eq23-7 is not autocorrelated, we do not need to use HAC standard errors for inference. From the estimated coefficients, we can obtain the estimates of the dynamic multipliers by using the relationships between the coefficients in @eq-eq23-4 and @eq-eq23-7. 
+In the ADL approach, to estimate the dynamic multipliers, we use the OLS estimator to estimate @eq-chapter26-8. Since the error term in @eq-chapter26-8 is not autocorrelated, we do not need to use HAC standard errors for inference. From the estimated coefficients, we can obtain the estimates of the dynamic multipliers by using the relationships between the coefficients in @eq-chapter26-5 and @eq-chapter26-8. 
 
 An alternative way to obtain the estimates of the dynamic multipliers is to use a continuous substitution method. Consider the following estimated equation:
 $$
 \begin{align}
 \hat{Y}_t=\hat{\phi}_1Y_{t-1}+\hat{\delta}_0X_t+\hat{\delta}_1X_{t-1}+\hat{\delta}_2X_{t-2},
 \end{align}
-$${#eq-eq23-9}
-where we omit the estimated intercept term as the intercept term does not affect the dynamic multipliers. By continuously substituting $Y_{t-1}$, $Y_{t-2}$, and so on into @eq-eq23-9, we can obtain the following equation:
+$${#eq-chapter26-10}
+where we omit the estimated intercept term as the intercept term does not affect the dynamic multipliers. By continuously substituting $Y_{t-1}$, $Y_{t-2}$, and so on into @eq-chapter26-10, we can obtain the following equation:
 $$
 \begin{align}
 \hat{Y}_t&= \hat{\delta}_0X_t+(\hat{\delta}_1+\hat{\phi}_1\hat{\delta}_0)X_{t-1}+(\hat{\delta}_2+\hat{\phi}_1\hat{\delta}_1+\hat{\phi}^2_1\hat{\delta}_0)X_{t-2}\\
@@ -241,11 +256,11 @@ $$
 $$
 The coefficients on $X_t$, $X_{t-1}$, and so on in this equation are the estimates of the dynamic multipliers.
 
-In the GLS approach, we use the OLS estimator to estimate the quasi-difference representation in @eq-eq23-8. We first assume that $\phi_1$ is known. Then, under the assumption that $X_t$ is strictly exogenous, we can use the OLS estimator to estimate $\alpha_0$, $\beta_1$, and $\beta_2$. This estimator is called the **infeasible GLS estimator** because we do not know $\phi_1$ in practice. 
+In the GLS approach, we use the OLS estimator to estimate the quasi-difference representation in @eq-chapter26-9. We first assume that $\phi_1$ is known. Then, under the assumption that $X_t$ is strictly exogenous, we can use the OLS estimator to estimate $\alpha_0$, $\beta_1$, and $\beta_2$. This estimator is called the **infeasible GLS estimator** because we do not know $\phi_1$ in practice. 
 
-The **feasible GLS estimator** is the OLS estimator of the quasi-difference representation in @eq-eq23-8, using an estimate $\hat{\phi}_1$ of $\phi_1$. To obtain an estimate of $\phi_1$, we can first estimate the ADL representation in @eq-eq23-4 by the OLS estimator to obtain residuals $\hat{u}_t$. Then, we estimate $\phi_1$ by regressing $\hat{u}_t$ on $\hat{u}_{t-1}$. Once we have $\hat{\phi}_1$, we can construct $\hat{\tilde{Y}}_t=Y_t-\hat{\phi}_1Y_{t-1}$, $\hat{\tilde{X}}_t=X_t-\hat{\phi}_1X_{t-1}$, and $\hat{\tilde{X}}_{t-1}=X_{t-1}-\hat{\phi}_1X_{t-2}$. Finally, we can regress $\hat{\tilde{Y}}_t$ on $\hat{\tilde{X}}_t$ and $\hat{\tilde{X}}_{t-1}$ to get estimates of $\alpha_0$, $\beta_1$, and $\beta_2$. This version of the feasible GLS estimator is called the Cochrane-Orcutt estimator.
+The **feasible GLS estimator** is the OLS estimator of the quasi-difference representation in @eq-chapter26-9, using an estimate $\hat{\phi}_1$ of $\phi_1$. To obtain an estimate of $\phi_1$, we can first estimate the ADL representation in @eq-chapter26-5 by the OLS estimator to obtain residuals $\hat{u}_t$. Then, we estimate $\phi_1$ by regressing $\hat{u}_t$ on $\hat{u}_{t-1}$. Once we have $\hat{\phi}_1$, we can construct $\hat{\tilde{Y}}_t=Y_t-\hat{\phi}_1Y_{t-1}$, $\hat{\tilde{X}}_t=X_t-\hat{\phi}_1X_{t-1}$, and $\hat{\tilde{X}}_{t-1}=X_{t-1}-\hat{\phi}_1X_{t-2}$. Finally, we can regress $\hat{\tilde{Y}}_t$ on $\hat{\tilde{X}}_t$ and $\hat{\tilde{X}}_{t-1}$ to get estimates of $\alpha_0$, $\beta_1$, and $\beta_2$. This version of the feasible GLS estimator is called the Cochrane-Orcutt estimator.
 
-Under the assumptions that $X_t$ is strictly exogenous and the error term in @eq-eq23-8 is homoskedastic, the GLS estimator is efficient among the class of linear unbiased estimators, which follows from the Gauss-Markov theorem.
+Under the assumptions that $X_t$ is strictly exogenous and the error term in @eq-chapter26-9 is homoskedastic, the GLS estimator is efficient among the class of linear unbiased estimators, which follows from the Gauss-Markov theorem.
 
 ## Application: Orange juice prices and cold weather
 In this section, we study the dynamic causal effects of cold weather on the price of frozen concentrated orange juice. We use distributed lag models to estimate the dynamic multipliers and cumulative dynamic multipliers. Additionally, we consider a model with monthly dummy variables to account for seasonal effects.
@@ -260,7 +275,7 @@ We consider a dataset on frozen concentrated orange juice prices collected from 
 
 The number of freezing degree days (`fdd`) is computed from the sum of the number of degrees below 31 degrees Fahrenheit for each day in the month. For example, assume that there were three days in a month with temperatures of 30, 29, and 28 degrees Fahrenheit. Then, the number of freezing degree days for that month is $(31-30)+(31-29)+(31-28)=6$. 
 
-The dataset is available in the `frozenjuice.csv` file.  We use the following code to load the data set and define real prices and percentage changes in real prices.
+The dataset is available in the `frozenjuice.csv` file. We use the following code to load the dataset and define real prices and percentage changes in real prices.
 
 ```{python}
 # Load the data set
@@ -326,22 +341,22 @@ $$
 \begin{align}
 \text{Model 1}:\,\text{ChgP}_t=\beta_0+\beta_1\text{FDD}_t+\beta_2\text{FDD}_{t-1}+\ldots+\beta_{19}\text{FDD}_{t-18}+u_t,
 \end{align}
-$${#eq-eq23-10}
+$${#eq-chapter26-11}
 $$
 \begin{align}
 \text{Model 2}: \,\text{ChgP}_t&=\delta_0+\delta_1\Delta\text{FDD}_t+\delta_2\Delta\text{FDD}_{t-1}+\ldots+\delta_{18}\Delta\text{FDD}_{t-17}\\
 &+\delta_{19}\text{FDD}_{t-18}+u_t,
 \end{align}
-$${#eq-eq23-11}
+$${#eq-chapter26-12}
 
 $$
 \begin{align}
 \text{Model 3}: \,\text{ChgP}_t&=\delta_0+\delta_1\Delta\text{FDD}_t+\delta_2\Delta\text{FDD}_{t-1}+\ldots+\delta_{18}\Delta\text{FDD}_{t-17}\\
 &+\delta_{19}\text{FDD}_{t-18}+\gamma_1D_{1t}+\ldots+\gamma_{11}D_{11t}+u_t,
 \end{align}
-$${#eq-eq23-12}
+$${#eq-chapter26-13}
 
-where $\text{ChgP}_t$ is the percentage change in the real price of frozen concentrated orange juice, $\text{FDD}_t$ is the freezing degree days, and $D_{1t},\ldots,D_{11t}$ are monthly dummy variables. We use @eq-eq23-10 to estimate the **dynamic multipliers** and @eq-eq23-11 to estimate the **cumulative dynamic multipliers**. The relationships between the coefficients in @eq-eq23-10 and @eq-eq23-11 are given by
+where $\text{ChgP}_t$ is the percentage change in the real price of frozen concentrated orange juice, $\text{FDD}_t$ is the freezing degree days, and $D_{1t},\ldots,D_{11t}$ are monthly dummy variables. We use @eq-chapter26-11 to estimate the **dynamic multipliers** and @eq-chapter26-12 to estimate the **cumulative dynamic multipliers**. The relationships between the coefficients in @eq-chapter26-11 and @eq-chapter26-12 are given by
 
 * $\delta_0=\beta_0$
 * $\delta_1=\beta_1$: impact effect
@@ -349,7 +364,7 @@ where $\text{ChgP}_t$ is the percentage change in the real price of frozen conce
 * $\cdots$
 * $\delta_{19}=\beta_1+\beta_2+\ldots+\beta_{19}$: long-run cumulative dynamic multiplier
 
-We use the HAC standard errors to obtain valid inference on the dynamic multipliers and cumulative dynamic multipliers. The truncation parameter for the HAC standard errors is $m=0.75T^{1/3}=0.75\times612^{1/3}=6.37$. Therefore, we consider $m=7$ and $m=14$ for the HAC standard errors, where the latter is used to check the robustness of the results. The following code chunk shows how to estimate the models and obtain the HAC standard errors. The HAC standard errors estimates are obtained using the `cov_type='HAC'` and `cov_kwds={'maxlags': 7}` options, where the latter option specifies the truncation parameter. 
+We use the HAC standard errors to obtain valid inference on the dynamic multipliers and cumulative dynamic multipliers. The truncation parameter for the HAC standard errors is $m=0.75T^{1/3}=0.75\times612^{1/3}=6.37$. Therefore, we consider $m=7$ and $m=14$ for the HAC standard errors, where the latter is used to check the robustness of the results. The HAC standard errors estimates are obtained using the `cov_type='HAC'` and `cov_kwds={'maxlags': 7}` options, where the latter option specifies the truncation parameter. 
 
 ```{python}
 
@@ -379,7 +394,7 @@ model3 = smf.ols(formula=formula3, data=df1).fit(cov_type='HAC', cov_kwds={'maxl
 
 ### Estimation results
 
-We use the `Stargazer` package to present the estimation results. The following code chunk shows how to present the results in a table. @tbl-t23-2 includes the estimates of the dynamic multipliers and cumulative dynamic multipliers. 
+We use the `Stargazer` package to present the estimation results. @tbl-t23-2 includes the estimates of the dynamic multipliers and cumulative dynamic multipliers. 
 
 ```{python}
 # Prepare the table
@@ -528,12 +543,13 @@ In this section, we provide examples to illustrate how to think about the exogen
 In the first example, we consider a distributed lag model that relates Australian exports to U.S. income. The model is given by
 $$
 \begin{align}
-\text{Exports}_t=\beta_0+\beta_1\text{Income}_t+\beta_2\text{Income}_{t-1}+\ldots+\beta_{5}\text{Income}_{t-4}+u_t,
+\text{Exports}_t&=\beta_0+\beta_1\text{Income}_t+\beta_2\text{Income}_{t-1}+\beta_3\text{Income}_{t-2}\\
+&+\beta_{4}\text{Income}_{t-3}+\beta_{5}\text{Income}_{t-4}+u_t,
 \end{align}
-$${#eq-eq23-13}
+$${#eq-chapter26-14}
 where $\text{Exports}_t$ is the real value of Australian exports to the U.S. in quarter $t$, and $\text{Income}_t$ is the real U.S. income in quarter $t$. The error term $u_t$ captures factors affecting Australian exports to the U.S. other than U.S. income.
 
-Due to international movements in goods and capital, there is a simultaneous relationship between U.S. income and Australian exports. For instance, an increase in U.S. income may lead to a rise in Australian exports, and an increase in Australian exports may, in turn, lead to a rise in U.S. income. This simultaneity implies that the error term $u_t$ in @eq-eq23-13 may be correlated with U.S. income in both the current and past quarters. However, since the Australian economy is small relative to the U.S. economy, it is unlikely that Australian exports significantly affect U.S. income. Therefore, U.S. income is likely to be exogenous in this model.
+Due to international movements in goods and capital, there is a simultaneous relationship between U.S. income and Australian exports. For instance, an increase in U.S. income may lead to a rise in Australian exports, and an increase in Australian exports may, in turn, lead to a rise in U.S. income. This simultaneity implies that the error term $u_t$ in @eq-chapter26-14 may be correlated with U.S. income in both the current and past quarters. However, since the Australian economy is small relative to the U.S. economy, it is unlikely that Australian exports significantly affect U.S. income. Therefore, U.S. income is likely to be exogenous in this model.
 
 However, if we consider European Union exports to the U.S., the simultaneity issue may be more pronounced. This is because the European Union is a major trading partner of the U.S., and changes in European Union exports to the U.S. could influence U.S. income. In this case, U.S. income may not be exogenous in the model.
 
@@ -541,9 +557,10 @@ However, if we consider European Union exports to the U.S., the simultaneity iss
 In the second example, we consider a distributed lag model that relates U.S. inflation to oil prices. The model is given by
 $$
 \begin{align}
-\text{Inflation}_t=\beta_0+\beta_1\text{OilPrice}_t+\beta_2\text{OilPrice}_{t-1}+\ldots+\beta_{13}\text{OilPrice}_{t-12}+u_t,
+\text{Inflation}_t&=\beta_0+\beta_1\text{OilPrice}_t+\beta_2\text{OilPrice}_{t-1}\\
+&+\ldots+\beta_{13}\text{OilPrice}_{t-12}+u_t,
 \end{align}
-$${#eq-eq23-14}
+$${#eq-chapter25-15}
 where $\text{Inflation}_t$ is the U.S. inflation rate in month $t$, and $\text{OilPrice}_t$ is the price of oil in month $t$. 
 
 In this example, we need to consider how oil prices are determined. The price of oil is set by the members of the Organization of the Petroleum Exporting Countries (OPEC) and other oil-producing countries. These countries may adjust oil prices in response to both the current and future state of the world economy. Since the current and future state of the world economy also includes the U.S. inflation rate, oil prices become endogenous in the model.
@@ -552,9 +569,10 @@ In this example, we need to consider how oil prices are determined. The price of
 In the third example, we consider a distributed lag model that relates the U.S. inflation rate to the interest rate. The model is given by
 $$
 \begin{align}
-\text{Inflation}_t=\beta_0+\beta_1\text{InterestRate}_t+\beta_2\text{InterestRate}_{t-1}+\ldots+\beta_{5}\text{InterestRate}_{t-4}+u_t,
+\text{Inflation}_t&=\beta_0+\beta_1\text{InterestRate}_t+\beta_2\text{InterestRate}_{t-1}\\
+&+\ldots+\beta_{5}\text{InterestRate}_{t-4}+u_t,
 \end{align}
-$${#eq-eq23-15}
+$${#eq-chapter25-16}
 where $\text{InterestRate}_t$ is the U.S. interest rate in month $t$.
 
 In this example, we need to consider how the central bank sets the interest rate. The central bank adjusts the interest rate in response to the current and future state of the economy, including the current and future inflation rates. As a result, the interest rate is endogenous in the model, and we cannot use this model to estimate the dynamic causal effect of the interest rate on the inflation rate.
@@ -563,8 +581,8 @@ In this example, we need to consider how the central bank sets the interest rate
 In the fourth example, we consider the following ADL model from @sec-chapter22: 
 $$
 \begin{align}
-\text{GDPGR}_t=\beta_0+\beta_1{\tt GDPGR}_{t-1}+\beta_2{\tt GDPGR}_{t-2}+\delta_1{\tt TSpread}_{t-1}+\delta_2{\tt TSpread}_{t-2}+u_t,
+\text{GDPGR}_t&=\beta_0+\beta_1{\tt GDPGR}_{t-1}+\beta_2{\tt GDPGR}_{t-2}\\
+&+\delta_1{\tt TSpread}_{t-1}+\delta_2{\tt TSpread}_{t-2}+u_t,
 \end{align}
-$${#eq-eq23-16}
-
+$${#eq-chapter25-17}
 where $\text{GDPGR}_t$ is the GDP growth rate in quarter $t$, and $\text{TSpread}_t$ is the term spread in quarter $t$. Although we are only using the past values of the term spread in this model, the term spread is likely to be endogenous. @Stock2020 write "... past values of the term spread were not randomly assigned in an experiment; instead, the past term spread was simultaneously determined with past values of the growth rate of GDP. Because GDP and the interest rates making up the term spread are simultaneously determined, the other factors that determine the growth rate of GDP contained in $u_t$ are correlated with past values of the term spread; that is, the term spread is not exogenous."

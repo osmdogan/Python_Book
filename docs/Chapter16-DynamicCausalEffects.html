@@ -559,7 +559,7 @@ window.Quarto = {
 </header>
 
 
-<div id="3430e729" class="cell" data-execution_count="1">
+<div id="35bd0510" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
@@ -574,33 +574,33 @@ window.Quarto = {
 <section id="dynamic-causal-effects" class="level2" data-number="26.1">
 <h2 data-number="26.1" class="anchored" data-anchor-id="dynamic-causal-effects"><span class="header-section-number">26.1</span> Dynamic causal effects</h2>
 <p>The dynamic causal effect of a regressor on a dependent variable is the causal effect of a change in the regressor on the dependent variable over time. For example, we may be interested in the effect of a change in the interest rate on the output of the economy in this quarter, next quarter, and four quarters ahead. Similarly, we may be interested in the effect of a change in the temperature on the demand for heating oil in the current month, next month, and two months ahead. In these examples, the dynamic effects take place over different time horizons, suggesting that our econometric model should include the current value and lags of the regressor. In this chapter, we use distributed lag models to estimate the dynamic causal effects of regressors on the dependent variable.</p>
-<div id="def-dlm" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 26.1 (Distributed lag model)</strong></span> The distributed lag model is a regression model that relates <span class="math inline">\(Y_t\)</span> to the current value and lags of the regressor <span class="math inline">\(X_t\)</span>: <span id="eq-eq23-1"><span class="math display">\[
+<div id="def-chapter26-1" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 26.1 (Distributed lag model)</strong></span> The distributed lag model is a regression model that relates <span class="math inline">\(Y_t\)</span> to the current value and lags of the regressor <span class="math inline">\(X_t\)</span>: <span id="eq-chapter26-1"><span class="math display">\[
 \begin{align}
 Y_t=\beta_0+\beta_1X_t+\beta_2X_{t-1}+\ldots+\beta_{r+1}X_{t-r}+u_t,
 \end{align}
 \tag{26.1}\]</span></span> where <span class="math inline">\(u_t\)</span> is the error term and the coefficients <span class="math inline">\(\beta_1,\ldots,\beta_{r+1}\)</span> are called the dynamic multipliers.</p>
 </div>
-<p>In <a href="#eq-eq23-1" class="quarto-xref">Equation&nbsp;<span>26.1</span></a>, the dynamic multipliers measure the dynamic causal effects:</p>
+<p>In <a href="#eq-chapter26-1" class="quarto-xref">Equation&nbsp;<span>26.1</span></a>, the dynamic multipliers measure the dynamic causal effects:</p>
 <ul>
 <li><span class="math inline">\(\beta_1\)</span>: the impact effect of a one-unit change in <span class="math inline">\(X_t\)</span> on <span class="math inline">\(Y_t\)</span>.</li>
 <li><span class="math inline">\(\beta_2\)</span>: the impact effect of a one-unit change in <span class="math inline">\(X_{t-1}\)</span> on <span class="math inline">\(Y_t\)</span>, or equivalently, the impact of one-unit change in <span class="math inline">\(X_t\)</span> on <span class="math inline">\(Y_{t+1}\)</span>.</li>
 <li>In general, <span class="math inline">\(\beta_{j+1}\)</span> is the impact effect of a one-unit change in <span class="math inline">\(X_{t-j}\)</span> on <span class="math inline">\(Y_t\)</span>, or equivalently, the impact of a one-unit change in <span class="math inline">\(X_t\)</span> on <span class="math inline">\(Y_{t+j}\)</span>.</li>
 </ul>
-<div id="def-dlm2" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 26.2 (Dynamic causal effect)</strong></span> The <strong>dynamic causal effect</strong> of a one-unit change in <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> is the sequence of coefficients <span class="math inline">\(\beta_1,\ldots,\beta_{r+1}\)</span> in <a href="#eq-eq23-1" class="quarto-xref">Equation&nbsp;<span>26.1</span></a>.</p>
+<div id="def-chapter26-2" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 26.2 (Dynamic causal effect)</strong></span> The <strong>dynamic causal effect</strong> of a one-unit change in <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> is the sequence of coefficients <span class="math inline">\(\beta_1,\ldots,\beta_{r+1}\)</span> in <a href="#eq-chapter26-1" class="quarto-xref">Equation&nbsp;<span>26.1</span></a>.</p>
 </div>
-<div id="def-dlm2" class="theorem definition">
+<div id="def-chapter26-3" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 26.3 (Cumulative dynamic multipliers)</strong></span> The <strong><span class="math inline">\(h\)</span>-period cumulative dynamic multiplier</strong> is the sum <span class="math inline">\(\beta_1+\beta_2+\ldots+\beta_{h+1}\)</span>. The sum of all the individual dynamic multipliers, <span class="math inline">\(\beta_1+\beta_2+\ldots+\beta_{r+1}\)</span>, is the cumulative long-run effect of a change in <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> and is called the <strong>long-run cumulative dynamic multiplier</strong>.</p>
 </div>
-<p>If there are multiple regressors <span class="math inline">\(X_1,\ldots,X_k\)</span>, then the distributed lag model that relates <span class="math inline">\(Y_t\)</span> to <span class="math inline">\(r_1\)</span> lags of <span class="math inline">\(X_1\)</span>, <span class="math inline">\(r_2\)</span> lags of <span class="math inline">\(X_2\)</span>, and so on is given by <span id="eq-eq23-2"><span class="math display">\[
+<p>If there are multiple regressors <span class="math inline">\(X_1,\ldots,X_k\)</span>, then the distributed lag model that relates <span class="math inline">\(Y_t\)</span> to <span class="math inline">\(r_1\)</span> lags of <span class="math inline">\(X_1\)</span>, <span class="math inline">\(r_2\)</span> lags of <span class="math inline">\(X_2\)</span>, and so on is given by <span id="eq-chapter26-2"><span class="math display">\[
 \begin{align}
 Y_t&amp;=\beta_0+\beta_{11}X_{1t}+\beta_{12}X_{1,t-1}+\ldots+\beta_{1,r_1+1}X_{k,t-r_1}\\
 &amp;+\beta_{21}X_{2t}+\beta_{22}X_{2,t-1}+\ldots+\beta_{2,r_2+1}X_{2,t-r_2}\\
 &amp;+\ldots+\beta_{k1}X_{kt}+\beta_{k2}X_{k,t-1}+\ldots+\beta_{k,r_k+1}X_{k,t-r_k}+u_t.
 \end{align}
 \tag{26.2}\]</span></span></p>
-<p>In <a href="#eq-eq23-2" class="quarto-xref">Equation&nbsp;<span>26.2</span></a>, the dynamic multipliers <span class="math inline">\(\beta_{11},\ldots,\beta_{1,r_1+1}\)</span> measure the dynamic causal effects of <span class="math inline">\(X_1\)</span> on <span class="math inline">\(Y\)</span>, the dynamic multipliers <span class="math inline">\(\beta_{21},\ldots,\beta_{2,r_2+1}\)</span> measure the dynamic causal effects of <span class="math inline">\(X_2\)</span> on <span class="math inline">\(Y\)</span>, and so on. Using these dynamic multipliers, we can also determine the <span class="math inline">\(h\)</span>-period cumulative dynamic multipliers and the long-run cumulative dynamic multipliers for each regressor.</p>
+<p>In <a href="#eq-chapter26-2" class="quarto-xref">Equation&nbsp;<span>26.2</span></a>, the dynamic multipliers <span class="math inline">\(\beta_{11},\ldots,\beta_{1,r_1+1}\)</span> measure the dynamic causal effects of <span class="math inline">\(X_1\)</span> on <span class="math inline">\(Y\)</span>, the dynamic multipliers <span class="math inline">\(\beta_{21},\ldots,\beta_{2,r_2+1}\)</span> measure the dynamic causal effects of <span class="math inline">\(X_2\)</span> on <span class="math inline">\(Y\)</span>, and so on. Using these dynamic multipliers, we can also determine the <span class="math inline">\(h\)</span>-period cumulative dynamic multipliers and the long-run cumulative dynamic multipliers for each regressor.</p>
 </section>
 <section id="estimation-of-dynamic-causal-effects-with-exogenous-regressors" class="level2" data-number="26.2">
 <h2 data-number="26.2" class="anchored" data-anchor-id="estimation-of-dynamic-causal-effects-with-exogenous-regressors"><span class="header-section-number">26.2</span> Estimation of dynamic causal effects with exogenous regressors</h2>
@@ -634,7 +634,7 @@ Key Concept 23.1: Exogeneity and strict exogeneity
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The distributed lag model in <a href="#eq-eq23-1" class="quarto-xref">Equation&nbsp;<span>26.1</span></a> can be considered under two types of exogeneity assumptions:</p>
+<p>The distributed lag model in <a href="#eq-chapter26-1" class="quarto-xref">Equation&nbsp;<span>26.1</span></a> can be considered under two types of exogeneity assumptions:</p>
 <ul>
 <li>The past and present exogeneity assumption: <span class="math inline">\(\E(u_t|X_t, X_{t-1}, X_{t-2}, \ldots) = 0\)</span>.</li>
 <li>The past, present, and future exogeneity (strict exogeneity) assumption: <span class="math inline">\(\E(u_t|\ldots,X_{t+2},X_{t+1},X_t,X_{t-1},X_{t-2},\ldots)=0\)</span>.</li>
@@ -647,18 +647,18 @@ Key Concept 23.1: Exogeneity and strict exogeneity
 <div id="thm-ols-forecasting" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 26.1 (Properties of OLS estimator using time series data)</strong></span> Under these four assumptions, the OLS estimator is consistent and has an asymptotic normal distribution when <span class="math inline">\(T\)</span> is large. Therefore, inference on the regression coefficients using the OLS estimator proceeds as usual.</p>
 </div>
-<p>We can reformulate the distributed lag model in <a href="#eq-eq23-1" class="quarto-xref">Equation&nbsp;<span>26.1</span></a> such that it is suitable to directly estimate the cumulative dynamic multipliers. We start with a distributed lag model that has only one lag of the regressor <span class="math inline">\(X_t\)</span>. By adding and subtracting <span class="math inline">\(\beta_1X_{t-1}\)</span>, we can rewrite the model as <span class="math display">\[
+<p>We can reformulate the distributed lag model in <a href="#eq-chapter26-1" class="quarto-xref">Equation&nbsp;<span>26.1</span></a> such that it is suitable to directly estimate the cumulative dynamic multipliers. We start with a distributed lag model that has only one lag of the regressor <span class="math inline">\(X_t\)</span>. By adding and subtracting <span class="math inline">\(\beta_1X_{t-1}\)</span>, we can rewrite the model as <span class="math display">\[
 \begin{align*}
 Y_t&amp;=\beta_0+\beta_1X_t+\beta_2X_{t-1}+u_t=\beta_0+\beta_1X_t-\beta_1X_{t-1}+\beta_1X_{t-1}+\beta_2X_{t-1}+u_t\\
 &amp;=\beta_0+\beta_1(X_t-X_{t-1})+(\beta_1+\beta_2)X_{t-1}+u_t\\
 &amp;=\delta_0+\delta_1\Delta X_t+\delta_2X_{t-1}+u_t,
 \end{align*}
 \]</span> where <span class="math inline">\(\delta_0=\beta_0\)</span>, <span class="math inline">\(\delta_1=\beta_1\)</span>, and <span class="math inline">\(\delta_2=\beta_1+\beta_2\)</span>, which is the first cumulative multiplier.</p>
-<p>We generalize this reformulation to the distributed lag model with <span class="math inline">\(r\)</span> lags of the regressor <span class="math inline">\(X_t\)</span>. Thus, we can rewrite <a href="#eq-eq23-1" class="quarto-xref">Equation&nbsp;<span>26.1</span></a> as <span id="eq-eq23-3"><span class="math display">\[
+<p>We generalize this reformulation to the distributed lag model with <span class="math inline">\(r\)</span> lags of the regressor <span class="math inline">\(X_t\)</span>. Thus, we can rewrite <a href="#eq-chapter26-1" class="quarto-xref">Equation&nbsp;<span>26.1</span></a> as <span id="eq-chapter26-3"><span class="math display">\[
 \begin{align}
 Y_t&amp;=\delta_0+\delta_1\Delta X_t+\delta_2\Delta X_{t-1}+\ldots+\delta_{r} \Delta X_{t-r+1}+\delta_{r+1}X_{t-r}+u_t,
 \end{align}
-\tag{26.3}\]</span></span> where <span class="math inline">\(\delta_1,\ldots,\delta_{r+1}\)</span> are the cumulative dynamic multipliers. The relationship between the coefficients in <a href="#eq-eq23-1" class="quarto-xref">Equation&nbsp;<span>26.1</span></a> and <a href="#eq-eq23-3" class="quarto-xref">Equation&nbsp;<span>26.3</span></a> is given by <span class="math display">\[
+\tag{26.3}\]</span></span> where <span class="math inline">\(\delta_1,\ldots,\delta_{r+1}\)</span> are the cumulative dynamic multipliers. The relationship between the coefficients in <a href="#eq-chapter26-1" class="quarto-xref">Equation&nbsp;<span>26.1</span></a> and <a href="#eq-chapter26-3" class="quarto-xref">Equation&nbsp;<span>26.3</span></a> is given by <span class="math display">\[
 \begin{align}
 &amp;\delta_0=\beta_0,\\
 &amp;\delta_1=\beta_1,\\
@@ -666,7 +666,7 @@ Y_t&amp;=\delta_0+\delta_1\Delta X_t+\delta_2\Delta X_{t-1}+\ldots+\delta_{r} \D
 &amp;\vdots\\
 &amp;\delta_{r+1}=\beta_1+\beta_2+\ldots+\beta_{r+1}.
 \end{align}
-\]</span> Thus, the <span class="math inline">\(h\)</span>-period cumulative dynamic multiplier is <span class="math inline">\(\delta_h\)</span>. We can use the OLS estimator to estimate <a href="#eq-eq23-3" class="quarto-xref">Equation&nbsp;<span>26.3</span></a> and formulate hypothesis tests and confidence intervals for the cumulative dynamic multipliers.</p>
+\]</span> Thus, the <span class="math inline">\(h\)</span>-period cumulative dynamic multiplier is <span class="math inline">\(\delta_h\)</span>. We can use the OLS estimator to estimate <a href="#eq-chapter26-3" class="quarto-xref">Equation&nbsp;<span>26.3</span></a> and formulate hypothesis tests and confidence intervals for the cumulative dynamic multipliers.</p>
 </section>
 <section id="heteroskedasticity--and-autocorrelation-consistent-hac-standard-errors" class="level2" data-number="26.3">
 <h2 data-number="26.3" class="anchored" data-anchor-id="heteroskedasticity--and-autocorrelation-consistent-hac-standard-errors"><span class="header-section-number">26.3</span> Heteroskedasticity- and autocorrelation-consistent (HAC) standard errors</h2>
@@ -680,21 +680,31 @@ Y_t=\beta_0+\beta_1X_t+u_t.
 \end{align}
 \]</span> where the approximation follows from <span class="math inline">\(\bar{X}\xrightarrow{p}\mu_{X}\)</span> and <span class="math inline">\(\frac{1}{T}\sum_{t=1}^T(X_t-\bar{X})^2\xrightarrow{p}\sigma^2_X\)</span>. Since <span class="math inline">\(v_t\)</span> is autocorrelated, we have <span class="math display">\[
 \begin{align}
-\var(\bar{v})&amp;=(\var(v_1)+\cov(v_1,v_2)+\ldots+\cov(v_1,v_T)\\
-&amp;+\cov(v_2,v_1),\var(v_2),\ldots,\cov(v_2,v_T)\\
-&amp;+\ldots\\
-&amp;+\cov(v_T,v_1),\cov(v_T,v_2),\ldots,\var(v_T))/T^2.
+\var(\bar{v})&amp;=\var\left(\frac{1}{T}\sum_{t=1}^Tv_t\right)=\frac{1}{T^2}\sum_{t=1}^T\sum_{s=1}^T\cov(v_t,v_s)\\
 \end{align}
-\]</span> We can express <span class="math inline">\(\var(\bar{v})\)</span> as <span class="math display">\[
+\]</span></p>
+<p>Under Assumption 2, the covariance <span class="math inline">\(\cov(v_t,v_s)\)</span> depends only on the lag <span class="math inline">\(|t-s|\)</span>. Let <span class="math inline">\(\gamma_{|t-s|}=\cov(v_t,v_s)\)</span>. Thus, we can express <span class="math inline">\(\var(\bar{v})\)</span> as <span class="math display">\[
 \begin{align}
-\var(\bar{v})&amp;=(T\var(v_t)+2(T-1)\cov(v_t,v_{t-1})+2(T-2)\cov(v_{t},v_{t-2})+\ldots+2\cov(v_t,v_{t-T+1}))/T^2\\
+\var(\bar{v})&amp;=\frac{1}{T^2}\sum_{t=1}^T\sum_{s=1}^T\gamma_{|t-s|}.
+\end{align}
+\]</span></p>
+<p>When <span class="math inline">\(t=s\)</span>, we have <span class="math inline">\(\gamma_{|t-s|}=\gamma_0=\var(v_t)\)</span>. There are <span class="math inline">\(T\)</span> such terms in the double sum. When <span class="math inline">\(k=|t-s|\)</span>, we need to consider the terms with (i) <span class="math inline">\(t-s=k\)</span> and (ii) <span class="math inline">\(s-t=k\)</span>:</p>
+<ol type="i">
+<li>In the first case, there are pairs with <span class="math inline">\(t=s+k\)</span> for <span class="math inline">\(s=1,\ldots,T-k\)</span>. Thus, there are <span class="math inline">\(T-k\)</span> such pairs.</li>
+<li>In the second case, there are pairs with <span class="math inline">\(s=t+k\)</span> for <span class="math inline">\(t=1,\ldots,T-k\)</span>. Thus, there are also <span class="math inline">\(T-k\)</span> such pairs.</li>
+</ol>
+<p>Therefore, there are <span class="math inline">\(2(T-k)\)</span> pairs with <span class="math inline">\(|t-s|=k\)</span> for <span class="math inline">\(k=1,\ldots,T-1\)</span>. Thus, we can express <span class="math inline">\(\sum_{t=1}^T\sum_{s=1}^T\gamma_{|t-s|}\)</span> as <span class="math display">\[
+\begin{align}
+\sum_{t=1}^T\sum_{s=1}^T\gamma_{|t-s|}&amp;=T\gamma_0+2\sum_{k=1}^{T-1}(T-k)\gamma_k.
+\end{align}
+\]</span></p>
+<p>Substituting this expression into <span class="math inline">\(\var(\bar{v})\)</span>, we obtain <span class="math display">\[
+\begin{align}
+\var(\bar{v})&amp;=\frac{1}{T^2}\sum_{t=1}^T\sum_{s=1}^T\gamma_{|t-s|}=\frac{1}{T^2}\left(T\gamma_0+2\sum_{k=1}^{T-1}(T-k)\gamma_k\right)\\
+&amp;=\frac{\gamma_0}{T}\left(1+2\sum_{k=1}^{T-1}\left(1-\frac{k}{T}\right)\frac{\gamma_k}{\gamma_0}\right)\\
 &amp;=\frac{\sigma^2_v}{T}f_T,
 \end{align}
-\]</span> where <span class="math inline">\(\sigma^2_v\)</span> is the variance of <span class="math inline">\(v_t\)</span> and <span class="math inline">\(f_T=1+2\sum_{j=1}^{T-1}(\frac{T-j}{T})\rho_j\)</span> with <span class="math inline">\(\rho_j=\corr(v_t,v_{t-j})\)</span>. Thus, we can write the variance of the OLS estimator as <span class="math display">\[
-\begin{align}
-\sigma^2_{\hat{\beta}_1}=\var(\hat{\beta}_1)=\left(\frac{\sigma^2_v}{T(\sigma^2_X)^2}\right)f_T.
-\end{align}
-\]</span> Using this last expression, we can formulate the HAC estimator of the variance of the OLS estimator as <span id="eq-eq23-13"><span class="math display">\[
+\]</span> where <span class="math inline">\(\sigma^2_v=\gamma_0\)</span> is the variance of <span class="math inline">\(v_t\)</span> and <span class="math inline">\(f_T=1+2\sum_{k=1}^{T-1}(\frac{T-k}{T})\rho_k\)</span> with <span class="math inline">\(\rho_k=\corr(v_t,v_{t-k})=\gamma_k/\gamma_0\)</span>. Using this last expression, we can formulate the HAC estimator of the variance of the OLS estimator as <span id="eq-chapter25-4"><span class="math display">\[
 \begin{align}
 \tilde{\sigma}^2_{\hat{\beta}_1}=\hat{\sigma}^2_{\hat{\beta}_1}\hat{f}_T,
 \end{align}
@@ -713,49 +723,52 @@ Y_t=\beta_0+\beta_1X_t+u_t.
 <li>the ADL approach, and</li>
 <li>the generalized least squares (GLS) approach.</li>
 </ul>
-<p>Consider the following distributed lag model: <span id="eq-eq23-4"><span class="math display">\[
+<p>Consider the following distributed lag model: <span id="eq-chapter26-5"><span class="math display">\[
 \begin{align}
 Y_t=\beta_0+\beta_1X_t+\beta_2X_{t-1}+u_t.
 \end{align}
-\tag{26.5}\]</span></span> In the ADL approach, we assume an autoregressive model for the serial correlation in the error term: <span id="eq-eq23-5"><span class="math display">\[
+\tag{26.5}\]</span></span></p>
+<p>In the ADL approach, we assume an autoregressive model for the serial correlation in the error term: <span id="eq-chapter26-6"><span class="math display">\[
 \begin{align}
 u_t=\phi_1 u_{t-1}+\tilde{u}_t,
 \end{align}
-\tag{26.6}\]</span></span> where <span class="math inline">\(\phi_1\)</span> is the autoregressive parameter and <span class="math inline">\(\tilde{u}_t\)</span> is an uncorrelated error term. Multiplying both sides of <a href="#eq-eq23-4" class="quarto-xref">Equation&nbsp;<span>26.5</span></a> by <span class="math inline">\(\phi_1\)</span> and lagging one period, we obtain <span class="math inline">\(\phi_1Y_{t-1}=\phi_1\beta_0+\phi_1\beta_1X_{t-1}+\phi_1\beta_2X_{t-2}+\phi_1u_{t-1}\)</span>. Then, subtracting this equation from <a href="#eq-eq23-4" class="quarto-xref">Equation&nbsp;<span>26.5</span></a>, we obtain <span id="eq-eq23-6"><span class="math display">\[
+\tag{26.6}\]</span></span> where <span class="math inline">\(\phi_1\)</span> is the autoregressive parameter and <span class="math inline">\(\tilde{u}_t\)</span> is an uncorrelated error term. Multiplying both sides of <a href="#eq-chapter26-5" class="quarto-xref">Equation&nbsp;<span>26.5</span></a> by <span class="math inline">\(\phi_1\)</span> and lagging one period, we obtain <span class="math inline">\(\phi_1Y_{t-1}=\phi_1\beta_0+\phi_1\beta_1X_{t-1}+\phi_1\beta_2X_{t-2}+\phi_1u_{t-1}\)</span>. Then, subtracting this equation from <a href="#eq-chapter26-5" class="quarto-xref">Equation&nbsp;<span>26.5</span></a>, we obtain <span id="eq-chapter26-7"><span class="math display">\[
 \begin{align}
 &amp;Y_t-\phi_1Y_{t-1}=\beta_0(1-\phi_1)+\beta_1X_t+ (\beta_2-\phi_1\beta_1)X_{t-1}-\phi_1\beta_2X_{t-2}+u_t-\phi_1u_{t-1}.
 \end{align}
 \tag{26.7}\]</span></span></p>
-<p>Using <a href="#eq-eq23-6" class="quarto-xref">Equation&nbsp;<span>26.7</span></a>, we can express <span class="math inline">\(Y_t\)</span> as <span id="eq-eq23-7"><span class="math display">\[
+<p>Using <a href="#eq-chapter26-7" class="quarto-xref">Equation&nbsp;<span>26.7</span></a>, we can express <span class="math inline">\(Y_t\)</span> as <span id="eq-chapter26-8"><span class="math display">\[
 \begin{align}
 Y_t=\alpha_0+\phi_1Y_{t-1}+\delta_0X_t+\delta_1X_{t-1}+\delta_2X_{t-2}+\tilde{u}_t,
 \end{align}
-\tag{26.8}\]</span></span> where <span class="math inline">\(\alpha_0=\beta_0(1-\phi_1)\)</span>, <span class="math inline">\(\delta_0=\beta_1\)</span>, <span class="math inline">\(\delta_1=\beta_2-\phi_1\beta_1\)</span>, <span class="math inline">\(\delta_2=-\phi_1\beta_2\)</span>. Thus, the distributed lag model in <a href="#eq-eq23-4" class="quarto-xref">Equation&nbsp;<span>26.5</span></a> with <a href="#eq-eq23-5" class="quarto-xref">Equation&nbsp;<span>26.6</span></a> is equivalent to the ADL model in <a href="#eq-eq23-7" class="quarto-xref">Equation&nbsp;<span>26.8</span></a>. We call <a href="#eq-eq23-7" class="quarto-xref">Equation&nbsp;<span>26.8</span></a> the ADL representation of the distributed lag model.</p>
-<p>Also, we can use <a href="#eq-eq23-6" class="quarto-xref">Equation&nbsp;<span>26.7</span></a> to get another representation of <a href="#eq-eq23-4" class="quarto-xref">Equation&nbsp;<span>26.5</span></a>. Let <span class="math inline">\(\tilde{Y}_t=Y_t-\phi_1Y_{t-1}\)</span> and <span class="math inline">\(\tilde{X}_t=X_t-\phi_1X_{t-1}\)</span>. Then, we can write <a href="#eq-eq23-6" class="quarto-xref">Equation&nbsp;<span>26.7</span></a> as <span id="eq-eq23-8"><span class="math display">\[
+\tag{26.8}\]</span></span> where <span class="math inline">\(\alpha_0=\beta_0(1-\phi_1)\)</span>, <span class="math inline">\(\delta_0=\beta_1\)</span>, <span class="math inline">\(\delta_1=\beta_2-\phi_1\beta_1\)</span>, <span class="math inline">\(\delta_2=-\phi_1\beta_2\)</span>. Thus, the distributed lag model in <a href="#eq-chapter26-5" class="quarto-xref">Equation&nbsp;<span>26.5</span></a> with <a href="#eq-chapter26-6" class="quarto-xref">Equation&nbsp;<span>26.6</span></a> is equivalent to the ADL model in <a href="#eq-chapter26-8" class="quarto-xref">Equation&nbsp;<span>26.8</span></a>. We call <a href="#eq-chapter26-8" class="quarto-xref">Equation&nbsp;<span>26.8</span></a> the ADL representation of the distributed lag model.</p>
+<p>Also, we can use <a href="#eq-chapter26-7" class="quarto-xref">Equation&nbsp;<span>26.7</span></a> to get another representation of <a href="#eq-chapter26-5" class="quarto-xref">Equation&nbsp;<span>26.5</span></a>. Let <span class="math inline">\(\tilde{Y}_t=Y_t-\phi_1Y_{t-1}\)</span> and <span class="math inline">\(\tilde{X}_t=X_t-\phi_1X_{t-1}\)</span>. Then, we can write <a href="#eq-chapter26-7" class="quarto-xref">Equation&nbsp;<span>26.7</span></a> as <span id="eq-chapter26-9"><span class="math display">\[
 \begin{align}
 \tilde{Y}_t=\alpha_0+\beta_1\tilde{X}_t+\beta_2\tilde{X}_{t-1}+\tilde{u}_t.
 \end{align}
-\tag{26.9}\]</span></span> We call this equation the quasi-difference representation of <a href="#eq-eq23-4" class="quarto-xref">Equation&nbsp;<span>26.5</span></a>.</p>
-<p>Since these representations are equivalent, the conditions required for the OLS estimation are also the same for both representations. Consider the quasi-difference representation in <a href="#eq-eq23-8" class="quarto-xref">Equation&nbsp;<span>26.9</span></a>. The OLS estimation requires that <span class="math inline">\(\E(\tilde{u}_t|\tilde{X}_t,\tilde{X}_{t-1},\ldots)=0\)</span>. Since <span class="math inline">\(\tilde{X}_t=X_t-\phi_1X_{t-1}\)</span>, this condition is equivalent to <span class="math inline">\(\E(\tilde{u}_t|X_t,X_{t-1},\ldots)=0\)</span>. Also, using <span class="math inline">\(\tilde{u}_t=u_t-\phi_1u_{t-1}\)</span>, we can express <span class="math inline">\(\E(\tilde{u}_t|X_t,X_{t-1},\ldots)\)</span> as <span class="math display">\[
+\tag{26.9}\]</span></span></p>
+<p>We call this equation the quasi-difference representation of <a href="#eq-chapter26-5" class="quarto-xref">Equation&nbsp;<span>26.5</span></a>.</p>
+<p>Since these representations are equivalent, the conditions required for the OLS estimation are also the same for both representations. Consider the quasi-difference representation in <a href="#eq-chapter26-9" class="quarto-xref">Equation&nbsp;<span>26.9</span></a>. The OLS estimation requires that <span class="math inline">\(\E(\tilde{u}_t|\tilde{X}_t,\tilde{X}_{t-1},\ldots)=0\)</span>. Since <span class="math inline">\(\tilde{X}_t=X_t-\phi_1X_{t-1}\)</span>, this condition is equivalent to <span class="math inline">\(\E(\tilde{u}_t|X_t,X_{t-1},\ldots)=0\)</span>. Also, using <span class="math inline">\(\tilde{u}_t=u_t-\phi_1u_{t-1}\)</span>, we can express <span class="math inline">\(\E(\tilde{u}_t|X_t,X_{t-1},\ldots)\)</span> as <span class="math display">\[
 \E(\tilde{u}_t|X_t,X_{t-1},\ldots)=\E(u_t|X_t,X_{t-1},\ldots)-\phi_1\E(u_{t-1}|X_t,X_{t-1},\ldots).
-\]</span> Thus, in order to achieve the exogeneity assumption for any value of <span class="math inline">\(\phi_1\)</span>, we need to assume that <span class="math inline">\(\E(u_t|X_t,X_{t-1},\ldots)=0\)</span> and <span class="math inline">\(\E(u_{t-1}|X_t,X_{t-1},\ldots)=0\)</span>. The last condition can be rewritten as <span class="math display">\[
+\]</span></p>
+<p>Thus, in order to achieve the exogeneity assumption for any value of <span class="math inline">\(\phi_1\)</span>, we need to assume that <span class="math inline">\(\E(u_t|X_t,X_{t-1},\ldots)=0\)</span> and <span class="math inline">\(\E(u_{t-1}|X_t,X_{t-1},\ldots)=0\)</span>. The last condition can be rewritten as <span class="math display">\[
 \E(u_t|X_{t+1},X_{t},X_{t-1},\ldots)=0,
 \]</span> which holds if we assume that <span class="math inline">\(X_t\)</span> is strictly exogenous.</p>
-<p>As a result, to consistently estimate <a href="#eq-eq23-4" class="quarto-xref">Equation&nbsp;<span>26.5</span></a> with <a href="#eq-eq23-5" class="quarto-xref">Equation&nbsp;<span>26.6</span></a>, the ADL representation in <a href="#eq-eq23-7" class="quarto-xref">Equation&nbsp;<span>26.8</span></a>, or the quasi-difference representation in <a href="#eq-eq23-8" class="quarto-xref">Equation&nbsp;<span>26.9</span></a>, we need to assume that the regressor is strictly exogenous.</p>
-<p>In the ADL approach, to estimate the dynamic multipliers, we use the OLS estimator to estimate <a href="#eq-eq23-7" class="quarto-xref">Equation&nbsp;<span>26.8</span></a>. Since the error term in <a href="#eq-eq23-7" class="quarto-xref">Equation&nbsp;<span>26.8</span></a> is not autocorrelated, we do not need to use HAC standard errors for inference. From the estimated coefficients, we can obtain the estimates of the dynamic multipliers by using the relationships between the coefficients in <a href="#eq-eq23-4" class="quarto-xref">Equation&nbsp;<span>26.5</span></a> and <a href="#eq-eq23-7" class="quarto-xref">Equation&nbsp;<span>26.8</span></a>.</p>
-<p>An alternative way to obtain the estimates of the dynamic multipliers is to use a continuous substitution method. Consider the following estimated equation: <span id="eq-eq23-9"><span class="math display">\[
+<p>As a result, to consistently estimate <a href="#eq-chapter26-5" class="quarto-xref">Equation&nbsp;<span>26.5</span></a> with <a href="#eq-chapter26-6" class="quarto-xref">Equation&nbsp;<span>26.6</span></a>, for the ADL representation in <a href="#eq-chapter26-8" class="quarto-xref">Equation&nbsp;<span>26.8</span></a>, or the quasi-difference representation in <a href="#eq-chapter26-9" class="quarto-xref">Equation&nbsp;<span>26.9</span></a>, we need to assume that the regressor is strictly exogenous.</p>
+<p>In the ADL approach, to estimate the dynamic multipliers, we use the OLS estimator to estimate <a href="#eq-chapter26-8" class="quarto-xref">Equation&nbsp;<span>26.8</span></a>. Since the error term in <a href="#eq-chapter26-8" class="quarto-xref">Equation&nbsp;<span>26.8</span></a> is not autocorrelated, we do not need to use HAC standard errors for inference. From the estimated coefficients, we can obtain the estimates of the dynamic multipliers by using the relationships between the coefficients in <a href="#eq-chapter26-5" class="quarto-xref">Equation&nbsp;<span>26.5</span></a> and <a href="#eq-chapter26-8" class="quarto-xref">Equation&nbsp;<span>26.8</span></a>.</p>
+<p>An alternative way to obtain the estimates of the dynamic multipliers is to use a continuous substitution method. Consider the following estimated equation: <span id="eq-chapter26-10"><span class="math display">\[
 \begin{align}
 \hat{Y}_t=\hat{\phi}_1Y_{t-1}+\hat{\delta}_0X_t+\hat{\delta}_1X_{t-1}+\hat{\delta}_2X_{t-2},
 \end{align}
-\tag{26.10}\]</span></span> where we omit the estimated intercept term as the intercept term does not affect the dynamic multipliers. By continuously substituting <span class="math inline">\(Y_{t-1}\)</span>, <span class="math inline">\(Y_{t-2}\)</span>, and so on into <a href="#eq-eq23-9" class="quarto-xref">Equation&nbsp;<span>26.10</span></a>, we can obtain the following equation: <span class="math display">\[
+\tag{26.10}\]</span></span> where we omit the estimated intercept term as the intercept term does not affect the dynamic multipliers. By continuously substituting <span class="math inline">\(Y_{t-1}\)</span>, <span class="math inline">\(Y_{t-2}\)</span>, and so on into <a href="#eq-chapter26-10" class="quarto-xref">Equation&nbsp;<span>26.10</span></a>, we can obtain the following equation: <span class="math display">\[
 \begin{align}
 \hat{Y}_t&amp;= \hat{\delta}_0X_t+(\hat{\delta}_1+\hat{\phi}_1\hat{\delta}_0)X_{t-1}+(\hat{\delta}_2+\hat{\phi}_1\hat{\delta}_1+\hat{\phi}^2_1\hat{\delta}_0)X_{t-2}\\
 &amp;+\hat{\phi}_1(\hat{\delta}_2+\hat{\phi}_1\hat{\delta}_1+\hat{\phi}^2_1\hat{\delta}_0)X_{t-3}+\ldots.
 \end{align}
 \]</span> The coefficients on <span class="math inline">\(X_t\)</span>, <span class="math inline">\(X_{t-1}\)</span>, and so on in this equation are the estimates of the dynamic multipliers.</p>
-<p>In the GLS approach, we use the OLS estimator to estimate the quasi-difference representation in <a href="#eq-eq23-8" class="quarto-xref">Equation&nbsp;<span>26.9</span></a>. We first assume that <span class="math inline">\(\phi_1\)</span> is known. Then, under the assumption that <span class="math inline">\(X_t\)</span> is strictly exogenous, we can use the OLS estimator to estimate <span class="math inline">\(\alpha_0\)</span>, <span class="math inline">\(\beta_1\)</span>, and <span class="math inline">\(\beta_2\)</span>. This estimator is called the <strong>infeasible GLS estimator</strong> because we do not know <span class="math inline">\(\phi_1\)</span> in practice.</p>
-<p>The <strong>feasible GLS estimator</strong> is the OLS estimator of the quasi-difference representation in <a href="#eq-eq23-8" class="quarto-xref">Equation&nbsp;<span>26.9</span></a>, using an estimate <span class="math inline">\(\hat{\phi}_1\)</span> of <span class="math inline">\(\phi_1\)</span>. To obtain an estimate of <span class="math inline">\(\phi_1\)</span>, we can first estimate the ADL representation in <a href="#eq-eq23-4" class="quarto-xref">Equation&nbsp;<span>26.5</span></a> by the OLS estimator to obtain residuals <span class="math inline">\(\hat{u}_t\)</span>. Then, we estimate <span class="math inline">\(\phi_1\)</span> by regressing <span class="math inline">\(\hat{u}_t\)</span> on <span class="math inline">\(\hat{u}_{t-1}\)</span>. Once we have <span class="math inline">\(\hat{\phi}_1\)</span>, we can construct <span class="math inline">\(\hat{\tilde{Y}}_t=Y_t-\hat{\phi}_1Y_{t-1}\)</span>, <span class="math inline">\(\hat{\tilde{X}}_t=X_t-\hat{\phi}_1X_{t-1}\)</span>, and <span class="math inline">\(\hat{\tilde{X}}_{t-1}=X_{t-1}-\hat{\phi}_1X_{t-2}\)</span>. Finally, we can regress <span class="math inline">\(\hat{\tilde{Y}}_t\)</span> on <span class="math inline">\(\hat{\tilde{X}}_t\)</span> and <span class="math inline">\(\hat{\tilde{X}}_{t-1}\)</span> to get estimates of <span class="math inline">\(\alpha_0\)</span>, <span class="math inline">\(\beta_1\)</span>, and <span class="math inline">\(\beta_2\)</span>. This version of the feasible GLS estimator is called the Cochrane-Orcutt estimator.</p>
-<p>Under the assumptions that <span class="math inline">\(X_t\)</span> is strictly exogenous and the error term in <a href="#eq-eq23-8" class="quarto-xref">Equation&nbsp;<span>26.9</span></a> is homoskedastic, the GLS estimator is efficient among the class of linear unbiased estimators, which follows from the Gauss-Markov theorem.</p>
+<p>In the GLS approach, we use the OLS estimator to estimate the quasi-difference representation in <a href="#eq-chapter26-9" class="quarto-xref">Equation&nbsp;<span>26.9</span></a>. We first assume that <span class="math inline">\(\phi_1\)</span> is known. Then, under the assumption that <span class="math inline">\(X_t\)</span> is strictly exogenous, we can use the OLS estimator to estimate <span class="math inline">\(\alpha_0\)</span>, <span class="math inline">\(\beta_1\)</span>, and <span class="math inline">\(\beta_2\)</span>. This estimator is called the <strong>infeasible GLS estimator</strong> because we do not know <span class="math inline">\(\phi_1\)</span> in practice.</p>
+<p>The <strong>feasible GLS estimator</strong> is the OLS estimator of the quasi-difference representation in <a href="#eq-chapter26-9" class="quarto-xref">Equation&nbsp;<span>26.9</span></a>, using an estimate <span class="math inline">\(\hat{\phi}_1\)</span> of <span class="math inline">\(\phi_1\)</span>. To obtain an estimate of <span class="math inline">\(\phi_1\)</span>, we can first estimate the ADL representation in <a href="#eq-chapter26-5" class="quarto-xref">Equation&nbsp;<span>26.5</span></a> by the OLS estimator to obtain residuals <span class="math inline">\(\hat{u}_t\)</span>. Then, we estimate <span class="math inline">\(\phi_1\)</span> by regressing <span class="math inline">\(\hat{u}_t\)</span> on <span class="math inline">\(\hat{u}_{t-1}\)</span>. Once we have <span class="math inline">\(\hat{\phi}_1\)</span>, we can construct <span class="math inline">\(\hat{\tilde{Y}}_t=Y_t-\hat{\phi}_1Y_{t-1}\)</span>, <span class="math inline">\(\hat{\tilde{X}}_t=X_t-\hat{\phi}_1X_{t-1}\)</span>, and <span class="math inline">\(\hat{\tilde{X}}_{t-1}=X_{t-1}-\hat{\phi}_1X_{t-2}\)</span>. Finally, we can regress <span class="math inline">\(\hat{\tilde{Y}}_t\)</span> on <span class="math inline">\(\hat{\tilde{X}}_t\)</span> and <span class="math inline">\(\hat{\tilde{X}}_{t-1}\)</span> to get estimates of <span class="math inline">\(\alpha_0\)</span>, <span class="math inline">\(\beta_1\)</span>, and <span class="math inline">\(\beta_2\)</span>. This version of the feasible GLS estimator is called the Cochrane-Orcutt estimator.</p>
+<p>Under the assumptions that <span class="math inline">\(X_t\)</span> is strictly exogenous and the error term in <a href="#eq-chapter26-9" class="quarto-xref">Equation&nbsp;<span>26.9</span></a> is homoskedastic, the GLS estimator is efficient among the class of linear unbiased estimators, which follows from the Gauss-Markov theorem.</p>
 </section>
 <section id="application-orange-juice-prices-and-cold-weather" class="level2" data-number="26.5">
 <h2 data-number="26.5" class="anchored" data-anchor-id="application-orange-juice-prices-and-cold-weather"><span class="header-section-number">26.5</span> Application: Orange juice prices and cold weather</h2>
@@ -769,8 +782,8 @@ Y_t=\alpha_0+\phi_1Y_{t-1}+\delta_0X_t+\delta_1X_{t-1}+\delta_2X_{t-2}+\tilde{u}
 <li><code>fdd</code>: Number of freezing degree days at the Orlando, Florida, airport.</li>
 </ul>
 <p>The number of freezing degree days (<code>fdd</code>) is computed from the sum of the number of degrees below 31 degrees Fahrenheit for each day in the month. For example, assume that there were three days in a month with temperatures of 30, 29, and 28 degrees Fahrenheit. Then, the number of freezing degree days for that month is <span class="math inline">\((31-30)+(31-29)+(31-28)=6\)</span>.</p>
-<p>The dataset is available in the <code>frozenjuice.csv</code> file. We use the following code to load the data set and define real prices and percentage changes in real prices.</p>
-<div id="9eb18064" class="cell" data-execution_count="2">
+<p>The dataset is available in the <code>frozenjuice.csv</code> file. We use the following code to load the dataset and define real prices and percentage changes in real prices.</p>
+<div id="de34a1f6" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data set</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'data/FrozenJuice.csv'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df.index <span class="op">=</span> pd.date_range(start<span class="op">=</span><span class="st">'1950-01-01'</span>, periods<span class="op">=</span><span class="bu">len</span>(df), freq<span class="op">=</span><span class="st">'ME'</span>)</span>
@@ -784,7 +797,7 @@ Y_t=\alpha_0+\phi_1Y_{t-1}+\delta_0X_t+\delta_1X_{t-1}+\delta_2X_{t-2}+\tilde{u}
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Columns names</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="74">
 <pre><code>Index(['price', 'ppi', 'fdd', 'rprice', 'dprice'], dtype='object')</code></pre>
 </div>
 </div>
@@ -800,7 +813,7 @@ Y_t=\alpha_0+\phi_1Y_{t-1}+\delta_0X_t+\delta_1X_{t-1}+\delta_2X_{t-2}+\tilde{u}
 Table&nbsp;26.1: Summary statistics
 </figcaption>
 <div aria-describedby="tbl-t23-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="75">
 <div>
 
 
@@ -916,7 +929,7 @@ Table&nbsp;26.1: Summary statistics
 <div id="fig-f23-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f23-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter16-DynamicCausalEffects_files/figure-html/fig-f23-1-output-1.png" width="758" height="567" class="figure-img">
+<img src="Chapter16-DynamicCausalEffects_files/figure-html/fig-f23-1-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f23-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;26.1: Orange juice prices and cold weather
@@ -928,23 +941,23 @@ Figure&nbsp;26.1: Orange juice prices and cold weather
 </section>
 <section id="distributed-lag-models" class="level3" data-number="26.5.2">
 <h3 data-number="26.5.2" class="anchored" data-anchor-id="distributed-lag-models"><span class="header-section-number">26.5.2</span> Distributed lag models</h3>
-<p>We consider the following distributed lag models: <span id="eq-eq23-10"><span class="math display">\[
+<p>We consider the following distributed lag models: <span id="eq-chapter26-11"><span class="math display">\[
 \begin{align}
 \text{Model 1}:\,\text{ChgP}_t=\beta_0+\beta_1\text{FDD}_t+\beta_2\text{FDD}_{t-1}+\ldots+\beta_{19}\text{FDD}_{t-18}+u_t,
 \end{align}
-\tag{26.11}\]</span></span> <span id="eq-eq23-11"><span class="math display">\[
+\tag{26.11}\]</span></span> <span id="eq-chapter26-12"><span class="math display">\[
 \begin{align}
 \text{Model 2}: \,\text{ChgP}_t&amp;=\delta_0+\delta_1\Delta\text{FDD}_t+\delta_2\Delta\text{FDD}_{t-1}+\ldots+\delta_{18}\Delta\text{FDD}_{t-17}\\
 &amp;+\delta_{19}\text{FDD}_{t-18}+u_t,
 \end{align}
 \tag{26.12}\]</span></span></p>
-<p><span id="eq-eq23-12"><span class="math display">\[
+<p><span id="eq-chapter26-13"><span class="math display">\[
 \begin{align}
 \text{Model 3}: \,\text{ChgP}_t&amp;=\delta_0+\delta_1\Delta\text{FDD}_t+\delta_2\Delta\text{FDD}_{t-1}+\ldots+\delta_{18}\Delta\text{FDD}_{t-17}\\
 &amp;+\delta_{19}\text{FDD}_{t-18}+\gamma_1D_{1t}+\ldots+\gamma_{11}D_{11t}+u_t,
 \end{align}
 \tag{26.13}\]</span></span></p>
-<p>where <span class="math inline">\(\text{ChgP}_t\)</span> is the percentage change in the real price of frozen concentrated orange juice, <span class="math inline">\(\text{FDD}_t\)</span> is the freezing degree days, and <span class="math inline">\(D_{1t},\ldots,D_{11t}\)</span> are monthly dummy variables. We use <a href="#eq-eq23-10" class="quarto-xref">Equation&nbsp;<span>26.11</span></a> to estimate the <strong>dynamic multipliers</strong> and <a href="#eq-eq23-11" class="quarto-xref">Equation&nbsp;<span>26.12</span></a> to estimate the <strong>cumulative dynamic multipliers</strong>. The relationships between the coefficients in <a href="#eq-eq23-10" class="quarto-xref">Equation&nbsp;<span>26.11</span></a> and <a href="#eq-eq23-11" class="quarto-xref">Equation&nbsp;<span>26.12</span></a> are given by</p>
+<p>where <span class="math inline">\(\text{ChgP}_t\)</span> is the percentage change in the real price of frozen concentrated orange juice, <span class="math inline">\(\text{FDD}_t\)</span> is the freezing degree days, and <span class="math inline">\(D_{1t},\ldots,D_{11t}\)</span> are monthly dummy variables. We use <a href="#eq-chapter26-11" class="quarto-xref">Equation&nbsp;<span>26.11</span></a> to estimate the <strong>dynamic multipliers</strong> and <a href="#eq-chapter26-12" class="quarto-xref">Equation&nbsp;<span>26.12</span></a> to estimate the <strong>cumulative dynamic multipliers</strong>. The relationships between the coefficients in <a href="#eq-chapter26-11" class="quarto-xref">Equation&nbsp;<span>26.11</span></a> and <a href="#eq-chapter26-12" class="quarto-xref">Equation&nbsp;<span>26.12</span></a> are given by</p>
 <ul>
 <li><span class="math inline">\(\delta_0=\beta_0\)</span></li>
 <li><span class="math inline">\(\delta_1=\beta_1\)</span>: impact effect</li>
@@ -952,8 +965,8 @@ Figure&nbsp;26.1: Orange juice prices and cold weather
 <li><span class="math inline">\(\cdots\)</span></li>
 <li><span class="math inline">\(\delta_{19}=\beta_1+\beta_2+\ldots+\beta_{19}\)</span>: long-run cumulative dynamic multiplier</li>
 </ul>
-<p>We use the HAC standard errors to obtain valid inference on the dynamic multipliers and cumulative dynamic multipliers. The truncation parameter for the HAC standard errors is <span class="math inline">\(m=0.75T^{1/3}=0.75\times612^{1/3}=6.37\)</span>. Therefore, we consider <span class="math inline">\(m=7\)</span> and <span class="math inline">\(m=14\)</span> for the HAC standard errors, where the latter is used to check the robustness of the results. The following code chunk shows how to estimate the models and obtain the HAC standard errors. The HAC standard errors estimates are obtained using the <code>cov_type='HAC'</code> and <code>cov_kwds={'maxlags': 7}</code> options, where the latter option specifies the truncation parameter.</p>
-<div id="5d2a1ebf" class="cell" data-execution_count="5">
+<p>We use the HAC standard errors to obtain valid inference on the dynamic multipliers and cumulative dynamic multipliers. The truncation parameter for the HAC standard errors is <span class="math inline">\(m=0.75T^{1/3}=0.75\times612^{1/3}=6.37\)</span>. Therefore, we consider <span class="math inline">\(m=7\)</span> and <span class="math inline">\(m=14\)</span> for the HAC standard errors, where the latter is used to check the robustness of the results. The HAC standard errors estimates are obtained using the <code>cov_type='HAC'</code> and <code>cov_kwds={'maxlags': 7}</code> options, where the latter option specifies the truncation parameter.</p>
+<div id="51e534a4" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare the data for the models</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'dFDD'</span>] <span class="op">=</span> df[<span class="st">'fdd'</span>].diff()</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -980,8 +993,8 @@ Figure&nbsp;26.1: Orange juice prices and cold weather
 </section>
 <section id="estimation-results" class="level3" data-number="26.5.3">
 <h3 data-number="26.5.3" class="anchored" data-anchor-id="estimation-results"><span class="header-section-number">26.5.3</span> Estimation results</h3>
-<p>We use the <code>Stargazer</code> package to present the estimation results. The following code chunk shows how to present the results in a table. <a href="#tbl-t23-2" class="quarto-xref">Table&nbsp;<span>26.2</span></a> includes the estimates of the dynamic multipliers and cumulative dynamic multipliers.</p>
-<div id="60421238" class="cell" data-execution_count="6">
+<p>We use the <code>Stargazer</code> package to present the estimation results. <a href="#tbl-t23-2" class="quarto-xref">Table&nbsp;<span>26.2</span></a> includes the estimates of the dynamic multipliers and cumulative dynamic multipliers.</p>
+<div id="701c7245" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare the table</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="op">=</span> [<span class="ss">f'fdd.shift(</span><span class="sc">{</span>lag<span class="sc">}</span><span class="ss">)'</span> <span class="cf">for</span> lag <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">19</span>)] </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>v2 <span class="op">=</span> [<span class="ss">f'dFDD.shift(</span><span class="sc">{</span>lag<span class="sc">}</span><span class="ss">)'</span> <span class="cf">for</span> lag <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">18</span>)]</span>
@@ -1009,7 +1022,7 @@ Figure&nbsp;26.1: Orange juice prices and cold weather
 Table&nbsp;26.2: The dynamic effect of a freezing degree day on the price of orange juice
 </figcaption>
 <div aria-describedby="tbl-t23-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="79">
 <table style="text-align:center"><tbody><tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr>
 <tr><td style="text-align:left"></td><td colspan="4"><em>Dependent variable: dprice</em></td></tr><tr><td style="text-align:left"></td></tr><tr><td></td><td colspan="1">Model 1</td><td colspan="1">Model 2 (m=7)</td><td colspan="1">Model 2 (m=14)</td><td colspan="1">Model 3</td></tr>
 <tr><td colspan="5" style="border-bottom: 1px solid black"></td></tr>
@@ -1123,7 +1136,7 @@ Table&nbsp;26.2: The dynamic effect of a freezing degree day on the price of ora
 <div id="fig-f23-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f23-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter16-DynamicCausalEffects_files/figure-html/fig-f23-2-output-1.png" width="514" height="354" class="figure-img">
+<img src="Chapter16-DynamicCausalEffects_files/figure-html/fig-f23-2-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f23-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;26.2: Dynamic Effect of FDD on Orange Juice Price
@@ -1157,7 +1170,7 @@ Figure&nbsp;26.2: Dynamic Effect of FDD on Orange Juice Price
 <div id="fig-f23-3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f23-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter16-DynamicCausalEffects_files/figure-html/fig-f23-3-output-1.png" width="514" height="353" class="figure-img">
+<img src="Chapter16-DynamicCausalEffects_files/figure-html/fig-f23-3-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f23-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;26.3: Cumulative Dynamic Effect of FDD on Orange Juice Price
@@ -1177,18 +1190,18 @@ Figure&nbsp;26.3: Cumulative Dynamic Effect of FDD on Orange Juice Price
 \end{align*}
 \]</span></p>
 <p>We use the <span class="math inline">\(F\)</span>-statistic to test the joint null hypothesis. The <span class="math inline">\(p\)</span>-value for the test is 0.47, indicating that the monthly dummy variables do not have a statistically significant effect on the percentage change in real prices.</p>
-<div id="48c2ba5d" class="cell" data-execution_count="10">
+<div id="393170e5" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># F-test for the joint null hypothesis</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>restrictions <span class="op">=</span> [<span class="st">'month_2[T.True]=0'</span>, <span class="st">'month_3[T.True]=0'</span>, <span class="st">'month_4[T.True]=0'</span>, <span class="st">'month_5[T.True]=0'</span>, <span class="st">'month_6[T.True]=0'</span>, <span class="st">'month_7[T.True]=0'</span>, </span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">'month_8[T.True]=0'</span>, <span class="st">'month_9[T.True]=0'</span>, <span class="st">'month_10[T.True]=0'</span>, <span class="st">'month_11[T.True]=0'</span>, <span class="st">'month_12[T.True]=0'</span>]</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>f_test <span class="op">=</span> model3.f_test(restrictions)</span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>f_test.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
-<pre><code>'&lt;F test: F=0.9682947074579008, p=0.4742606374507512, df_denom=563, df_num=11&gt;'</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="82">
+<pre><code>'&lt;F test: F=0.9682947074578934, p=0.47426063745075986, df_denom=563, df_num=11&gt;'</code></pre>
 </div>
 </div>
 <p>Finally, we examine whether the dynamic multipliers have remained stable over time. One way to assess this is by estimating these multipliers for different subperiods of the sample. For example, we consider the periods 1950–1966, 1967–1983, and 1984–2000. If the multipliers are consistent across all three periods, their estimates should be similar, and the estimated cumulative multipliers should also align. To investigate this, we re-estimate Model 2 for each subperiod and compare the estimated cumulative dynamic multipliers in <a href="#fig-f23-4" class="quarto-xref">Figure&nbsp;<span>26.4</span></a>. The figure shows that the estimated cumulative dynamic multipliers are relatively larger in the first subperiod compared to the other two subperiods. This suggests that the effect of freezing degree days on real prices has decreased over time.</p>
-<div id="47efd25d" class="cell" data-execution_count="11">
+<div id="c3252411" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define subperiods</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> df.loc[<span class="st">'1950-01-01'</span>:<span class="st">'1966-12-01'</span>]</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> df.loc[<span class="st">'1967-01-01'</span>:<span class="st">'1983-12-01'</span>]</span>
@@ -1217,7 +1230,7 @@ Figure&nbsp;26.3: Cumulative Dynamic Effect of FDD on Orange Juice Price
 <div id="fig-f23-4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f23-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter16-DynamicCausalEffects_files/figure-html/fig-f23-4-output-1.png" width="506" height="349" class="figure-img">
+<img src="Chapter16-DynamicCausalEffects_files/figure-html/fig-f23-4-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f23-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;26.4: Cumulative Dynamic Effect of FDD on Orange Juice Price for Different Subperiods
@@ -1239,40 +1252,43 @@ Figure&nbsp;26.4: Cumulative Dynamic Effect of FDD on Orange Juice Price for Dif
 <p>In this section, we provide examples to illustrate how to think about the exogeneity assumption. For each example, we consider the factors that are captured by the error term and examine whether these factors are correlated with the past, present, or future values of the regressor of interest.</p>
 <section id="example-1-the-effect-of-u.s.-income-on-australian-exports" class="level3" data-number="26.6.1">
 <h3 data-number="26.6.1" class="anchored" data-anchor-id="example-1-the-effect-of-u.s.-income-on-australian-exports"><span class="header-section-number">26.6.1</span> Example 1: The effect of U.S. income on Australian exports</h3>
-<p>In the first example, we consider a distributed lag model that relates Australian exports to U.S. income. The model is given by <span id="eq-eq23-13"><span class="math display">\[
+<p>In the first example, we consider a distributed lag model that relates Australian exports to U.S. income. The model is given by <span id="eq-chapter26-14"><span class="math display">\[
 \begin{align}
-\text{Exports}_t=\beta_0+\beta_1\text{Income}_t+\beta_2\text{Income}_{t-1}+\ldots+\beta_{5}\text{Income}_{t-4}+u_t,
+\text{Exports}_t&amp;=\beta_0+\beta_1\text{Income}_t+\beta_2\text{Income}_{t-1}+\beta_3\text{Income}_{t-2}\\
+&amp;+\beta_{4}\text{Income}_{t-3}+\beta_{5}\text{Income}_{t-4}+u_t,
 \end{align}
 \tag{26.14}\]</span></span> where <span class="math inline">\(\text{Exports}_t\)</span> is the real value of Australian exports to the U.S. in quarter <span class="math inline">\(t\)</span>, and <span class="math inline">\(\text{Income}_t\)</span> is the real U.S. income in quarter <span class="math inline">\(t\)</span>. The error term <span class="math inline">\(u_t\)</span> captures factors affecting Australian exports to the U.S. other than U.S. income.</p>
-<p>Due to international movements in goods and capital, there is a simultaneous relationship between U.S. income and Australian exports. For instance, an increase in U.S. income may lead to a rise in Australian exports, and an increase in Australian exports may, in turn, lead to a rise in U.S. income. This simultaneity implies that the error term <span class="math inline">\(u_t\)</span> in <a href="#eq-eq23-13" class="quarto-xref">Equation&nbsp;<span>26.14</span></a> may be correlated with U.S. income in both the current and past quarters. However, since the Australian economy is small relative to the U.S. economy, it is unlikely that Australian exports significantly affect U.S. income. Therefore, U.S. income is likely to be exogenous in this model.</p>
+<p>Due to international movements in goods and capital, there is a simultaneous relationship between U.S. income and Australian exports. For instance, an increase in U.S. income may lead to a rise in Australian exports, and an increase in Australian exports may, in turn, lead to a rise in U.S. income. This simultaneity implies that the error term <span class="math inline">\(u_t\)</span> in <a href="#eq-chapter26-14" class="quarto-xref">Equation&nbsp;<span>26.14</span></a> may be correlated with U.S. income in both the current and past quarters. However, since the Australian economy is small relative to the U.S. economy, it is unlikely that Australian exports significantly affect U.S. income. Therefore, U.S. income is likely to be exogenous in this model.</p>
 <p>However, if we consider European Union exports to the U.S., the simultaneity issue may be more pronounced. This is because the European Union is a major trading partner of the U.S., and changes in European Union exports to the U.S. could influence U.S. income. In this case, U.S. income may not be exogenous in the model.</p>
 </section>
 <section id="example-2-the-effect-of-oil-prices-on-u.s.-inflation" class="level3" data-number="26.6.2">
 <h3 data-number="26.6.2" class="anchored" data-anchor-id="example-2-the-effect-of-oil-prices-on-u.s.-inflation"><span class="header-section-number">26.6.2</span> Example 2: The effect of oil prices on U.S. inflation</h3>
-<p>In the second example, we consider a distributed lag model that relates U.S. inflation to oil prices. The model is given by <span id="eq-eq23-14"><span class="math display">\[
+<p>In the second example, we consider a distributed lag model that relates U.S. inflation to oil prices. The model is given by <span id="eq-chapter25-15"><span class="math display">\[
 \begin{align}
-\text{Inflation}_t=\beta_0+\beta_1\text{OilPrice}_t+\beta_2\text{OilPrice}_{t-1}+\ldots+\beta_{13}\text{OilPrice}_{t-12}+u_t,
+\text{Inflation}_t&amp;=\beta_0+\beta_1\text{OilPrice}_t+\beta_2\text{OilPrice}_{t-1}\\
+&amp;+\ldots+\beta_{13}\text{OilPrice}_{t-12}+u_t,
 \end{align}
 \tag{26.15}\]</span></span> where <span class="math inline">\(\text{Inflation}_t\)</span> is the U.S. inflation rate in month <span class="math inline">\(t\)</span>, and <span class="math inline">\(\text{OilPrice}_t\)</span> is the price of oil in month <span class="math inline">\(t\)</span>.</p>
 <p>In this example, we need to consider how oil prices are determined. The price of oil is set by the members of the Organization of the Petroleum Exporting Countries (OPEC) and other oil-producing countries. These countries may adjust oil prices in response to both the current and future state of the world economy. Since the current and future state of the world economy also includes the U.S. inflation rate, oil prices become endogenous in the model.</p>
 </section>
 <section id="example-3-the-effect-of-interest-rate-on-the-inflation-rate" class="level3" data-number="26.6.3">
 <h3 data-number="26.6.3" class="anchored" data-anchor-id="example-3-the-effect-of-interest-rate-on-the-inflation-rate"><span class="header-section-number">26.6.3</span> Example 3: The effect of interest rate on the inflation rate</h3>
-<p>In the third example, we consider a distributed lag model that relates the U.S. inflation rate to the interest rate. The model is given by <span id="eq-eq23-15"><span class="math display">\[
+<p>In the third example, we consider a distributed lag model that relates the U.S. inflation rate to the interest rate. The model is given by <span id="eq-chapter25-16"><span class="math display">\[
 \begin{align}
-\text{Inflation}_t=\beta_0+\beta_1\text{InterestRate}_t+\beta_2\text{InterestRate}_{t-1}+\ldots+\beta_{5}\text{InterestRate}_{t-4}+u_t,
+\text{Inflation}_t&amp;=\beta_0+\beta_1\text{InterestRate}_t+\beta_2\text{InterestRate}_{t-1}\\
+&amp;+\ldots+\beta_{5}\text{InterestRate}_{t-4}+u_t,
 \end{align}
 \tag{26.16}\]</span></span> where <span class="math inline">\(\text{InterestRate}_t\)</span> is the U.S. interest rate in month <span class="math inline">\(t\)</span>.</p>
 <p>In this example, we need to consider how the central bank sets the interest rate. The central bank adjusts the interest rate in response to the current and future state of the economy, including the current and future inflation rates. As a result, the interest rate is endogenous in the model, and we cannot use this model to estimate the dynamic causal effect of the interest rate on the inflation rate.</p>
 </section>
 <section id="example-4-the-effect-of-term-spread-on-the-gdp-growth-rate" class="level3" data-number="26.6.4">
 <h3 data-number="26.6.4" class="anchored" data-anchor-id="example-4-the-effect-of-term-spread-on-the-gdp-growth-rate"><span class="header-section-number">26.6.4</span> Example 4: The effect of term spread on the GDP growth rate</h3>
-<p>In the fourth example, we consider the following ADL model from <a href="Chapter15-TimeSeriesRegression.html" class="quarto-xref"><span>Chapter 25</span></a>: <span id="eq-eq23-16"><span class="math display">\[
+<p>In the fourth example, we consider the following ADL model from <a href="Chapter15-TimeSeriesRegression.html" class="quarto-xref"><span>Chapter 25</span></a>: <span id="eq-chapter25-17"><span class="math display">\[
 \begin{align}
-\text{GDPGR}_t=\beta_0+\beta_1{\tt GDPGR}_{t-1}+\beta_2{\tt GDPGR}_{t-2}+\delta_1{\tt TSpread}_{t-1}+\delta_2{\tt TSpread}_{t-2}+u_t,
+\text{GDPGR}_t&amp;=\beta_0+\beta_1{\tt GDPGR}_{t-1}+\beta_2{\tt GDPGR}_{t-2}\\
+&amp;+\delta_1{\tt TSpread}_{t-1}+\delta_2{\tt TSpread}_{t-2}+u_t,
 \end{align}
-\tag{26.17}\]</span></span></p>
-<p>where <span class="math inline">\(\text{GDPGR}_t\)</span> is the GDP growth rate in quarter <span class="math inline">\(t\)</span>, and <span class="math inline">\(\text{TSpread}_t\)</span> is the term spread in quarter <span class="math inline">\(t\)</span>. Although we are only using the past values of the term spread in this model, the term spread is likely to be endogenous. <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span> write “… past values of the term spread were not randomly assigned in an experiment; instead, the past term spread was simultaneously determined with past values of the growth rate of GDP. Because GDP and the interest rates making up the term spread are simultaneously determined, the other factors that determine the growth rate of GDP contained in <span class="math inline">\(u_t\)</span> are correlated with past values of the term spread; that is, the term spread is not exogenous.”</p>
+\tag{26.17}\]</span></span> where <span class="math inline">\(\text{GDPGR}_t\)</span> is the GDP growth rate in quarter <span class="math inline">\(t\)</span>, and <span class="math inline">\(\text{TSpread}_t\)</span> is the term spread in quarter <span class="math inline">\(t\)</span>. Although we are only using the past values of the term spread in this model, the term spread is likely to be endogenous. <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span> write “… past values of the term spread were not randomly assigned in an experiment; instead, the past term spread was simultaneously determined with past values of the growth rate of GDP. Because GDP and the interest rates making up the term spread are simultaneously determined, the other factors that determine the growth rate of GDP contained in <span class="math inline">\(u_t\)</span> are correlated with past values of the term spread; that is, the term spread is not exogenous.”</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
