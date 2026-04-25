@@ -548,7 +548,7 @@ window.Quarto = {
 </header>
 
 
-<div id="190eebe3" class="cell" data-execution_count="1">
+<div id="dd848395" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -574,6 +574,64 @@ I^2&amp;=\frac{1}{2\pi}\int_{0}^{2\pi}\int_{0}^{\infty}e^{-r^2/2}rdrd\theta=\fra
 &amp;=\frac{1}{2\pi}\int^{2\pi}_{0}d\theta=1.
 \end{align*}
 \]</span></p>
+<p>Let <span class="math inline">\(X\sim N(0,1)\)</span>. Then, we can express <span class="math inline">\(Y\)</span> as <span class="math inline">\(Y=\mu+\sigma X\)</span>. Let us verify that <span class="math inline">\(\E(X)=0\)</span> and <span class="math inline">\(\text{Var}(X)=1\)</span>. First, we have <span class="math display">\[
+\begin{align*}
+\E(X)&amp;=\int_{-\infty}^{\infty}x\frac{1}{\sqrt{2\pi}}e^{-x^2/2}dx=\frac{1}{\sqrt{2\pi}}\lim_{n\to\infty}\int_{-n}^{n}xe^{-x^2/2}dx\\
+&amp;=\frac{1}{\sqrt{2\pi}}\lim_{n\to\infty}\left(-e^{-x^2/2}\bigg|_{-n}^{n}\right)=0.
+\end{align*}
+\]</span></p>
+<p>Next, using integration by parts, we have <span class="math display">\[
+\begin{align*}
+\text{Var}(X)&amp;=\E(X^2)-\E(X)^2=\int_{-\infty}^{\infty}x^2\frac{1}{\sqrt{2\pi}}e^{-x^2/2}dx\\
+&amp;=\frac{1}{\sqrt{2\pi}}\lim_{n\to\infty}\int_{-n}^{n}x\cdot xe^{-x^2/2}dx\\
+&amp;=\frac{1}{\sqrt{2\pi}}\lim_{n\to\infty}\left(-xe^{-x^2/2}\bigg|_{-n}^{n}+\int_{-n}^{n}e^{-x^2/2}dx\right)\\
+&amp;=\int_{-\infty}^{\infty}\frac{1}{\sqrt{2\pi}}e^{-x^2/2}dx=1.
+\end{align*}
+\]</span></p>
+<p>Also, since <span class="math inline">\(Y=\mu+\sigma X\)</span>, we have <span class="math inline">\(\E(Y)=\mu+\sigma\E(X)=\mu\)</span> and <span class="math inline">\(\text{Var}(Y)=\sigma^2\text{Var}(X)=\sigma^2\)</span>.</p>
+<p>For higher-order moments of <span class="math inline">\(X\)</span>, we can use the following result, known as <a href="https://en.wikipedia.org/wiki/Stein%27s_lemma">Stein’s lemma</a>, to find the moments of <span class="math inline">\(X\)</span>. <span class="math display">\[
+\begin{align*}
+\E(X f(X))&amp;=\E(f'(X)),
+\end{align*}
+\]</span> where <span class="math inline">\(f\)</span> is a differentiable function such that <span class="math inline">\(\E(|X f(X)|)&lt;\infty\)</span> and <span class="math inline">\(\E(|f'(X)|)&lt;\infty\)</span>.</p>
+<div id="exm-exmC-1" class="theorem example">
+<p><span class="theorem-title"><strong>Example C.1</strong></span> Let <span class="math inline">\(X \sim N(0,1)\)</span>. Consider the third and fourth moments <span class="math inline">\(\E(X^3)\)</span> and <span class="math inline">\(\E(X^4)\)</span>. Using Stein’s lemma, we have <span class="math display">\[
+\begin{align*}
+\E(X^3)&amp;=\E(X\cdot X^2)=\E(2X)=0,
+\end{align*}
+\]</span> where the second equality follows from Stein’s lemma with <span class="math inline">\(f(x)=x^2\)</span>. Similarly, we have <span class="math display">\[
+\begin{align*}
+\E(X^4)&amp;=\E(X\cdot X^3)=\E(3X^2)=3,
+\end{align*}
+\]</span> where the second equality follows from Stein’s lemma with <span class="math inline">\(f(x)=x^3\)</span>.</p>
+</div>
+<div id="exm-exmC-2" class="theorem example">
+<p><span class="theorem-title"><strong>Example C.2</strong></span> Let <span class="math inline">\(X \sim N(0,1)\)</span>. Then, using Stein’s lemma, we can find that the odd and even moments of <span class="math inline">\(X\)</span> as <span class="math display">\[
+\begin{align*}
+\E(X^k)=
+\begin{cases}
+0, &amp; \text{if $k$ is odd},\\
+(k-1)!!, &amp; \text{if $k$ is even},
+\end{cases}
+\end{align*}
+\]</span> where <span class="math inline">\((k-1)!!\)</span> is the double factorial defined as <span class="math inline">\((k-1)!!=(k-1)(k-3)(k-5)\cdots 3\cdot 1\)</span>.</p>
+</div>
+<div id="exm-exmC-3" class="theorem example">
+<p><span class="theorem-title"><strong>Example C.3</strong></span> In this example, we derive Stein’s lemma for <span class="math inline">\(Y\sim N(\mu,\sigma^2)\)</span>. Let <span class="math inline">\(f\)</span> be a differentiable function such that <span class="math inline">\(\E(|Y f(Y)|)&lt;\infty\)</span> and <span class="math inline">\(\E(|f'(Y)|)&lt;\infty\)</span>. Then, we have <span class="math display">\[
+\begin{align*}
+\E((Y-\mu)f(Y))&amp;=\int_{-\infty}^{\infty}(y-\mu)f(y)\frac{1}{\sigma\sqrt{2\pi}}e^{-(y-\mu)^2/(2\sigma^2)}dy\\
+&amp;=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}f(y)\cdot(y-\mu)e^{-(y-\mu)^2/(2\sigma^2)}dy\\
+&amp;=\sigma\int_{-\infty}^{\infty}f(\sigma x+\mu)\cdot x\cdot \frac{1}{\sqrt{2\pi}}e^{-x^2/2}dx\\
+&amp;=\sigma\E(Xf(\sigma X+\mu))\\
+&amp;=\sigma^2\E(f'(\sigma X+\mu))\\
+&amp;=\sigma^2\E(f'(Y)),
+\end{align*}
+\]</span> where the third equality follows from the change of variable <span class="math inline">\(x=(y-\mu)/\sigma\)</span> and the fifth equality follows from Stein’s lemma for the standard normal distribution. Thus, we have <span class="math display">\[
+\begin{align*}
+\E((Y-\mu)f(Y))&amp;=\sigma^2\E(f'(Y)).
+\end{align*}
+\]</span></p>
+</div>
 </section>
 <section id="moment-generating-function" class="level2" data-number="C.2">
 <h2 data-number="C.2" class="anchored" data-anchor-id="moment-generating-function"><span class="header-section-number">C.2</span> Moment-generating function</h2>
@@ -630,7 +688,7 @@ M_Y(t)&amp;=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{b}dy=\frac{1}{\
 \]</span></p>
 </div>
 <div id="exm-exmC-1" class="theorem example">
-<p><span class="theorem-title"><strong>Example C.1</strong></span> Using <a href="#thm-thmC-2" class="quarto-xref">Theorem&nbsp;<span>C.2</span></a>, we can find the moments of a random variable that has a normal distribution. For example, the first moment is given by <span class="math display">\[
+<p><span class="theorem-title"><strong>Example C.4</strong></span> Using <a href="#thm-thmC-2" class="quarto-xref">Theorem&nbsp;<span>C.2</span></a>, we can find the moments of a random variable that has a normal distribution. For example, the first moment is given by <span class="math display">\[
 \begin{align*}
 \mu^{'}_1&amp;=\frac{dM_Y(t)}{dt}\bigg|_{t=0}=\frac{d}{dt}\left(e^{\mu t+\sigma^2t^2/2}\right)\bigg|_{t=0}\\
 &amp;=\frac{d}{dt}\left(e^{\mu t}\right)\bigg|_{t=0}+\frac{d}{dt}\left(e^{\sigma^2t^2/2}\right)\bigg|_{t=0}\\
@@ -647,7 +705,7 @@ M_Y(t)&amp;=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{b}dy=\frac{1}{\
 \]</span></p>
 </div>
 <div id="exm-exmC-2" class="theorem example">
-<p><span class="theorem-title"><strong>Example C.2 (Central moments of normal distribution)</strong></span> Since the PDF of the normal distribution is symmetric about the mean <span class="math inline">\(\mu\)</span>, we have <span class="math inline">\(\mu_k=0\)</span> for all odd <span class="math inline">\(k\)</span>. The fourth central moment is <span class="math inline">\(3\sigma^4\)</span>. The even central moments are given by <span class="math display">\[
+<p><span class="theorem-title"><strong>Example C.5 (Central moments of normal distribution)</strong></span> Since the PDF of the normal distribution is symmetric about the mean <span class="math inline">\(\mu\)</span>, we have <span class="math inline">\(\mu_k=0\)</span> for all odd <span class="math inline">\(k\)</span>. The fourth central moment is <span class="math inline">\(3\sigma^4\)</span>. The even central moments are given by <span class="math display">\[
 \begin{align*}
 \mu_k=\E(Y-\mu)^k=\frac{k!}{2^{k/2}(k/2)!}\sigma^k.
 \end{align*}
@@ -727,7 +785,7 @@ M_Y(t)&amp;=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{b}dy=\frac{1}{\
 \varphi_Y(t)=\sum_{j=0}^{k}\frac{(it)^j}{j!}\mu^{'}_j+o(t^k),
 \tag{C.2}\]</span></span> where <span class="math inline">\(\mu^{'}_j=\E(Y^j)\)</span> is the <span class="math inline">\(j\)</span>th moment of <span class="math inline">\(Y\)</span>, and <span class="math inline">\(o(t^k)\)</span> is a term such that <span class="math inline">\(\lim_{t\to0}o(t^k)/t^k=0\)</span>.</p>
 <div id="exm-exmC-3" class="theorem example">
-<p><span class="theorem-title"><strong>Example C.3 (Characteristic function of normal distribution)</strong></span> Let <span class="math inline">\(Y\sim N(\mu,\sigma^2)\)</span>. Then, the characteristic function of <span class="math inline">\(Y\)</span> is given by <span class="math display">\[
+<p><span class="theorem-title"><strong>Example C.6 (Characteristic function of normal distribution)</strong></span> Let <span class="math inline">\(Y\sim N(\mu,\sigma^2)\)</span>. Then, the characteristic function of <span class="math inline">\(Y\)</span> is given by <span class="math display">\[
 \varphi_Y(t)=e^{i\mu t-\sigma^2t^2/2}.
 \]</span></p>
 <p>In particular, if <span class="math inline">\(Z\sim N(0,1)\)</span>, then <span class="math inline">\(\varphi_Z(t)=e^{-t^2/2}\)</span>.</p>
@@ -755,7 +813,7 @@ M_Y(t)&amp;=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{b}dy=\frac{1}{\
 \]</span> Then, as <span class="math inline">\(n\to\infty\)</span>, we have <span class="math display">\[
 \lim_{n\to\infty}\varphi_{S_n/\sqrt{n}}(t)=\lim_{n\to\infty}\left(1-\frac{t^2}{2n}+o\left(\frac{t^2}{n}\right)\right)=e^{-t^2/2}.
 \]</span></p>
-<p>By <a href="#exm-exmC-3" class="quarto-xref">Example&nbsp;<span>C.3</span></a>, <span class="math inline">\(\varphi_Z(t)=e^{-t^2/2}\)</span> is the characteristic function of the standard normal distribution. Therefore, by <a href="#thm-thmC-5" class="quarto-xref">Theorem&nbsp;<span>C.5</span></a>, <span class="math inline">\(S_n/\sqrt{n}\)</span> converges in distribution to <span class="math inline">\(N(0,1)\)</span> as <span class="math inline">\(n\to\infty\)</span>.</p>
+<p>By <a href="#exm-exmC-3" class="quarto-xref">Example&nbsp;<span>C.6</span></a>, <span class="math inline">\(\varphi_Z(t)=e^{-t^2/2}\)</span> is the characteristic function of the standard normal distribution. Therefore, by <a href="#thm-thmC-5" class="quarto-xref">Theorem&nbsp;<span>C.5</span></a>, <span class="math inline">\(S_n/\sqrt{n}\)</span> converges in distribution to <span class="math inline">\(N(0,1)\)</span> as <span class="math inline">\(n\to\infty\)</span>.</p>
 </div>
 </section>
 <section id="the-proof-of-slutskys-theorem" class="level2" data-number="C.5">
@@ -904,7 +962,7 @@ f_{X,Y}(x,y)=\frac{1}{2\pi\sigma_X\sigma_Y\sqrt{1-\rho^2}}e^{-\frac{1}{2(1-\rho^
 <div id="fig-bivariate-normal" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bivariate-normal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="AppendixC_files/figure-html/fig-bivariate-normal-output-1.png" width="345" height="326" class="figure-img">
+<img src="AppendixC_files/figure-html/fig-bivariate-normal-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bivariate-normal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;C.1: 3D plot of bivariate normal distribution
@@ -941,7 +999,7 @@ Figure&nbsp;C.1: 3D plot of bivariate normal distribution
 <div id="fig-normal-scatter" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-normal-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="AppendixC_files/figure-html/fig-normal-scatter-output-1.png" width="758" height="565" class="figure-img">
+<img src="AppendixC_files/figure-html/fig-normal-scatter-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normal-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;C.2: Scatter plots of random samples from a bivariate normal distribution with different correlation coefficients
@@ -983,7 +1041,7 @@ Figure&nbsp;C.2: Scatter plots of random samples from a bivariate normal distrib
 <div id="fig-normal-contour" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-normal-contour-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="AppendixC_files/figure-html/fig-normal-contour-output-1.png" width="756" height="565" class="figure-img">
+<img src="AppendixC_files/figure-html/fig-normal-contour-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normal-contour-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;C.3: Contour plots of bivariate normal distribution with different correlation coefficients
