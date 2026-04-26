@@ -547,7 +547,7 @@ window.Quarto = {
 </header>
 
 
-<div id="86b1797a" class="cell" data-execution_count="1">
+<div id="69d5c636" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -675,7 +675,7 @@ P(|S_n - 0| &gt; \epsilon) &amp;= P(S_n &gt; \epsilon) = 1 - F(\epsilon) = e^{-n
 <div id="fig-fig25-plim1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig25-plim1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter18-TheoryRegression_files/figure-html/fig-fig25-plim1-output-1.png" width="439" height="351" class="figure-img">
+<img src="Chapter18-TheoryRegression_files/figure-html/fig-fig25-plim1-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig25-plim1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;28.1: The pdf of <span class="math inline">\(S_n\)</span> for different <span class="math inline">\(n\)</span>
@@ -793,7 +793,7 @@ P(|V-\mu_V|&lt;\delta)\geq 1-\frac{\sigma^2_V}{\delta^2}.
 P(\mu_V-\delta&lt;V&lt;\mu_V+\delta)\geq 1-\frac{\sigma^2_V}{\delta^2}.
 \]</span></p>
 <p>In the following code chunk, we assume that <span class="math inline">\(V\sim N(0,1)\)</span> and <code>delta = np. arange(1, 10)</code>. We calculate the Chebychev bound and the actual probability that <span class="math inline">\(V\)</span> is within <span class="math inline">\(\delta\)</span> of its mean. <a href="#fig-fig25-1" class="quarto-xref">Figure&nbsp;<span>28.2</span></a> shows that the Chebychev bound is a conservative estimate of the actual probability.</p>
-<div id="fc9ae876" class="cell" data-execution_count="3">
+<div id="97e24b2d" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the Chebychev inequality</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sigma2_V <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>mu_V <span class="op">=</span> <span class="dv">0</span></span>
@@ -816,7 +816,7 @@ P(\mu_V-\delta&lt;V&lt;\mu_V+\delta)\geq 1-\frac{\sigma^2_V}{\delta^2}.
 <div id="fig-fig25-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig25-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter18-TheoryRegression_files/figure-html/fig-fig25-1-output-1.png" width="506" height="349" class="figure-img">
+<img src="Chapter18-TheoryRegression_files/figure-html/fig-fig25-1-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig25-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;28.2: Chebychev’s inequality
@@ -868,7 +868,7 @@ P(|m_c-\mu_Y|\geq\delta)\leq\E\left((\bar{Y}+1/n-\mu_Y)^2\right)/\delta^2=\frac{
 </div>
 <p>In the following code chunk, we illustrate the law of large numbers using the estimators <span class="math inline">\(m_a\)</span>, <span class="math inline">\(m_b\)</span>, and <span class="math inline">\(m_c\)</span> defined in <a href="#exm-exm25-1" class="quarto-xref">Example&nbsp;<span>28.2</span></a>. We set <span class="math inline">\(\mu_Y = 0\)</span>, <span class="math inline">\(\sigma_Y^2 = 1\)</span>, and <span class="math inline">\(a = 0.5\)</span>. We consider three sample sizes: <span class="math inline">\(n = 10\)</span>, <span class="math inline">\(n = 100\)</span>, and <span class="math inline">\(n = 1000\)</span>. For each sample size, we generate 1000 samples and compute each estimator. We then create histograms of each estimator for each sample size.</p>
 <p><a href="#fig-fig25-2" class="quarto-xref">Figure&nbsp;<span>28.3</span></a> displays the histograms of <span class="math inline">\(m_a\)</span>, <span class="math inline">\(m_b\)</span>, and <span class="math inline">\(m_c\)</span> for different sample sizes. In the case of <span class="math inline">\(m_a\)</span> and <span class="math inline">\(m_b\)</span>, the histograms do not concentrate around the true mean <span class="math inline">\(\mu_Y = 0\)</span> as the sample size increases. However, since the histograms are centered around the true mean, these estimators are unbiased. On the other hand, the histogram of <span class="math inline">\(m_c\)</span> becomes more concentrated around the true mean as the sample size increases, indicating that <span class="math inline">\(m_c\)</span> is a consistent estimator.</p>
-<div id="60c5f71f" class="cell" data-execution_count="5">
+<div id="68a68da1" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the law of large numbers</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>mu_Y <span class="op">=</span> <span class="dv">0</span></span>
@@ -970,7 +970,7 @@ P(|m_c-\mu_Y|\geq\delta)\leq\E\left((\bar{Y}+1/n-\mu_Y)^2\right)/\delta^2=\frac{
 <div id="fig-fig25-2-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-fig25-2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter18-TheoryRegression_files/figure-html/fig-fig25-2-output-1.png" data-ref-parent="fig-fig25-2" width="662" height="374" class="figure-img">
+<img src="Chapter18-TheoryRegression_files/figure-html/fig-fig25-2-output-1.png" class="img-fluid figure-img" data-ref-parent="fig-fig25-2">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-fig25-2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Histograms of <span class="math inline">\(m_a\)</span> for different sample sizes
@@ -984,7 +984,7 @@ P(|m_c-\mu_Y|\geq\delta)\leq\E\left((\bar{Y}+1/n-\mu_Y)^2\right)/\delta^2=\frac{
 <div id="fig-fig25-2-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-fig25-2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter18-TheoryRegression_files/figure-html/fig-fig25-2-output-2.png" data-ref-parent="fig-fig25-2" width="662" height="374" class="figure-img">
+<img src="Chapter18-TheoryRegression_files/figure-html/fig-fig25-2-output-2.png" class="img-fluid figure-img" data-ref-parent="fig-fig25-2">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-fig25-2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Histograms of <span class="math inline">\(m_b\)</span> for different sample sizes
@@ -998,7 +998,7 @@ P(|m_c-\mu_Y|\geq\delta)\leq\E\left((\bar{Y}+1/n-\mu_Y)^2\right)/\delta^2=\frac{
 <div id="fig-fig25-2-3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-fig25-2-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter18-TheoryRegression_files/figure-html/fig-fig25-2-output-3.png" data-ref-parent="fig-fig25-2" width="662" height="374" class="figure-img">
+<img src="Chapter18-TheoryRegression_files/figure-html/fig-fig25-2-output-3.png" class="img-fluid figure-img" data-ref-parent="fig-fig25-2">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-fig25-2-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (c) Histograms of <span class="math inline">\(m_c\)</span> for different sample sizes
@@ -1044,6 +1044,11 @@ Figure&nbsp;28.3: Illustrating the law of large numbers
 \left(\E(XY)\right)^2=4\leq\E(X^2)\E(Y^2)=5.
 \]</span></p>
 </div>
+<div id="exm-exm25-2-corr" class="theorem example">
+<p><span class="theorem-title"><strong>Example 28.4 (Cauchy-Schwarz Inequality and Correlation)</strong></span> In <a href="Chapter2-ReviewProbability.html" class="quarto-xref"><span>Chapter 12</span></a>, we define the correlation between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> by <span class="math inline">\(\text{corr}(X,Y)=\text{cov}(X,Y)/\sqrt{\text{var}(X)\text{var}(Y)}\)</span>. We can use the Cauchy-Schwarz inequality to show <span class="math inline">\(|\text{corr}(X,Y)|\leq 1\)</span>. To that end, let <span class="math inline">\(\tilde{X}=\left(X-\E(X)\right)\)</span> and <span class="math inline">\(\tilde{Y}=\left(Y-\E(Y)\right)\)</span>. Then, <span class="math inline">\(\text{cov}(X,Y)=\E(\tilde{X}\tilde{Y})\)</span>, <span class="math inline">\(\text{var}(X)=\E(\tilde{X}^2)\)</span>, and <span class="math inline">\(\text{var}(Y)=\E(\tilde{Y}^2)\)</span>. Applying the Cauchy-Schwarz inequality to <span class="math inline">\(\tilde{X}\)</span> and <span class="math inline">\(\tilde{Y}\)</span> gives <span class="math display">\[
+|\text{cov}(X,Y)|=|\E(\tilde{X}\tilde{Y})|\leq\sqrt{\E(\tilde{X}^2)\E(\tilde{Y}^2)}=\sqrt{\text{var}(X)\text{var}(Y)}.
+\]</span> Then, dividing both sides by <span class="math inline">\(\sqrt{\text{var}(X)\text{var}(Y)}\)</span> yields <span class="math inline">\(|\text{corr}(X,Y)|\leq 1\)</span>.</p>
+</div>
 <div id="thm-thm25-10-0" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 28.12 (Hölder’s Inequality)</strong></span> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be random variables. Then, for <span class="math inline">\(1\leq p,q&lt;\infty\)</span> with <span class="math inline">\(\frac{1}{p}+\frac{1}{q}=1\)</span>, we have <span class="math display">\[
 \E(|XY|)\leq \left(\E(|X|^p)\right)^{1/p}\left(\E(|Y|^q)\right)^{1/q}.
@@ -1053,7 +1058,7 @@ Figure&nbsp;28.3: Illustrating the law of large numbers
 <p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-10-0" class="quarto-xref">Theorem&nbsp;<span>28.12</span></a>). </span>See <span class="citation" data-cites="Hansen2022b">Hansen (<a href="references.html#ref-Hansen2022b" role="doc-biblioref">2022b</a>)</span>.</p>
 </div>
 <div id="exm-exm25-3" class="theorem example">
-<p><span class="theorem-title"><strong>Example 28.4 (Hölder’s Inequality)</strong></span> Consider the following simple linear regression model <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+u_i\)</span>. Assume that <span class="math inline">\(X\)</span> and <span class="math inline">\(u\)</span> has finite fourth order moments. Then, <span class="math inline">\(\E(|X_i|^3|u_i|)&lt;\infty\)</span>. This can be seen from <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 28.5 (Hölder’s Inequality)</strong></span> Consider the following simple linear regression model <span class="math inline">\(Y_i=\beta_0+\beta_1X_i+u_i\)</span>. Assume that <span class="math inline">\(X\)</span> and <span class="math inline">\(u\)</span> has finite fourth order moments. Then, <span class="math inline">\(\E(|X_i|^3|u_i|)&lt;\infty\)</span>. This can be seen from <span class="math display">\[
 \begin{align*}
 \E(|X_i|^3|u_i|)&amp;\leq \left(\E\left((|X_i|^3)^{4/3}\right)\right)^{3/4}\left(\E(|u_i|^4)\right)^{1/4}\\
 &amp;=\left(\E\left(|X_i|^4\right)\right)^{3/4}\left(\E(|u_i|^4)\right)^{1/4}&lt;\infty,
@@ -1069,7 +1074,7 @@ Figure&nbsp;28.3: Illustrating the law of large numbers
 <p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-10-1" class="quarto-xref">Theorem&nbsp;<span>28.13</span></a>). </span>See <span class="citation" data-cites="Hansen2022b">Hansen (<a href="references.html#ref-Hansen2022b" role="doc-biblioref">2022b</a>)</span>.</p>
 </div>
 <div id="exm-exm25-3" class="theorem example">
-<p><span class="theorem-title"><strong>Example 28.5 (Minkowski’s Inequality)</strong></span> Let <span class="math inline">\(Y=X\beta+u\)</span>, where <span class="math inline">\(\beta\)</span> is a scalar parameter. Then, we have <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 28.6 (Minkowski’s Inequality)</strong></span> Let <span class="math inline">\(Y=X\beta+u\)</span>, where <span class="math inline">\(\beta\)</span> is a scalar parameter. Then, we have <span class="math display">\[
 \begin{align*}
 \left(\E(|Y|^p)\right)^{1/p} &amp;= \left(\E(|X\beta+u|^p)\right)^{1/p} \leq |\beta|\left(\E(|X|^p)\right)^{1/p} + \left(\E(|u|^p)\right)^{1/p}.
 \end{align*}
@@ -1091,7 +1096,7 @@ X_n\xrightarrow{d}X\iff \lim_{n\to\infty}F_n(t)=F(t),
 </div>
 <div>
 <div id="exm-exm25-3" class="theorem example">
-<p><span class="theorem-title"><strong>Example 28.6</strong></span> Let <span class="math inline">\(X\)</span> be the poisson random variable with parameter <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\{X_n\}\)</span> be a sequence of binomial random variables with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>, i.e., <span class="math inline">\(X_n\sim\text{Binomial}(n,p)\)</span>. We show that <span class="math inline">\(X_n\)</span> converges in distribution to <span class="math inline">\(X\)</span>, i.e., <span class="math inline">\(X_n\xrightarrow{d}X\)</span>. The cumulative distribution function of <span class="math inline">\(X_n\)</span> is given by <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 28.7</strong></span> Let <span class="math inline">\(X\)</span> be the poisson random variable with parameter <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\{X_n\}\)</span> be a sequence of binomial random variables with parameters <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>, i.e., <span class="math inline">\(X_n\sim\text{Binomial}(n,p)\)</span>. We show that <span class="math inline">\(X_n\)</span> converges in distribution to <span class="math inline">\(X\)</span>, i.e., <span class="math inline">\(X_n\xrightarrow{d}X\)</span>. The cumulative distribution function of <span class="math inline">\(X_n\)</span> is given by <span class="math display">\[
 F_n(t)=\sum_{k=0}^{\lfloor t\rfloor}\binom{n}{k}p^k(1-p)^{n-k},
 \]</span> where <span class="math inline">\(\lfloor t\rfloor\)</span> is the largest integer less than or equal to <span class="math inline">\(t\)</span>. The cumulative distribution function of <span class="math inline">\(S\)</span> is given by <span class="math display">\[
 F(t)=\sum_{k=0}^{\lfloor t\rfloor}\frac{\lambda^k}{k!}e^{-\lambda}.
@@ -1110,7 +1115,7 @@ F_n(t)&amp;=\sum_{k=0}^{\lfloor t\rfloor}\binom{n}{k}\left(\frac{\lambda}{n}\rig
 </div>
 </div>
 <p>In the following code chunk, we illustrate the convergence in distribution between the binomial and poisson random variables. We set <span class="math inline">\(\lambda = 5\)</span> and consider three sample sizes: <span class="math inline">\(n = 10\)</span>, <span class="math inline">\(n = 20\)</span>, and <span class="math inline">\(n = 50\)</span>. For each sample size, we then compute the cumulative distribution functions of the binomial and poisson random variables over the range <span class="math inline">\(t = 0, 1, \ldots, 15\)</span>. <a href="#fig-fig25-3" class="quarto-xref">Figure&nbsp;<span>28.4</span></a> shows that the cumulative distribution functions of the binomial random variables converge to the cumulative distribution function of the poisson random variable as the sample size increases.</p>
-<div id="a6d56000" class="cell" data-execution_count="7">
+<div id="854b7c61" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the convergence in distribution</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>lambda_p <span class="op">=</span> <span class="dv">5</span></span>
@@ -1137,7 +1142,7 @@ F_n(t)&amp;=\sum_{k=0}^{\lfloor t\rfloor}\binom{n}{k}\left(\frac{\lambda}{n}\rig
 <div id="fig-fig25-3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig25-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter18-TheoryRegression_files/figure-html/fig-fig25-3-output-1.png" width="506" height="349" class="figure-img">
+<img src="Chapter18-TheoryRegression_files/figure-html/fig-fig25-3-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig25-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;28.4: Illustrating the convergence in distribution
@@ -1160,12 +1165,12 @@ Figure&nbsp;28.4: Illustrating the convergence in distribution
 \bar{Y}\sim N(\mu_Y,\sigma^2_Y/n).
 \]</span></p>
 <div id="exm-exm25-4" class="theorem example">
-<p><span class="theorem-title"><strong>Example 28.7 (Central limit theorem)</strong></span> Let <span class="math inline">\(Y_i\sim U(0,1)\)</span> be i.i.d. random variables. Then, <span class="math inline">\(\E(Y_i)=1/2\)</span> and <span class="math inline">\(\text{Var}(Y_i)=1/12\)</span>. The sample mean <span class="math inline">\(\bar{Y}=\sum_{i=1}^nY_i/n\)</span> has mean <span class="math inline">\(\mu_{\bar{Y}}=1/2\)</span> and variance <span class="math inline">\(\sigma^2_{\bar{Y}}=1/(12n)\)</span>. Therefore, the asymptotic distribution of <span class="math inline">\((\bar{Y}-1/2)/\sqrt{1/12n}=\sqrt{12n}(\bar{Y}-1/2)\)</span> is <span class="math inline">\(N(0,1)\)</span>. We can write this as <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 28.8 (Central limit theorem)</strong></span> Let <span class="math inline">\(Y_i\sim U(0,1)\)</span> be i.i.d. random variables. Then, <span class="math inline">\(\E(Y_i)=1/2\)</span> and <span class="math inline">\(\text{Var}(Y_i)=1/12\)</span>. The sample mean <span class="math inline">\(\bar{Y}=\sum_{i=1}^nY_i/n\)</span> has mean <span class="math inline">\(\mu_{\bar{Y}}=1/2\)</span> and variance <span class="math inline">\(\sigma^2_{\bar{Y}}=1/(12n)\)</span>. Therefore, the asymptotic distribution of <span class="math inline">\((\bar{Y}-1/2)/\sqrt{1/12n}=\sqrt{12n}(\bar{Y}-1/2)\)</span> is <span class="math inline">\(N(0,1)\)</span>. We can write this as <span class="math display">\[
 \sqrt{12n}(\bar{Y}-1/2)\xrightarrow{d}N(0,1),
 \]</span> which suggests that <span class="math inline">\(\bar{Y}\sim N(1/2,1/12n)\)</span> when <span class="math inline">\(n\)</span> is large.</p>
 </div>
-<p>In the following code chunk, we illustrate the central limit theorem using the uniform random variables defined in <a href="#exm-exm25-4" class="quarto-xref">Example&nbsp;<span>28.7</span></a>. We set <span class="math inline">\(n = 10, 50, 100, 500, 1000, 5000\)</span> and generate 1000 samples for each sample size. We then compute the sample mean <span class="math inline">\(\bar{Y}\)</span> and plot the histograms of <span class="math inline">\(\sqrt{12n}(\bar{Y}-1/2)\)</span> for each sample size. <a href="#fig-fig25-4" class="quarto-xref">Figure&nbsp;<span>28.5</span></a> shows the histograms of <span class="math inline">\(\sqrt{12n}(\bar{Y}-1/2)\)</span> along with the standard normal density plot. As the sample size increases, the deviations between the histograms and the standard normal density plot decrease, indicating that the sample mean converges to the standard normal distribution as the sample size grows.</p>
-<div id="a3e9ae35" class="cell" data-execution_count="9">
+<p>In the following code chunk, we illustrate the central limit theorem using the uniform random variables defined in <a href="#exm-exm25-4" class="quarto-xref">Example&nbsp;<span>28.8</span></a>. We set <span class="math inline">\(n = 10, 50, 100, 500, 1000, 5000\)</span> and generate 1000 samples for each sample size. We then compute the sample mean <span class="math inline">\(\bar{Y}\)</span> and plot the histograms of <span class="math inline">\(\sqrt{12n}(\bar{Y}-1/2)\)</span> for each sample size. <a href="#fig-fig25-4" class="quarto-xref">Figure&nbsp;<span>28.5</span></a> shows the histograms of <span class="math inline">\(\sqrt{12n}(\bar{Y}-1/2)\)</span> along with the standard normal density plot. As the sample size increases, the deviations between the histograms and the standard normal density plot decrease, indicating that the sample mean converges to the standard normal distribution as the sample size grows.</p>
+<div id="f1a387c8" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustrating the central limit theorem</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>n_values <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">5000</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1188,13 +1193,13 @@ Figure&nbsp;28.4: Illustrating the convergence in distribution
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="cell-fig-fig25-4" class="cell quarto-layout-panel" data-execution_count="10" data-layout-nrow="3">
+<div id="cell-fig-fig25-4" class="cell quarto-layout-panel" data-layout-nrow="3" data-execution_count="10">
 <div class="quarto-layout-row">
 <div class="cell-output cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
 <div id="fig-fig25-4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig25-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter18-TheoryRegression_files/figure-html/fig-fig25-4-output-1.png" width="950" height="566" class="figure-img">
+<img src="Chapter18-TheoryRegression_files/figure-html/fig-fig25-4-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig25-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;28.5: Illustrating the central limit theorem
@@ -1205,7 +1210,7 @@ Figure&nbsp;28.5: Illustrating the central limit theorem
 </div>
 </div>
 <div id="exm-exm25-4-1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 28.8</strong></span> Suppose that, at a large public university, the time required for economics majors to complete their graduation thesis follows the <a href="https://en.wikipedia.org/wiki/Exponential_distribution">exponential distribution</a> with mean 6 months. Given a random sample of 100 students, the university wants to determine the probability that more than 40 students take longer than 6 months to finish their thesis.</p>
+<p><span class="theorem-title"><strong>Example 28.9</strong></span> Suppose that, at a large public university, the time required for economics majors to complete their graduation thesis follows the <a href="https://en.wikipedia.org/wiki/Exponential_distribution">exponential distribution</a> with mean 6 months. Given a random sample of 100 students, the university wants to determine the probability that more than 40 students take longer than 6 months to finish their thesis.</p>
 <p>Let <span class="math inline">\(X_i\)</span> denote the time required for the <span class="math inline">\(i\)</span>th student to complete the graduation thesis. Then, <span class="math inline">\(X_i\sim \text{Exponential}(\lambda)\)</span>, where <span class="math inline">\(\lambda=1/6\)</span>. The PDF and CDF of <span class="math inline">\(X_i\)</span> are given by <span class="math display">\[
 \begin{align*}
 f(x)=
@@ -1240,18 +1245,18 @@ P(S_n&gt;40)&amp;=P\left(\frac{S_n-np}{\sqrt{np(1-p)}}&gt;\frac{40-np}{\sqrt{np(
 &amp;=0.2527,
 \end{align*}
 \]</span> where <span class="math inline">\(Z\sim N(0,1)\)</span>. The last step can be computed using the following code:</p>
-<div id="5bd1760c" class="cell" data-execution_count="11">
+<div id="9f28883b" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(<span class="dv">1</span> <span class="op">-</span> stats.norm.cdf(<span class="fl">0.6661</span>), <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
-<pre><code>0.2527</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="59">
+<pre><code>np.float64(0.2527)</code></pre>
 </div>
 </div>
 <p>The result indicates that there is approximately a 25.27% chance that more than 40 students will take longer than 6 months to complete their thesis.</p>
 <p>Since <span class="math inline">\(P(S_n&gt;40)=1-P(S_n\leq 40)\)</span>, we can also compute the exact probability as follows:</p>
-<div id="d5aaa5c4" class="cell" data-execution_count="12">
+<div id="58a066b0" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(<span class="dv">1</span> <span class="op">-</span> stats.binom.cdf(<span class="dv">40</span>, <span class="dv">100</span>, np.exp(<span class="op">-</span><span class="dv">1</span>)), <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
-<pre><code>0.2197</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="60">
+<pre><code>np.float64(0.2197)</code></pre>
 </div>
 </div>
 <p>The exact probability is approximately 0.2197, which is close to the approximation of 0.2527 obtained using the central limit theorem.</p>
@@ -1280,22 +1285,22 @@ P(S_n&gt;40)&amp;=P\left(\frac{S_n-np}{\sqrt{np(1-p)}}&gt;\frac{40-np}{\sqrt{np(
 <p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm25-12" class="quarto-xref">Theorem&nbsp;<span>28.16</span></a>). </span>See Theorem 2.3 in <span class="citation" data-cites="Vaart1998">Vaart (<a href="references.html#ref-Vaart1998" role="doc-biblioref">1998</a>)</span>.</p>
 </div>
 <div id="exm-exm25-5" class="theorem example">
-<p><span class="theorem-title"><strong>Example 28.9</strong></span> Let <span class="math inline">\(g(x)=\sqrt{x}\)</span>. If <span class="math inline">\(s^2_Y\xrightarrow{p}\sigma^2_Y\)</span>, where <span class="math inline">\(s^2_Y\)</span> is the sample variance, then <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 28.10</strong></span> Let <span class="math inline">\(g(x)=\sqrt{x}\)</span>. If <span class="math inline">\(s^2_Y\xrightarrow{p}\sigma^2_Y\)</span>, where <span class="math inline">\(s^2_Y\)</span> is the sample variance, then <span class="math display">\[
 g(s^2_Y)=s_Y\xrightarrow{p}g(\sigma^2_Y)=\sigma_Y,
 \]</span> by the first part of <a href="#thm-thm25-12" class="quarto-xref">Theorem&nbsp;<span>28.16</span></a>. In other words, the sample standard deviation is a consistent estimator of the population standard deviation.</p>
 </div>
 <div id="exm-exm25-6" class="theorem example">
-<p><span class="theorem-title"><strong>Example 28.10</strong></span> Let <span class="math inline">\(g(x)=x^2\)</span>. If <span class="math inline">\(S_n\xrightarrow{d}Z\)</span>, where <span class="math inline">\(Z\sim N(0,1)\)</span>, then we have <span class="math inline">\(g(S_n)\xrightarrow{d}g(Z)\)</span> by the second part of <a href="#thm-thm25-12" class="quarto-xref">Theorem&nbsp;<span>28.16</span></a>. Thus, <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 28.11</strong></span> Let <span class="math inline">\(g(x)=x^2\)</span>. If <span class="math inline">\(S_n\xrightarrow{d}Z\)</span>, where <span class="math inline">\(Z\sim N(0,1)\)</span>, then we have <span class="math inline">\(g(S_n)\xrightarrow{d}g(Z)\)</span> by the second part of <a href="#thm-thm25-12" class="quarto-xref">Theorem&nbsp;<span>28.16</span></a>. Thus, <span class="math display">\[
 S^2_n\xrightarrow{d}Z^2.
 \]</span> In other words, the distribution of <span class="math inline">\(S^2_n\)</span> converges to the distribution of a squared standard normal random variable, which in turn has a <span class="math inline">\(\chi^2_1\)</span> distribution; that is, <span class="math inline">\(S^2_n\xrightarrow{d}\chi^2_1\)</span>.</p>
 </div>
 <div id="exm-exm25-7" class="theorem example">
-<p><span class="theorem-title"><strong>Example 28.11</strong></span> Consider t-statistic for testing <span class="math inline">\(H_0:\E(Y_i)=\mu_0\)</span> based on <span class="math inline">\(\bar{Y}\)</span>. Then, by <a href="#exm-exm25-4" class="quarto-xref">Example&nbsp;<span>28.7</span></a> and <a href="#thm-thm25-11" class="quarto-xref">Theorem&nbsp;<span>28.15</span></a>, we have <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 28.12</strong></span> Consider t-statistic for testing <span class="math inline">\(H_0:\E(Y_i)=\mu_0\)</span> based on <span class="math inline">\(\bar{Y}\)</span>. Then, by <a href="#exm-exm25-4" class="quarto-xref">Example&nbsp;<span>28.8</span></a> and <a href="#thm-thm25-11" class="quarto-xref">Theorem&nbsp;<span>28.15</span></a>, we have <span class="math display">\[
 t=\frac{\bar{Y}-\mu_0}{s_Y/\sqrt{n}}=\frac{\sqrt{n}(\bar{Y}-\mu_0)}{\sigma_Y}\div\frac{s_Y}{\sigma_Y}\xrightarrow{d}N(0,1).
 \]</span></p>
 </div>
 <div id="exm-exm25-8" class="theorem example">
-<p><span class="theorem-title"><strong>Example 28.12</strong></span> Suppose that <span class="math inline">\(\{X_i,Y_i\}\)</span> is a sequence of i.i.d. random variables with finite fourth moments. We want to show that <span class="math inline">\(s_{XY}\xrightarrow{p}\sigma_{XY}\)</span>, where <span class="math inline">\(s_{XY}\)</span> is the sample covariance and <span class="math inline">\(\sigma_{XY}\)</span> is the population covariance.</p>
+<p><span class="theorem-title"><strong>Example 28.13</strong></span> Suppose that <span class="math inline">\(\{X_i,Y_i\}\)</span> is a sequence of i.i.d. random variables with finite fourth moments. We want to show that <span class="math inline">\(s_{XY}\xrightarrow{p}\sigma_{XY}\)</span>, where <span class="math inline">\(s_{XY}\)</span> is the sample covariance and <span class="math inline">\(\sigma_{XY}\)</span> is the population covariance.</p>
 <p>Note that <span class="math display">\[
 \begin{align*}
 &amp;s_{XY}=\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar{X})(Y_i-\bar{Y})\\
