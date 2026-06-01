@@ -930,7 +930,7 @@ $$
 
 The doubly robust approach is appealing because it provides a consistent estimate of $\text{ATT}(t)$ if either the regression model for $\E[Y_{it}-Y_{i,t_0-1}\mid X_i, D_i=0]$ is correctly specified or the model for the propensity score $P(D_i=1\mid X_i)$ is correctly specified. @baker2026difference suggest using the doubly robust approach in practice, as it provides some protection against model misspecification.
 
-For a discussion of the inference properties of these three approaches, we recommend that the reader consult @Callaway2021 and @baker2026difference.
+For a discussion of the inferential properties of these three approaches, we recommend that readers consult @Callaway2021 and @baker2026difference.
 
 
 ## Regression discontinuity designs
