@@ -104,10 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 <script>
 window.MathJax = {
   tex: {
@@ -532,7 +529,7 @@ window.Quarto = {
 <section id="introduction" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">10.1</span> Introduction</h2>
 <p>In this chapter, we introduce the object-oriented programming (OOP) paradigm in Python. We illustrate the main concepts of the OOP approach by creating a class to estimate and present the results of a simple linear regression model. We also show how to use inheritance to create a new class that extends the functionality of the original class.</p>
-<div id="c901aa13" class="cell" data-execution_count="1">
+<div id="8403d049" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.optimize <span class="im">as</span> optimize</span>
@@ -573,7 +570,7 @@ Y_i = \beta_0 + \beta_1 X_i + u_i, \quad i = 1, 2, \ldots, n,
 \hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_i, \quad \hat{u}_i = Y_i - \hat{Y}_i.
 \]</span> for <span class="math inline">\(i = 1, 2, \ldots, n\)</span>.</p>
 <p>In the following code, we generate simulated data for the model. We set <span class="math inline">\(n=100\)</span>, <span class="math inline">\(\beta_0=2\)</span>, and <span class="math inline">\(\beta_1=3\)</span>. The independent variable <span class="math inline">\(X\)</span> is generated from a uniform distribution between 0 and 10, and the error term <span class="math inline">\(u\)</span> is generated from a standard normal distribution. Finally, we generate the dependent variable <span class="math inline">\(Y\)</span> using the model equation.</p>
-<div id="bef6e56a" class="cell" data-execution_count="2">
+<div id="dda6c426" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate simulated data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">100</span></span>
@@ -653,7 +650,7 @@ Table&nbsp;10.1: First few rows of the synthetic data
 <div id="fig-synthetic-data1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-synthetic-data1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-OOP_files/figure-html/fig-synthetic-data1-output-1.png" width="428" height="349" class="figure-img">
+<img src="Chapter0-OOP_files/figure-html/fig-synthetic-data1-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-synthetic-data1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;10.1: The scatter plot of synthetic data for the OLS model
@@ -666,7 +663,7 @@ Figure&nbsp;10.1: The scatter plot of synthetic data for the OLS model
 <section id="defining-the-ols-class" class="level2" data-number="10.4">
 <h2 data-number="10.4" class="anchored" data-anchor-id="defining-the-ols-class"><span class="header-section-number">10.4</span> Defining the OLS class</h2>
 <p>In the following code, we define the <code>OLS</code> class using the keyword <code>class</code>. We introduce the class-level docstring through triple quotes to describe the purpose of the class, its attributes, and methods.</p>
-<div id="b8a0e31e" class="cell" data-execution_count="7">
+<div id="e21f47ac" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the OLS class</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> OLS:</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
@@ -790,13 +787,13 @@ Figure&nbsp;10.1: The scatter plot of synthetic data for the OLS model
 </div>
 <p>The class has an <code>__init__</code> method (the constructor) that initializes the attributes of the class, including the data and coefficients. The first argument of each method is <code>self</code>, which is a reference to the current instance of the class. In the <code>__init__</code> method, we initialize the attributes <code>X</code>, <code>Y</code>, <code>n</code>, <code>beta_0</code>, <code>beta_1</code>, and <code>fitted</code>.</p>
 <p>We then define three methods: <code>estimate</code>, <code>predict</code>, and <code>summary</code>. We also have docstrings for each method to explain their purpose and parameters. The <code>estimate</code> method calculates the OLS estimates for the coefficients:</p>
-<div id="d258794f" class="cell" data-execution_count="8">
+<div id="1ad2aa66" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">self</span>.beta_1 <span class="op">=</span> np.<span class="bu">sum</span>((<span class="va">self</span>.X <span class="op">-</span> X_mean) <span class="op">*</span> (<span class="va">self</span>.Y <span class="op">-</span> Y_mean)) <span class="op">/</span> np.<span class="bu">sum</span>((<span class="va">self</span>.X <span class="op">-</span> X_mean) <span class="op">**</span> <span class="dv">2</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="va">self</span>.beta_0 <span class="op">=</span> Y_mean <span class="op">-</span> <span class="va">self</span>.beta_1 <span class="op">*</span> X_mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Also, note that we set the attribute <code>fitted</code> to <code>True</code> once we estimate the model.</p>
 <p>The <code>predict</code> method takes new values of <code>X</code> and returns the predicted values of <code>Y</code> using the estimated coefficients. Here, we first check if the model has been fitted by verifying the <code>fitted</code> attribute. If the model is not fitted, an exception is raised. Finally, we use the estimated coefficients to make predictions in the following way:</p>
-<div id="a1335fcb" class="cell" data-execution_count="9">
+<div id="3ea9f041" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="va">self</span>.beta_0 <span class="op">+</span> <span class="va">self</span>.beta_1 <span class="op">*</span> np.array(X_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>summary</code> method prints the estimated coefficients and R-squared value. Here, we also check if the model has been fitted before displaying the summary.</p>
@@ -805,19 +802,19 @@ Figure&nbsp;10.1: The scatter plot of synthetic data for the OLS model
 <section id="using-the-ols-class" class="level2" data-number="10.5">
 <h2 data-number="10.5" class="anchored" data-anchor-id="using-the-ols-class"><span class="header-section-number">10.5</span> Using the OLS class</h2>
 <p>We can create an instance of the class by calling the class name and passing the required arguments (the independent and dependent variable data). This will invoke the <code>__init__</code> method to initialize the object’s attributes.</p>
-<div id="55d55228" class="cell" data-execution_count="10">
+<div id="a0c5bb17" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an instance of the OLS class and estimate the coefficients</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> OLS(data[<span class="st">'X'</span>], data[<span class="st">'Y'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The type of the <code>model</code> object is <code>__main__.OLS</code>, indicating that it is an instance of the <code>OLS</code> class defined in the current module.</p>
-<div id="845cc858" class="cell" data-execution_count="11">
+<div id="5de8edf1" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>__main__.OLS</code></pre>
 </div>
 </div>
 <p>Note that we can access the attributes of the <code>model</code> object using the dot notation. For example, we can check the number of observations <code>n</code> and the initial values of <code>beta_0</code> and <code>beta_1</code>.</p>
-<div id="3498050d" class="cell" data-execution_count="12">
+<div id="74c8352b" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access attributes of the model</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>model.n</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>model.beta_0</span>
@@ -831,7 +828,7 @@ Figure&nbsp;10.1: The scatter plot of synthetic data for the OLS model
 </div>
 </div>
 <p>We can use the <code>dir</code> function to list all the attributes and methods of the <code>model</code> object.</p>
-<div id="6ab7210b" class="cell" data-execution_count="13">
+<div id="2aeaf9a3" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># List all attributes and methods of the model</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">dir</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
@@ -843,6 +840,7 @@ Figure&nbsp;10.1: The scatter plot of synthetic data for the OLS model
  '__dir__',
  '__doc__',
  '__eq__',
+ '__firstlineno__',
  '__format__',
  '__ge__',
  '__getattribute__',
@@ -861,6 +859,7 @@ Figure&nbsp;10.1: The scatter plot of synthetic data for the OLS model
  '__repr__',
  '__setattr__',
  '__sizeof__',
+ '__static_attributes__',
  '__str__',
  '__subclasshook__',
  '__weakref__',
@@ -982,99 +981,99 @@ Table&nbsp;10.2: Special attributes and methods
 </div>
 </div>
 <p>We can access the docstrings for the class and its methods using the <code>__doc__</code> attribute.</p>
-<div id="362858fd" class="cell" data-execution_count="14">
+<div id="d8424961" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access the docstring of the OLS class</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(OLS.__doc__)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-    Ordinary Least Squares (OLS) regression for a single predictor.
+Ordinary Least Squares (OLS) regression for a single predictor.
 
-    Attributes
-    ----------
-    X : np.ndarray
-        Independent variable data.
-    Y : np.ndarray
-        Dependent variable data.
-    n : int
-        Number of observations.
-    beta_0 : float
-        Estimated intercept (initialized as None).
-    beta_1 : float
-        Estimated slope (initialized as None).
-    fitted : bool
-        Indicates whether the model has been fitted.
+Attributes
+----------
+X : np.ndarray
+    Independent variable data.
+Y : np.ndarray
+    Dependent variable data.
+n : int
+    Number of observations.
+beta_0 : float
+    Estimated intercept (initialized as None).
+beta_1 : float
+    Estimated slope (initialized as None).
+fitted : bool
+    Indicates whether the model has been fitted.
 
-    Methods
-    -------
-    estimate()
-        Estimates the slope and intercept using OLS formulas.
-    predict(X_new)
-        Predicts Y values for new X data.
-    summary()
-        Prints the estimated coefficients and R-squared.
-    plot_fit()
-        Plots the data points and the fitted regression line.
-    </code></pre>
+Methods
+-------
+estimate()
+    Estimates the slope and intercept using OLS formulas.
+predict(X_new)
+    Predicts Y values for new X data.
+summary()
+    Prints the estimated coefficients and R-squared.
+plot_fit()
+    Plots the data points and the fitted regression line.
+</code></pre>
 </div>
 </div>
-<div id="1510f36b" class="cell" data-execution_count="15">
+<div id="35f7de06" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access the docstring of a specific method</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(OLS.estimate.__doc__)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-        Estimate the regression coefficients (intercept and slope) 
-        using the ordinary least squares method.
-        </code></pre>
+Estimate the regression coefficients (intercept and slope) 
+using the ordinary least squares method.
+</code></pre>
 </div>
 </div>
 <p>Instead of using the class name, we can also access the docstrings using the instance of the class (<code>model</code> in our case):</p>
-<div id="047870de" class="cell" data-execution_count="16">
+<div id="db7fa306" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access the docstring of the OLS class</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model.__doc__)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-    Ordinary Least Squares (OLS) regression for a single predictor.
+Ordinary Least Squares (OLS) regression for a single predictor.
 
-    Attributes
-    ----------
-    X : np.ndarray
-        Independent variable data.
-    Y : np.ndarray
-        Dependent variable data.
-    n : int
-        Number of observations.
-    beta_0 : float
-        Estimated intercept (initialized as None).
-    beta_1 : float
-        Estimated slope (initialized as None).
-    fitted : bool
-        Indicates whether the model has been fitted.
+Attributes
+----------
+X : np.ndarray
+    Independent variable data.
+Y : np.ndarray
+    Dependent variable data.
+n : int
+    Number of observations.
+beta_0 : float
+    Estimated intercept (initialized as None).
+beta_1 : float
+    Estimated slope (initialized as None).
+fitted : bool
+    Indicates whether the model has been fitted.
 
-    Methods
-    -------
-    estimate()
-        Estimates the slope and intercept using OLS formulas.
-    predict(X_new)
-        Predicts Y values for new X data.
-    summary()
-        Prints the estimated coefficients and R-squared.
-    plot_fit()
-        Plots the data points and the fitted regression line.
-    </code></pre>
+Methods
+-------
+estimate()
+    Estimates the slope and intercept using OLS formulas.
+predict(X_new)
+    Predicts Y values for new X data.
+summary()
+    Prints the estimated coefficients and R-squared.
+plot_fit()
+    Plots the data points and the fitted regression line.
+</code></pre>
 </div>
 </div>
-<div id="d6456659" class="cell" data-execution_count="17">
+<div id="36011297" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access the docstring of a specific method</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model.estimate.__doc__)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-        Estimate the regression coefficients (intercept and slope) 
-        using the ordinary least squares method.
-        </code></pre>
+Estimate the regression coefficients (intercept and slope) 
+using the ordinary least squares method.
+</code></pre>
 </div>
 </div>
 <p>The <code>help</code> function can also be used to display the documentation for the class and its methods.</p>
-<div id="a6ccfcdd" class="cell" data-execution_count="18">
+<div id="e81ab7e7" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the help for the OLS class</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(OLS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1172,7 +1171,7 @@ class OLS(builtins.object)
 </code></pre>
 </div>
 </div>
-<div id="f00eefbc" class="cell" data-execution_count="19">
+<div id="6872058c" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the help for a specific method</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(OLS.estimate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1185,20 +1184,20 @@ estimate(self)
 </div>
 </div>
 <p>The <code>estimate</code> method can be called using the dot notation to estimate the coefficients of the linear regression model. Note that we use parentheses <code>()</code> to call the method, which indicates that we are executing the method rather than just accessing it. Also, we do not need to pass the <code>self</code> argument explicitly; it is automatically passed by Python when we call the method on the object.</p>
-<div id="c7cb649b" class="cell" data-execution_count="20">
+<div id="63ddbaa5" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate the coefficients and display the summary and plot</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>model.estimate()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can now access the estimated coefficients and the <code>fitted</code> attribute to check if the model has been fitted.</p>
-<div id="5658b23e" class="cell" data-execution_count="21">
+<div id="d065bf31" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access the estimated coefficients and fitted status</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>model.beta_0, model.beta_1, model.fitted</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>(2.860384630186992, 2.8160907091507874, True)</code></pre>
+<pre><code>(np.float64(2.860384630186992), np.float64(2.8160907091507874), True)</code></pre>
 </div>
 </div>
 <p>Next, we can use the <code>predict</code> method to make predictions for new values of <code>X</code>. From <code>predict(self, X_new)</code>, we understand that we need to pass the new values as an argument to the method. Also from <code>self.beta_0 + self.beta_1 * np.array(X_new)</code>, we see that the argument <code>X_new</code> can be a data type that can be converted to a NumPy array, such as a list or a NumPy array itself.</p>
-<div id="75cf8259" class="cell" data-execution_count="22">
+<div id="a4afa317" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>X_new <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>]</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> model.predict(X_new)</span>
@@ -1208,7 +1207,7 @@ estimate(self)
 </div>
 </div>
 <p>The <code>summary</code> does not take any arguments other than <code>self</code>, so we can call it without any additional parameters.</p>
-<div id="f7d747d0" class="cell" data-execution_count="23">
+<div id="301b8e6d" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the summary of the model</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>model.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1219,13 +1218,13 @@ R-squared: 0.8434</code></pre>
 </div>
 </div>
 <p>Finally, we can use the <code>plot_fit</code> method to plot the fitted line along with the original data points.</p>
-<div id="c1a0e4d1" class="cell" data-execution_count="24">
+<div id="b086af38" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the fitted line</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>model.plot_fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Chapter0-OOP_files/figure-html/cell-25-output-1.png" width="428" height="349" class="figure-img"></p>
+<p><img src="Chapter0-OOP_files/figure-html/cell-25-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1234,7 +1233,7 @@ R-squared: 0.8434</code></pre>
 <section id="other-useful-methods" class="level2" data-number="10.6">
 <h2 data-number="10.6" class="anchored" data-anchor-id="other-useful-methods"><span class="header-section-number">10.6</span> Other useful methods</h2>
 <p>In our OLS class, all methods that we defined are instance methods because they operate on the instance of the class (i.e., the <code>model</code> object). However, Python also supports other types of methods, such as class methods, static methods and properties. These methods are defined using decorators. A decorator is indicated by the <code>@</code> symbol followed by the decorator name, placed above the method definition. In the following code, we add examples of these methods to our <code>OLS</code> class.</p>
-<div id="801da0b4" class="cell" data-execution_count="25">
+<div id="d20360a6" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the OLS class with additional methods</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> OLS:</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
@@ -1368,7 +1367,7 @@ R-squared: 0.8434</code></pre>
 </div>
 <p>In the <code>init</code> method of this new version, we specify the data types of the parameters <code>X</code> and <code>Y</code> as <code>np.ndarray</code> using type hints: <code>X: np.ndarray</code> and <code>Y: np.ndarray</code>. We also initialize a class variable <code>model_count</code> to keep track of the number of <code>OLS</code> instances created. Each time an instance is created, we increment this count by 1 using <code>OLS.model_count += 1</code>. Alternatively, we could use <code>self.__class__.model_count += 1</code> to achieve the same effect. This class variable is shared among all instances of the class.</p>
 <p>We added the following new class methods: <code>get_model_count</code> and <code>show_assumptions</code>. Both class methods use the <code>@classmethod</code> decorator and take <code>cls</code> as the first parameter, which refers to the class itself. In the first method, <code>get_model_count(cls) -&gt; int</code> indicates that the method takes the class itself as the first parameter (<code>cls</code>) and returns an integer (<code>int</code>). The method returns the number of <code>OLS</code> instances created by accessing the class variable <code>model_count</code>. The <code>show_assumptions</code> method prints the three key assumptions of the OLS regression.</p>
-<div id="db661f6e" class="cell" data-execution_count="26">
+<div id="2339d4ff" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create multiple instances to test the class method</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>model1 <span class="op">=</span> OLS(data[<span class="st">'X'</span>], data[<span class="st">'Y'</span>])</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>model2 <span class="op">=</span> OLS(data[<span class="st">'X'</span>], data[<span class="st">'Y'</span>])</span>
@@ -1381,7 +1380,7 @@ R-squared: 0.8434</code></pre>
 </div>
 </div>
 <p>The <code>show_assumptions</code> method takes an optional boolean parameter <code>detailed</code> (default is <code>False</code>). If <code>detailed</code> is <code>True</code>, it prints a more detailed explanation of each assumption. Otherwise, it prints a brief summary.</p>
-<div id="1480b36c" class="cell" data-execution_count="27">
+<div id="83cb4650" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the OLS assumptions</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>OLS.show_assumptions()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1391,7 +1390,7 @@ R-squared: 0.8434</code></pre>
 3. No large outliers</code></pre>
 </div>
 </div>
-<div id="c3386d76" class="cell" data-execution_count="28">
+<div id="122149d5" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show detailed OLS assumptions</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>OLS.show_assumptions(detailed<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1402,7 +1401,7 @@ R-squared: 0.8434</code></pre>
 </div>
 </div>
 <p>The static method <code>causal</code> uses the <code>@staticmethod</code> decorator and does not take <code>self</code> or <code>cls</code> as the argument. In our case, it simply prints a message about when OLS estimates have a causal interpretation.</p>
-<div id="5184945d" class="cell" data-execution_count="29">
+<div id="955f0997" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Call the static method</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>OLS.causal()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1410,7 +1409,7 @@ R-squared: 0.8434</code></pre>
 </div>
 </div>
 <p>The property <code>info</code> uses the <code>@property</code> decorator and takes <code>self</code> as the parameter. It returns a summary of the data as a string. We can access the property without parentheses, just like an attribute.</p>
-<div id="a1edab92" class="cell" data-execution_count="30">
+<div id="f54791a7" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Access the property</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>model1.info</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
@@ -1421,7 +1420,7 @@ R-squared: 0.8434</code></pre>
 <section id="inheritance" class="level2" data-number="10.7">
 <h2 data-number="10.7" class="anchored" data-anchor-id="inheritance"><span class="header-section-number">10.7</span> Inheritance</h2>
 <p>The OOP allows us to use attributes and methods of an existing class (parent class) in a new class (child class). This process is called inheritance. In the following code, we create a new class called <code>Residual</code> that inherits from the <code>OLS</code> class. We also add two new methods to the <code>Residual</code> class: <code>compute_residuals</code> and <code>plot_residuals</code>. The <code>compute_residuals</code> method calculates the residuals of the fitted model, while the <code>plot_residuals</code> method creates a scatter plot of the residuals against the fitted values.</p>
-<div id="30576a12" class="cell" data-execution_count="31">
+<div id="5bb4c4c3" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Residual(OLS):</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Residual analysis for OLS regression.</span></span>
@@ -1456,7 +1455,7 @@ R-squared: 0.8434</code></pre>
 </div>
 <p>The Residual class inherits from the OLS class using the syntax class <code>Residual(OLS)</code>. Its constructor calls the constructor of the parent class with <code>super().__init__(X, Y)</code>, which initializes the attributes defined in the OLS class. Note that in <code>super().__init__(X, Y)</code>, we do not provide the type hints <code>X: np.ndarray</code> and <code>Y: np.ndarray</code> again, as they are already defined in the parent class. In this way, we inherit the attributes <code>X</code>, <code>Y</code>, <code>n</code>, <code>beta_0</code>, <code>beta_1</code>, and <code>fitted</code> from the OLS class.</p>
 <p>Also note that the instance methods of OLS, <code>estimate</code>, <code>predict</code>, <code>summary</code>, and <code>plot_fit</code>, are automatically inherited by the Residual class. We can use these methods on instances of the Residual class.</p>
-<div id="0e4dd808" class="cell" data-execution_count="32">
+<div id="1e8b1fef" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and fit residual model</span></span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>res_model <span class="op">=</span> Residual(data[<span class="st">'X'</span>], data[<span class="st">'Y'</span>])</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(res_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1464,17 +1463,17 @@ R-squared: 0.8434</code></pre>
 <pre><code>__main__.Residual</code></pre>
 </div>
 </div>
-<div id="f7ac70e9" class="cell" data-execution_count="33">
+<div id="5bfa4ac8" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check that inherited methods work</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>res_model.estimate()</span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Check estimated coefficients</span></span>
 <span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>res_model.beta_0, res_model.beta_1, res_model.fitted</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
-<pre><code>(2.860384630186992, 2.8160907091507874, True)</code></pre>
+<pre><code>(np.float64(2.860384630186992), np.float64(2.8160907091507874), True)</code></pre>
 </div>
 </div>
 <p>We can now use the methods defined in the <code>Residual</code> class to compute and plot the residuals of the OLS regression. In the <code>compute_residuals</code> method, we first compute the predicted values using the <code>predict</code> method of the parent class: <code>y_pred = self.predict(self.X)</code>. Then, we calculate the residuals as the difference between the observed and predicted values: <code>self.Y - y_pred</code>.</p>
-<div id="d5a63c2f" class="cell" data-execution_count="34">
+<div id="dfd78b2a" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get residuals</span></span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>residuals <span class="op">=</span> res_model.compute_residuals()</span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Descriptive statistics of residuals</span></span>
@@ -1492,13 +1491,13 @@ dtype: float64</code></pre>
 </div>
 </div>
 <p>Finally, we can use the <code>plot_residuals</code> method to create a scatter plot of the residuals against the fitted values.</p>
-<div id="9405a617" class="cell" data-execution_count="35">
+<div id="2da657f1" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plot of residuals</span></span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>res_model.plot_residuals()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Chapter0-OOP_files/figure-html/cell-36-output-1.png" width="440" height="353" class="figure-img"></p>
+<p><img src="Chapter0-OOP_files/figure-html/cell-36-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1507,7 +1506,7 @@ dtype: float64</code></pre>
 <section id="importing-and-exporting-the-class" class="level2" data-number="10.8">
 <h2 data-number="10.8" class="anchored" data-anchor-id="importing-and-exporting-the-class"><span class="header-section-number">10.8</span> Importing and exporting the class</h2>
 <p>To use the <code>OLS</code> class in another script or module, we can save the class definition in a separate Python file. Assume that we save the class in a file named <code>myols.py</code>. Note that we also need to ensure that the <code>myols.py</code> includes all necessary modules that are imported at the beginning of this chapter. We can then import the class using the <code>import</code> statement. If our current working directory includes the <code>myols.py</code> file, we can import the class as follows:</p>
-<div id="8c4624b3" class="cell" data-execution_count="36">
+<div id="e22c11c0" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the OLS class from the myols module</span></span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> myols <span class="im">import</span> OLS</span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a></span>

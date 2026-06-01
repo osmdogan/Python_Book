@@ -104,10 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 <script>
 window.MathJax = {
   tex: {
@@ -528,7 +525,7 @@ window.Quarto = {
 </header>
 
 
-<div id="fb87d15b" class="cell" data-execution_count="1">
+<div id="2db07a16" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -546,12 +543,12 @@ window.Quarto = {
 <li><span class="math inline">\(Z\)</span> is a determinant of <span class="math inline">\(Y\)</span> (i.e., <span class="math inline">\(Z\)</span> is part of <span class="math inline">\(u\)</span>), and</li>
 <li><span class="math inline">\(Z\)</span> is correlated with the regressor <span class="math inline">\(X\)</span> (i.e., corr<span class="math inline">\((Z,X)\ne0\)</span>).</li>
 </ul>
-<p>Under omitted variable bias, the zero conditional mean assumption <span class="math inline">\(\E(u|X)=0\)</span> fails because <span class="math inline">\(u\)</span> contains a variable that is correlated with <span class="math inline">\(X\)</span>. To see the effect of omitted variable bias on the OLS estimator of <span class="math inline">\(\beta_1\)</span>, recall the following result from <a href="Chapter4-LinearRegressionOneRegressor.html" class="quarto-xref"><span>Chapter 14</span></a>: <span class="math display">\[
+<p>Under omitted variable bias, the zero conditional mean assumption <span class="math inline">\(\E(u|X)=0\)</span> fails because <span class="math inline">\(u\)</span> contains a variable that is correlated with <span class="math inline">\(X\)</span>. To see the effect of omitted variable bias on the OLS estimator of <span class="math inline">\(\beta_1\)</span>, recall the following result from <a href="#sec-lrmone" class="quarto-xref"><span class="quarto-unresolved-ref">sec-lrmone</span></a>: <span class="math display">\[
 \begin{align}
 \hat{\beta}_1-\beta_1=\frac{\sum_{i=1}^n(X_i-\bar{X})u_i}{\sum_{i=1}^n(X_i-\bar{X})^2}.
 \end{align}
 \]</span></p>
-<p>Under the second and the third least squares assumptions given in <a href="Chapter4-LinearRegressionOneRegressor.html" class="quarto-xref"><span>Chapter 14</span></a>, the law of large numbers ensure that <span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\xrightarrow{p}\sigma^2_X\)</span> and <span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})u_i\xrightarrow{p}\E\left[(X_i-\mu_X)u_i\right]=\text{cov}(X_i,u_i)=\sigma_{Xu}\)</span>. Thus, we have <span class="math display">\[
+<p>Under the second and the third least squares assumptions given in <a href="#sec-lrmone" class="quarto-xref"><span class="quarto-unresolved-ref">sec-lrmone</span></a>, the law of large numbers ensure that <span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2\xrightarrow{p}\sigma^2_X\)</span> and <span class="math inline">\(\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})u_i\xrightarrow{p}\E\left[(X_i-\mu_X)u_i\right]=\text{cov}(X_i,u_i)=\sigma_{Xu}\)</span>. Thus, we have <span class="math display">\[
 \begin{align}
 \hat{\beta}_1-\beta_1=\frac{\sum_{i=1}^n(X_i-\bar{X})u_i}{\sum_{i=1}^n(X_i-\bar{X})^2}\xrightarrow{p}\frac{\sigma_{Xu}}{\sigma^2_X}=\frac{\sigma_u}{\sigma_X}\times\frac{\sigma_{Xu}}{\sigma_X\sigma_u}=\frac{\sigma_u}{\sigma_X}\times\rho_{Xu},
 \end{align}
@@ -609,7 +606,7 @@ Y_i = \beta_0+\beta_1X_{1i}+\beta_2X_{2i}+\dots+\beta_kX_{ki}+u_i,\quad i=1,2,\d
 \sum_{i=1}^n\left(Y_i-\left(b_0+b_1X_{1i}+b_2X_{2i}+\dots+b_kX_{ki}\right)\right)^2.
 \end{align*}
 \]</span></p>
-<p>The OLS estimator can be obtained using the matrix calculus. In <a href="Chapter19-TheoryMultipleRegression.html" class="quarto-xref"><span>Chapter 29</span></a>, we use matrix algebra to derive an explicit formula for the OLS estimator.</p>
+<p>The OLS estimator can be obtained using the matrix calculus. In <a href="#sec-chapter26" class="quarto-xref"><span class="quarto-unresolved-ref">sec-chapter26</span></a>, we use matrix algebra to derive an explicit formula for the OLS estimator.</p>
 <p>The predicted values and residuals are defined similarly to the case of a linear regression model with only one regressor:</p>
 <ul>
 <li>The predicted value of <span class="math inline">\(Y_i\)</span> is <span class="math inline">\(\hat{Y}_i=\hat{\beta}_0+\hat{\beta}_1X_{1i}+\dots+\hat{\beta}_kX_{ki}\)</span> for <span class="math inline">\(i=1,\dots,n\)</span>.</li>
@@ -628,17 +625,17 @@ Y_i = \beta_0+\beta_1X_{1i}+\beta_2X_{2i}+\dots+\beta_kX_{ki}+u_i,\quad i=1,2,\d
 </section>
 <section id="application-to-test-scores-and-the-studentteacher-ratio" class="level2" data-number="16.4">
 <h2 data-number="16.4" class="anchored" data-anchor-id="application-to-test-scores-and-the-studentteacher-ratio"><span class="header-section-number">16.4</span> Application to test scores and the student–teacher ratio</h2>
-<p>We use the district-level test score data described in <a href="Chapter4-LinearRegressionOneRegressor.html" class="quarto-xref"><span>Chapter 14</span></a> to estimate the following models: <span class="math display">\[
+<p>We use the district-level test score data described in <a href="#sec-lrmone" class="quarto-xref"><span class="quarto-unresolved-ref">sec-lrmone</span></a> to estimate the following models: <span class="math display">\[
 \begin{align}
 &amp;\text{TestScore}_i = \beta_0 + \beta_1 \text{STR}_i + u_i,\\
 &amp;\text{TestScore}_i=\beta_0+\beta_1\times\text{STR}_i+\beta_2\times\text{PctEL}_i+u_i,
 \end{align}
 \]</span> for <span class="math inline">\(i=1,\dots,420\)</span>, where <span class="math inline">\(\text{PctEL}_i\)</span> is the percentage of English learners in the <span class="math inline">\(i\)</span>th district. We use the following code chunks to import data from the <code>caschool.xlsx</code> file.</p>
-<div id="fecc8234" class="cell" data-message="false" data-execution_count="2">
+<div id="f2a52ac0" class="cell" data-message="false" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="op">=</span> pd.read_excel(<span class="st">"data/caschool.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="68ae264c" class="cell" data-execution_count="3">
+<div id="af500f55" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Column names</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mydata.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
@@ -646,10 +643,10 @@ Y_i = \beta_0+\beta_1X_{1i}+\beta_2X_{2i}+\dots+\beta_kX_{ki}+u_i,\quad i=1,2,\d
        'enrl_tot', 'teachers', 'calw_pct', 'meal_pct', 'computer', 'testscr',
        'comp_stu', 'expn_stu', 'str', 'avginc', 'el_pct', 'read_scr',
        'math_scr'],
-      dtype='object')</code></pre>
+      dtype='str')</code></pre>
 </div>
 </div>
-<p>The <code>describe</code> method can be used to get descriptive statistics provided in <a href="#tbl-t13-1" class="quarto-xref">Table&nbsp;<span>16.1</span></a> on <code>str</code>, <code>el_pct</code>, and <code>testscr</code>.</p>
+<p>The <code>describe</code> method can be used to get descriptive statistics provided in <a href="#tbl-t13-1" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t13-1</span></a> on <code>str</code>, <code>el_pct</code>, and <code>testscr</code>.</p>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary statistics</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mydata[[<span class="st">"str"</span>, <span class="st">"el_pct"</span>, <span class="st">"testscr"</span>]].<span class="bu">round</span>(<span class="dv">3</span>).describe().T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-layout-panel" data-layout-ncol="1">
@@ -724,7 +721,7 @@ Table&nbsp;16.1: Summary statistics
 </div>
 </div>
 </div>
-<p>In <a href="#tbl-t13-2" class="quarto-xref">Table&nbsp;<span>16.2</span></a>, we provide sample correlation coefficients between variables. We see that <code>PctEL</code> is negatively correlated with <code>testscr</code> and positively correlated with <code>str</code>.</p>
+<p>In <a href="#tbl-t13-2" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t13-2</span></a>, we provide sample correlation coefficients between variables. We see that <code>PctEL</code> is negatively correlated with <code>testscr</code> and positively correlated with <code>str</code>.</p>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation coefficients</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>mydata[[<span class="st">"str"</span>,<span class="st">"el_pct"</span>, <span class="st">"testscr"</span>]].corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-layout-panel" data-layout-ncol="1">
@@ -780,14 +777,14 @@ Table&nbsp;16.2: The sample correlation coefficients
 </div>
 </div>
 <p>In the following code chunk, we use the <code>smf.ols()</code> function to estimate both models.</p>
-<div id="6ab55207" class="cell" data-execution_count="6">
+<div id="b164123b" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimation</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>model1 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'testscr~str'</span>, data<span class="op">=</span>mydata)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>result1 <span class="op">=</span> model1.fit()</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>model2 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'testscr~str+el_pct'</span>, data<span class="op">=</span>mydata)</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>result2 <span class="op">=</span> model2.fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Using the <code>summary_col()</code> function from the <code>statsmodels.iolib.summary2</code>, we can present the estimation results contained in <code>result1</code> and <code>result2</code> as shown in <a href="#tbl-t13-3" class="quarto-xref">Table&nbsp;<span>16.3</span></a>.</p>
+<p>Using the <code>summary_col()</code> function from the <code>statsmodels.iolib.summary2</code>, we can present the estimation results contained in <code>result1</code> and <code>result2</code> as shown in <a href="#tbl-t13-3" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t13-3</span></a>.</p>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print results in table form</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>models <span class="op">=</span> [<span class="st">'Model 1'</span>, <span class="st">'Model 2'</span>]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>results_table <span class="op">=</span> summary_col(results<span class="op">=</span>[result1, result2],</span>
@@ -864,7 +861,7 @@ Standard errors in parentheses.<br>
 </div>
 </div>
 </div>
-<p>Using the estimation results in <a href="#tbl-t13-3" class="quarto-xref">Table&nbsp;<span>16.3</span></a>, we can write the estimated regression equations as <span class="math display">\[
+<p>Using the estimation results in <a href="#tbl-t13-3" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t13-3</span></a>, we can write the estimated regression equations as <span class="math display">\[
 \begin{align*}
 &amp;\text{Model 1}: \widehat{TestScore}=698.9-2.280\times STR,\\
 &amp;\text{Model 2}: \widehat{TestScore}=686-1.10\times STR-0.65\times PctEL.
@@ -898,8 +895,8 @@ R^2 = \frac{ESS}{TSS} = 1-\frac{SSR}{TSS},
 \end{align*}
 \]</span></p>
 <p>Note that <span class="math inline">\(\bar{R}^2&lt; R^2\)</span>, but if <span class="math inline">\(n\)</span> is large, the two will be very close because <span class="math inline">\((n-1)/(n-k-1)\)</span> approaches one as <span class="math inline">\(n\)</span> increases. Also, adding a new regressor to the model affects <span class="math inline">\(\bar{R}^2\)</span> in two opposing directions. On the one hand, the new regressor decreases the <span class="math inline">\(SSR\)</span>, which tends to increase <span class="math inline">\(\bar{R}^2\)</span>. On the other hand, the factor <span class="math inline">\((n-1)(n-k-1)\)</span> increases, which tends to reduce <span class="math inline">\(\bar{R}^2\)</span>. Therefore, the net effect on <span class="math inline">\(\bar{R}^2\)</span> depends on which of these two effects is relatively larger.</p>
-<p>The results in <a href="#tbl-t13-3" class="quarto-xref">Table&nbsp;<span>16.3</span></a> show that including <code>PctEL</code> in the regression increases the <span class="math inline">\(R^2\)</span> from 0.051 to 0.426. Thus, including <code>PctEL</code> substantially improves the fit of the regression. Because <span class="math inline">\(n\)</span> is large and we have only two regressors, the difference between <span class="math inline">\(R^2\)</span> and <span class="math inline">\(\bar{R}^2\)</span> is very small: <span class="math inline">\(R^2 = 0.426\)</span> vs.&nbsp;<span class="math inline">\(\bar{R}^2 = 0.424\)</span>. Note that <a href="#tbl-t13-3" class="quarto-xref">Table&nbsp;<span>16.3</span></a> does not include the SER measures. In the following code chunk, we compute the SER measures for both models.</p>
-<div id="2509fc97" class="cell" data-execution_count="8">
+<p>The results in <a href="#tbl-t13-3" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t13-3</span></a> show that including <code>PctEL</code> in the regression increases the <span class="math inline">\(R^2\)</span> from 0.051 to 0.426. Thus, including <code>PctEL</code> substantially improves the fit of the regression. Because <span class="math inline">\(n\)</span> is large and we have only two regressors, the difference between <span class="math inline">\(R^2\)</span> and <span class="math inline">\(\bar{R}^2\)</span> is very small: <span class="math inline">\(R^2 = 0.426\)</span> vs.&nbsp;<span class="math inline">\(\bar{R}^2 = 0.424\)</span>. Note that <a href="#tbl-t13-3" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t13-3</span></a> does not include the SER measures. In the following code chunk, we compute the SER measures for both models.</p>
+<div id="e2f10130" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Computing SER for both models</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>SER1 <span class="op">=</span> np.sqrt(np.<span class="bu">sum</span>(result1.resid<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> result1.df_resid)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>SER2 <span class="op">=</span> np.sqrt(np.<span class="bu">sum</span>(result2.resid<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> result2.df_resid)</span>
@@ -911,8 +908,8 @@ R^2 = \frac{ESS}{TSS} = 1-\frac{SSR}{TSS},
 The SER for Model 2 is: 14.5</code></pre>
 </div>
 </div>
-<p>The SER value <span class="math inline">\(18.6\)</span> falls to <span class="math inline">\(14.5\)</span> when <code>PctEL</code> is included as a second regressor into the model. Finally, in the following code chunk, we compute these measures of fit manually for the second model. The results are given in <a href="#tbl-t13-t4" class="quarto-xref">Table&nbsp;<span>16.4</span></a>.</p>
-<div id="52ea6ea3" class="cell" data-execution_count="9">
+<p>The SER value <span class="math inline">\(18.6\)</span> falls to <span class="math inline">\(14.5\)</span> when <code>PctEL</code> is included as a second regressor into the model. Finally, in the following code chunk, we compute these measures of fit manually for the second model. The results are given in <a href="#tbl-t13-t4" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t13-t4</span></a>.</p>
+<div id="fea85fb0" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Computing SER, RMSE, R^2, and adjusted R^2 for the second model</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> result2.nobs</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> result2.k_constant</span>
@@ -1001,14 +998,14 @@ The least squares assumptions for multiple regression
 </ol>
 </div>
 </div>
-<p>The first assumption extends the zero-conditional mean assumption from the linear regression model with one regressor to the model with multiple regressors. We can use the correlation approach described in <a href="Chapter4-LinearRegressionOneRegressor.html" class="quarto-xref"><span>Chapter 14</span></a> to check whether this assumption is violated. According to this approach, in an empirical application, if we suspect that the error term includes an omitted variable that is correlated with the included regressors, then <span class="math inline">\(\E\left(u_i | X_{1i}, X_{2i}, \dots, X_{ki}\right) \neq 0\)</span>. In Section 13.8, we relax this assumption through a conditional mean independence assumption for the variable of interest.</p>
+<p>The first assumption extends the zero-conditional mean assumption from the linear regression model with one regressor to the model with multiple regressors. We can use the correlation approach described in <a href="#sec-lrmone" class="quarto-xref"><span class="quarto-unresolved-ref">sec-lrmone</span></a> to check whether this assumption is violated. According to this approach, in an empirical application, if we suspect that the error term includes an omitted variable that is correlated with the included regressors, then <span class="math inline">\(\E\left(u_i | X_{1i}, X_{2i}, \dots, X_{ki}\right) \neq 0\)</span>. In Section 13.8, we relax this assumption through a conditional mean independence assumption for the variable of interest.</p>
 <p>The second assumption requires that our sample data be collected through simple random sampling. The third assumption stipulates that there are no large outliers, which is ensured by requiring that both the dependent variable and the regressors have finite fourth moments.</p>
-<p>The fourth assumption is new and rules out perfect multicollinearity. In a multiple linear regression model, <strong>perfect multicollinearity</strong> arises if there is a perfect linear relationship among the regressors. For example, the linear relationship such as <span class="math inline">\(X_1=0.5X_5+X_6\)</span> suggests perfect multicollinearity among the regressors <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_5\)</span>, and <span class="math inline">\(X_6\)</span>. In <a href="Chapter19-TheoryMultipleRegression.html" class="quarto-xref"><span>Chapter 29</span></a>, we show that the OLS estimator is not defined when perfect multicollinearity is present.</p>
-<p><a href="#thm-thm13-1" class="quarto-xref">Theorem&nbsp;<span>16.2</span></a> summarizes the properties of the OLS estimators under these four assumptions. In this theorem, we do not provide explicit formulas for the asymptotic variance of the OLS estimators. In <a href="Chapter19-TheoryMultipleRegression.html" class="quarto-xref"><span>Chapter 29</span></a>, we use linear algebra to derive these formulas.</p>
+<p>The fourth assumption is new and rules out perfect multicollinearity. In a multiple linear regression model, <strong>perfect multicollinearity</strong> arises if there is a perfect linear relationship among the regressors. For example, the linear relationship such as <span class="math inline">\(X_1=0.5X_5+X_6\)</span> suggests perfect multicollinearity among the regressors <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_5\)</span>, and <span class="math inline">\(X_6\)</span>. In <a href="#sec-chapter26" class="quarto-xref"><span class="quarto-unresolved-ref">sec-chapter26</span></a>, we show that the OLS estimator is not defined when perfect multicollinearity is present.</p>
+<p><a href="#thm-thm13-1" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm13-1</span></a> summarizes the properties of the OLS estimators under these four assumptions. In this theorem, we do not provide explicit formulas for the asymptotic variance of the OLS estimators. In <a href="#sec-chapter26" class="quarto-xref"><span class="quarto-unresolved-ref">sec-chapter26</span></a>, we use linear algebra to derive these formulas.</p>
 <div id="thm-thm13-1" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 16.2 (Properties of OLS Estimators)</strong></span> Under the four least squares assumptions, we have <span class="math inline">\(\E(\hat{\beta}_j) = \beta_j\)</span> for <span class="math inline">\(j=1,\dots,k\)</span>, i.e, the OLS estimators are <strong>unbiased</strong>. As <span class="math inline">\(n\to\infty\)</span>, <span class="math inline">\(\hat{\beta}_0,\dots,\hat{\beta}_k\)</span> are consistent and have a joint multivariate normal distribution.</p>
 </div>
-<p>According to <a href="#thm-thm13-1" class="quarto-xref">Theorem&nbsp;<span>16.2</span></a>, the OLS estimators <span class="math inline">\(\hat{\beta}_0, \dots, \hat{\beta}_k\)</span> satisfy three properties: (i) unbiasedness, (ii) consistency, and (iii) asymptotic joint normality. In the following simulation study, we use simulated data to show that these properties hold when <span class="math inline">\(n\)</span> is large enough. We assume that the dependent variable is generated according too <span class="math display">\[
+<p>According to <a href="#thm-thm13-1" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm13-1</span></a>, the OLS estimators <span class="math inline">\(\hat{\beta}_0, \dots, \hat{\beta}_k\)</span> satisfy three properties: (i) unbiasedness, (ii) consistency, and (iii) asymptotic joint normality. In the following simulation study, we use simulated data to show that these properties hold when <span class="math inline">\(n\)</span> is large enough. We assume that the dependent variable is generated according too <span class="math display">\[
 Y_i = \beta_0+\beta_1X_{1i}+\beta_2X_{2i}+u_i,
 \]</span> where <span class="math inline">\(\beta_0=0.5\)</span>, <span class="math inline">\(\beta_1=1.5\)</span>, <span class="math inline">\(\beta_2=1\)</span> and <span class="math inline">\(u_i\sim t_3\)</span>. For the regressors, we assume that they are generated from the following bivariate normal distribution: <span class="math display">\[
 (X_{1i},X_{2i})^{'}\sim N\left(\begin{pmatrix}2\\1.5\end{pmatrix},
@@ -1018,8 +1015,8 @@ Y_i = \beta_0+\beta_1X_{1i}+\beta_2X_{2i}+u_i,
 \end{pmatrix}
 \right).
 \]</span></p>
-<p>We set the sample size <span class="math inline">\(n\)</span> to 100 and generate 10000 samples. Using each sample, we estimate the model and store the estimated coefficients in the <code>coefs</code> array. We then generate histograms and density plots for each estimated coefficient. We provide the simulation results in <a href="#fig-fig13-1" class="quarto-xref">Figure&nbsp;<span>16.1</span></a>. The histograms and density plots for <span class="math inline">\(\hat{\beta}_0\)</span>, <span class="math inline">\(\hat{\beta}_1\)</span>, and <span class="math inline">\(\hat{\beta}_2\)</span> are bell-shaped and centered around the respective true parameter values. The surface plot in <a href="#fig-fig13-1" class="quarto-xref">Figure&nbsp;<span>16.1</span></a> resembles that of a bivariate normal distribution, suggesting that <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_2\)</span> have a joint bivariate normal distribution.</p>
-<div id="b66315aa" class="cell" data-execution_count="11">
+<p>We set the sample size <span class="math inline">\(n\)</span> to 100 and generate 10000 samples. Using each sample, we estimate the model and store the estimated coefficients in the <code>coefs</code> array. We then generate histograms and density plots for each estimated coefficient. We provide the simulation results in <a href="#fig-fig13-1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig13-1</span></a>. The histograms and density plots for <span class="math inline">\(\hat{\beta}_0\)</span>, <span class="math inline">\(\hat{\beta}_1\)</span>, and <span class="math inline">\(\hat{\beta}_2\)</span> are bell-shaped and centered around the respective true parameter values. The surface plot in <a href="#fig-fig13-1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig13-1</span></a> resembles that of a bivariate normal distribution, suggesting that <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_2\)</span> have a joint bivariate normal distribution.</p>
+<div id="8f269436" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set sample size and number of simulations</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>n_simulations <span class="op">=</span> <span class="dv">10000</span></span>
@@ -1118,7 +1115,7 @@ Y_i = \beta_0+\beta_1X_{1i}+\beta_2X_{2i}+u_i,
 <div id="fig-fig13-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig13-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter6-MultipleRegression_files/figure-html/fig-fig13-1-output-1.png" width="752" height="655" class="figure-img">
+<img src="Chapter6-MultipleRegression_files/figure-html/fig-fig13-1-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig13-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;16.1: Histogram and density plots of the simulation results
@@ -1152,8 +1149,8 @@ Figure&nbsp;16.1: Histogram and density plots of the simulation results
 \text{Northeast}+\text{Midwest}+\text{South}+\text{West}=1.
 \]</span></p>
 <p>To resolve this, we will treat the last dummy variable as the <strong>base category</strong> and exclude it from the regression model.</p>
-<p>We use the following code chunks to import the data. <a href="#tbl-t13-5" class="quarto-xref">Table&nbsp;<span>16.5</span></a> provides summary statistics.</p>
-<div id="da7077ec" class="cell" data-execution_count="13">
+<p>We use the following code chunks to import the data. <a href="#tbl-t13-5" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t13-5</span></a> provides summary statistics.</p>
+<div id="4763e55c" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="op">=</span> pd.read_excel(<span class="st">"data/ch8_cps.xlsx"</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Display column names</span></span>
@@ -1161,7 +1158,7 @@ Figure&nbsp;16.1: Histogram and density plots of the simulation results
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>Index(['ahe', 'yrseduc', 'female', 'age', 'northeast', 'midwest', 'south',
        'west'],
-      dtype='object')</code></pre>
+      dtype='str')</code></pre>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary statistics</span></span>
@@ -1294,13 +1291,13 @@ Table&nbsp;16.5: Summary statistics
 </div>
 </div>
 <p>In the following, we use the <code>smf.ols</code> function from the <code>statsmodels.formula.api</code> module to estimate the regression model.</p>
-<div id="4dbd9729" class="cell" data-execution_count="15">
+<div id="506d2ac3" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimation</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>model3 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'ahe ~ yrseduc + female + northeast + midwest + south'</span>,</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                 data<span class="op">=</span>mydata)</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>result3 <span class="op">=</span> model3.fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The estimation results contained in the <code>result3</code> object are shown in <a href="#tbl-t13-6" class="quarto-xref">Table&nbsp;<span>16.6</span></a>. The coefficient on each dummy variable shows the average difference in the dependent variable relative to the base category. For example, the estimated coefficient on <code>northeast</code> is 1.105, meaning that, holding the other variables constant, a person living in the Northeast region earns, on average, 1.105 more dollars hourly than a person living in the West (the base category).</p>
+<p>The estimation results contained in the <code>result3</code> object are shown in <a href="#tbl-t13-6" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t13-6</span></a>. The coefficient on each dummy variable shows the average difference in the dependent variable relative to the base category. For example, the estimated coefficient on <code>northeast</code> is 1.105, meaning that, holding the other variables constant, a person living in the Northeast region earns, on average, 1.105 more dollars hourly than a person living in the West (the base category).</p>
 <p>The estimated coefficient on <code>female</code> is -6.367. This estimate indicates that holding other variables constant, women earn on average 6.367 fewer dollars hourly than men. The estimated coefficient on <code>Yrseduc</code> is 2.981, which means that for each additional year of education, average hourly earnings increase by 2.981 dollars, holding other variables constant.</p>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print results in table form</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>models <span class="op">=</span> [<span class="st">'Model 3'</span>]</span>
@@ -1422,12 +1419,12 @@ The least squares assumptions for causal inference in the multiple regression mo
 <p><span class="theorem-title"><strong>Theorem 16.3 (The OLS estimators in multiple regression with control variables)</strong></span> Under the least squares assumptions for causal inference in the multiple regression model with control variables, the OLS estimators <span class="math inline">\(\hat{\beta}_0, \dots, \hat{\beta}_k\)</span> are unbiased, consistent, and have an asymptotic joint normal distribution.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm13.3" class="quarto-xref">Theorem&nbsp;<span>16.3</span></a>). </span>Under the conditional mean independence assumption, we assume that <span class="math display">\[
+<p><span class="proof-title"><em>Proof</em> (Proof of <a href="#thm-thm13.3" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm13.3</span></a>). </span>Under the conditional mean independence assumption, we assume that <span class="math display">\[
 \begin{align}
 \E\left(u_i|X_{1i},X_{i2},\dots,X_{ik},W_{1i},\dots,W_{ri}\right)&amp;=\E\left(u_i|W_{1i},\dots,W_{ri}\right)\\
 &amp; = \gamma_0 + \gamma_1W_{1i} +\dots+\gamma_k W_{ki},
 \end{align}
-\]</span> where <span class="math inline">\(\gamma\)</span>’s are unknown coefficients. That is, we assume that <span class="math inline">\(\E\left(u_i|W_{1i},\dots,W_{ri}\right)\)</span> is a linear function of the control variables. Then, taking the conditional expectation of <a href="#eq-eq13-2" class="quarto-xref">Equation&nbsp;<span>16.2</span></a> with respect to <span class="math inline">\(X_{1i},X_{i2},\dots,X_{ik},W_{1i},\dots,W_{ri}\)</span>, we obtain <span class="math display">\[
+\]</span> where <span class="math inline">\(\gamma\)</span>’s are unknown coefficients. That is, we assume that <span class="math inline">\(\E\left(u_i|W_{1i},\dots,W_{ri}\right)\)</span> is a linear function of the control variables. Then, taking the conditional expectation of <a href="#eq-eq13-2" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq13-2</span></a> with respect to <span class="math inline">\(X_{1i},X_{i2},\dots,X_{ik},W_{1i},\dots,W_{ri}\)</span>, we obtain <span class="math display">\[
 \begin{align}
 &amp;\E\left(Y_i|X_{1i},X_{i2},\dots,X_{ik},W_{1i},\dots,W_{ri}\right)\\
 &amp;=\beta_0+\beta_1X_{1i}+\dots+\beta_kX_{ki}+\beta_{k+1}W_{1i}+\dots+\beta_{k+r}W_{ri}\\
@@ -1435,12 +1432,12 @@ The least squares assumptions for causal inference in the multiple regression mo
 &amp;=(\beta_0+\gamma_0)+\beta_1X_{1i}+\dots+\beta_kX_{ki}+(\beta_{k+1}+\gamma_1)W_{1i}+\dots+(\beta_{k+r}+\gamma_r)W_{ri}\\
 &amp;=\delta_0+\beta_1X_{1i}+\dots+\beta_kX_{ki}+\delta_1W_{1i}+\dots+\delta_rW_{ri},
 \end{align}
-\]</span> where <span class="math inline">\(\delta_0=(\beta_{0}+\gamma_0)\)</span> an <span class="math inline">\(\delta_j=(\beta_{k+j}+\gamma_j)\)</span> for <span class="math inline">\(j=1,\dots,r\)</span>. This result suggests that we can express <a href="#eq-eq13-2" class="quarto-xref">Equation&nbsp;<span>16.2</span></a> as <span id="eq-eq13-3"><span class="math display">\[
+\]</span> where <span class="math inline">\(\delta_0=(\beta_{0}+\gamma_0)\)</span> an <span class="math inline">\(\delta_j=(\beta_{k+j}+\gamma_j)\)</span> for <span class="math inline">\(j=1,\dots,r\)</span>. This result suggests that we can express <a href="#eq-eq13-2" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq13-2</span></a> as <span id="eq-eq13-3"><span class="math display">\[
 Y_i=\delta_0+\beta_1X_{1i}+\dots+\beta_k X_{ki}+\delta_{k+1}W_{1i}+\dots+\delta_{k+r}W_{ri}+v_i,
-\tag{16.3}\]</span></span> where <span class="math inline">\(\E\left(v_i|X_{1i},X_{i2},\dots,X_{ik},W_{1i},\dots,W_{ri}\right)=0\)</span>. Thus, we can apply <a href="#thm-thm13-1" class="quarto-xref">Theorem&nbsp;<span>16.2</span></a> and conclude that the OLS estimators <span class="math inline">\(\hat{\beta}_1,\dots,\hat{\beta}_k,\hat{\delta}_0,\dots,\hat{\delta}_r\)</span> are unbiased, consistent, and have an asymptotic normal distribution.</p>
+\tag{16.3}\]</span></span> where <span class="math inline">\(\E\left(v_i|X_{1i},X_{i2},\dots,X_{ik},W_{1i},\dots,W_{ri}\right)=0\)</span>. Thus, we can apply <a href="#thm-thm13-1" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm13-1</span></a> and conclude that the OLS estimators <span class="math inline">\(\hat{\beta}_1,\dots,\hat{\beta}_k,\hat{\delta}_0,\dots,\hat{\delta}_r\)</span> are unbiased, consistent, and have an asymptotic normal distribution.</p>
 </div>
-<p>The proof <a href="#thm-thm13.3" class="quarto-xref">Theorem&nbsp;<span>16.3</span></a> shows that the OLS estimators <span class="math inline">\(\hat{\delta}_0,\dots,\hat{\delta}_r\)</span> are unbiased and consistent estimators of <span class="math inline">\(\delta_0,\dots,\delta_r\)</span>. From <span class="math inline">\(\beta_{k+j}=\delta_j-\gamma_j\)</span>, we can derive the OLS estimators of the coefficients on the control variables as <span class="math inline">\(\hat{\beta}_{k+j}=\hat{\delta}_j-\hat{\gamma}_j\)</span>. However, this approach is not feasible because we do not have consistent estimators of <span class="math inline">\(\gamma_j\)</span> for <span class="math inline">\(j=1,\dots,r\)</span>.</p>
-<p><a href="#thm-thm13.3" class="quarto-xref">Theorem&nbsp;<span>16.3</span></a> justifies the use of control variables in the multiple linear regression model. According to this theorem, control variables should be selected so that, once included in the model, the variable of interest becomes uncorrelated with the error term. In the empirical application presented in the next chapter, we discuss how to choose control variables in practice.</p>
+<p>The proof <a href="#thm-thm13.3" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm13.3</span></a> shows that the OLS estimators <span class="math inline">\(\hat{\delta}_0,\dots,\hat{\delta}_r\)</span> are unbiased and consistent estimators of <span class="math inline">\(\delta_0,\dots,\delta_r\)</span>. From <span class="math inline">\(\beta_{k+j}=\delta_j-\gamma_j\)</span>, we can derive the OLS estimators of the coefficients on the control variables as <span class="math inline">\(\hat{\beta}_{k+j}=\hat{\delta}_j-\hat{\gamma}_j\)</span>. However, this approach is not feasible because we do not have consistent estimators of <span class="math inline">\(\gamma_j\)</span> for <span class="math inline">\(j=1,\dots,r\)</span>.</p>
+<p><a href="#thm-thm13.3" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm13.3</span></a> justifies the use of control variables in the multiple linear regression model. According to this theorem, control variables should be selected so that, once included in the model, the variable of interest becomes uncorrelated with the error term. In the empirical application presented in the next chapter, we discuss how to choose control variables in practice.</p>
 
 
 </section>

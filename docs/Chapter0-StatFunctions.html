@@ -520,7 +520,7 @@ window.Quarto = {
 <section id="introduction" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">5.1</span> Introduction</h2>
 <p>In this chapter, we first introduce statistical functions from NumPy and SciPy. These libraries offer a wide range of tools for generating random numbers, evaluating probability density and cumulative distribution functions, and determining quantiles/percentiles.</p>
-<div id="1a427181" class="cell" data-execution_count="1">
+<div id="b09c69ef" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.optimize <span class="im">as</span> optimize</span>
@@ -554,76 +554,77 @@ window.Quarto = {
 <li><code>uniform</code>: Generates draws from the interval <span class="math inline">\((0,1)\)</span>.</li>
 </ul>
 <p>Some illustrative examples are provided below.</p>
-<div id="c70a154a" class="cell" data-execution_count="3">
+<div id="15b1f79d" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate 3x2x3 array of draws from the uniform distribution on [0,1)</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.rand(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>array([[[0.25879824, 0.74196305, 0.50703551],
-        [0.72222705, 0.43421344, 0.25983533]],
+<pre><code>array([[[0.09735767, 0.13635666, 0.96234862],
+        [0.70997462, 0.35721192, 0.44920953]],
 
-       [[0.38135745, 0.83381807, 0.67572108],
-        [0.58135313, 0.78181369, 0.42856365]],
+       [[0.03700312, 0.40291701, 0.96809286],
+        [0.43273888, 0.65001783, 0.90077769]],
 
-       [[0.01304673, 0.30717809, 0.16162666],
-        [0.87545767, 0.28379822, 0.70014785]]])</code></pre>
+       [[0.78384198, 0.77490649, 0.37469245],
+        [0.14015372, 0.80456771, 0.33020218]]])</code></pre>
 </div>
 </div>
-<div id="9d1f3d65" class="cell" data-execution_count="4">
+<div id="4945cba3" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate 3x2 array of draws from the standard normal distribution</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.standard_normal((<span class="dv">3</span>, <span class="dv">2</span>))</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>array([[ 0.16881258, -0.40088562],
-       [ 0.08610502, -0.4639812 ],
-       [-0.54240434,  0.27447421]])</code></pre>
+<pre><code>array([[ 1.44512606, -1.01977717],
+       [ 0.71084818,  0.11684736],
+       [ 1.34315201, -1.12415436]])</code></pre>
 </div>
 </div>
-<div id="d6a5afb3" class="cell" data-execution_count="5">
+<div id="efec693f" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Randomly order the elements of an array</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>np.random.shuffle(x)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
-<pre><code>array([0, 8, 2, 1, 6, 5, 7, 9, 3, 4])</code></pre>
+<pre><code>array([3, 6, 4, 8, 2, 7, 1, 0, 5, 9])</code></pre>
 </div>
 </div>
-<div id="ed72c122" class="cell" data-execution_count="6">
+<div id="bbd4c4e2" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate 10 draws from N(mu, sigma)</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mu, sigma <span class="op">=</span> <span class="dv">2</span>, <span class="fl">1.5</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> np.random.normal(mu, sigma, <span class="dv">10</span>)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
-<pre><code>array([ 2.83919411,  0.25207419,  1.41964091,  2.29288856,  2.97567298,
-        1.25094078,  2.92609823, -0.24081456,  2.19946615,  3.75978357])</code></pre>
+<pre><code>array([ 1.89881246,  4.85707591,  4.27057966, -0.66298431,  1.36782235,
+        5.6134035 ,  2.10085467,  2.52991449,  1.97802037, -0.69988081])</code></pre>
 </div>
 </div>
-<div id="781048cb" class="cell" data-execution_count="7">
+<div id="1c01a21f" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate 20 draws from Binomial(n, p)</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>n, p <span class="op">=</span> <span class="dv">10</span>, <span class="fl">0.5</span>  <span class="co"># number of trials, probability of each trial</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> np.random.binomial(n, p, <span class="dv">20</span>)</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>array([4, 3, 6, 7, 5, 6, 5, 7, 3, 5, 3, 6, 4, 2, 4, 6, 5, 7, 3, 5])</code></pre>
+<pre><code>array([8, 2, 4, 8, 7, 4, 7, 6, 7, 4, 4, 5, 5, 5, 5, 4, 4, 5, 2, 4],
+      dtype=int32)</code></pre>
 </div>
 </div>
-<div id="98456927" class="cell" data-execution_count="8">
+<div id="34c67265" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate 4 draws from the chi-squared distribution with 2 degrees of freedom</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>nu, n <span class="op">=</span> <span class="dv">2</span>, <span class="dv">4</span>  <span class="co"># degrees of freedom, number of draws</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>np.random.chisquare(nu, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>array([1.20344095, 0.21354926, 0.77458422, 0.18633666])</code></pre>
+<pre><code>array([2.32362811, 0.2621558 , 0.05165518, 0.52658045])</code></pre>
 </div>
 </div>
-<div id="58b4f803" class="cell" data-execution_count="9">
+<div id="f8790156" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate 5 draws from the Student's t distribution with 10 degrees of freedom</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>np.random.standard_t(df<span class="op">=</span><span class="dv">10</span>, size<span class="op">=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>array([ 1.73867327, -0.84754368, -0.68118082,  0.73388114,  0.75629395])</code></pre>
+<pre><code>array([ 1.50279581,  0.92476353, -2.48549455, -0.15176522, -1.17898725])</code></pre>
 </div>
 </div>
 <p>Computer-simulated random numbers are not truly random; they are generally referred to as pseudo-random numbers. The function <code>np.random.seed()</code> is useful for initializing the random number generator, allowing for the generation of the same sequence of random numbers by setting the seed. In the example below, we set the seed to 12345 and generate 5 random draws from the standard normal distribution twice. Since we use the same seed in each case, we obtain the same random numbers in both instances.</p>
-<div id="b0d62608" class="cell" data-execution_count="10">
+<div id="4a821b0d" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the seed for reproducibility</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">12345</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.randn(<span class="dv">5</span>)</span>
@@ -668,83 +669,83 @@ window.Quarto = {
 <li><code>moment</code>: Returns the <span class="math inline">\(n\)</span>th non-central moment of the distribution.</li>
 </ul>
 <p>The documentation on these methods is given at <a href="https://docs.scipy.org/doc/scipy/reference/stats.html">Statistical functions</a>. Some illustrative examples are shown below.</p>
-<div id="0ca1a01b" class="cell" data-execution_count="11">
+<div id="a4f1970b" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate 4 draws from N(2,9)</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>stats.norm.rvs(loc<span class="op">=</span><span class="dv">2</span>, scale<span class="op">=</span><span class="dv">3</span>, size<span class="op">=</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>array([6.1802175 , 2.27872363, 2.84523846, 4.3070677 ])</code></pre>
 </div>
 </div>
-<div id="db6ccff4" class="cell" data-execution_count="12">
+<div id="3a43a2e1" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the pdf of the standard normal distribution at 1.96</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>stats.norm.pdf(<span class="fl">1.96</span>, loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
-<pre><code>0.058440944333451476</code></pre>
+<pre><code>np.float64(0.058440944333451476)</code></pre>
 </div>
 </div>
-<div id="9e208893" class="cell" data-execution_count="13">
+<div id="e6357d3e" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the cdf of the standard normal distribution at -1.96</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>stats.norm.cdf(<span class="op">-</span><span class="fl">1.96</span>, loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
-<pre><code>0.024997895148220435</code></pre>
+<pre><code>np.float64(0.024997895148220435)</code></pre>
 </div>
 </div>
-<div id="9536619c" class="cell" data-execution_count="14">
+<div id="371acdb8" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the 0.95 quantile of N(0,1)</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>stats.norm.ppf(<span class="fl">0.95</span>, loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
-<pre><code>1.6448536269514722</code></pre>
+<pre><code>np.float64(1.6448536269514722)</code></pre>
 </div>
 </div>
-<div id="47279d0a" class="cell" data-execution_count="15">
+<div id="f0197a6f" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the normal distribution to data</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> stats.norm.rvs(loc<span class="op">=</span><span class="dv">1</span>, scale<span class="op">=</span><span class="dv">5</span>, size<span class="op">=</span><span class="dv">1000</span>)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>location, scale <span class="op">=</span> stats.norm.fit(x)</span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"(location, scale)="</span>, (location, scale))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>(location, scale)= (0.9694060807470053, 4.905952684899126)</code></pre>
+<pre><code>(location, scale)= (np.float64(0.9694060807470053), np.float64(4.905952684899126))</code></pre>
 </div>
 </div>
-<div id="a38e22e3" class="cell" data-execution_count="16">
+<div id="b1c4796f" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the median of N(3,1)</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>stats.norm.median(loc<span class="op">=</span><span class="dv">3</span>, scale<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
-<pre><code>3.0</code></pre>
+<pre><code>np.float64(3.0)</code></pre>
 </div>
 </div>
-<div id="2def940e" class="cell" data-execution_count="17">
+<div id="441ecff9" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the mean of N(3,4)</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>stats.norm.mean(loc<span class="op">=</span><span class="dv">3</span>, scale<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
-<pre><code>3.0</code></pre>
+<pre><code>np.float64(3.0)</code></pre>
 </div>
 </div>
-<div id="39f37eaa" class="cell" data-execution_count="18">
+<div id="f9979a94" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the mean of chi-squared distribution with 4 degrees of freedom</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>stats.chi2.mean(df<span class="op">=</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
-<pre><code>4.0</code></pre>
+<pre><code>np.float64(4.0)</code></pre>
 </div>
 </div>
-<div id="03286ed8" class="cell" data-execution_count="19">
+<div id="7ac7c5c9" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the variance of N(3,4)</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>stats.norm.var(loc<span class="op">=</span><span class="dv">3</span>, scale<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>4.0</code></pre>
+<pre><code>np.float64(4.0)</code></pre>
 </div>
 </div>
-<div id="e56211f4" class="cell" data-execution_count="20">
+<div id="0635c044" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the standard deviation of N(3,4)</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>stats.norm.std(loc<span class="op">=</span><span class="dv">3</span>, scale<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
-<pre><code>2.0</code></pre>
+<pre><code>np.float64(2.0)</code></pre>
 </div>
 </div>
-<div id="71bc4d60" class="cell" data-execution_count="21">
+<div id="3b964b59" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the second non-central moment of N(0,1)</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>stats.norm.moment(<span class="dv">2</span>, loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
-<pre><code>1.0</code></pre>
+<pre><code>np.float64(1.0)</code></pre>
 </div>
 </div>
 

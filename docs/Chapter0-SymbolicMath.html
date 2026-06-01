@@ -552,7 +552,7 @@ window.Quarto = {
 <h2 data-number="9.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">9.1</span> Introduction</h2>
 <p>In symbolic operations, mathematical computations are carried out analytically using symbols and expressions rather than numerical values. Symbolic computation provides exact results because it relies on the exact representation of mathematical symbols. The main module in Python for symbolic computation is the <a href="https://www.sympy.org/en/index.html"><code>sympy</code></a> package, which offers a wide range of functions for symbolic computing.</p>
 <p>In this chapter, we illustrate some of the key features of the SymPy package. We first describe how to declare symbols and functions, and then demonstrate basic operations such as simplification, expansion, factorization, substitution, and evaluation. We also cover calculus operations such as differentiation, integration, and limits. Finally, we discuss linear algebra operations using symbolic matrices.</p>
-<div id="16f5b286" class="cell" data-execution_count="1">
+<div id="0fbfc99a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.optimize <span class="im">as</span> optimize</span>
@@ -567,30 +567,30 @@ window.Quarto = {
 <section id="declaration-of-symbols" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="declaration-of-symbols"><span class="header-section-number">9.2</span> Declaration of symbols</h2>
 <p>We first need to translate mathematical symbols into Python objects. This is done using the <code>symbols</code> function in the SymPy package. In the following example, we declare three symbols <code>x</code>, <code>y</code>, and <code>z</code>:</p>
-<div id="08b91b91" class="cell" data-execution_count="3">
+<div id="28d0cb5a" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x, y, z <span class="op">=</span> sp.symbols(<span class="st">'x, y, z'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We then use these symbols to define mathematical expressions. For example, we can define the expression <span class="math inline">\(x^2 + 2xy + y^2\)</span> as follows:</p>
-<div id="8e710b42" class="cell" data-execution_count="4">
+<div id="eea55262" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x<span class="op">*</span>y <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>expr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="74">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="4">
 <p><span class="math inline">\(\displaystyle x^{2} + 2 x y + y^{2}\)</span></p>
 </div>
 </div>
 <p>The object <code>expr</code> is a symbolic expression because it is defined in terms of the symbols <code>x</code> and <code>y</code>. In SymPy, the <code>sp.Expr</code> class is used to represent symbolic expressions. We can check whether <code>expr</code> is an instance of the <code>sp.Expr</code> class using the <code>isinstance</code> function:</p>
-<div id="02fff6db" class="cell" data-execution_count="5">
+<div id="f02bc499" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">isinstance</span>(expr, sp.Expr)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(expr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="75">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>True</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="75">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>sympy.core.add.Add</code></pre>
 </div>
 </div>
 <p>Note that the type of <code>expr</code> is <code>Add</code>, which is a subclass of <code>Expr</code> that represents a sum of terms. In the following diagram, we illustrate the class hierarchy of symbolic expressions in SymPy.</p>
-<div id="b8e5eea5" class="cell" data-execution_count="6">
+<div id="3fee3d84" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Basic                          <span class="co"># the root of all SymPy objects</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a> ├── Expr                      <span class="co"># base class for symbolic expressions</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a> │     ├── Symbol              <span class="co"># variables (x, y, z, ...)</span></span>
@@ -612,30 +612,30 @@ window.Quarto = {
 <span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a> └── Assumptions               <span class="co"># assumption system</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can use the <code>free_symbols</code> attribute to get the set of symbols that appear in a symbolic expression. For example, we can get the symbols that appear in the expression <code>expr</code> as follows:</p>
-<div id="39cb3ba1" class="cell" data-execution_count="7">
+<div id="d99fdf28" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>expr.free_symbols</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="76">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
 <p><span class="math inline">\(\displaystyle \left\{x, y\right\}\)</span></p>
 </div>
 </div>
 <p>The <code>symbols</code> function also allows us to assign specific properties known as assumptions to the symbols. For example, we can declare a symbol to be an integer or a positive real number:</p>
-<div id="655ebea3" class="cell" data-execution_count="8">
+<div id="b5ea828b" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> sp.symbols(<span class="st">'n'</span>, integer<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> sp.symbols(<span class="st">'a'</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> sp.symbols(<span class="st">'b'</span>, real<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In <a href="#tbl-SymbolsOptions" class="quarto-xref">Table&nbsp;<span>9.1</span></a>, we provide commonly used assumptions for the <code>symbols</code> function. We can check these assumptions attached to the symbols by using the following attributes:</p>
-<div id="42ea0c4b" class="cell" data-execution_count="9">
+<p>In <a href="#tbl-SymbolsOptions" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-SymbolsOptions</span></a>, we provide commonly used assumptions for the <code>symbols</code> function. We can check these assumptions attached to the symbols by using the following attributes:</p>
+<div id="a33559d0" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>n.is_integer</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>a.is_positive</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>b.is_real</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="78">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>True</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="78">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>True</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="78">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>True</code></pre>
 </div>
 </div>
@@ -687,43 +687,43 @@ Table&nbsp;9.1: Type options for the <code>symbols</code> function
 </div>
 </div>
 <p>The logical operations (<code>And</code>, <code>Or</code>, and <code>Not</code>) and relational operators can be used to create logical expressions. Consider the following examples:</p>
-<div id="54473cf9" class="cell" data-execution_count="10">
+<div id="850093aa" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>x, y, z <span class="op">=</span> sp.symbols(<span class="st">'x, y, z'</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>expr1 <span class="op">=</span> sp.And(x <span class="op">&gt;</span> <span class="dv">0</span>, y <span class="op">&lt;</span> <span class="dv">0</span>)  <span class="co"># Logical AND</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>expr1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="79">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="9">
 <p><span class="math inline">\(\displaystyle x &gt; 0 \wedge y &lt; 0\)</span></p>
 </div>
 </div>
-<div id="b69878fa" class="cell" data-execution_count="11">
+<div id="30e933b6" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>expr2 <span class="op">=</span> sp.Or(x <span class="op">&gt;</span> <span class="dv">0</span>, y <span class="op">&lt;</span> <span class="dv">0</span>)   <span class="co"># Logical OR</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>expr2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="80">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="10">
 <p><span class="math inline">\(\displaystyle x &gt; 0 \vee y &lt; 0\)</span></p>
 </div>
 </div>
-<div id="8b2428b4" class="cell" data-execution_count="12">
+<div id="24b19f35" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>expr3 <span class="op">=</span> sp.Not(x <span class="op">&gt;</span> z)         <span class="co"># Logical NOT</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>expr3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="81">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="11">
 <p><span class="math inline">\(\displaystyle x \leq z\)</span></p>
 </div>
 </div>
-<div id="43d69b19" class="cell" data-execution_count="13">
+<div id="6012b063" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>(x <span class="op">&gt;</span> y) <span class="op">&amp;</span> (y <span class="op">&gt;</span> <span class="dv">0</span>) <span class="co"># Another way to create a logical AND expression</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>(x <span class="op">&gt;</span> y) <span class="op">|</span> (y <span class="op">&gt;</span> <span class="dv">0</span>) <span class="co"># Another way to create a logical OR expression</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="op">~</span>(x <span class="op">&gt;</span> y)          <span class="co"># Another way to create a logical NOT expression</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="82">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="12">
 <p><span class="math inline">\(\displaystyle x &gt; y \wedge y &gt; 0\)</span></p>
 </div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="82">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="12">
 <p><span class="math inline">\(\displaystyle x &gt; y \vee y &gt; 0\)</span></p>
 </div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="82">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="12">
 <p><span class="math inline">\(\displaystyle x \leq y\)</span></p>
 </div>
 </div>
-<p>Finally, in <a href="#tbl-MathSymbols" class="quarto-xref">Table&nbsp;<span>9.2</span></a>, we provide some commonly used mathematical symbols in the SymPy package.</p>
+<p>Finally, in <a href="#tbl-MathSymbols" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-MathSymbols</span></a>, we provide some commonly used mathematical symbols in the SymPy package.</p>
 <div style="font-size: 80%">
 <div id="tbl-MathSymbols" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -781,33 +781,33 @@ Table&nbsp;9.2: Commonly used mathematical symbols
 <section id="functions" class="level2" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="functions"><span class="header-section-number">9.3</span> Functions</h2>
 <p>We can create symbolic functions using the <code>Function</code> class in the SymPy package. The syntax for this class is as follows:</p>
-<div id="c64b9ebc" class="cell" data-execution_count="14">
+<div id="239624cd" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create symbolic functions</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> sp.Function(<span class="st">'f'</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sp.Function(<span class="st">'g'</span>)</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> sp.Function(<span class="st">'h'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="c05a7ed4" class="cell" data-execution_count="15">
+<div id="aa1c5c21" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the type of the function</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="84">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>sympy.core.function.UndefinedFunction</code></pre>
 </div>
 </div>
 <p>Note that the type of <code>f</code> is <code>UndefinedFunction</code>, which means that it is a symbolic function without a specific definition. Once we have created a symbolic function, we can use it to define mathematical expressions. For example, we can define the expression <span class="math inline">\(f(x) + g(y) + h(z)\)</span> as follows:</p>
-<div id="cca42d44" class="cell" data-execution_count="16">
+<div id="54c26b13" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>x,y,z <span class="op">=</span> sp.symbols(<span class="st">'x, y, z'</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> f(x) <span class="op">+</span> g(y) <span class="op">+</span> h(z)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>expr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="85">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="15">
 <p><span class="math inline">\(\displaystyle f{\left(x \right)} + g{\left(y \right)} + h{\left(z \right)}\)</span></p>
 </div>
 </div>
 <p>The SymPy package also have some in-built mathematical functions, such as <code>sin</code>, <code>cos</code>, <code>exp</code>, and <code>log</code>. We can use these functions to define mathematical expressions. For example, we can define the expression <span class="math inline">\(\sin(x) + \cos(y) + e^z\)</span> as follows:</p>
-<div id="59eff579" class="cell" data-execution_count="17">
+<div id="08ba66d1" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> sp.sin(x) <span class="op">+</span> sp.cos(y) <span class="op">+</span> sp.exp(z)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>expr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="86">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="16">
 <p><span class="math inline">\(\displaystyle e^{z} + \sin{\left(x \right)} + \cos{\left(y \right)}\)</span></p>
 </div>
 </div>
@@ -870,7 +870,7 @@ Table&nbsp;9.3: Commonly used mathematical functions
 </div>
 </div>
 <p>The anonymous function <code>Lambda</code> can also be used to create symbolic functions. Consider the following examples:</p>
-<div id="c00ee698" class="cell" data-execution_count="18">
+<div id="d8e34e48" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create symbolic lambda functions</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> sp.Lambda(x, x<span class="op">**</span><span class="dv">2</span>)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>f</span>
@@ -878,38 +878,38 @@ Table&nbsp;9.3: Commonly used mathematical functions
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>g</span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> sp.Lambda(z, sp.exp(z))</span>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>h</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="87">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="17">
 <p><span class="math inline">\(\displaystyle \left( x \mapsto x^{2} \right)\)</span></p>
 </div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="87">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="17">
 <p><span class="math inline">\(\displaystyle \left( y \mapsto \sin{\left(y \right)} \right)\)</span></p>
 </div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="87">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="17">
 <p><span class="math inline">\(\displaystyle \left( z \mapsto e^{z} \right)\)</span></p>
 </div>
 </div>
-<div id="750a7065" class="cell" data-execution_count="19">
+<div id="46d2b1fb" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the type of the function</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="88">
+<div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>sympy.core.function.Lambda</code></pre>
 </div>
 </div>
-<div id="395fe816" class="cell" data-execution_count="20">
+<div id="9e26b3f1" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the lambda functions</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>f(<span class="dv">2</span>), g(sp.pi<span class="op">/</span><span class="dv">2</span>), h(<span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="89">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="19">
 <p><span class="math inline">\(\displaystyle \left( 4, \  1, \  1\right)\)</span></p>
 </div>
 </div>
-<div id="d49595a5" class="cell" data-execution_count="21">
+<div id="2e085cfe" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the lambda functions in expressions</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span>sp.symbols(<span class="st">'x'</span>)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>y<span class="op">=</span>sp.symbols(<span class="st">'y'</span>)</span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>z<span class="op">=</span>sp.symbols(<span class="st">'z'</span>)</span>
 <span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> f(z) <span class="op">+</span> g(x) <span class="op">+</span> h(y)</span>
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>expr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="90">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="20">
 <p><span class="math inline">\(\displaystyle z^{2} + e^{y} + \sin{\left(x \right)}\)</span></p>
 </div>
 </div>
@@ -918,133 +918,133 @@ Table&nbsp;9.3: Commonly used mathematical functions
 <h2 data-number="9.4" class="anchored" data-anchor-id="basic-operations"><span class="header-section-number">9.4</span> Basic operations</h2>
 <p>Once we have defined mathematical expressions using symbols and functions, we can perform various operations on them. Some of the basic operations include simplification, expansion, factorization, substitution, and evaluation.</p>
 <p>The <code>simplify</code> function can be used to simplify mathematical expressions. For example, we can simplify the expression <span class="math inline">\(x^2 + 2xy + y^2\)</span> as follows:</p>
-<div id="5e0d5d9e" class="cell" data-execution_count="22">
+<div id="5324af95" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">'x, y'</span>)</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> (x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> x) <span class="op">-</span> x <span class="op">*</span> (x <span class="op">+</span> <span class="dv">1</span>)<span class="op">+</span>y<span class="op">*</span>(y<span class="op">-</span><span class="dv">2</span>)<span class="op">+</span><span class="dv">1</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>expr</span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>sp.simplify(expr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="91">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="21">
 <p><span class="math inline">\(\displaystyle 2 x^{2} - x \left(x + 1\right) - 2 x + y \left(y - 2\right) + 1\)</span></p>
 </div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="91">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="21">
 <p><span class="math inline">\(\displaystyle x^{2} - 3 x + y^{2} - 2 y + 1\)</span></p>
 </div>
 </div>
 <p>The <code>expand</code> function can be used to expand mathematical expressions. Consider the following examples:</p>
-<div id="b5af5394" class="cell" data-execution_count="23">
+<div id="9352bae3" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">'x, y'</span>)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>expr1 <span class="op">=</span> (x <span class="op">+</span> y)<span class="op">**</span><span class="dv">3</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>sp.expand(expr1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="92">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="22">
 <p><span class="math inline">\(\displaystyle x^{3} + 3 x^{2} y + 3 x y^{2} + y^{3}\)</span></p>
 </div>
 </div>
-<div id="a5d59fd5" class="cell" data-execution_count="24">
+<div id="bf61e4ee" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>expr2 <span class="op">=</span> (x <span class="op">+</span> <span class="dv">2</span>) <span class="op">*</span> (x <span class="op">-</span> <span class="dv">3</span>)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>sp.expand(expr2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="93">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="23">
 <p><span class="math inline">\(\displaystyle x^{2} - x - 6\)</span></p>
 </div>
 </div>
-<div id="e5b659eb" class="cell" data-execution_count="25">
+<div id="a9303885" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>expr3 <span class="op">=</span> sp.sin(x <span class="op">+</span> y)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>sp.expand(expr3, trig<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="94">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="24">
 <p><span class="math inline">\(\displaystyle \sin{\left(x \right)} \cos{\left(y \right)} + \sin{\left(y \right)} \cos{\left(x \right)}\)</span></p>
 </div>
 </div>
-<div id="345c92fd" class="cell" data-execution_count="26">
+<div id="0cafbd3e" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">'x, y'</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>expr4 <span class="op">=</span> sp.log(x <span class="op">*</span> y)</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>sp.expand(expr4, log<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="95">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="25">
 <p><span class="math inline">\(\displaystyle \log{\left(x \right)} + \log{\left(y \right)}\)</span></p>
 </div>
 </div>
 <p>We can use the <code>factor</code>, <code>collect</code>, and <code>combine</code> functions to factor mathematical expressions. Consider the following examples:</p>
-<div id="9cb03df2" class="cell" data-execution_count="27">
+<div id="18803975" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">'x, y'</span>)</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>expr1 <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> y<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>sp.factor(expr1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="96">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="26">
 <p><span class="math inline">\(\displaystyle \left(x - y\right) \left(x + y\right)\)</span></p>
 </div>
 </div>
-<div id="ed367bf9" class="cell" data-execution_count="28">
+<div id="4985350c" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>expr2 <span class="op">=</span> x<span class="op">**</span><span class="dv">3</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span>x<span class="op">**</span><span class="dv">2</span><span class="op">*</span>y <span class="op">+</span> <span class="dv">3</span><span class="op">*</span>x<span class="op">*</span>y<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">3</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>sp.factor(expr2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="97">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="27">
 <p><span class="math inline">\(\displaystyle \left(x + y\right)^{3}\)</span></p>
 </div>
 </div>
-<div id="7ed4d6bb" class="cell" data-execution_count="29">
+<div id="3c5e6b46" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>expr3 <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span><span class="op">*</span>y <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>y <span class="op">+</span> y<span class="op">*</span>x</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>sp.collect(expr3, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="98">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="28">
 <p><span class="math inline">\(\displaystyle y \left(x^{2} + x + 2\right)\)</span></p>
 </div>
 </div>
-<div id="d924b9fb" class="cell" data-execution_count="30">
+<div id="2571f380" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">'x, y'</span>, positive<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>expr6 <span class="op">=</span> sp.log(x) <span class="op">-</span> sp.log(y)</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>sp.logcombine(expr6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="99">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="29">
 <p><span class="math inline">\(\displaystyle \log{\left(\frac{x}{y} \right)}\)</span></p>
 </div>
 </div>
 <p>To evaluate an expression at specific values of the symbols, we can use the <code>subs</code> function. For example, we can evaluate the expression <span class="math inline">\(x^2 + 2xy + y^2\)</span> at <span class="math inline">\(x=1\)</span> and <span class="math inline">\(y=2\)</span> as follows:</p>
-<div id="29626ce4" class="cell" data-execution_count="31">
+<div id="6409a5eb" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">'x, y'</span>)</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x<span class="op">*</span>y <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>expr.subs({x: <span class="dv">1</span>, y: <span class="dv">2</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="100">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="30">
 <p><span class="math inline">\(\displaystyle 9\)</span></p>
 </div>
 </div>
 <p>The <code>N</code> and <code>evalf</code> methods can be used to evaluate mathematical expressions numerically. Consider the following examples:</p>
-<div id="2fa22d98" class="cell" data-execution_count="32">
+<div id="51830b9e" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>sp.sqrt(<span class="dv">2</span>).evalf()</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>sp.N(sp.sqrt(<span class="dv">2</span>), <span class="dv">10</span>)  <span class="co"># 10 decimal places</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="101">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="31">
 <p><span class="math inline">\(\displaystyle 1.4142135623731\)</span></p>
 </div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="101">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="31">
 <p><span class="math inline">\(\displaystyle 1.414213562\)</span></p>
 </div>
 </div>
-<div id="1d0c3026" class="cell" data-execution_count="33">
+<div id="ec65d5f0" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">'x'</span>)</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> sp.sin(x) <span class="op">/</span> x</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>expr.evalf(subs<span class="op">=</span>{x: <span class="fl">0.1</span>}, n<span class="op">=</span><span class="dv">10</span>)  <span class="co"># Evaluate at x=0.1 with 10 decimal places</span></span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>expr.evalf(subs<span class="op">=</span>{x: <span class="dv">1</span>}, n<span class="op">=</span><span class="dv">10</span>)    <span class="co"># Evaluate at x=1 with 10 decimal places</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="102">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="32">
 <p><span class="math inline">\(\displaystyle 0.9983341665\)</span></p>
 </div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="102">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="32">
 <p><span class="math inline">\(\displaystyle 0.8414709848\)</span></p>
 </div>
 </div>
-<div id="71659981" class="cell" data-execution_count="34">
+<div id="142d8375" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate a list of expressions</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>exprs <span class="op">=</span> [sp.sqrt(<span class="dv">2</span>), sp.pi, sp.E]</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> [expr.evalf() <span class="cf">for</span> expr <span class="kw">in</span> exprs]</span>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>results <span class="co"># List of evaluated results</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="103">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="33">
 <p><span class="math inline">\(\displaystyle \left[ 1.4142135623731, \  3.14159265358979, \  2.71828182845905\right]\)</span></p>
 </div>
 </div>
 <p>To convert a symbolic expression/function to a regular Python function that can be evaluated for different values of the variables, we can use the <code>lambdify</code> function. The syntax for this function is as follows:</p>
-<div id="547af018" class="cell" data-execution_count="35">
+<div id="b1899730" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>sp.lambdify(variables, expression, modules)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Here, <code>variables</code> is a list of symbols that appear in the expression, <code>expression</code> is the symbolic expression to be converted, and <code>modules</code> specifies the numerical library to be used for the evaluation (e.g., <code>'numpy'</code>, <code>'scipy'</code>, or <code>'math'</code>).</p>
 <p>In the following example, we convert the symbolic function <span class="math inline">\(f(x) = \sin(x) e^{-x^2}\)</span> to a regular Python function that can be evaluated for different values of <span class="math inline">\(x\)</span>.</p>
-<div id="8a6aeb4a" class="cell" data-execution_count="36">
+<div id="6789465a" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">'x, y'</span>)</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> sp.sin(x) <span class="op">*</span> sp.exp(<span class="op">-</span>x<span class="op">**</span><span class="dv">2</span>)</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>f_num <span class="op">=</span> sp.lambdify(x, f, <span class="st">'numpy'</span>)</span>
 <span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>f_num(<span class="fl">0.5</span>)  <span class="co"># Evaluate the numerical function at x=0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="104">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="34">
 <p><span class="math inline">\(\displaystyle 0.373376984889383\)</span></p>
 </div>
 </div>
@@ -1069,7 +1069,7 @@ Table&nbsp;9.3: Commonly used mathematical functions
 <div id="fig-fig-symbolic-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig-symbolic-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-SymbolicMath_files/figure-html/fig-fig-symbolic-plot-output-1.png" width="441" height="349" class="figure-img">
+<img src="Chapter0-SymbolicMath_files/figure-html/fig-fig-symbolic-plot-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig-symbolic-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;9.1: Plotting a symbolic function using Matplotlib
@@ -1079,13 +1079,13 @@ Figure&nbsp;9.1: Plotting a symbolic function using Matplotlib
 </div>
 </div>
 <p>In the following example, we consider the <a href="https://en.wikipedia.org/wiki/Rosenbrock_function">Rosenbrock function</a>, which is a common test problem for optimization algorithms:</p>
-<div id="5ab578a4" class="cell" data-execution_count="39">
+<div id="fd9cd284" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rosenbrock function</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co"># f(x, y) = (a - x)^2 + b(y - x^2)^2</span></span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">'x, y'</span>)</span>
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> (a <span class="op">-</span> x)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> b<span class="op">*</span>(y <span class="op">-</span> x<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>f</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="107">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="37">
 <p><span class="math inline">\(\displaystyle b \left(- x^{2} + y\right)^{2} + \left(a - x\right)^{2}\)</span></p>
 </div>
 </div>
@@ -1124,7 +1124,7 @@ Figure&nbsp;9.1: Plotting a symbolic function using Matplotlib
 <div id="fig-fig-rosenbrock" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig-rosenbrock-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-SymbolicMath_files/figure-html/fig-fig-rosenbrock-output-1.png" width="444" height="390" class="figure-img">
+<img src="Chapter0-SymbolicMath_files/figure-html/fig-fig-rosenbrock-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig-rosenbrock-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;9.2: Surface plot of the Rosenbrock function using Matplotlib
@@ -1139,57 +1139,57 @@ Figure&nbsp;9.2: Surface plot of the Rosenbrock function using Matplotlib
 <section id="derivatives" class="level3" data-number="9.5.1">
 <h3 data-number="9.5.1" class="anchored" data-anchor-id="derivatives"><span class="header-section-number">9.5.1</span> Derivatives</h3>
 <p>The <code>diff</code> function can be used to compute the derivative of a mathematical expression. Consider the following examples:</p>
-<div id="ddf95a1f" class="cell" data-execution_count="42">
+<div id="439bca0f" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> x<span class="op">**</span><span class="dv">3</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>expr</span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>sp.diff(expr, x, <span class="dv">1</span>)  <span class="co"># First derivative with respect to x</span></span>
 <span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="co"># expr.diff(x, 1)  # Another way to compute the first derivative</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="110">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="40">
 <p><span class="math inline">\(\displaystyle x^{3} + 3 x^{2} + 3 x + 1\)</span></p>
 </div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="110">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="40">
 <p><span class="math inline">\(\displaystyle 3 x^{2} + 6 x + 3\)</span></p>
 </div>
 </div>
-<div id="a1a108a9" class="cell" data-execution_count="43">
+<div id="521c7a0b" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> x<span class="op">**</span><span class="dv">3</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>expr</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>sp.diff(expr, x, <span class="dv">2</span>)  <span class="co"># Second derivative with respect to x</span></span>
 <span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co"># expr.diff(x, 2)  # Another way to compute the second derivative</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="111">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="41">
 <p><span class="math inline">\(\displaystyle x^{3} + 3 x^{2} + 3 x + 1\)</span></p>
 </div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="111">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="41">
 <p><span class="math inline">\(\displaystyle 6 \left(x + 1\right)\)</span></p>
 </div>
 </div>
-<div id="c72636ad" class="cell" data-execution_count="44">
+<div id="78acdac3" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">'x, y'</span>)</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> y <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> x</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>expr</span>
 <span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>sp.diff(expr, x) <span class="co"># Partial derivative with respect to x</span></span>
 <span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="co"># sp.diff(expr, y) # Partial derivative with respect to y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="112">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="42">
 <p><span class="math inline">\(\displaystyle x^{2} y + x y^{2}\)</span></p>
 </div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="112">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="42">
 <p><span class="math inline">\(\displaystyle 2 x y + y^{2}\)</span></p>
 </div>
 </div>
-<div id="cfa8d01b" class="cell" data-execution_count="45">
+<div id="8106c072" class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">'x, y'</span>)</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> y <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> x</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>expr</span>
 <span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>sp.diff(expr, x, y)  <span class="co"># Mixed partial derivative</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="113">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="43">
 <p><span class="math inline">\(\displaystyle x^{2} y + x y^{2}\)</span></p>
 </div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="113">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="43">
 <p><span class="math inline">\(\displaystyle 2 \left(x + y\right)\)</span></p>
 </div>
 </div>
 <p>In the following example, we plot the first and second derivatives of the function <span class="math inline">\(f(x) = \sin(x) e^{-x^2}\)</span> using Matplotlib. We first compute the symbolic derivatives using the <code>diff</code> function, then convert them to numerical functions using <code>lambdify</code>, and finally use Matplotlib to plot the original function and its derivatives over a specified range of <span class="math inline">\(x\)</span> values.</p>
-<div id="cc9e5a9a" class="cell" data-execution_count="46">
+<div id="187047bf" class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the symbolic function and its derivatives</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">'x'</span>)</span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> sp.sin(x) <span class="op">*</span> sp.exp(<span class="op">-</span>x<span class="op">**</span><span class="dv">2</span>)</span>
@@ -1197,10 +1197,10 @@ Figure&nbsp;9.2: Surface plot of the Rosenbrock function using Matplotlib
 <span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>f_prime</span>
 <span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>f_double_prime <span class="op">=</span> sp.diff(f_prime, x)</span>
 <span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>f_double_prime</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="114">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="44">
 <p><span class="math inline">\(\displaystyle - 2 x e^{- x^{2}} \sin{\left(x \right)} + e^{- x^{2}} \cos{\left(x \right)}\)</span></p>
 </div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="114">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="44">
 <p><span class="math inline">\(\displaystyle 4 x^{2} e^{- x^{2}} \sin{\left(x \right)} - 4 x e^{- x^{2}} \cos{\left(x \right)} - 3 e^{- x^{2}} \sin{\left(x \right)}\)</span></p>
 </div>
 </div>
@@ -1231,7 +1231,7 @@ Figure&nbsp;9.2: Surface plot of the Rosenbrock function using Matplotlib
 <div id="fig-fig-symbolic-derivatives" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig-symbolic-derivatives-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter0-SymbolicMath_files/figure-html/fig-fig-symbolic-derivatives-output-1.png" width="503" height="349" class="figure-img">
+<img src="Chapter0-SymbolicMath_files/figure-html/fig-fig-symbolic-derivatives-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig-symbolic-derivatives-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;9.3: Plotting the first and second derivatives of a symbolic function using Matplotlib
@@ -1244,49 +1244,49 @@ Figure&nbsp;9.3: Plotting the first and second derivatives of a symbolic functio
 <section id="integrals" class="level3" data-number="9.5.2">
 <h3 data-number="9.5.2" class="anchored" data-anchor-id="integrals"><span class="header-section-number">9.5.2</span> Integrals</h3>
 <p>The <code>integrate</code> function can be used to compute the integral of a mathematical expression. Consider the following examples:</p>
-<div id="57e5df4d" class="cell" data-execution_count="50">
+<div id="54133030" class="cell" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">'x'</span>)</span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>sp.integrate(expr, x)  <span class="co"># Indefinite integral with respect to x</span></span>
 <span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># expr.integrate(x)  # Another way to compute the indefinite integral</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="118">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="48">
 <p><span class="math inline">\(\displaystyle \frac{x^{3}}{3} + x^{2} + x\)</span></p>
 </div>
 </div>
-<div id="573c8d46" class="cell" data-execution_count="51">
+<div id="3f5601cb" class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">'x'</span>)</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>sp.integrate(expr, (x, <span class="dv">0</span>, <span class="dv">1</span>))  <span class="co"># Definite integral from 0 to 1</span></span>
 <span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co"># expr.integrate((x, 0, 1))  # Another way to compute the definite integral</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="119">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="49">
 <p><span class="math inline">\(\displaystyle \frac{7}{3}\)</span></p>
 </div>
 </div>
-<div id="b780b5ce" class="cell" data-execution_count="52">
+<div id="50b176aa" class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">'x, y'</span>)</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> x <span class="op">*</span> y <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>sp.integrate(expr, x)  <span class="co"># Indefinite integral with respect to x</span></span>
 <span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="co"># sp.integrate(expr, y)  # Indefinite integral with respect to y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="120">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="50">
 <p><span class="math inline">\(\displaystyle \frac{x^{2} y}{2} + x y^{2}\)</span></p>
 </div>
 </div>
-<div id="51f68301" class="cell" data-execution_count="53">
+<div id="29d65e90" class="cell" data-execution_count="53">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">'x, y'</span>)</span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> x <span class="op">*</span> y <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>sp.integrate(expr, (x, <span class="dv">0</span>, <span class="dv">1</span>))  <span class="co"># Definite integral with respect to x from 0 to 1</span></span>
 <span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="co"># sp.integrate(expr, (y, 0, 1))  # Definite integral with respect to y from 0 to 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="121">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="51">
 <p><span class="math inline">\(\displaystyle y^{2} + \frac{y}{2}\)</span></p>
 </div>
 </div>
-<div id="66844940" class="cell" data-execution_count="54">
+<div id="3a1ddcd3" class="cell" data-execution_count="54">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gaussian integral</span></span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">'x'</span>)</span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> sp.exp(<span class="op">-</span>x<span class="op">**</span><span class="dv">2</span><span class="op">/</span><span class="dv">2</span>)</span>
 <span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>sp.integrate(expr, (x, <span class="op">-</span>sp.oo, sp.oo))  <span class="co"># Definite integral from -infinity to infinity</span></span>
 <span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="co"># expr.integrate((x, -sp.oo, sp.oo))  # Another way to compute the definite integral</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="122">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="52">
 <p><span class="math inline">\(\displaystyle \sqrt{2} \sqrt{\pi}\)</span></p>
 </div>
 </div>
@@ -1294,21 +1294,21 @@ Figure&nbsp;9.3: Plotting the first and second derivatives of a symbolic functio
 <section id="limits" class="level3" data-number="9.5.3">
 <h3 data-number="9.5.3" class="anchored" data-anchor-id="limits"><span class="header-section-number">9.5.3</span> Limits</h3>
 <p>The <code>limit</code> function can be used to compute the limit of a mathematical expression. Consider the following examples:</p>
-<div id="ebde2617" class="cell" data-execution_count="55">
+<div id="391c9c5d" class="cell" data-execution_count="55">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">'x'</span>)</span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> (x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> (x <span class="op">-</span> <span class="dv">1</span>)</span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>sp.limit(expr, x, <span class="dv">1</span>)  <span class="co"># Limit as x approaches 1</span></span>
 <span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="co"># expr.limit(x, 1)  # Another way to compute the limit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="123">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="53">
 <p><span class="math inline">\(\displaystyle 2\)</span></p>
 </div>
 </div>
-<div id="3f3615cc" class="cell" data-execution_count="56">
+<div id="d68a26a5" class="cell" data-execution_count="56">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.symbols(<span class="st">'x'</span>)</span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> sp.sin(x) <span class="op">/</span> x</span>
 <span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>sp.limit(expr, x, <span class="dv">0</span>)  <span class="co"># Limit as x approaches 0</span></span>
 <span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="co"># expr.limit(x, 0)  # Another way to compute the limit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="124">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="54">
 <p><span class="math inline">\(\displaystyle 1\)</span></p>
 </div>
 </div>
@@ -1316,7 +1316,7 @@ Figure&nbsp;9.3: Plotting the first and second derivatives of a symbolic functio
 <section id="solving-algebraic-equations" class="level3" data-number="9.5.4">
 <h3 data-number="9.5.4" class="anchored" data-anchor-id="solving-algebraic-equations"><span class="header-section-number">9.5.4</span> Solving algebraic equations</h3>
 <p>We can use the <code>solve</code> function to find the values of one variable that satisfy the equation. Consider the following example:</p>
-<div id="84866178" class="cell" data-execution_count="57">
+<div id="7a8179ff" class="cell" data-execution_count="57">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define symbols</span></span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>a, b, x, y, z <span class="op">=</span> sp.symbols(<span class="st">'a b x y z'</span>)</span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1330,7 +1330,7 @@ Figure&nbsp;9.3: Plotting the first and second derivatives of a symbolic functio
 <pre><code>[-2, 3]</code></pre>
 </div>
 </div>
-<div id="2b54a75b" class="cell" data-execution_count="58">
+<div id="e4d9c250" class="cell" data-execution_count="58">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define symbols</span></span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>t, h, g <span class="op">=</span> sp.symbols(<span class="st">'t h g'</span>)</span>
 <span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1340,12 +1340,12 @@ Figure&nbsp;9.3: Plotting the first and second derivatives of a symbolic functio
 <span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Solve for g</span></span>
 <span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a>gs <span class="op">=</span> sp.solve(eq, g)</span>
 <span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a>gs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="126">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="56">
 <p><span class="math inline">\(\displaystyle \left[ \frac{4 t \left(h^{2} + 5\right)}{5}\right]\)</span></p>
 </div>
 </div>
 <p>If there are multiple equations, we can pass a list of equations to the <code>solve</code> function. Consider the following example:</p>
-<div id="493a3cb6" class="cell" data-execution_count="59">
+<div id="34dd901c" class="cell" data-execution_count="59">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define symbols</span></span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>x, y, t <span class="op">=</span> sp.symbols(<span class="st">'x y t'</span>)</span>
 <span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1370,26 +1370,26 @@ Figure&nbsp;9.3: Plotting the first and second derivatives of a symbolic functio
 \frac{d^2y}{dt^2} = f(t, y, \frac{dy}{dt}).
 \]</span></p>
 <p>The solution of an ODE is a function <span class="math inline">\(y(t)\)</span> that satisfies the equation. The <code>dsolve</code> function can be used to solve ordinary differential equations (ODEs). Consider the following examples:</p>
-<div id="7aeeb0bd" class="cell" data-execution_count="60">
+<div id="c27b6bf8" class="cell" data-execution_count="60">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define symbols</span></span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> sp.symbols(<span class="st">'t'</span>)</span>
 <span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> sp.Function(<span class="st">'y'</span>)(t)</span>
 <span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define ODE</span></span>
 <span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>ode1 <span class="op">=</span> sp.Eq(y.diff(t), y)</span>
 <span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>ode1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="128">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="58">
 <p><span class="math inline">\(\displaystyle \frac{d}{d t} y{\left(t \right)} = y{\left(t \right)}\)</span></p>
 </div>
 </div>
-<div id="805dad1d" class="cell" data-execution_count="61">
+<div id="5e10a88f" class="cell" data-execution_count="61">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solve ODE</span></span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>sol <span class="op">=</span> sp.dsolve(ode1, y)</span>
 <span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>sol</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="129">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="59">
 <p><span class="math inline">\(\displaystyle y{\left(t \right)} = C_{1} e^{t}\)</span></p>
 </div>
 </div>
-<div id="149b5b07" class="cell" data-execution_count="62">
+<div id="75a8dee9" class="cell" data-execution_count="62">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function y(t) and the variable t</span></span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> sp.symbols(<span class="st">'t'</span>)</span>
 <span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> sp.Function(<span class="st">'y'</span>)(t)</span>
@@ -1397,22 +1397,22 @@ Figure&nbsp;9.3: Plotting the first and second derivatives of a symbolic functio
 <span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the differential equation</span></span>
 <span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>ode2 <span class="op">=</span> sp.Eq(y.diff(t, <span class="dv">2</span>) <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>y.diff(t) <span class="op">+</span> y, <span class="dv">0</span>)</span>
 <span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>ode2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="130">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="60">
 <p><span class="math inline">\(\displaystyle y{\left(t \right)} + 2 \frac{d}{d t} y{\left(t \right)} + \frac{d^{2}}{d t^{2}} y{\left(t \right)} = 0\)</span></p>
 </div>
 </div>
-<div id="ff5685b9" class="cell" data-execution_count="63">
+<div id="1889012c" class="cell" data-execution_count="63">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solve the differential equation</span></span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>sol <span class="op">=</span> sp.dsolve(ode2, y)</span>
 <span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>sol</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="131">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="61">
 <p><span class="math inline">\(\displaystyle y{\left(t \right)} = \left(C_{1} + C_{2} t\right) e^{- t}\)</span></p>
 </div>
 </div>
 <p>If the boundary/initial conditions are provided, we can use the <code>ics</code> argument to specify them. In the following example, we consider the following first order ODE with an initial condition: <span class="math display">\[
 \frac{dy}{dt} + 4y = 60, \quad y(0) = 5.
 \]</span></p>
-<div id="6487e25c" class="cell" data-execution_count="64">
+<div id="e09fd3df" class="cell" data-execution_count="64">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the variable and function</span></span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> sp.symbols(<span class="st">'t'</span>)</span>
 <span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> sp.Function(<span class="st">'y'</span>)(t)</span>
@@ -1420,22 +1420,22 @@ Figure&nbsp;9.3: Plotting the first and second derivatives of a symbolic functio
 <span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the differential equation</span></span>
 <span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>ode3 <span class="op">=</span> sp.Eq(y.diff(t) <span class="op">+</span> <span class="dv">4</span><span class="op">*</span>y, <span class="dv">60</span>)</span>
 <span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>ode3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="132">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="62">
 <p><span class="math inline">\(\displaystyle 4 y{\left(t \right)} + \frac{d}{d t} y{\left(t \right)} = 60\)</span></p>
 </div>
 </div>
-<div id="c833276e" class="cell" data-execution_count="65">
+<div id="b3280d1e" class="cell" data-execution_count="65">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solve with initial condition y(0) = 5</span></span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>sol <span class="op">=</span> sp.dsolve(ode3, y, ics<span class="op">=</span>{y.subs(t, <span class="dv">0</span>): <span class="dv">5</span>})</span>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>sol</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="133">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="63">
 <p><span class="math inline">\(\displaystyle y{\left(t \right)} = 15 - 10 e^{- 4 t}\)</span></p>
 </div>
 </div>
 <p>In the following example, we consider the following second order ODE with initial conditions: <span class="math display">\[
 \frac{d^2y}{dt^2} - 2\frac{dy}{dt} + 2y = 0, \quad y(0) = 1, \quad \frac{dy}{dt}(0) = 0.
 \]</span></p>
-<div id="32f5d2b9" class="cell" data-execution_count="66">
+<div id="88cf2670" class="cell" data-execution_count="66">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define variable and function</span></span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> sp.symbols(<span class="st">'t'</span>)</span>
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> sp.Function(<span class="st">'y'</span>)(t)</span>
@@ -1443,15 +1443,15 @@ Figure&nbsp;9.3: Plotting the first and second derivatives of a symbolic functio
 <span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the differential equation</span></span>
 <span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>ode4 <span class="op">=</span> sp.Eq(y.diff(t, <span class="dv">2</span>) <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>y.diff(t) <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>y, <span class="dv">0</span>)</span>
 <span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a>ode4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="134">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="64">
 <p><span class="math inline">\(\displaystyle 2 y{\left(t \right)} - 2 \frac{d}{d t} y{\left(t \right)} + \frac{d^{2}}{d t^{2}} y{\left(t \right)} = 0\)</span></p>
 </div>
 </div>
-<div id="6a39a3f8" class="cell" data-execution_count="67">
+<div id="75444617" class="cell" data-execution_count="67">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solve with initial conditions y(0)=1 and Dy(0)=0</span></span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>sol <span class="op">=</span> sp.dsolve(ode4, y, ics<span class="op">=</span>{y.subs(t, <span class="dv">0</span>): <span class="dv">1</span>, y.diff(t).subs(t, <span class="dv">0</span>): <span class="dv">0</span>})</span>
 <span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>sol</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="135">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="65">
 <p><span class="math inline">\(\displaystyle y{\left(t \right)} = \left(- \sin{\left(t \right)} + \cos{\left(t \right)}\right) e^{t}\)</span></p>
 </div>
 </div>
@@ -1460,54 +1460,54 @@ Figure&nbsp;9.3: Plotting the first and second derivatives of a symbolic functio
 <section id="linear-algebra" class="level2" data-number="9.6">
 <h2 data-number="9.6" class="anchored" data-anchor-id="linear-algebra"><span class="header-section-number">9.6</span> Linear algebra</h2>
 <p>The SymPy package provides various functions for performing linear algebra operations. Consider the following examples:</p>
-<div id="1c6e42ca" class="cell" data-execution_count="68">
+<div id="bf5cb943" class="cell" data-execution_count="68">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> sp.Matrix([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>]])</span>
 <span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> sp.Matrix([[<span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>]])</span>
 <span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> A <span class="op">+</span> B  <span class="co"># Matrix addition</span></span>
 <span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>C</span>
 <span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>D <span class="op">=</span> A <span class="op">*</span> B  <span class="co"># Matrix multiplication</span></span>
 <span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>D</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="136">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="66">
 <p><span class="math inline">\(\displaystyle \left[\begin{matrix}6 &amp; 8\\10 &amp; 12\end{matrix}\right]\)</span></p>
 </div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="136">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="66">
 <p><span class="math inline">\(\displaystyle \left[\begin{matrix}19 &amp; 22\\43 &amp; 50\end{matrix}\right]\)</span></p>
 </div>
 </div>
-<div id="d3441840" class="cell" data-execution_count="69">
+<div id="2ba9ba28" class="cell" data-execution_count="69">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> sp.Matrix([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>]])</span>
 <span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>A_inv <span class="op">=</span> A.inv()  <span class="co"># Matrix inversion</span></span>
 <span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>A_inv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="137">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="67">
 <p><span class="math inline">\(\displaystyle \left[\begin{matrix}-2 &amp; 1\\\frac{3}{2} &amp; - \frac{1}{2}\end{matrix}\right]\)</span></p>
 </div>
 </div>
-<div id="063f7231" class="cell" data-execution_count="70">
+<div id="a6c0d663" class="cell" data-execution_count="70">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> sp.Matrix([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>]])</span>
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>det_A <span class="op">=</span> A.det()  <span class="co"># Determinant</span></span>
 <span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>det_A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="138">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="68">
 <p><span class="math inline">\(\displaystyle -2\)</span></p>
 </div>
 </div>
-<div id="b690e579" class="cell" data-execution_count="71">
+<div id="75a06cff" class="cell" data-execution_count="71">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> sp.Matrix([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>]])</span>
 <span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>eigenvals <span class="op">=</span> A.eigenvals()  <span class="co"># Eigenvalues</span></span>
 <span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>eigenvals</span>
 <span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>eigenvects <span class="op">=</span> A.eigenvects()  <span class="co"># Eigenvectors</span></span>
 <span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>eigenvects</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="139">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="69">
 <p><span class="math inline">\(\displaystyle \left\{ \frac{5}{2} - \frac{\sqrt{33}}{2} : 1, \  \frac{5}{2} + \frac{\sqrt{33}}{2} : 1\right\}\)</span></p>
 </div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="139">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="69">
 <p><span class="math inline">\(\displaystyle \left[ \left( \frac{5}{2} - \frac{\sqrt{33}}{2}, \  1, \  \left[ \left[\begin{matrix}- \frac{\sqrt{33}}{6} - \frac{1}{2}\\1\end{matrix}\right]\right]\right), \  \left( \frac{5}{2} + \frac{\sqrt{33}}{2}, \  1, \  \left[ \left[\begin{matrix}- \frac{1}{2} + \frac{\sqrt{33}}{6}\\1\end{matrix}\right]\right]\right)\right]\)</span></p>
 </div>
 </div>
-<div id="b1219545" class="cell" data-execution_count="72">
+<div id="2499813a" class="cell" data-execution_count="72">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> sp.Matrix([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">2</span>, <span class="dv">4</span>]])</span>
 <span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>rank_A <span class="op">=</span> A.rank()  <span class="co"># Rank</span></span>
 <span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>rank_A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="140">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="70">
 <p><span class="math inline">\(\displaystyle 1\)</span></p>
 </div>
 </div>
@@ -1580,11 +1580,11 @@ Table&nbsp;9.4: Commonly used linear algebra functions
 <ul>
 <li><a href="https://docs.sympy.org/latest/index.html">SymPy Documentation</a>,</li>
 <li><a href="https://docs.sympy.org/latest/tutorials/intro-tutorial/index.html#">SymPy Tutorial</a>, and</li>
-<li><a href="https://link.springer.com/chapter/10.1007/979-8-8688-0413-7_3">Chapter 3: Symbolic Computing</a> in <span class="citation" data-cites="Robert2024">Johansson (<a href="references.html#ref-Robert2024" role="doc-biblioref">2024</a>)</span>.</li>
+<li><a href="https://link.springer.com/chapter/10.1007/979-8-8688-0413-7_3">Chapter 3: Symbolic Computing</a> in <span class="citation" data-cites="Robert2024">Johansson (<a href="#ref-Robert2024" role="doc-biblioref">2024</a>)</span>.</li>
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Robert2024" class="csl-entry" role="listitem">
 Johansson, Robert. 2024. <em>Numerical Python: Scientific Computing and Data Science Applications with Numpy, SciPy and Matplotlib</em>. 3rd ed. Apress.
 </div>

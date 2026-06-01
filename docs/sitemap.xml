@@ -1,131 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter0-Graphics.html</loc>
-    <lastmod>2025-09-24T09:06:01.834Z</lastmod>
-  </url>
-  <url>
     <loc>https://osmdogan.github.io/Python_Book/index.html</loc>
-    <lastmod>2026-01-26T08:02:41.593Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter0-IntroPython.html</loc>
-    <lastmod>2025-10-11T08:49:20.010Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter0-IntroNumpy.html</loc>
-    <lastmod>2025-09-24T09:01:49.746Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter0-ControlStructure.html</loc>
-    <lastmod>2025-09-24T09:02:37.486Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter0-CustomFunctions.html</loc>
-    <lastmod>2025-10-11T08:50:21.324Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter0-StatFunctions.html</loc>
-    <lastmod>2025-09-24T09:04:45.169Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter0-Pandas.html</loc>
-    <lastmod>2025-09-24T09:07:44.308Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter1-EconomicQuestion.html</loc>
-    <lastmod>2025-11-22T09:09:21.126Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter2-ReviewProbability.html</loc>
-    <lastmod>2025-11-26T06:25:24.095Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter3-ReviewStatistics.html</loc>
-    <lastmod>2026-01-31T07:40:29.715Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter19-TheoryMultipleRegression.html</loc>
-    <lastmod>2025-11-26T05:54:57.733Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter4-LinearRegressionOneRegressor.html</loc>
-    <lastmod>2025-11-25T13:11:02.029Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/AppendixA.html</loc>
-    <lastmod>2025-11-25T13:14:39.993Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter5-LinearRegressionOneRegressorInference.html</loc>
-    <lastmod>2025-11-26T05:38:44.627Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter6-MultipleRegression.html</loc>
-    <lastmod>2025-11-26T05:40:02.071Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter7-MultipleRegressionInference.html</loc>
-    <lastmod>2025-11-26T05:40:52.231Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter8-NonlinearRegressions.html</loc>
-    <lastmod>2025-11-26T05:41:58.854Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter9-AssessingStudies.html</loc>
-    <lastmod>2025-11-26T05:43:03.984Z</lastmod>
+    <lastmod>2026-06-01T10:57:33.318Z</lastmod>
   </url>
   <url>
     <loc>https://osmdogan.github.io/Python_Book/Chapter10-RegressionPanelData.html</loc>
-    <lastmod>2026-03-04T07:25:21.464Z</lastmod>
+    <lastmod>2026-06-01T11:04:19.937Z</lastmod>
+  </url>
+  <url>
+    <loc>https://osmdogan.github.io/Python_Book/Chapter13-Experiments.html</loc>
+    <lastmod>2026-06-01T10:43:35.543Z</lastmod>
+  </url>
+  <url>
+    <loc>https://osmdogan.github.io/Python_Book/AppendixC.html</loc>
+    <lastmod>2026-06-01T06:50:08.057Z</lastmod>
   </url>
   <url>
     <loc>https://osmdogan.github.io/Python_Book/Chapter11-BinaryDependentVariable.html</loc>
     <lastmod>2026-03-07T12:55:16.847Z</lastmod>
   </url>
   <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter12-IVRegression.html</loc>
-    <lastmod>2025-11-26T05:47:55.381Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter13-Experiments.html</loc>
-    <lastmod>2026-03-04T07:15:02.949Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter14-BigData.html</loc>
-    <lastmod>2026-03-01T10:37:59.509Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter15-TimeSeriesRegression.html</loc>
-    <lastmod>2026-03-28T11:16:12.641Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter16-DynamicCausalEffects.html</loc>
-    <lastmod>2026-03-14T08:07:46.234Z</lastmod>
-  </url>
-  <url>
     <loc>https://osmdogan.github.io/Python_Book/Chapter17-AdditionalTopicsTimeSeries.html</loc>
     <lastmod>2025-11-26T05:52:51.177Z</lastmod>
   </url>
   <url>
-    <loc>https://osmdogan.github.io/Python_Book/Chapter18-TheoryRegression.html</loc>
-    <lastmod>2026-04-26T08:01:17.643Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/AppendixB.html</loc>
-    <lastmod>2025-11-26T05:55:59.640Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/AppendixC.html</loc>
-    <lastmod>2026-04-25T09:49:52.525Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/AppendixD.html</loc>
-    <lastmod>2025-11-26T05:57:01.557Z</lastmod>
-  </url>
-  <url>
-    <loc>https://osmdogan.github.io/Python_Book/references.html</loc>
-    <lastmod>2026-03-01T10:39:13.757Z</lastmod>
+    <loc>https://osmdogan.github.io/Python_Book/Chapter15-TimeSeriesRegression.html</loc>
+    <lastmod>2026-03-28T11:16:12.641Z</lastmod>
   </url>
 </urlset>

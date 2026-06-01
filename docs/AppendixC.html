@@ -548,7 +548,7 @@ window.Quarto = {
 </header>
 
 
-<div id="dd848395" class="cell" data-execution_count="1">
+<div id="b31dc240" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)  </span>
@@ -785,10 +785,20 @@ M_Y(t)&amp;=\frac{1}{\sigma\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{b}dy=\frac{1}{\
 \varphi_Y(t)=\sum_{j=0}^{k}\frac{(it)^j}{j!}\mu^{'}_j+o(t^k),
 \tag{C.2}\]</span></span> where <span class="math inline">\(\mu^{'}_j=\E(Y^j)\)</span> is the <span class="math inline">\(j\)</span>th moment of <span class="math inline">\(Y\)</span>, and <span class="math inline">\(o(t^k)\)</span> is a term such that <span class="math inline">\(\lim_{t\to0}o(t^k)/t^k=0\)</span>.</p>
 <div id="exm-exmC-3" class="theorem example">
-<p><span class="theorem-title"><strong>Example C.6 (Characteristic function of normal distribution)</strong></span> Let <span class="math inline">\(Y\sim N(\mu,\sigma^2)\)</span>. Then, the characteristic function of <span class="math inline">\(Y\)</span> is given by <span class="math display">\[
-\varphi_Y(t)=e^{i\mu t-\sigma^2t^2/2}.
+<p><span class="theorem-title"><strong>Example C.6 (Characteristic function of normal distribution)</strong></span> Let <span class="math inline">\(Y\sim N(0,1)\)</span>. Then, the characteristic function of <span class="math inline">\(Y\)</span> is given by <span class="math display">\[
+\varphi_Y(t)=\E(e^{itY})=\int_{-\infty}^{\infty}e^{ity}\frac{1}{\sqrt{2\pi}}e^{-y^2/2}dy.
+\]</span> Instead of evaluating the above integral directly, we use Stein’s lemma with <span class="math inline">\(f(y)=ie^{ity}\)</span> to find the characteristic function of <span class="math inline">\(Y\)</span>: <span class="math display">\[
+\begin{align*}
+\frac{d\varphi_Y(t)}{dt}&amp;=\E\left(Yie^{itY}\right)=\E(Yf(Y))= \E(f'(Y))\\
+&amp;=\E(i^2 t e^{itY})=-t\E(e^{itY})=-t\varphi_Y(t),
+\end{align*}
+\]</span> which is a first-order ordinary differential equation with an initial condition <span class="math inline">\(\varphi_Y(0)=1\)</span>. Solving the above ordinary differential equation, we obtain <span class="math inline">\(\varphi_Y(t)=e^{-t^2/2}\)</span>.</p>
+<p>Let <span class="math inline">\(X\sim N(\mu,\sigma^2)\)</span>. Then, we can express <span class="math inline">\(X\)</span> as <span class="math inline">\(X=\mu+\sigma Y\)</span>. Using the properties of characteristic functions, we have <span class="math display">\[
+\begin{align*}
+\varphi_X(t)&amp;=\E(e^{itX})=\E(e^{it(\mu+\sigma Y)})=e^{it\mu}\E(e^{i\sigma tY})=e^{it\mu}\varphi_Y(\sigma t)\\
+&amp;=e^{it\mu}e^{-\sigma^2t^2/2}=e^{it\mu-\sigma^2t^2/2}.
+\end{align*}
 \]</span></p>
-<p>In particular, if <span class="math inline">\(Z\sim N(0,1)\)</span>, then <span class="math inline">\(\varphi_Z(t)=e^{-t^2/2}\)</span>.</p>
 </div>
 </section>
 <section id="the-proof-of-the-central-limit-theorem" class="level2" data-number="C.4">

@@ -124,10 +124,7 @@ div.csl-indent {
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 <script>
 window.MathJax = {
   tex: {
@@ -554,7 +551,7 @@ window.Quarto = {
 </header>
 
 
-<div id="5d039b62" class="cell" data-execution_count="1">
+<div id="e13016b8" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -567,7 +564,7 @@ window.Quarto = {
 </div>
 <section id="introduction" class="level2" data-number="18.1">
 <h2 data-number="18.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">18.1</span> Introduction</h2>
-<p>We start our regression analysis in <a href="Chapter4-LinearRegressionOneRegressor.html" class="quarto-xref"><span>Chapter 14</span></a> by assuming a linear population function <span class="math inline">\(\E(Y|X_1)=\beta_0+\beta_1X_1\)</span>. However, in many cases, the relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X_1\)</span> is nonlinear. In this case, the effect of a change in <span class="math inline">\(X_1\)</span> on <span class="math inline">\(Y\)</span> is not constant. In <a href="#fig-f15-1" class="quarto-xref">Figure&nbsp;<span>18.1</span></a>, we illustrate population regression functions that have different slopes. In the linear case, as shown in the first plot of <a href="#fig-f15-1" class="quarto-xref">Figure&nbsp;<span>18.1</span></a>, the slope of the population regression function is constant. However, in the second plot, the slope of the population regression function depends on the value of another variable <span class="math inline">\(X_2\)</span>. In the third plot, the slope of the population regression function depends on the value of <span class="math inline">\(X_1\)</span>. In this chapter, we consider how to model nonlinear regression functions.</p>
+<p>We start our regression analysis in <a href="#sec-lrmone" class="quarto-xref"><span class="quarto-unresolved-ref">sec-lrmone</span></a> by assuming a linear population function <span class="math inline">\(\E(Y|X_1)=\beta_0+\beta_1X_1\)</span>. However, in many cases, the relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X_1\)</span> is nonlinear. In this case, the effect of a change in <span class="math inline">\(X_1\)</span> on <span class="math inline">\(Y\)</span> is not constant. In <a href="#fig-f15-1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-f15-1</span></a>, we illustrate population regression functions that have different slopes. In the linear case, as shown in the first plot of <a href="#fig-f15-1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-f15-1</span></a>, the slope of the population regression function is constant. However, in the second plot, the slope of the population regression function depends on the value of another variable <span class="math inline">\(X_2\)</span>. In the third plot, the slope of the population regression function depends on the value of <span class="math inline">\(X_1\)</span>. In this chapter, we consider how to model nonlinear regression functions.</p>
 <div id="cell-fig-f15-1" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">50</span>)</span>
@@ -607,7 +604,7 @@ window.Quarto = {
 <div id="fig-f15-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f15-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-1-output-1.png" width="707" height="275" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-1-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f15-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;18.1: Population regression functions with different slopes
@@ -624,7 +621,7 @@ Figure&nbsp;18.1: Population regression functions with different slopes
 Y_i=f(X_{1i},X_{2i},\dots,X_{ki})+u_i,\quad i=1,2,\dots,n,
 \end{align}
 \]</span></p>
-<p>where <span class="math inline">\(f(X_{1i},X_{2i},\dots,X_{ki})\)</span> is the population nonlinear regression function and <span class="math inline">\(u_i\)</span> is the error term. We will consider this model under the four least squares assumptions given in <a href="Chapter6-MultipleRegression.html" class="quarto-xref"><span>Chapter 16</span></a>. Then, under the zero-conditional mean assumption, we have <span class="math inline">\(\E(Y|X_{1},X_{2},\dots,X_{k})=f(X_{1},X_{2},\dots,X_{k})\)</span>. Because of the nonlinear relationship between the conditional mean <span class="math inline">\(\E(Y|X_{1},X_{2},\dots,X_{k})\)</span> and the regressors, the effect of a change in one regressor on the conditional mean requires a more complex analysis than in the linear case.</p>
+<p>where <span class="math inline">\(f(X_{1i},X_{2i},\dots,X_{ki})\)</span> is the population nonlinear regression function and <span class="math inline">\(u_i\)</span> is the error term. We will consider this model under the four least squares assumptions given in <a href="#sec-multiple" class="quarto-xref"><span class="quarto-unresolved-ref">sec-multiple</span></a>. Then, under the zero-conditional mean assumption, we have <span class="math inline">\(\E(Y|X_{1},X_{2},\dots,X_{k})=f(X_{1},X_{2},\dots,X_{k})\)</span>. Because of the nonlinear relationship between the conditional mean <span class="math inline">\(\E(Y|X_{1},X_{2},\dots,X_{k})\)</span> and the regressors, the effect of a change in one regressor on the conditional mean requires a more complex analysis than in the linear case.</p>
 <p>Let us assume that <span class="math inline">\(X_1\)</span> changes by <span class="math inline">\(\Delta X_1\)</span> and let <span class="math inline">\(\E(Y^*|X_{1}, X_{2},\dots,X_{k})=f(X_{1}+\Delta X_1,X_{2},\dots,X_{k})\)</span> be the expected value of <span class="math inline">\(Y\)</span> when <span class="math inline">\(X_1\)</span> changes by <span class="math inline">\(\Delta X_1\)</span>. Then, the expected change in <span class="math inline">\(Y\)</span> associated with the change in <span class="math inline">\(X_1\)</span> by <span class="math inline">\(\Delta X_1\)</span>, holding <span class="math inline">\(X_2,\dots, X_k\)</span> constant, is <span class="math display">\[
 \begin{align}
 \Delta Y&amp;=\E(Y^*|X_{1}+\Delta X_1, X_{2},\dots,X_{k})-\E(Y|X_{1},X_{2},\dots,X_{k}),\\
@@ -670,7 +667,7 @@ Key Concept 15.1: The expected change in <span class="math inline">\(Y\)</span> 
 Y_i=\beta_0+\beta_1X_{i}+\beta_2X_{i}^2+\cdots+\beta_mX_{i}^m+u_i,\quad i=1,2,\dots,n.
 \end{align}
 \]</span></p>
-<p>The linear model is a special case of the polynomial model with <span class="math inline">\(m=1\)</span>. This model reduces to the linear model if we fail to reject the joint null hypothesis <span class="math inline">\(H_0:\beta_2=\beta_3=\cdots=\beta_m=0\)</span> against the alternative hypothesis <span class="math inline">\(H_1:\)</span> At least one of the coefficients is not zero. When <span class="math inline">\(m=2\)</span>, the polynomial model is called a quadratic model, and when <span class="math inline">\(m=3\)</span>, the polynomial model is called a cubic model. As with the linear model, the quadratic and cubic models can be tested against the polynomial regression model of degree <span class="math inline">\(m\)</span> by adjusting the null and alternative hypotheses accordingly. These joint null hypotheses can be tested using the F-statistic introduced in <a href="Chapter7-MultipleRegressionInference.html" class="quarto-xref"><span>Chapter 17</span></a>.</p>
+<p>The linear model is a special case of the polynomial model with <span class="math inline">\(m=1\)</span>. This model reduces to the linear model if we fail to reject the joint null hypothesis <span class="math inline">\(H_0:\beta_2=\beta_3=\cdots=\beta_m=0\)</span> against the alternative hypothesis <span class="math inline">\(H_1:\)</span> At least one of the coefficients is not zero. When <span class="math inline">\(m=2\)</span>, the polynomial model is called a quadratic model, and when <span class="math inline">\(m=3\)</span>, the polynomial model is called a cubic model. As with the linear model, the quadratic and cubic models can be tested against the polynomial regression model of degree <span class="math inline">\(m\)</span> by adjusting the null and alternative hypotheses accordingly. These joint null hypotheses can be tested using the F-statistic introduced in <a href="#sec-inference2" class="quarto-xref"><span class="quarto-unresolved-ref">sec-inference2</span></a>.</p>
 <p>Note that since the polynomial model is linear in the parameters, we can use the OLS estimator to estimate the model. The degree of the model can be selected using a sequential hypothesis testing approach based on the individual <span class="math inline">\(t\)</span>-statistic. This approach consists of the following steps:</p>
 <ul>
 <li>Use economic theory and expert judgement to choose the maximum degree of the polynomial model, <span class="math inline">\(m\)</span>. In many cases involving economic data, <span class="math inline">\(m = 2\)</span> or <span class="math inline">\(m = 3\)</span> is sufficient.</li>
@@ -679,7 +676,7 @@ Y_i=\beta_0+\beta_1X_{i}+\beta_2X_{i}^2+\cdots+\beta_mX_{i}^m+u_i,\quad i=1,2,\d
 </ul>
 <p>The final model obtained through this sequential testing approach is the polynomial model of the highest degree for which the <span class="math inline">\(t\)</span>-statistic is statistically significant.</p>
 <p>As an example, we consider the test scores data available in the <code>caschool.xlsx</code> file. The following code chunk imports the data and displays the column names.</p>
-<div id="85684fc9" class="cell" data-message="false" data-execution_count="3">
+<div id="d5c4d601" class="cell" data-message="false" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mydata <span class="op">=</span> pd.read_excel(<span class="st">"data/caschool.xlsx"</span>, sheet_name<span class="op">=</span><span class="st">"caschool"</span>, header<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Column names</span></span>
@@ -689,10 +686,10 @@ Y_i=\beta_0+\beta_1X_{i}+\beta_2X_{i}^2+\cdots+\beta_mX_{i}^m+u_i,\quad i=1,2,\d
        'enrl_tot', 'teachers', 'calw_pct', 'meal_pct', 'computer', 'testscr',
        'comp_stu', 'expn_stu', 'str', 'avginc', 'el_pct', 'read_scr',
        'math_scr'],
-      dtype='object')</code></pre>
+      dtype='str')</code></pre>
 </div>
 </div>
-<p>We consider the relationship between the test scores (<code>testscr</code>) and two other variables: the student-teacher ratio (<code>str</code>), and the average district income (<code>avginc</code>). The average district income is measured in thousands of 1998 dollars (i.e., one unit increase in <code>avginc</code> means 1000 dollars increase). In <a href="#fig-f15-2" class="quarto-xref">Figure&nbsp;<span>18.2</span></a>, we present scatter plots of test scores against the student-teacher ratio and average district income. The scatter plot of test scores against the student-teacher ratio suggests a linear relationship, whereas the scatter plot of test scores against average district income suggests a nonlinear relationship.</p>
+<p>We consider the relationship between the test scores (<code>testscr</code>) and two other variables: the student-teacher ratio (<code>str</code>), and the average district income (<code>avginc</code>). The average district income is measured in thousands of 1998 dollars (i.e., one unit increase in <code>avginc</code> means 1000 dollars increase). In <a href="#fig-f15-2" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-f15-2</span></a>, we present scatter plots of test scores against the student-teacher ratio and average district income. The scatter plot of test scores against the student-teacher ratio suggests a linear relationship, whereas the scatter plot of test scores against average district income suggests a nonlinear relationship.</p>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplots</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Regression of Test Score on STR</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> mydata[<span class="st">'str'</span>]</span>
@@ -731,7 +728,7 @@ Y_i=\beta_0+\beta_1X_{i}+\beta_2X_{i}^2+\cdots+\beta_mX_{i}^m+u_i,\quad i=1,2,\d
 <div id="fig-f15-2-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-f15-2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-2-output-1.png" data-ref-parent="fig-f15-2" width="515" height="354" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-2-output-1.png" class="img-fluid figure-img" data-ref-parent="fig-f15-2">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-f15-2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Scatterplot of TestScore and STR
@@ -743,7 +740,7 @@ Y_i=\beta_0+\beta_1X_{i}+\beta_2X_{i}^2+\cdots+\beta_mX_{i}^m+u_i,\quad i=1,2,\d
 <div id="fig-f15-2-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-f15-2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-2-output-2.png" data-ref-parent="fig-f15-2" width="515" height="354" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-2-output-2.png" class="img-fluid figure-img" data-ref-parent="fig-f15-2">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-f15-2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Scatterplot of Test Score and Income
@@ -766,8 +763,8 @@ Figure&nbsp;18.2: Scatter plots
 &amp;\text{Cubic}:\quad \text{TestScore}=\beta_0+\beta_1\text{Income}+\beta_2\text{Income}^2+\beta_3\text{Income}^3+u.\label{eq5}
 \end{align}
 \]</span></p>
-<p>We estimate these models using the OLS estimator. In the following code chunk, we use the <code>I()</code> function to create the quadratic and cubic terms directly within the regression formula. Otherwise, we would need to create these variables manually and add them to the data frame <code>mydata</code>. The estimation results are presented in <a href="#tbl-t15-1" class="quarto-xref">Table&nbsp;<span>18.1</span></a>.</p>
-<div id="126b0291" class="cell" data-execution_count="5">
+<p>We estimate these models using the OLS estimator. In the following code chunk, we use the <code>I()</code> function to create the quadratic and cubic terms directly within the regression formula. Otherwise, we would need to create these variables manually and add them to the data frame <code>mydata</code>. The estimation results are presented in <a href="#tbl-t15-1" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t15-1</span></a>.</p>
+<div id="2c0bdbfa" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Linear model</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>model1 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'testscr ~ avginc'</span>,data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -876,7 +873,7 @@ Standard errors in parentheses.<br>
 </div>
 </div>
 </div>
-<p>The estimated regression functions are plotted in <a href="#fig-f15-3" class="quarto-xref">Figure&nbsp;<span>18.3</span></a>, superimposed on the scatterplot of the data. As shown, the quadratic and cubic functions capture the curvature in the scatterplot, exhibiting steep slopes at low values of district income that gradually flatten as district income increases.</p>
+<p>The estimated regression functions are plotted in <a href="#fig-f15-3" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-f15-3</span></a>, superimposed on the scatterplot of the data. As shown, the quadratic and cubic functions capture the curvature in the scatterplot, exhibiting steep slopes at low values of district income that gradually flatten as district income increases.</p>
 <div id="cell-fig-f15-3" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Polynomial regression models</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Sorting index for plotting</span></span>
@@ -902,7 +899,7 @@ Standard errors in parentheses.<br>
 <div id="fig-f15-3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f15-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-3-output-1.png" width="515" height="427" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-3-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f15-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;18.3: Scatter plot and polynomial regression functions
@@ -911,7 +908,7 @@ Figure&nbsp;18.3: Scatter plot and polynomial regression functions
 </div>
 </div>
 </div>
-<p>The estimation results in <a href="#tbl-t15-1" class="quarto-xref">Table&nbsp;<span>18.1</span></a> show that the coefficients of the quadratic and cubic terms are statistically significant. The estimation results of the quadratic model are presented in <a href="#tbl-t15-2" class="quarto-xref">Table&nbsp;<span>18.2</span></a>, where we report the estimated coefficients, standard errors, <span class="math inline">\(t\)</span>-statistics, <span class="math inline">\(p\)</span>-values and 95% two-sided confidence intervals. The table shows that the <span class="math inline">\(t\)</span>-statistics for the quadratic and cubic terms are around <code>-3.3</code> and <code>1.97</code>, respectively, with corresponding <span class="math inline">\(p\)</span>-values of <code>0.001</code> and <code>0.048</code>. Thus, both estimated coefficients are statistically significant at the <span class="math inline">\(5\%\)</span> significance level.</p>
+<p>The estimation results in <a href="#tbl-t15-1" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t15-1</span></a> show that the coefficients of the quadratic and cubic terms are statistically significant. The estimation results of the quadratic model are presented in <a href="#tbl-t15-2" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t15-2</span></a>, where we report the estimated coefficients, standard errors, <span class="math inline">\(t\)</span>-statistics, <span class="math inline">\(p\)</span>-values and 95% two-sided confidence intervals. The table shows that the <span class="math inline">\(t\)</span>-statistics for the quadratic and cubic terms are around <code>-3.3</code> and <code>1.97</code>, respectively, with corresponding <span class="math inline">\(p\)</span>-values of <code>0.001</code> and <code>0.048</code>. Thus, both estimated coefficients are statistically significant at the <span class="math inline">\(5\%\)</span> significance level.</p>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the estimation results of the cubic model</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>model3.summary().tables[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-layout-panel" data-layout-ncol="1">
@@ -987,11 +984,11 @@ Table&nbsp;18.2: Cubic polynomial regression model
 \end{align*}
 \]</span></p>
 <p>The F-statistic for this null hypothesis can be computed by using the <code>model3.f_test()</code> function. The following code chunk computes the F-statistic and the associated <span class="math inline">\(p\)</span>-value.</p>
-<div id="037e03ce" class="cell" data-execution_count="9">
+<div id="5800fb87" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>hypothesis<span class="op">=</span><span class="st">"I(avginc ** 2)=0, I(avginc ** 3)=0"</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model3.f_test(hypothesis))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;F test: F=37.690774113020424, p=9.042596399187178e-16, df_denom=416, df_num=2&gt;</code></pre>
+<pre><code>&lt;F test: F=37.690774113020886, p=9.042596399184094e-16, df_denom=416, df_num=2&gt;</code></pre>
 </div>
 </div>
 <p>The <span class="math inline">\(F\)</span>-statistic is around 37.7 with a <span class="math inline">\(p\)</span>-value of <code>9.043e-16</code>. Thus, we can reject the null hypothesis at the <span class="math inline">\(5\%\)</span> significance level.</p>
@@ -1004,7 +1001,7 @@ Table&nbsp;18.2: Cubic polynomial regression model
 <li><span class="math inline">\(\ln(x/y)=\ln(x)-\ln(y)\)</span>,</li>
 <li><span class="math inline">\(\ln(x^n)=n\ln(x)\)</span>.</li>
 </ul>
-<p>In <a href="#fig-f15-2" class="quarto-xref">Figure&nbsp;<span>18.2</span></a>, we plot the exponential function <span class="math inline">\(y=e^x\)</span> and the natural logarithm function <span class="math inline">\(y=\ln(x)\)</span>. The exponential function is increasing and convex, while the natural logarithm function is increasing and concave.</p>
+<p>In <a href="#fig-f15-2" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-f15-2</span></a>, we plot the exponential function <span class="math inline">\(y=e^x\)</span> and the natural logarithm function <span class="math inline">\(y=\ln(x)\)</span>. The exponential function is increasing and convex, while the natural logarithm function is increasing and concave.</p>
 <div id="cell-fig-f15-4" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exponential and logarithm functions</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate values for x</span></span>
@@ -1040,7 +1037,7 @@ Table&nbsp;18.2: Cubic polynomial regression model
 <div id="fig-f15-4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f15-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-4-output-1.png" width="508" height="354" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-4-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f15-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;18.4: Exponential and logarithm functions
@@ -1059,12 +1056,12 @@ Figure&nbsp;18.4: Exponential and logarithm functions
 \]</span></p>
 <p>The first series converges for all <span class="math inline">\(x\)</span>, while the last two series converge for <span class="math inline">\(|x|&lt;1\)</span>. Note that when <span class="math inline">\(x\)</span> is small, the higher-order terms become negligible in these expansions. For example, we can approximate <span class="math inline">\(\ln(1+x)\)</span> by <span class="math inline">\(x\)</span>, i.e., <span class="math inline">\(\ln(1+x)\approx x\)</span>, when <span class="math inline">\(x\)</span> is small.</p>
 </div>
-<p>Using <span class="math inline">\(\ln(1+x)\approx x\)</span> from <a href="#exm-exm15-1" class="quarto-xref">Example&nbsp;<span>18.1</span></a>, we can express <span class="math inline">\(\ln(x+\Delta x)-\ln(x)\)</span> as <span id="eq-eq15-1"><span class="math display">\[
+<p>Using <span class="math inline">\(\ln(1+x)\approx x\)</span> from <a href="#exm-exm15-1" class="quarto-xref">Example&nbsp;<span class="quarto-unresolved-ref">exm-exm15-1</span></a>, we can express <span class="math inline">\(\ln(x+\Delta x)-\ln(x)\)</span> as <span id="eq-eq15-1"><span class="math display">\[
 \begin{align}
 \ln(x+\Delta x)-\ln(x)=\ln\left(\frac{x+\Delta x}{x}\right)=\ln\left(1+\frac{\Delta x}{x}\right)\approx\frac{\Delta x}{x},
 \end{align}
 \tag{18.1}\]</span></span></p>
-<p>where the last approximation follows when <span class="math inline">\(\Delta x/x\)</span> is small. Then, using <a href="#eq-eq15-1" class="quarto-xref">Equation&nbsp;<span>18.1</span></a>, we have <span class="math inline">\(\ln(x_2)-\ln(x_1)\approx\frac{\Delta x}{x_1}\)</span>, where <span class="math inline">\(\Delta x=x_2-x_1\)</span>. We call <span class="math inline">\(\frac{\Delta x}{x}\)</span> the relative change (or the growth rate) in <span class="math inline">\(x\)</span>, and <span class="math inline">\(100\times\frac{\Delta x}{x}\)</span> the percentage change (or the percentage growth rate) in <span class="math inline">\(x\)</span>.</p>
+<p>where the last approximation follows when <span class="math inline">\(\Delta x/x\)</span> is small. Then, using <a href="#eq-eq15-1" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq15-1</span></a>, we have <span class="math inline">\(\ln(x_2)-\ln(x_1)\approx\frac{\Delta x}{x_1}\)</span>, where <span class="math inline">\(\Delta x=x_2-x_1\)</span>. We call <span class="math inline">\(\frac{\Delta x}{x}\)</span> the relative change (or the growth rate) in <span class="math inline">\(x\)</span>, and <span class="math inline">\(100\times\frac{\Delta x}{x}\)</span> the percentage change (or the percentage growth rate) in <span class="math inline">\(x\)</span>.</p>
 <div id="exm-exm15-2" class="theorem example">
 <p><span class="theorem-title"><strong>Example 18.2 (Logarithms and percentages)</strong></span> Assume that <span class="math inline">\(x=100\)</span> and <span class="math inline">\(\Delta x=1\)</span>, then <span class="math inline">\(\Delta x/x = 1/100 = 0.01\)</span> (or <span class="math inline">\(1\%\)</span>), while <span class="math inline">\(\ln(x+\Delta x)-\ln(x)=\ln(101)-\ln(100)=0.00995\)</span> or <span class="math inline">\(0.995\%\)</span>. Thus <span class="math inline">\(\Delta x/x\)</span> (which is 0.01) is very close to <span class="math inline">\(\ln(x+\Delta x)-\ln(x)\)</span> (which is <span class="math inline">\(0.00995\)</span>).</p>
 </div>
@@ -1135,7 +1132,7 @@ Key Concept 15.2: The three logarithmic regression models
 <li>The log-linear model: <span class="math inline">\(\ln(\text{TestScore})=\beta_0+\beta_1\text{Income}+u\)</span>,</li>
 <li>The log-log model: <span class="math inline">\(\ln(\text{TestScore})=\beta_0+\beta_1\ln(\text{Income})+u\)</span>.</li>
 </ol>
-<div id="57e7bd33" class="cell" data-execution_count="11">
+<div id="b7112fef" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Linear model</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'testscr ~ avginc'</span>,data<span class="op">=</span>mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1272,7 +1269,7 @@ Standard errors in parentheses.<br>
 </div>
 </div>
 </div>
-<p>The estimation results are presented in <a href="#tbl-t15-3" class="quarto-xref">Table&nbsp;<span>18.3</span></a>. All estimated coefficients presented in <a href="#tbl-t15-3" class="quarto-xref">Table&nbsp;<span>18.3</span></a> are statistically significant at 5% level. The estimated coefficient of <code>ln(avginc)</code> in the linear-log model is around <code>36.420</code>, which implies that a <span class="math inline">\(1\%\)</span> increase in district income is associated with a 0.3642 points increase in test scores. Using the linear-log model, we can compute the predicted difference in test scores for districts with different income levels. For example, for districts with average income levels of 10000 and 11000, the predicted difference in test scores is <span class="math display">\[
+<p>The estimation results are presented in <a href="#tbl-t15-3" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t15-3</span></a>. All estimated coefficients presented in <a href="#tbl-t15-3" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t15-3</span></a> are statistically significant at 5% level. The estimated coefficient of <code>ln(avginc)</code> in the linear-log model is around <code>36.420</code>, which implies that a <span class="math inline">\(1\%\)</span> increase in district income is associated with a 0.3642 points increase in test scores. Using the linear-log model, we can compute the predicted difference in test scores for districts with different income levels. For example, for districts with average income levels of 10000 and 11000, the predicted difference in test scores is <span class="math display">\[
 \begin{align}
 \widehat{\Delta\text{TestScore}}&amp;=36.420\times\left[\ln(11000)-\ln(10000)\right]\\
 &amp;=36.420\times\ln(1.1)\approx 36.420\times 0.0953\approx 3.47.
@@ -1285,8 +1282,8 @@ Standard errors in parentheses.<br>
 \end{align}
 \]</span></p>
 <p>Thus, the predicted difference in test scores is higher for districts with lower income levels.</p>
-<p>The results in <a href="#tbl-t15-3" class="quarto-xref">Table&nbsp;<span>18.3</span></a> indicates that the estimated coefficient of <code>avginc</code> in the log-linear model is around 0.003, which implies that a 1 unit increase in district income (one unit increase means 1000 dollars increase in average income) is associated with a <span class="math inline">\(0.3\%\)</span> increase in test scores. Finally, the estimated coefficient of <code>ln(avginc)</code> in the log-log model is around 0.055, which implies that a <span class="math inline">\(1\%\)</span> increase in district income is associated with a <span class="math inline">\(0.055\%\)</span> increase in test scores.</p>
-<p>We plot the estimated regression functions in <a href="#fig-f15-5" class="quarto-xref">Figure&nbsp;<span>18.5</span></a> and <a href="#fig-f15-6" class="quarto-xref">Figure&nbsp;<span>18.6</span></a>. In <a href="#fig-f15-5" class="quarto-xref">Figure&nbsp;<span>18.5</span></a>, the quadratic model appears to provide a better fit for the data, while in <a href="#fig-f15-6" class="quarto-xref">Figure&nbsp;<span>18.6</span></a>, the log-log model seems to fit the data more closely.</p>
+<p>The results in <a href="#tbl-t15-3" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t15-3</span></a> indicates that the estimated coefficient of <code>avginc</code> in the log-linear model is around 0.003, which implies that a 1 unit increase in district income (one unit increase means 1000 dollars increase in average income) is associated with a <span class="math inline">\(0.3\%\)</span> increase in test scores. Finally, the estimated coefficient of <code>ln(avginc)</code> in the log-log model is around 0.055, which implies that a <span class="math inline">\(1\%\)</span> increase in district income is associated with a <span class="math inline">\(0.055\%\)</span> increase in test scores.</p>
+<p>We plot the estimated regression functions in <a href="#fig-f15-5" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-f15-5</span></a> and <a href="#fig-f15-6" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-f15-6</span></a>. In <a href="#fig-f15-5" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-f15-5</span></a>, the quadratic model appears to provide a better fit for the data, while in <a href="#fig-f15-6" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-f15-6</span></a>, the log-log model seems to fit the data more closely.</p>
 <div id="cell-fig-f15-5" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Linear, quadratic and linear-log models</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Sorting index for plotting</span></span>
@@ -1312,7 +1309,7 @@ Standard errors in parentheses.<br>
 <div id="fig-f15-5" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f15-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-5-output-1.png" width="515" height="354" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-5-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f15-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;18.5: Linear, quadratic and linear-log models
@@ -1344,7 +1341,7 @@ Figure&nbsp;18.5: Linear, quadratic and linear-log models
 <div id="fig-f15-6" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f15-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-6-output-1.png" width="526" height="354" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-6-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f15-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;18.6: Log-linear and log-log models
@@ -1354,7 +1351,7 @@ Figure&nbsp;18.6: Log-linear and log-log models
 </div>
 </div>
 <p>Finally, we can use the adjusted <span class="math inline">\(R^2\)</span> to determine which model best fits the data. However, caution is needed when using the adjusted <span class="math inline">\(R^2\)</span> to compare models with different dependent variables, as it should only be used for models with the same dependent variable. The adjusted <span class="math inline">\(R^2\)</span> values for the linear, quadratic, and linear-log models are approximately 0.506, 0.554, and 0.561, respectively. Therefore, the linear-log model has the highest adjusted <span class="math inline">\(R^2\)</span> and is the best fit for the data. For the log-linear and log-log models, the adjusted <span class="math inline">\(R^2\)</span> values are about 0.497 and 0.557, respectively; hence, the log-log model provides relatively better fit.</p>
-<p>Since the dependent variables differ between the linear-log and log-log models, we cannot directly compare their adjusted <span class="math inline">\(R^2\)</span> values. <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span> suggest using economic theory or expert judgment to decide whether to specify the model with <span class="math inline">\(Y\)</span> or <span class="math inline">\(\ln(Y)\)</span> as the dependent variable. They write, “In modeling test scores, it seems natural (to us, anyway) to discuss test results in terms of points on the test rather than percentage increases in the test scores, so we focus on models in which the dependent variable is the test score rather than its logarithm.”</p>
+<p>Since the dependent variables differ between the linear-log and log-log models, we cannot directly compare their adjusted <span class="math inline">\(R^2\)</span> values. <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="#ref-Stock2020" role="doc-biblioref">2020</a>)</span> suggest using economic theory or expert judgment to decide whether to specify the model with <span class="math inline">\(Y\)</span> or <span class="math inline">\(\ln(Y)\)</span> as the dependent variable. They write, “In modeling test scores, it seems natural (to us, anyway) to discuss test results in terms of points on the test rather than percentage increases in the test scores, so we focus on models in which the dependent variable is the test score rather than its logarithm.”</p>
 </section>
 </section>
 <section id="interactions-between-independent-variables" class="level2" data-number="18.4">
@@ -1401,8 +1398,8 @@ Y_i=\beta_0+\beta_1D_{1i}+\beta_2D_{2i}+\beta_3\left(D_{1i}\times D_{2i}\right)+
 \end{cases}
 \end{align*}
 \]</span></p>
-<p>Here, <span class="math inline">\(\text{HiSTR}_i\)</span> is a binary variable equal to 1 if the student-teacher ratio is 20 or more, and 0 otherwise; <span class="math inline">\(\text{HiEL}_i\)</span> is another binary variable equal to 1 if the percentage of English learners is 10% or more, and 0 otherwise. We use the following code chunk to estimate the model and present the results in <a href="#tbl-t15-4" class="quarto-xref">Table&nbsp;<span>18.4</span></a>.</p>
-<div id="9802a410" class="cell" data-execution_count="15">
+<p>Here, <span class="math inline">\(\text{HiSTR}_i\)</span> is a binary variable equal to 1 if the student-teacher ratio is 20 or more, and 0 otherwise; <span class="math inline">\(\text{HiEL}_i\)</span> is another binary variable equal to 1 if the percentage of English learners is 10% or more, and 0 otherwise. We use the following code chunk to estimate the model and present the results in <a href="#tbl-t15-4" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t15-4</span></a>.</p>
+<div id="6eda86a8" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate dummy variables</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>mydata[<span class="st">"histr"</span>] <span class="op">=</span> mydata[<span class="st">"str"</span>] <span class="op">&gt;=</span> <span class="dv">20</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>mydata[<span class="st">"hiel"</span>] <span class="op">=</span> mydata[<span class="st">"el_pct"</span>] <span class="op">&gt;=</span> <span class="dv">10</span></span>
@@ -1485,7 +1482,7 @@ Standard errors in parentheses.<br>
 </div>
 </div>
 </div>
-<p>According to the estimation results in <a href="#tbl-t15-4" class="quarto-xref">Table&nbsp;<span>18.4</span></a>, the estimated model is <span class="math display">\[
+<p>According to the estimation results in <a href="#tbl-t15-4" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t15-4</span></a>, the estimated model is <span class="math display">\[
 \begin{align}
 \widehat{\text{TestScore}}_i=664.1-1.9\text{HiSTR}_i-18.2\text{HiEL}_i-3.5\left(\text{HiSTR}_i\times\text{HiEL}_i\right).
 \end{align}
@@ -1498,17 +1495,17 @@ Standard errors in parentheses.<br>
 \begin{align}
 Y_i=\beta_0+\beta_1D_{i}+\beta_2X_{i}+u_i,\quad i=1,2,\dots,n,
 \end{align}
-\]</span> where <span class="math inline">\(D\)</span> is a binary and <span class="math inline">\(X\)</span> is a continuous variable. In this model, the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> is <span class="math inline">\(\beta_2\)</span> and does not depend on the value of <span class="math inline">\(D\)</span>. However, the dummy variable <span class="math inline">\(D\)</span> can affect the intercept of the regression function. When <span class="math inline">\(D=0\)</span>, the intercept is <span class="math inline">\(\beta_0\)</span>, while when <span class="math inline">\(D=1\)</span>, the intercept is <span class="math inline">\(\beta_0+\beta_1\)</span>. This case is illustrated in the first plot of <a href="#fig-f15-7" class="quarto-xref">Figure&nbsp;<span>18.7</span></a>.</p>
+\]</span> where <span class="math inline">\(D\)</span> is a binary and <span class="math inline">\(X\)</span> is a continuous variable. In this model, the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> is <span class="math inline">\(\beta_2\)</span> and does not depend on the value of <span class="math inline">\(D\)</span>. However, the dummy variable <span class="math inline">\(D\)</span> can affect the intercept of the regression function. When <span class="math inline">\(D=0\)</span>, the intercept is <span class="math inline">\(\beta_0\)</span>, while when <span class="math inline">\(D=1\)</span>, the intercept is <span class="math inline">\(\beta_0+\beta_1\)</span>. This case is illustrated in the first plot of <a href="#fig-f15-7" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-f15-7</span></a>.</p>
 <p>To allow the effect of <span class="math inline">\(X\)</span> to depend on <span class="math inline">\(D\)</span>, we expend the model by including the interaction term <span class="math inline">\(D_i\times X_i\)</span> as a regressor: <span class="math display">\[
 \begin{align}
 Y_i=\beta_0+\beta_1D_{i}+\beta_2X_{i}+\beta_3\left(D_i\times X_i\right)+u_i,\quad i=1,2,\cdots,n.
 \end{align}
-\]</span> When <span class="math inline">\(D=0\)</span>, the population regression function is <span class="math inline">\(Y=\beta_0+\beta_2X\)</span>, while when <span class="math inline">\(D=1\)</span>, the population regression function is <span class="math inline">\(Y=(\beta_0+\beta_1)+(\beta_2+\beta_3)X\)</span>. In particular, the effect of one unit change in <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> is <span class="math inline">\(\beta_2\)</span> when <span class="math inline">\(D=0\)</span> and <span class="math inline">\(\beta_2+\beta_3\)</span> when <span class="math inline">\(D=1\)</span>. This case is illustrated in the second plot of <a href="#fig-f15-7" class="quarto-xref">Figure&nbsp;<span>18.7</span></a>.</p>
+\]</span> When <span class="math inline">\(D=0\)</span>, the population regression function is <span class="math inline">\(Y=\beta_0+\beta_2X\)</span>, while when <span class="math inline">\(D=1\)</span>, the population regression function is <span class="math inline">\(Y=(\beta_0+\beta_1)+(\beta_2+\beta_3)X\)</span>. In particular, the effect of one unit change in <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> is <span class="math inline">\(\beta_2\)</span> when <span class="math inline">\(D=0\)</span> and <span class="math inline">\(\beta_2+\beta_3\)</span> when <span class="math inline">\(D=1\)</span>. This case is illustrated in the second plot of <a href="#fig-f15-7" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-f15-7</span></a>.</p>
 <p>A third case arises when the slope of the regression function only depends on the value of the binary variable. Consider the following model: <span class="math display">\[
 \begin{align}
 Y_i=\beta_0+\beta_1X_{i}+\beta_2\left(D_i\times X_i\right)+u_i,\quad i=1,2,\cdots,n.
 \end{align}
-\]</span> This case is illustrated in the third plot of <a href="#fig-f15-7" class="quarto-xref">Figure&nbsp;<span>18.7</span></a>.</p>
+\]</span> This case is illustrated in the third plot of <a href="#fig-f15-7" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-f15-7</span></a>.</p>
 <div id="cell-fig-f15-7" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the parameters</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>beta_0 <span class="op">=</span> <span class="dv">1</span></span>
@@ -1566,7 +1563,7 @@ Y_i=\beta_0+\beta_1X_{i}+\beta_2\left(D_i\times X_i\right)+u_i,\quad i=1,2,\cdot
 <div id="fig-f15-7" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f15-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-7-output-1.png" width="659" height="566" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-7-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f15-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;18.7: Regression functions using binary and continuous variables
@@ -1579,8 +1576,8 @@ Figure&nbsp;18.7: Regression functions using binary and continuous variables
 \begin{align}
 \text{TestScore}_i = \beta_0+\beta_1\text{STR}_i+\beta_2\text{HiEL}_i+\beta_3\left(\text{STR}_i\times\text{HiEL}_i\right)+u_i,
 \end{align}
-\]</span> where <span class="math inline">\(\text{HiEL}_i\)</span> is a binary variable that equals <span class="math inline">\(1\)</span> if the percentage of English learners is 10% or more and 0 otherwise. The estimation results are presented in <a href="#tbl-t15-5" class="quarto-xref">Table&nbsp;<span>18.5</span></a>.</p>
-<div id="03a588b5" class="cell" data-execution_count="18">
+\]</span> where <span class="math inline">\(\text{HiEL}_i\)</span> is a binary variable that equals <span class="math inline">\(1\)</span> if the percentage of English learners is 10% or more and 0 otherwise. The estimation results are presented in <a href="#tbl-t15-5" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t15-5</span></a>.</p>
+<div id="33b2037c" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"testscr ~ str + hiel + str*hiel"</span>,</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>         data <span class="op">=</span> mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1659,12 +1656,12 @@ Standard errors in parentheses.<br>
 </div>
 </div>
 </div>
-<p>According to the estimation results presented in <a href="#tbl-t15-5" class="quarto-xref">Table&nbsp;<span>18.5</span></a>, the estimated model is <span class="math display">\[
+<p>According to the estimation results presented in <a href="#tbl-t15-5" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t15-5</span></a>, the estimated model is <span class="math display">\[
 \begin{align}
 \widehat{\text{TestScore}}_i=682.2-0.97\text{STR}_i+5.6\text{HiEL}_i-1.28\left(\text{STR}_i\times\text{HiEL}_i\right).
 \end{align}
 \]</span></p>
-<p>Thus, for districts with a low percentage of English learners (<span class="math inline">\(\text{HiEL}_i=0\)</span>), the estimated regression line is <span class="math inline">\(\widehat{\text{TestScore}}_i=682.2-0.97\text{STR}_i\)</span>. In contrast, for districts with a high percentage of English learners (<span class="math inline">\(\text{HiEL}_i=1\)</span>), the estimated regression line becomes <span class="math inline">\(\widehat{\text{TestScore}}_i=682.2+5.6-0.97\text{STR}_i-1.28\text{STR}_i=687.8-2.25\text{STR}_i\)</span>. These two regression lines are plotted in <a href="#fig-f15-8" class="quarto-xref">Figure&nbsp;<span>18.8</span></a>. According to these estimates, when STR increases by <span class="math inline">\(1\)</span>, the test score declines on average by <span class="math inline">\(0.97\)</span> points in districts with low percentage of English learners. On the other hand, when STR increases by <span class="math inline">\(1\)</span> student, the test score declines on average by <span class="math inline">\(2.25\)</span> points in districts with high percentage of English learners.</p>
+<p>Thus, for districts with a low percentage of English learners (<span class="math inline">\(\text{HiEL}_i=0\)</span>), the estimated regression line is <span class="math inline">\(\widehat{\text{TestScore}}_i=682.2-0.97\text{STR}_i\)</span>. In contrast, for districts with a high percentage of English learners (<span class="math inline">\(\text{HiEL}_i=1\)</span>), the estimated regression line becomes <span class="math inline">\(\widehat{\text{TestScore}}_i=682.2+5.6-0.97\text{STR}_i-1.28\text{STR}_i=687.8-2.25\text{STR}_i\)</span>. These two regression lines are plotted in <a href="#fig-f15-8" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-f15-8</span></a>. According to these estimates, when STR increases by <span class="math inline">\(1\)</span>, the test score declines on average by <span class="math inline">\(0.97\)</span> points in districts with low percentage of English learners. On the other hand, when STR increases by <span class="math inline">\(1\)</span> student, the test score declines on average by <span class="math inline">\(2.25\)</span> points in districts with high percentage of English learners.</p>
 <div id="cell-fig-f15-8" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the parameters</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>beta_0 <span class="op">=</span> <span class="fl">682.2</span></span>
@@ -1691,7 +1688,7 @@ Standard errors in parentheses.<br>
 <div id="fig-f15-8" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f15-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-8-output-1.png" width="440" height="281" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-8-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f15-8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;18.8: Regression lines using continuous and binary variables
@@ -1706,12 +1703,12 @@ H_0: \beta_2=0,\,\beta_3=0\quad\text{versus}\quad H_1:\text{At least one is nonz
 \end{align*}
 \]</span></p>
 <p>We use the heteroskedasticity-robust <span class="math inline">\(F\)</span>-statistic to test this hypothesis. The <span class="math inline">\(F\)</span>-statistic is around 89.9 with a <span class="math inline">\(p\)</span>-value less than 0.05. Thus, we reject the null hypothesis.</p>
-<div id="21ed1a3b" class="cell" data-execution_count="21">
+<div id="8d53b400" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>hypothesis <span class="op">=</span> <span class="st">"hiel[T.True]=0, str:hiel[T.True]=0"</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>r2.f_test(hypothesis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>&lt;class 'statsmodels.stats.contrast.ContrastResults'&gt;
-&lt;F test: F=89.93943806524757, p=3.455817929259153e-33, df_denom=416, df_num=2&gt;</code></pre>
+&lt;F test: F=89.93943806525117, p=3.455817929250657e-33, df_denom=416, df_num=2&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -1727,7 +1724,7 @@ Y_i=\beta_0+\beta_1X_{1i}+\beta_2X_{2i}+\beta_3\left(X_{1i}\times X_{2i}\right)+
 Y+\Delta Y=\beta_0+\beta_1(X_1+\Delta X_1)+\beta_2X_2+\beta_3\left((X_1+\Delta X_1)\times X_2\right)+u.
 \end{align*}
 \tag{18.3}\]</span></span></p>
-<p>Subtracting <a href="#eq-eq15-2" class="quarto-xref">Equation&nbsp;<span>18.2</span></a> from <a href="#eq-eq15-3" class="quarto-xref">Equation&nbsp;<span>18.3</span></a>, we have <span class="math display">\[
+<p>Subtracting <a href="#eq-eq15-2" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq15-2</span></a> from <a href="#eq-eq15-3" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq15-3</span></a>, we have <span class="math display">\[
 \begin{align*}
 \Delta Y=\beta_1\Delta X_1+\beta_3X_2\times\Delta X_1\implies \frac{\Delta Y}{\Delta X_1}=\beta_1+\beta_3X_2.
 \end{align*}
@@ -1738,8 +1735,8 @@ Y+\Delta Y=\beta_0+\beta_1(X_1+\Delta X_1)+\beta_2X_2+\beta_3\left((X_1+\Delta X
 \text{TestScore}_i=\beta_0+\beta_1\text{STR}_i+\beta_2\text{PctEL}_i+\beta_3\left(\text{STR}_i\times\text{PctEL}_i\right)+u_i.
 \end{align}
 \]</span></p>
-<p>We use the following code chunk to estimate the model and present the results in <a href="#tbl-t15-6" class="quarto-xref">Table&nbsp;<span>18.6</span></a>.</p>
-<div id="9ab3cdaf" class="cell" data-execution_count="22">
+<p>We use the following code chunk to estimate the model and present the results in <a href="#tbl-t15-6" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t15-6</span></a>.</p>
+<div id="f810bbec" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>r3 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"testscr ~ str + el_pct + str*el_pct"</span>,</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>         data <span class="op">=</span> mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1859,8 +1856,8 @@ Standard errors in parentheses.<br>
 &amp;7.\, \text{TestScore}_i=\beta_0+\beta_1\text{STR}_i+\beta_2\text{STR}^2_i+\beta_3\text{STR}^3_i+\beta_4\text{PctEL}_i+{\color{steelblue}\beta_5\text{meal\_pct}_i+\beta_6\ln\left(\text{avginc}_i\right)}+u_i.\\
 \end{align*}
 \]</span></p>
-<p>The following code chunks can be used to produce the estimation results given in <a href="#tbl-t15-7" class="quarto-xref">Table&nbsp;<span>18.7</span></a>.</p>
-<div id="1a2a70cd" class="cell" data-execution_count="24">
+<p>The following code chunks can be used to produce the estimation results given in <a href="#tbl-t15-7" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t15-7</span></a>.</p>
+<div id="bf025f24" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model 1</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>r1 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">"testscr ~ str + el_pct + meal_pct"</span>,</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>         data <span class="op">=</span> mydata).fit(cov_type<span class="op">=</span><span class="st">"HC1"</span>)</span>
@@ -2163,24 +2160,24 @@ Standard errors in parentheses.<br>
 </div>
 <p>Starting with the results for Model 1, we see that the estimated coefficient on <code>STR</code> is statistically significant. The results for Model 2 show that adding <code>ln(avginc)</code> reduces the estimated coefficient on <code>STR</code> to <code>-0.734</code>, though this estimate remains statistically significant. In Models 3 and 4, we aim to assess the effect of allowing for an interaction term, <code>STR × HiEL</code>, both without and with economic control variables. In both models, we observe that the coefficient on the interaction term and the coefficient on <code>HiEL</code> are not statistically significant. Thus, even with economic controls, we cannot reject the null hypothesis that the effect of the student-teacher ratio on test scores is the same for districts with high and low shares of English learners.</p>
 <p>Model 5 includes a cubic term for the student-teacher ratio and omits the interaction <code>STR × HiEL</code>. The results indicate that there is a nonlinear effect of <code>STR</code> on test scores. We can verify this non-linear relationship by testing the joint null hypothesis: <span class="math inline">\(H_0:\beta_2=0,\beta_3=0\)</span>. The F-statistic is around 5 with a <span class="math inline">\(p\)</span>-value less than 0.05. Thus, we reject the null hypothesis at the <span class="math inline">\(5\%\)</span> significance level.</p>
-<div id="d0f36510" class="cell" data-execution_count="26">
+<div id="eb1575c9" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>hypothesis <span class="op">=</span> <span class="st">"I(str ** 2)=0, I(str ** 3)=0"</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r5.f_test(hypothesis))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;F test: F=5.020509901247472, p=0.007009765089114624, df_denom=413, df_num=2&gt;</code></pre>
+<pre><code>&lt;F test: F=5.0205099012845125, p=0.007009765088860675, df_denom=413, df_num=2&gt;</code></pre>
 </div>
 </div>
 <p>Model 6 further examines whether the effect of <code>STR</code> depends not just on its value but also on the fraction of English learners. All individual t-statistics indicate that the estimated coefficients on <code>HiEL</code> and its interaction terms are statistically significant. We can further check this by using a robust <span class="math inline">\(F\)</span>-test for the joint null hypothesis: <span class="math inline">\(H_0:\beta_5=0,\beta_6=0,\beta_7=0\)</span>. The F-statistic is around 2.19 with a <span class="math inline">\(p\)</span>-value less than 0.10. Thus, we only reject the null hypothesis at the <span class="math inline">\(10\%\)</span> significance level.</p>
-<div id="c17eaabb" class="cell" data-execution_count="27">
+<div id="c564d42e" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>hypothesis<span class="op">=</span><span class="st">"hiel[T.True]:str=0, hiel[T.True]:I(str ** 2)=0, hiel[T.True]:I(str ** 3)=0"</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r6.f_test(hypothesis))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;F test: F=2.6902462480680165, p=0.04596931813371919, df_denom=410, df_num=3&gt;</code></pre>
+<pre><code>&lt;F test: F=2.690246248142292, p=0.0459693181292038, df_denom=410, df_num=3&gt;</code></pre>
 </div>
 </div>
 <p>Model 7 is a modification of Model 5, in which the continuous variable <code>PctEL</code> is used instead of the binary variable <code>HiEL</code> to control for the effect of the percentage of English learners. The coefficients on the other regressors do not change substantially when this modification is made, indicating that the results in Model 5 are not sensitive to whether we use <code>PctEL</code> or <code>HiEL</code>.</p>
-<p>The nonlinear specifications in <a href="#tbl-t15-7" class="quarto-xref">Table&nbsp;<span>18.7</span></a> are most easily interpreted graphically. In <a href="#fig-f15-9" class="quarto-xref">Figure&nbsp;<span>18.9</span></a>, we present plots of the estimated regression functions for Models 2, 5, and 7, along with a scatterplot of <code>testscr</code> and <code>str</code>. For each curve, we compute predicted values by setting each independent variable, other than <code>str</code>, to its sample average. These estimated regression functions show the predicted test scores as a function of <code>str</code>, with other independent variables fixed at their sample averages. The figure illustrates that the estimated regression functions are all quite similar to one another.</p>
-<div id="f8b510b4" class="cell" data-execution_count="28">
+<p>The nonlinear specifications in <a href="#tbl-t15-7" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t15-7</span></a> are most easily interpreted graphically. In <a href="#fig-f15-9" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-f15-9</span></a>, we present plots of the estimated regression functions for Models 2, 5, and 7, along with a scatterplot of <code>testscr</code> and <code>str</code>. For each curve, we compute predicted values by setting each independent variable, other than <code>str</code>, to its sample average. These estimated regression functions show the predicted test scores as a function of <code>str</code>, with other independent variables fixed at their sample averages. The figure illustrates that the estimated regression functions are all quite similar to one another.</p>
+<div id="04161ed4" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the estimated regression functions for Models 2, 5, and 7</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating new data for predictions</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>mydata[<span class="st">"hiel"</span>]<span class="op">=</span>mydata[<span class="st">"hiel"</span>].astype(<span class="bu">int</span>) <span class="co"># Convert hiel to 0s and 1s</span></span>
@@ -2226,7 +2223,7 @@ Standard errors in parentheses.<br>
 <div id="fig-f15-9" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f15-9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-9-output-1.png" width="515" height="427" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-9-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f15-9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;18.9: Estimated regression functions for Models 2, 5 and 7
@@ -2235,8 +2232,8 @@ Figure&nbsp;18.9: Estimated regression functions for Models 2, 5 and 7
 </div>
 </div>
 </div>
-<p>In <a href="#fig-f15-10" class="quarto-xref">Figure&nbsp;<span>18.10</span></a>, we present the estimated regression functions for Model 6 when <code>HiEL = 0</code> and <code>HiEL = 1</code>. Although the two regression functions appear different, the slopes are nearly identical when <code>str</code> take values between 17 and 23. Since this range encompasses nearly all observations, we can reasonably conclude that nonlinear interactions between the fraction of English learners and the student-teacher ratio can be disregarded.</p>
-<div id="ae72b8de" class="cell" data-execution_count="30">
+<p>In <a href="#fig-f15-10" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-f15-10</span></a>, we present the estimated regression functions for Model 6 when <code>HiEL = 0</code> and <code>HiEL = 1</code>. Although the two regression functions appear different, the slopes are nearly identical when <code>str</code> take values between 17 and 23. Since this range encompasses nearly all observations, we can reasonably conclude that nonlinear interactions between the fraction of English learners and the student-teacher ratio can be disregarded.</p>
+<div id="ee09ff37" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the estimated regression functions for Model 6</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating new data for predictions</span></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>new_data <span class="op">=</span> pd.DataFrame({</span>
@@ -2285,7 +2282,7 @@ Figure&nbsp;18.9: Estimated regression functions for Models 2, 5 and 7
 <div id="fig-f15-10" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f15-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-10-output-1.png" width="515" height="427" class="figure-img">
+<img src="Chapter8-NonlinearRegressions_files/figure-html/fig-f15-10-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f15-10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;18.10: Estimated regression functions for Model 6
@@ -2294,7 +2291,7 @@ Figure&nbsp;18.10: Estimated regression functions for Model 6
 </div>
 </div>
 </div>
-<p>Finally, following <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span>, we can summarize the main findings of the empirical application as follows:</p>
+<p>Finally, following <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="#ref-Stock2020" role="doc-biblioref">2020</a>)</span>, we can summarize the main findings of the empirical application as follows:</p>
 <ul>
 <li>The results for Models 3, 4, and 6 show that, after controlling for economic background, there is weak statistical evidence that the effect of a change in <code>str</code> depends on whether there are many or few English learners in the district.</li>
 <li>The results for Models 5 and 6 show that after controlling for economic background, there is evidence of a nonlinear relationship between test scores and the student-teacher ratio.</li>
@@ -2308,7 +2305,7 @@ Figure&nbsp;18.10: Estimated regression functions for Model 6
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Stock2020" class="csl-entry" role="listitem">
 Stock, James H., and Mark W. Watson. 2020. <em>Introduction to Econometrics</em>. Fourth edition. Pearson.
 </div>

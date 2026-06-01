@@ -124,10 +124,7 @@ div.csl-indent {
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 <script>
 window.MathJax = {
   tex: {
@@ -546,7 +543,7 @@ window.Quarto = {
 </header>
 
 
-<div id="8766289a" class="cell" data-execution_count="1">
+<div id="9a053f50" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -574,7 +571,7 @@ t = \frac{\hat{\beta}_{1} - c}{\SE(\hat{\beta}_1)},
 \end{align}
 \tag{15.1}\]</span></span></p>
 <p>where <span class="math inline">\(\SE(\hat{\beta}_1)\)</span> is the square root of the variance of <span class="math inline">\(\hat{\beta}_1\)</span>. Note that the test statistic <span class="math inline">\(t\)</span> is formulated under the assumption that <span class="math inline">\(H_0\)</span> holds.</p>
-<p>To compute the <span class="math inline">\(t\)</span>-statistic in <a href="#eq-eq12-1" class="quarto-xref">Equation&nbsp;<span>15.1</span></a>, we need to determine <span class="math inline">\(\SE(\hat{\beta}_1)\)</span>. In <a href="Chapter4-LinearRegressionOneRegressor.html" class="quarto-xref"><span>Chapter 14</span></a>, we show that <span class="math display">\[
+<p>To compute the <span class="math inline">\(t\)</span>-statistic in <a href="#eq-eq12-1" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq12-1</span></a>, we need to determine <span class="math inline">\(\SE(\hat{\beta}_1)\)</span>. In <a href="#sec-lrmone" class="quarto-xref"><span class="quarto-unresolved-ref">sec-lrmone</span></a>, we show that <span class="math display">\[
 \begin{align*}
 &amp;\hat{\beta}_1 \stackrel{A}{\sim} N\left(\beta_1, \sigma^2_{\hat{\beta}_1}\right),\,\text{where}\quad\sigma^2_{\hat{\beta}_1} = \frac{1}{n}\frac{\var\left((X_i - \mu_X)u_i\right)}{\left(\sigma^2_X\right)^2},\\
 &amp;\hat{\beta}_0 \stackrel{A}{\sim} N\left(\beta_0, \sigma^2_{\hat{\beta}_0}\right),\, \text{where}\quad\sigma^2_{\hat{\beta}_0} = \frac{1}{n}\frac{\var\left(H_i u_i\right)}{\left(\E(H_i^2)\right)^2}\,\,\text{and}\,\, H_i = 1 - \frac{\mu_X}{\E(X_i^2)}X_i.
@@ -586,17 +583,17 @@ t = \frac{\hat{\beta}_{1} - c}{\SE(\hat{\beta}_1)},
 &amp;\hat{\sigma}^2_{\hat{\beta}_0} = \frac{1}{n}\frac{\frac{1}{n-2}\sum_{i=1}^n\hat{H}^2\hat{u}_i^2}{\left(\frac{1}{n}\sum_{i=1}^n\hat{H}_i^2\right)^2}\quad\text{and}\quad  \hat{H}_i = 1 - \frac{\bar{X}}{\frac{1}{n}\sum_{i=1}^nX_i^2}X_i.
 \end{align}
 \]</span></p>
-<p>Then, <span class="math inline">\(\SE(\hat{\beta}_{1})\)</span> in <a href="#eq-eq12-1" class="quarto-xref">Equation&nbsp;<span>15.1</span></a> can be computed by <span class="math inline">\(\SE(\hat{\beta}_{1})=\sqrt{\hat{\sigma}^2_{\hat{\beta}_1}}\)</span>. Also, when the sample size is large, the central limit theorem ensures that <span class="math display">\[
+<p>Then, <span class="math inline">\(\SE(\hat{\beta}_{1})\)</span> in <a href="#eq-eq12-1" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq12-1</span></a> can be computed by <span class="math inline">\(\SE(\hat{\beta}_{1})=\sqrt{\hat{\sigma}^2_{\hat{\beta}_1}}\)</span>. Also, when the sample size is large, the central limit theorem ensures that <span class="math display">\[
 \begin{align}
 \hat{\beta}_1 \stackrel{A}{\sim} N\left(\beta_1, \sigma^2_{\hat{\beta}_1}\right)
 \implies
 \frac{\hat{\beta}_1 - \beta_1}{\sigma_{\hat{\beta}_1}}\stackrel{A}{\sim} N(0,1).
 \end{align}
 \]</span></p>
-<p>Thus, if <span class="math inline">\(H_0\)</span> is true, then the sampling distribution of the <span class="math inline">\(t\)</span>-statistic in <a href="#eq-eq12-1" class="quarto-xref">Equation&nbsp;<span>15.1</span></a> can be approximated by <span class="math inline">\(N(0,1)\)</span> in large samples, i.e., <span class="math display">\[
+<p>Thus, if <span class="math inline">\(H_0\)</span> is true, then the sampling distribution of the <span class="math inline">\(t\)</span>-statistic in <a href="#eq-eq12-1" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq12-1</span></a> can be approximated by <span class="math inline">\(N(0,1)\)</span> in large samples, i.e., <span class="math display">\[
 t\stackrel{A}{\sim} N(0,1).
 \]</span></p>
-<p>Let <span class="math inline">\(\alpha\)</span> be the significance level, i.e., the probability of Type-I error. We can use the asymptotic distribution of <span class="math inline">\(t\)</span>, <span class="math inline">\(\alpha\)</span> and the type of the alternative hypothesis to determine the critical values. In <a href="#fig-critical_points" class="quarto-xref">Figure&nbsp;<span>15.1</span></a>, depending on the type of alternative hypothesis, we determine the critical values as <span class="math inline">\(z_{\alpha}\)</span>, <span class="math inline">\(-z_{\alpha}\)</span>, <span class="math inline">\(z_{\alpha/2}\)</span>, and <span class="math inline">\(-z_{\alpha/2}\)</span>. These values suggest the following rejection regions:</p>
+<p>Let <span class="math inline">\(\alpha\)</span> be the significance level, i.e., the probability of Type-I error. We can use the asymptotic distribution of <span class="math inline">\(t\)</span>, <span class="math inline">\(\alpha\)</span> and the type of the alternative hypothesis to determine the critical values. In <a href="#fig-critical_points" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-critical_points</span></a>, depending on the type of alternative hypothesis, we determine the critical values as <span class="math inline">\(z_{\alpha}\)</span>, <span class="math inline">\(-z_{\alpha}\)</span>, <span class="math inline">\(z_{\alpha/2}\)</span>, and <span class="math inline">\(-z_{\alpha/2}\)</span>. These values suggest the following rejection regions:</p>
 <ol type="1">
 <li><span class="math inline">\(\{z:z&gt;z_{\alpha}\}\)</span> when <span class="math inline">\(H_1:\beta_1&gt;c\)</span>,</li>
 <li><span class="math inline">\(\{z:z&lt;-z_{\alpha}\}\)</span> when <span class="math inline">\(H_1:\beta_1&lt;c\)</span>, and</li>
@@ -654,7 +651,7 @@ Figure&nbsp;15.1: Rejection regions and critical points
 </div>
 <div id="exm-exm12-1" class="theorem example">
 <p><span class="theorem-title"><strong>Example 15.1</strong></span> Assume that <span class="math inline">\(\alpha=5\%\)</span> and <span class="math inline">\(H_1:\beta_1\ne c\)</span>. Then, the critical value on the left tail is the <span class="math inline">\(2.5\)</span>th percentile of <span class="math inline">\(N(0,1)\)</span>, which is <span class="math inline">\(-z_{\alpha/2}=-1.96\)</span>, and the critical value on the right tail is the <span class="math inline">\(97.5\)</span>th percentile of <span class="math inline">\(N(0,1)\)</span>, which is <span class="math inline">\(z_{\alpha/2}=1.96\)</span>. In Python, we can compute these critical values as follows:</p>
-<div id="81338724" class="cell" data-execution_count="2">
+<div id="85d3bb7c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>left_critical <span class="op">=</span> stats.norm.ppf(<span class="fl">0.025</span>, loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>right_critical <span class="op">=</span> stats.norm.ppf(<span class="fl">0.975</span>, loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Left critical value:"</span>, np.<span class="bu">round</span>(left_critical, <span class="dv">2</span>))</span>
@@ -665,7 +662,7 @@ Right critical value: 1.96</code></pre>
 </div>
 </div>
 </div>
-<p>Alternatively, we can compute the <span class="math inline">\(p\)</span>-value to decide between <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span>. The <strong><span class="math inline">\(p\)</span>-value</strong> is the probability of obtaining a test statistic value that is more extreme than the actual one when <span class="math inline">\(H_0\)</span> is correct. Let <span class="math inline">\(t_{\text{calc}}\)</span> be the realized value of the <span class="math inline">\(t\)</span>-statistic from <a href="#eq-eq12-1" class="quarto-xref">Equation&nbsp;<span>15.1</span></a>. Then, depending on the type of alternative hypothesis, we can determine the <span class="math inline">\(p\)</span>-value as <span class="math display">\[
+<p>Alternatively, we can compute the <span class="math inline">\(p\)</span>-value to decide between <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span>. The <strong><span class="math inline">\(p\)</span>-value</strong> is the probability of obtaining a test statistic value that is more extreme than the actual one when <span class="math inline">\(H_0\)</span> is correct. Let <span class="math inline">\(t_{\text{calc}}\)</span> be the realized value of the <span class="math inline">\(t\)</span>-statistic from <a href="#eq-eq12-1" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq12-1</span></a>. Then, depending on the type of alternative hypothesis, we can determine the <span class="math inline">\(p\)</span>-value as <span class="math display">\[
 \begin{align}
 \text{$p$-value}=
 \begin{cases}
@@ -683,7 +680,7 @@ P_{H_0}\left(|t| &gt; |t_{\text{calc}}|\right)=2\times\Phi(-|t_{\text{calc}}|)\,
 \end{align}
 \]</span></p>
 <p>We can compute the <span class="math inline">\(p\)</span>-value in Python as follows:</p>
-<div id="6a0561a1" class="cell" data-execution_count="3">
+<div id="ec82f3c3" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute p-value</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>t_calc <span class="op">=</span> <span class="op">-</span><span class="fl">2.5</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>p_value <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> stats.norm.cdf(<span class="op">-</span>np.<span class="bu">abs</span>(t_calc), loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>)</span>
@@ -706,7 +703,7 @@ Key Concept 12.1: Testing <span class="math inline">\(H_0:\beta_1= c\)</span> ve
 <div class="callout-body-container callout-body">
 <ul>
 <li>Compute the standard error of <span class="math inline">\(\hat{\beta}_1\)</span>, <span class="math inline">\(\SE(\hat{\beta}_{1})=\sqrt{\hat{\sigma}^2_{\hat{\beta}_1}}\)</span>.</li>
-<li>Compute the <span class="math inline">\(t\)</span>-statistic given in <a href="#eq-eq12-1" class="quarto-xref">Equation&nbsp;<span>15.1</span></a> under <span class="math inline">\(H_0\)</span>. Reject the nul hypothesis at the <span class="math inline">\(5\%\)</span> significance level if <span class="math inline">\(|t|&gt;1.96\)</span>.</li>
+<li>Compute the <span class="math inline">\(t\)</span>-statistic given in <a href="#eq-eq12-1" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq12-1</span></a> under <span class="math inline">\(H_0\)</span>. Reject the nul hypothesis at the <span class="math inline">\(5\%\)</span> significance level if <span class="math inline">\(|t|&gt;1.96\)</span>.</li>
 <li>Compute <span class="math inline">\(p\)</span>-value from <span class="math inline">\(2\times\Phi(-|t_{\text{calc}}|)\)</span>, where <span class="math inline">\(t_{\text{calc}}\)</span> is the actual test statistic computed in the second step. Reject the null hypothesis at the <span class="math inline">\(5\%\)</span> significance level, if the <span class="math inline">\(p\)</span>-value is less than <span class="math inline">\(0.05\)</span>.</li>
 </ul>
 </div>
@@ -720,7 +717,7 @@ Key Concept 12.1: Testing <span class="math inline">\(H_0:\beta_1= c\)</span> ve
 \end{align}
 \]</span></p>
 <p>In the data set, the test scores are denoted by <code>testscr</code> and the student-teacher ratio by <code>str</code>.</p>
-<div id="f25a3862" class="cell" data-execution_count="4">
+<div id="095454fb" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>CAschool <span class="op">=</span> pd.read_excel(<span class="st">"data/caschool.xlsx"</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Column names</span></span>
@@ -730,11 +727,11 @@ Key Concept 12.1: Testing <span class="math inline">\(H_0:\beta_1= c\)</span> ve
        'enrl_tot', 'teachers', 'calw_pct', 'meal_pct', 'computer', 'testscr',
        'comp_stu', 'expn_stu', 'str', 'avginc', 'el_pct', 'read_scr',
        'math_scr'],
-      dtype='object')</code></pre>
+      dtype='str')</code></pre>
 </div>
 </div>
 <p>Consider <span class="math inline">\(H_0: \beta_1 = 0\)</span> against <span class="math inline">\(H_1: \beta_1 \neq 0\)</span>. We use the <code>smf.ols()</code> method to estimate the model.</p>
-<div id="c1bd5b07" class="cell" data-execution_count="5">
+<div id="985201ad" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the model</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>model1 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'testscr~str'</span>,data<span class="op">=</span>CAschool)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the fit method to obtain parameter estimates</span></span>
@@ -747,8 +744,8 @@ Key Concept 12.1: Testing <span class="math inline">\(H_0:\beta_1= c\)</span> ve
 Dep. Variable:                testscr   R-squared:                       0.051
 Model:                            OLS   Adj. R-squared:                  0.049
 Method:                 Least Squares   F-statistic:                     22.58
-Date:                Wed, 26 Nov 2025   Prob (F-statistic):           2.78e-06
-Time:                        08:39:08   Log-Likelihood:                -1822.2
+Date:                Mon, 01 Jun 2026   Prob (F-statistic):           2.78e-06
+Time:                        13:54:34   Log-Likelihood:                -1822.2
 No. Observations:                 420   AIC:                             3648.
 Df Residuals:                     418   BIC:                             3657.
 Df Model:                           1                                         
@@ -775,7 +772,7 @@ t = \frac{\hat{\beta}_1-0}{SE(\hat{\beta}_1)} \approx \frac{-2.28}{0.48} \approx
 \end{align}
 \]</span></p>
 <p>Note that the <code>result1.summary()</code> function also returns the <span class="math inline">\(t\)</span>-statistics. The column named <code>t</code> in the output includes the <span class="math inline">\(t\)</span>-statistics. Also note that we can return <span class="math inline">\(t\)</span>-statistics through the <code>result1.tvalues</code> attribute:</p>
-<div id="8b655cd9" class="cell" data-execution_count="6">
+<div id="a862579d" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># t-statistics</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>result1.tvalues</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -785,12 +782,12 @@ dtype: float64</code></pre>
 </div>
 </div>
 <p>Assume that the significance level is <span class="math inline">\(\alpha = 0.05\)</span>. Then, the corresponding critical value can be determined in the following way.</p>
-<div id="84e48516" class="cell" data-execution_count="7">
+<div id="2a9e570b" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Critical value for 5 percent significance level</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>critical <span class="op">=</span> stats.norm.ppf(<span class="fl">0.975</span>, loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">round</span>(critical,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>1.96</code></pre>
+<pre><code>np.float64(1.96)</code></pre>
 </div>
 </div>
 <p>Since <span class="math inline">\(|t| = |-4.75| = 4.75 &gt; 1.96\)</span>, we reject <span class="math inline">\(H_0\)</span> at the <span class="math inline">\(5\%\)</span> significance level. Thus, the estimated effect of class size on test scores is statistically significant at the <span class="math inline">\(5\%\)</span> significance level.</p>
@@ -800,18 +797,18 @@ dtype: float64</code></pre>
 \end{align}
 \]</span></p>
 <p>where <span class="math inline">\(t_{\text{calc}}\)</span> is the actual <span class="math inline">\(t\)</span>-statistic computed, which is <span class="math inline">\(t\approx -4.75\)</span>. Then, we can compute the <span class="math inline">\(p\)</span>-value in the following way:</p>
-<div id="9f154ccd" class="cell" data-execution_count="8">
+<div id="9315f579" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># p-value for the two-sided alternative hypothesis</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> result1.tvalues[<span class="st">"str"</span>]</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># t=result1.tvalues.iloc[1]</span></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>p_value <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> stats.norm.cdf(<span class="op">-</span>np.<span class="bu">abs</span>(t), loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>p_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>2.0208577446937873e-06</code></pre>
+<pre><code>np.float64(2.020857744693751e-06)</code></pre>
 </div>
 </div>
 <p>Alternatively, we can return <span class="math inline">\(p\)</span>-values through the <code>result1.pvalues</code> attribute:</p>
-<div id="519b4aae" class="cell" data-execution_count="9">
+<div id="9d019fe0" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># p-values</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>p_value <span class="op">=</span> result1.pvalues</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>p_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -822,13 +819,13 @@ dtype: float64</code></pre>
 </div>
 </div>
 <p>Note that this value is slightly different from the one that we computed above by <code>p_value = 2 * stats.norm.cdf(-np.abs(t), loc=0, scale=1)</code>. By default, the <code>model1.fit()</code> function uses the <span class="math inline">\(t\)</span> distribution for the computation. Thus, we need to use the t distribution to get the same result:</p>
-<div id="3960c7e9" class="cell" data-execution_count="10">
+<div id="d5a2050c" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> result1.tvalues[<span class="st">"str"</span>]</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># t=result1.tvalues.iloc[1]</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>p_value <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> stats.t.cdf(<span class="op">-</span>np.<span class="bu">abs</span>(t), df<span class="op">=</span><span class="dv">418</span>)</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>p_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
-<pre><code>2.783306521200329e-06</code></pre>
+<pre><code>np.float64(2.7833065212002788e-06)</code></pre>
 </div>
 </div>
 <p>Again, since <span class="math inline">\(p\text{-value} &lt; 0.05\)</span>, we reject <span class="math inline">\(H_0\)</span> at the <span class="math inline">\(5\%\)</span> significance level.</p>
@@ -849,7 +846,7 @@ dtype: float64</code></pre>
 \end{align*}
 \]</span></p>
 <p>In our test score example, the <span class="math inline">\(95\%\)</span> confidence interval is computed in the following way:</p>
-<div id="10ca8e40" class="cell" data-execution_count="11">
+<div id="77c0433d" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Confidence interval for beta_1</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>lower_bound <span class="op">=</span> result1.params[<span class="st">"str"</span>] <span class="op">-</span> critical<span class="op">*</span>result1.bse[<span class="st">"str"</span>]</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>upper_bound <span class="op">=</span> result1.params[<span class="st">"str"</span>] <span class="op">+</span> critical<span class="op">*</span>result1.bse[<span class="st">"str"</span>]</span>
@@ -859,7 +856,7 @@ dtype: float64</code></pre>
 </div>
 </div>
 <p>Alternatively, we can resort to the <code>result1.conf_int()</code> method to return the confidence intervals for all parameters.</p>
-<div id="d95d7088" class="cell" data-execution_count="12">
+<div id="61be0889" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Confidence intervals for all parameters</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>result1.conf_int(alpha<span class="op">=</span><span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
@@ -934,7 +931,7 @@ D_i &amp;= \left\{\begin{array}{ll}
 \]</span></p>
 <p>That is, <span class="math inline">\(\beta_1\)</span> gives the difference between the mean test score in districts with low student-teacher ratios and the mean test score in districts with high student-teacher ratios.</p>
 <p>The dummy variable can be created by using a logical operator. The command <code>mydata$str &lt; 20</code> will return <span class="math inline">\(1\)</span> if <span class="math inline">\(STR &lt; 20\)</span>, otherwise <span class="math inline">\(0\)</span>.</p>
-<div id="b3bbe8a3" class="cell" data-execution_count="13">
+<div id="3d9e9e83" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the dummy variable D</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>CAschool[<span class="st">"D"</span>] <span class="op">=</span> CAschool[<span class="st">"str"</span>] <span class="op">&lt;</span> <span class="dv">20</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>CAschool[[<span class="st">"testscr"</span>, <span class="st">"str"</span>, <span class="st">"D"</span>]].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -988,7 +985,7 @@ D_i &amp;= \left\{\begin{array}{ll}
 </div>
 </div>
 </div>
-<p><a href="#fig-fig12-2" class="quarto-xref">Figure&nbsp;<span>15.2</span></a> shows the scatter plot of <code>TestScore</code> and <code>D</code>. Since <code>D</code> takes only two values, namely <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>, we observe that the data points are clustered at <code>x=0</code> and <code>x=1</code>.</p>
+<p><a href="#fig-fig12-2" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig12-2</span></a> shows the scatter plot of <code>TestScore</code> and <code>D</code>. Since <code>D</code> takes only two values, namely <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>, we observe that the data points are clustered at <code>x=0</code> and <code>x=1</code>.</p>
 <div id="cell-fig-fig12-2" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot without jitter</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(style<span class="op">=</span><span class="st">'darkgrid'</span>)</span>
@@ -1002,7 +999,7 @@ D_i &amp;= \left\{\begin{array}{ll}
 <div id="fig-fig12-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig12-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter5-LinearRegressionOneRegressorInference_files/figure-html/fig-fig12-2-output-1.png" width="448" height="287" class="figure-img">
+<img src="Chapter5-LinearRegressionOneRegressorInference_files/figure-html/fig-fig12-2-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig12-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;15.2: Scatterplot of D and Test Score.
@@ -1011,7 +1008,7 @@ Figure&nbsp;15.2: Scatterplot of D and Test Score.
 </div>
 </div>
 </div>
-<p>In <a href="#fig-fig12-3" class="quarto-xref">Figure&nbsp;<span>15.3</span></a>, we create a jittered version of <code>D</code> by adding some random noise: <code>jittered_D = CAschool['D'] + np.random.normal(0, 0.02, size=len(CAschool['D']))</code>, and construct a scatter plot between <code>TestScore</code> and <code>jittered_D</code>.</p>
+<p>In <a href="#fig-fig12-3" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig12-3</span></a>, we create a jittered version of <code>D</code> by adding some random noise: <code>jittered_D = CAschool['D'] + np.random.normal(0, 0.02, size=len(CAschool['D']))</code>, and construct a scatter plot between <code>TestScore</code> and <code>jittered_D</code>.</p>
 <div id="cell-fig-fig12-3" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatterplot with jitter</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(style<span class="op">=</span><span class="st">'darkgrid'</span>)</span>
@@ -1027,7 +1024,7 @@ Figure&nbsp;15.2: Scatterplot of D and Test Score.
 <div id="fig-fig12-3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig12-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter5-LinearRegressionOneRegressorInference_files/figure-html/fig-fig12-3-output-1.png" width="448" height="287" class="figure-img">
+<img src="Chapter5-LinearRegressionOneRegressorInference_files/figure-html/fig-fig12-3-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig12-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;15.3: Scatterplot of D and Test Score.
@@ -1037,7 +1034,7 @@ Figure&nbsp;15.3: Scatterplot of D and Test Score.
 </div>
 </div>
 <p>As in the case of a continuous regressor, we can use the <code>smf.ols()</code> function to estimate a dummy variable regression model.</p>
-<div id="be2cb278" class="cell" data-execution_count="16">
+<div id="ff4cdce9" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the model</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>model2 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'testscr ~ D'</span>, data<span class="op">=</span>CAschool)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the fit method to obtain parameter estimates</span></span>
@@ -1050,8 +1047,8 @@ Figure&nbsp;15.3: Scatterplot of D and Test Score.
 Dep. Variable:                testscr   R-squared:                       0.037
 Model:                            OLS   Adj. R-squared:                  0.035
 Method:                 Least Squares   F-statistic:                     15.99
-Date:                Wed, 26 Nov 2025   Prob (F-statistic):           7.52e-05
-Time:                        08:39:09   Log-Likelihood:                -1825.4
+Date:                Mon, 01 Jun 2026   Prob (F-statistic):           7.52e-05
+Time:                        13:54:35   Log-Likelihood:                -1825.4
 No. Observations:                 420   AIC:                             3655.
 Df Residuals:                     418   BIC:                             3663.
 Df Model:                           1                                         
@@ -1078,7 +1075,7 @@ Notes:
 \end{align}
 \]</span></p>
 <p>The estimate of <span class="math inline">\(\beta_1\)</span> is <span class="math inline">\(7.38\)</span>, which indicates that students in the districts with <code>STR &lt; 20</code> have on average <span class="math inline">\(7.38\)</span> more points than students in other districts.</p>
-<p><a href="#fig-fig12-4" class="quarto-xref">Figure&nbsp;<span>15.4</span></a> shows the scatter plot along with the estimated regression function. Since <span class="math inline">\(\beta_1=7.38\)</span>, the estimated regression line is upward sloping, which indicates that the test scores are higher in districts with low student-teacher ratios.</p>
+<p><a href="#fig-fig12-4" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig12-4</span></a> shows the scatter plot along with the estimated regression function. Since <span class="math inline">\(\beta_1=7.38\)</span>, the estimated regression line is upward sloping, which indicates that the test scores are higher in districts with low student-teacher ratios.</p>
 <div id="cell-fig-fig12-4" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the style for seaborn</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">'darkgrid'</span>)</span>
@@ -1099,7 +1096,7 @@ Notes:
 <div id="fig-fig12-4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig12-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter5-LinearRegressionOneRegressorInference_files/figure-html/fig-fig12-4-output-1.png" width="448" height="287" class="figure-img">
+<img src="Chapter5-LinearRegressionOneRegressorInference_files/figure-html/fig-fig12-4-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig12-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;15.4: The dummy variable regression model
@@ -1111,8 +1108,8 @@ Figure&nbsp;15.4: The dummy variable regression model
 </section>
 <section id="heteroskedasticity-versus-homoskedasticity" class="level2" data-number="15.5">
 <h2 data-number="15.5" class="anchored" data-anchor-id="heteroskedasticity-versus-homoskedasticity"><span class="header-section-number">15.5</span> Heteroskedasticity versus Homoskedasticity</h2>
-<p>In the least squares assumptions introduced in <a href="Chapter4-LinearRegressionOneRegressor.html" class="quarto-xref"><span>Chapter 14</span></a>, we only assume the zero-conditional mean assumption about the error terms. Other than this assumption, we do not impose any structure on the error term <span class="math inline">\(u_i\)</span>. In this section, we introduce two concepts about the conditional variance of the error term <span class="math inline">\(u_i\)</span> given <span class="math inline">\(X_i\)</span>: homoskedasticity and heteroskedasticity. We say that the error term <span class="math inline">\(u_i\)</span> is <strong>homoskedastic</strong> if the variance of <span class="math inline">\(u_i\)</span> given <span class="math inline">\(X_i\)</span> is constant for all <span class="math inline">\(i = 1,2,\dots,n\)</span>. In particular, this means that the variance does not depend on <span class="math inline">\(X_i\)</span>. On the other hand, if the variance does depend on <span class="math inline">\(X_i\)</span>, we say that the error term <span class="math inline">\(u_i\)</span> is <strong>heteroskedastic</strong>.</p>
-<p>Homoskedasticity and heteroskedasticity do not affect the unbiasedness and consistency of the OLS estimators of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. However, they do affect the variance formulas of the OLS estimators given in <a href="Chapter4-LinearRegressionOneRegressor.html#thm-thm11.1" class="quarto-xref">Theorem&nbsp;<span>14.1</span></a> of <a href="Chapter4-LinearRegressionOneRegressor.html" class="quarto-xref"><span>Chapter 14</span></a>. Under homoskedasticity, let <span class="math inline">\(\var(u_i|X_i)=\sigma^2_u\)</span>, where <span class="math inline">\(\sigma^2_u\)</span> is an unknown scalar parameter. Then, the variance formulas of <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_0\)</span> simplify to <span class="math display">\[
+<p>In the least squares assumptions introduced in <a href="#sec-lrmone" class="quarto-xref"><span class="quarto-unresolved-ref">sec-lrmone</span></a>, we only assume the zero-conditional mean assumption about the error terms. Other than this assumption, we do not impose any structure on the error term <span class="math inline">\(u_i\)</span>. In this section, we introduce two concepts about the conditional variance of the error term <span class="math inline">\(u_i\)</span> given <span class="math inline">\(X_i\)</span>: homoskedasticity and heteroskedasticity. We say that the error term <span class="math inline">\(u_i\)</span> is <strong>homoskedastic</strong> if the variance of <span class="math inline">\(u_i\)</span> given <span class="math inline">\(X_i\)</span> is constant for all <span class="math inline">\(i = 1,2,\dots,n\)</span>. In particular, this means that the variance does not depend on <span class="math inline">\(X_i\)</span>. On the other hand, if the variance does depend on <span class="math inline">\(X_i\)</span>, we say that the error term <span class="math inline">\(u_i\)</span> is <strong>heteroskedastic</strong>.</p>
+<p>Homoskedasticity and heteroskedasticity do not affect the unbiasedness and consistency of the OLS estimators of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. However, they do affect the variance formulas of the OLS estimators given in <a href="#thm-thm11.1" class="quarto-xref">Theorem&nbsp;<span class="quarto-unresolved-ref">thm-thm11.1</span></a> of <a href="#sec-lrmone" class="quarto-xref"><span class="quarto-unresolved-ref">sec-lrmone</span></a>. Under homoskedasticity, let <span class="math inline">\(\var(u_i|X_i)=\sigma^2_u\)</span>, where <span class="math inline">\(\sigma^2_u\)</span> is an unknown scalar parameter. Then, the variance formulas of <span class="math inline">\(\hat{\beta}_1\)</span> and <span class="math inline">\(\hat{\beta}_0\)</span> simplify to <span class="math display">\[
 \begin{align*}
 &amp;\sigma^2_{\widehat{\beta}_1} = \frac{1}{n}\frac{\var\left((X_i - \mu_X)u_i\right)}{\left(\var(X_i)\right)^2} = \frac{\sigma^2_u}{n\var(X_i)},\\
 &amp;\sigma^2_{\hat{\beta}_0} = \frac{1}{n}\frac{\var\left(H_i u_i\right)}{\left(\E(H_i^2)\right)^2} = \frac{\E(X^2_i)\sigma^2_u}{n\sigma^2_X}.
@@ -1125,7 +1122,7 @@ Figure&nbsp;15.4: The dummy variable regression model
 \end{align*}
 \]</span></p>
 <p>The <code>smf.ols()</code> function uses these formulas to compute the standard errors, i.e., it only reports the homoskedasticity-only standard errors. To get heteroskedasticity-robust standard errors, we need to supply <code>cov_type="HC1"</code> in the <code>fit</code> method, as shown below.</p>
-<div id="842a55b2" class="cell" data-execution_count="18">
+<div id="35fe2658" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the model</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>model3 <span class="op">=</span> smf.ols(formula<span class="op">=</span><span class="st">'testscr~str'</span>, data<span class="op">=</span>CAschool)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the fit method to obtain parameter estimates</span></span>
@@ -1138,8 +1135,8 @@ Figure&nbsp;15.4: The dummy variable regression model
 Dep. Variable:                testscr   R-squared:                       0.051
 Model:                            OLS   Adj. R-squared:                  0.049
 Method:                 Least Squares   F-statistic:                     19.26
-Date:                Wed, 26 Nov 2025   Prob (F-statistic):           1.45e-05
-Time:                        08:39:10   Log-Likelihood:                -1822.2
+Date:                Mon, 01 Jun 2026   Prob (F-statistic):           1.45e-05
+Time:                        13:54:36   Log-Likelihood:                -1822.2
 No. Observations:                 420   AIC:                             3648.
 Df Residuals:                     418   BIC:                             3657.
 Df Model:                           1                                         
@@ -1160,7 +1157,7 @@ Notes:
 [1] Standard Errors are heteroscedasticity robust (HC1)</code></pre>
 </div>
 </div>
-<p>In the following, we use the <code>summary_col</code> function to present results contained in <code>result1</code> and <code>result2</code> side by side. The estimation results are presented in <a href="#tbl-t12-1" class="quarto-xref">Table&nbsp;<span>15.1</span></a>. The estimation results in this table indicate that the heteroskedasticity-robust standard errors are relatively large.</p>
+<p>In the following, we use the <code>summary_col</code> function to present results contained in <code>result1</code> and <code>result2</code> side by side. The estimation results are presented in <a href="#tbl-t12-1" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t12-1</span></a>. The estimation results in this table indicate that the heteroskedasticity-robust standard errors are relatively large.</p>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print results in table form</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>models <span class="op">=</span> [<span class="st">'Homoskedastic Model'</span>, <span class="st">'Heteroskedastic Model'</span>]</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>results_table<span class="op">=</span>summary_col(results<span class="op">=</span>[result1,result3],</span>
@@ -1245,7 +1242,7 @@ Key Concept 12.3: Heteroskedasticity and Homoskedasticity
 </ul>
 </div>
 </div>
-<p>In practice, which standard errors should we use? <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span> write that “At a general level, economic theory rarely gives any reason to believe that the errors are homoskedastic. It therefore is prudent to assume that the errors might be heteroskedastic unless you have compelling reasons to believe otherwise.” Therefore, we recommend using heteroskedasticity-robust standard errors in practice.</p>
+<p>In practice, which standard errors should we use? <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="#ref-Stock2020" role="doc-biblioref">2020</a>)</span> write that “At a general level, economic theory rarely gives any reason to believe that the errors are homoskedastic. It therefore is prudent to assume that the errors might be heteroskedastic unless you have compelling reasons to believe otherwise.” Therefore, we recommend using heteroskedasticity-robust standard errors in practice.</p>
 </section>
 <section id="the-theoretical-foundations-of-ordinary-least-squares" class="level2" data-number="15.6">
 <h2 data-number="15.6" class="anchored" data-anchor-id="the-theoretical-foundations-of-ordinary-least-squares"><span class="header-section-number">15.6</span> The theoretical foundations of ordinary least squares</h2>
@@ -1272,11 +1269,11 @@ The Gauss–Markov Assumptions
 <div id="thm-thm12.1" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 15.1 (The Gauss-Markov Theorem for <span class="math inline">\(\hat{\beta}_1\)</span>)</strong></span> Under Gauss–Markov Assumption, the OLS estimator of <span class="math inline">\(\beta_1\)</span> is the best (most efficient) linear conditionally unbiased estimator (BLUE).</p>
 </div>
-<p>The proof of this theorem is given in <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span>. The Gauss-Markov theorem states that the OLS estimator <span class="math inline">\(\hat{\beta}_1\)</span> has the smallest conditional variance among all conditionally unbiased estimators that are linear functions of <span class="math inline">\(Y_1,\dots,Y_n\)</span>. There are two limitations to this theorem. First, it requires the strong assumption that error terms are homoskedastic, which mostly does not hold in empirical applications. Second, there exist conditionally biased and non-linear estimators that are more efficient than the OLS estimator. We discuss such estimators in <a href="Chapter14-BigData.html" class="quarto-xref"><span>Chapter 24</span></a>.</p>
-<p>In the next chapter, we introduce the multiple linear regression model. In <a href="Chapter19-TheoryMultipleRegression.html" class="quarto-xref"><span>Chapter 29</span></a>, we extend the Gauss-Markov theorem to the multiple linear regression model.</p>
+<p>The proof of this theorem is given in <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="#ref-Stock2020" role="doc-biblioref">2020</a>)</span>. The Gauss-Markov theorem states that the OLS estimator <span class="math inline">\(\hat{\beta}_1\)</span> has the smallest conditional variance among all conditionally unbiased estimators that are linear functions of <span class="math inline">\(Y_1,\dots,Y_n\)</span>. There are two limitations to this theorem. First, it requires the strong assumption that error terms are homoskedastic, which mostly does not hold in empirical applications. Second, there exist conditionally biased and non-linear estimators that are more efficient than the OLS estimator. We discuss such estimators in <a href="#sec-chapter21" class="quarto-xref"><span class="quarto-unresolved-ref">sec-chapter21</span></a>.</p>
+<p>In the next chapter, we introduce the multiple linear regression model. In <a href="#sec-chapter26" class="quarto-xref"><span class="quarto-unresolved-ref">sec-chapter26</span></a>, we extend the Gauss-Markov theorem to the multiple linear regression model.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Stock2020" class="csl-entry" role="listitem">
 Stock, James H., and Mark W. Watson. 2020. <em>Introduction to Econometrics</em>. Fourth edition. Pearson.
 </div>

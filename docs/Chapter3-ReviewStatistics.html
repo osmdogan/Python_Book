@@ -124,10 +124,7 @@ div.csl-indent {
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 <script>
 window.MathJax = {
   tex: {
@@ -547,7 +544,7 @@ window.Quarto = {
 </header>
 
 
-<div id="cfd41559" class="cell" data-execution_count="1">
+<div id="7a335e30" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
@@ -581,7 +578,7 @@ window.Quarto = {
 </div>
 <p>The unbiasedness property implies that the sampling distribution of the estimator <span class="math inline">\(\hat{\mu}_Y\)</span> is centered around the true value of the population parameter <span class="math inline">\(\mu_Y\)</span>. The bias of <span class="math inline">\(\hat{\mu}_Y\)</span> is defined as <span class="math inline">\(\text{Bias}(\hat{\mu}_Y) = \mathbb{E}(\hat{\mu}_Y) - \mu_Y\)</span>. The consistency property indicates that as the sample size increases, the sampling distribution of <span class="math inline">\(\hat{\mu}_Y\)</span> becomes increasingly concentrated around the true value <span class="math inline">\(\mu_Y\)</span>. Among all unbiased and consistent estimators, we prefer the one with the smallest variance, known as the most efficient estimator.</p>
 <div id="exm-example10-2" class="theorem example">
-<p><span class="theorem-title"><strong>Example 13.2</strong></span> Let <span class="math inline">\(\hat{\mu}_1\)</span> and <span class="math inline">\(\hat{\mu}_2\)</span> be two unbiased estimators of <span class="math inline">\(\mu_Y = 5\)</span>. Assume that the sampling distribution of <span class="math inline">\(\hat{\mu}_1\)</span> is <span class="math inline">\(N(5, 0.5)\)</span> and that of <span class="math inline">\(\hat{\mu}_2\)</span> is <span class="math inline">\(N(5, 1)\)</span>. Then, we have <span class="math inline">\(\mathbb{E}(\hat{\mu}_1) = \mathbb{E}(\hat{\mu}_2) = 5\)</span>, indicating that both estimators are unbiased. However, <span class="math inline">\(\hat{\mu}_1\)</span> is more efficient than <span class="math inline">\(\hat{\mu}_2\)</span> because <span class="math inline">\(\text{Var}(\hat{\mu}_1) = 0.5 &lt; \text{Var}(\hat{\mu}_2) = 1\)</span>. In <a href="#fig-fig10-1" class="quarto-xref">Figure&nbsp;<span>13.1</span></a>, we plot the sampling distributions of <span class="math inline">\(\hat{\mu}_1\)</span> and <span class="math inline">\(\hat{\mu}_2\)</span>. Although both sampling distributions are centered at <span class="math inline">\(\mu_Y\)</span>, the sampling distribution of <span class="math inline">\(\hat{\mu}_1\)</span> is more concentrated around <span class="math inline">\(\mu_Y\)</span> than that of <span class="math inline">\(\hat{\mu}_2\)</span>, indicating that <span class="math inline">\(\hat{\mu}_1\)</span> is more efficient than <span class="math inline">\(\hat{\mu}_2\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 13.2</strong></span> Let <span class="math inline">\(\hat{\mu}_1\)</span> and <span class="math inline">\(\hat{\mu}_2\)</span> be two unbiased estimators of <span class="math inline">\(\mu_Y = 5\)</span>. Assume that the sampling distribution of <span class="math inline">\(\hat{\mu}_1\)</span> is <span class="math inline">\(N(5, 0.5)\)</span> and that of <span class="math inline">\(\hat{\mu}_2\)</span> is <span class="math inline">\(N(5, 1)\)</span>. Then, we have <span class="math inline">\(\mathbb{E}(\hat{\mu}_1) = \mathbb{E}(\hat{\mu}_2) = 5\)</span>, indicating that both estimators are unbiased. However, <span class="math inline">\(\hat{\mu}_1\)</span> is more efficient than <span class="math inline">\(\hat{\mu}_2\)</span> because <span class="math inline">\(\text{Var}(\hat{\mu}_1) = 0.5 &lt; \text{Var}(\hat{\mu}_2) = 1\)</span>. In <a href="#fig-fig10-1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig10-1</span></a>, we plot the sampling distributions of <span class="math inline">\(\hat{\mu}_1\)</span> and <span class="math inline">\(\hat{\mu}_2\)</span>. Although both sampling distributions are centered at <span class="math inline">\(\mu_Y\)</span>, the sampling distribution of <span class="math inline">\(\hat{\mu}_1\)</span> is more concentrated around <span class="math inline">\(\mu_Y\)</span> than that of <span class="math inline">\(\hat{\mu}_2\)</span>, indicating that <span class="math inline">\(\hat{\mu}_1\)</span> is more efficient than <span class="math inline">\(\hat{\mu}_2\)</span>.</p>
 <div id="cell-fig-fig10-1" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The sampling distributions of two estimators</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">500</span>)</span>
@@ -604,7 +601,7 @@ window.Quarto = {
 <div id="fig-fig10-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig10-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter3-ReviewStatistics_files/figure-html/fig-fig10-1-output-1.png" width="464" height="368" class="figure-img">
+<img src="Chapter3-ReviewStatistics_files/figure-html/fig-fig10-1-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig10-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;13.1: The sampling distributions of two estimators
@@ -624,7 +621,7 @@ Figure&nbsp;13.1: The sampling distributions of two estimators
 </section>
 <section id="estimation-of-the-population-mean" class="level2" data-number="13.2">
 <h2 data-number="13.2" class="anchored" data-anchor-id="estimation-of-the-population-mean"><span class="header-section-number">13.2</span> Estimation of the population mean</h2>
-<p>Let <span class="math inline">\(Y_1,Y_2,\dots,Y_n\)</span> be i.i.d. random variables from a population that has mean <span class="math inline">\(\mu_Y\)</span> and variance <span class="math inline">\(\sigma_Y^2\)</span>. In <a href="Chapter2-ReviewProbability.html" class="quarto-xref"><span>Chapter 12</span></a>, we show that <span class="math inline">\(\E(\bar{Y})=\mu_Y\)</span> and <span class="math inline">\(\text{var}(\bar{Y})=\sigma^2_Y/n\)</span>. Thus, <span class="math inline">\(\bar{Y}\)</span> is an unbiased estimator of <span class="math inline">\(\mu_Y\)</span> and a consistent estimator of <span class="math inline">\(\mu_Y\)</span> by the law of large numbers. Thus, we have <span class="math inline">\(\text{MSE}(\bar{Y}) = \text{var}(\bar{Y}) = \sigma^2_Y/n\)</span>, which converges to <span class="math inline">\(0\)</span> as <span class="math inline">\(n\to\infty\)</span>. <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span> show that <span class="math inline">\(\bar{Y}\)</span> is the most efficient estimator among the estimators that are formulated as a linear function of <span class="math inline">\(Y_1,Y_2,\dots,Y_n\)</span>.</p>
+<p>Let <span class="math inline">\(Y_1,Y_2,\dots,Y_n\)</span> be i.i.d. random variables from a population that has mean <span class="math inline">\(\mu_Y\)</span> and variance <span class="math inline">\(\sigma_Y^2\)</span>. In <a href="#sec-probability" class="quarto-xref"><span class="quarto-unresolved-ref">sec-probability</span></a>, we show that <span class="math inline">\(\E(\bar{Y})=\mu_Y\)</span> and <span class="math inline">\(\text{var}(\bar{Y})=\sigma^2_Y/n\)</span>. Thus, <span class="math inline">\(\bar{Y}\)</span> is an unbiased estimator of <span class="math inline">\(\mu_Y\)</span> and a consistent estimator of <span class="math inline">\(\mu_Y\)</span> by the law of large numbers. Thus, we have <span class="math inline">\(\text{MSE}(\bar{Y}) = \text{var}(\bar{Y}) = \sigma^2_Y/n\)</span>, which converges to <span class="math inline">\(0\)</span> as <span class="math inline">\(n\to\infty\)</span>. <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="#ref-Stock2020" role="doc-biblioref">2020</a>)</span> show that <span class="math inline">\(\bar{Y}\)</span> is the most efficient estimator among the estimators that are formulated as a linear function of <span class="math inline">\(Y_1,Y_2,\dots,Y_n\)</span>.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -638,7 +635,7 @@ Key Concept 10.1: <span class="math inline">\(\bar{Y}\)</span> is the Best Linea
 <p>Let <span class="math inline">\(\tilde{\mu}_Y=\sum_{i=1}^na_iY_i\)</span> be an unbiased estimator of <span class="math inline">\(\mu_Y\)</span>, where <span class="math inline">\(a_1,\dots,a_n\)</span> are nonrandom constant. Then, <span class="math inline">\(\text{var}(\bar{Y})&lt;\text{var}(\tilde{\mu}_Y)\)</span>. Therefore, <span class="math inline">\(\bar{Y}\)</span> is the Best Linear Unbiased Estimator (BLUE) of <span class="math inline">\(\mu_Y\)</span>, meaning it is the most efficient estimator among all unbiased estimators that are linear functions of <span class="math inline">\(Y_1,Y_2,\dots,Y_n\)</span>.</p>
 </div>
 </div>
-<p>In Key Concept 10.1, we claim that <span class="math inline">\(\bar{Y}\)</span> is the most efficient estimator among all unbiased estimators that are linear functions of <span class="math inline">\(Y_1,Y_2,\dots,Y_n\)</span>. <span class="citation" data-cites="Hansen2022b">Hansen (<a href="references.html#ref-Hansen2022b" role="doc-biblioref">2022</a>)</span> shows that <span class="math inline">\(\bar{Y}\)</span> is the most efficient estimator among all unbiased estimators, including those that are nonlinear functions of <span class="math inline">\(Y_1,Y_2,\dots,Y_n\)</span>.</p>
+<p>In Key Concept 10.1, we claim that <span class="math inline">\(\bar{Y}\)</span> is the most efficient estimator among all unbiased estimators that are linear functions of <span class="math inline">\(Y_1,Y_2,\dots,Y_n\)</span>. <span class="citation" data-cites="Hansen2022b">Hansen (<a href="#ref-Hansen2022b" role="doc-biblioref">2022</a>)</span> shows that <span class="math inline">\(\bar{Y}\)</span> is the most efficient estimator among all unbiased estimators, including those that are nonlinear functions of <span class="math inline">\(Y_1,Y_2,\dots,Y_n\)</span>.</p>
 <div id="exm-example10-3" class="theorem example">
 <p><span class="theorem-title"><strong>Example 13.3</strong></span> Let <span class="math inline">\(Y_1\)</span>, <span class="math inline">\(Y_2\)</span> and <span class="math inline">\(Y_3\)</span> be a random sample from <span class="math inline">\(\chi^2_m\)</span>. We consider the following four estimators for estimating <span class="math inline">\(m\)</span>: <span class="math inline">\(\hat{m}_1=Y_1\)</span>, <span class="math inline">\(\hat{m}_2=\frac{Y_1+Y_2}{2}\)</span>, <span class="math inline">\(\hat{m}_3=\frac{Y_1+2Y_2}{3}\)</span>, and <span class="math inline">\(\hat{m}_4=\bar{Y}\)</span>. Note that if <span class="math inline">\(Y\sim\chi^2_m\)</span>, then <span class="math inline">\(\E(Y)=m\)</span> and <span class="math inline">\(\text{var}(Y)=2m\)</span>. Using these two moments, we can show the following properties:</p>
 <ul>
@@ -647,7 +644,7 @@ Key Concept 10.1: <span class="math inline">\(\bar{Y}\)</span> is the Best Linea
 <li><span class="math inline">\(\E(\hat{m}_3)=\frac{\E(Y_1)+2\E(Y_2)}{3}=m\)</span> and <span class="math inline">\(\var(\hat{m}_3)=\frac{\var(Y_1)+4\var(Y_2)}{9}=10m/9\)</span>.</li>
 <li><span class="math inline">\(\E(\hat{m}_4)=\frac{\E(Y_1+Y_2+Y_3)}{3}=m\)</span> and <span class="math inline">\(\var(\hat{m}_4)=\frac{\var(Y_1)+\var(Y_2)+\var(Y_3)}{9}=6m/9\)</span>.</li>
 </ul>
-<p>All four estimators are unbiased, with <span class="math inline">\(\hat{m}_4\)</span> being the most efficient. In the following code chunk, we resample <span class="math inline">\(Y_1\)</span>, <span class="math inline">\(Y_2\)</span>, and <span class="math inline">\(Y_3\)</span> from the <span class="math inline">\(\chi^2_3\)</span> distribution <span class="math inline">\(1000\)</span> times and compute each estimator for every resample. <a href="#fig-f10.1" class="quarto-xref">Figure&nbsp;<span>13.2</span></a> illustrates the sampling distribution of each estimator. As all estimators are unbiased, their estimated means are close to <span class="math inline">\(m = 3\)</span>. The figure also shows that <span class="math inline">\(\hat{m}_4\)</span> is relatively more efficient, as its sampling distribution is more tightly clustered around its mean.</p>
+<p>All four estimators are unbiased, with <span class="math inline">\(\hat{m}_4\)</span> being the most efficient. In the following code chunk, we resample <span class="math inline">\(Y_1\)</span>, <span class="math inline">\(Y_2\)</span>, and <span class="math inline">\(Y_3\)</span> from the <span class="math inline">\(\chi^2_3\)</span> distribution <span class="math inline">\(1000\)</span> times and compute each estimator for every resample. <a href="#fig-f10.1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-f10.1</span></a> illustrates the sampling distribution of each estimator. As all estimators are unbiased, their estimated means are close to <span class="math inline">\(m = 3\)</span>. The figure also shows that <span class="math inline">\(\hat{m}_4\)</span> is relatively more efficient, as its sampling distribution is more tightly clustered around its mean.</p>
 </div>
 <div id="cell-fig-f10.1" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The sampling distributions of estimators</span></span>
@@ -698,7 +695,7 @@ Key Concept 10.1: <span class="math inline">\(\bar{Y}\)</span> is the Best Linea
 <div id="fig-f10.1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f10.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter3-ReviewStatistics_files/figure-html/fig-f10.1-output-1.png" width="656" height="463" class="figure-img">
+<img src="Chapter3-ReviewStatistics_files/figure-html/fig-f10.1-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f10.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;13.2: The sampling distributions of estimators
@@ -713,7 +710,7 @@ Figure&nbsp;13.2: The sampling distributions of estimators
 <p>Let <span class="math inline">\(Y_1,Y_2,\dots,Y_n\)</span> be i.i.d. random variables with <span class="math inline">\(\E(Y_i)=\mu_Y\)</span>, <span class="math inline">\(\var(Y_i)=\sigma^2_Y\)</span>, and <span class="math inline">\(\E(Y^4_i)&lt;\infty\)</span>. Consider the sample variance given by <span class="math display">\[
 s^2_Y=\frac{1}{n-1}\sum_{i=1}^n(Y_i-\bar{Y})^2.
 \]</span></p>
-<p>We first show that <span class="math inline">\(\E(s^2_Y)=\sigma^2_Y\)</span> and then use the law of large numbers introduced in <a href="Chapter2-ReviewProbability.html" class="quarto-xref"><span>Chapter 12</span></a> to show that <span class="math inline">\(s^2_Y\xrightarrow{p}\sigma^2_Y\)</span>.</p>
+<p>We first show that <span class="math inline">\(\E(s^2_Y)=\sigma^2_Y\)</span> and then use the law of large numbers introduced in <a href="#sec-probability" class="quarto-xref"><span class="quarto-unresolved-ref">sec-probability</span></a> to show that <span class="math inline">\(s^2_Y\xrightarrow{p}\sigma^2_Y\)</span>.</p>
 <p>First, note that <span class="math inline">\(\sum_{i=1}^n(Y_i-\bar{Y})^2=\sum_{i=1}^nY^2_i-n\bar{Y}^2\)</span>. Then, we can express <span class="math inline">\(\E(s^2_Y)\)</span> as <span class="math display">\[
 \begin{align*}
 \E(s^2_Y)&amp;=\E\left(\frac{1}{n-1}\sum_{i=1}^n(Y_i-\bar{Y})^2\right)=\frac{1}{n-1}\E\left(\sum_{i=1}^nY^2_i-n\bar{Y}^2\right)\\
@@ -759,7 +756,7 @@ Key Concept 10.2: The Standard Error of <span class="math inline">\(\bar{Y}\)</s
 </div>
 </div>
 <div id="exm-example10-4" class="theorem example">
-<p><span class="theorem-title"><strong>Example 13.4</strong></span> For illustrating <span class="math inline">\(\E(s^2_Y) = \sigma^2_Y\)</span> and <span class="math inline">\(s^2_Y \xrightarrow{p} \sigma^2_Y\)</span>, we assume that <span class="math inline">\(Y_1, Y_2, \dots, Y_n\)</span> are i.i.d. random variables from the <span class="math inline">\(\chi^2_4\)</span> distribution. Recall that if <span class="math inline">\(Y \sim \chi^2_4\)</span>, then <span class="math inline">\(\sigma^2_Y = 8\)</span>. In the following simulation exercise, we compute the sample variance <span class="math inline">\(1000\)</span> times for different sample sizes, with <span class="math inline">\(n \in \{30, 100, 200, 500\}\)</span>. We then generate histogram plots of the sample variances. The simulation results are shown in <a href="#fig-f10.2" class="quarto-xref">Figure&nbsp;<span>13.3</span></a>. The figure indicates that, as the sample size increases, the mean of the sample variances gets closer to the true value <span class="math inline">\(8\)</span>. Moreover, the sampling distribution becomes more tightly concentrated around the mean.</p>
+<p><span class="theorem-title"><strong>Example 13.4</strong></span> For illustrating <span class="math inline">\(\E(s^2_Y) = \sigma^2_Y\)</span> and <span class="math inline">\(s^2_Y \xrightarrow{p} \sigma^2_Y\)</span>, we assume that <span class="math inline">\(Y_1, Y_2, \dots, Y_n\)</span> are i.i.d. random variables from the <span class="math inline">\(\chi^2_4\)</span> distribution. Recall that if <span class="math inline">\(Y \sim \chi^2_4\)</span>, then <span class="math inline">\(\sigma^2_Y = 8\)</span>. In the following simulation exercise, we compute the sample variance <span class="math inline">\(1000\)</span> times for different sample sizes, with <span class="math inline">\(n \in \{30, 100, 200, 500\}\)</span>. We then generate histogram plots of the sample variances. The simulation results are shown in <a href="#fig-f10.2" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-f10.2</span></a>. The figure indicates that, as the sample size increases, the mean of the sample variances gets closer to the true value <span class="math inline">\(8\)</span>. Moreover, the sampling distribution becomes more tightly concentrated around the mean.</p>
 <div id="cell-fig-f10.2" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The sampling distribution of the sample variance</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Set parameters</span></span>
@@ -797,7 +794,7 @@ Key Concept 10.2: The Standard Error of <span class="math inline">\(\bar{Y}\)</s
 <div id="fig-f10.2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-f10.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter3-ReviewStatistics_files/figure-html/fig-f10.2-output-1.png" width="657" height="464" class="figure-img">
+<img src="Chapter3-ReviewStatistics_files/figure-html/fig-f10.2-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-f10.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;13.3: The sampling distribution of the sample variance
@@ -832,7 +829,7 @@ Figure&nbsp;13.3: The sampling distribution of the sample variance
 t &amp;= \frac{\bar{Y} - \mu_Y}{s_{\bar{Y}}},
 \end{align}
 \tag{13.1}\]</span></span></p>
-<p>where <span class="math inline">\(s_{\bar{Y}} = \sqrt{s_Y^2/n}= s_Y/\sqrt{n}\)</span> is the standard error of <span class="math inline">\(\bar{Y}\)</span>. By the central limit theorem introduced in <a href="Chapter2-ReviewProbability.html" class="quarto-xref"><span>Chapter 12</span></a>, under <span class="math inline">\(H_0\)</span>, the sampling distribution of <span class="math inline">\(t\)</span> statistic can be approximated by the standard normal distribution when <span class="math inline">\(n\)</span> is large, i.e., <span id="eq-eq10.2"><span class="math display">\[
+<p>where <span class="math inline">\(s_{\bar{Y}} = \sqrt{s_Y^2/n}= s_Y/\sqrt{n}\)</span> is the standard error of <span class="math inline">\(\bar{Y}\)</span>. By the central limit theorem introduced in <a href="#sec-probability" class="quarto-xref"><span class="quarto-unresolved-ref">sec-probability</span></a>, under <span class="math inline">\(H_0\)</span>, the sampling distribution of <span class="math inline">\(t\)</span> statistic can be approximated by the standard normal distribution when <span class="math inline">\(n\)</span> is large, i.e., <span id="eq-eq10.2"><span class="math display">\[
 \begin{align}
 t &amp;= \frac{\bar{Y} - \mu_Y}{s_{\bar{Y}}}\xrightarrow{d} N(0,1).
 \end{align}
@@ -844,7 +841,7 @@ t &amp;= \frac{\bar{Y} - \mu_Y}{s_{\bar{Y}}}\xrightarrow{d} N(0,1).
 <li>For <span class="math inline">\(H_1:\mu_Y&lt;20\)</span>, the rejection region is <span class="math inline">\(\{t&lt;-z_{\alpha}\}\)</span>, where <span class="math inline">\(-z_{\alpha}\)</span> is the critical value of the standard normal distribution at the significance level <span class="math inline">\(\alpha\)</span>.</li>
 <li>For <span class="math inline">\(H_1:\mu_Y\ne20\)</span>, the rejection region is <span class="math inline">\(\{|t|&gt;z_{\alpha/2}\}\)</span>, where <span class="math inline">\(z_{\alpha/2}\)</span> is the critical value of the standard normal distribution at the significance level <span class="math inline">\(\alpha/2\)</span>.</li>
 </ul>
-<p>In <a href="#fig-fig10-4" class="quarto-xref">Figure&nbsp;<span>13.4</span></a>, we show the rejection regions according to the type of <span class="math inline">\(H_1\)</span>. In the figure, the critical values are <span class="math inline">\(z_{\alpha}\)</span>, <span class="math inline">\(-z_{\alpha}\)</span>, <span class="math inline">\(-z_{\alpha/2}\)</span>, and <span class="math inline">\(z_{\alpha/2}\)</span>. The critical value, which is the threshold that separates the rejection region from the non-rejection region, depends on the significance level <span class="math inline">\(\alpha\)</span> and the alternative hypothesis <span class="math inline">\(H_1\)</span>:</p>
+<p>In <a href="#fig-fig10-4" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig10-4</span></a>, we show the rejection regions according to the type of <span class="math inline">\(H_1\)</span>. In the figure, the critical values are <span class="math inline">\(z_{\alpha}\)</span>, <span class="math inline">\(-z_{\alpha}\)</span>, <span class="math inline">\(-z_{\alpha/2}\)</span>, and <span class="math inline">\(z_{\alpha/2}\)</span>. The critical value, which is the threshold that separates the rejection region from the non-rejection region, depends on the significance level <span class="math inline">\(\alpha\)</span> and the alternative hypothesis <span class="math inline">\(H_1\)</span>:</p>
 <ul>
 <li>In the case of <span class="math inline">\(H_1:\mu_Y&gt;20\)</span>, the critical value <span class="math inline">\(z_{\alpha}\)</span> is the <span class="math inline">\(1-\alpha\)</span> quantile of the sampling distribution of the test statistic.</li>
 <li>In the case of <span class="math inline">\(H_1:\mu_Y&lt;20\)</span>, the critical value <span class="math inline">\(-z_{\alpha}\)</span> is the <span class="math inline">\(\alpha\)</span> quantile of the sampling distribution of the test statistic.</li>
@@ -925,7 +922,7 @@ t &amp;= \frac{\bar{Y} - \mu_Y}{s_{\bar{Y}}}\xrightarrow{d} N(0,1).
 <div id="fig-fig10-4-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-fig10-4-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter3-ReviewStatistics_files/figure-html/fig-fig10-4-output-1.png" data-ref-parent="fig-fig10-4" width="317" height="276" class="figure-img">
+<img src="Chapter3-ReviewStatistics_files/figure-html/fig-fig10-4-output-1.png" class="img-fluid figure-img" data-ref-parent="fig-fig10-4">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-fig10-4-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Upper-tailed rejection region
@@ -937,7 +934,7 @@ t &amp;= \frac{\bar{Y} - \mu_Y}{s_{\bar{Y}}}\xrightarrow{d} N(0,1).
 <div id="fig-fig10-4-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-fig10-4-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter3-ReviewStatistics_files/figure-html/fig-fig10-4-output-2.png" data-ref-parent="fig-fig10-4" width="317" height="276" class="figure-img">
+<img src="Chapter3-ReviewStatistics_files/figure-html/fig-fig10-4-output-2.png" class="img-fluid figure-img" data-ref-parent="fig-fig10-4">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-fig10-4-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Lower-tailed rejection region
@@ -949,7 +946,7 @@ t &amp;= \frac{\bar{Y} - \mu_Y}{s_{\bar{Y}}}\xrightarrow{d} N(0,1).
 <div id="fig-fig10-4-3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-fig10-4-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter3-ReviewStatistics_files/figure-html/fig-fig10-4-output-3.png" data-ref-parent="fig-fig10-4" width="369" height="270" class="figure-img">
+<img src="Chapter3-ReviewStatistics_files/figure-html/fig-fig10-4-output-3.png" class="img-fluid figure-img" data-ref-parent="fig-fig10-4">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-fig10-4-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (c) Two-tailed rejection regions
@@ -966,7 +963,7 @@ Figure&nbsp;13.4: Rejection Regions
 </div>
 <div id="exm-example10-6" class="theorem example">
 <p><span class="theorem-title"><strong>Example 13.6</strong></span> Assume that <span class="math inline">\(\alpha = 5%\)</span> and the alternative hypothesis is specified as <span class="math inline">\(H_1: \mu_Y \neq 20\)</span>. Then, the critical value on the left tail is the <span class="math inline">\(2.5\)</span>th percentile of <span class="math inline">\(N(0,1)\)</span>, which is <span class="math inline">\(-z_{\alpha/2} = -1.96\)</span>, and the critical value on the right tail is the <span class="math inline">\(97.5\)</span>th percentile of <span class="math inline">\(N(0,1)\)</span>, which is <span class="math inline">\(z_{\alpha/2} = 1.96\)</span>. Using Python, we can compute the critical values as follows:</p>
-<div id="c681cd77" class="cell" data-execution_count="6">
+<div id="ba4a07a7" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>left_critical <span class="op">=</span> stats.norm.ppf(<span class="fl">0.025</span>,loc<span class="op">=</span><span class="dv">0</span>,scale<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>right_critical <span class="op">=</span> stats.norm.ppf(<span class="fl">0.975</span>,loc<span class="op">=</span><span class="dv">0</span>,scale<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Left critical value:"</span>, np.<span class="bu">round</span>(left_critical,<span class="dv">2</span>))</span>
@@ -982,7 +979,7 @@ Right critical value: 1.96</code></pre>
 <div id="def-def10-4" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 13.4 (The <span class="math inline">\(p\)</span>-value)</strong></span> The <strong><span class="math inline">\(p\)</span>-value</strong> is the probability of obtaining a test statistic value that is more extreme than the actual one when the null is correct.</p>
 </div>
-<p>Let <span class="math inline">\(t_{\text{calc}}\)</span> be the value of the test statistic obtained from <a href="#eq-eq10.1" class="quarto-xref">Equation&nbsp;<span>13.1</span></a>. Then, the <span class="math inline">\(p\)</span>-value is defined by <span class="math display">\[
+<p>Let <span class="math inline">\(t_{\text{calc}}\)</span> be the value of the test statistic obtained from <a href="#eq-eq10.1" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq10.1</span></a>. Then, the <span class="math inline">\(p\)</span>-value is defined by <span class="math display">\[
 \begin{align*}
 \text{$p$-value}=
 \begin{cases}
@@ -991,7 +988,7 @@ P_{H_0}\left(t &lt;-|t_{\text{calc}}|\right), \quad&amp;\text{for }H_1:\mu_Y&lt;
 P_{H_0}\left(|t| &gt; |t_{\text{calc}}|\right), \quad&amp;\text{for }H_1:\mu_Y\ne20,
 \end{cases}
 \end{align*}
-\]</span> where <span class="math inline">\(P_{H_0}\)</span> means the probability is calculated from the distribution of the test statistic under the null hypothesis. Since the asymptotic distribution of <span class="math inline">\(t\)</span> statistic is <span class="math inline">\(N(0,1)\)</span> as shown in <a href="#eq-eq10.2" class="quarto-xref">Equation&nbsp;<span>13.2</span></a>, we have <span class="math display">\[
+\]</span> where <span class="math inline">\(P_{H_0}\)</span> means the probability is calculated from the distribution of the test statistic under the null hypothesis. Since the asymptotic distribution of <span class="math inline">\(t\)</span> statistic is <span class="math inline">\(N(0,1)\)</span> as shown in <a href="#eq-eq10.2" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq10.2</span></a>, we have <span class="math display">\[
 \begin{align*}
 \text{$p$-value}=
 \begin{cases}
@@ -1008,7 +1005,7 @@ P_{H_0}\left(|t| &gt; |t_{\text{calc}}|\right)=2\times\Phi(-|t_{\text{calc}}|), 
 \text{$p$-value}=P_{H_0}\left(|t| &gt; 2\right)=P_{H_0}\left(t &gt; 2\right)+P_{H_0}\left(t &lt;- 2\right)=2\times\Phi(-2).
 \end{align*}
 \]</span> We can compute the <span class="math inline">\(p\)</span>-value using Python as follows:</p>
-<div id="86e8ac1c" class="cell" data-execution_count="7">
+<div id="56b89aff" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>p_value <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>stats.norm.cdf(<span class="op">-</span><span class="dv">2</span>,loc<span class="op">=</span><span class="dv">0</span>,scale<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"p-value:"</span>, np.<span class="bu">round</span>(p_value,<span class="dv">4</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1017,14 +1014,14 @@ P_{H_0}\left(|t| &gt; |t_{\text{calc}}|\right)=2\times\Phi(-|t_{\text{calc}}|), 
 </div>
 <p>Since <span class="math inline">\(p-\)</span>value <span class="math inline">\(=0.045&lt;\alpha=0.05\)</span>, we reject <span class="math inline">\(H_0\)</span> at the <span class="math inline">\(5\%\)</span> significance level.</p>
 </div>
-<p>Note that we determine the critical values and <span class="math inline">\(p\)</span>-values by assuming that the distribution result in <a href="#eq-eq10.2" class="quarto-xref">Equation&nbsp;<span>13.2</span></a> holds, which requires a large sample size. That is, the standard normal distribution may not provide a good approximation to the sampling distribution of the t-statistic when the sample size is small. If we assume that <span class="math inline">\(Y_1,\dots,Y_n\)</span> are i.i.d. random variables from <span class="math inline">\(N(\mu_Y,\sigma^2_Y)\)</span>, then it can be shown that</p>
+<p>Note that we determine the critical values and <span class="math inline">\(p\)</span>-values by assuming that the distribution result in <a href="#eq-eq10.2" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq10.2</span></a> holds, which requires a large sample size. That is, the standard normal distribution may not provide a good approximation to the sampling distribution of the t-statistic when the sample size is small. If we assume that <span class="math inline">\(Y_1,\dots,Y_n\)</span> are i.i.d. random variables from <span class="math inline">\(N(\mu_Y,\sigma^2_Y)\)</span>, then it can be shown that</p>
 <p><span id="eq-eq10.3"><span class="math display">\[
 \begin{align}
 t &amp;= \frac{\bar{Y} - \mu_Y}{s_{\bar{Y}}}\sim t_{n-1},
 \end{align}
 \tag{13.3}\]</span></span></p>
-<p>where <span class="math inline">\(t_{n-1}\)</span> is the Student t distribution with <span class="math inline">\(n-1\)</span> degrees of freedom. The distribution result in <a href="#eq-eq10.3" class="quarto-xref">Equation&nbsp;<span>13.3</span></a> is <em>exact</em> in the sense that it holds regardless of the sample size.</p>
-<p>Recall that when <span class="math inline">\(n &gt; 30\)</span>, the <span class="math inline">\(t\)</span>-distribution and <span class="math inline">\(N(0,1)\)</span> are very close (as <span class="math inline">\(n\)</span> grows large, the <span class="math inline">\(t_{n-1}\)</span> distribution converges to <span class="math inline">\(N(0,1)\)</span>). Thus, as long as the sample size is larger than <span class="math inline">\(30\)</span>, we can rely on the standard normal distribution for the critical values and p-values. Therefore, <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="references.html#ref-Stock2020" role="doc-biblioref">2020</a>)</span> conclude that “inferences-hypothesis tests and confidence intervals-about the mean of a distribution should be based on the large-sample normal approximation.”</p>
+<p>where <span class="math inline">\(t_{n-1}\)</span> is the Student t distribution with <span class="math inline">\(n-1\)</span> degrees of freedom. The distribution result in <a href="#eq-eq10.3" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq10.3</span></a> is <em>exact</em> in the sense that it holds regardless of the sample size.</p>
+<p>Recall that when <span class="math inline">\(n &gt; 30\)</span>, the <span class="math inline">\(t\)</span>-distribution and <span class="math inline">\(N(0,1)\)</span> are very close (as <span class="math inline">\(n\)</span> grows large, the <span class="math inline">\(t_{n-1}\)</span> distribution converges to <span class="math inline">\(N(0,1)\)</span>). Thus, as long as the sample size is larger than <span class="math inline">\(30\)</span>, we can rely on the standard normal distribution for the critical values and p-values. Therefore, <span class="citation" data-cites="Stock2020">Stock and Watson (<a href="#ref-Stock2020" role="doc-biblioref">2020</a>)</span> conclude that “inferences-hypothesis tests and confidence intervals-about the mean of a distribution should be based on the large-sample normal approximation.”</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1037,7 +1034,7 @@ Key Concept 10.3: Testing <span class="math inline">\(H_0:\mu_Y=\mu_0\)</span> v
 <div class="callout-body-container callout-body">
 <ul>
 <li>Compute the standard error of <span class="math inline">\(\bar{Y}\)</span>, <span class="math inline">\(\SE(\bar{Y})=\hat{\sigma}_{\bar{Y}}=s^2_Y/n\)</span>.</li>
-<li>Compute the t-statistic given in <a href="#eq-eq10.1" class="quarto-xref">Equation&nbsp;<span>13.1</span></a> under <span class="math inline">\(H_0\)</span>. Reject <span class="math inline">\(H_0\)</span> at the <span class="math inline">\(5\%\)</span> significance level if <span class="math inline">\(|t|&gt;1.96\)</span>.</li>
+<li>Compute the t-statistic given in <a href="#eq-eq10.1" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq10.1</span></a> under <span class="math inline">\(H_0\)</span>. Reject <span class="math inline">\(H_0\)</span> at the <span class="math inline">\(5\%\)</span> significance level if <span class="math inline">\(|t|&gt;1.96\)</span>.</li>
 <li>Compute <span class="math inline">\(p\)</span>-value from <span class="math inline">\(2\times\Phi(-|t_{\text{calc}}|)\)</span>, where <span class="math inline">\(t_{\text{calc}}\)</span> is the actual test statistic computed in the second step. Reject <span class="math inline">\(H_0\)</span> at the <span class="math inline">\(5\%\)</span> significance level if the p-value is less than <span class="math inline">\(0.05\)</span>.</li>
 </ul>
 </div>
@@ -1049,7 +1046,7 @@ Key Concept 10.3: Testing <span class="math inline">\(H_0:\mu_Y=\mu_0\)</span> v
 <div id="def-def10-5" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 13.5 (Confidence interval)</strong></span> Let <span class="math inline">\(\alpha\)</span> be the significance level. Then, a <strong><span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval</strong> for the population mean <span class="math inline">\(\mu_Y\)</span> is an interval that contains <span class="math inline">\(\mu_Y\)</span> with probability <span class="math inline">\(1-\alpha\)</span>.</p>
 </div>
-<p>Let <span class="math inline">\(\alpha=0.05\)</span>. Then, one way to construct the <span class="math inline">\(95\%\)</span> two-sided confidence interval for <span class="math inline">\(\mu_Y\)</span> is to collect all values <span class="math inline">\(\mu_{Y,0}\)</span> that cannot be rejected by the <span class="math inline">\(t\)</span> statistic for testing <span class="math inline">\(H_0:\mu_Y=\mu_{Y,0}\)</span> versus <span class="math inline">\(H_1:\mu_Y\ne\mu_{Y,0}\)</span> at the <span class="math inline">\(5\%\)</span> significance level. In other words, we collect all values <span class="math inline">\(\mu_{Y,0}\)</span> for which the test statistic <span class="math inline">\(t\)</span> in <a href="#eq-eq10.1" class="quarto-xref">Equation&nbsp;<span>13.1</span></a> is not in the rejection region, i.e., <span class="math inline">\(|t|\le 1.96\)</span>. This construction implies that the 95% two-sided confidence interval for <span class="math inline">\(\mu_Y\)</span> corresponds to the set of values satisfying <span class="math display">\[
+<p>Let <span class="math inline">\(\alpha=0.05\)</span>. Then, one way to construct the <span class="math inline">\(95\%\)</span> two-sided confidence interval for <span class="math inline">\(\mu_Y\)</span> is to collect all values <span class="math inline">\(\mu_{Y,0}\)</span> that cannot be rejected by the <span class="math inline">\(t\)</span> statistic for testing <span class="math inline">\(H_0:\mu_Y=\mu_{Y,0}\)</span> versus <span class="math inline">\(H_1:\mu_Y\ne\mu_{Y,0}\)</span> at the <span class="math inline">\(5\%\)</span> significance level. In other words, we collect all values <span class="math inline">\(\mu_{Y,0}\)</span> for which the test statistic <span class="math inline">\(t\)</span> in <a href="#eq-eq10.1" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq10.1</span></a> is not in the rejection region, i.e., <span class="math inline">\(|t|\le 1.96\)</span>. This construction implies that the 95% two-sided confidence interval for <span class="math inline">\(\mu_Y\)</span> corresponds to the set of values satisfying <span class="math display">\[
 \begin{align*}
 P\left(\left\{\mu_Y: \left|\frac{\bar{Y} - \mu_Y}{s_Y/\sqrt{n}}\right| \le 1.96\right\}\right) = 0.95.
 \end{align*}
@@ -1068,8 +1065,8 @@ P\left(\left\{\mu_Y: \left|\frac{\bar{Y} - \mu_Y}{s_Y/\sqrt{n}}\right| \le 1.96\
 \end{align*}
 \]</span></p>
 <p>The confidence interval can be used to test the null hypothesis <span class="math inline">\(H_0:\mu_Y = \mu_0\)</span> against the alternative hypothesis <span class="math inline">\(H_1:\mu_Y \ne \mu_0\)</span>. Based on the 95% confidence interval, we reject the null hypothesis at the <span class="math inline">\(5\%\)</span> significance level if the hypothesized value <span class="math inline">\(\mu_0\)</span> is not contained within the interval; otherwise, we fail to reject the null hypothesis.</p>
-<p>Note that we construct the the <span class="math inline">\(95\%\)</span> confidence interval <span class="math inline">\(\{\mu_Y: \bar{Y} \pm 1.96 \times \text{SE}(\bar{Y})\}\)</span> by using the critical values from the standard normal distribution. That is, our confidence interval is based on the central limit theorem result in <a href="#eq-eq10.2" class="quarto-xref">Equation&nbsp;<span>13.2</span></a>, which requires a large sample size. In the following simulation exercise, we compute <code>nsim=5000</code> confidence intervals for different sample sizes and then determine the percentage of intervals that includes <span class="math inline">\(\mu_Y\)</span>. As the sample size increases, we expect this percentage to approach <span class="math inline">\(95\%\)</span>.</p>
-<div id="f0ef78fc" class="cell" data-execution_count="8">
+<p>Note that we construct the the <span class="math inline">\(95\%\)</span> confidence interval <span class="math inline">\(\{\mu_Y: \bar{Y} \pm 1.96 \times \text{SE}(\bar{Y})\}\)</span> by using the critical values from the standard normal distribution. That is, our confidence interval is based on the central limit theorem result in <a href="#eq-eq10.2" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq10.2</span></a>, which requires a large sample size. In the following simulation exercise, we compute <code>nsim=5000</code> confidence intervals for different sample sizes and then determine the percentage of intervals that includes <span class="math inline">\(\mu_Y\)</span>. As the sample size increases, we expect this percentage to approach <span class="math inline">\(95\%\)</span>.</p>
+<div id="ab498b4f" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> confidence_int(rvgen, n, nsim<span class="op">=</span><span class="dv">5000</span>, alpha<span class="op">=</span><span class="fl">0.05</span>, mu<span class="op">=</span><span class="va">None</span>, seed<span class="op">=</span><span class="va">None</span>, <span class="op">**</span>kwargs):</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Inputs:</span></span>
@@ -1112,8 +1109,8 @@ P\left(\left\{\mu_Y: \left|\frac{\bar{Y} - \mu_Y}{s_Y/\sqrt{n}}\right| \le 1.96\
 <span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We assume that the random samples <span class="math inline">\(Y_1, \dots, Y_n\)</span> are generated from three different distributions: (i) <span class="math inline">\(N(0,1)\)</span>, (ii) <span class="math inline">\(\chi^2_3\)</span>, and (iii) the uniform distribution over the interval <span class="math inline">\((0,1)\)</span>. The simulation results are given in <a href="#tbl-t10.1" class="quarto-xref">Table&nbsp;<span>13.1</span></a>. The results indicate that the percentages get closer to <span class="math inline">\(95\%\)</span> as the sample size increases from <span class="math inline">\(n =30\)</span> to <span class="math inline">\(n=500\)</span>.</p>
-<div id="e014d68f" class="cell" data-execution_count="9">
+<p>We assume that the random samples <span class="math inline">\(Y_1, \dots, Y_n\)</span> are generated from three different distributions: (i) <span class="math inline">\(N(0,1)\)</span>, (ii) <span class="math inline">\(\chi^2_3\)</span>, and (iii) the uniform distribution over the interval <span class="math inline">\((0,1)\)</span>. The simulation results are given in <a href="#tbl-t10.1" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t10.1</span></a>. The results indicate that the percentages get closer to <span class="math inline">\(95\%\)</span> as the sample size increases from <span class="math inline">\(n =30\)</span> to <span class="math inline">\(n=500\)</span>.</p>
+<div id="cec97361" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Population distribution: standard normal distribution</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> confidence_int(np.random.normal, n<span class="op">=</span>[<span class="dv">30</span>, <span class="dv">100</span>, <span class="dv">500</span>], mu<span class="op">=</span><span class="dv">0</span>, loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>, seed<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1135,7 +1132,7 @@ P\left(\left\{\mu_Y: \left|\frac{\bar{Y} - \mu_Y}{s_Y/\sqrt{n}}\right| \le 1.96\
 Table&nbsp;13.1: Simulation Results
 </figcaption>
 <div aria-describedby="tbl-t10.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="168">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 
 
@@ -1206,7 +1203,7 @@ H_0: \mu_m - \mu_w = d_0 \quad \text{vs.}\quad H_1: \mu_m - \mu_w \ne d_0,
 \begin{align*}
 (\bar{Y}_m - \bar{Y}_w)\sim N\left(\mu_m - \mu_w,\, \frac{\sigma^2_m}{n_m} + \frac{\sigma^2_w}{n_w}\right).
 \end{align*}
-\]</span> Analogous to the test statistic in <a href="#eq-eq10.1" class="quarto-xref">Equation&nbsp;<span>13.1</span></a>, the t-statistic is <span class="math display">\[
+\]</span> Analogous to the test statistic in <a href="#eq-eq10.1" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-eq10.1</span></a>, the t-statistic is <span class="math display">\[
 \begin{align*}
 t &amp;= \frac{(\bar{Y}_m - \bar{Y}_w) - d_0}{\sqrt{\frac{s_{Y_m}^2}{n_m} + \frac{s_{Y_w}^2}{n_w}}},
 \end{align*}
@@ -1230,14 +1227,14 @@ t &amp;= \frac{(\bar{Y}_m - \bar{Y}_w) - d_0}{\sqrt{\frac{s_{Y_m}^2}{n_m} + \fra
 <li><code>age</code>: Age</li>
 </ul>
 <p>We use the following code chunk to import the data and display the first five rows for college graduates.</p>
-<div id="3c3e2249" class="cell" data-execution_count="11">
+<div id="7abe6218" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the data</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>cps <span class="op">=</span> pd.read_excel(<span class="st">"data/CPS96_15.xlsx"</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the data for college graduates (bachelor's degree holders)</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>cps <span class="op">=</span> cps[cps.bachelor<span class="op">==</span><span class="dv">1</span>]</span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># The first five rows of the dataset</span></span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>cps.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="169">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 
 
@@ -1299,8 +1296,8 @@ t &amp;= \frac{(\bar{Y}_m - \bar{Y}_w) - d_0}{\sqrt{\frac{s_{Y_m}^2}{n_m} + \fra
 </div>
 </div>
 </div>
-<p>In the following code chunk, we compute the average wage gap <span class="math inline">\(\bar{Y}_m - \bar{Y}_w\)</span> and then the <span class="math inline">\(95\%\)</span> two-sided confidence interval <span class="math inline">\((\bar{Y}_m - \bar{Y}_w) \pm 1.96 \times \SE(\bar{Y}_m - \bar{Y}_w)\)</span> for each year. The results are shown in <a href="#tbl-t10.2" class="quarto-xref">Table&nbsp;<span>13.2</span></a>. The average hourly earnings for male college graduates were $16.5 and $28 in 1996 and 2015, respectively. In comparison, female graduates earned an average of $13.9 in 1996 and $23 in 2015. Therefore, the average earnings gap was $2.05 in 1996 and widened to $4.19 in 2015. The estimated confidence intervals for the average earnings gaps are (2.05, 3.085) and (4.192, 5.841) in 1996 and 2015, respectively.</p>
-<div id="b96215a0" class="cell" data-execution_count="12">
+<p>In the following code chunk, we compute the average wage gap <span class="math inline">\(\bar{Y}_m - \bar{Y}_w\)</span> and then the <span class="math inline">\(95\%\)</span> two-sided confidence interval <span class="math inline">\((\bar{Y}_m - \bar{Y}_w) \pm 1.96 \times \SE(\bar{Y}_m - \bar{Y}_w)\)</span> for each year. The results are shown in <a href="#tbl-t10.2" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t10.2</span></a>. The average hourly earnings for male college graduates were $16.5 and $28 in 1996 and 2015, respectively. In comparison, female graduates earned an average of $13.9 in 1996 and $23 in 2015. Therefore, the average earnings gap was $2.05 in 1996 and widened to $4.19 in 2015. The estimated confidence intervals for the average earnings gaps are (2.05, 3.085) and (4.192, 5.841) in 1996 and 2015, respectively.</p>
+<div id="209d1846" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group data by gender and year and compute mean, standard deviation, and number of observations for each group</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>avgs <span class="op">=</span> cps.groupby([<span class="st">'female'</span>, <span class="st">'year'</span>]).agg(</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    Y_bar<span class="op">=</span>(<span class="st">'ahe'</span>, <span class="st">'mean'</span>),</span>
@@ -1343,7 +1340,7 @@ t &amp;= \frac{(\bar{Y}_m - \bar{Y}_w) - d_0}{\sqrt{\frac{s_{Y_m}^2}{n_m} + \fra
 <span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>    <span class="st">'CI_Upper'</span>: gap_ci_u</span>
 <span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e60ea76a" class="cell" data-tbl-cap="The hourly earnings of working college graduates" data-execution_count="13">
+<div id="5ce4ee75" class="cell" data-tbl-cap="The hourly earnings of working college graduates" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the results with 3 decimal places</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>result.<span class="bu">round</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1426,7 +1423,7 @@ Table&nbsp;13.2: The hourly earnings of working college graduates
 </section>
 <section id="scatterplots-the-sample-covariance-and-the-sample-correlation" class="level2" data-number="13.7">
 <h2 data-number="13.7" class="anchored" data-anchor-id="scatterplots-the-sample-covariance-and-the-sample-correlation"><span class="header-section-number">13.7</span> Scatterplots, the sample covariance, and the sample correlation</h2>
-<p>A <strong>scatterplot</strong> is a plot of observations on two variables. We use the scatter plot to explore the relationship between two variables. For example, <a href="#fig-fig10-5" class="quarto-xref">Figure&nbsp;<span>13.5</span></a> displays the scatterplot of the average test scores against the average student-teacher ratios for 420 California school districts. Each point in the figure represents an <span class="math inline">\((X, Y)\)</span> pair for a school district, where <span class="math inline">\(X\)</span> is the average student-teacher ratio, and <span class="math inline">\(Y\)</span> is the average test score. The scatterplot in <a href="#fig-fig10-5" class="quarto-xref">Figure&nbsp;<span>13.5</span></a> indicates a negative relationship between the average student-teacher ratio and the average test score. That is, as the student-teacher ratio increases, the average test score tends to decrease.</p>
+<p>A <strong>scatterplot</strong> is a plot of observations on two variables. We use the scatter plot to explore the relationship between two variables. For example, <a href="#fig-fig10-5" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig10-5</span></a> displays the scatterplot of the average test scores against the average student-teacher ratios for 420 California school districts. Each point in the figure represents an <span class="math inline">\((X, Y)\)</span> pair for a school district, where <span class="math inline">\(X\)</span> is the average student-teacher ratio, and <span class="math inline">\(Y\)</span> is the average test score. The scatterplot in <a href="#fig-fig10-5" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig10-5</span></a> indicates a negative relationship between the average student-teacher ratio and the average test score. That is, as the student-teacher ratio increases, the average test score tends to decrease.</p>
 <div id="cell-fig-fig10-5" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The scatterplot of test score and student–teacher ratio</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the data</span></span>
@@ -1441,7 +1438,7 @@ Table&nbsp;13.2: The hourly earnings of working college graduates
 <div id="fig-fig10-5" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig10-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter3-ReviewStatistics_files/figure-html/fig-fig10-5-output-1.png" width="485" height="324" class="figure-img">
+<img src="Chapter3-ReviewStatistics_files/figure-html/fig-fig10-5-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig10-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;13.5: The scatterplot of test score and student–teacher ratio
@@ -1470,7 +1467,7 @@ r_{XY} &amp;= \frac{s_{XY}}{s_Xs_Y},
 \end{align*}
 \]</span></p>
 <p>In the following, we generate a random sample of size <span class="math inline">\(n=500\)</span> from the distribution of <span class="math inline">\(Z\)</span> and then compute the sample covariance and the sample correlation coefficient between <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span>.</p>
-<div id="9628372f" class="cell" data-execution_count="15">
+<div id="6425730e" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set random seed</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">500</span></span>
@@ -1491,7 +1488,7 @@ Sample correlation coefficient between X and Z: 1.0</code></pre>
 </div>
 </div>
 <p>Using the law of large numbers, we can show that the sample covariance and the sample correlation coefficient are consistent estimators; that is, <span class="math inline">\(s_{XY}\xrightarrow{p}\sigma_{XY}\)</span> and <span class="math inline">\(r_{XY}\xrightarrow{p}\text{corr}(X,Y)\)</span>. The sample correlation coefficient measures the strength of the linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. As in the case of the population correlation coefficient, <span class="math inline">\(r_{XY}\)</span> is unit-free and satisfies <span class="math inline">\(|r_{XY}|&lt;1\)</span>. In a scatter plot, if the points are tightly clustered around a straight line, we would expect <span class="math inline">\(r_{XY}\)</span> to be close to <span class="math inline">\(\pm1\)</span>, depending on the slope of the line.</p>
-<p>In <a href="#fig-fig10-6" class="quarto-xref">Figure&nbsp;<span>13.6</span></a>, we show four correlation coefficients for four hypothetical data sets. The last plot illustrates a non-linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, even though the correlation coefficient between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is zero.</p>
+<p>In <a href="#fig-fig10-6" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig10-6</span></a>, we show four correlation coefficients for four hypothetical data sets. The last plot illustrates a non-linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, even though the correlation coefficient between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is zero.</p>
 <div id="cell-fig-fig10-6" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The scatterplots for four hypothetical data sets</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Set random seed</span></span>
@@ -1544,7 +1541,7 @@ Sample correlation coefficient between X and Z: 1.0</code></pre>
 <div id="fig-fig10-6" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-fig10-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Chapter3-ReviewStatistics_files/figure-html/fig-fig10-6-output-1.png" width="656" height="464" class="figure-img">
+<img src="Chapter3-ReviewStatistics_files/figure-html/fig-fig10-6-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fig10-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;13.6: The scatterplots for four hypothetical data sets
@@ -1555,7 +1552,7 @@ Figure&nbsp;13.6: The scatterplots for four hypothetical data sets
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Hansen2022b" class="csl-entry" role="listitem">
 Hansen, Bruce. 2022. <em>Probability and Statistics for Economists</em>. Princeton University Press.
 </div>

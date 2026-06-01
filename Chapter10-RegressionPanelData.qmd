@@ -115,7 +115,7 @@ The estimated coefficients for the relationship between the real beer tax and ve
 sns.set(style='darkgrid')
 fig, axs = plt.subplots(figsize = (6, 4))
 axs.scatter(df_1982.beertax, df_1982.mrall, color='steelblue', s=15)
-axs.plot(df_1982['beertax'], res_1982[0] + res_1982[1]*df_1982['beertax'], 
+axs.plot(df_1982['beertax'], res_1982["Intercept"] + res_1982["beertax"]*df_1982['beertax'], 
          linestyle='-', color='black',linewidth=1)
 axs.text(1.9, 2.6, r'$\widehat{FatalityRate} = 2.01 + 0.15 Beertax$',
          {'color': 'k', 'fontsize': 11, 'ha': 'center', 'va': 'center'})
@@ -125,7 +125,7 @@ axs.set_ylabel('Fatalities')
 # Relationship in 1988
 fig, axs = plt.subplots(figsize = (6, 4))
 axs.scatter(df_1988['beertax'], df_1988['mrall'], color='steelblue',s=15)
-axs.plot(df_1988['beertax'], res_1988[0] + res_1988[1]*df_1988['beertax'], 
+axs.plot(df_1988['beertax'], res_1988["Intercept"] + res_1988["beertax"]*df_1988['beertax'], 
          linestyle='-', color='black',linewidth=1)
 axs.text(1.5, 2.85, r'$\widehat{FatalityRate} = 1.86 + 0.44 Beertax$',
          {'color': 'k', 'fontsize': 11, 'ha': 'center', 'va': 'center'})
