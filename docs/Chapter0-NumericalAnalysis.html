@@ -597,7 +597,7 @@ Figure&nbsp;8.1: Plot of <span class="math inline">\(f(x)=-x^2e^{-x}\)</span>
 </div>
 </div>
 </div>
-<p><a href="#fig-fig5-f1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig5-f1</span></a> indicates that the function has a minimum at <span class="math inline">\(x=2\)</span>. We can use the <code>minimize_scalar</code> function to confirm that <span class="math inline">\(x=2\)</span> is indeed the minimum. In the code below, we first define the function <code>f(x)</code>, then use the <code>minimize_scalar</code> function with the <code>bounded</code> method to find the value of <span class="math inline">\(x\)</span> that minimizes <span class="math inline">\(f(x)\)</span> over the interval <span class="math inline">\([0, 10]\)</span>.</p>
+<p><a href="#fig-fig5-f1" class="quarto-xref">Figure&nbsp;<span>8.1</span></a> indicates that the function has a minimum at <span class="math inline">\(x=2\)</span>. We can use the <code>minimize_scalar</code> function to confirm that <span class="math inline">\(x=2\)</span> is indeed the minimum. In the code below, we first define the function <code>f(x)</code>, then use the <code>minimize_scalar</code> function with the <code>bounded</code> method to find the value of <span class="math inline">\(x\)</span> that minimizes <span class="math inline">\(f(x)\)</span> over the interval <span class="math inline">\([0, 10]\)</span>.</p>
 <div id="ed941343" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the objective function</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
@@ -627,7 +627,7 @@ Minimum value of f(x): -0.5413</code></pre>
 <p>As an example, we consider the <a href="https://en.wikipedia.org/wiki/Rosenbrock_function">Rosenbrock function</a>, which is widely used for testing optimization algorithms. The Rosenbrock function is defined as: <span class="math display">\[
 f(x,y)=(a-x)^2+b(y-x^2)^2.
 \]</span></p>
-<p>The function has a global minimum at <span class="math inline">\((x,y)=(a,a^2)\)</span>, where <span class="math inline">\(f(x,y)=0\)</span>. In the example below, we set <span class="math inline">\(a=1\)</span> and <span class="math inline">\(b=8\)</span>, so that the global minimum is at <span class="math inline">\((1,1)\)</span>. <a href="#fig-fig5-rosen" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig5-rosen</span></a> shows the contour plot of the Rosenbrock function, while <a href="#fig-fig5-rosen3d" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig5-rosen3d</span></a> presents a 3D surface plot of the function.</p>
+<p>The function has a global minimum at <span class="math inline">\((x,y)=(a,a^2)\)</span>, where <span class="math inline">\(f(x,y)=0\)</span>. In the example below, we set <span class="math inline">\(a=1\)</span> and <span class="math inline">\(b=8\)</span>, so that the global minimum is at <span class="math inline">\((1,1)\)</span>. <a href="#fig-fig5-rosen" class="quarto-xref">Figure&nbsp;<span>8.2</span></a> shows the contour plot of the Rosenbrock function, while <a href="#fig-fig5-rosen3d" class="quarto-xref">Figure&nbsp;<span>8.3</span></a> presents a 3D surface plot of the function.</p>
 <div id="cell-fig-fig5-rosen" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the Rosenbrock function</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rosen(x, y):</span>
@@ -725,11 +725,11 @@ Number of iterations: 10</code></pre>
 <ul>
 <li><code>f</code>: The function for which we want to find a root.</li>
 <li><code>args</code>: A tuple containing the extra arguments passed to the function.</li>
-<li><code>method</code>: Type of the solver. See <a href="#tbl-SolverArguments" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-SolverArguments</span></a> for the list of available methods and their required arguments.</li>
+<li><code>method</code>: Type of the solver. See <a href="#tbl-SolverArguments" class="quarto-xref">Table&nbsp;<span>8.1</span></a> for the list of available methods and their required arguments.</li>
 <li><code>bracket</code>: A tuple specifying the interval that contains a root of the function. This argument is required for the methods <code>'bisect'</code>, <code>'brentq'</code>, <code>'brenth'</code>, <code>'ridder'</code>, and <code>'toms748'</code>.</li>
 <li><code>x0</code>, <code>x1</code>: Initial guesses for the root. These arguments are required for the method <code>'newton'</code>.</li>
 </ul>
-<p>In <a href="#tbl-SolverArguments" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-SolverArguments</span></a>, we summarize arguments required for each methods in the <code>root_scalar</code> function.</p>
+<p>In <a href="#tbl-SolverArguments" class="quarto-xref">Table&nbsp;<span>8.1</span></a>, we summarize arguments required for each methods in the <code>root_scalar</code> function.</p>
 <div style="font-size: 80%">
 <div id="tbl-SolverArguments" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -837,7 +837,7 @@ Table&nbsp;8.1: Solvers and their arguments
 </figure>
 </div>
 </div>
-<p>Consider the following function: <span class="math inline">\(f(x)=1.5xe^{-x}-0.2\)</span>. Its plot over the interval <span class="math inline">\((0, 8)\)</span> is shown in <a href="#fig-fig5-root" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig5-root</span></a>.</p>
+<p>Consider the following function: <span class="math inline">\(f(x)=1.5xe^{-x}-0.2\)</span>. Its plot over the interval <span class="math inline">\((0, 8)\)</span> is shown in <a href="#fig-fig5-root" class="quarto-xref">Figure&nbsp;<span>8.4</span></a>.</p>
 <div id="cell-fig-fig5-root" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the function f(x) = 1.5x * exp(-x) - 0.2</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">8</span>, <span class="dv">100</span>)</span>
@@ -864,7 +864,7 @@ Figure&nbsp;8.4: Plot of <span class="math inline">\(f(x)=1.5xe^{-x}-0.2\)</span
 </div>
 </div>
 </div>
-<p>From the plot, we can see that the function has two roots in the interval <span class="math inline">\((0, 8)\)</span>. In the code below, we use the <code>brentq</code> method to find the roots in the intervals <span class="math inline">\((0, 2)\)</span> and <span class="math inline">\((4, 8)\)</span>. According to <a href="#tbl-SolverArguments" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-SolverArguments</span></a>, we need to supply the <code>bracket</code> argument for the <code>brentq</code> method.</p>
+<p>From the plot, we can see that the function has two roots in the interval <span class="math inline">\((0, 8)\)</span>. In the code below, we use the <code>brentq</code> method to find the roots in the intervals <span class="math inline">\((0, 2)\)</span> and <span class="math inline">\((4, 8)\)</span>. According to <a href="#tbl-SolverArguments" class="quarto-xref">Table&nbsp;<span>8.1</span></a>, we need to supply the <code>bracket</code> argument for the <code>brentq</code> method.</p>
 <div id="9c65df72" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
@@ -910,7 +910,7 @@ Second root (Newton): 3.168</code></pre>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>integrate.quad(func, a, b, args<span class="op">=</span>(), full_output<span class="op">=</span><span class="dv">0</span>, epsabs<span class="op">=</span><span class="fl">1.49e-08</span>, epsrel<span class="op">=</span><span class="fl">1.49e-08</span>, limit<span class="op">=</span><span class="dv">50</span>, points<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Here, <code>func</code> is the integrand function, <code>a</code> and <code>b</code> are the limits of integration, and <code>args</code> is a tuple containing extra arguments passed to the integrand function.</p>
-<p>Consider the following function: <span class="math inline">\(f(x)=1.5xe^{-x^{2}}+0.1\)</span>. We want to compute the definite integral of <span class="math inline">\(f(x)\)</span> over the interval <span class="math inline">\([0, 5]\)</span>. The plot of the function is shown in <a href="#fig-fig5-int" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig5-int</span></a>.</p>
+<p>Consider the following function: <span class="math inline">\(f(x)=1.5xe^{-x^{2}}+0.1\)</span>. We want to compute the definite integral of <span class="math inline">\(f(x)\)</span> over the interval <span class="math inline">\([0, 5]\)</span>. The plot of the function is shown in <a href="#fig-fig5-int" class="quarto-xref">Figure&nbsp;<span>8.5</span></a>.</p>
 <div id="cell-fig-fig5-int" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the function f(x) = 1.5*x * exp(-x**2) + 0.1</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">100</span>)</span>
@@ -1052,7 +1052,7 @@ Estimated error: 0.0</code></pre>
 <p>Consider the following first-order ODE: <span class="math display">\[
 \frac{dy(t)}{dt}=-yt^2+1.5y,\quad y(0)=2,\quad 0\leq t\leq 3.
 \]</span></p>
-<p>The directional field of the ODE shows the slope of the solution curve at each point in the <span class="math inline">\(t\)</span>-<span class="math inline">\(y\)</span> plane. That is, it shows the slope <span class="math inline">\(\frac{dy(t)}{dt}=-yt^2+1.5y\)</span> at each point <span class="math inline">\((t,y)\)</span>. The direction field can be generated using the <code>quiver</code> function from Matplotlib. In the code below, we create a mesh grid of points in the <span class="math inline">\(t\)</span>-<span class="math inline">\(y\)</span> plane and compute the direction vectors at each point. We then use the <code>quiver</code> function to plot the direction field, as shown in <a href="#fig-ode1-field" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-ode1-field</span></a>. The solution curve (integral curve) of the ODE will follow the direction of the arrows. At each point, the slope of the solution curve is given by the direction of the arrow.</p>
+<p>The directional field of the ODE shows the slope of the solution curve at each point in the <span class="math inline">\(t\)</span>-<span class="math inline">\(y\)</span> plane. That is, it shows the slope <span class="math inline">\(\frac{dy(t)}{dt}=-yt^2+1.5y\)</span> at each point <span class="math inline">\((t,y)\)</span>. The direction field can be generated using the <code>quiver</code> function from Matplotlib. In the code below, we create a mesh grid of points in the <span class="math inline">\(t\)</span>-<span class="math inline">\(y\)</span> plane and compute the direction vectors at each point. We then use the <code>quiver</code> function to plot the direction field, as shown in <a href="#fig-ode1-field" class="quarto-xref">Figure&nbsp;<span>8.6</span></a>. The solution curve (integral curve) of the ODE will follow the direction of the arrows. At each point, the slope of the solution curve is given by the direction of the arrow.</p>
 <div id="cell-fig-ode1-field" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generating a direction (slope) field for dy/dt = -y*t**2 + 1.5*y</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Grid for t and y</span></span>
@@ -1143,7 +1143,7 @@ y(t)=e^{-\int a(t)dt}\left(\int b(t)e^{\int a(t)dt}dt+C\right),
 </div>
 </div>
 <p>The output indicates that the solver successfully found a solution to the ODE. The <code>t</code> attribute of the solution object contains the time points at which the solution was computed, while the <code>y</code> attribute contains the corresponding values of the dependent variable.</p>
-<p>In the code below, we compare the numerical solution obtained using <code>solve_ivp</code> with the exact solution by plotting both solutions on the same graph. <a href="#fig-numeric-ode1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-numeric-ode1</span></a> indicates that the numerical solution closely matches the exact solution.</p>
+<p>In the code below, we compare the numerical solution obtained using <code>solve_ivp</code> with the exact solution by plotting both solutions on the same graph. <a href="#fig-numeric-ode1" class="quarto-xref">Figure&nbsp;<span>8.7</span></a> indicates that the numerical solution closely matches the exact solution.</p>
 <div id="cell-fig-numeric-ode1" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exact solution for comparison</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> exact_solution(t):</span>
@@ -1232,7 +1232,7 @@ Figure&nbsp;8.8: The direction field of the ODE and the numerical solution
       nlu: 0</code></pre>
 </div>
 </div>
-<p>Using <a href="#eq-exact-solution-linear-ode" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-exact-solution-linear-ode</span></a>, we can show that the exact solution of the ODE is given by <span class="math inline">\(y(t)=\frac{t^3}{5}+\frac{4}{t^2}\)</span>. In <a href="#fig-numeric-ode2" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-numeric-ode2</span></a>, we compare the numerical solution with the exact solution by plotting both solutions on the same graph.</p>
+<p>Using <a href="#eq-exact-solution-linear-ode" class="quarto-xref">Equation&nbsp;<span>8.1</span></a>, we can show that the exact solution of the ODE is given by <span class="math inline">\(y(t)=\frac{t^3}{5}+\frac{4}{t^2}\)</span>. In <a href="#fig-numeric-ode2" class="quarto-xref">Figure&nbsp;<span>8.9</span></a>, we compare the numerical solution with the exact solution by plotting both solutions on the same graph.</p>
 <div id="cell-fig-numeric-ode2" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exact solution for comparison</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> exact_solution(t):</span>
@@ -1309,13 +1309,13 @@ Figure&nbsp;8.10: The directional field of the ODE and the numerical solution
 <h2 data-number="8.5" class="anchored" data-anchor-id="further-reading"><span class="header-section-number">8.5</span> Further reading</h2>
 <p>For more information on numerical methods in Python, you can refer to the following resources:</p>
 <ul>
-<li>Chapters 3, 4 and 5 in <span class="citation" data-cites="Sydsaeter2008">Sydsæter et al. (<a href="#ref-Sydsaeter2008" role="doc-biblioref">2008</a>)</span>,</li>
+<li>Chapters 3, 4 and 5 in <span class="citation" data-cites="Sydsaeter2008">Sydsæter et al. (<a href="references.html#ref-Sydsaeter2008" role="doc-biblioref">2008</a>)</span>,</li>
 <li>Documentation on <a href="https://docs.scipy.org/doc/scipy/reference/integrate.html#solving-initial-value-problems-for-ode-systems"><code>scipy.integrate</code></a>, and</li>
-<li><a href="https://link.springer.com/book/10.1007/979-8-8688-0413-7">Chapters 6, 8 and 9</a> in <span class="citation" data-cites="Robert2024">Johansson (<a href="#ref-Robert2024" role="doc-biblioref">2024</a>)</span>.</li>
+<li><a href="https://link.springer.com/book/10.1007/979-8-8688-0413-7">Chapters 6, 8 and 9</a> in <span class="citation" data-cites="Robert2024">Johansson (<a href="references.html#ref-Robert2024" role="doc-biblioref">2024</a>)</span>.</li>
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-Robert2024" class="csl-entry" role="listitem">
 Johansson, Robert. 2024. <em>Numerical Python: Scientific Computing and Data Science Applications with Numpy, SciPy and Matplotlib</em>. 3rd ed. Apress.
 </div>

@@ -561,7 +561,7 @@ window.Quarto = {
 <section id="installing-python" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="installing-python"><span class="header-section-number">1.2</span> Installing Python</h2>
 <p>The official Python home page is: <a href="https://www.python.org/" class="uri">https://www.python.org/</a>. We recommend to install the Python scientific stack through <strong>Anaconda</strong>. Anaconda, a free product of <a href="https://www.anaconda.com/">Anaconda Inc.</a> (formerly Continuum Analytics Inc.), is a virtually complete scientific stack for Python. The open-source Anaconda Distribution is the easiest way to perform Python on Linux, Windows, and MacOS. To install Anaconda, visit Anaconda Distribution web page at <a href="https://www.anaconda.com/download" class="uri">https://www.anaconda.com/download</a>.</p>
-<p>Anaconda comes with the core <strong>Python interpreter</strong> (Python shell) and most of the <strong>modules</strong> required for econometric analysis. It also provides <strong>Anaconda Navigator</strong>, which is a desktop graphical user interface (GUI) that allows you to launch applications, and manage conda packages and environments. Anaconda Navigator is shown in <a href="#fig-nav" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-nav</span></a>.</p>
+<p>Anaconda comes with the core <strong>Python interpreter</strong> (Python shell) and most of the <strong>modules</strong> required for econometric analysis. It also provides <strong>Anaconda Navigator</strong>, which is a desktop graphical user interface (GUI) that allows you to launch applications, and manage conda packages and environments. Anaconda Navigator is shown in <a href="#fig-nav" class="quarto-xref">Figure&nbsp;<span>1.1</span></a>.</p>
 <div id="fig-nav" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-nav-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -577,7 +577,7 @@ Figure&nbsp;1.1: Anaconda Navigator (Source: <a href="https://docs.anaconda.com/
 <section id="integrated-development-environments-and-notebooks" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="integrated-development-environments-and-notebooks"><span class="header-section-number">1.3</span> Integrated Development Environments and Notebooks</h2>
 <p>In practice, Python is typically used through integrated development environments (IDEs) and notebooks rather than the Python Shell. With Anaconda Navigator, you can launch <a href="https://www.spyder-ide.org/">Spyder</a>, <a href="https://jupyter.org/">Jupyter Notebook</a>, and <a href="https://jupyter.org/">JupyterLab</a>.</p>
-<p>Spyder is an IDE specifically designed for Python, featuring an in-built Python console along with advanced editing, analysis, and debugging tools. <a href="#fig-spyder" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-spyder</span></a> shows Spyder’s interface.</p>
+<p>Spyder is an IDE specifically designed for Python, featuring an in-built Python console along with advanced editing, analysis, and debugging tools. <a href="#fig-spyder" class="quarto-xref">Figure&nbsp;<span>1.2</span></a> shows Spyder’s interface.</p>
 <div id="fig-spyder" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-spyder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -588,7 +588,7 @@ Figure&nbsp;1.2: Spyder (Source: <a href="https://docs.spyder-ide.org/current/in
 </figcaption>
 </figure>
 </div>
-<p>Jupyter Notebook is a browser-based interactive tool that allows for live code, equations, visualizations, and narrative text. JupyterLab is the next-generation user interface that includes notebooks and offers IDE-like features. <a href="#fig-jupyter" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-jupyter</span></a> shows the JupyterLab interface.</p>
+<p>Jupyter Notebook is a browser-based interactive tool that allows for live code, equations, visualizations, and narrative text. JupyterLab is the next-generation user interface that includes notebooks and offers IDE-like features. <a href="#fig-jupyter" class="quarto-xref">Figure&nbsp;<span>1.3</span></a> shows the JupyterLab interface.</p>
 <div id="fig-jupyter" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-jupyter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -621,7 +621,7 @@ Figure&nbsp;1.3: JupyterLab (Source: <a href="https://docs.jupyter.org/en/latest
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>sqrt(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In the above code chunk, the hash mark <code>#</code> is used to add comments to the code chunk. The text following the mark is ignored by the Python shell. In the third way, <code>from numpy import*</code> makes all functions in <code>numpy</code> available. In the fourth way, <code>from numpy import sqrt</code> only makes the <code>sqrt</code> function available. We recommend using the second way, <code>import numpy as np</code>, and accessing the square root function with <code>np.sqrt</code>.</p>
-<p>In Python, <strong>attributes</strong> of objects are accessed using dot notation. The term following the dot is called an attribute of the object. An attribute can contain auxiliary information related to the object or it can act like functions, called methods (<span class="citation" data-cites="Sheppard2021">Sheppard (<a href="#ref-Sheppard2021" role="doc-biblioref">2021</a>)</span>). In the example <code>np.sqrt(3)</code>, <code>sqrt</code> is a method (or function) of the <code>np</code> object.</p>
+<p>In Python, <strong>attributes</strong> of objects are accessed using dot notation. The term following the dot is called an attribute of the object. An attribute can contain auxiliary information related to the object or it can act like functions, called methods (<span class="citation" data-cites="Sheppard2021">Sheppard (<a href="references.html#ref-Sheppard2021" role="doc-biblioref">2021</a>)</span>). In the example <code>np.sqrt(3)</code>, <code>sqrt</code> is a method (or function) of the <code>np</code> object.</p>
 <p>We list some important modules that are required for econometric analysis below:</p>
 <ul>
 <li><p><code>numpy</code>: This core package for numerical computation provides array and matrix data types, as well as functions for linear algebra and random number generation. For more information, see <a href="https://numpy.org/" class="uri">https://numpy.org/</a>.</p></li>
@@ -929,7 +929,7 @@ Figure&nbsp;1.3: JupyterLab (Source: <a href="https://docs.jupyter.org/en/latest
 <pre><code>[[1, 2, 3, 4], [5, 6, 7, 8]]</code></pre>
 </div>
 </div>
-<p>In <a href="#tbl-t1.1" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t1.1</span></a>, we provide some useful functions that can be used to manipulate lists.</p>
+<p>In <a href="#tbl-t1.1" class="quarto-xref">Table&nbsp;<span>1.1</span></a>, we provide some useful functions that can be used to manipulate lists.</p>
 <div>
 
 </div>
@@ -1226,7 +1226,7 @@ Table&nbsp;1.1: Some useful list functions and methods
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-Sheppard2021" class="csl-entry" role="listitem">
 Sheppard, Kevin. 2021. <em>Introduction to Python for Econometrics, Statistics and Data Analysis</em>. Fifth edition. <a href="https://www.kevinsheppard.com/teaching/python/notes/">https://www.kevinsheppard.com/teaching/python/notes/</a>.
 </div>

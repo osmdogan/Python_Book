@@ -624,7 +624,7 @@ window.Quarto = {
  'tableau-colorblind10']</code></pre>
 </div>
 </div>
-<p>Alternatively, we can set the <code>darkgrid</code> style using the <code>plt.style.use</code> function. In the following example (<a href="#fig-fig6.1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig6.1</span></a>), we first create a figure using <code>plt.figure(figsize=(5, 4))</code>, which sets the size of the figure area to 5x4 inches. In Matplotlib, plots are contained within a <code>Figure</code>. We then set the plotting style with <code>plt.style.use('seaborn-v0_8-darkgrid')</code> and display the plot using <code>plt.show()</code>.</p>
+<p>Alternatively, we can set the <code>darkgrid</code> style using the <code>plt.style.use</code> function. In the following example (<a href="#fig-fig6.1" class="quarto-xref">Figure&nbsp;<span>6.1</span></a>), we first create a figure using <code>plt.figure(figsize=(5, 4))</code>, which sets the size of the figure area to 5x4 inches. In Matplotlib, plots are contained within a <code>Figure</code>. We then set the plotting style with <code>plt.style.use('seaborn-v0_8-darkgrid')</code> and display the plot using <code>plt.show()</code>.</p>
 <div id="cell-fig-fig6.1" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">4</span>)) <span class="co"># set figure size to 5x5 inches</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-v0_8-darkgrid'</span>)</span>
@@ -648,7 +648,7 @@ Figure&nbsp;6.1: The <code>seaborn-v0_8-darkgrid</code> style
 <h2 data-number="6.3" class="anchored" data-anchor-id="matlab-style-approach"><span class="header-section-number">6.3</span> MATLAB Style Approach</h2>
 <section id="line-plots" class="level3" data-number="6.3.1">
 <h3 data-number="6.3.1" class="anchored" data-anchor-id="line-plots"><span class="header-section-number">6.3.1</span> Line plots</h3>
-<p>In the MATLAB-style approach, we use the <code>plt.plot</code> function to create line plots. The <code>plt.plot</code> function can be used to create a wide variety of line plots, including simple line plots, line plots with markers, and line plots with different styles. The <code>plt.plot</code> function can also be used to add multiple lines to a single figure. The following code chunk generates the line plots shown in <a href="#fig-fig6.2" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig6.2</span></a>.</p>
+<p>In the MATLAB-style approach, we use the <code>plt.plot</code> function to create line plots. The <code>plt.plot</code> function can be used to create a wide variety of line plots, including simple line plots, line plots with markers, and line plots with different styles. The <code>plt.plot</code> function can also be used to add multiple lines to a single figure. The following code chunk generates the line plots shown in <a href="#fig-fig6.2" class="quarto-xref">Figure&nbsp;<span>6.2</span></a>.</p>
 <div id="460c3c11" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">12345</span>)</span>
@@ -746,9 +746,9 @@ Figure&nbsp;6.2: Line Plots
 </div>
 <p>Some options used to customize the appearance of axes and lines are described in the following list:</p>
 <ul>
-<li>In <a href="#fig-fig6.2-2" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig6.2-2</span></a>, <code>r-o</code> indicates the color red (r), a solid line (-), and a circle (o) marker.</li>
-<li>In <a href="#fig-fig6.2-3" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig6.2-3</span></a>, <code>b-d</code> indicates the color blue (b), a solid line (-), and a diamond (d) marker.</li>
-<li>In <a href="#fig-fig6.2-4" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig6.2-4</span></a>, the line style and color are specified using <code>linestyle = "-"</code> and <code>color='steelblue'</code>.</li>
+<li>In <a href="#fig-fig6.2-2" class="quarto-xref">Figure&nbsp;<span>6.2 (b)</span></a>, <code>r-o</code> indicates the color red (r), a solid line (-), and a circle (o) marker.</li>
+<li>In <a href="#fig-fig6.2-3" class="quarto-xref">Figure&nbsp;<span>6.2 (c)</span></a>, <code>b-d</code> indicates the color blue (b), a solid line (-), and a diamond (d) marker.</li>
+<li>In <a href="#fig-fig6.2-4" class="quarto-xref">Figure&nbsp;<span>6.2 (d)</span></a>, the line style and color are specified using <code>linestyle = "-"</code> and <code>color='steelblue'</code>.</li>
 <li>Titles are added with <code>plt.title()</code>, and legends are added using <code>plt.legend()</code>. The legend requires that the line includes a label.</li>
 <li>Labels for the x- and y-axes are added using <code>plt.xlabel()</code> and <code>plt.ylabel()</code>.</li>
 </ul>
@@ -807,7 +807,7 @@ Figure&nbsp;6.3: Specifying arguments explicitly
 <li><code>markerfacecolor</code>: Face color of the marker</li>
 <li><code>markersize</code>: A positive integer indicating the size of the marker</li>
 </ul>
-<p>Some commonly used options for <code>color</code>, <code>linestyle</code> and <code>marker</code> are shown in <a href="#tbl-t6.1" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-t6.1</span></a>. For more information, see <a href="https://matplotlib.org/stable/users/explain/colors/index.html#tutorials-colors">Colors</a>, <a href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html">Linestyles</a> and <a href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/marker_reference.html">Marker reference</a> from the documentation.</p>
+<p>Some commonly used options for <code>color</code>, <code>linestyle</code> and <code>marker</code> are shown in <a href="#tbl-t6.1" class="quarto-xref">Table&nbsp;<span>6.1</span></a>. For more information, see <a href="https://matplotlib.org/stable/users/explain/colors/index.html#tutorials-colors">Colors</a>, <a href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html">Linestyles</a> and <a href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/marker_reference.html">Marker reference</a> from the documentation.</p>
 <div id="tbl-t6.1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-t6.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -883,7 +883,7 @@ Table&nbsp;6.1: Commonly used colors, line styles and marker
 </div>
 </figure>
 </div>
-<p>The following code chunk, which generates <a href="#fig-fig6.4" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig6.4</span></a>, shows alternative ways to specify <code>color</code>.</p>
+<p>The following code chunk, which generates <a href="#fig-fig6.4" class="quarto-xref">Figure&nbsp;<span>6.4</span></a>, shows alternative ways to specify <code>color</code>.</p>
 <div id="cell-fig-fig6.4" class="cell" data-fig-height="2" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternative way to specify color</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">500</span>)</span>
@@ -910,8 +910,8 @@ Figure&nbsp;6.4: Specifying the <code>color</code> options
 </div>
 </div>
 </div>
-<p>Note that in <a href="#fig-fig6.4" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig6.4</span></a>, we have a single figure with multiple line plots. Thus, to add multiple lines to a single figure, we need to call the <code>plt.plot</code> function multiple times.</p>
-<p>The following code chunk, which generates <a href="#fig-fig6.5" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig6.5</span></a>, provide alternative ways for specifying the <code>linestyle</code> options.</p>
+<p>Note that in <a href="#fig-fig6.4" class="quarto-xref">Figure&nbsp;<span>6.4</span></a>, we have a single figure with multiple line plots. Thus, to add multiple lines to a single figure, we need to call the <code>plt.plot</code> function multiple times.</p>
+<p>The following code chunk, which generates <a href="#fig-fig6.5" class="quarto-xref">Figure&nbsp;<span>6.5</span></a>, provide alternative ways for specifying the <code>linestyle</code> options.</p>
 <div id="cell-fig-fig6.5" class="cell" data-fig-height="1" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternative way to specify linestyle</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">500</span>)</span>
@@ -937,7 +937,7 @@ Figure&nbsp;6.5: Specifying the <code>linestyle</code> options
 </div>
 </div>
 </div>
-<p>The <code>plt.setp</code> function can be used to set options for plot elements, as shown in the following example (<a href="#fig-fig6.6" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig6.6</span></a>):</p>
+<p>The <code>plt.setp</code> function can be used to set options for plot elements, as shown in the following example (<a href="#fig-fig6.6" class="quarto-xref">Figure&nbsp;<span>6.6</span></a>):</p>
 <div id="cell-fig-fig6.6" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.randn(<span class="dv">10</span>)</span>
@@ -1075,7 +1075,7 @@ Figure&nbsp;6.8: Using the <code>plt.axis()</code> function
 </section>
 <section id="scatter-plots" class="level3" data-number="6.3.2">
 <h3 data-number="6.3.2" class="anchored" data-anchor-id="scatter-plots"><span class="header-section-number">6.3.2</span> Scatter plots</h3>
-<p>Scatter plots can be generated using the <code>plt.scatter</code> function or the <code>plt.plot</code> function with the option <code>linestyle=""</code>. Consider the following example, which generates <a href="#fig-fig6.9" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig6.9</span></a>.</p>
+<p>Scatter plots can be generated using the <code>plt.scatter</code> function or the <code>plt.plot</code> function with the option <code>linestyle=""</code>. Consider the following example, which generates <a href="#fig-fig6.9" class="quarto-xref">Figure&nbsp;<span>6.9</span></a>.</p>
 <div id="cell-fig-fig6.9" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scatter plots using plt.scatter()</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
@@ -1127,7 +1127,7 @@ Figure&nbsp;6.10: Scatter plot using <code>plt.plot()</code>
 </section>
 <section id="bar-plots" class="level3" data-number="6.3.3">
 <h3 data-number="6.3.3" class="anchored" data-anchor-id="bar-plots"><span class="header-section-number">6.3.3</span> Bar plots</h3>
-<p>The <code>plt.bar</code> function is used to create bar plots. The following code chunk generates the bar plots shown in <a href="#fig-fig6.11" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig6.11</span></a> and <a href="#fig-fig6.12" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig6.12</span></a>.</p>
+<p>The <code>plt.bar</code> function is used to create bar plots. The following code chunk generates the bar plots shown in <a href="#fig-fig6.11" class="quarto-xref">Figure&nbsp;<span>6.11</span></a> and <a href="#fig-fig6.12" class="quarto-xref">Figure&nbsp;<span>6.12</span></a>.</p>
 <div id="cell-fig-fig6.11" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">123</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.rand(<span class="dv">5</span>)</span>
@@ -1262,7 +1262,7 @@ Figure&nbsp;6.15: Stem plot using <code>plt.stem()</code>
 </section>
 <section id="pie-plots" class="level3" data-number="6.3.5">
 <h3 data-number="6.3.5" class="anchored" data-anchor-id="pie-plots"><span class="header-section-number">6.3.5</span> Pie plots</h3>
-<p>The <code>plt.pie</code> function is used to create pie plots. The following code chunk generates the pie plot shown in <a href="#fig-fig6.13" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig6.13</span></a>.</p>
+<p>The <code>plt.pie</code> function is used to create pie plots. The following code chunk generates the pie plot shown in <a href="#fig-fig6.13" class="quarto-xref">Figure&nbsp;<span>6.16</span></a>.</p>
 <div id="cell-fig-fig6.13" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pie plot using plt.pie()</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">45</span>)</span>
@@ -1468,7 +1468,7 @@ Figure&nbsp;6.21: Using the <code>plt.subplot()</code> function
 </div>
 </div>
 </div>
-<p>The padding between subplots can be adjusted using the <code>plt.subplots_adjust</code> function. In <a href="#fig-fig6.15" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig6.15</span></a>, we use <code>plt.subplots_adjust(hspace=0.5, wspace=0.5)</code> to add horizontal and vertical spacing between subplots.</p>
+<p>The padding between subplots can be adjusted using the <code>plt.subplots_adjust</code> function. In <a href="#fig-fig6.15" class="quarto-xref">Figure&nbsp;<span>6.21</span></a>, we use <code>plt.subplots_adjust(hspace=0.5, wspace=0.5)</code> to add horizontal and vertical spacing between subplots.</p>
 </section>
 <section id="saving-figures" class="level3" data-number="6.3.9">
 <h3 data-number="6.3.9" class="anchored" data-anchor-id="saving-figures"><span class="header-section-number">6.3.9</span> Saving figures</h3>
@@ -1579,7 +1579,7 @@ Figure&nbsp;6.23: Using the <code>ax.plot()</code> function
 </div>
 </div>
 </div>
-<p>Note that in <a href="#fig-fig6.18" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig6.18</span></a>, the <code>ax.plot</code> function serves the same purpose as the <code>plt.plot</code> function. While most <code>plt</code> functions translate directly to <code>ax</code> methods (such as <code>plt.plot()</code> <span class="math inline">\(\rightarrow\)</span> <code>ax.plot()</code>, and <code>plt.legend()</code> <span class="math inline">\(\rightarrow\)</span> <code>ax.legend()</code>), this is not the case for all commands. Below, we give some commonly used translations.</p>
+<p>Note that in <a href="#fig-fig6.18" class="quarto-xref">Figure&nbsp;<span>6.23</span></a>, the <code>ax.plot</code> function serves the same purpose as the <code>plt.plot</code> function. While most <code>plt</code> functions translate directly to <code>ax</code> methods (such as <code>plt.plot()</code> <span class="math inline">\(\rightarrow\)</span> <code>ax.plot()</code>, and <code>plt.legend()</code> <span class="math inline">\(\rightarrow\)</span> <code>ax.legend()</code>), this is not the case for all commands. Below, we give some commonly used translations.</p>
 <ul>
 <li><code>plt.plot()</code> <span class="math inline">\(\rightarrow\)</span> <code>ax.plot()</code></li>
 <li><code>plt.legend()</code> <span class="math inline">\(\rightarrow\)</span> <code>ax.legend()</code></li>
@@ -2350,7 +2350,7 @@ Figure&nbsp;6.44: The surface plot using <code>ax.plot_surface()</code>
 </div>
 </div>
 </div>
-<p><a href="#fig-fig6.45" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fig6.45</span></a> shows the contour plot of the same function using the <code>ax.contour</code> function. We use the <code>ax.clabel</code> function to label the contours.</p>
+<p><a href="#fig-fig6.45" class="quarto-xref">Figure&nbsp;<span>6.45</span></a> shows the contour plot of the same function using the <code>ax.contour</code> function. We use the <code>ax.clabel</code> function to label the contours.</p>
 <div id="cell-fig-fig6.45" class="cell" data-execution_count="55">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Contour plot using ax.contour()</span></span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
@@ -2388,10 +2388,10 @@ Figure&nbsp;6.45: The contour plot using <code>ax.contour()</code>
 </section>
 <section id="other-tools-for-graphics" class="level2" data-number="6.6">
 <h2 data-number="6.6" class="anchored" data-anchor-id="other-tools-for-graphics"><span class="header-section-number">6.6</span> Other Tools for Graphics</h2>
-<p>In this chapter, we covered only the most commonly used plotting methods. In addition to Matplotlib, the Seaborn and Pandas modules offer additional plotting methods. For further reading, we refer the reader to <span class="citation" data-cites="Sheppard2021">Sheppard (<a href="#ref-Sheppard2021" role="doc-biblioref">2021</a>)</span>, <span class="citation" data-cites="Wes2022">McKinney (<a href="#ref-Wes2022" role="doc-biblioref">2022</a>)</span>, and <span class="citation" data-cites="Jake2023">VanderPlas (<a href="#ref-Jake2023" role="doc-biblioref">2023</a>)</span>.</p>
+<p>In this chapter, we covered only the most commonly used plotting methods. In addition to Matplotlib, the Seaborn and Pandas modules offer additional plotting methods. For further reading, we refer the reader to <span class="citation" data-cites="Sheppard2021">Sheppard (<a href="references.html#ref-Sheppard2021" role="doc-biblioref">2021</a>)</span>, <span class="citation" data-cites="Wes2022">McKinney (<a href="references.html#ref-Wes2022" role="doc-biblioref">2022</a>)</span>, and <span class="citation" data-cites="Jake2023">VanderPlas (<a href="references.html#ref-Jake2023" role="doc-biblioref">2023</a>)</span>.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-Wes2022" class="csl-entry" role="listitem">
 McKinney, Wes. 2022. <em>Python for Data Analysis: Data Wrangling with Pandas, NumPy, and Jupyter</em>. Third edition. OReilly Media. <a href="https://wesmckinney.com/book/">https://wesmckinney.com/book/</a>.
 </div>
