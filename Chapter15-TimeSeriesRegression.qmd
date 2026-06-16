@@ -4,7 +4,6 @@
 import datetime
 import numpy as np
 import pandas as pd
-import pandas_datareader as pdr
 import statsmodels.tsa.stattools as stt
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
@@ -21,7 +20,7 @@ simplefilter(action="ignore")
 ```
 
 ## Introduction
-In this chapter, we cover the basic concepts of univariate time series methods. We first show how the time series data can be handled in Python using the `pandas` and `pandas_datareader` libraries. We then cover basic terminology and concepts, such as lags, leads, differences, growth rates, and annualized growth rates. We define autocorrelation, strict and weak stationarity. 
+In this chapter, we cover the basic concepts of univariate time series methods. We first show how the time series data can be handled in Python using the `pandas` library. We then cover basic terminology and concepts, such as lags, leads, differences, growth rates, and annualized growth rates. We define autocorrelation, strict and weak stationarity. 
 
 We introduce two univariate time series models: the autoregressive (AR) model, and the autoregressive distributed lag (ARDL) model. For these models, we show how the number of lags can be selected by using information criteria. We specify assumptions under which we can use the OLS estimator for the estimation of these models. 
 
@@ -49,7 +48,7 @@ From here on, we will consider only consecutive, evenly-spaced observations (for
 In economics, time series data are mainly used for (i) forecasting, (ii) estimating dynamic causal effects, and (iii) modeling risk. In forecasting exercises, we place greater emphasis on the model's goodness-of-fit; however, avoiding overfitting is crucial for generating reliable out-of-sample forecasts. In these exercises, omitted variable bias is less of a concern, as interpreting coefficients is not the primary focus. Instead, external validity is essential because we want models estimated using historical data to remain applicable in the near future. In the case of estimating dynamic causal effects, emphasis is placed on the causal interpretation of a model’s coefficients and on the validity of the assumptions required for such interpretation. Specifically, we require that the variable of interest is exogenous in the sense that the expectation of the error term conditional on the present and past values of the variable of interest is zero, i.e., the variable of interest is past and present exogenous. In modeling risk, we focus on models that describe how the conditional variance of an outcome variable evolves over time. 
 
 ## Time series data types in Python
-We use `pandas` and `pandas_datareader` libraries to work with time series data. We use `DataFrame` objects in `pandas` with a time index to store time series data. The `data_range` function in `pandas` can be used to generate the time index. Its syntax is as follows:
+We use the `pandas` module to work with time series data. We use `DataFrame` objects in `pandas` with a time index to store time series data. The `data_range` function in `pandas` can be used to generate a sequence of dates at a specified frequency. Its syntax is as follows:
 
 ```{python}
 #| eval: false
@@ -59,7 +58,7 @@ where
 
 - `start` and `end` are the first and last dates in the time index. They can be specified in several formats, `start = '1990-05'`, `start = '1990-05-13'`, `end = '02/05/2020'`, `'2/5/2020'`, etc.
 - `periods` is the number of observations that are equispaced from the initial to the last, and
-- `freq` is the frequency of the observations. It can be `'Y'` (annual), `'QS'` (quarterly, quarter start frequency), `'QE'` (quarterly, quarter end frequency), `'M'` (monthly), `'D'` (daily), etc.
+- `freq` is the frequency of the observations. It can be `'YS'` (annual, year start frequency), `'YE'` (annual, year end frequency), `'QS'` (quarterly, quarter start frequency), `'QE'` (quarterly, quarter end frequency), `'MS'` (monthly, month start frequency), `'ME'` (monthly, month end frequency), and `'D'` (daily, calendar day frequency). See the [documentation](https://pandas.pydata.org/docs/user_guide/timeseries.html#timeseries-offset-aliases) for for a list of frequency aliases.
 
 As an example, we consider the U.S. quarterly real GDP growth rate over 1960:Q1 to 2017:Q4 from the `GrowthRate.csv` file. This file contains data on the following variables:
 
@@ -174,21 +173,6 @@ plt.xlabel("Date")
 plt.show()
 ```
 
-To download time series data from well-known resources, we can use the `pandas_datareader` library. For further details, see [`pandas_datareader.data.DataReader`](https://pandas-datareader.readthedocs.io/en/latest/readers/index.html). For example, in the following code chunk, we download the U.S. real GDP data from the Federal Reserve Economic Data (FRED) database using the `DataReader` function in `pandas_datareader`.
-
-```{python}
-#| fig-cap: "The U.S. real GDP data from FRED"
-#| label: fig-f22-3
-# Download the U.S. real GDP data from FRED
-start_date = '1950'
-end_date = '2024'
-GDP = pdr.data.DataReader('GDPC1', 'fred', start_date, end_date)
-
-fig, ax = plt.subplots(figsize=(7, 3))
-ax.plot(GDP.index, GDP['GDPC1'], linestyle='-')
-ax.set(xlabel='Date', ylabel='Real GDP')
-plt.show()
-```
 
 ## Terminology
 We need to define some new tools and notations for the analysis of time series data. These include:
@@ -1093,7 +1077,7 @@ for t in range(T - t1 + 1):
     ar_model = smf.ols(formula='YGROWTH ~ YGROWTH.shift(1) + YGROWTH.shift(2)', data=data_slice).fit(vcov_type='HC1')
         
     # Get model parameters
-    params1 = ar_model.params
+    params1 = list(ar_model.params)
     # Get one step ahead forecast for AR(2)
     forecast_ar = (params1[0] + params1[1] * mydata.loc[end_date1, "YGROWTH"] +
                 params1[2] * mydata.loc[end_date2, "YGROWTH"] )
@@ -1106,7 +1090,7 @@ for t in range(T - t1 + 1):
     adl_model = smf.ols(formula='YGROWTH ~ YGROWTH.shift(1) + YGROWTH.shift(2) + RSPREAD.shift(1) + RSPREAD.shift(2)', data=data_slice).fit(cov_type='HC1')
         
     # Get model parameters
-    params2 = adl_model.params
+    params2 = list(adl_model.params)
     # Get one step ahead forecast for ADL(2,2)
     forecast_adl = (params2[0] + params2[1] * mydata.loc[end_date1, "YGROWTH"] +
                 params2[2] * mydata.loc[end_date2, "YGROWTH"]+ 
@@ -1220,7 +1204,7 @@ for t in range(T - t1 + 1):
     model = smf.ols(formula="Delta_Inf ~ L1_Delta_Inf + L2_Delta_Inf + L3_Delta_Inf + L4_Delta_Inf + L1_u_rate + L2_u_rate + L3_u_rate + L4_u_rate", data=data_slice).fit()
         
     # Get model parameters
-    params = model.params
+    params = list(model.params)
 
     # Predict the value
     predicted = (params[0] + params[1] * df_subset.loc[end_date1, "Delta_Inf"] +
@@ -1496,7 +1480,7 @@ For the AR(p) model to be stationary, the roots of this polynomial must all be g
 In the AR(1) model, if $Y$ has a unit root, then its first difference becomes stationary because $\Delta Y_t = Y_t - Y_{t-1} = (1 - \beta_1 L)Y_t = \beta_0+u_t$. Hence, the first difference of a unit-root process is stationary. This is the reason why we often take first differences of nonstationary series to make them stationary.
 
 ### Problems caused by stochastic trends
-Recall that the OLS estimator requires that the random variables $(Y_t, X_{1t}, \dots, X_{mt})$ are stationary. If the series have a stochastic trend, the OLS estimator can be misleading. Morveover, the t-statistic does not have the standard normal distribution even in large samples. If $Y$ and $X$ are independent unit-root processes, they can look related in regressions, a phenomenon known as **spurious regressions**.
+Recall that the OLS estimator requires that the random variables $(Y_t, X_{1t}, \ldots, X_{mt})$ are stationary. If the series have a stochastic trend, the OLS estimator can be misleading. Morveover, the t-statistic does not have the standard normal distribution even in large samples. If $Y$ and $X$ are independent unit-root processes, they can look related in regressions, a phenomenon known as **spurious regressions**.
 
 ::: {.callout-note icon=false}
 #### What problems are caused by trends?
@@ -2026,7 +2010,7 @@ for t in range(T - t1 + 1):
     model = smf.ols(formula='YGROWTH ~ Ylag1 + Ylag2 + RSpread_lag1 + RSpread_lag2', data=data_slice).fit(vcov_type='HC1')
         
     # Get model parameters
-    params = model.params
+    params = list(model.params)
 
     # Predict the value
     predicted = (params[0] + params[1] * mydata.loc[end_date1, "YGROWTH"] +
